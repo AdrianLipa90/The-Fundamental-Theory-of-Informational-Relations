@@ -1,0 +1,17 @@
+version: 1
+modules:
+  - module: initial_conditions
+    criterion: State mapping must be deterministic from declared inputs.
+    failure_mode: Same inputs produce non-identical Bloch state or ambiguous normalization.
+    observable: reproducibility
+    tolerance: exact
+  - module: euler_closure
+    criterion: Active closure update must not increase closure violation when rollback is enabled.
+    failure_mode: accepted step worsens unified closure metric.
+    observable: closure_violation_after - closure_violation_before
+    tolerance: <= 0
+  - module: tau_solver
+    criterion: tau_i must emerge from coupling/closure and not require direct fitted injection.
+    failure_mode: tau_i remain independent empirical inputs in the final solver path.
+    observable: dependency graph / code path audit
+    tolerance: no direct fitted dependency in derived mode

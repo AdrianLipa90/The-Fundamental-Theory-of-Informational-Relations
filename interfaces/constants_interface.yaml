@@ -1,0 +1,12 @@
+id: IF-CONST-001
+name: Constants interface
+inputs:
+  - arithmetic_invariants
+  - geometry_invariants
+  - closure_invariants
+outputs:
+  - dimensionless_constants
+  - dimensional_scale_operator
+invariants:
+  - provenance_recorded
+  - epistemic_status_declared

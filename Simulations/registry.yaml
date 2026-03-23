@@ -1,0 +1,12 @@
+version: 1
+fields:
+  - id
+  - name
+  - code_path
+  - result_paths
+  - theory_links
+  - constants_used
+  - artifacts
+  - falsification_target
+  - environment
+records: []

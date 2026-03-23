@@ -1,0 +1,17 @@
+id: IF-STATE-001
+name: State interface
+inputs:
+  - potential
+  - chaos
+  - seed
+  - winding
+  - memory_trace
+outputs:
+  - psi0
+  - bloch0
+  - theta
+  - phi
+  - radius
+invariants:
+  - normalized_state
+  - deterministic_mapping

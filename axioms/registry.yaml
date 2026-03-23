@@ -1,0 +1,21 @@
+axioms:
+  - id: AX-001
+    name: Projective State Primacy
+    status: axiom
+    summary: Physical states are phase-equivalence classes in projective space.
+  - id: AX-002
+    name: Closure Constraint
+    status: axiom
+    summary: Only phase configurations satisfying admissible closure are physically stable.
+  - id: AX-003
+    name: Relational Spectrum
+    status: axiom
+    summary: Spectral identity emerges from couplings and holonomy, not from isolated labels.
+  - id: AX-004
+    name: Discrete Arithmetic Seed
+    status: axiom
+    summary: Arithmetic seeds provide admissible initial structure for spectral generation.
+  - id: AX-005
+    name: Constants from Closure
+    status: axiom
+    summary: Fundamental constants are invariants of arithmetic-geometric closure.

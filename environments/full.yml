@@ -1,0 +1,11 @@
+name: ciel-foundations-full
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - sympy
+  - matplotlib
+  - pyyaml
+  - pytest
+  - networkx
+  - pandas

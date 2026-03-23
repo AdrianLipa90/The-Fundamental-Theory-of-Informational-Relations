@@ -1,0 +1,13 @@
+modules:
+  - id: MOD-initial-conditions
+    output: Bloch initial state from potential/chaos/seed/winding/memory
+  - id: MOD-bloch-dynamics
+    output: Minimal state evolution on Bloch sphere
+  - id: MOD-euler-closure
+    output: Closure diagnostics and active regulation
+  - id: MOD-holonomy
+    output: Connection, transport, and holonomy amplitudes
+  - id: MOD-tau-solver
+    output: tau_i as spectral result of coupling and closure
+  - id: MOD-genesis-constants
+    output: dimensionless constants and scale generator

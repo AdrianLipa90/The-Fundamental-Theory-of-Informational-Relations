@@ -1,0 +1,9 @@
+required:
+  - id
+  - label
+  - external_formalism
+  - internal_role
+  - mathematical_hook
+  - interpretation
+  - limits
+  - status
