@@ -1,0 +1,95 @@
+map_version: 1
+operation: MetaDeriving
+agent: AGENT5
+source_repository: AdrianLipa90/Metatime
+target_repository: AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations
+source_branch: Agent5
+target_branch: Agent5
+rule: registry_first
+
+objects:
+  - source_id: MTT-SRC-0001
+    source_label: M_time
+    source_path: README.md
+    target_id: DEF-MTT-0001
+    target_path: definitions/metatime/metatime_manifold.md
+    migration_kind: imported
+    current_status: imported
+    next_action: transcribe_to_canonical_text
+    derivation_requirement: explicit_foundations_compatibility_derivation
+    notes: compact Kahler manifold parameterizing the configuration space of the tensor-scalar time field
+
+  - source_id: MTT-SRC-0002
+    source_label: T(x) = {tau(x), T^{mu nu}(x)}
+    source_path: README.md
+    target_id: DEF-MTT-0002
+    target_path: definitions/metatime/metatime_field.md
+    migration_kind: imported
+    current_status: imported
+    next_action: transcribe_to_canonical_text
+    derivation_requirement: derive_role_from_foundations_axioms_before_runtime_use
+    notes: metatime field object
+
+  - source_id: MTT-SRC-0003
+    source_label: fermion_cycles_C_i
+    source_path: README.md
+    target_id: DEF-MTT-0003
+    target_path: definitions/metatime/fermion_cycles.md
+    migration_kind: imported
+    current_status: imported
+    next_action: transcribe_to_canonical_text
+    derivation_requirement: derive_from_boundary_locality_and_ordered_phase_motion
+    notes: closed topological cycles on M_time
+
+  - source_id: MTT-SRC-0004
+    source_label: lambda_i_topological_eigenvalues
+    source_path: README.md
+    target_id: DER-MTT-0001
+    target_path: derivations/metatime/topological_eigenvalues.md
+    migration_kind: derived_required
+    current_status: derived_required
+    next_action: derive_without_arbitrariness
+    derivation_requirement: no direct canonization from README claims
+    notes: must be reconstructed from source algorithm and explicit assumptions
+
+  - source_id: MTT-SRC-0005
+    source_label: white_thread_holonomy_W_ij
+    source_path: README.md
+    target_id: OP-MTT-0001
+    target_path: definitions/operators/white_thread_holonomy.md
+    migration_kind: derived_required
+    current_status: derived_required
+    next_action: map_to_operator_then_derive
+    derivation_requirement: downstream of cycle geometry; not upstream primitive
+    notes: pairwise transport object; defer until M_time and C_i are stabilized
+
+  - source_id: MTT-SRC-0006
+    source_label: intention_operator_I0
+    source_path: README.md
+    target_id: CONST-MTT-0001
+    target_path: constants/I0/INDEX.md
+    migration_kind: derived_required
+    current_status: derived_required
+    next_action: classify_constant_role_then_build_derivation_path
+    derivation_requirement: may not be promoted as canonical constant without explicit derivation or honest imported status
+    notes: keep separate from foundations primitive layer until closure path is explicit
+
+  - source_id: MTT-SRC-0007
+    source_label: calibration_scale_S
+    source_path: README.md
+    target_id: CONST-MTT-0002
+    target_path: constants/S/INDEX.md
+    migration_kind: placeholder
+    current_status: placeholder
+    next_action: postpone_until_eigenvalue_and_neutrino_base_layer_exist
+    derivation_requirement: depends on prior sector bootstrap
+    notes: sector calibration object, not first migration target
+
+priority_order:
+  - DEF-MTT-0001
+  - DEF-MTT-0002
+  - DEF-MTT-0003
+  - DER-MTT-0001
+  - OP-MTT-0001
+  - CONST-MTT-0001
+  - CONST-MTT-0002
