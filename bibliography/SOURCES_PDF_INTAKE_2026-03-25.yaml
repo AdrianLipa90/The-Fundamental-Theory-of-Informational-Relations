@@ -1,0 +1,67 @@
+version: 1
+role: pdf_intake_sources_supplement
+sources:
+  - id: SRC-PDF-0001
+    title: Metatime framework summary
+    author: Adrian Lipa
+    date: 2026-01
+    file_name: Metatime framework summary.pdf
+    intake_path_hint: repo/TODO/external_references/Metatime-main/Metatime framework summary.pdf
+    classification: reference_foundational_summary
+    canonical_relevance: high
+    notes: Broad summary of Metatime program, Kähler manifold, projective state, white threads, intention operator, spectrum claims.
+  - id: SRC-PDF-0002
+    title: Comprehensive Metatime Framework Mathematical Formulation, Topological Phase, and Three-Flavor Neutrino Oscillations
+    author: Adrian Lipa
+    date: 2025-12-30
+    file_name: Neutrinotime14.pdf
+    intake_path_hint: repo/TODO/external_references/Metatime-main/documents/Neutrinotime14.pdf
+    classification: reference_foundational_mathematical_formulation
+    canonical_relevance: very_high
+    notes: Strongest source for metatime parameter lambda, tensor-scalar time field, Berry phase, operator-time structure.
+  - id: SRC-PDF-0003
+    title: From Effective Field Theory to Fundamental Theory The Euler-Berry Condition in the Metatime Framework
+    author: Adrian Lipa
+    date: 2026-01-14
+    file_name: Metatime_with_Euler_extension (8).pdf
+    intake_path_hint: repo/TODO/external_references/Metatime-main/documents/Metatime_with_Euler_extension (8).pdf
+    classification: reference_global_constraint_extension
+    canonical_relevance: high_but_downstream_of_minimal_closure
+    notes: Key source for Euler-Berry global condition and fine-tuning reduction; should enter after minimal closure and admissibility layers are formalized.
+  - id: SRC-PDF-0004
+    title: Lambda-Metatime A Topologically Constrained Effective Field Theory of Time
+    author: Adrian Lipa
+    date: 2026-01-14
+    file_name: Lambda_meta.pdf
+    intake_path_hint: repo/TODO/external_references/Metatime-main/documents/Lambda_meta.pdf
+    classification: reference_cosmology_eft
+    canonical_relevance: medium_downstream
+    notes: Important for Lambda0 and cosmology sector, not primary for current CP1 foundations bootstrap.
+  - id: SRC-PDF-0005
+    title: Metatime Topological Effective Field Theory of Fermion Masses Dynamic Cosmology and Falsifiable Predictions
+    author: Adrian Lipa
+    date: 2026-01-19
+    file_name: Kappa_from_geometry.pdf
+    intake_path_hint: repo/TODO/external_references/Metatime-main/documents/Kappa_from_geometry.pdf
+    classification: reference_geometry_to_constants_program
+    canonical_relevance: medium_high_for_genesis
+    notes: Supports later kappa/genesis/constants program more than the current minimal closure bootstrap.
+  - id: SRC-PDF-0006
+    title: Coherence-Driven Neutrino Mass Splittings Pairwise Topological Corrections via Intention-Metatime Duality
+    author: Adrian Lipa
+    date: 2026-01-19
+    file_name: Coherence_law_application.pdf
+    intake_path_hint: repo/TODO/external_references/Metatime-main/documents/Coherence_law_application.pdf
+    classification: reference_sector_model_neutrino
+    canonical_relevance: medium_reference_only_at_current_stage
+    notes: Introduces pairwise coherence factors F_ij; valuable for downstream neutrino sector but should not patch foundations layer.
+  - id: SRC-PDF-0007
+    title: Emergent Fermion Spectrum from Collatz-like Topological Cycles
+    author: Adrian Lipa
+    date: 2026-01
+    file_name: Collatz_emergence1.pdf
+    intake_path_hint: repo/TODO/external_references/Metatime-main/documents/Collatz_emergence1.pdf
+    classification: reference_sector_model_spectrum
+    canonical_relevance: medium_reference_only_at_current_stage
+    notes: Useful as historical/modeling source for tau and intention-calibrated sector hypotheses, but not yet first-principles canon.
+registry_note: This supplement records PDF intake artifacts as secondary references relative to markdown/yaml/python source-of-truth.
