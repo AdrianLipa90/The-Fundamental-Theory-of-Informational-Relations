@@ -1,0 +1,25 @@
+cross_reference_map:
+  metatime:
+    sector_index: ../whitepapers/metatime/index.md
+    global_index: ../index.md
+    whitepaper_summary: ../whitepapers/metatime/metatime_framework_summary.md
+    derivations_index: ../derivations/metatime/index.md
+    manual_solver: ../derivations/metatime/manual_spectrum_solver.md
+    status_registry: ./metatime_status.yaml
+    export_interface: ../interfaces/metatime_exports.yaml
+  objects:
+    M_time:
+      whitepaper: ../whitepapers/metatime/metatime_framework_summary.md
+      registry: ./metatime_status.yaml
+    intention_operator_I0:
+      derivation_context: ../derivations/metatime/manual_spectrum_solver.md
+      registry: ./metatime_status.yaml
+      interface: ../interfaces/metatime_exports.yaml
+    white_thread_holonomy:
+      whitepaper: ../whitepapers/metatime/metatime_framework_summary.md
+      derivation_context: ../derivations/metatime/manual_spectrum_solver.md
+      registry: ./metatime_status.yaml
+    dune_cp_resonance:
+      whitepaper: ../whitepapers/metatime/metatime_framework_summary.md
+      registry: ./metatime_status.yaml
+      interface: ../interfaces/metatime_exports.yaml
