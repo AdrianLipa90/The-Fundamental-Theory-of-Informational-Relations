@@ -1,0 +1,58 @@
+objects:
+  - id: DEF-0001
+    label: relation
+    symbol: R
+    status: defined
+    path: definitions/objects/DEF-0001-relation.md
+    upstream_axioms: [AX-003]
+    downstream_targets: [attractor, closure, holonomy, white_thread, sector_inheritance]
+  - id: DEF-0002
+    label: information
+    symbol: I
+    status: defined
+    path: definitions/objects/DEF-0002-information.md
+    upstream_axioms: [AX-001, AX-003]
+    downstream_targets: [state, holonomy, constants_program]
+  - id: DEF-0003
+    label: potential
+    symbol: Π
+    status: defined
+    path: definitions/objects/DEF-0003-potential.md
+    upstream_axioms: [AX-002, AX-003]
+    downstream_targets: [initial_conditions, attractor, closure, sectors]
+  - id: DEF-0004
+    label: state
+    symbol: ψ
+    status: defined
+    path: definitions/objects/DEF-0004-state.md
+    upstream_axioms: [AX-001, AX-002]
+    downstream_targets: [initial_conditions, dynamics, closure, holonomy]
+  - id: DEF-0005
+    label: boundary
+    symbol: ∂
+    status: defined
+    path: definitions/objects/DEF-0005-boundary.md
+    upstream_axioms: [AX-001, AX-002]
+    downstream_targets: [locality, identity, sector_partitioning, publication_boundary_analogies]
+  - id: DEF-0006
+    label: locality
+    symbol: L
+    status: defined
+    path: definitions/objects/DEF-0006-locality.md
+    upstream_axioms: [AX-001, AX-002]
+    downstream_targets: [identity, attractor, sectors, transport_distinction]
+  - id: DEF-0007
+    label: identity
+    symbol: Id
+    status: defined
+    path: definitions/objects/DEF-0007-identity.md
+    upstream_axioms: [AX-001, AX-003]
+    downstream_targets: [attractor, memory, sectors, agent_continuity]
+  - id: DEF-0008
+    label: attractor
+    symbol: A
+    status: defined
+    path: definitions/objects/DEF-0008-attractor.md
+    upstream_axioms: [AX-002, AX-003]
+    downstream_targets: [vortex_organization, closure, memory, identity_centering]
+supplement_status: active_until_definitions_registry_yaml_is_merged

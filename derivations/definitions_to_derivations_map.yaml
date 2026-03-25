@@ -1,0 +1,69 @@
+version: 1
+mappings:
+  - definition: DEF-0001
+    label: relation
+    feeds:
+      - MOD-holonomy
+      - MOD-euler-closure
+      - MOD-genesis-constants
+  - definition: DEF-0002
+    label: information
+    feeds:
+      - MOD-initial-conditions
+      - MOD-holonomy
+      - MOD-genesis-constants
+  - definition: DEF-0003
+    label: potential
+    feeds:
+      - MOD-initial-conditions
+      - MOD-euler-closure
+  - definition: DEF-0004
+    label: state
+    feeds:
+      - MOD-initial-conditions
+      - MOD-bloch-dynamics
+      - MOD-euler-closure
+      - MOD-holonomy
+  - definition: DEF-0005
+    label: boundary
+    feeds:
+      - MOD-initial-conditions
+      - sector partitioning
+  - definition: DEF-0006
+    label: locality
+    feeds:
+      - MOD-holonomy
+      - sector partitioning
+  - definition: DEF-0007
+    label: identity
+    feeds:
+      - attractor-centered organization
+      - memory continuity
+  - definition: DEF-0008
+    label: attractor
+    feeds:
+      - MOD-euler-closure
+      - vortex organization
+  - definition: DEF-0009
+    label: closure
+    feeds:
+      - MOD-euler-closure
+      - MOD-tau-solver
+      - MOD-genesis-constants
+  - definition: DEF-0010
+    label: holonomy
+    feeds:
+      - MOD-holonomy
+      - MOD-tau-solver
+  - definition: DEF-0011
+    label: white_thread
+    feeds:
+      - MOD-holonomy
+      - MOD-tau-solver
+      - sector coupling
+  - definition: DEF-0012
+    label: spectrum
+    feeds:
+      - MOD-tau-solver
+      - MOD-genesis-constants
+      - sectors
