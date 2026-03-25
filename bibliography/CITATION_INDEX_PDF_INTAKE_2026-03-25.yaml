@@ -1,0 +1,49 @@
+version: 1
+role: pdf_citation_index_supplement
+links:
+  - source_id: SRC-PDF-0001
+    supports:
+      - DEF-0004
+      - DEF-0009
+      - DEF-0010
+      - DEF-0011
+      - DEF-0012
+      - D-0001
+      - D-0002
+    status: reference_support
+  - source_id: SRC-PDF-0002
+    supports:
+      - D-0001
+      - D-0002
+      - D-0003
+      - D-0004
+    status: reference_support_high
+  - source_id: SRC-PDF-0003
+    supports:
+      - future:D-0006-euler-berry-global-constraint
+      - future:constants/Lambda0
+      - future:sectors/cosmology
+    status: future_downstream_support
+  - source_id: SRC-PDF-0004
+    supports:
+      - future:constants/Lambda0
+      - future:sectors/cosmology
+    status: future_downstream_support
+  - source_id: SRC-PDF-0005
+    supports:
+      - future:constants/kappa
+      - future:src/ciel_foundations/genesis
+      - future:D-0007-genesis-of-constants
+    status: future_downstream_support
+  - source_id: SRC-PDF-0006
+    supports:
+      - future:sectors/neutrino
+    status: sector_reference_only_for_now
+  - source_id: SRC-PDF-0007
+    supports:
+      - future:constants/tau
+      - future:sectors/lepton
+      - future:sectors/quark
+      - future:sectors/neutrino
+    status: model_history_reference_only_for_now
+note: PDF sources are secondary artifacts and do not override markdown/yaml/python source-of-truth.
