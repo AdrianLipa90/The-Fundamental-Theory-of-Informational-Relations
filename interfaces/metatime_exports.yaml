@@ -1,0 +1,57 @@
+sector: metatime
+exports:
+  constants:
+    - name: intention_operator_I0
+      value: 0.009
+      status: fitted
+      allowed_downstream_use: calibrated_small_coupling
+      registry_ref: ../registries/metatime_status.yaml#intention_operator_I0
+    - name: heavy_quark_kappa
+      value: 93.83
+      status: fitted
+      allowed_downstream_use: calibrated_mass_map
+      registry_ref: ../registries/metatime_status.yaml#heavy_quark_closure
+    - name: heavy_quark_alpha
+      value: 1.635
+      status: fitted
+      allowed_downstream_use: calibrated_mass_map
+      registry_ref: ../registries/metatime_status.yaml#heavy_quark_closure
+    - name: light_quark_kappa
+      value: 6.0
+      status: fitted
+      allowed_downstream_use: calibrated_mass_map
+      registry_ref: ../registries/metatime_status.yaml#light_quark_closure
+    - name: light_quark_alpha
+      value: 1.50
+      status: fitted
+      allowed_downstream_use: calibrated_mass_map
+      registry_ref: ../registries/metatime_status.yaml#light_quark_closure
+  operators:
+    - name: berry_phase_assignment
+      status: partial
+      allowed_downstream_use: toy_geometry_scaffolding
+      registry_ref: ../registries/metatime_status.yaml#berry_phase_assignment
+    - name: dynamic_lambda0
+      status: partial
+      allowed_downstream_use: exploratory_cosmology_operator
+      registry_ref: ../registries/metatime_status.yaml#dynamic_lambda0
+  constraints:
+    - name: no_export_of_open_pairwise_Fij
+      status: active
+      note: Pairwise factors remain non-exportable until derived from explicit geometry.
+    - name: no_export_of_full_CKM_PMNS_closure
+      status: active
+      note: Flavor closure remains open.
+  predictions:
+    - name: dune_cp_resonance_window
+      value: 0.63 +/- 0.05 GeV
+      status: falsifiable
+      allowed_downstream_use: experiment_target
+      registry_ref: ../registries/metatime_status.yaml#dune_cp_resonance
+cross_refs:
+  global_index: ../index.md
+  whitepaper_summary: ../whitepapers/metatime/metatime_framework_summary.md
+  derivations_index: ../derivations/metatime/index.md
+  manual_solver: ../derivations/metatime/manual_spectrum_solver.md
+  status_registry: ../registries/metatime_status.yaml
+  cross_reference_map: ../registries/cross_reference_map.yaml
