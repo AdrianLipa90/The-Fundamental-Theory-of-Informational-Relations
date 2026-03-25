@@ -1,0 +1,93 @@
+sector: metatime
+version: 2026-03-25-import-1
+objects:
+  M_time:
+    class: geometry
+    status: open
+    exportable: false
+    note: Toy Kähler S^2 structure is present; full metric and Ricci closure remain open.
+    refs:
+      - ../whitepapers/metatime/metatime_framework_summary.md
+      - ../derivations/metatime/manual_spectrum_solver.md
+  eigenvalue_generator:
+    class: spectrum_seed
+    status: partial
+    exportable: false
+    note: Discrete twin-prime / Collatz assignment is structurally defined, but first-principles closure is not complete.
+    refs:
+      - ../whitepapers/metatime/metatime_framework_summary.md
+      - ../derivations/metatime/manual_spectrum_solver.md
+  berry_phase_assignment:
+    class: coupling_geometry
+    status: partial
+    exportable: true
+    note: Toy-sector Berry assignment is defined and can be referenced as formal scaffolding.
+    refs:
+      - ../whitepapers/metatime/metatime_framework_summary.md
+      - ../derivations/metatime/manual_spectrum_solver.md
+  white_thread_holonomy:
+    class: pair_coupling
+    status: open
+    exportable: false
+    note: W_ij is formally defined but not yet evaluated from explicit geometry.
+    refs:
+      - ../whitepapers/metatime/metatime_framework_summary.md
+      - ../derivations/metatime/manual_spectrum_solver.md
+  intention_operator_I0:
+    class: constant
+    status: fitted
+    exportable: true
+    note: Imported as a universal small coupling used across multiple sectors.
+    refs:
+      - ../whitepapers/metatime/metatime_framework_summary.md
+      - ../derivations/metatime/manual_spectrum_solver.md
+  charged_lepton_closure:
+    class: mass_sector
+    status: fitted
+    exportable: true
+    note: Vandermonde closure reproduces anchors exactly but is fitted by construction.
+    refs:
+      - ../derivations/metatime/manual_spectrum_solver.md
+  light_quark_closure:
+    class: mass_sector
+    status: fitted
+    exportable: true
+    note: Base scaling plus intention corrections; not yet closed with QCD running.
+    refs:
+      - ../derivations/metatime/manual_spectrum_solver.md
+  heavy_quark_closure:
+    class: mass_sector
+    status: fitted_predictive
+    exportable: true
+    note: Compact two-parameter closure across three targets.
+    refs:
+      - ../derivations/metatime/manual_spectrum_solver.md
+  neutrino_pairwise_Fij:
+    class: pair_coupling
+    status: fitted_open
+    exportable: false
+    note: Phenomenological pairwise factors are imported but not first-principles derived.
+    refs:
+      - ../derivations/metatime/manual_spectrum_solver.md
+      - ../whitepapers/metatime/metatime_framework_summary.md
+  dune_cp_resonance:
+    class: prediction
+    status: falsifiable
+    exportable: true
+    note: Near-term prediction around 0.63 GeV retained as an experimental target.
+    refs:
+      - ../whitepapers/metatime/metatime_framework_summary.md
+  dynamic_lambda0:
+    class: cosmology_operator
+    status: partial
+    exportable: true
+    note: Functional concept imported; precision-embedding remains open.
+    refs:
+      - ../whitepapers/metatime/metatime_framework_summary.md
+  ckm_pmns_closure:
+    class: flavor_structure
+    status: open
+    exportable: false
+    note: Full closure remains a future task.
+    refs:
+      - ../whitepapers/metatime/metatime_framework_summary.md
