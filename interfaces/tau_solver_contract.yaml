@@ -1,0 +1,18 @@
+interface:
+  id: IF-TAU-0001
+  name: tau_solver_contract
+  upstream:
+    - AX-FND-0004
+    - DEF-MTT-0003
+    - IF-HOL-0001
+  required_inputs:
+    - coupling_objects
+    - closure_diagnostics
+    - arithmetic_seed_policy
+    - spectral_context
+  required_outputs:
+    - tau_values
+    - solver_status
+    - residual_assumptions
+    - falsification_target_link
+  rule: tau values may not be emitted as derived without explicit dependency provenance

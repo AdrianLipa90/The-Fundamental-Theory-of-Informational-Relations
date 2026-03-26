@@ -1,0 +1,18 @@
+interface:
+  id: IF-HOL-0001
+  name: holonomy_pair_contract
+  upstream:
+    - AX-FND-0003
+    - DEF-FND-0004
+    - DEF-FND-0005
+  required_inputs:
+    - source_cycle_or_state
+    - target_cycle_or_state
+    - transport_path
+    - closure_context
+  required_outputs:
+    - connection_object
+    - transport_object
+    - holonomy_amplitude
+    - provenance_status
+  rule: pairwise holonomy objects must remain downstream of closure and may not invent local constants
