@@ -1,0 +1,15 @@
+sector_imports:
+  sector: cosmology
+  imported_constants:
+    - CONST-LAMBDA0
+    - CONST-I0
+    - CONST-KAPPA
+  imported_operators:
+    - IF-HOL-0001
+    - IF-TAU-0001
+  imported_constraints:
+    - AX-FND-0002
+    - IF-SEC-0001
+  sector_assumptions: []
+  falsification_target: pending_cosmology_falsification_matrix
+  whitepaper_target: pending_wp_sector_cosmology
