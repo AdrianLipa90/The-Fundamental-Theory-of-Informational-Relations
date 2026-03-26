@@ -1,0 +1,47 @@
+version: 1
+role: imported_artifact_registry_supplement
+policy: downstream_outputs_for_review_not_canonical_proof
+records:
+  - id: ART-MTT-0001
+    name: oneparamSM_results_json
+    type: json_result
+    source_repository: AdrianLipa90/Metatime
+    path: data/2026/02/oneparamSM.json
+    generated_by: simulations/Standard Model/oneparamSM.py
+    linked_review_targets:
+      - constants/I0
+      - sectors/lepton
+      - sectors/quark
+    status: imported_review_input
+  - id: ART-MTT-0002
+    name: noparamSM_results_json
+    type: json_result
+    source_repository: AdrianLipa90/Metatime
+    path: NoParamSM/noparamSMresult.json
+    generated_by: NoParamSM/noparamSMsolver.py
+    linked_review_targets:
+      - sectors/lepton
+      - sectors/quark
+      - sectors/hadron
+    status: imported_review_input
+  - id: ART-MTT-0003
+    name: toy_Fij_directional_csv
+    type: csv_matrix
+    source_repository: AdrianLipa90/Metatime
+    path: data/2026/01/Standard Model/Fij_toy_S2_directional.csv
+    generated_by: simulations/Standard Model/README.md
+    linked_review_targets:
+      - interfaces/holonomy_pair_contract.yaml
+      - sectors/lepton
+      - sectors/quark
+      - sectors/neutrino
+    status: imported_review_input
+  - id: ART-MTT-0004
+    name: hadron_F_results_csv
+    type: csv_result
+    source_repository: AdrianLipa90/Metatime
+    path: data/2026/01/beta-berry-hadron sim results/hadron_F_results.csv
+    generated_by: simulations/Toy-Model White-Thread Matrix F_ij — Next Steps/README.md
+    linked_review_targets:
+      - sectors/hadron
+    status: imported_review_input
