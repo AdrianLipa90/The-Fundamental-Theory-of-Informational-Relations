@@ -1,0 +1,54 @@
+registry_id: REG-DEF-0001
+status: defined
+scope: minimal projective/Kähler/Berry/spin objects
+entries:
+  - object_id: OBJ-STATE-RAY-0001
+    name: projective_ray_state
+    file: definitions/DEF-0001-projective-ray-and-cp1.md
+    status: defined
+    depends_on:
+      - AX-0001
+
+  - object_id: OBJ-CP1-0001
+    name: minimal_cp1_state_space
+    file: definitions/DEF-0001-projective-ray-and-cp1.md
+    status: defined
+    depends_on:
+      - AX-0001
+      - AX-0002
+
+  - object_id: OBJ-FS-METRIC-0001
+    name: fubini_study_metric
+    file: definitions/DEF-0001-projective-ray-and-cp1.md
+    status: defined
+    depends_on:
+      - AX-0002
+
+  - object_id: OBJ-BERRY-CONNECTION-0001
+    name: berry_connection
+    file: definitions/DEF-0002-berry-connection-and-phase.md
+    status: defined
+    depends_on:
+      - AX-0002
+
+  - object_id: OBJ-BERRY-PHASE-0001
+    name: berry_phase
+    file: definitions/DEF-0002-berry-connection-and-phase.md
+    status: defined
+    depends_on:
+      - OBJ-BERRY-CONNECTION-0001
+      - AX-0003
+
+  - object_id: OBJ-SPIN-BUNDLE-0001
+    name: minimal_spin_bundle
+    file: definitions/DEF-0002-berry-connection-and-phase.md
+    status: defined
+    depends_on:
+      - AX-0003
+
+  - object_id: OBJ-CLOSURE-FUNCTIONAL-0001
+    name: closure_functional_delta_H
+    file: definitions/DEF-0003-closure-functional.md
+    status: defined
+    depends_on:
+      - AX-0003
