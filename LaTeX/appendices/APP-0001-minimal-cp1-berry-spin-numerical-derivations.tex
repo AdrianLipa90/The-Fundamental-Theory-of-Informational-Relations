@@ -1,0 +1,49 @@
+\appendix
+\section{Numerical Appendix: Minimal CP$^1$ / Berry / Spin Module}
+\label{app:minimal-cp1-berry-spin}
+
+\subsection{Normalized state}
+For a raw state $(a,b) \in \mathbb{C}^2 \setminus \{0\}$, the normalized representative is
+\begin{equation}
+|\psi\rangle = \frac{1}{\sqrt{|a|^2 + |b|^2}} \begin{pmatrix} a \\ b \end{pmatrix}.
+\end{equation}
+
+\subsection{Bloch parametrization}
+A normalized state may be written as
+\begin{equation}
+|\psi(\theta,\phi)\rangle = \cos\frac{\theta}{2}|0\rangle + e^{i\phi}\sin\frac{\theta}{2}|1\rangle.
+\end{equation}
+
+\subsection{Equatorial Berry phase}
+For the toy gauge
+\begin{equation}
+A_\phi = q(1-\cos\theta),
+\end{equation}
+with default toy charge $q=1/2$, the equatorial cycle has $\theta=\pi/2$ and therefore
+\begin{equation}
+A_\phi = \frac12,
+\qquad
+\gamma_B = \int_0^{2\pi} A_\phi \, d\phi = \pi.
+\end{equation}
+Hence
+\begin{equation}
+e^{i\gamma_B} = -1.
+\end{equation}
+
+\subsection{Closure-functional demo}
+For the simple phase pair $(0,\pi)$,
+\begin{equation}
+\Delta_H = e^{i\cdot 0} + e^{i\pi} = 1 - 1 = 0,
+\qquad
+R_H = |\Delta_H|^2 = 0.
+\end{equation}
+This is the minimal exact closure test used by the repository test suite.
+
+\subsection{Executable realization}
+The corresponding executable modules are:
+\begin{itemize}
+  \item \texttt{src/ciel\_foundations/geometry/projective\_state.py}
+  \item \texttt{src/ciel\_foundations/holonomy/berry.py}
+  \item \texttt{src/ciel\_foundations/closure/euler.py}
+  \item \texttt{src/ciel\_foundations/solvers/minimal\_cp1\_berry\_spin\_solver.py}
+\end{itemize}
