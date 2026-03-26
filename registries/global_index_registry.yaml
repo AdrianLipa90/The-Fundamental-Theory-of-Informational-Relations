@@ -1,0 +1,127 @@
+repository: AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations
+branch: Agent7
+agent: AGENT7
+role: index_authority_closure
+status: draft
+
+index_authority:
+  root_governance_index:
+    path: INDEX.md
+    role: human_readable_root_governance
+    canonical: true
+  root_navigation_spine:
+    path: index.md
+    role: human_readable_global_navigation
+    canonical: true
+  machine_registry:
+    path: registries/global_index_registry.yaml
+    role: machine_readable_root_authority
+    canonical: true
+  topology_registry:
+    path: registries/cross_reference_map.yaml
+    role: sector_and_object_cross_reference_map
+    canonical: true
+
+status_vocabularies:
+  canonical_status:
+    - canonical
+    - draft
+    - placeholder
+    - deprecated
+  epistemic_status:
+    - asserted
+    - derived
+    - verified
+    - imported
+    - translated
+    - heuristic
+
+relation_types:
+  - upstream
+  - downstream
+  - couples_to
+  - exports_to
+  - mirrors
+  - surface_for
+  - governs
+  - indexes
+  - registers
+
+policy:
+  single_source_of_truth_rule: true
+  no_downstream_without_upstream_anchor: true
+  no_parallel_root_authority_without_registry_record: true
+  registry_required_before_stable_export: true
+
+tracked_root_objects:
+  - id: IDX-GLO-0001
+    name: root_governance_index
+    path: INDEX.md
+    class: native
+    layer: meta_index
+    canonical_status: canonical
+    epistemic_status: asserted
+    relations:
+      governs:
+        - IDX-GLO-0002
+        - REG-GLO-0001
+  - id: IDX-GLO-0002
+    name: root_navigation_spine
+    path: index.md
+    class: native
+    layer: meta_index
+    canonical_status: canonical
+    epistemic_status: asserted
+    relations:
+      surface_for:
+        - SEC-METATIME-0001
+      indexed_by:
+        - REG-GLO-0001
+  - id: REG-GLO-0001
+    name: global_index_registry
+    path: registries/global_index_registry.yaml
+    class: native
+    layer: registry
+    canonical_status: canonical
+    epistemic_status: asserted
+    relations:
+      registers:
+        - IDX-GLO-0001
+        - IDX-GLO-0002
+        - REG-GLO-0002
+  - id: REG-GLO-0002
+    name: cross_reference_topology_registry
+    path: registries/cross_reference_map.yaml
+    class: native
+    layer: registry
+    canonical_status: canonical
+    epistemic_status: asserted
+    relations:
+      indexed_by:
+        - REG-GLO-0001
+  - id: REG-GLO-0003
+    name: agent4_registry_seed
+    path: docs/agent4/index_registry_seed.yaml
+    class: imported
+    layer: registry_seed
+    canonical_status: draft
+    epistemic_status: asserted
+    relations:
+      mirrors:
+        - REG-GLO-0001
+  - id: SEC-METATIME-0001
+    name: metatime_imported_sector
+    path: whitepapers/metatime/index.md
+    class: imported
+    layer: sector_index
+    canonical_status: draft
+    epistemic_status: imported
+    relations:
+      indexed_by:
+        - IDX-GLO-0002
+        - REG-GLO-0002
+
+pending_normalization:
+  - update INDEX.md to mention index.md and registries/global_index_registry.yaml
+  - update index.md to point to INDEX.md and registries/global_index_registry.yaml
+  - update registries/index.md to expose registries/global_index_registry.yaml
