@@ -1,0 +1,19 @@
+id_bridge:
+  layer: axioms
+  purpose: canonical_namespace_normalization
+  mappings:
+    - legacy_id: AX-001
+      canonical_id: AX-FND-0001
+      name: Projective State Primacy
+    - legacy_id: AX-002
+      canonical_id: AX-FND-0002
+      name: Closure Constraint
+    - legacy_id: AX-003
+      canonical_id: AX-FND-0003
+      name: Relational Spectrum
+    - legacy_id: AX-004
+      canonical_id: AX-FND-0004
+      name: Discrete Arithmetic Seed
+    - legacy_id: AX-005
+      canonical_id: AX-FND-0005
+      name: Constants from Closure
