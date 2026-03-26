@@ -1,0 +1,127 @@
+nodes:
+  - id: SRC-ARITH-0001
+    type: source_layer
+    name: twin_prime_seeds
+  - id: SRC-ARITH-0002
+    type: source_layer
+    name: collatz_generator
+  - id: SRC-ARITH-0003
+    type: source_layer
+    name: zeta_zero_structure
+  - id: SRC-ARITH-0004
+    type: source_layer
+    name: divisor_structure
+  - id: MOD-OPR-0001
+    type: module
+    name: arithmetic_information_layer
+  - id: DEF-OPR-0001
+    type: definition
+    name: arithmetic_information_operator
+  - id: MOD-OPR-0002
+    type: module
+    name: sector_projection_layer
+  - id: DEF-OPR-0004
+    type: definition
+    name: sector_projected_information
+  - id: MOD-REL-0001
+    type: module
+    name: relational_coupling_layer
+  - id: DEF-OPR-0005
+    type: definition
+    name: relational_information_operator
+  - id: DEF-OPR-0002
+    type: definition
+    name: holonomy_defect
+  - id: DEF-OPR-0003
+    type: definition
+    name: closure_defect_scalar
+  - id: MOD-CLO-0001
+    type: module
+    name: closure_projector_layer
+  - id: DEF-OPR-0006
+    type: definition
+    name: closure_projector
+  - id: DEF-OPR-0007
+    type: definition
+    name: physical_relational_information_operator
+  - id: MOD-TIME-0001
+    type: module
+    name: time_extraction_layer
+  - id: DEF-OPR-0008
+    type: definition
+    name: relational_time_operator
+  - id: CONST-TAU
+    type: constant
+    name: tau_i
+  - id: MOD-GEN-0001
+    type: module
+    name: genesis_operator_layer
+  - id: DEF-OPR-0009
+    type: definition
+    name: genesis_operator
+  - id: DEF-OPR-0010
+    type: definition
+    name: sector_exponent_function
+  - id: DEF-OPR-0011
+    type: definition
+    name: global_scale_operator
+  - id: CONST-I0
+    type: constant
+    name: I0
+  - id: CONST-LAMBDA0
+    type: constant
+    name: Lambda0
+  - id: CONST-KAPPA
+    type: constant
+    name: kappa
+edges:
+  - from: SRC-ARITH-0001
+    to: MOD-OPR-0001
+  - from: SRC-ARITH-0002
+    to: MOD-OPR-0001
+  - from: SRC-ARITH-0003
+    to: MOD-OPR-0001
+  - from: SRC-ARITH-0004
+    to: MOD-OPR-0001
+  - from: MOD-OPR-0001
+    to: DEF-OPR-0001
+  - from: DEF-OPR-0001
+    to: MOD-OPR-0002
+  - from: MOD-OPR-0002
+    to: DEF-OPR-0004
+  - from: DEF-OPR-0004
+    to: MOD-REL-0001
+  - from: MOD-REL-0001
+    to: DEF-OPR-0005
+  - from: MOD-REL-0001
+    to: DEF-OPR-0002
+  - from: DEF-OPR-0002
+    to: DEF-OPR-0003
+  - from: DEF-OPR-0003
+    to: MOD-CLO-0001
+  - from: MOD-CLO-0001
+    to: DEF-OPR-0006
+  - from: DEF-OPR-0005
+    to: DEF-OPR-0007
+  - from: DEF-OPR-0006
+    to: DEF-OPR-0007
+  - from: DEF-OPR-0007
+    to: MOD-TIME-0001
+  - from: MOD-TIME-0001
+    to: DEF-OPR-0008
+  - from: DEF-OPR-0008
+    to: CONST-TAU
+  - from: DEF-OPR-0008
+    to: MOD-GEN-0001
+  - from: MOD-GEN-0001
+    to: DEF-OPR-0009
+  - from: DEF-OPR-0009
+    to: DEF-OPR-0010
+  - from: DEF-OPR-0009
+    to: DEF-OPR-0011
+  - from: DEF-OPR-0009
+    to: CONST-I0
+  - from: DEF-OPR-0009
+    to: CONST-LAMBDA0
+  - from: DEF-OPR-0009
+    to: CONST-KAPPA
