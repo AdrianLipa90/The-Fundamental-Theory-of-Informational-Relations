@@ -1,0 +1,27 @@
+falsification_id: FM-0001
+status: defined
+scope: minimal_cp1_berry_spin_layer
+claims:
+  - claim_id: CL-0001
+    statement: physical results are projectively invariant under global phase
+    target_tests:
+      - tests/test_projective_state.py::test_fs_distance_for_orthogonal_states_is_pi_over_two
+    failure_condition: observable geometry changes under pure global-phase rescaling
+
+  - claim_id: CL-0002
+    statement: equatorial Berry phase in the minimal spinor sector has magnitude pi for the default toy charge
+    target_tests:
+      - tests/test_berry_and_closure.py::test_equatorial_berry_phase_has_pi_magnitude
+    failure_condition: implemented phase differs from pi beyond tolerance in the toy model
+
+  - claim_id: CL-0003
+    statement: the spinorial 2pi cycle returns a minus sign
+    target_tests:
+      - tests/test_berry_and_closure.py::test_spin_half_cycle_returns_minus_one
+    failure_condition: transported phase returns +1 rather than -1 for the spin-half cycle
+
+  - claim_id: CL-0004
+    statement: the closure functional annihilates the simple pair [0, pi]
+    target_tests:
+      - tests/test_berry_and_closure.py::test_closure_defect_pair_zero_and_pi_closes_exactly
+    failure_condition: closure defect remains nonzero for the registered exact pair test
