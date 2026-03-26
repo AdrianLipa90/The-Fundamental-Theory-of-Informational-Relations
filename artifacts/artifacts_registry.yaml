@@ -1,0 +1,18 @@
+registry_id: REG-ART-0001
+status: defined
+entries:
+  - artifact_id: ART-0001
+    name: cp1_berry_spin_demo_csv
+    status: generated
+    path: Simulations/results/ART-0001-cp1-berry-spin-demo.csv
+    sha256: 1a6ce1a7fbc6f94f60d567f4b96bfe2d20e59f73d09e4e9e6a638151d0a1631c
+    created_utc: '2026-03-26'
+    code_source:
+      - Simulations/code/sim_cp1_berry_spin.py
+      - src/ciel_foundations/holonomy/berry.py
+    linked_derivations:
+      - D-0001
+      - D-0002
+    linked_tests:
+      - tests/test_projective_state.py
+      - tests/test_berry_and_closure.py
