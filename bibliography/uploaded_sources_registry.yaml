@@ -1,0 +1,97 @@
+version: 1
+role: uploaded_sources_registry
+policy: uploaded_local_sources_are_review_inputs_until_formally_normalized
+records:
+  - id: SRC-UPL-0001
+    filename: TheFundamentalTheory-4.pdf
+    kind: uploaded_pdf
+    status: imported_review_input
+    concept_support:
+      - CP1
+      - bloch_sphere
+      - least_instability_action
+      - arithmetic_information_operator
+      - lambda_quantization
+      - gamma1
+      - kappa_curvature_factor
+  - id: SRC-UPL-0002
+    filename: CIEL0_Action_Full.md
+    kind: uploaded_markdown
+    status: imported_review_input
+    concept_support:
+      - total_action
+      - white_thread_holonomy
+      - berry_connection
+      - intention_scalar_I0
+      - emergent_mass_formula
+  - id: SRC-UPL-0003
+    filename: CIEL0_BoundaryConditions_Domains.md
+    kind: uploaded_markdown
+    status: imported_review_input
+    concept_support:
+      - domains_R4_S2
+      - fubini_study_metric
+      - laplace_beltrami
+      - sobolev_domains
+      - boundary_conditions
+      - winding_quantization
+  - id: SRC-UPL-0004
+    filename: CIEL0_NumericalSolver_Notes.md
+    kind: uploaded_markdown
+    status: imported_review_input
+    concept_support:
+      - solver_pipeline
+      - tau_update
+      - W_ij_coupling
+      - spectral_discretization
+  - id: SRC-UPL-0005
+    filename: CIEL0_Phenomenology_Predictions.md
+    kind: uploaded_markdown
+    status: imported_review_input
+    concept_support:
+      - phenomenology_predictions
+      - sector_mass_targets
+      - falsification_targets
+  - id: SRC-UPL-0006
+    filename: Topological_Generation_of_the_Fermion_Ma.pdf
+    kind: uploaded_pdf
+    status: comparison_source
+    concept_support:
+      - knot_comparison
+      - spin_from_winding
+      - hadron_comparison
+  - id: SRC-UPL-0007
+    filename: README_AllDocuments.md
+    kind: uploaded_markdown
+    status: navigation_index
+    concept_support:
+      - document_cross_reference
+      - downstream_source_navigation
+  - id: SRC-UPL-0008
+    filename: FINAL_COMPLETE_REPORT.md
+    kind: uploaded_markdown
+    status: imported_review_input
+    concept_support:
+      - broad_status_context
+      - project_report_context
+  - id: SRC-UPL-0009
+    filename: Derivation of tau_i.pdf
+    kind: uploaded_pdf
+    status: priority_extraction_pending
+    concept_support:
+      - tau_i_derivation
+      - relational_time_operator
+  - id: SRC-UPL-0010
+    filename: 04_Kahler_kappa.tex
+    kind: uploaded_tex
+    status: priority_extraction_pending
+    concept_support:
+      - kahler_kappa
+      - curvature_geometry
+      - spin_relation
+  - id: SRC-UPL-0011
+    filename: Topological_Generation_of_the_Fermion_Ma.pdf
+    kind: uploaded_pdf
+    status: comparison_source_duplicate_tracking
+    concept_support:
+      - duplicate_tracking
