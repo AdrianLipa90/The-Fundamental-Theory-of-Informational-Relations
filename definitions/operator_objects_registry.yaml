@@ -1,0 +1,185 @@
+registry_version: 1
+layer: definitions
+role: operator_objects_registry
+status_note: supplemental_registry_from_indexed_notes
+objects:
+  - id: DEF-OPR-0001
+    name: arithmetic_information_operator
+    symbol: O_I(s)
+    status: indexed_candidate
+    epistemic_status: imported_review_then_formalize
+    provenance_kind: mixed_upload_intake
+    path: definitions/operator_objects_registry.yaml
+    upstream_dependencies:
+      - arithmetic_seeds
+      - zeta_structure
+      - divisor_structure
+    downstream_targets:
+      - DEF-OPR-0004
+      - DEF-OPR-0007
+      - DER-OPR-0001
+    notes: arithmetic and spectral information generator
+
+  - id: DEF-OPR-0002
+    name: holonomy_defect
+    symbol: Delta_H
+    status: indexed_candidate
+    epistemic_status: intake_formal_object
+    provenance_kind: uploaded_relational_material
+    path: definitions/operator_objects_registry.yaml
+    upstream_dependencies:
+      - phase_family_gamma_i
+    downstream_targets:
+      - DEF-OPR-0003
+      - DEF-OPR-0006
+    notes: sum over phase factors exp(i gamma_k)
+
+  - id: DEF-OPR-0003
+    name: closure_defect_scalar
+    symbol: H
+    status: indexed_candidate
+    epistemic_status: intake_formal_object
+    provenance_kind: uploaded_relational_material
+    path: definitions/operator_objects_registry.yaml
+    upstream_dependencies:
+      - DEF-OPR-0002
+    downstream_targets:
+      - DEF-OPR-0006
+      - DER-OPR-0003
+    notes: absolute-square closure defect scalar
+
+  - id: DEF-OPR-0004
+    name: sector_projected_information
+    symbol: I_i
+    status: indexed_candidate
+    epistemic_status: working_hypothesis
+    provenance_kind: operator_architecture_intake
+    path: definitions/operator_objects_registry.yaml
+    upstream_dependencies:
+      - DEF-OPR-0001
+      - sector_projection_rule
+    downstream_targets:
+      - DEF-OPR-0005
+      - DER-OPR-0002
+    notes: projected arithmetic information associated with sector or mode i
+
+  - id: DEF-OPR-0005
+    name: relational_information_operator
+    symbol: I_rel
+    status: indexed_candidate
+    epistemic_status: working_hypothesis
+    provenance_kind: operator_architecture_intake
+    path: definitions/operator_objects_registry.yaml
+    upstream_dependencies:
+      - DEF-OPR-0004
+      - A_ij
+      - W_ij
+      - gamma_i
+    downstream_targets:
+      - DEF-OPR-0006
+      - DEF-OPR-0007
+      - DER-OPR-0004
+    notes: diagonal information plus off-diagonal relational coupling
+
+  - id: DEF-OPR-0006
+    name: closure_projector
+    symbol: Pi_cl
+    status: indexed_candidate
+    epistemic_status: working_hypothesis
+    provenance_kind: operator_architecture_intake
+    path: definitions/operator_objects_registry.yaml
+    upstream_dependencies:
+      - DEF-OPR-0003
+      - admissibility_tolerance
+    downstream_targets:
+      - DEF-OPR-0007
+      - DER-OPR-0005
+    notes: admissibility projector for closure-valid states
+
+  - id: DEF-OPR-0007
+    name: physical_relational_information_operator
+    symbol: I_phys
+    status: indexed_candidate
+    epistemic_status: working_hypothesis
+    provenance_kind: operator_architecture_intake
+    path: definitions/operator_objects_registry.yaml
+    upstream_dependencies:
+      - DEF-OPR-0005
+      - DEF-OPR-0006
+    downstream_targets:
+      - DEF-OPR-0008
+      - DER-OPR-0006
+    notes: closure-projected relational information operator
+
+  - id: DEF-OPR-0008
+    name: relational_time_operator
+    symbol: T_hat
+    status: indexed_candidate
+    epistemic_status: working_hypothesis
+    provenance_kind: operator_architecture_intake
+    path: definitions/operator_objects_registry.yaml
+    upstream_dependencies:
+      - DEF-OPR-0007
+      - time_extraction_rule
+    downstream_targets:
+      - CONST-TAU
+      - DER-OPR-0007
+    notes: operator whose spectrum should generate tau_i
+
+  - id: DEF-OPR-0009
+    name: genesis_operator
+    symbol: G_Genesis
+    status: indexed_candidate
+    epistemic_status: working_hypothesis
+    provenance_kind: operator_architecture_intake
+    path: definitions/operator_objects_registry.yaml
+    upstream_dependencies:
+      - arithmetic_generator_layer
+      - geometry_generator_layer
+      - DEF-OPR-0006
+      - sector_projection_rule
+    downstream_targets:
+      - CONST-I0
+      - CONST-TAU
+      - CONST-LAMBDA0
+      - CONST-KAPPA
+      - DER-OPR-0008
+    notes: operator chain producing sector constants and global scale candidates
+
+  - id: DEF-OPR-0010
+    name: sector_exponent_function
+    symbol: alpha_f
+    status: indexed_candidate
+    epistemic_status: working_hypothesis
+    provenance_kind: operator_architecture_intake
+    path: definitions/operator_objects_registry.yaml
+    upstream_dependencies:
+      - DEF-OPR-0008
+      - W_ij
+      - gamma_i
+      - CONST-I0
+    downstream_targets:
+      - sectors/lepton
+      - sectors/quark
+      - sectors/neutrino
+      - sectors/hadron
+    notes: sector exponent inferred from operator invariants rather than hand fit
+
+  - id: DEF-OPR-0011
+    name: global_scale_operator
+    symbol: S_*
+    status: indexed_candidate
+    epistemic_status: working_hypothesis
+    provenance_kind: operator_architecture_intake
+    path: definitions/operator_objects_registry.yaml
+    upstream_dependencies:
+      - DEF-OPR-0008
+      - CONST-LAMBDA0
+      - CONST-I0
+      - closure_invariants
+    downstream_targets:
+      - sectors/lepton
+      - sectors/quark
+      - sectors/neutrino
+      - sectors/cosmology
+    notes: one global dimensional lift from dimensionless sector structure
