@@ -1,0 +1,14 @@
+interface:
+  id: IF-OPR-0001
+  name: arithmetic_information_contract
+  required_inputs:
+    - twin_prime_seeds
+    - collatz_generator
+    - zeta_zero_structure
+    - divisor_structure
+    - phi_normalization_context
+  required_outputs:
+    - arithmetic_information_operator
+    - spectral_information_density
+    - source_provenance
+  rule: no arithmetic information output may appear without explicit source mapping to arithmetic seed structures
