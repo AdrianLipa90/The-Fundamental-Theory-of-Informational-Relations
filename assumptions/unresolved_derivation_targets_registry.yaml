@@ -1,0 +1,96 @@
+version: 1
+role: unresolved_derivation_targets_registry
+records:
+  - id: UNRES-0001
+    name: exact_closed_form_for_I0
+    status: unresolved_pending_extraction
+    current_evidence:
+      - uploaded materials explicitly show I0 approx 0.009 style usage
+      - exact ln(2)/(24*pi) form not yet textually extracted into current registry
+    priority_sources:
+      - SRC-UPL-0008
+      - SRC-UPL-0009
+    target_objects:
+      - CONST-I0
+      - MOD-GEN-0001
+
+  - id: UNRES-0002
+    name: exact_tau_i_first_principles_spectrum
+    status: unresolved_pending_extraction
+    current_evidence:
+      - tau field update depends on Omega and W_ij in solver notes
+      - tau_i spectral derivation not yet fully extracted into canonical registry
+    priority_sources:
+      - SRC-UPL-0008
+    target_objects:
+      - CONST-TAU
+      - DEF-OPR-0008
+      - IF-OPR-0004
+
+  - id: UNRES-0003
+    name: exact_kappa_geometry_derivation
+    status: unresolved_pending_extraction
+    current_evidence:
+      - uploaded theory material shows lambda = (L/L_base)^2 * kappa
+      - tau-sector kappa_tau correction noted
+      - full Kahler derivation not yet extracted into canonical registry
+    priority_sources:
+      - SRC-UPL-0009
+      - SRC-UPL-0001
+    target_objects:
+      - CONST-KAPPA
+      - DEF-UPL-0008
+
+  - id: UNRES-0004
+    name: closure_projector_explicit_form
+    status: unresolved_operator_definition
+    current_evidence:
+      - closure objects Delta_H and H are indexed
+      - explicit Pi_cl definition remains architecture-level only
+    priority_sources:
+      - operator_architecture_intake
+      - relational_uploaded_material
+    target_objects:
+      - DEF-OPR-0006
+      - IF-OPR-0003
+
+  - id: UNRES-0005
+    name: explicit_time_extraction_rule_FT
+    status: unresolved_operator_definition
+    current_evidence:
+      - T_hat and tau_i chain is indexed
+      - explicit extraction rule from I_phys to T_hat not yet derived
+    priority_sources:
+      - SRC-UPL-0008
+      - operator_architecture_intake
+    target_objects:
+      - DEF-OPR-0008
+      - IF-OPR-0004
+
+  - id: UNRES-0006
+    name: sector_exponent_functions_alpha_f
+    status: unresolved_operator_definition
+    current_evidence:
+      - uploaded materials still use sector exponents as effective inputs or fits
+      - operator-level target alpha_f has been registered but not derived
+    priority_sources:
+      - SRC-UPL-0001
+      - SRC-UPL-0005
+      - operator_architecture_intake
+    target_objects:
+      - DEF-OPR-0010
+      - IF-OPR-0005
+
+  - id: UNRES-0007
+    name: single_global_scale_operator_S_star
+    status: unresolved_operator_definition
+    current_evidence:
+      - uploaded materials still show sector scales or anchors
+      - global dimensional lift target is indexed but not derived
+    priority_sources:
+      - operator_architecture_intake
+      - SRC-UPL-0001
+      - SRC-UPL-0005
+    target_objects:
+      - DEF-OPR-0011
+      - IF-OPR-0005
