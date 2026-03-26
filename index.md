@@ -2,6 +2,11 @@
 
 This index is the navigation spine for the Foundations repository.
 
+## Role in root navigation
+- `INDEX.md` defines root governance, repository role, and layer responsibilities.
+- `index.md` is the human-readable navigation spine for indexed sectors and entrypoints.
+- `registries/global_index_registry.yaml` is the machine-readable authority for root index roles and policy.
+
 ## Global workflow
 Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpretation
 
@@ -17,6 +22,7 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 
 ### Registries
 - [Registry index](registries/index.md)
+- [Global index registry](registries/global_index_registry.yaml)
 - [Metatime epistemic status registry](registries/metatime_status.yaml)
 - [Cross-reference map](registries/cross_reference_map.yaml)
 
@@ -28,6 +34,10 @@ Every imported object must appear in:
 1. a local sector index,
 2. the global index,
 3. at least one registry entry describing epistemic status or export status.
+
+## Upstream root documents
+- [Root governance index](INDEX.md)
+- [Registry authority layer](registries/global_index_registry.yaml)
 
 ## Initial imported sector
 The first imported sector is **Metatime**, transcribed from uploaded January 2026 formal PDFs into canonical source text.
