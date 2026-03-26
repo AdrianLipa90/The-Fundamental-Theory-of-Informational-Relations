@@ -1,0 +1,65 @@
+version: 1
+role: imported_simulation_registry_supplement
+policy: review_inputs_only_not_canonical_execution
+records:
+  - id: SIM-MTT-0001
+    name: toy_Fij_generator_S2
+    source_repository: AdrianLipa90/Metatime
+    code_path: simulations/Standard Model/README.md
+    result_paths:
+      - data/2026/01/Standard Model/Fij_toy_S2_directional.csv
+      - data/2026/01/Standard Model/Fij_toy_S2_sym_abs.csv
+      - data/2026/01/Standard Model/Fij_toy_S2_sym_cos.csv
+      - data/2026/01/Standard Model/heatmap_F_directional.png
+      - data/2026/01/Standard Model/heatmap_F_sym_abs.png
+      - data/2026/01/Standard Model/heatmap_F_sym_cos.png
+    linked_review_targets:
+      - sectors/lepton
+      - sectors/quark
+      - sectors/neutrino
+      - interfaces/holonomy_pair_contract.yaml
+    status: imported_review_input
+  - id: SIM-MTT-0002
+    name: standard_model_full_solver
+    source_repository: AdrianLipa90/Metatime
+    code_path: simulations/Standard Model/full solver.py
+    result_paths:
+      - metatime_results/metatime_results.json
+      - metatime_results/RESULTS_SUMMARY.txt
+      - metatime_results/VERIFICATION_REPORT.txt
+    linked_review_targets:
+      - constants/I0
+      - constants/tau
+      - constants/Lambda0
+      - sectors/neutrino
+      - sectors/cosmology
+    status: imported_review_input
+  - id: SIM-MTT-0003
+    name: one_parameter_spectral_solver
+    source_repository: AdrianLipa90/Metatime
+    code_path: simulations/Standard Model/oneparamSM.py
+    result_paths:
+      - data/2026/02/oneparamSM.json
+      - data/2026/02/oneparamSM.txt
+      - NoParamSM/noparamSMresult.json
+    linked_review_targets:
+      - constants/I0
+      - sectors/lepton
+      - sectors/quark
+      - sectors/hadron
+    status: imported_review_input
+  - id: SIM-MTT-0004
+    name: white_thread_pipeline_next_steps
+    source_repository: AdrianLipa90/Metatime
+    code_path: simulations/Toy-Model White-Thread Matrix F_ij — Next Steps/README.md
+    result_paths:
+      - data/2026/01/beta-berry-hadron sim results/F_berry_monopole.csv
+      - data/2026/01/beta-berry-hadron sim results/F_calibrated_beta.csv
+      - data/2026/01/beta-berry-hadron sim results/beta_fit_check.csv
+      - data/2026/01/beta-berry-hadron sim results/hadron_F_results.csv
+    linked_review_targets:
+      - interfaces/holonomy_pair_contract.yaml
+      - sectors/hadron
+      - sectors/lepton
+      - sectors/quark
+    status: imported_review_input
