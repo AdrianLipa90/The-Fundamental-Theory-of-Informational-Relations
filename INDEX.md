@@ -2,6 +2,14 @@
 
 This file is the root navigation layer for the public theory repository.
 
+## Index authority
+Root navigation authority is split explicitly across three canonical layers:
+- `INDEX.md` — human-readable root governance and repository map
+- `index.md` — human-readable global navigation spine for indexed sectors and entrypoints
+- `registries/global_index_registry.yaml` — machine-readable root index authority and policy
+
+`registries/cross_reference_map.yaml` remains the sector/object topology map rather than the root authority registry.
+
 ## Role of this repository
 This repository is the public first-principles theory layer for CIEL.
 It is the place for:
@@ -28,6 +36,8 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `ORGANIZATION.md` — methodology, review gates, epistemic statuses
 - `STRUCTURE.md` — directory logic and naming rules
 - `ROADMAP.md` — long-range milestone ordering
+- `index.md` — global navigation spine for indexed sectors and imported entrypoints
+- `registries/global_index_registry.yaml` — machine-readable root index authority
 
 ## Canonical theory layers
 - `axioms/` — frozen axioms and axioms registry

@@ -1,0 +1,46 @@
+layer: definitions
+branch: Agent7
+agent: AGENT7
+status: draft
+
+layer_role:
+  index_path: definitions/index.md
+  registry_path: registries/definitions_layer_registry.yaml
+  upstream_of:
+    - derivations
+    - src/ciel_foundations
+    - interfaces
+  downstream_of:
+    - axioms
+    - assumptions
+
+policy:
+  no_definition_without_upstream_anchor: true
+  canonical_naming_before_downstream_use: true
+
+tracked_objects:
+  - id: LAY-DEF-0001
+    name: definitions_index
+    path: definitions/index.md
+    class: native
+    canonical_status: canonical
+    epistemic_status: asserted
+    relations:
+      indexes:
+        - definitions
+      indexed_by:
+        - REG-LAY-DEF-0001
+  - id: REG-LAY-DEF-0001
+    name: definitions_layer_registry
+    path: registries/definitions_layer_registry.yaml
+    class: native
+    canonical_status: canonical
+    epistemic_status: asserted
+    relations:
+      registers:
+        - LAY-DEF-0001
+
+pending_objects:
+  - canonical_definition_registry
+  - symbol_table
+  - object_definition_files

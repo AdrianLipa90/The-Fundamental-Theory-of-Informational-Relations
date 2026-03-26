@@ -1,0 +1,57 @@
+layer: derivations
+branch: Agent7
+agent: AGENT7
+status: draft
+
+layer_role:
+  index_path: derivations/index.md
+  registry_path: registries/derivations_layer_registry.yaml
+  upstream_of:
+    - src/ciel_foundations
+    - tests
+    - falsification
+    - interfaces
+  downstream_of:
+    - definitions
+    - assumptions
+    - axioms
+
+policy:
+  explicit_closure_required: true
+  separate_derived_fitted_open_exportable: true
+
+tracked_objects:
+  - id: LAY-DER-0001
+    name: derivations_index
+    path: derivations/index.md
+    class: native
+    canonical_status: canonical
+    epistemic_status: asserted
+    relations:
+      indexes:
+        - derivations
+      indexed_by:
+        - REG-LAY-DER-0001
+  - id: REG-LAY-DER-0001
+    name: derivations_layer_registry
+    path: registries/derivations_layer_registry.yaml
+    class: native
+    canonical_status: canonical
+    epistemic_status: asserted
+    relations:
+      registers:
+        - LAY-DER-0001
+  - id: SEC-DER-META-0001
+    name: metatime_derivations_sector
+    path: derivations/metatime/index.md
+    class: imported
+    canonical_status: draft
+    epistemic_status: imported
+    relations:
+      indexed_by:
+        - LAY-DER-0001
+
+pending_objects:
+  - canonical_derivation_registry
+  - dependency_dag
+  - normalized_non_metatime_derivation_sectors
