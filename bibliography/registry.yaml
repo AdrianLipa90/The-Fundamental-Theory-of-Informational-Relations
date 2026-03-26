@@ -1,0 +1,56 @@
+version: 1
+role: bibliography_registry
+policy: secondary_sources_support_review_but_do_not_override_canonical_markdown_yaml_python
+records:
+  - id: SRC-MTT-README-2026
+    kind: repository_readme
+    repository: AdrianLipa90/Metatime
+    path: README.md
+    status: imported_review_input
+    supports:
+      - DEF-MTT-0001
+      - DEF-MTT-0002
+      - DEF-MTT-0003
+      - sectors/neutrino
+      - sectors/cosmology
+  - id: SRC-MTT-FORMAL-SM
+    kind: pdf_document
+    repository: AdrianLipa90/Metatime
+    path: documents/Formal_SM.pdf
+    status: imported_review_input
+    supports:
+      - constants/tau
+      - sectors/lepton
+      - sectors/quark
+      - sectors/neutrino
+  - id: SRC-MTT-CORRECTIONS-3
+    kind: pdf_document
+    repository: AdrianLipa90/Metatime
+    path: documents/Corrections (3).pdf
+    status: imported_review_input
+    supports:
+      - sectors/neutrino
+      - interfaces/tau_solver_contract
+  - id: SRC-MTT-NEUTRINOTIME14
+    kind: pdf_document
+    repository: AdrianLipa90/Metatime
+    path: documents/Neutrinotime14.pdf
+    status: imported_review_input
+    supports:
+      - sectors/neutrino
+      - sectors/cosmology
+  - id: SRC-MTT-LAMBDA-META
+    kind: pdf_document
+    repository: AdrianLipa90/Metatime
+    path: documents/Lambda_meta.pdf
+    status: imported_review_input
+    supports:
+      - constants/Lambda0
+      - sectors/cosmology
+  - id: SRC-MTT-KAPPA-GEOMETRY
+    kind: pdf_document
+    repository: AdrianLipa90/Metatime
+    path: documents/Kappa_from_geometry.pdf
+    status: imported_review_input
+    supports:
+      - constants/kappa

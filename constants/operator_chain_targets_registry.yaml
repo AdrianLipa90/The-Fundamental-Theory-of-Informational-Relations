@@ -1,0 +1,59 @@
+registry_version: 1
+layer: constants
+role: operator_chain_targets_registry
+records:
+  - id: CONST-I0
+    target_role: geometry_regulator
+    current_status: hypothesis_with_import_anchors
+    required_operator_upstream:
+      - DEF-OPR-0009
+    required_interfaces:
+      - IF-OPR-0005
+    next_derivation_target: derive dimensionless regulator status from genesis operator chain
+
+  - id: CONST-TAU
+    target_role: relational_time_spectrum
+    current_status: partially_imported_review_input
+    required_operator_upstream:
+      - DEF-OPR-0008
+    required_interfaces:
+      - IF-OPR-0004
+    next_derivation_target: replace fitted tau_i inputs with spectrum from T_hat
+
+  - id: CONST-LAMBDA0
+    target_role: global_scale_or_cosmology_operator
+    current_status: imported_review_input
+    required_operator_upstream:
+      - DEF-OPR-0011
+      - DEF-OPR-0009
+    required_interfaces:
+      - IF-OPR-0005
+    next_derivation_target: derive or constrain scale role from closure and global operator structure
+
+  - id: CONST-KAPPA
+    target_role: curvature_or_sector_geometry_factor
+    current_status: imported_review_input
+    required_operator_upstream:
+      - DEF-OPR-0009
+    required_interfaces:
+      - IF-OPR-0005
+    next_derivation_target: derive curvature-linked role from geometry and sector projection rather than direct fit
+
+  - id: CONST-ALPHA-F
+    target_role: sector_exponent_family
+    current_status: unresolved_operator_target
+    required_operator_upstream:
+      - DEF-OPR-0010
+      - DEF-OPR-0009
+    required_interfaces:
+      - IF-OPR-0005
+    next_derivation_target: define alpha_f from operator invariants instead of sector-by-sector fit
+
+  - id: CONST-S-STAR
+    target_role: global_dimensional_lift
+    current_status: unresolved_operator_target
+    required_operator_upstream:
+      - DEF-OPR-0011
+    required_interfaces:
+      - IF-OPR-0005
+    next_derivation_target: define one global scale operator for dimensional lifting

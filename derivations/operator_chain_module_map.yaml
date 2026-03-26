@@ -1,0 +1,66 @@
+modules:
+  - id: MOD-OPR-0001
+    name: arithmetic_information_layer
+    output: arithmetic information operator O_I(s) from arithmetic seeds and spectral structures
+    required_inputs:
+      - twin_prime_seeds
+      - collatz_generator
+      - zeta_zero_structure
+      - divisor_structure
+    downstream:
+      - MOD-OPR-0002
+
+  - id: MOD-OPR-0002
+    name: sector_projection_layer
+    output: sector-projected information objects I_i
+    required_inputs:
+      - arithmetic_information_operator
+      - sector_projection_rule
+    downstream:
+      - MOD-REL-0001
+
+  - id: MOD-REL-0001
+    name: relational_coupling_layer
+    output: relational information operator from projected information, A_ij, W_ij, and gamma_i
+    required_inputs:
+      - sector_projected_information
+      - A_ij
+      - W_ij
+      - gamma_i
+    downstream:
+      - MOD-CLO-0001
+
+  - id: MOD-CLO-0001
+    name: closure_projector_layer
+    output: admissibility projector Pi_cl and physical relational information operator I_phys
+    required_inputs:
+      - closure_defect_scalar
+      - relational_information_operator
+      - admissibility_tolerance
+    downstream:
+      - MOD-TIME-0001
+
+  - id: MOD-TIME-0001
+    name: time_extraction_layer
+    output: relational time operator T_hat and spectral tau_i targets
+    required_inputs:
+      - physical_relational_information_operator
+      - time_extraction_rule
+    downstream:
+      - MOD-GEN-0001
+
+  - id: MOD-GEN-0001
+    name: genesis_operator_layer
+    output: sector exponents, correction factors, global scale candidates, and constant targets
+    required_inputs:
+      - relational_time_operator
+      - closure_invariants
+      - sector_projection_rule
+      - I0
+      - Lambda0
+    downstream:
+      - sectors/neutrino
+      - sectors/lepton
+      - sectors/quark
+      - sectors/hadron
+      - sectors/cosmology
