@@ -1,0 +1,123 @@
+registry_version: 1
+layer: definitions
+branch_owner: Agent5
+status_note: bootstrap_registry
+objects:
+  - id: DEF-FND-0001
+    name: relation
+    domain: FND
+    status: canonical_seed
+    epistemic_status: canonical
+    provenance_kind: native
+    path: definitions/foundations/relation.md
+    upstream_axioms:
+      - AX-FND-0001
+      - AX-FND-0002
+      - AX-FND-0003
+    downstream_targets:
+      - DER-FND-0001
+      - DEF-MTT-0001
+    notes: first nontrivial distinction-preserving coupling
+
+  - id: DEF-FND-0002
+    name: potential
+    domain: FND
+    status: canonical_seed
+    epistemic_status: canonical
+    provenance_kind: native
+    path: definitions/foundations/potential.md
+    upstream_axioms:
+      - AX-FND-0001
+      - AX-FND-0003
+    downstream_targets:
+      - DEF-MTT-0002
+    notes: primitive ordering capacity in the relational medium
+
+  - id: DEF-FND-0003
+    name: boundary
+    domain: FND
+    status: canonical_seed
+    epistemic_status: canonical
+    provenance_kind: native
+    path: definitions/foundations/boundary.md
+    upstream_axioms:
+      - AX-FND-0002
+    downstream_targets:
+      - DEF-FND-0004
+      - DEF-MTT-0003
+    notes: stable distinguishability separator licensing locality
+
+  - id: DEF-FND-0004
+    name: locality
+    domain: FND
+    status: canonical_seed
+    epistemic_status: canonical
+    provenance_kind: native
+    path: definitions/foundations/locality.md
+    upstream_axioms:
+      - AX-FND-0001
+      - AX-FND-0002
+    downstream_targets:
+      - DEF-MTT-0001
+      - DEF-MTT-0002
+    notes: persistent bounded region after primitive closure
+
+  - id: DEF-FND-0005
+    name: attractor
+    domain: FND
+    status: canonical_seed
+    epistemic_status: canonical
+    provenance_kind: native
+    path: definitions/foundations/attractor.md
+    upstream_axioms:
+      - AX-FND-0003
+    downstream_targets:
+      - DEF-MTT-0003
+    notes: local organization node for ordered phase motion
+
+  - id: DEF-MTT-0001
+    name: metatime_manifold
+    domain: MTT
+    status: import_bootstrap
+    epistemic_status: imported
+    provenance_kind: imported
+    path: definitions/metatime/metatime_manifold.md
+    upstream_axioms:
+      - AX-FND-0001
+      - AX-FND-0002
+    downstream_targets:
+      - DER-MTT-0001
+      - DEF-MTT-0002
+      - DEF-MTT-0003
+    notes: imported from Metatime README and source documents
+
+  - id: DEF-MTT-0002
+    name: metatime_field
+    domain: MTT
+    status: import_bootstrap
+    epistemic_status: imported
+    provenance_kind: imported
+    path: definitions/metatime/metatime_field.md
+    upstream_axioms:
+      - AX-FND-0001
+      - AX-FND-0002
+      - AX-FND-0003
+    downstream_targets:
+      - DER-MTT-0002
+      - DER-MTT-0003
+    notes: T(x) = {tau(x), T^{mu nu}(x)}
+
+  - id: DEF-MTT-0003
+    name: fermion_cycles
+    domain: MTT
+    status: import_bootstrap
+    epistemic_status: imported
+    provenance_kind: imported
+    path: definitions/metatime/fermion_cycles.md
+    upstream_axioms:
+      - AX-FND-0002
+      - AX-FND-0003
+    downstream_targets:
+      - DER-MTT-0004
+      - OP-MTT-0001
+    notes: closed cycles C_i on M_time
