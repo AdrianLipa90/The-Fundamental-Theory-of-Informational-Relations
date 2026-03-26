@@ -1,0 +1,52 @@
+repo: AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations
+branch: Agent4
+agent: AGENT4
+inventory_kind: provisional_snapshot_seed
+source_basis: local_snapshot_analysis
+counts:
+  total_files: 1396
+  py: 682
+  md: 297
+  json: 95
+  pdf: 54
+  yaml: 34
+observed_top_level_sectors:
+  - NONLOCAL_REPO_HYPERSPACE
+  - TODO
+  - comparison_reports
+  - comparison_reports_forensic
+  - comparison_reports_last_merge
+  - comparison_reports_recovery
+  - comparison_reports_todo_external_refs
+  - data
+  - docs
+  - integrations
+  - logs
+  - manifests
+  - reports
+  - research
+  - systems
+observed_systems:
+  - systems/CIEL_FOUNDATIONS
+  - systems/CIEL_OMEGA_COMPLETE_SYSTEM
+  - systems/CIEL_OMEGA_MEMORY_REFERENCE_v3.1.7
+  - systems/CIEL_OMEGA_VOCABULARY_REFERENCE
+  - systems/RECOVERED_ARCHIVAL_SYSTEMS
+class_hypotheses:
+  systems/CIEL_FOUNDATIONS: native
+  systems/CIEL_OMEGA_COMPLETE_SYSTEM: coupled_omega_facing
+  systems/CIEL_OMEGA_MEMORY_REFERENCE_v3.1.7: mirrored
+  systems/CIEL_OMEGA_VOCABULARY_REFERENCE: mirrored
+  systems/RECOVERED_ARCHIVAL_SYSTEMS: imported
+  reports: provenance_container
+  comparison_reports: provenance_container
+  manifests: index_or_manifest_layer
+next_actions:
+  - identify_global_index_authority
+  - identify_existing_layer_indexes
+  - seed_top_level_object_registry
+  - classify_coupling_relations
+  - separate_canonical_objects_from_provenance_containers
+artifact:
+  inventory_note: docs/agent4/INVENTORY_SEED.md
+status: draft
