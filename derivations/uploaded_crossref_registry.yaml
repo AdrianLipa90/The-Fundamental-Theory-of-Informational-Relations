@@ -1,0 +1,75 @@
+version: 1
+role: uploaded_concept_source_target_crossref_registry
+records:
+  - concept: arithmetic_information_operator
+    source_ids: [SRC-UPL-0001]
+    equation_ids: [EQ-UPL-0001]
+    target_definitions: [DEF-OPR-0001, DEF-UPL-0004]
+    target_modules: [MOD-OPR-0001]
+    target_tests: [VAL-UPL-0001]
+
+  - concept: White_Thread_holonomy
+    source_ids: [SRC-UPL-0002, SRC-UPL-0006]
+    equation_ids: [EQ-UPL-0002]
+    target_definitions: [DEF-UPL-0005, DEF-OPR-0005]
+    target_modules: [MOD-REL-0001]
+    target_tests: [VAL-UPL-0004]
+
+  - concept: tau_coupling_to_Wij
+    source_ids: [SRC-UPL-0004, SRC-UPL-0006]
+    equation_ids: [EQ-UPL-0007]
+    target_definitions: [DEF-UPL-0007, DEF-OPR-0008]
+    target_modules: [MOD-TIME-0001]
+    target_tests: [VAL-UPL-0005]
+
+  - concept: kappa_curvature_factor
+    source_ids: [SRC-UPL-0001, SRC-UPL-0009]
+    equation_ids: [EQ-UPL-0008]
+    target_definitions: [DEF-UPL-0008]
+    target_modules: [MOD-GEN-0001]
+    target_tests: []
+    unresolved_targets: [UNRES-0003]
+
+  - concept: closure_topological_integrality
+    source_ids: [SRC-UPL-0003]
+    equation_ids: [EQ-UPL-0006]
+    target_definitions: [DEF-OPR-0002, DEF-OPR-0003, DEF-OPR-0006]
+    target_modules: [MOD-CLO-0001]
+    target_tests: [VAL-UPL-0010]
+
+  - concept: emergent_mass_formula
+    source_ids: [SRC-UPL-0002, SRC-UPL-0004]
+    equation_ids: [EQ-UPL-0005]
+    target_definitions: [DEF-UPL-0011]
+    target_modules: [MOD-GEN-0001]
+    target_tests: [VAL-UPL-0006]
+
+  - concept: resonance_function
+    source_ids: [SRC-UPL-0002, SRC-UPL-0006]
+    equation_ids: [EQ-UPL-0003]
+    target_definitions: []
+    target_modules: [laboratory_resonances]
+    target_tests: [VAL-UPL-0009]
+
+  - concept: I0_exact_form
+    source_ids: [SRC-UPL-0008, SRC-UPL-0009]
+    equation_ids: []
+    target_definitions: [CONST-I0]
+    target_modules: [MOD-GEN-0001]
+    target_tests: []
+    unresolved_targets: [UNRES-0001]
+
+  - concept: tau_i_exact_spectrum
+    source_ids: [SRC-UPL-0008]
+    equation_ids: []
+    target_definitions: [CONST-TAU, DEF-OPR-0008]
+    target_modules: [MOD-TIME-0001]
+    target_tests: []
+    unresolved_targets: [UNRES-0002]
+
+  - concept: sector_predictions_suite
+    source_ids: [SRC-UPL-0005, SRC-UPL-0006]
+    equation_ids: [EQ-UPL-0009, EQ-UPL-0010]
+    target_definitions: [DEF-UPL-0011]
+    target_modules: [sectors/neutrino, sectors/cosmology, sectors/lepton, sectors/quark]
+    target_tests: [VAL-UPL-0006, VAL-UPL-0007, VAL-UPL-0008, VAL-UPL-0009]
