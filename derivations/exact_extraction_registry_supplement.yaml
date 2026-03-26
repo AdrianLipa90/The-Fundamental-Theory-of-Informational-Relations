@@ -1,0 +1,34 @@
+registry_version: 1
+layer: derivations
+role: exact_extraction_registry_supplement
+records:
+  - id: EXT-0001
+    source_file: 04_Kahler_kappa.tex
+    status: extracted_local_file
+    object_targets: [CONST-KAPPA, DEF-UPL-0008]
+    exact_extractions:
+      - name: metatime_manifold_definition
+        expression: T = (phi, T_{mu nu}) on compact Kahler surface M_time with metric g_K and Ricci scalar R_K
+      - name: local_kappa_definition
+        expression: kappa_i = (1/V_Ci) * integral_Ci sqrt(det g_K) R_K dmu_i
+      - name: kappa_interpretation
+        expression: kappa_i = average Ricci curvature on cycle C_i
+    notes:
+      - kappa is explicitly defined as a computed geometric observable, not a fitting parameter
+      - family dependence is explicit via cycle volume and curvature
+
+  - id: EXT-0002
+    source_file: Derivation of tau_i.pdf
+    status: extracted_local_file_but_source_mismatch
+    object_targets: [CONST-TAU, DEF-OPR-0008]
+    exact_extractions:
+      - name: relational_time_operator_statement
+        expression: T_hat has discrete eigenvalues tau_i used as metatime parameters in relational modes
+      - name: explicit_tau_values_in_document
+        expression: tau_1 = 0.263, tau_2 = 0.353, tau_3 = 0.489
+      - name: diagonal_euler_coupling_choice
+        expression: A_ii = exp(i gamma_i)/tau_i with off-diagonal entries set to zero
+    notes:
+      - this file is not a first-principles neutrino tau_i derivation
+      - it is a relational-contract document importing fitted tau_i from neutrino context
+      - useful as secondary operator-architecture witness, not as canonical derivation of tau_i
