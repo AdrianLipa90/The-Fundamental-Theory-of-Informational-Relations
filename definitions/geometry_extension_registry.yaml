@@ -1,0 +1,18 @@
+registry_id: REG-DEF-EXT-0001
+status: defined
+scope: geometric extension objects beyond minimal CP1 layer
+entries:
+  - object_id: OBJ-TETRAHEDRON-0001
+    name: regular_tetrahedron_on_s2
+    file: definitions/DEF-0004-regular-tetrahedron-on-s2.md
+    status: defined
+    depends_on:
+      - AX-0002
+
+  - object_id: OBJ-RELATIVE-PHASE-TRIPLE-0001
+    name: tetrahedral_relative_phase_triple
+    file: definitions/DEF-0004-regular-tetrahedron-on-s2.md
+    status: hypothesis
+    depends_on:
+      - OBJ-TETRAHEDRON-0001
+      - OBJ-CLOSURE-FUNCTIONAL-0001
