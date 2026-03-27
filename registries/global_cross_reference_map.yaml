@@ -1,0 +1,76 @@
+registry_id: REG-GLO-XREF-0001
+status: defined
+scope: active canonical foundations cross references beyond the older imported Metatime map
+principle:
+  - This file is a machine-readable realization of the current active global cross-reference spine.
+  - It does not replace local registries or derivation DAGs.
+  - It complements them by exposing active grouped routes across theory, code, tests, simulations, artifacts, and paper objects.
+active_groups:
+  minimal_projective_berry_spin:
+    axioms:
+      - ../../axioms/AX-0001-projective-state-space.md
+      - ../../axioms/AX-0002-kahler-fubini-study-structure.md
+      - ../../axioms/AX-0003-spinor-sign-under-2pi.md
+    definitions:
+      - ../../definitions/DEF-0001-projective-ray-and-cp1.md
+      - ../../definitions/DEF-0002-berry-connection-and-phase.md
+      - ../../definitions/DEF-0003-closure-functional.md
+    derivations:
+      - ../../derivations/D-0001-hilbert-to-projective-cp1.md
+      - ../../derivations/D-0002-berry-phase-and-spinor-sign.md
+    interfaces:
+      - ../../interfaces/IF-0001-minimal-cp1-berry-spin.yaml
+    code:
+      - ../../src/ciel_foundations/geometry/projective_state.py
+      - ../../src/ciel_foundations/holonomy/berry.py
+      - ../../src/ciel_foundations/closure/euler.py
+      - ../../src/ciel_foundations/solvers/minimal_cp1_berry_spin_solver.py
+    tests:
+      - ../../tests/test_projective_state.py
+      - ../../tests/test_berry_and_closure.py
+    paper:
+      - ../../whitepapers/WP-MOD-minimal-projective-berry-spin.md
+      - ../../LaTeX/appendices/APP-0001-minimal-cp1-berry-spin-numerical-derivations.tex
+    simulations:
+      - ../../Simulations/code/sim_cp1_berry_spin.py
+      - ../../Simulations/results/ART-0001-cp1-berry-spin-demo.csv
+    artifacts:
+      - ../../artifacts/artifacts_registry.yaml
+      - ../../provenance/ART-0001-provenance.yaml
+      - ../../falsification/FM-0001-minimal-cp1-berry-spin.yaml
+
+  tetrahedral_relational_frame:
+    definitions:
+      - ../../definitions/DEF-0004-regular-tetrahedron-on-s2.md
+    derivations:
+      - ../../derivations/D-0003-regular-tetrahedron-on-s2.md
+    interfaces:
+      - ../../interfaces/IF-0002-tetrahedral-relational-frame.yaml
+    code:
+      - ../../src/ciel_foundations/solvers/tetrahedral_relational_frame_solver.py
+    tests:
+      - ../../tests/test_tetrahedral_relational_frame.py
+    paper:
+      - ../../whitepapers/WP-MOD-tetrahedral-relational-frame.md
+      - ../../LaTeX/sections/SEC-0002-tetrahedral-relational-frame.tex
+      - ../../LaTeX/appendices/APP-0002-tetrahedral-frame-numerical-derivations.tex
+
+  root_navigation_authority:
+    governance:
+      - ../../README.md
+      - ../../AGENT.md
+      - ../../INDEX.md
+      - ../../index.md
+      - ../../PROJECT_CHARTER.md
+      - ../../ORGANIZATION.md
+      - ../../STRUCTURE.md
+      - ../../ROADMAP.md
+    machine_authority:
+      - ../../registries/global_index_registry.yaml
+      - ../../registries/cross_reference_map.yaml
+      - ../../registries/global_cross_reference_map.yaml
+    orchestrator:
+      - ../../systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md
+notes:
+  - The older `registries/cross_reference_map.yaml` remains valid as a sector/object topology map for the imported Metatime layer.
+  - This file tracks the active foundations module graph currently being built on `main`.
