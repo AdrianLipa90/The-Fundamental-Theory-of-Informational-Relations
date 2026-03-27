@@ -77,6 +77,29 @@ Routing must always preserve:
 - [section](../../LaTeX/sections/SEC-0002-tetrahedral-relational-frame.tex)
 - [appendix](../../LaTeX/appendices/APP-0002-tetrahedral-frame-numerical-derivations.tex)
 
+### Local attractor / nonlocal holonomic vortex chain
+- [AX-0005](../../axioms/AX-0005-local-attractor-hierarchy.md)
+- [DEF-0005](../../definitions/DEF-0005-local-attractor-and-order-parameter.md)
+- [DEF-0006](../../definitions/DEF-0006-nonlocal-holonomic-vortex.md)
+- [D-0004](../../derivations/D-0004-local-attractor-axis-and-coriolis.md)
+- [D-0005](../../derivations/D-0005-spacetime-holonomic-circulation.md)
+- [IF-0004](../../interfaces/IF-0004-nonlocal-holonomic-vortex.yaml)
+- [solver](../../src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py)
+- [test](../../tests/test_nonlocal_holonomic_vortex.py)
+- [whitepaper](../../whitepapers/WP-MOD-local-attractor-holonomic-vortex.md)
+- [section](../../LaTeX/sections/SEC-0003-local-attractor-holonomic-vortex.tex)
+- [appendix](../../LaTeX/appendices/APP-0003-rotating-superfluid-field-numerical-derivations.tex)
+
+### Fractal foundations spine chain
+- [DEF-0007](../../definitions/DEF-0007-fractal-foundations-spine.md)
+- [D-0006](../../derivations/D-0006-fractal-inheritance-chain.md)
+- [IF-0005](../../interfaces/IF-0005-piko-fractal-spine.yaml)
+- [solver](../../src/ciel_foundations/solvers/piko_fractal_spine_solver.py)
+- [test](../../tests/test_piko_fractal_spine.py)
+- [whitepaper](../../whitepapers/WP-MOD-fractal-foundations-spine.md)
+- [section](../../LaTeX/sections/SEC-0004-fractal-foundations-spine.tex)
+- [appendix](../../LaTeX/appendices/APP-0004-piko-fractal-spine-numerical-derivations.tex)
+
 ## Routing policy
 1. Start from `INDEX.md` or `index.md`.
 2. Enter the target object through its registry or interface.

@@ -32,3 +32,16 @@ entries:
       - demonstrate Coriolis term for a rotating local flow
       - demonstrate nonzero spacetime circulation on a closed loop
       - expose a toy nonlocal holonomic vortex criterion
+
+  - simulation_id: SIM-0003
+    name: piko_fractal_spine_demo
+    status: defined
+    code_path: Simulations/code/sim_piko_fractal_spine.py
+    result_artifact_ids:
+      - ART-0003
+    depends_on:
+      - IF-0005
+      - D-0006
+    purpose:
+      - consolidate CP1/Berry/spin, tetrahedral frame, and local attractor vortex into one piko snapshot
+      - expose a toy bounded consistency score for the consolidated spine

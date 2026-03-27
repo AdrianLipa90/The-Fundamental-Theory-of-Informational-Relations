@@ -1,0 +1,17 @@
+artifact_id: ART-0003
+status: defined
+generated_from:
+  simulation_id: SIM-0003
+  code_paths:
+    - Simulations/code/sim_piko_fractal_spine.py
+    - src/ciel_foundations/solvers/piko_fractal_spine_solver.py
+  formal_dependencies:
+    - DEF-0001
+    - DEF-0004
+    - DEF-0005
+    - DEF-0006
+    - D-0006
+parameters:
+  registered_snapshot: default
+notes:
+  - This artifact is the first consolidated piko-scale fractal snapshot of the active foundations modules.

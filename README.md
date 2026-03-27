@@ -50,6 +50,27 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - LaTeX section: `LaTeX/sections/SEC-0002-tetrahedral-relational-frame.tex`
 - LaTeX appendix: `LaTeX/appendices/APP-0002-tetrahedral-frame-numerical-derivations.tex`
 
+### Local attractor / nonlocal holonomic vortex
+- axiom: `AX-0005`
+- definitions: `DEF-0005`, `DEF-0006`
+- derivations: `D-0004`, `D-0005`
+- interface: `interfaces/IF-0004-nonlocal-holonomic-vortex.yaml`
+- code: `src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py`
+- tests: `tests/test_nonlocal_holonomic_vortex.py`
+- paper: `whitepapers/WP-MOD-local-attractor-holonomic-vortex.md`
+- LaTeX section: `LaTeX/sections/SEC-0003-local-attractor-holonomic-vortex.tex`
+- LaTeX appendix: `LaTeX/appendices/APP-0003-rotating-superfluid-field-numerical-derivations.tex`
+
+### Fractal foundations spine at piko scale
+- definition: `DEF-0007`
+- derivation: `D-0006`
+- interface: `interfaces/IF-0005-piko-fractal-spine.yaml`
+- code: `src/ciel_foundations/solvers/piko_fractal_spine_solver.py`
+- tests: `tests/test_piko_fractal_spine.py`
+- paper: `whitepapers/WP-MOD-fractal-foundations-spine.md`
+- LaTeX section: `LaTeX/sections/SEC-0004-fractal-foundations-spine.tex`
+- LaTeX appendix: `LaTeX/appendices/APP-0004-piko-fractal-spine-numerical-derivations.tex`
+
 ## Scope
 Included now:
 - axioms

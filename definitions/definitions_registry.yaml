@@ -91,3 +91,13 @@ entries:
     status: defined
     depends_on:
       - DEF-0005
+
+  - object_id: OBJ-FRACTAL-SPINE-0001
+    name: piko_fractal_foundations_spine
+    file: definitions/DEF-0007-fractal-foundations-spine.md
+    status: defined
+    depends_on:
+      - DEF-0001
+      - DEF-0004
+      - DEF-0005
+      - DEF-0006

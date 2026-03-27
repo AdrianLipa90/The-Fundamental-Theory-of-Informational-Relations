@@ -1,0 +1,23 @@
+interface_id: IF-0005
+status: defined
+name: piko_fractal_foundations_spine_interface
+upstream:
+  definitions:
+    - DEF-0001
+    - DEF-0004
+    - DEF-0005
+    - DEF-0006
+  derivations:
+    - D-0006
+python_modules:
+  - src/ciel_foundations/solvers/piko_fractal_spine_solver.py
+required_functions:
+  - build_spine_snapshot
+  - spine_consistency_score
+contract:
+  - the snapshot must expose outputs from all three active piko layers
+  - the consistency score must be explicit and bounded
+linked_tests:
+  - tests/test_piko_fractal_spine.py
+linked_simulations:
+  - SIM-0003
