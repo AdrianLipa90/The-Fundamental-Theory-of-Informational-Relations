@@ -1,0 +1,30 @@
+\section{Semantic Action Measurement Operators}
+\label{sec:semantic-action-measurement}
+
+\subsection{Online operators}
+Define the online semantic action by
+\begin{equation}
+\mathcal S_{online}[\gamma] = \alpha\widehat L[\gamma] + \beta\widehat{\Delta\phi}[\gamma] + \kappa\widehat D_{rel}[\gamma] + \mu\widehat\Pi_{truth}^{struct}[\gamma].
+\end{equation}
+
+\subsection{Component operators}
+The first explicit candidate measurement stack is
+\begin{align}
+\widehat L_d[\gamma] &= \sum_k \sqrt{g_k}\,\|x_{k+1}-x_k\|,\\
+\widehat{\Delta\phi}_d[\gamma] &= \sum_k \bigl(1-\cos(\phi_{k+1}-\phi_k)\bigr),\\
+\widehat D_{rel}^{(H)}[\gamma] &= \frac1N\sum_k \left|\sum_j e^{i\gamma_j^{(k)}}\right|^2,\\
+\widehat\Pi_{truth}^{struct}[\gamma] &= \frac1N\sum_k (1-R_k).
+\end{align}
+
+\subsection{Audit extension}
+For completed artifacts define
+\begin{equation}
+\widehat\Pi_{truth}^{audit} = \frac1{|F|}\sum_{f\in F}\bigl(\delta_{false}(f)+\delta_{unmarked}(f)+\delta_{omit}(f)+\delta_{hall}(f)+\delta_{smooth}(f)\bigr),
+\end{equation}
+and extend the action by
+\begin{equation}
+\mathcal S_{full} = \mathcal S_{online} + \nu\widehat\Pi_{truth}^{audit}.
+\end{equation}
+
+\subsection{Status}
+This section records the first explicit measurement-operator stack for semantic action. The final semantic metric and truth potential remain open.

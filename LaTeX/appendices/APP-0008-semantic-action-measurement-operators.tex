@@ -1,0 +1,29 @@
+\appendix
+\section{Numerical Appendix: Semantic Action Measurement Operators}
+\label{app:semantic-action-measurement}
+
+\subsection{Registered toy values}
+For the registered toy sample, the measured components are
+\begin{align}
+\widehat L &\approx 2.64539977,\\
+\widehat{\Delta\phi} &\approx 0.13152863,\\
+\widehat D_{rel} & = 2.0,\\
+\widehat\Pi_{truth}^{struct} &\approx 0.11666667,\\
+\widehat\Pi_{truth}^{audit} & = 0.15.
+\end{align}
+
+\subsection{Assembled actions}
+With all coefficients equal to one,
+\begin{equation}
+\mathcal S_{online} \approx 4.89359507,
+\qquad
+\mathcal S_{full} \approx 5.04359507.
+\end{equation}
+
+\subsection{Executable realization}
+The corresponding executable modules are:
+\begin{itemize}
+  \item \texttt{src/ciel\_foundations/solvers/semantic\_action\_measurement\_solver.py}
+  \item \texttt{tests/test\_semantic\_action\_measurement.py}
+  \item \texttt{Simulations/code/sim\_semantic\_action\_measurement.py}
+\end{itemize}
