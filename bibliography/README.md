@@ -23,6 +23,11 @@ Bibliography records support explanation, attribution, and literature mapping. T
 - Pethick & Smith, chapter on rotating condensates
 - OpenStax Coriolis reference for elementary rotating-frame kinematics
 
+### Tau-from-coupling generator context
+- Penrose (Moore--Penrose pseudoinverse)
+- Chung (spectral graph theory and weighted Laplacians)
+- Fiedler (algebraic connectivity of graphs)
+
 ## Use rule
 1. Bibliography entries may justify terminology, analogies, or standard background.
 2. Bibliography entries do not override canonical epistemic status in axioms/definitions/derivations.

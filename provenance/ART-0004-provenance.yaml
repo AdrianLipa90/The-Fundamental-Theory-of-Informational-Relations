@@ -1,0 +1,19 @@
+artifact_id: ART-0004
+status: defined
+generated_from:
+  simulation_id: SIM-0004
+  code_paths:
+    - Simulations/code/sim_tau_from_coupling.py
+    - src/ciel_foundations/solvers/tau_from_coupling_solver.py
+  formal_dependencies:
+    - DEF-0008
+    - D-0007
+parameters:
+  kernel:
+    - [0.0, 1.0, 0.2]
+    - [1.0, 0.0, 0.5]
+    - [0.2, 0.5, 0.0]
+  kappa: 1.0
+  tau_star: 1.0
+notes:
+  - This artifact is a toy 3x3 demonstration of the tau-from-coupling hypothesis.

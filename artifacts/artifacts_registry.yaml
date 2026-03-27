@@ -45,3 +45,17 @@ entries:
       - D-0006
     linked_tests:
       - tests/test_piko_fractal_spine.py
+
+  - artifact_id: ART-0004
+    name: tau_from_coupling_demo_csv
+    status: generated
+    path: Simulations/results/ART-0004-tau-from-coupling-demo.csv
+    sha256: 2498ad973c62da0b78d3003b53847e4ba8f2d7811af02f91abe39c687364a54a
+    created_utc: '2026-03-27'
+    code_source:
+      - Simulations/code/sim_tau_from_coupling.py
+      - src/ciel_foundations/solvers/tau_from_coupling_solver.py
+    linked_derivations:
+      - D-0007
+    linked_tests:
+      - tests/test_tau_from_coupling.py
