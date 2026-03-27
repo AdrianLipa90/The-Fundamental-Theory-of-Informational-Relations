@@ -1,0 +1,20 @@
+artifact_id: ART-0002
+status: defined
+generated_from:
+  simulation_id: SIM-0002
+  code_paths:
+    - Simulations/code/sim_nonlocal_holonomic_vortex.py
+    - src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py
+  formal_dependencies:
+    - AX-0005
+    - DEF-0005
+    - DEF-0006
+    - D-0004
+    - D-0005
+parameters:
+  omega: [0.0, 0.0, 1.0]
+  velocity: [1.0, 0.0, 0.0]
+  loop_segments: 4
+notes:
+  - This artifact is a toy spacetime-loop demonstration for a nonlocal holonomic vortex criterion.
+  - It is not yet a sector-scale physical fit.

@@ -16,3 +16,19 @@ entries:
       - demonstrate equatorial Berry phase accumulation
       - demonstrate spinorial minus sign after a full cycle
       - expose closure functional behavior for a simple phase pair
+
+  - simulation_id: SIM-0002
+    name: nonlocal_holonomic_vortex_demo
+    status: defined
+    code_path: Simulations/code/sim_nonlocal_holonomic_vortex.py
+    result_artifact_ids:
+      - ART-0002
+    depends_on:
+      - IF-0004
+      - D-0004
+      - D-0005
+    purpose:
+      - demonstrate local-attractor axis -> poles/equator structure
+      - demonstrate Coriolis term for a rotating local flow
+      - demonstrate nonzero spacetime circulation on a closed loop
+      - expose a toy nonlocal holonomic vortex criterion

@@ -1,0 +1,32 @@
+interface_id: IF-0004
+status: defined
+name: nonlocal_holonomic_vortex_interface
+upstream:
+  axioms:
+    - AX-0005
+  definitions:
+    - DEF-0005
+    - DEF-0006
+  derivations:
+    - D-0004
+    - D-0005
+python_modules:
+  - src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py
+required_functions:
+  - normalize_axis
+  - poles_from_axis
+  - point_on_equator
+  - order_parameter
+  - coriolis_term
+  - spacetime_circulation
+  - is_nonlocal_holonomic_vortex
+contract:
+  - axis normalization must be explicit
+  - poles must be antipodal normalized vectors
+  - equator test must be orthogonality-based
+  - spacetime circulation must operate on closed-loop segment data
+  - nonlocal vortex criterion must be based on nonzero closed-loop circulation
+linked_tests:
+  - tests/test_nonlocal_holonomic_vortex.py
+linked_simulations:
+  - SIM-0002

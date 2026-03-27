@@ -37,6 +37,17 @@ entries:
     canonical_symbol: Delta_H
     downstream_objects:
       - OBJ-CLOSURE-FUNCTIONAL-0001
+
+  - axiom_id: AX-0005
+    slug: local-attractor-hierarchy
+    status: axiom
+    statement: Every bounded or stabilized dynamical object carries a local attractor that organizes local relational flow in its neighborhood.
+    canonical_symbol: A_i
+    downstream_objects:
+      - OBJ-LOCAL-ATTRACTOR-0001
+      - OBJ-ORDER-PARAMETER-0001
+      - OBJ-NONLOCAL-HOLO-VORTEX-0001
 notes:
   - AX-0004 is not yet frozen as a zero-defect or nonzero-defect law.
   - It is registered to block interpretation from outrunning the derivation layer.
+  - AX-0005 introduces a local-attractor hierarchy but does not yet fix any single microphysical realization.

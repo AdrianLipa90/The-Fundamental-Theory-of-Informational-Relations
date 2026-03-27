@@ -27,3 +27,39 @@ entries:
       - src/ciel_foundations/holonomy/berry.py
       - src/ciel_foundations/closure/euler.py
       - tests/test_berry_and_closure.py
+
+  - derivation_id: D-0003
+    slug: regular-tetrahedron-on-s2
+    status: derived
+    depends_on:
+      - AX-0002
+      - DEF-0004
+    downstream:
+      - IF-0002
+      - src/ciel_foundations/solvers/tetrahedral_relational_frame_solver.py
+      - tests/test_tetrahedral_relational_frame.py
+
+  - derivation_id: D-0004
+    slug: local-attractor-axis-and-coriolis
+    status: derived
+    depends_on:
+      - AX-0005
+      - DEF-0005
+      - DEF-0006
+    downstream:
+      - IF-0004
+      - src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py
+      - tests/test_nonlocal_holonomic_vortex.py
+
+  - derivation_id: D-0005
+    slug: spacetime-holonomic-circulation
+    status: derived
+    depends_on:
+      - DEF-0002
+      - DEF-0003
+      - DEF-0006
+    downstream:
+      - IF-0004
+      - src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py
+      - tests/test_nonlocal_holonomic_vortex.py
+      - Simulations/code/sim_nonlocal_holonomic_vortex.py

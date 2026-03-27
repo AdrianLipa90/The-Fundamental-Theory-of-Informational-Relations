@@ -1,0 +1,28 @@
+falsification_id: FM-0002
+status: defined
+scope: local_attractor_and_nonlocal_holonomic_vortex_layer
+claims:
+  - claim_id: CL-0005
+    statement: a nonzero local rotation axis defines antipodal poles and an orthogonal equator
+    target_tests:
+      - tests/test_nonlocal_holonomic_vortex.py::test_poles_from_axis_returns_antipodal_unit_vectors
+      - tests/test_nonlocal_holonomic_vortex.py::test_point_on_equator_for_z_axis_accepts_x_direction
+    failure_condition: poles are not antipodal or equator test fails for orthogonal directions
+
+  - claim_id: CL-0006
+    statement: the local order parameter reproduces the expected polar-form complex amplitude
+    target_tests:
+      - tests/test_nonlocal_holonomic_vortex.py::test_order_parameter_returns_expected_complex_value
+    failure_condition: solver no longer matches polar-form construction
+
+  - claim_id: CL-0007
+    statement: a rotating local frame produces the standard Coriolis-like term
+    target_tests:
+      - tests/test_nonlocal_holonomic_vortex.py::test_coriolis_term_for_z_axis_and_x_velocity_points_minus_y
+    failure_condition: Coriolis term deviates from the registered toy rotating-frame formula
+
+  - claim_id: CL-0008
+    statement: nonzero closed spacetime circulation is sufficient for the toy nonlocal holonomic vortex criterion
+    target_tests:
+      - tests/test_nonlocal_holonomic_vortex.py::test_nonlocal_holonomic_vortex_has_nonzero_spacetime_circulation
+    failure_condition: registered closed-loop toy circulation becomes zero or fails vortex predicate
