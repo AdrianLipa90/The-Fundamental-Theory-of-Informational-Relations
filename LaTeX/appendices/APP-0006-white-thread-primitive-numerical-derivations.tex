@@ -1,0 +1,43 @@
+\appendix
+\section{Numerical Appendix: White-Thread U(1) Primitive}
+\label{app:white-thread-primitive}
+
+\subsection{Toy path integral}
+Take the registered segmented integral values
+\begin{equation}
+(0.2,\ 0.3,\ -0.1),
+\end{equation}
+so the total phase is
+\begin{equation}
+\phi = 0.2+0.3-0.1 = 0.4.
+\end{equation}
+Hence the abelian holonomy is
+\begin{equation}
+U = e^{i\phi} = e^{0.4 i}.
+\end{equation}
+
+\subsection{Primitive matrix element}
+For the registered toy states
+\begin{equation}
+\Psi_i = (1,0),
+\qquad
+\Psi_j = (0.6,0.8),
+\end{equation}
+with unit norms, the bare overlap is $\langle\Psi_i|\Psi_j\rangle = 0.6$. Therefore
+\begin{equation}
+W_{ij} = 0.6 e^{0.4 i},
+\end{equation}
+so numerically
+\begin{equation}
+W_{ij} \approx 0.5526365964 + 0.2336510054 i,
+\qquad
+|W_{ij}| = 0.6.
+\end{equation}
+
+\subsection{Executable realization}
+The corresponding executable modules are:
+\begin{itemize}
+  \item \texttt{src/ciel\_foundations/solvers/white\_thread\_primitive\_solver.py}
+  \item \texttt{tests/test\_white\_thread\_primitive.py}
+  \item \texttt{Simulations/code/sim\_white\_thread\_primitive.py}
+\end{itemize}
