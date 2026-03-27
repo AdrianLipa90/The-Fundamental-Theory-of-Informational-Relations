@@ -57,6 +57,11 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - [D-0007](derivations/D-0007-tau-from-coupling-laplacian.md)
 - [IF-0006](interfaces/IF-0006-tau-from-coupling.yaml)
 
+### Phase-aware composition of the pairwise kernel
+- [DEF-0009](definitions/DEF-0009-phase-aware-kernel-composition.md)
+- [D-0008](derivations/D-0008-kernel-from-holonomy-phase-and-closure.md)
+- [IF-0007](interfaces/IF-0007-phase-aware-kernel-composition.yaml)
+
 ## Executable bindings
 ### Solvers
 - [minimal_cp1_berry_spin_solver.py](src/ciel_foundations/solvers/minimal_cp1_berry_spin_solver.py)
@@ -64,6 +69,7 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - [nonlocal_holonomic_vortex_solver.py](src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py)
 - [piko_fractal_spine_solver.py](src/ciel_foundations/solvers/piko_fractal_spine_solver.py)
 - [tau_from_coupling_solver.py](src/ciel_foundations/solvers/tau_from_coupling_solver.py)
+- [phase_aware_kernel_solver.py](src/ciel_foundations/solvers/phase_aware_kernel_solver.py)
 
 ### Tests
 - [test_projective_state.py](tests/test_projective_state.py)
@@ -72,6 +78,7 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - [test_nonlocal_holonomic_vortex.py](tests/test_nonlocal_holonomic_vortex.py)
 - [test_piko_fractal_spine.py](tests/test_piko_fractal_spine.py)
 - [test_tau_from_coupling.py](tests/test_tau_from_coupling.py)
+- [test_phase_aware_kernel.py](tests/test_phase_aware_kernel.py)
 
 ### Simulations
 - [sim_cp1_berry_spin.py](Simulations/code/sim_cp1_berry_spin.py)
@@ -86,12 +93,14 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - [WP-MOD-local-attractor-holonomic-vortex](whitepapers/WP-MOD-local-attractor-holonomic-vortex.md)
 - [WP-MOD-fractal-foundations-spine](whitepapers/WP-MOD-fractal-foundations-spine.md)
 - [WP-MOD-tau-from-coupling](whitepapers/WP-MOD-tau-from-coupling.md)
+- [WP-MOD-phase-aware-kernel-composition](whitepapers/WP-MOD-phase-aware-kernel-composition.md)
 
 ### LaTeX
 - [SEC-0002](LaTeX/sections/SEC-0002-tetrahedral-relational-frame.tex)
 - [SEC-0003](LaTeX/sections/SEC-0003-local-attractor-holonomic-vortex.tex)
 - [SEC-0004](LaTeX/sections/SEC-0004-fractal-foundations-spine.tex)
 - [SEC-0005](LaTeX/sections/SEC-0005-tau-from-coupling.tex)
+- [SEC-0006](LaTeX/sections/SEC-0006-phase-aware-kernel-composition.tex)
 - [APP-0001](LaTeX/appendices/APP-0001-minimal-cp1-berry-spin-numerical-derivations.tex)
 - [APP-0002](LaTeX/appendices/APP-0002-tetrahedral-frame-numerical-derivations.tex)
 - [APP-0003](LaTeX/appendices/APP-0003-rotating-superfluid-field-numerical-derivations.tex)

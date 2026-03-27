@@ -93,6 +93,15 @@ Routing must always preserve:
 - [section](../../LaTeX/sections/SEC-0005-tau-from-coupling.tex)
 - [appendix](../../LaTeX/appendices/APP-0005-tau-from-coupling-numerical-derivations.tex)
 
+### Phase-aware kernel composition chain
+- [DEF-0009](../../definitions/DEF-0009-phase-aware-kernel-composition.md)
+- [D-0008](../../derivations/D-0008-kernel-from-holonomy-phase-and-closure.md)
+- [IF-0007](../../interfaces/IF-0007-phase-aware-kernel-composition.yaml)
+- [solver](../../src/ciel_foundations/solvers/phase_aware_kernel_solver.py)
+- [test](../../tests/test_phase_aware_kernel.py)
+- [whitepaper](../../whitepapers/WP-MOD-phase-aware-kernel-composition.md)
+- [section](../../LaTeX/sections/SEC-0006-phase-aware-kernel-composition.tex)
+
 ## Routing policy
 1. Start from `README.md`, `INDEX.md`, or `index.md`.
 2. Enter the target object through its registry or interface.
@@ -101,7 +110,6 @@ Routing must always preserve:
 5. Treat bibliography as support for attribution and context, not as an automatic epistemic upgrade.
 
 ## Next downstream modules to orchestrate
-- explicit phase-aware construction of `A_ij` from `W_ij`, phase differences, and closure data
 - active closure law
 - white-thread primitives
 - tensor-scalar extension

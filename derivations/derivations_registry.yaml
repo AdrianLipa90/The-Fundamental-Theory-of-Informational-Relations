@@ -90,3 +90,14 @@ entries:
       - src/ciel_foundations/solvers/tau_from_coupling_solver.py
       - tests/test_tau_from_coupling.py
       - Simulations/code/sim_tau_from_coupling.py
+
+  - derivation_id: D-0008
+    slug: kernel-from-holonomy-phase-and-closure
+    status: hypothesis
+    depends_on:
+      - DEF-0008
+      - DEF-0009
+    downstream:
+      - IF-0007
+      - src/ciel_foundations/solvers/phase_aware_kernel_solver.py
+      - tests/test_phase_aware_kernel.py

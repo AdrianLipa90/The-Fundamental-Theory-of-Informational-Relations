@@ -116,3 +116,24 @@ entries:
     status: hypothesis
     depends_on:
       - OBJ-PAIRWISE-KERNEL-0001
+
+  - object_id: OBJ-PHASE-AWARE-KERNEL-0001
+    name: phase_aware_pairwise_kernel
+    file: definitions/DEF-0009-phase-aware-kernel-composition.md
+    status: hypothesis
+    depends_on:
+      - OBJ-PAIRWISE-KERNEL-0001
+
+  - object_id: OBJ-PHASE-ALIGNMENT-0001
+    name: phase_alignment_weight
+    file: definitions/DEF-0009-phase-aware-kernel-composition.md
+    status: defined
+    depends_on:
+      - DEF-0002
+
+  - object_id: OBJ-CLOSURE-WEIGHT-0001
+    name: closure_weight
+    file: definitions/DEF-0009-phase-aware-kernel-composition.md
+    status: defined
+    depends_on:
+      - DEF-0003

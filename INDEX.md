@@ -104,8 +104,12 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `D-0007` (`hypothesis`)
 - `interfaces/IF-0006-tau-from-coupling.yaml`
 
+### Phase-aware composition of the pairwise kernel
+- `DEF-0009` (`hypothesis`)
+- `D-0008` (`hypothesis`)
+- `interfaces/IF-0007-phase-aware-kernel-composition.yaml`
+
 ## Current next-layer targets
-- explicit phase-aware construction of `A_ij` from `W_ij`, phase differences, and closure data
 - active closure law
 - white-thread primitives
 - tensor-scalar extension

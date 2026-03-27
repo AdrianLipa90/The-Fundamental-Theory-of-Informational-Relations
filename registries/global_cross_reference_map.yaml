@@ -125,6 +125,21 @@ active_groups:
       - ../../provenance/ART-0004-provenance.yaml
       - ../../falsification/FM-0004-tau-from-coupling.yaml
 
+  phase_aware_kernel_composition:
+    definitions:
+      - ../../definitions/DEF-0009-phase-aware-kernel-composition.md
+    derivations:
+      - ../../derivations/D-0008-kernel-from-holonomy-phase-and-closure.md
+    interfaces:
+      - ../../interfaces/IF-0007-phase-aware-kernel-composition.yaml
+    code:
+      - ../../src/ciel_foundations/solvers/phase_aware_kernel_solver.py
+    tests:
+      - ../../tests/test_phase_aware_kernel.py
+    paper:
+      - ../../whitepapers/WP-MOD-phase-aware-kernel-composition.md
+      - ../../LaTeX/sections/SEC-0006-phase-aware-kernel-composition.tex
+
   bibliography_seed:
     bibliography:
       - ../../bibliography/README.md

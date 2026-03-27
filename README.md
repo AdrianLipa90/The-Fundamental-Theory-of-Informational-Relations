@@ -83,6 +83,15 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - LaTeX section: `LaTeX/sections/SEC-0005-tau-from-coupling.tex`
 - LaTeX appendix: `LaTeX/appendices/APP-0005-tau-from-coupling-numerical-derivations.tex`
 
+### Phase-aware composition of the pairwise kernel
+- definition status: `DEF-0009` (`hypothesis`)
+- derivation status: `D-0008` (`hypothesis`)
+- interface: `interfaces/IF-0007-phase-aware-kernel-composition.yaml`
+- code: `src/ciel_foundations/solvers/phase_aware_kernel_solver.py`
+- tests: `tests/test_phase_aware_kernel.py`
+- paper: `whitepapers/WP-MOD-phase-aware-kernel-composition.md`
+- LaTeX section: `LaTeX/sections/SEC-0006-phase-aware-kernel-composition.tex`
+
 ## Scope
 Included now:
 - axioms
