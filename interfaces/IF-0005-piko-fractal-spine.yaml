@@ -16,7 +16,7 @@ required_functions:
   - spine_consistency_score
 contract:
   - the snapshot must expose outputs from all three active piko layers
-  - the consistency score must be explicit and bounded
+  - the consistency score must be explicit, bounded, and aggregate registered checks across all active piko layers
 linked_tests:
   - tests/test_piko_fractal_spine.py
 linked_simulations:

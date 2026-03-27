@@ -21,6 +21,8 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md` — orchestration layer for active modules
 - `registries/global_index_registry.yaml` — machine-readable root index authority
 - `registries/global_cross_reference_map.yaml` — active global cross-reference spine for current foundations modules
+- `registries/agent_authority_registry.yaml` — canonical agent-file authority
+- `bibliography/README.md` — bibliography entrypoint
 
 ### Core governance
 - `AGENT.md`
@@ -107,6 +109,7 @@ PDF files are generated artifacts, not source of truth.
 - `tests/` — symbolic, numeric, and falsification-facing tests
 - `whitepapers/` — paper-backed explanatory modules
 - `LaTeX/` — publication sections and appendices
+- `bibliography/` — literature support surfaces
 - `Simulations/` — code, results, registry
 - `artifacts/` / `provenance/` / `falsification/` — traceability and failure criteria
 
@@ -115,6 +118,6 @@ Repository-wide navigation should behave like a global organizational coupling g
 \[
 W_{ij}^{Global}: \text{object}_i \leftrightarrow \text{object}_j
 \]
-realized through hyperlinks, registries, dependency DAGs, interfaces, tests, simulations, artifacts, and provenance.
+realized through hyperlinks, registries, dependency DAGs, interfaces, tests, simulations, artifacts, provenance, and bibliography.
 
 # The-Fundamental-Theory-of-Informational-Relations

@@ -5,6 +5,7 @@ def test_piko_fractal_spine_snapshot_contains_all_layers():
     snap = build_spine_snapshot()
     assert "cp1_bloch" in snap
     assert "tetrahedron_vertices" in snap
+    assert "tetrahedron_dot_matrix" in snap
     assert "local_poles" in snap
     assert "nonlocal_vortex" in snap
 
@@ -12,3 +13,9 @@ def test_piko_fractal_spine_snapshot_contains_all_layers():
 def test_piko_fractal_spine_consistency_score_is_one_for_registered_snapshot():
     snap = build_spine_snapshot()
     assert abs(spine_consistency_score(snap) - 1.0) < 1e-12
+
+
+def test_piko_fractal_spine_score_drops_if_one_registered_check_is_broken():
+    snap = build_spine_snapshot()
+    snap["tetrahedron_dot_matrix"][0][1] = 0.0
+    assert spine_consistency_score(snap) < 1.0

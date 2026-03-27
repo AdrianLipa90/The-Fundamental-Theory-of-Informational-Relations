@@ -11,7 +11,7 @@ Organizationally, it plays the role of a repository-wide coupling spine:
 \[
 W_{ij}^{Global}: \text{object}_i \leftrightarrow \text{object}_j
 \]
-implemented through hyperlinks, registries, dependency DAGs, interfaces, tests, artifacts, and provenance.
+implemented through hyperlinks, registries, dependency DAGs, interfaces, tests, artifacts, provenance, and bibliography.
 
 ## Core rule
 Nothing becomes stable here by narration alone.
@@ -30,6 +30,8 @@ Routing must always preserve:
 - [ORGANIZATION.md](../../ORGANIZATION.md)
 - [STRUCTURE.md](../../STRUCTURE.md)
 - [ROADMAP.md](../../ROADMAP.md)
+- [Agent authority](../../registries/agent_authority_registry.yaml)
+- [Bibliography](../../bibliography/README.md)
 
 ### Canonical formal layer
 - [axioms/](../../axioms/)
@@ -46,9 +48,10 @@ Routing must always preserve:
 - [provenance/](../../provenance/)
 - [falsification/](../../falsification/)
 
-### Paper layer
+### Paper and source layer
 - [whitepapers/](../../whitepapers/)
 - [LaTeX/](../../LaTeX/)
+- [bibliography/](../../bibliography/)
 
 ## Current active module group
 ### Minimal projective / Berry / spin chain
@@ -61,21 +64,11 @@ Routing must always preserve:
 - [D-0001](../../derivations/D-0001-hilbert-to-projective-cp1.md)
 - [D-0002](../../derivations/D-0002-berry-phase-and-spinor-sign.md)
 - [IF-0001](../../interfaces/IF-0001-minimal-cp1-berry-spin.yaml)
-- [solver](../../src/ciel_foundations/solvers/minimal_cp1_berry_spin_solver.py)
-- [tests](../../tests/test_projective_state.py)
-- [tests](../../tests/test_berry_and_closure.py)
-- [whitepaper](../../whitepapers/WP-MOD-minimal-projective-berry-spin.md)
-- [appendix](../../LaTeX/appendices/APP-0001-minimal-cp1-berry-spin-numerical-derivations.tex)
 
 ### Tetrahedral extension chain
 - [DEF-0004](../../definitions/DEF-0004-regular-tetrahedron-on-s2.md)
 - [D-0003](../../derivations/D-0003-regular-tetrahedron-on-s2.md)
 - [IF-0002](../../interfaces/IF-0002-tetrahedral-relational-frame.yaml)
-- [solver](../../src/ciel_foundations/solvers/tetrahedral_relational_frame_solver.py)
-- [test](../../tests/test_tetrahedral_relational_frame.py)
-- [whitepaper](../../whitepapers/WP-MOD-tetrahedral-relational-frame.md)
-- [section](../../LaTeX/sections/SEC-0002-tetrahedral-relational-frame.tex)
-- [appendix](../../LaTeX/appendices/APP-0002-tetrahedral-frame-numerical-derivations.tex)
 
 ### Local attractor / nonlocal holonomic vortex chain
 - [AX-0005](../../axioms/AX-0005-local-attractor-hierarchy.md)
@@ -84,27 +77,18 @@ Routing must always preserve:
 - [D-0004](../../derivations/D-0004-local-attractor-axis-and-coriolis.md)
 - [D-0005](../../derivations/D-0005-spacetime-holonomic-circulation.md)
 - [IF-0004](../../interfaces/IF-0004-nonlocal-holonomic-vortex.yaml)
-- [solver](../../src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py)
-- [test](../../tests/test_nonlocal_holonomic_vortex.py)
-- [whitepaper](../../whitepapers/WP-MOD-local-attractor-holonomic-vortex.md)
-- [section](../../LaTeX/sections/SEC-0003-local-attractor-holonomic-vortex.tex)
-- [appendix](../../LaTeX/appendices/APP-0003-rotating-superfluid-field-numerical-derivations.tex)
 
 ### Fractal foundations spine chain
 - [DEF-0007](../../definitions/DEF-0007-fractal-foundations-spine.md)
 - [D-0006](../../derivations/D-0006-fractal-inheritance-chain.md)
 - [IF-0005](../../interfaces/IF-0005-piko-fractal-spine.yaml)
-- [solver](../../src/ciel_foundations/solvers/piko_fractal_spine_solver.py)
-- [test](../../tests/test_piko_fractal_spine.py)
-- [whitepaper](../../whitepapers/WP-MOD-fractal-foundations-spine.md)
-- [section](../../LaTeX/sections/SEC-0004-fractal-foundations-spine.tex)
-- [appendix](../../LaTeX/appendices/APP-0004-piko-fractal-spine-numerical-derivations.tex)
 
 ## Routing policy
-1. Start from `INDEX.md` or `index.md`.
+1. Start from `README.md`, `INDEX.md`, or `index.md`.
 2. Enter the target object through its registry or interface.
 3. Follow the dependency DAG upstream before touching downstream code.
 4. Use this orchestrator only as a global navigator, never as an alternative source of truth.
+5. Treat bibliography as support for attribution and context, not as an automatic epistemic upgrade.
 
 ## Next downstream modules to orchestrate
 - active closure law

@@ -4,7 +4,7 @@ scope: active canonical foundations cross references beyond the older imported M
 principle:
   - This file is a machine-readable realization of the current active global cross-reference spine.
   - It does not replace local registries or derivation DAGs.
-  - It complements them by exposing active grouped routes across theory, code, tests, simulations, artifacts, and paper objects.
+  - It complements them by exposing active grouped routes across theory, code, tests, simulations, artifacts, paper objects, and bibliography.
 active_groups:
   minimal_projective_berry_spin:
     axioms:
@@ -103,6 +103,16 @@ active_groups:
       - ../../provenance/ART-0003-provenance.yaml
       - ../../falsification/FM-0003-piko-fractal-spine.yaml
 
+  bibliography_seed:
+    bibliography:
+      - ../../bibliography/README.md
+      - ../../bibliography/foundations_seed.bib
+
+  agent_authority:
+    governance:
+      - ../../AGENT.md
+      - ../../registries/agent_authority_registry.yaml
+
   root_navigation_authority:
     governance:
       - ../../README.md
@@ -117,6 +127,7 @@ active_groups:
       - ../../registries/global_index_registry.yaml
       - ../../registries/cross_reference_map.yaml
       - ../../registries/global_cross_reference_map.yaml
+      - ../../registries/agent_authority_registry.yaml
     orchestrator:
       - ../../systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md
 notes:
