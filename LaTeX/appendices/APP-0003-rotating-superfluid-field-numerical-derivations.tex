@@ -1,0 +1,53 @@
+\appendix
+\section{Numerical Appendix: Rotating Local Attractor Field and Nonlocal Holonomic Vortex}
+\label{app:rotating-local-attractor-vortex}
+
+\subsection{Axis, poles, and equator}
+For a local angular velocity
+\begin{equation}
+\Omega = (0,0,1),
+\end{equation}
+the normalized axis is already unit. Hence
+\begin{equation}
+P^{+}=(0,0,1),\qquad P^{-}=(0,0,-1),
+\end{equation}
+and the equator consists of vectors orthogonal to $(0,0,1)$.
+
+\subsection{Order parameter demo}
+For $\rho=4$ and $\theta=\pi/2$,
+\begin{equation}
+\Psi = \sqrt{4}e^{i\pi/2}=2i.
+\end{equation}
+
+\subsection{Coriolis demo}
+For
+\begin{equation}
+\Omega=(0,0,1),\qquad u=(1,0,0),
+\end{equation}
+we obtain
+\begin{equation}
+F_C = -2\Omega\times u = (0,-2,0).
+\end{equation}
+
+\subsection{Toy spacetime circulation}
+For the closed spacetime-loop segments
+\begin{equation}
+(0,1,0,0),\quad (1,0,0,0),\quad (0,-1,0,0),\quad (-1,0,0,0)
+\end{equation}
+and matching one-form values
+\begin{equation}
+(0,1,0,0),\quad (1,0,0,0),\quad (0,-1,0,0),\quad (-1,0,0,0),
+\end{equation}
+we obtain
+\begin{equation}
+\Gamma = 1+1+1+1 = 4 \neq 0.
+\end{equation}
+Hence the toy loop satisfies the registered nonlocal holonomic vortex criterion.
+
+\subsection{Executable realization}
+The corresponding executable modules are:
+\begin{itemize}
+  \item \texttt{src/ciel\_foundations/solvers/nonlocal\_holonomic\_vortex\_solver.py}
+  \item \texttt{tests/test\_nonlocal\_holonomic\_vortex.py}
+  \item \texttt{Simulations/code/sim\_nonlocal\_holonomic\_vortex.py}
+\end{itemize}

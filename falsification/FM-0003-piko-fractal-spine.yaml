@@ -1,0 +1,15 @@
+falsification_id: FM-0003
+status: defined
+scope: piko_fractal_foundations_spine
+claims:
+  - claim_id: CL-0009
+    statement: the consolidated spine snapshot exposes outputs from all three active piko layers
+    target_tests:
+      - tests/test_piko_fractal_spine.py::test_piko_fractal_spine_snapshot_contains_all_layers
+    failure_condition: snapshot omits one of the three registered piko layers
+
+  - claim_id: CL-0010
+    statement: the registered toy consolidated snapshot saturates the bounded consistency score
+    target_tests:
+      - tests/test_piko_fractal_spine.py::test_piko_fractal_spine_consistency_score_is_one_for_registered_snapshot
+    failure_condition: registered snapshot no longer reaches score 1 in the toy consolidation

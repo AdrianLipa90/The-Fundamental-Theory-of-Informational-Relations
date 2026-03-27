@@ -1,0 +1,124 @@
+registry_id: REG-GLO-XREF-0001
+status: defined
+scope: active canonical foundations cross references beyond the older imported Metatime map
+principle:
+  - This file is a machine-readable realization of the current active global cross-reference spine.
+  - It does not replace local registries or derivation DAGs.
+  - It complements them by exposing active grouped routes across theory, code, tests, simulations, artifacts, and paper objects.
+active_groups:
+  minimal_projective_berry_spin:
+    axioms:
+      - ../../axioms/AX-0001-projective-state-space.md
+      - ../../axioms/AX-0002-kahler-fubini-study-structure.md
+      - ../../axioms/AX-0003-spinor-sign-under-2pi.md
+    definitions:
+      - ../../definitions/DEF-0001-projective-ray-and-cp1.md
+      - ../../definitions/DEF-0002-berry-connection-and-phase.md
+      - ../../definitions/DEF-0003-closure-functional.md
+    derivations:
+      - ../../derivations/D-0001-hilbert-to-projective-cp1.md
+      - ../../derivations/D-0002-berry-phase-and-spinor-sign.md
+    interfaces:
+      - ../../interfaces/IF-0001-minimal-cp1-berry-spin.yaml
+    code:
+      - ../../src/ciel_foundations/geometry/projective_state.py
+      - ../../src/ciel_foundations/holonomy/berry.py
+      - ../../src/ciel_foundations/closure/euler.py
+      - ../../src/ciel_foundations/solvers/minimal_cp1_berry_spin_solver.py
+    tests:
+      - ../../tests/test_projective_state.py
+      - ../../tests/test_berry_and_closure.py
+    paper:
+      - ../../whitepapers/WP-MOD-minimal-projective-berry-spin.md
+      - ../../LaTeX/appendices/APP-0001-minimal-cp1-berry-spin-numerical-derivations.tex
+    simulations:
+      - ../../Simulations/code/sim_cp1_berry_spin.py
+      - ../../Simulations/results/ART-0001-cp1-berry-spin-demo.csv
+    artifacts:
+      - ../../artifacts/artifacts_registry.yaml
+      - ../../provenance/ART-0001-provenance.yaml
+      - ../../falsification/FM-0001-minimal-cp1-berry-spin.yaml
+
+  tetrahedral_relational_frame:
+    definitions:
+      - ../../definitions/DEF-0004-regular-tetrahedron-on-s2.md
+    derivations:
+      - ../../derivations/D-0003-regular-tetrahedron-on-s2.md
+    interfaces:
+      - ../../interfaces/IF-0002-tetrahedral-relational-frame.yaml
+    code:
+      - ../../src/ciel_foundations/solvers/tetrahedral_relational_frame_solver.py
+    tests:
+      - ../../tests/test_tetrahedral_relational_frame.py
+    paper:
+      - ../../whitepapers/WP-MOD-tetrahedral-relational-frame.md
+      - ../../LaTeX/sections/SEC-0002-tetrahedral-relational-frame.tex
+      - ../../LaTeX/appendices/APP-0002-tetrahedral-frame-numerical-derivations.tex
+
+  local_attractor_nonlocal_vortex:
+    axioms:
+      - ../../axioms/AX-0005-local-attractor-hierarchy.md
+    definitions:
+      - ../../definitions/DEF-0005-local-attractor-and-order-parameter.md
+      - ../../definitions/DEF-0006-nonlocal-holonomic-vortex.md
+    derivations:
+      - ../../derivations/D-0004-local-attractor-axis-and-coriolis.md
+      - ../../derivations/D-0005-spacetime-holonomic-circulation.md
+    interfaces:
+      - ../../interfaces/IF-0004-nonlocal-holonomic-vortex.yaml
+    code:
+      - ../../src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py
+    tests:
+      - ../../tests/test_nonlocal_holonomic_vortex.py
+    paper:
+      - ../../whitepapers/WP-MOD-local-attractor-holonomic-vortex.md
+      - ../../LaTeX/sections/SEC-0003-local-attractor-holonomic-vortex.tex
+      - ../../LaTeX/appendices/APP-0003-rotating-superfluid-field-numerical-derivations.tex
+    simulations:
+      - ../../Simulations/code/sim_nonlocal_holonomic_vortex.py
+      - ../../Simulations/results/ART-0002-nonlocal-holonomic-vortex-demo.csv
+    artifacts:
+      - ../../provenance/ART-0002-provenance.yaml
+      - ../../falsification/FM-0002-nonlocal-holonomic-vortex.yaml
+
+  piko_fractal_foundations_spine:
+    definitions:
+      - ../../definitions/DEF-0007-fractal-foundations-spine.md
+    derivations:
+      - ../../derivations/D-0006-fractal-inheritance-chain.md
+    interfaces:
+      - ../../interfaces/IF-0005-piko-fractal-spine.yaml
+    code:
+      - ../../src/ciel_foundations/solvers/piko_fractal_spine_solver.py
+    tests:
+      - ../../tests/test_piko_fractal_spine.py
+    paper:
+      - ../../whitepapers/WP-MOD-fractal-foundations-spine.md
+      - ../../LaTeX/sections/SEC-0004-fractal-foundations-spine.tex
+      - ../../LaTeX/appendices/APP-0004-piko-fractal-spine-numerical-derivations.tex
+    simulations:
+      - ../../Simulations/code/sim_piko_fractal_spine.py
+      - ../../Simulations/results/ART-0003-piko-fractal-spine-demo.csv
+    artifacts:
+      - ../../provenance/ART-0003-provenance.yaml
+      - ../../falsification/FM-0003-piko-fractal-spine.yaml
+
+  root_navigation_authority:
+    governance:
+      - ../../README.md
+      - ../../AGENT.md
+      - ../../INDEX.md
+      - ../../index.md
+      - ../../PROJECT_CHARTER.md
+      - ../../ORGANIZATION.md
+      - ../../STRUCTURE.md
+      - ../../ROADMAP.md
+    machine_authority:
+      - ../../registries/global_index_registry.yaml
+      - ../../registries/cross_reference_map.yaml
+      - ../../registries/global_cross_reference_map.yaml
+    orchestrator:
+      - ../../systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md
+notes:
+  - The older `registries/cross_reference_map.yaml` remains valid as a sector/object topology map for the imported Metatime layer.
+  - This file tracks the active foundations module graph currently being built on `main`.

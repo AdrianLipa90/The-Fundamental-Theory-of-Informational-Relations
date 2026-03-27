@@ -16,3 +16,32 @@ entries:
     linked_tests:
       - tests/test_projective_state.py
       - tests/test_berry_and_closure.py
+
+  - artifact_id: ART-0002
+    name: nonlocal_holonomic_vortex_demo_csv
+    status: generated
+    path: Simulations/results/ART-0002-nonlocal-holonomic-vortex-demo.csv
+    sha256: 235e2fb1591a59169442efb0a299af51e738cf23c5a43a51c4423cd17431cb81
+    created_utc: '2026-03-27'
+    code_source:
+      - Simulations/code/sim_nonlocal_holonomic_vortex.py
+      - src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py
+    linked_derivations:
+      - D-0004
+      - D-0005
+    linked_tests:
+      - tests/test_nonlocal_holonomic_vortex.py
+
+  - artifact_id: ART-0003
+    name: piko_fractal_spine_demo_csv
+    status: generated
+    path: Simulations/results/ART-0003-piko-fractal-spine-demo.csv
+    sha256: c72b8a2477f31ff9ac84f0dc1bf6d4bb4b3ca37dd8252c70ad1c133e36f08eea
+    created_utc: '2026-03-27'
+    code_source:
+      - Simulations/code/sim_piko_fractal_spine.py
+      - src/ciel_foundations/solvers/piko_fractal_spine_solver.py
+    linked_derivations:
+      - D-0006
+    linked_tests:
+      - tests/test_piko_fractal_spine.py
