@@ -1,0 +1,39 @@
+\appendix
+\section{Numerical Appendix: Dynamic Path Weights from Semantic Action}
+\label{app:dynamic-path-weights}
+
+\subsection{Toy actions}
+For three candidate paths, take the registered action values
+\begin{equation}
+\mathcal S = (1.6,\ 2.9,\ 2.0)
+\end{equation}
+with $\sigma = 1.5$.
+
+\subsection{Normalized weights}
+The corresponding normalized weights are
+\begin{equation}
+\alpha \approx (0.53087315,\ 0.07574431,\ 0.39338254).
+\end{equation}
+The lowest-action path receives the largest weight.
+
+\subsection{Effective amplitude}
+For the registered primitive amplitudes
+\begin{equation}
+W^{(1)} = 1.0,
+\qquad
+W^{(2)} = 0.2+0.6i,
+\qquad
+W^{(3)} = 0.5+0.2i,
+\end{equation}
+we obtain
+\begin{equation}
+W^{\mathrm{eff}} \approx 0.74224129 + 0.12412309 i.
+\end{equation}
+
+\subsection{Executable realization}
+The corresponding executable modules are:
+\begin{itemize}
+  \item \texttt{src/ciel\_foundations/solvers/dynamic\_path\_weights\_solver.py}
+  \item \texttt{tests/test\_dynamic\_path\_weights.py}
+  \item \texttt{Simulations/code/sim\_dynamic\_path\_weights.py}
+\end{itemize}

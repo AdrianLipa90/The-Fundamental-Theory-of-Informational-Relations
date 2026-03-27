@@ -1,0 +1,21 @@
+falsification_id: FM-0006
+status: defined
+scope: dynamic_path_weights_from_semantic_action
+claims:
+  - claim_id: CL-0018
+    statement: softmax weights are normalized and nonnegative
+    target_tests:
+      - tests/test_dynamic_path_weights.py::test_softmax_weights_are_normalized_and_nonnegative
+    failure_condition: normalized weights cease to sum to one or become negative
+
+  - claim_id: CL-0019
+    statement: lower action receives higher weight for positive sigma
+    target_tests:
+      - tests/test_dynamic_path_weights.py::test_lower_action_receives_higher_weight_for_positive_sigma
+    failure_condition: higher-action paths are not penalized relative to lower-action paths
+
+  - claim_id: CL-0020
+    statement: the action-weighted effective White-Thread prefers lower-action primitives
+    target_tests:
+      - tests/test_dynamic_path_weights.py::test_effective_white_thread_from_actions_prefers_lower_action_path
+    failure_condition: the effective amplitude no longer reflects the lower-action preference in the registered toy setup

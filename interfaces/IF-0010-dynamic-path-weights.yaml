@@ -1,0 +1,22 @@
+interface_id: IF-0010
+status: defined
+name: dynamic_path_weights_interface
+upstream:
+  definitions:
+    - DEF-0012
+  derivations:
+    - D-0011
+python_modules:
+  - src/ciel_foundations/solvers/dynamic_path_weights_solver.py
+required_functions:
+  - path_action
+  - softmax_weights
+  - effective_white_thread_from_actions
+contract:
+  - actions must be scalar-valued and finite
+  - normalized weights must sum to one and remain nonnegative
+  - lower-action paths must receive larger weights when sigma is positive and actions differ
+linked_tests:
+  - tests/test_dynamic_path_weights.py
+linked_simulations:
+  - SIM-0006

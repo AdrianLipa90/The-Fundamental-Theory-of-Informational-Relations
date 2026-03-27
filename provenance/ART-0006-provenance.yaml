@@ -1,0 +1,15 @@
+artifact_id: ART-0006
+status: defined
+generated_from:
+  simulation_id: SIM-0006
+  code_paths:
+    - Simulations/code/sim_dynamic_path_weights.py
+    - src/ciel_foundations/solvers/dynamic_path_weights_solver.py
+  formal_dependencies:
+    - DEF-0011
+    - DEF-0012
+    - D-0011
+parameters:
+  sigma: 1.5
+notes:
+  - This artifact is a toy demonstration of dynamic softmax weights over a loose-thread bundle.
