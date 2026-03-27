@@ -1,0 +1,25 @@
+registry_id: REG-DER-EXT-0001
+status: defined
+scope: extension derivations beyond minimal CP1 layer
+entries:
+  - derivation_id: D-0003
+    slug: regular-tetrahedron-on-s2
+    status: derived
+    depends_on:
+      - AX-0002
+      - DEF-0004
+    downstream:
+      - WP-MOD-tetrahedral-relational-frame
+      - LaTeX/sections/SEC-0002-tetrahedral-relational-frame.tex
+
+  - derivation_id: D-0004
+    slug: numerical-cp1-berry-spin-appendix
+    status: derived
+    depends_on:
+      - D-0001
+      - D-0002
+      - IF-0001
+    downstream:
+      - WP-MOD-minimal-projective-berry-spin
+      - LaTeX/appendices/APP-0001-minimal-cp1-berry-spin-numerical-derivations.tex
+      - src/ciel_foundations/solvers/minimal_cp1_berry_spin_solver.py

@@ -1,0 +1,18 @@
+registry_id: REG-SIM-0001
+status: defined
+entries:
+  - simulation_id: SIM-0001
+    name: minimal_cp1_berry_spin_demo
+    status: defined
+    code_path: Simulations/code/sim_cp1_berry_spin.py
+    result_artifact_ids:
+      - ART-0001
+    depends_on:
+      - IF-0001
+      - D-0001
+      - D-0002
+    purpose:
+      - demonstrate projective CP1/Bloch parametrization
+      - demonstrate equatorial Berry phase accumulation
+      - demonstrate spinorial minus sign after a full cycle
+      - expose closure functional behavior for a simple phase pair

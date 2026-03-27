@@ -1,0 +1,26 @@
+interface_id: IF-0003
+status: defined
+name: white_thread_primitive_interface
+upstream:
+  assumptions:
+    - ASM-0002
+  definitions:
+    - DEF-0002
+    - DEF-0006
+  derivations:
+    - D-0006
+python_modules:
+  - src/ciel_foundations/holonomy/berry.py
+  - src/ciel_foundations/holonomy/white_thread.py
+required_functions:
+  - white_thread_phase
+  - white_thread_primitive
+  - white_thread_pair
+contract:
+  - path phase must be explicit
+  - primitive output is unit-modulus complex transport
+  - implementation is abelian and toy-level by construction
+linked_tests:
+  - tests/test_white_thread_primitive.py
+linked_falsification:
+  - falsification/FM-0003-white-thread-primitive.yaml

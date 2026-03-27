@@ -1,0 +1,37 @@
+interface_id: IF-0001
+status: defined
+name: minimal_cp1_berry_spin_interface
+upstream:
+  axioms:
+    - AX-0001
+    - AX-0002
+    - AX-0003
+  definitions:
+    - DEF-0001
+    - DEF-0002
+    - DEF-0003
+  derivations:
+    - D-0001
+    - D-0002
+python_modules:
+  - src/ciel_foundations/geometry/projective_state.py
+  - src/ciel_foundations/holonomy/berry.py
+  - src/ciel_foundations/closure/euler.py
+required_functions:
+  - normalize_state
+  - bloch_vector
+  - fs_distance
+  - berry_connection_phi
+  - berry_phase_latitude
+  - spinor_sign_from_phase
+  - closure_defect
+  - closure_magnitude
+contract:
+  - functions must be projectively invariant where appropriate
+  - Berry phase functions must expose the geometric phase explicitly
+  - closure functions must accept finite phase lists and return complex defect and magnitude
+linked_tests:
+  - tests/test_projective_state.py
+  - tests/test_berry_and_closure.py
+linked_simulations:
+  - SIM-0001

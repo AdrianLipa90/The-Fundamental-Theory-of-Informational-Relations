@@ -1,0 +1,173 @@
+registry_id: REG-FOUNDATIONS-IMPORT-0001
+status: defined
+scope: canonical import candidates from AdrianLipa90/Metatime into CIEL Foundations
+source_repositories:
+  - AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations
+  - AdrianLipa90/Metatime
+principle:
+  - Imported objects do not become canonical automatically.
+  - Imported objects must be re-derived or re-stated in canonical form inside this repository.
+  - Phenomenology or fitted objects may not outrun foundations.
+objects:
+  - object_id: OBJ-STATE-MANIFOLD-0001
+    name: M_time
+    class: geometry
+    imported_role: candidate_foundational_state_space
+    source_status: derived
+    canonical_status: defined
+    first_principles_candidate: true
+    upstream_source: README.md in AdrianLipa90/Metatime
+    target_layers:
+      - axioms
+      - definitions
+      - derivations
+    missing_for_canonical_upgrade:
+      - exact canonical state-space equation in this repo
+      - explicit dependency registration
+      - executable minimal realization in src/
+      - tests and falsification entries
+
+  - object_id: OBJ-METATIME-0001
+    name: tensor_scalar_metatime_object
+    class: field_object
+    imported_role: primitive_time_like_field_candidate
+    source_status: derived
+    canonical_status: defined
+    first_principles_candidate: true
+    upstream_source: README.md in AdrianLipa90/Metatime
+    target_layers:
+      - axioms
+      - definitions
+      - derivations
+      - src
+    missing_for_canonical_upgrade:
+      - exact primitive equation in this repo
+      - interface definition
+      - test binding
+
+  - object_id: OBJ-TAU-0001
+    name: tau_path_parameter
+    class: evolution_parameter
+    imported_role: path_length_like_evolution_parameter
+    source_status: derived
+    canonical_status: defined
+    first_principles_candidate: true
+    upstream_source: README.md in AdrianLipa90/Metatime
+    target_layers:
+      - definitions
+      - derivations
+      - interfaces
+      - src
+    missing_for_canonical_upgrade:
+      - canonical relation to physical time
+      - primitive update/evolution operator binding
+      - executable minimal module
+
+  - object_id: OBJ-CLOSURE-0001
+    name: Euler_Berry_closure
+    class: closure_law
+    imported_role: active closure / admissibility candidate
+    source_status: derived
+    canonical_status: hypothesis
+    first_principles_candidate: true
+    upstream_source: Metatime PDF corpus and imported notes
+    target_layers:
+      - axioms
+      - definitions
+      - derivations
+      - tests
+    missing_for_canonical_upgrade:
+      - canonical statement of primitive closure priority
+      - exact admissibility interface
+      - rollback/acceptance test design
+
+  - object_id: OBJ-HOLONOMY-0001
+    name: white_thread_holonomy_W_ij
+    class: transport_operator
+    imported_role: pairwise transport and coupling candidate
+    source_status: defined
+    canonical_status: defined
+    first_principles_candidate: true
+    upstream_source: README.md in AdrianLipa90/Metatime
+    target_layers:
+      - definitions
+      - derivations
+      - interfaces
+      - src
+      - tests
+    missing_for_canonical_upgrade:
+      - canonical path object
+      - magnitude_phase decomposition in this repo
+      - executable minimal implementation
+      - falsification target
+
+  - object_id: OBJ-CORRECTION-0001
+    name: pairwise_factor_F_ij
+    class: coupling_factor
+    imported_role: downstream pairwise correction
+    source_status: fitted
+    canonical_status: hypothesis
+    first_principles_candidate: true
+    upstream_source: README.md in AdrianLipa90/Metatime
+    target_layers:
+      - derivations
+      - tests
+      - sectors
+    missing_for_canonical_upgrade:
+      - derivation from holonomy rather than direct fit
+      - explicit dependency separation from calibrated phenomenology
+
+  - object_id: OBJ-ARITHMETIC-BRIDGE-0001
+    name: twin_prime_collatz_to_lambda
+    class: arithmetic_spectral_bridge
+    imported_role: arithmetic seed to spectral quantity bridge
+    source_status: hypothesis
+    canonical_status: hypothesis
+    first_principles_candidate: uncertain
+    upstream_source: README.md in AdrianLipa90/Metatime
+    target_layers:
+      - assumptions
+      - derivations
+      - falsification
+    missing_for_canonical_upgrade:
+      - primitive derivation from canonical foundations
+      - interface to geometry and closure layer
+      - non-fitted validation strategy
+
+  - object_id: OBJ-LAGRANGIAN-0001
+    name: L_meta
+    class: action
+    imported_role: generalized variational framework
+    source_status: derived
+    canonical_status: defined
+    first_principles_candidate: true
+    upstream_source: README.md in AdrianLipa90/Metatime
+    target_layers:
+      - definitions
+      - derivations
+      - src
+      - tests
+    missing_for_canonical_upgrade:
+      - canonical minimal action for this repo
+      - reduction to smallest testable executable module
+
+  - object_id: OBJ-COSMO-0001
+    name: Lambda_0_dynamic_operator
+    class: cosmology_operator
+    imported_role: downstream micro_macro operator
+    source_status: fitted
+    canonical_status: empirical_input
+    first_principles_candidate: partial
+    upstream_source: README.md in AdrianLipa90/Metatime
+    target_layers:
+      - constants
+      - derivations
+      - falsification
+      - sectors
+    missing_for_canonical_upgrade:
+      - decoupling from fitted late-time phenomenology
+      - upstream derivation from canonical foundations
+
+notes:
+  - This registry records import candidates only.
+  - Canonical promotion requires synchronized ontology, derivation, code, tests, falsification, and provenance.

@@ -1,0 +1,42 @@
+registry_id: REG-AX-0001
+status: defined
+scope: minimal CP1 / Bloch / Berry / spin foundations
+entries:
+  - axiom_id: AX-0001
+    slug: projective-state-space
+    status: axiom
+    statement: Physical states are rays in a complex Hilbert space, not raw vectors.
+    canonical_symbol: P(H)
+    downstream_objects:
+      - OBJ-STATE-RAY-0001
+      - OBJ-CP1-0001
+
+  - axiom_id: AX-0002
+    slug: kahler-fubini-study-structure
+    status: axiom
+    statement: The projective state space carries a compatible Kähler structure with Fubini-Study metric, symplectic form, and complex structure.
+    canonical_symbol: (P(H), g_FS, omega_FS, J)
+    downstream_objects:
+      - OBJ-CP1-0001
+      - OBJ-FS-METRIC-0001
+      - OBJ-BERRY-CONNECTION-0001
+
+  - axiom_id: AX-0003
+    slug: spinor-sign-under-2pi
+    status: axiom
+    statement: The minimal spinorial sector changes sign under a 2π rotation.
+    canonical_symbol: psi(phi + 2*pi) = -psi(phi)
+    downstream_objects:
+      - OBJ-SPIN-BUNDLE-0001
+      - OBJ-BERRY-PHASE-0001
+
+  - axiom_id: AX-0004
+    slug: closure-functional-exists
+    status: hypothesis
+    statement: A closure functional over transported phases exists and partitions admissible versus inadmissible cycles.
+    canonical_symbol: Delta_H
+    downstream_objects:
+      - OBJ-CLOSURE-FUNCTIONAL-0001
+notes:
+  - AX-0004 is not yet frozen as a zero-defect or nonzero-defect law.
+  - It is registered to block interpretation from outrunning the derivation layer.

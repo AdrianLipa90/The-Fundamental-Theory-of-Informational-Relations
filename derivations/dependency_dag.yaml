@@ -1,0 +1,40 @@
+graph_id: DAG-0001
+status: defined
+nodes:
+  - AX-0001
+  - AX-0002
+  - AX-0003
+  - AX-0004
+  - DEF-0001
+  - DEF-0002
+  - DEF-0003
+  - D-0001
+  - D-0002
+  - IF-0001
+  - SIM-0001
+edges:
+  - from: AX-0001
+    to: DEF-0001
+  - from: AX-0002
+    to: DEF-0001
+  - from: AX-0002
+    to: DEF-0002
+  - from: AX-0003
+    to: DEF-0002
+  - from: AX-0003
+    to: DEF-0003
+  - from: DEF-0001
+    to: D-0001
+  - from: DEF-0002
+    to: D-0002
+  - from: DEF-0003
+    to: D-0002
+  - from: D-0001
+    to: IF-0001
+  - from: D-0002
+    to: IF-0001
+  - from: IF-0001
+    to: SIM-0001
+notes:
+  - This DAG is intentionally minimal.
+  - It exists to prevent interpretation or code from outrunning the registered formal objects.

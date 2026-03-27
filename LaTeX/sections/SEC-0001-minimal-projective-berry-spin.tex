@@ -1,0 +1,40 @@
+\section{Minimal Projective / Berry / Spin Foundations}
+\label{sec:minimal-projective-berry-spin}
+
+\subsection{Projective state space}
+Physical states are rays in a complex Hilbert space. For a minimal two-level sector,
+\begin{equation}
+\mathbb{P}(\mathcal H_2) \simeq \mathbb{CP}^1.
+\end{equation}
+
+\subsection{Fubini--Study structure}
+The projective manifold carries a K"ahler structure with Fubini--Study metric. For normalized representatives $|\psi\rangle$ and $|\varphi\rangle$,
+\begin{equation}
+ d_{FS}([\psi],[\varphi]) = \arccos\big(|\langle \psi | \varphi \rangle|\big).
+\end{equation}
+
+\subsection{Berry connection and phase}
+Define the Berry one-form
+\begin{equation}
+A_B = i\langle \psi | d\psi \rangle,
+\end{equation}
+and the Berry phase on a closed cycle $\gamma$,
+\begin{equation}
+\gamma_B[\gamma] = \oint_\gamma A_B.
+\end{equation}
+
+\subsection{Spinorial sign under $2\pi$}
+The minimal spinorial sector satisfies
+\begin{equation}
+\psi(\phi + 2\pi) = -\psi(\phi).
+\end{equation}
+In the minimal equatorial model, the geometric phase has magnitude $\pi$, giving the expected minus sign.
+
+\subsection{Closure functional}
+For a finite phase family $\{\phi_k\}$, define
+\begin{equation}
+\Delta_H = \sum_k e^{i\phi_k},
+\qquad
+R_H = |\Delta_H|^2.
+\end{equation}
+This is the minimal registered closure-defect object for later closure and rollback logic.

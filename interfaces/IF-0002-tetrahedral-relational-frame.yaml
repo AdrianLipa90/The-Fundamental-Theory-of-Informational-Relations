@@ -1,0 +1,23 @@
+interface_id: IF-0002
+status: defined
+name: tetrahedral_relational_frame_interface
+upstream:
+  definitions:
+    - DEF-0004
+  derivations:
+    - D-0003
+python_modules:
+  - src/ciel_foundations/solvers/tetrahedral_relational_frame_solver.py
+required_functions:
+  - regular_tetrahedron_vertices
+  - pairwise_dot_matrix
+  - relative_phase_triple
+contract:
+  - vertices must lie on the unit sphere within tolerance
+  - off-diagonal pairwise dot products must equal -1/3 within tolerance
+  - relative phase triple must be invariant under global phase shifts of the tetrahedral phase quadruple
+linked_tests:
+  - tests/test_tetrahedral_relational_frame.py
+linked_latex:
+  - LaTeX/sections/SEC-0002-tetrahedral-relational-frame.tex
+  - LaTeX/appendices/APP-0002-tetrahedral-frame-numerical-derivations.tex

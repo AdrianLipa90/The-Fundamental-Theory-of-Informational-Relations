@@ -1,0 +1,27 @@
+interface_id: IF-0002
+status: defined
+name: active_closure_regulator_interface
+upstream:
+  assumptions:
+    - ASM-0001
+  definitions:
+    - DEF-0003
+    - DEF-0005
+  derivations:
+    - D-0005
+python_modules:
+  - src/ciel_foundations/closure/euler.py
+  - src/ciel_foundations/closure/regulator.py
+required_functions:
+  - closure_defect
+  - closure_magnitude
+  - accept_by_threshold
+  - classify_phases
+contract:
+  - input is a finite phase list and a nonnegative threshold
+  - output must include accept-versus-rollback classification
+  - regulator must be deterministic for identical inputs
+linked_tests:
+  - tests/test_active_closure_regulator.py
+linked_falsification:
+  - falsification/FM-0002-active-closure-regulator.yaml

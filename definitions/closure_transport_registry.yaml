@@ -1,0 +1,19 @@
+registry_id: REG-DEF-CT-0001
+status: defined
+scope: active closure and white-thread primitive objects
+entries:
+  - object_id: OBJ-ACTIVE-CLOSURE-0001
+    name: active_closure_regulator
+    file: definitions/DEF-0005-active-closure-regulator.md
+    status: defined
+    depends_on:
+      - OBJ-CLOSURE-FUNCTIONAL-0001
+      - ASM-0001
+
+  - object_id: OBJ-WHITE-THREAD-PRIMITIVE-0001
+    name: white_thread_primitive
+    file: definitions/DEF-0006-white-thread-primitive.md
+    status: defined
+    depends_on:
+      - OBJ-BERRY-CONNECTION-0001
+      - ASM-0002

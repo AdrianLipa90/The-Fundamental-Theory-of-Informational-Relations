@@ -1,0 +1,23 @@
+artifact_id: ART-0001
+status: defined
+generated_from:
+  simulation_id: SIM-0001
+  code_paths:
+    - Simulations/code/sim_cp1_berry_spin.py
+    - src/ciel_foundations/holonomy/berry.py
+  formal_dependencies:
+    - AX-0001
+    - AX-0002
+    - AX-0003
+    - DEF-0001
+    - DEF-0002
+    - DEF-0003
+    - D-0001
+    - D-0002
+parameters:
+  theta: pi/2
+  monopole_charge: 0.5
+  steps: 16
+notes:
+  - This artifact is a minimal demonstration artifact, not a sector fit.
+  - It exists to validate the first executable closure/phase layer.

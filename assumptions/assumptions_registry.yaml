@@ -1,0 +1,12 @@
+registry_id: REG-ASM-0001
+status: defined
+entries:
+  - assumption_id: ASM-0001
+    file: assumptions/ASM-0001-thresholded-active-closure-toy.md
+    status: explicit
+    scope: active closure regulator
+
+  - assumption_id: ASM-0002
+    file: assumptions/ASM-0002-unit-weight-white-thread-toy.md
+    status: explicit
+    scope: minimal white-thread primitive
