@@ -1,0 +1,29 @@
+registry_id: REG-DER-CT-0001
+status: defined
+scope: active closure and white-thread primitive derivations
+entries:
+  - derivation_id: D-0005
+    slug: active-closure-regulator
+    status: derived
+    depends_on:
+      - DEF-0003
+      - DEF-0005
+      - ASM-0001
+    downstream:
+      - IF-0002
+      - src/ciel_foundations/closure/regulator.py
+      - tests/test_active_closure_regulator.py
+      - FM-0002
+
+  - derivation_id: D-0006
+    slug: white-thread-primitive
+    status: derived
+    depends_on:
+      - DEF-0002
+      - DEF-0006
+      - ASM-0002
+    downstream:
+      - IF-0003
+      - src/ciel_foundations/holonomy/white_thread.py
+      - tests/test_white_thread_primitive.py
+      - FM-0003
