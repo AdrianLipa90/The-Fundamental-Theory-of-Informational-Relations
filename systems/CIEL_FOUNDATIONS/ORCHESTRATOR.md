@@ -83,6 +83,16 @@ Routing must always preserve:
 - [D-0006](../../derivations/D-0006-fractal-inheritance-chain.md)
 - [IF-0005](../../interfaces/IF-0005-piko-fractal-spine.yaml)
 
+### Tau from coupling chain
+- [DEF-0008](../../definitions/DEF-0008-pairwise-coupling-kernel.md)
+- [D-0007](../../derivations/D-0007-tau-from-coupling-laplacian.md)
+- [IF-0006](../../interfaces/IF-0006-tau-from-coupling.yaml)
+- [solver](../../src/ciel_foundations/solvers/tau_from_coupling_solver.py)
+- [test](../../tests/test_tau_from_coupling.py)
+- [whitepaper](../../whitepapers/WP-MOD-tau-from-coupling.md)
+- [section](../../LaTeX/sections/SEC-0005-tau-from-coupling.tex)
+- [appendix](../../LaTeX/appendices/APP-0005-tau-from-coupling-numerical-derivations.tex)
+
 ## Routing policy
 1. Start from `README.md`, `INDEX.md`, or `index.md`.
 2. Enter the target object through its registry or interface.
@@ -91,8 +101,8 @@ Routing must always preserve:
 5. Treat bibliography as support for attribution and context, not as an automatic epistemic upgrade.
 
 ## Next downstream modules to orchestrate
+- explicit phase-aware construction of `A_ij` from `W_ij`, phase differences, and closure data
 - active closure law
 - white-thread primitives
-- tau-from-coupling layer
 - tensor-scalar extension
 - algebra layer targets: SO(3), SU(2), U(1)

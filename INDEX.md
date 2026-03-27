@@ -99,10 +99,15 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `D-0006`
 - `interfaces/IF-0005-piko-fractal-spine.yaml`
 
+### Tau from coupling via a Laplacian generator
+- `DEF-0008`
+- `D-0007` (`hypothesis`)
+- `interfaces/IF-0006-tau-from-coupling.yaml`
+
 ## Current next-layer targets
+- explicit phase-aware construction of `A_ij` from `W_ij`, phase differences, and closure data
 - active closure law
 - white-thread primitives
-- tau-from-coupling layer
 - tensor-scalar extension
 - algebra targets `SO(3)`, `SU(2)`, `U(1)`
 

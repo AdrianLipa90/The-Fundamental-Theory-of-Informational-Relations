@@ -103,6 +103,28 @@ active_groups:
       - ../../provenance/ART-0003-provenance.yaml
       - ../../falsification/FM-0003-piko-fractal-spine.yaml
 
+  tau_from_coupling:
+    definitions:
+      - ../../definitions/DEF-0008-pairwise-coupling-kernel.md
+    derivations:
+      - ../../derivations/D-0007-tau-from-coupling-laplacian.md
+    interfaces:
+      - ../../interfaces/IF-0006-tau-from-coupling.yaml
+    code:
+      - ../../src/ciel_foundations/solvers/tau_from_coupling_solver.py
+    tests:
+      - ../../tests/test_tau_from_coupling.py
+    paper:
+      - ../../whitepapers/WP-MOD-tau-from-coupling.md
+      - ../../LaTeX/sections/SEC-0005-tau-from-coupling.tex
+      - ../../LaTeX/appendices/APP-0005-tau-from-coupling-numerical-derivations.tex
+    simulations:
+      - ../../Simulations/code/sim_tau_from_coupling.py
+      - ../../Simulations/results/ART-0004-tau-from-coupling-demo.csv
+    artifacts:
+      - ../../provenance/ART-0004-provenance.yaml
+      - ../../falsification/FM-0004-tau-from-coupling.yaml
+
   bibliography_seed:
     bibliography:
       - ../../bibliography/README.md
@@ -132,4 +154,4 @@ active_groups:
       - ../../systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md
 notes:
   - The older `registries/cross_reference_map.yaml` remains valid as a sector/object topology map for the imported Metatime layer.
-  - This file tracks the active foundations module graph currently being built on `main`.
+  - This file tracks the active foundations module graph currently being built on the branch and later on `main`.

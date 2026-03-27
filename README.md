@@ -73,6 +73,16 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - LaTeX section: `LaTeX/sections/SEC-0004-fractal-foundations-spine.tex`
 - LaTeX appendix: `LaTeX/appendices/APP-0004-piko-fractal-spine-numerical-derivations.tex`
 
+### Tau from coupling via a Laplacian generator
+- definition: `DEF-0008`
+- derivation status: `D-0007` (`hypothesis`)
+- interface: `interfaces/IF-0006-tau-from-coupling.yaml`
+- code: `src/ciel_foundations/solvers/tau_from_coupling_solver.py`
+- tests: `tests/test_tau_from_coupling.py`
+- paper: `whitepapers/WP-MOD-tau-from-coupling.md`
+- LaTeX section: `LaTeX/sections/SEC-0005-tau-from-coupling.tex`
+- LaTeX appendix: `LaTeX/appendices/APP-0005-tau-from-coupling-numerical-derivations.tex`
+
 ## Scope
 Included now:
 - axioms

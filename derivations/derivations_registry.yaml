@@ -79,3 +79,14 @@ entries:
       - src/ciel_foundations/solvers/piko_fractal_spine_solver.py
       - tests/test_piko_fractal_spine.py
       - Simulations/code/sim_piko_fractal_spine.py
+
+  - derivation_id: D-0007
+    slug: tau-from-coupling-laplacian
+    status: hypothesis
+    depends_on:
+      - DEF-0008
+    downstream:
+      - IF-0006
+      - src/ciel_foundations/solvers/tau_from_coupling_solver.py
+      - tests/test_tau_from_coupling.py
+      - Simulations/code/sim_tau_from_coupling.py
