@@ -1,0 +1,22 @@
+interface_id: IF-0008
+status: defined
+name: white_thread_primitive_interface
+upstream:
+  definitions:
+    - DEF-0010
+  derivations:
+    - D-0009
+python_modules:
+  - src/ciel_foundations/solvers/white_thread_primitive_solver.py
+required_functions:
+  - u1_holonomy_phase
+  - u1_holonomy
+  - white_thread_matrix_element
+contract:
+  - the U(1) holonomy must be unit modulus
+  - the White-Thread primitive must reduce to the overlap when transport phase is zero
+  - the amplitude bound must hold for normalized states in the toy sector
+linked_tests:
+  - tests/test_white_thread_primitive.py
+linked_simulations:
+  - SIM-0005

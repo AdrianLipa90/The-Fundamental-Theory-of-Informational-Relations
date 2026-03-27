@@ -1,56 +1,55 @@
 # Canonical Index
 
-This index is the navigation spine for the Foundations repository.
+## Root navigation stack
+- `README.md`
+- `INDEX.md`
+- `index.md`
+- `registries/global_index_registry.yaml`
+- `systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md`
+- `AUDIT_SCHEMA.yaml`
+- `SEMANTIC_ACTION_REFERENCE_CARD.md`
 
-## Role in root navigation
-- `INDEX.md` defines root governance, repository role, and layer responsibilities.
-- `index.md` is the human-readable navigation spine for indexed sectors and entrypoints.
-- `registries/global_index_registry.yaml` is the machine-readable authority for root index roles and policy.
+## Active canonical modules
+### Core piko chain
+- `DEF-0001..0007`
+- `D-0001..0006`
 
-## Global workflow
-Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpretation
+### Tau / kernel / White-Thread / action stack
+- [DEF-0008](definitions/DEF-0008-pairwise-coupling-kernel.md)
+- [DEF-0009](definitions/DEF-0009-phase-aware-kernel-composition.md)
+- [DEF-0010](definitions/DEF-0010-white-thread-holonomy-primitive.md)
+- [DEF-0011](definitions/DEF-0011-loose-thread-bundle-and-effective-white-thread.md)
+- [DEF-0012](definitions/DEF-0012-dynamic-path-weights-from-semantic-action.md)
+- [DEF-0013](definitions/DEF-0013-semantic-action-measurement-operators.md)
+- [D-0007](derivations/D-0007-tau-from-coupling-laplacian.md)
+- [D-0008](derivations/D-0008-kernel-from-holonomy-phase-and-closure.md)
+- [D-0009](derivations/D-0009-white-thread-u1-primitive.md)
+- [D-0010](derivations/D-0010-effective-white-thread-from-loose-thread-bundle.md)
+- [D-0011](derivations/D-0011-dynamic-softmax-weights-from-semantic-action.md)
+- [D-0012](derivations/D-0012-semantic-action-assembly-from-measurement-operators.md)
+- [IF-0006](interfaces/IF-0006-tau-from-coupling.yaml)
+- [IF-0007](interfaces/IF-0007-phase-aware-kernel-composition.yaml)
+- [IF-0008](interfaces/IF-0008-white-thread-primitive.yaml)
+- [IF-0009](interfaces/IF-0009-effective-white-thread.yaml)
+- [IF-0010](interfaces/IF-0010-dynamic-path-weights.yaml)
+- [IF-0011](interfaces/IF-0011-semantic-action-measurement-operators.yaml)
 
-## Sector map
+## Executable bindings
+- `src/ciel_foundations/solvers/tau_from_coupling_solver.py`
+- `src/ciel_foundations/solvers/phase_aware_kernel_solver.py`
+- `src/ciel_foundations/solvers/white_thread_primitive_solver.py`
+- `src/ciel_foundations/solvers/effective_white_thread_solver.py`
+- `src/ciel_foundations/solvers/dynamic_path_weights_solver.py`
+- `src/ciel_foundations/solvers/semantic_action_measurement_solver.py`
 
-### Whitepapers
-- [Metatime sector index](whitepapers/metatime/index.md)
-- [Metatime framework summary](whitepapers/metatime/metatime_framework_summary.md)
+## Paper outputs
+- `SEC-0005`..`SEC-0010`
+- `APP-0005`..`APP-0008`
 
-### Derivations
-- [Metatime derivations index](derivations/metatime/index.md)
-- [Manual spectrum solver](derivations/metatime/manual_spectrum_solver.md)
-
-### Registries
-- [Registry index](registries/index.md)
-- [Global index registry](registries/global_index_registry.yaml)
-- [Metatime epistemic status registry](registries/metatime_status.yaml)
-- [Cross-reference map](registries/cross_reference_map.yaml)
-
-### Interfaces
-- [Metatime export interface](interfaces/metatime_exports.yaml)
-
-## Cross-reference principle
-Every imported object must appear in:
-1. a local sector index,
-2. the global index,
-3. at least one registry entry describing epistemic status or export status.
-
-## Upstream root documents
-- [Root governance index](INDEX.md)
-- [Registry authority layer](registries/global_index_registry.yaml)
-
-## Initial imported sector
-The first imported sector is **Metatime**, transcribed from uploaded January 2026 formal PDFs into canonical source text.
-
-### Imported source artifacts
-- `SM_and_M_Theory_generalisation.pdf`
-- `MetaEFT.pdf`
-- `Formal_SM.pdf`
-
-### Imported object classes
-- dynamical metatime field definitions
-- topological eigenvalue generator notes
-- Berry / white-thread coupling structures
-- manual solver path for the fermion spectrum
-- status split between derived, fitted, exportable, and open items
-- falsification roadmap and test windows
+## Registries and bibliography
+- `definitions/definitions_registry.yaml`
+- `derivations/derivations_registry.yaml`
+- `Simulations/registry/simulations_registry.yaml`
+- `artifacts/artifacts_registry.yaml`
+- `bibliography/README.md`
+- `bibliography/foundations_seed.bib`

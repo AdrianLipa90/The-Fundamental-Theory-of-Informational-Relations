@@ -1,0 +1,19 @@
+falsification_id: FM-0007
+status: defined
+scope: semantic_action_measurement_operators
+claims:
+  - claim_id: CL-0021
+    statement: constant phase yields zero phase transport cost
+    target_tests:
+      - tests/test_semantic_action_measurement.py::test_phase_cost_is_zero_for_constant_phase
+    failure_condition: the registered phase-cost operator assigns nonzero cost to constant phase
+  - claim_id: CL-0022
+    statement: three-phase Euler closure yields vanishing closure-defect cost
+    target_tests:
+      - tests/test_semantic_action_measurement.py::test_closure_defect_vanishes_for_three_phase_euler_closure
+    failure_condition: the closure-defect operator no longer vanishes on the registered three-phase Euler-closed sample
+  - claim_id: CL-0023
+    statement: the full semantic action extends the online action only by the audit term
+    target_tests:
+      - tests/test_semantic_action_measurement.py::test_online_and_full_action_decompose_correctly
+    failure_condition: the full action no longer decomposes into online plus audit contribution

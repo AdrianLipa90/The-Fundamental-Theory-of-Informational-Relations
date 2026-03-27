@@ -45,3 +45,16 @@ entries:
     purpose:
       - consolidate CP1/Berry/spin, tetrahedral frame, and local attractor vortex into one piko snapshot
       - expose a toy bounded consistency score for the consolidated spine
+
+  - simulation_id: SIM-0004
+    name: tau_from_coupling_demo
+    status: defined
+    code_path: Simulations/code/sim_tau_from_coupling.py
+    result_artifact_ids:
+      - ART-0004
+    depends_on:
+      - IF-0006
+      - D-0007
+    purpose:
+      - demonstrate the tau-from-coupling Laplacian generator on a toy 3x3 kernel
+      - expose positivity, splitting, and gauge-fixed log-tau structure

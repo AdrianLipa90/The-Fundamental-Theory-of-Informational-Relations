@@ -1,124 +1,79 @@
 registry_id: REG-GLO-XREF-0001
 status: defined
-scope: active canonical foundations cross references beyond the older imported Metatime map
-principle:
-  - This file is a machine-readable realization of the current active global cross-reference spine.
-  - It does not replace local registries or derivation DAGs.
-  - It complements them by exposing active grouped routes across theory, code, tests, simulations, artifacts, and paper objects.
+scope: active canonical foundations cross references
 active_groups:
-  minimal_projective_berry_spin:
-    axioms:
-      - ../../axioms/AX-0001-projective-state-space.md
-      - ../../axioms/AX-0002-kahler-fubini-study-structure.md
-      - ../../axioms/AX-0003-spinor-sign-under-2pi.md
+  tau_kernel_white_thread_action_stack:
     definitions:
-      - ../../definitions/DEF-0001-projective-ray-and-cp1.md
-      - ../../definitions/DEF-0002-berry-connection-and-phase.md
-      - ../../definitions/DEF-0003-closure-functional.md
+      - ../../definitions/DEF-0008-pairwise-coupling-kernel.md
+      - ../../definitions/DEF-0009-phase-aware-kernel-composition.md
+      - ../../definitions/DEF-0010-white-thread-holonomy-primitive.md
+      - ../../definitions/DEF-0011-loose-thread-bundle-and-effective-white-thread.md
+      - ../../definitions/DEF-0012-dynamic-path-weights-from-semantic-action.md
+      - ../../definitions/DEF-0013-semantic-action-measurement-operators.md
     derivations:
-      - ../../derivations/D-0001-hilbert-to-projective-cp1.md
-      - ../../derivations/D-0002-berry-phase-and-spinor-sign.md
+      - ../../derivations/D-0007-tau-from-coupling-laplacian.md
+      - ../../derivations/D-0008-kernel-from-holonomy-phase-and-closure.md
+      - ../../derivations/D-0009-white-thread-u1-primitive.md
+      - ../../derivations/D-0010-effective-white-thread-from-loose-thread-bundle.md
+      - ../../derivations/D-0011-dynamic-softmax-weights-from-semantic-action.md
+      - ../../derivations/D-0012-semantic-action-assembly-from-measurement-operators.md
     interfaces:
-      - ../../interfaces/IF-0001-minimal-cp1-berry-spin.yaml
+      - ../../interfaces/IF-0006-tau-from-coupling.yaml
+      - ../../interfaces/IF-0007-phase-aware-kernel-composition.yaml
+      - ../../interfaces/IF-0008-white-thread-primitive.yaml
+      - ../../interfaces/IF-0009-effective-white-thread.yaml
+      - ../../interfaces/IF-0010-dynamic-path-weights.yaml
+      - ../../interfaces/IF-0011-semantic-action-measurement-operators.yaml
     code:
-      - ../../src/ciel_foundations/geometry/projective_state.py
-      - ../../src/ciel_foundations/holonomy/berry.py
-      - ../../src/ciel_foundations/closure/euler.py
-      - ../../src/ciel_foundations/solvers/minimal_cp1_berry_spin_solver.py
+      - ../../src/ciel_foundations/solvers/tau_from_coupling_solver.py
+      - ../../src/ciel_foundations/solvers/phase_aware_kernel_solver.py
+      - ../../src/ciel_foundations/solvers/white_thread_primitive_solver.py
+      - ../../src/ciel_foundations/solvers/effective_white_thread_solver.py
+      - ../../src/ciel_foundations/solvers/dynamic_path_weights_solver.py
+      - ../../src/ciel_foundations/solvers/semantic_action_measurement_solver.py
     tests:
-      - ../../tests/test_projective_state.py
-      - ../../tests/test_berry_and_closure.py
+      - ../../tests/test_tau_from_coupling.py
+      - ../../tests/test_phase_aware_kernel.py
+      - ../../tests/test_white_thread_primitive.py
+      - ../../tests/test_effective_white_thread.py
+      - ../../tests/test_dynamic_path_weights.py
+      - ../../tests/test_semantic_action_measurement.py
     paper:
-      - ../../whitepapers/WP-MOD-minimal-projective-berry-spin.md
-      - ../../LaTeX/appendices/APP-0001-minimal-cp1-berry-spin-numerical-derivations.tex
+      - ../../whitepapers/WP-MOD-tau-from-coupling.md
+      - ../../whitepapers/WP-MOD-phase-aware-kernel-composition.md
+      - ../../whitepapers/WP-MOD-white-thread-primitive.md
+      - ../../whitepapers/WP-MOD-effective-white-thread.md
+      - ../../whitepapers/WP-MOD-dynamic-path-weights.md
+      - ../../whitepapers/WP-MOD-semantic-action-measurement.md
+      - ../../LaTeX/sections/SEC-0005-tau-from-coupling.tex
+      - ../../LaTeX/sections/SEC-0006-phase-aware-kernel-composition.tex
+      - ../../LaTeX/sections/SEC-0007-white-thread-primitive.tex
+      - ../../LaTeX/sections/SEC-0008-effective-white-thread.tex
+      - ../../LaTeX/sections/SEC-0009-dynamic-path-weights.tex
+      - ../../LaTeX/sections/SEC-0010-semantic-action-measurement-operators.tex
+      - ../../LaTeX/appendices/APP-0005-tau-from-coupling-numerical-derivations.tex
+      - ../../LaTeX/appendices/APP-0006-white-thread-primitive-numerical-derivations.tex
+      - ../../LaTeX/appendices/APP-0007-dynamic-path-weights-numerical-derivations.tex
+      - ../../LaTeX/appendices/APP-0008-semantic-action-measurement-operators.tex
     simulations:
-      - ../../Simulations/code/sim_cp1_berry_spin.py
-      - ../../Simulations/results/ART-0001-cp1-berry-spin-demo.csv
+      - ../../Simulations/code/sim_tau_from_coupling.py
+      - ../../Simulations/code/sim_white_thread_primitive.py
+      - ../../Simulations/code/sim_dynamic_path_weights.py
+      - ../../Simulations/code/sim_semantic_action_measurement.py
+      - ../../Simulations/results/ART-0004-tau-from-coupling-demo.csv
+      - ../../Simulations/results/ART-0005-white-thread-primitive-demo.csv
+      - ../../Simulations/results/ART-0006-dynamic-path-weights-demo.csv
+      - ../../Simulations/results/ART-0007-semantic-action-measurement-demo.csv
     artifacts:
-      - ../../artifacts/artifacts_registry.yaml
-      - ../../provenance/ART-0001-provenance.yaml
-      - ../../falsification/FM-0001-minimal-cp1-berry-spin.yaml
-
-  tetrahedral_relational_frame:
-    definitions:
-      - ../../definitions/DEF-0004-regular-tetrahedron-on-s2.md
-    derivations:
-      - ../../derivations/D-0003-regular-tetrahedron-on-s2.md
-    interfaces:
-      - ../../interfaces/IF-0002-tetrahedral-relational-frame.yaml
-    code:
-      - ../../src/ciel_foundations/solvers/tetrahedral_relational_frame_solver.py
-    tests:
-      - ../../tests/test_tetrahedral_relational_frame.py
-    paper:
-      - ../../whitepapers/WP-MOD-tetrahedral-relational-frame.md
-      - ../../LaTeX/sections/SEC-0002-tetrahedral-relational-frame.tex
-      - ../../LaTeX/appendices/APP-0002-tetrahedral-frame-numerical-derivations.tex
-
-  local_attractor_nonlocal_vortex:
-    axioms:
-      - ../../axioms/AX-0005-local-attractor-hierarchy.md
-    definitions:
-      - ../../definitions/DEF-0005-local-attractor-and-order-parameter.md
-      - ../../definitions/DEF-0006-nonlocal-holonomic-vortex.md
-    derivations:
-      - ../../derivations/D-0004-local-attractor-axis-and-coriolis.md
-      - ../../derivations/D-0005-spacetime-holonomic-circulation.md
-    interfaces:
-      - ../../interfaces/IF-0004-nonlocal-holonomic-vortex.yaml
-    code:
-      - ../../src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py
-    tests:
-      - ../../tests/test_nonlocal_holonomic_vortex.py
-    paper:
-      - ../../whitepapers/WP-MOD-local-attractor-holonomic-vortex.md
-      - ../../LaTeX/sections/SEC-0003-local-attractor-holonomic-vortex.tex
-      - ../../LaTeX/appendices/APP-0003-rotating-superfluid-field-numerical-derivations.tex
-    simulations:
-      - ../../Simulations/code/sim_nonlocal_holonomic_vortex.py
-      - ../../Simulations/results/ART-0002-nonlocal-holonomic-vortex-demo.csv
-    artifacts:
-      - ../../provenance/ART-0002-provenance.yaml
-      - ../../falsification/FM-0002-nonlocal-holonomic-vortex.yaml
-
-  piko_fractal_foundations_spine:
-    definitions:
-      - ../../definitions/DEF-0007-fractal-foundations-spine.md
-    derivations:
-      - ../../derivations/D-0006-fractal-inheritance-chain.md
-    interfaces:
-      - ../../interfaces/IF-0005-piko-fractal-spine.yaml
-    code:
-      - ../../src/ciel_foundations/solvers/piko_fractal_spine_solver.py
-    tests:
-      - ../../tests/test_piko_fractal_spine.py
-    paper:
-      - ../../whitepapers/WP-MOD-fractal-foundations-spine.md
-      - ../../LaTeX/sections/SEC-0004-fractal-foundations-spine.tex
-      - ../../LaTeX/appendices/APP-0004-piko-fractal-spine-numerical-derivations.tex
-    simulations:
-      - ../../Simulations/code/sim_piko_fractal_spine.py
-      - ../../Simulations/results/ART-0003-piko-fractal-spine-demo.csv
-    artifacts:
-      - ../../provenance/ART-0003-provenance.yaml
-      - ../../falsification/FM-0003-piko-fractal-spine.yaml
-
-  root_navigation_authority:
+      - ../../provenance/ART-0004-provenance.yaml
+      - ../../provenance/ART-0005-provenance.yaml
+      - ../../provenance/ART-0006-provenance.yaml
+      - ../../provenance/ART-0007-provenance.yaml
+      - ../../falsification/FM-0004-tau-from-coupling.yaml
+      - ../../falsification/FM-0005-white-thread-primitive.yaml
+      - ../../falsification/FM-0006-dynamic-path-weights.yaml
+      - ../../falsification/FM-0007-semantic-action-measurement.yaml
+  audit_bundle:
     governance:
-      - ../../README.md
-      - ../../AGENT.md
-      - ../../INDEX.md
-      - ../../index.md
-      - ../../PROJECT_CHARTER.md
-      - ../../ORGANIZATION.md
-      - ../../STRUCTURE.md
-      - ../../ROADMAP.md
-    machine_authority:
-      - ../../registries/global_index_registry.yaml
-      - ../../registries/cross_reference_map.yaml
-      - ../../registries/global_cross_reference_map.yaml
-    orchestrator:
-      - ../../systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md
-notes:
-  - The older `registries/cross_reference_map.yaml` remains valid as a sector/object topology map for the imported Metatime layer.
-  - This file tracks the active foundations module graph currently being built on `main`.
+      - ../../AUDIT_SCHEMA.yaml
+      - ../../SEMANTIC_ACTION_REFERENCE_CARD.md

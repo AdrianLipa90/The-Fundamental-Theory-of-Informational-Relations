@@ -1,0 +1,21 @@
+interface_id: IF-0007
+status: defined
+name: phase_aware_kernel_composition_interface
+upstream:
+  definitions:
+    - DEF-0008
+    - DEF-0009
+  derivations:
+    - D-0008
+python_modules:
+  - src/ciel_foundations/solvers/phase_aware_kernel_solver.py
+required_functions:
+  - phase_alignment_weight
+  - closure_weight
+  - pairwise_kernel_from_holonomy
+contract:
+  - the phase-alignment factor must be symmetric in phase difference
+  - the closure factor must decrease with increasing closure defect for nonnegative mu
+  - the resulting kernel must be nonnegative when supplied nonnegative holonomy magnitudes
+linked_tests:
+  - tests/test_phase_aware_kernel.py

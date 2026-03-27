@@ -1,0 +1,43 @@
+\section{Tau from Coupling via a Laplacian Generator}
+\label{sec:tau-from-coupling}
+
+\subsection{Pairwise coupling kernel}
+Introduce a symmetric nonnegative pairwise kernel
+\begin{equation}
+A_{ij}=A_{ji}\ge 0,
+\qquad A_{ii}=0.
+\end{equation}
+From this define
+\begin{equation}
+d_i = \sum_j A_{ij},
+\qquad D = \operatorname{diag}(d_1,\dots,d_N),
+\qquad L_A = D-A,
+\end{equation}
+which is the weighted graph Laplacian \cite{chung1997spectralgraph,fiedler1973algebraicconnectivity}.
+
+\subsection{Logarithmic tau variables}
+To guarantee positivity, write
+\begin{equation}
+\xi_i = \ln\tau_i.
+\end{equation}
+Impose the gauge-fixed linear system
+\begin{equation}
+L_A\xi = \kappa(d-\bar d\,\mathbf 1),
+\qquad
+\bar d = \frac1N\sum_i d_i,
+\qquad
+\sum_i \xi_i = 0.
+\end{equation}
+
+\subsection{Pseudoinverse solution}
+Using the Moore--Penrose pseudoinverse \cite{penrose1955generalizedinverse}, the candidate solution is
+\begin{equation}
+\xi = \kappa L_A^+(d-\bar d\,\mathbf 1),
+\end{equation}
+and therefore
+\begin{equation}
+\tau_i = \tau_*\exp\!\Big(\kappa [L_A^+(d-\bar d\,\mathbf 1)]_i\Big).
+\end{equation}
+
+\subsection{Status}
+This section records a first non-fit candidate generator of $\tau_i$ from pairwise coupling data. It is currently a registered hypothesis rather than a final derived law.

@@ -13,3 +13,9 @@ claims:
     target_tests:
       - tests/test_piko_fractal_spine.py::test_piko_fractal_spine_consistency_score_is_one_for_registered_snapshot
     failure_condition: registered snapshot no longer reaches score 1 in the toy consolidation
+
+  - claim_id: CL-0011
+    statement: breaking one registered component check reduces the consolidated score
+    target_tests:
+      - tests/test_piko_fractal_spine.py::test_piko_fractal_spine_score_drops_if_one_registered_check_is_broken
+    failure_condition: score remains maximal after a registered component is corrupted

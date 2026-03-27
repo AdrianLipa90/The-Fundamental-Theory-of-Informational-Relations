@@ -1,0 +1,21 @@
+falsification_id: FM-0005
+status: defined
+scope: white_thread_u1_primitive
+claims:
+  - claim_id: CL-0015
+    statement: the U(1) holonomy has unit modulus
+    target_tests:
+      - tests/test_white_thread_primitive.py::test_u1_holonomy_has_unit_modulus
+    failure_condition: the registered U(1) holonomy ceases to be unit-modulus
+
+  - claim_id: CL-0016
+    statement: the White-Thread primitive reduces to the overlap when the transport phase is zero
+    target_tests:
+      - tests/test_white_thread_primitive.py::test_white_thread_reduces_to_overlap_at_zero_phase
+    failure_condition: zero transport phase no longer returns the bare overlap
+
+  - claim_id: CL-0017
+    statement: the primitive amplitude remains bounded by one for normalized toy states
+    target_tests:
+      - tests/test_white_thread_primitive.py::test_white_thread_amplitude_is_bounded_by_one_for_normalized_states
+    failure_condition: the primitive violates the unitary amplitude bound in the toy sector

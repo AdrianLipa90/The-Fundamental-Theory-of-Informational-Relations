@@ -1,10 +1,14 @@
 repository: AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations
-branch: Agent7
-agent: AGENT7
-role: index_authority_closure
-status: draft
+branch: main
+agent: canonical_main
+role: root_index_authority
+status: defined
 
 index_authority:
+  public_entrypoint:
+    path: README.md
+    role: public_project_entrypoint
+    canonical: true
   root_governance_index:
     path: INDEX.md
     role: human_readable_root_governance
@@ -17,24 +21,45 @@ index_authority:
     path: registries/global_index_registry.yaml
     role: machine_readable_root_authority
     canonical: true
-  topology_registry:
+  active_cross_reference_registry:
+    path: registries/global_cross_reference_map.yaml
+    role: active_foundations_cross_reference_spine
+    canonical: true
+  legacy_cross_reference_registry:
     path: registries/cross_reference_map.yaml
-    role: sector_and_object_cross_reference_map
+    role: legacy_or_imported_topology_map
+    canonical: true
+  orchestration_layer:
+    path: systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md
+    role: human_readable_active_module_router
+    canonical: true
+  agent_authority_registry:
+    path: registries/agent_authority_registry.yaml
+    role: canonical_agent_file_authority
+    canonical: true
+  bibliography_readme:
+    path: bibliography/README.md
+    role: human_readable_bibliography_entrypoint
+    canonical: true
+  bibliography_seed:
+    path: bibliography/foundations_seed.bib
+    role: machine_readable_seed_bibliography
     canonical: true
 
 status_vocabularies:
   canonical_status:
     - canonical
     - draft
-    - placeholder
+    - auxiliary
     - deprecated
   epistemic_status:
     - asserted
+    - defined
     - derived
-    - verified
+    - hypothesis
     - imported
     - translated
-    - heuristic
+    - auxiliary
 
 relation_types:
   - upstream
@@ -46,14 +71,31 @@ relation_types:
   - governs
   - indexes
   - registers
+  - routes_to
+  - cites
 
 policy:
   single_source_of_truth_rule: true
   no_downstream_without_upstream_anchor: true
   no_parallel_root_authority_without_registry_record: true
   registry_required_before_stable_export: true
+  bibliography_seed_must_not_override_formal_status: true
+  auxiliary_agent_files_must_not_override_root_agent: true
 
 tracked_root_objects:
+  - id: DOC-GLO-0001
+    name: public_entrypoint
+    path: README.md
+    class: native
+    layer: root_doc
+    canonical_status: canonical
+    epistemic_status: asserted
+    relations:
+      routes_to:
+        - IDX-GLO-0001
+        - IDX-GLO-0002
+        - ORCH-GLO-0001
+
   - id: IDX-GLO-0001
     name: root_governance_index
     path: INDEX.md
@@ -65,63 +107,148 @@ tracked_root_objects:
       governs:
         - IDX-GLO-0002
         - REG-GLO-0001
+        - REG-GLO-XREF-0001
+
   - id: IDX-GLO-0002
     name: root_navigation_spine
     path: index.md
     class: native
     layer: meta_index
     canonical_status: canonical
-    epistemic_status: asserted
+    epistemic_status: defined
     relations:
-      surface_for:
-        - SEC-METATIME-0001
       indexed_by:
         - REG-GLO-0001
+      surface_for:
+        - MOD-PIKO-0001
+        - MOD-TETRA-0001
+        - MOD-VORTEX-0001
+        - MOD-SPINE-0001
+
   - id: REG-GLO-0001
     name: global_index_registry
     path: registries/global_index_registry.yaml
     class: native
     layer: registry
     canonical_status: canonical
-    epistemic_status: asserted
+    epistemic_status: defined
     relations:
       registers:
+        - DOC-GLO-0001
         - IDX-GLO-0001
         - IDX-GLO-0002
-        - REG-GLO-0002
-  - id: REG-GLO-0002
-    name: cross_reference_topology_registry
-    path: registries/cross_reference_map.yaml
+        - REG-GLO-XREF-0001
+        - REG-AGENT-0001
+        - BIB-GLO-0001
+        - BIB-GLO-0002
+        - ORCH-GLO-0001
+
+  - id: REG-GLO-XREF-0001
+    name: global_cross_reference_map
+    path: registries/global_cross_reference_map.yaml
     class: native
     layer: registry
     canonical_status: canonical
-    epistemic_status: asserted
+    epistemic_status: defined
     relations:
       indexed_by:
         - REG-GLO-0001
-  - id: REG-GLO-0003
-    name: agent4_registry_seed
-    path: docs/agent4/index_registry_seed.yaml
-    class: imported
-    layer: registry_seed
-    canonical_status: draft
-    epistemic_status: asserted
-    relations:
-      mirrors:
-        - REG-GLO-0001
-  - id: SEC-METATIME-0001
-    name: metatime_imported_sector
-    path: whitepapers/metatime/index.md
-    class: imported
-    layer: sector_index
-    canonical_status: draft
-    epistemic_status: imported
-    relations:
-      indexed_by:
-        - IDX-GLO-0002
-        - REG-GLO-0002
 
-pending_normalization:
-  - update INDEX.md to mention index.md and registries/global_index_registry.yaml
-  - update index.md to point to INDEX.md and registries/global_index_registry.yaml
-  - update registries/index.md to expose registries/global_index_registry.yaml
+  - id: ORCH-GLO-0001
+    name: foundations_orchestrator
+    path: systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md
+    class: native
+    layer: router
+    canonical_status: canonical
+    epistemic_status: defined
+    relations:
+      indexed_by:
+        - REG-GLO-0001
+      routes_to:
+        - MOD-PIKO-0001
+        - MOD-TETRA-0001
+        - MOD-VORTEX-0001
+        - MOD-SPINE-0001
+
+  - id: REG-AGENT-0001
+    name: agent_authority_registry
+    path: registries/agent_authority_registry.yaml
+    class: native
+    layer: registry
+    canonical_status: canonical
+    epistemic_status: defined
+    relations:
+      indexed_by:
+        - REG-GLO-0001
+
+  - id: BIB-GLO-0001
+    name: bibliography_readme
+    path: bibliography/README.md
+    class: native
+    layer: bibliography
+    canonical_status: canonical
+    epistemic_status: defined
+    relations:
+      indexed_by:
+        - REG-GLO-0001
+      cites:
+        - BIB-GLO-0002
+
+  - id: BIB-GLO-0002
+    name: foundations_seed_bibliography
+    path: bibliography/foundations_seed.bib
+    class: native
+    layer: bibliography
+    canonical_status: canonical
+    epistemic_status: defined
+    relations:
+      indexed_by:
+        - REG-GLO-0001
+
+  - id: MOD-PIKO-0001
+    name: minimal_projective_berry_spin_module
+    path: interfaces/IF-0001-minimal-cp1-berry-spin.yaml
+    class: native
+    layer: active_module
+    canonical_status: canonical
+    epistemic_status: defined
+    relations:
+      surface_for:
+        - IDX-GLO-0002
+
+  - id: MOD-TETRA-0001
+    name: tetrahedral_relational_frame_module
+    path: interfaces/IF-0002-tetrahedral-relational-frame.yaml
+    class: native
+    layer: active_module
+    canonical_status: canonical
+    epistemic_status: defined
+    relations:
+      surface_for:
+        - IDX-GLO-0002
+
+  - id: MOD-VORTEX-0001
+    name: local_attractor_nonlocal_vortex_module
+    path: interfaces/IF-0004-nonlocal-holonomic-vortex.yaml
+    class: native
+    layer: active_module
+    canonical_status: canonical
+    epistemic_status: defined
+    relations:
+      surface_for:
+        - IDX-GLO-0002
+
+  - id: MOD-SPINE-0001
+    name: piko_fractal_foundations_spine_module
+    path: interfaces/IF-0005-piko-fractal-spine.yaml
+    class: native
+    layer: active_module
+    canonical_status: canonical
+    epistemic_status: defined
+    relations:
+      surface_for:
+        - IDX-GLO-0002
+
+normalization_state:
+  pending_normalization: []
+  normalized_on_main: true

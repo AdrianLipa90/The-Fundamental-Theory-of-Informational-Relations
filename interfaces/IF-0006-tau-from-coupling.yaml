@@ -1,0 +1,23 @@
+interface_id: IF-0006
+status: defined
+name: tau_from_coupling_interface
+upstream:
+  definitions:
+    - DEF-0008
+  derivations:
+    - D-0007
+python_modules:
+  - src/ciel_foundations/solvers/tau_from_coupling_solver.py
+required_functions:
+  - strength_vector
+  - laplacian_matrix
+  - log_tau_from_coupling
+  - tau_from_coupling
+contract:
+  - the kernel must be symmetric and nonnegative in the minimal registered implementation
+  - the generated taus must be strictly positive
+  - the implementation must expose the gauge-fixed logarithmic solution
+linked_tests:
+  - tests/test_tau_from_coupling.py
+linked_simulations:
+  - SIM-0004
