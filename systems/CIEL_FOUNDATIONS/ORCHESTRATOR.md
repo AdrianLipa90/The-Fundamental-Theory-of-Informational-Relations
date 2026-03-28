@@ -17,7 +17,8 @@ This file is the human-readable orchestration layer for the canonical foundation
 - `DEF-0012` + `D-0011` + `IF-0010`
 - `DEF-0013` + `D-0012` + `IF-0011`
 - `DEF-0014` + `D-0013` + `IF-0012`
-- bundle support: `AUDIT_SCHEMA.yaml`, `SEMANTIC_ACTION_REFERENCE_CARD.md`, `GLOSSARY.md`
+- `DEF-0015` + `D-0014` + `IF-0013`
+- bundle support: `AUDIT_SCHEMA.yaml`, `SEMANTIC_ACTION_REFERENCE_CARD.md`, `GLOSSARY.md`, `schemas/*.yaml`
 
 ## Routing policy
 1. Start from `README.md`, `INDEX.md`, or `index.md`.
@@ -31,3 +32,4 @@ This file is the human-readable orchestration layer for the canonical foundation
 - reduction threshold operator
 - semantic mass / orbital embedding operator
 - flavor/color identification beyond toy spectral modes
+- calibrated raw-energy functional beyond the first linear ansatz

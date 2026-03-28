@@ -26,6 +26,8 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `bibliography/README.md`
 - `AUDIT_SCHEMA.yaml`
 - `SEMANTIC_ACTION_REFERENCE_CARD.md`
+- `schemas/objects_state.schema.yaml`
+- `schemas/couplings.schema.yaml`
 
 ## Current active foundations modules
 ### Core piko chain
@@ -41,8 +43,9 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `DEF-0012` — dynamic path weights from semantic action
 - `DEF-0013` — semantic action measurement operators
 - `DEF-0014` — Hermitian coupling projection and spectral tau modes
-- `D-0007`, `D-0008`, `D-0009`, `D-0010`, `D-0011`, `D-0012`, `D-0013`
-- `IF-0006`, `IF-0007`, `IF-0008`, `IF-0009`, `IF-0010`, `IF-0011`, `IF-0012`
+- `DEF-0015` — object-state energy functional
+- `D-0007`, `D-0008`, `D-0009`, `D-0010`, `D-0011`, `D-0012`, `D-0013`, `D-0014`
+- `IF-0006`, `IF-0007`, `IF-0008`, `IF-0009`, `IF-0010`, `IF-0011`, `IF-0012`, `IF-0013`
 
 ## Paper layer now includes
 - `SEC-0005` tau from coupling
@@ -52,7 +55,8 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `SEC-0009` dynamic path weights
 - `SEC-0010` semantic action measurement operators
 - `SEC-0011` spectral tau from White-Thread
-- `APP-0005`..`APP-0009`
+- `SEC-0012` object-state energy functional
+- `APP-0005`..`APP-0010`
 
 ## Scope
 Included now:
@@ -66,6 +70,7 @@ Included now:
 - falsification, provenance, interfaces
 - audit schema and semantic action reference card
 - glossary support
+- object-state and coupling schemas
 
 Excluded for now:
 - Omega runtime

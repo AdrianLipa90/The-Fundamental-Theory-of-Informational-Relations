@@ -167,3 +167,28 @@ entries:
     file: definitions/DEF-0014-hermitian-coupling-projection-and-spectral-tau.md
     status: hypothesis
     depends_on: [OBJ-HERMITIAN-COUPLING-PROJECTION-0001]
+  - object_id: OBJ-OBJECT-STATE-0001
+    name: object_state_tuple
+    file: definitions/DEF-0015-object-state-energy-functional.md
+    status: hypothesis
+    depends_on: []
+  - object_id: OBJ-RAW-ENERGY-FUNCTIONAL-0001
+    name: raw_energy_functional
+    file: definitions/DEF-0015-object-state-energy-functional.md
+    status: hypothesis
+    depends_on: [OBJ-OBJECT-STATE-0001]
+  - object_id: OBJ-NORMALIZED-ENERGY-AMPLITUDE-0001
+    name: normalized_energy_amplitude
+    file: definitions/DEF-0015-object-state-energy-functional.md
+    status: hypothesis
+    depends_on: [OBJ-RAW-ENERGY-FUNCTIONAL-0001]
+  - object_id: OBJ-OBJECT-PHASE-0001
+    name: object_phase_from_topological_seed
+    file: definitions/DEF-0015-object-state-energy-functional.md
+    status: hypothesis
+    depends_on: [OBJ-NORMALIZED-ENERGY-AMPLITUDE-0001]
+  - object_id: OBJ-OBJECT-SEED-TOPOLOGICAL-0001
+    name: topological_object_seed
+    file: definitions/DEF-0015-object-state-energy-functional.md
+    status: hypothesis
+    depends_on: [OBJ-OBJECT-STATE-0001]

@@ -1,0 +1,12 @@
+schema_id: OBJ-COUPLINGS-SCHEMA-0001
+status: defined
+required_columns:
+  - source
+  - target
+  - relation_type
+  - coupling_weight
+  - phase_offset
+  - metadata
+notes:
+  - coupling_weight may be derived from import, cross-reference, registry, or runtime exposure surfaces
+  - phase_offset is optional but should be represented numerically when present

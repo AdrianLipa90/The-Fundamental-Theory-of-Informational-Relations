@@ -67,3 +67,8 @@ entries:
     status: hypothesis
     depends_on: [DEF-0011, DEF-0014]
     downstream: [IF-0012, src/ciel_foundations/solvers/spectral_tau_from_white_thread_solver.py, tests/test_spectral_tau_from_white_thread.py, Simulations/code/sim_spectral_tau_from_white_thread.py]
+  - derivation_id: D-0014
+    slug: normalized-object-state-from-raw-energy
+    status: hypothesis
+    depends_on: [DEF-0015]
+    downstream: [IF-0013, src/ciel_foundations/solvers/object_state_energy_solver.py, tests/test_object_state_energy_solver.py, Simulations/code/sim_object_state_energy.py]

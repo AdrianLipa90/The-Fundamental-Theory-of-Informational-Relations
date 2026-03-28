@@ -49,3 +49,9 @@ entries:
     code_path: Simulations/code/sim_spectral_tau_from_white_thread.py
     result_artifact_ids: [ART-0008]
     depends_on: [IF-0012, D-0013]
+  - simulation_id: SIM-0009
+    name: object_state_energy_demo
+    status: defined
+    code_path: Simulations/code/sim_object_state_energy.py
+    result_artifact_ids: [ART-0009]
+    depends_on: [IF-0013, D-0014]

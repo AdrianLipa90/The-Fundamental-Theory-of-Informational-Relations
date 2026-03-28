@@ -15,6 +15,8 @@ This file is the root governance map and canonical table of contents for the pub
 - `bibliography/README.md`
 - `AUDIT_SCHEMA.yaml`
 - `SEMANTIC_ACTION_REFERENCE_CARD.md`
+- `schemas/objects_state.schema.yaml`
+- `schemas/couplings.schema.yaml`
 
 ## Current active module families
 ### Core piko foundations
@@ -30,8 +32,9 @@ This file is the root governance map and canonical table of contents for the pub
 - `DEF-0012` dynamic path weights from semantic action
 - `DEF-0013` semantic action measurement operators
 - `DEF-0014` Hermitian coupling projection and spectral tau modes
-- `D-0007..D-0013`
-- `IF-0006..IF-0012`
+- `DEF-0015` object-state energy functional
+- `D-0007..D-0014`
+- `IF-0006..IF-0013`
 
 ## Current next-layer targets
 - semantic metric law beyond the first ansatz
@@ -39,3 +42,4 @@ This file is the root governance map and canonical table of contents for the pub
 - reduction threshold operators
 - semantic mass and orbital embedding operators
 - flavor/color identification beyond toy spectral modes
+- calibrated raw-energy functional beyond the first linear ansatz

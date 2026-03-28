@@ -11,6 +11,7 @@ active_groups:
       - ../../definitions/DEF-0012-dynamic-path-weights-from-semantic-action.md
       - ../../definitions/DEF-0013-semantic-action-measurement-operators.md
       - ../../definitions/DEF-0014-hermitian-coupling-projection-and-spectral-tau.md
+      - ../../definitions/DEF-0015-object-state-energy-functional.md
     derivations:
       - ../../derivations/D-0007-tau-from-coupling-laplacian.md
       - ../../derivations/D-0008-kernel-from-holonomy-phase-and-closure.md
@@ -19,6 +20,7 @@ active_groups:
       - ../../derivations/D-0011-dynamic-softmax-weights-from-semantic-action.md
       - ../../derivations/D-0012-semantic-action-assembly-from-measurement-operators.md
       - ../../derivations/D-0013-spectral-tau-from-effective-white-thread.md
+      - ../../derivations/D-0014-normalized-object-state-from-raw-energy.md
     interfaces:
       - ../../interfaces/IF-0006-tau-from-coupling.yaml
       - ../../interfaces/IF-0007-phase-aware-kernel-composition.yaml
@@ -27,6 +29,7 @@ active_groups:
       - ../../interfaces/IF-0010-dynamic-path-weights.yaml
       - ../../interfaces/IF-0011-semantic-action-measurement-operators.yaml
       - ../../interfaces/IF-0012-spectral-tau-from-white-thread.yaml
+      - ../../interfaces/IF-0013-object-state-energy-and-seed.yaml
     code:
       - ../../src/ciel_foundations/solvers/tau_from_coupling_solver.py
       - ../../src/ciel_foundations/solvers/phase_aware_kernel_solver.py
@@ -35,6 +38,7 @@ active_groups:
       - ../../src/ciel_foundations/solvers/dynamic_path_weights_solver.py
       - ../../src/ciel_foundations/solvers/semantic_action_measurement_solver.py
       - ../../src/ciel_foundations/solvers/spectral_tau_from_white_thread_solver.py
+      - ../../src/ciel_foundations/solvers/object_state_energy_solver.py
     tests:
       - ../../tests/test_tau_from_coupling.py
       - ../../tests/test_phase_aware_kernel.py
@@ -43,6 +47,7 @@ active_groups:
       - ../../tests/test_dynamic_path_weights.py
       - ../../tests/test_semantic_action_measurement.py
       - ../../tests/test_spectral_tau_from_white_thread.py
+      - ../../tests/test_object_state_energy_solver.py
     paper:
       - ../../whitepapers/WP-MOD-tau-from-coupling.md
       - ../../whitepapers/WP-MOD-phase-aware-kernel-composition.md
@@ -51,6 +56,7 @@ active_groups:
       - ../../whitepapers/WP-MOD-dynamic-path-weights.md
       - ../../whitepapers/WP-MOD-semantic-action-measurement.md
       - ../../whitepapers/WP-MOD-spectral-tau-from-white-thread.md
+      - ../../whitepapers/WP-MOD-object-state-energy.md
       - ../../LaTeX/sections/SEC-0005-tau-from-coupling.tex
       - ../../LaTeX/sections/SEC-0006-phase-aware-kernel-composition.tex
       - ../../LaTeX/sections/SEC-0007-white-thread-primitive.tex
@@ -58,35 +64,43 @@ active_groups:
       - ../../LaTeX/sections/SEC-0009-dynamic-path-weights.tex
       - ../../LaTeX/sections/SEC-0010-semantic-action-measurement-operators.tex
       - ../../LaTeX/sections/SEC-0011-spectral-tau-from-white-thread.tex
+      - ../../LaTeX/sections/SEC-0012-object-state-energy.tex
       - ../../LaTeX/appendices/APP-0005-tau-from-coupling-numerical-derivations.tex
       - ../../LaTeX/appendices/APP-0006-white-thread-primitive-numerical-derivations.tex
       - ../../LaTeX/appendices/APP-0007-dynamic-path-weights-numerical-derivations.tex
       - ../../LaTeX/appendices/APP-0008-semantic-action-measurement-operators.tex
       - ../../LaTeX/appendices/APP-0009-spectral-tau-from-white-thread.tex
+      - ../../LaTeX/appendices/APP-0010-object-state-energy.tex
     simulations:
       - ../../Simulations/code/sim_tau_from_coupling.py
       - ../../Simulations/code/sim_white_thread_primitive.py
       - ../../Simulations/code/sim_dynamic_path_weights.py
       - ../../Simulations/code/sim_semantic_action_measurement.py
       - ../../Simulations/code/sim_spectral_tau_from_white_thread.py
+      - ../../Simulations/code/sim_object_state_energy.py
       - ../../Simulations/results/ART-0004-tau-from-coupling-demo.csv
       - ../../Simulations/results/ART-0005-white-thread-primitive-demo.csv
       - ../../Simulations/results/ART-0006-dynamic-path-weights-demo.csv
       - ../../Simulations/results/ART-0007-semantic-action-measurement-demo.csv
       - ../../Simulations/results/ART-0008-spectral-tau-from-white-thread-demo.csv
+      - ../../Simulations/results/ART-0009-object-state-energy-demo.csv
     artifacts:
       - ../../provenance/ART-0004-provenance.yaml
       - ../../provenance/ART-0005-provenance.yaml
       - ../../provenance/ART-0006-provenance.yaml
       - ../../provenance/ART-0007-provenance.yaml
       - ../../provenance/ART-0008-provenance.yaml
+      - ../../provenance/ART-0009-provenance.yaml
       - ../../falsification/FM-0004-tau-from-coupling.yaml
       - ../../falsification/FM-0005-white-thread-primitive.yaml
       - ../../falsification/FM-0006-dynamic-path-weights.yaml
       - ../../falsification/FM-0007-semantic-action-measurement.yaml
       - ../../falsification/FM-0008-spectral-tau-from-white-thread.yaml
+      - ../../falsification/FM-0009-object-state-energy.yaml
   audit_bundle:
     governance:
       - ../../AUDIT_SCHEMA.yaml
       - ../../SEMANTIC_ACTION_REFERENCE_CARD.md
       - ../../GLOSSARY.md
+      - ../../schemas/objects_state.schema.yaml
+      - ../../schemas/couplings.schema.yaml

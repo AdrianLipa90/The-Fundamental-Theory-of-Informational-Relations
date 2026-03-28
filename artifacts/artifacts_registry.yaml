@@ -57,3 +57,10 @@ entries:
     created_utc: '2026-03-28'
     linked_derivations: [D-0013]
     linked_tests: [tests/test_spectral_tau_from_white_thread.py]
+  - artifact_id: ART-0009
+    name: object_state_energy_demo_csv
+    status: generated
+    path: Simulations/results/ART-0009-object-state-energy-demo.csv
+    created_utc: '2026-03-28'
+    linked_derivations: [D-0014]
+    linked_tests: [tests/test_object_state_energy_solver.py]

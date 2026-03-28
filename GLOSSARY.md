@@ -39,5 +39,29 @@ Eigenvalue-defined relational timescales
 \]
 See `DEF-0014`.
 
+### Object-state energy functional
+Raw energetic state model for a canonical repository object.
+\[
+E_i^{raw}=F(\rho_i,p_i,w_i,\nu_i,\vec s_i,\chi_i,\mathcal N_i).
+\]
+See `DEF-0015`.
+
+### Topological object seed
+Seed computed from local and nonlocal object-state data rather than from local content alone. See `DEF-0015`.
+
+### Normalized object amplitude
+Amplitude derived from normalized energy
+\[
+A_i=\sqrt{\widetilde E_i}.
+\]
+See `DEF-0015`.
+
+### Local object state
+Complex state assigned to a canonical object
+\[
+\psi_i=A_i e^{i\phi_i}.
+\]
+See `DEF-0015`.
+
 ### Flavor / color sector
 Reserved downstream classification layer for fermion-sector interpretation. Not yet canonically identified in the current toy spectral bridge.
