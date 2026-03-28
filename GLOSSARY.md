@@ -63,5 +63,17 @@ Complex state assigned to a canonical object
 \]
 See `DEF-0015`.
 
+### Repository object-state extraction
+Executable export path from a repository tree to `objects_state.csv` and `couplings.csv`. See `DEF-0016`.
+
+### Local mass
+First extracted scalar mass of a file object; token count for text-like files and nonempty noncomment line count for Python in the current extraction surface.
+
+### Relational pressure
+Deterministic type-based pressure assignment used by the first extraction surface.
+
+### Couplings export
+Table of extracted object-to-object relations in `couplings.csv`, currently generated from exact relative-path mentions.
+
 ### Flavor / color sector
 Reserved downstream classification layer for fermion-sector interpretation. Not yet canonically identified in the current toy spectral bridge.

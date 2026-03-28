@@ -1,0 +1,12 @@
+artifact_id: ART-0011
+status: defined
+generated_from:
+  simulation_id: SIM-0010
+  code_paths:
+    - Simulations/code/sim_repo_object_state_extraction.py
+    - src/ciel_foundations/solvers/repo_object_state_extractor.py
+  formal_dependencies:
+    - DEF-0016
+    - D-0015
+notes:
+  - This artifact is a deterministic fixture demo for repository coupling extraction.

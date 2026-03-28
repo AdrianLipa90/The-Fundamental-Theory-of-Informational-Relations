@@ -26,6 +26,7 @@
 - [DEF-0013](definitions/DEF-0013-semantic-action-measurement-operators.md)
 - [DEF-0014](definitions/DEF-0014-hermitian-coupling-projection-and-spectral-tau.md)
 - [DEF-0015](definitions/DEF-0015-object-state-energy-functional.md)
+- [DEF-0016](definitions/DEF-0016-repository-object-state-extraction-surfaces.md)
 - [D-0007](derivations/D-0007-tau-from-coupling-laplacian.md)
 - [D-0008](derivations/D-0008-kernel-from-holonomy-phase-and-closure.md)
 - [D-0009](derivations/D-0009-white-thread-u1-primitive.md)
@@ -34,6 +35,7 @@
 - [D-0012](derivations/D-0012-semantic-action-assembly-from-measurement-operators.md)
 - [D-0013](derivations/D-0013-spectral-tau-from-effective-white-thread.md)
 - [D-0014](derivations/D-0014-normalized-object-state-from-raw-energy.md)
+- [D-0015](derivations/D-0015-repository-object-state-extraction-from-canonical-files.md)
 - [IF-0006](interfaces/IF-0006-tau-from-coupling.yaml)
 - [IF-0007](interfaces/IF-0007-phase-aware-kernel-composition.yaml)
 - [IF-0008](interfaces/IF-0008-white-thread-primitive.yaml)
@@ -42,6 +44,7 @@
 - [IF-0011](interfaces/IF-0011-semantic-action-measurement-operators.yaml)
 - [IF-0012](interfaces/IF-0012-spectral-tau-from-white-thread.yaml)
 - [IF-0013](interfaces/IF-0013-object-state-energy-and-seed.yaml)
+- [IF-0014](interfaces/IF-0014-repository-object-state-extraction.yaml)
 
 ## Executable bindings
 - `src/ciel_foundations/solvers/tau_from_coupling_solver.py`
@@ -52,10 +55,11 @@
 - `src/ciel_foundations/solvers/semantic_action_measurement_solver.py`
 - `src/ciel_foundations/solvers/spectral_tau_from_white_thread_solver.py`
 - `src/ciel_foundations/solvers/object_state_energy_solver.py`
+- `src/ciel_foundations/solvers/repo_object_state_extractor.py`
 
 ## Paper outputs
-- `SEC-0005`..`SEC-0012`
-- `APP-0005`..`APP-0010`
+- `SEC-0005`..`SEC-0013`
+- `APP-0005`..`APP-0011`
 
 ## Registries and bibliography
 - `definitions/definitions_registry.yaml`

@@ -192,3 +192,23 @@ entries:
     file: definitions/DEF-0015-object-state-energy-functional.md
     status: hypothesis
     depends_on: [OBJ-OBJECT-STATE-0001]
+  - object_id: OBJ-FILE-LOCAL-FEATURES-0001
+    name: file_local_features
+    file: definitions/DEF-0016-repository-object-state-extraction-surfaces.md
+    status: hypothesis
+    depends_on: [OBJ-OBJECT-STATE-0001]
+  - object_id: OBJ-REPOSITORY-OBJECT-STATE-CSV-0001
+    name: repository_object_state_csv
+    file: definitions/DEF-0016-repository-object-state-extraction-surfaces.md
+    status: hypothesis
+    depends_on: [OBJ-RAW-ENERGY-FUNCTIONAL-0001]
+  - object_id: OBJ-REPOSITORY-COUPLINGS-CSV-0001
+    name: repository_couplings_csv
+    file: definitions/DEF-0016-repository-object-state-extraction-surfaces.md
+    status: hypothesis
+    depends_on: [OBJ-FILE-LOCAL-FEATURES-0001]
+  - object_id: OBJ-REPOSITORY-OBJECT-STATE-EXTRACTOR-0001
+    name: repository_object_state_extractor
+    file: definitions/DEF-0016-repository-object-state-extraction-surfaces.md
+    status: hypothesis
+    depends_on: [OBJ-REPOSITORY-OBJECT-STATE-CSV-0001, OBJ-REPOSITORY-COUPLINGS-CSV-0001]

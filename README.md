@@ -44,8 +44,9 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `DEF-0013` — semantic action measurement operators
 - `DEF-0014` — Hermitian coupling projection and spectral tau modes
 - `DEF-0015` — object-state energy functional
-- `D-0007`, `D-0008`, `D-0009`, `D-0010`, `D-0011`, `D-0012`, `D-0013`, `D-0014`
-- `IF-0006`, `IF-0007`, `IF-0008`, `IF-0009`, `IF-0010`, `IF-0011`, `IF-0012`, `IF-0013`
+- `DEF-0016` — repository object-state extraction surfaces
+- `D-0007`, `D-0008`, `D-0009`, `D-0010`, `D-0011`, `D-0012`, `D-0013`, `D-0014`, `D-0015`
+- `IF-0006`, `IF-0007`, `IF-0008`, `IF-0009`, `IF-0010`, `IF-0011`, `IF-0012`, `IF-0013`, `IF-0014`
 
 ## Paper layer now includes
 - `SEC-0005` tau from coupling
@@ -56,7 +57,8 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `SEC-0010` semantic action measurement operators
 - `SEC-0011` spectral tau from White-Thread
 - `SEC-0012` object-state energy functional
-- `APP-0005`..`APP-0010`
+- `SEC-0013` repository object-state extraction
+- `APP-0005`..`APP-0011`
 
 ## Scope
 Included now:
@@ -71,6 +73,7 @@ Included now:
 - audit schema and semantic action reference card
 - glossary support
 - object-state and coupling schemas
+- executable repository extraction surfaces
 
 Excluded for now:
 - Omega runtime

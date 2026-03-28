@@ -64,3 +64,17 @@ entries:
     created_utc: '2026-03-28'
     linked_derivations: [D-0014]
     linked_tests: [tests/test_object_state_energy_solver.py]
+  - artifact_id: ART-0010
+    name: repo_object_state_fixture_demo_csv
+    status: generated
+    path: Simulations/results/ART-0010-repo-object-state-fixture-demo.csv
+    created_utc: '2026-03-28'
+    linked_derivations: [D-0015]
+    linked_tests: [tests/test_repo_object_state_extractor.py]
+  - artifact_id: ART-0011
+    name: repo_couplings_fixture_demo_csv
+    status: generated
+    path: Simulations/results/ART-0011-repo-couplings-fixture-demo.csv
+    created_utc: '2026-03-28'
+    linked_derivations: [D-0015]
+    linked_tests: [tests/test_repo_object_state_extractor.py]

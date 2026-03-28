@@ -18,6 +18,7 @@ This file is the human-readable orchestration layer for the canonical foundation
 - `DEF-0013` + `D-0012` + `IF-0011`
 - `DEF-0014` + `D-0013` + `IF-0012`
 - `DEF-0015` + `D-0014` + `IF-0013`
+- `DEF-0016` + `D-0015` + `IF-0014`
 - bundle support: `AUDIT_SCHEMA.yaml`, `SEMANTIC_ACTION_REFERENCE_CARD.md`, `GLOSSARY.md`, `schemas/*.yaml`
 
 ## Routing policy
@@ -33,3 +34,4 @@ This file is the human-readable orchestration layer for the canonical foundation
 - semantic mass / orbital embedding operator
 - flavor/color identification beyond toy spectral modes
 - calibrated raw-energy functional beyond the first linear ansatz
+- richer semantic coupling rules beyond exact path mentions

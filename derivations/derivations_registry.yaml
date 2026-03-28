@@ -72,3 +72,8 @@ entries:
     status: hypothesis
     depends_on: [DEF-0015]
     downstream: [IF-0013, src/ciel_foundations/solvers/object_state_energy_solver.py, tests/test_object_state_energy_solver.py, Simulations/code/sim_object_state_energy.py]
+  - derivation_id: D-0015
+    slug: repository-object-state-extraction-from-canonical-files
+    status: hypothesis
+    depends_on: [DEF-0015, DEF-0016]
+    downstream: [IF-0014, src/ciel_foundations/solvers/repo_object_state_extractor.py, tests/test_repo_object_state_extractor.py, Simulations/code/sim_repo_object_state_extraction.py]

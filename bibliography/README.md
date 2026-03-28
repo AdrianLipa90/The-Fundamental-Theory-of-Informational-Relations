@@ -27,8 +27,11 @@ Bibliography records support explanation, attribution, and literature mapping. T
 - Penrose
 - Chung
 - Fiedler
-- Wilson
-- Simon
+
+### Object-state extraction / information / networks
+- Shannon
+- Newman
+- Brin & Page
 
 ## Use rule
 1. Bibliography entries may justify terminology, analogies, or standard background.

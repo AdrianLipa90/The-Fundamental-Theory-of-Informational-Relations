@@ -33,8 +33,9 @@ This file is the root governance map and canonical table of contents for the pub
 - `DEF-0013` semantic action measurement operators
 - `DEF-0014` Hermitian coupling projection and spectral tau modes
 - `DEF-0015` object-state energy functional
-- `D-0007..D-0014`
-- `IF-0006..IF-0013`
+- `DEF-0016` repository object-state extraction surfaces
+- `D-0007..D-0015`
+- `IF-0006..IF-0014`
 
 ## Current next-layer targets
 - semantic metric law beyond the first ansatz
@@ -43,3 +44,4 @@ This file is the root governance map and canonical table of contents for the pub
 - semantic mass and orbital embedding operators
 - flavor/color identification beyond toy spectral modes
 - calibrated raw-energy functional beyond the first linear ansatz
+- richer semantic coupling rules beyond exact path mentions

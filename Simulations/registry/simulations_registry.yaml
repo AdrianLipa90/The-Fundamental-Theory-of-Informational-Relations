@@ -55,3 +55,9 @@ entries:
     code_path: Simulations/code/sim_object_state_energy.py
     result_artifact_ids: [ART-0009]
     depends_on: [IF-0013, D-0014]
+  - simulation_id: SIM-0010
+    name: repository_object_state_extraction_fixture_demo
+    status: defined
+    code_path: Simulations/code/sim_repo_object_state_extraction.py
+    result_artifact_ids: [ART-0010, ART-0011]
+    depends_on: [IF-0014, D-0015]
