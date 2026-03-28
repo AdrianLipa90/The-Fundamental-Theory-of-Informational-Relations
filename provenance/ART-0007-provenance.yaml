@@ -1,0 +1,20 @@
+artifact_id: ART-0007
+status: defined
+generated_from:
+  simulation_id: SIM-0007
+  code_paths:
+    - Simulations/code/sim_semantic_action_measurement.py
+    - src/ciel_foundations/solvers/semantic_action_measurement_solver.py
+  formal_dependencies:
+    - DEF-0012
+    - DEF-0013
+    - D-0012
+parameters:
+  coefficients:
+    alpha: 1.0
+    beta: 1.0
+    kappa: 1.0
+    mu: 1.0
+    nu: 1.0
+notes:
+  - This artifact demonstrates the online and full semantic action assembled from explicit measurement operators.

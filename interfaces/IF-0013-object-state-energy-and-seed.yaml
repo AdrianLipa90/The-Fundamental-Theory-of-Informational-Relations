@@ -1,0 +1,25 @@
+interface_id: IF-0013
+status: defined
+name: object_state_energy_and_seed_interface
+upstream:
+  definitions:
+    - DEF-0015
+  derivations:
+    - D-0014
+python_modules:
+  - src/ciel_foundations/solvers/object_state_energy_solver.py
+required_functions:
+  - raw_energy_linear
+  - normalize_energies
+  - amplitudes_from_normalized_energy
+  - phase_from_seed_text
+  - local_states
+contract:
+  - normalized energies must sum to one when total raw energy is positive
+  - amplitudes squared must sum to one within floating tolerance
+  - phases must lie in [0, 2*pi)
+  - local-state magnitudes must equal amplitudes
+linked_tests:
+  - tests/test_object_state_energy_solver.py
+linked_simulations:
+  - SIM-0009

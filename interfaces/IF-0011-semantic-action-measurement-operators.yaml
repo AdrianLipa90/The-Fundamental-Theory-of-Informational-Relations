@@ -1,0 +1,26 @@
+interface_id: IF-0011
+status: defined
+name: semantic_action_measurement_operators_interface
+upstream:
+  definitions:
+    - DEF-0013
+  derivations:
+    - D-0012
+python_modules:
+  - src/ciel_foundations/solvers/semantic_action_measurement_solver.py
+required_functions:
+  - semantic_length_discrete
+  - phase_cost_discrete
+  - closure_defect_cost
+  - truth_structural_cost
+  - truth_audit_cost
+  - semantic_action_online
+  - semantic_action_full
+contract:
+  - all online component operators must be nonnegative on admissible inputs
+  - the online action must equal the weighted sum of its components
+  - the full action must extend the online action by an audit term only
+linked_tests:
+  - tests/test_semantic_action_measurement.py
+linked_simulations:
+  - SIM-0007

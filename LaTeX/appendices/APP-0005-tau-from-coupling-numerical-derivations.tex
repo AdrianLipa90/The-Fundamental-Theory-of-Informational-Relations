@@ -1,0 +1,46 @@
+\appendix
+\section{Numerical Appendix: Tau from Coupling via a Laplacian Generator}
+\label{app:tau-from-coupling}
+
+\subsection{Toy kernel}
+Take the registered symmetric kernel
+\begin{equation}
+A = \begin{pmatrix}
+0 & 1 & 0.2 \\
+1 & 0 & 0.5 \\
+0.2 & 0.5 & 0
+\end{pmatrix}.
+\end{equation}
+Then
+\begin{equation}
+d = (1.2, 1.5, 0.7),
+\qquad
+\bar d = 1.133333\ldots
+\end{equation}
+and
+\begin{equation}
+L_A = \begin{pmatrix}
+1.2 & -1 & -0.2 \\
+-1 & 1.5 & -0.5 \\
+-0.2 & -0.5 & 0.7
+\end{pmatrix}.
+\end{equation}
+
+\subsection{Gauge-fixed logarithmic solution}
+For $\kappa=1$ and the zero-mean gauge, the registered toy solution is
+\begin{equation}
+\xi \approx (0.17777778,\ 0.22777778,\ -0.40555556).
+\end{equation}
+Hence
+\begin{equation}
+\tau \approx (1.19455983,\ 1.25580623,\ 0.66660637).
+\end{equation}
+All entries are strictly positive and the spectrum is split.
+
+\subsection{Executable realization}
+The corresponding executable modules are:
+\begin{itemize}
+  \item \texttt{src/ciel\_foundations/solvers/tau\_from\_coupling\_solver.py}
+  \item \texttt{tests/test\_tau\_from\_coupling.py}
+  \item \texttt{Simulations/code/sim\_tau\_from\_coupling.py}
+\end{itemize}

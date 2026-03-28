@@ -5,77 +5,75 @@ entries:
   - derivation_id: D-0001
     slug: hilbert-to-projective-cp1
     status: derived
-    depends_on:
-      - AX-0001
-      - AX-0002
-      - DEF-0001
-    downstream:
-      - IF-0001
-      - src/ciel_foundations/geometry/projective_state.py
-      - tests/test_projective_state.py
-
+    depends_on: [AX-0001, AX-0002, DEF-0001]
+    downstream: [IF-0001, src/ciel_foundations/geometry/projective_state.py, tests/test_projective_state.py]
   - derivation_id: D-0002
     slug: berry-phase-and-spinor-sign
     status: derived
-    depends_on:
-      - AX-0002
-      - AX-0003
-      - DEF-0002
-      - DEF-0003
-    downstream:
-      - IF-0001
-      - src/ciel_foundations/holonomy/berry.py
-      - src/ciel_foundations/closure/euler.py
-      - tests/test_berry_and_closure.py
-
+    depends_on: [AX-0002, AX-0003, DEF-0002, DEF-0003]
+    downstream: [IF-0001, src/ciel_foundations/holonomy/berry.py, src/ciel_foundations/closure/euler.py, tests/test_berry_and_closure.py]
   - derivation_id: D-0003
     slug: regular-tetrahedron-on-s2
     status: derived
-    depends_on:
-      - AX-0002
-      - DEF-0004
-    downstream:
-      - IF-0002
-      - src/ciel_foundations/solvers/tetrahedral_relational_frame_solver.py
-      - tests/test_tetrahedral_relational_frame.py
-
+    depends_on: [AX-0002, DEF-0004]
+    downstream: [IF-0002, src/ciel_foundations/solvers/tetrahedral_relational_frame_solver.py, tests/test_tetrahedral_relational_frame.py]
   - derivation_id: D-0004
     slug: local-attractor-axis-and-coriolis
     status: derived
-    depends_on:
-      - AX-0005
-      - DEF-0005
-      - DEF-0006
-    downstream:
-      - IF-0004
-      - src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py
-      - tests/test_nonlocal_holonomic_vortex.py
-
+    depends_on: [AX-0005, DEF-0005, DEF-0006]
+    downstream: [IF-0004, src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py, tests/test_nonlocal_holonomic_vortex.py]
   - derivation_id: D-0005
     slug: spacetime-holonomic-circulation
     status: derived
-    depends_on:
-      - DEF-0002
-      - DEF-0003
-      - DEF-0006
-    downstream:
-      - IF-0004
-      - src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py
-      - tests/test_nonlocal_holonomic_vortex.py
-      - Simulations/code/sim_nonlocal_holonomic_vortex.py
-
+    depends_on: [DEF-0002, DEF-0003, DEF-0006]
+    downstream: [IF-0004, src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py, tests/test_nonlocal_holonomic_vortex.py, Simulations/code/sim_nonlocal_holonomic_vortex.py]
   - derivation_id: D-0006
     slug: fractal-inheritance-chain
     status: derived
-    depends_on:
-      - DEF-0001
-      - DEF-0002
-      - DEF-0003
-      - DEF-0004
-      - DEF-0005
-      - DEF-0006
-    downstream:
-      - IF-0005
-      - src/ciel_foundations/solvers/piko_fractal_spine_solver.py
-      - tests/test_piko_fractal_spine.py
-      - Simulations/code/sim_piko_fractal_spine.py
+    depends_on: [DEF-0001, DEF-0002, DEF-0003, DEF-0004, DEF-0005, DEF-0006]
+    downstream: [IF-0005, src/ciel_foundations/solvers/piko_fractal_spine_solver.py, tests/test_piko_fractal_spine.py, Simulations/code/sim_piko_fractal_spine.py]
+  - derivation_id: D-0007
+    slug: tau-from-coupling-laplacian
+    status: hypothesis
+    depends_on: [DEF-0008]
+    downstream: [IF-0006, src/ciel_foundations/solvers/tau_from_coupling_solver.py, tests/test_tau_from_coupling.py, Simulations/code/sim_tau_from_coupling.py]
+  - derivation_id: D-0008
+    slug: kernel-from-holonomy-phase-and-closure
+    status: hypothesis
+    depends_on: [DEF-0008, DEF-0009]
+    downstream: [IF-0007, src/ciel_foundations/solvers/phase_aware_kernel_solver.py, tests/test_phase_aware_kernel.py]
+  - derivation_id: D-0009
+    slug: white-thread-u1-primitive
+    status: derived
+    depends_on: [DEF-0002, DEF-0010]
+    downstream: [IF-0008, src/ciel_foundations/solvers/white_thread_primitive_solver.py, tests/test_white_thread_primitive.py, Simulations/code/sim_white_thread_primitive.py]
+  - derivation_id: D-0010
+    slug: effective-white-thread-from-loose-thread-bundle
+    status: hypothesis
+    depends_on: [DEF-0010, DEF-0011]
+    downstream: [IF-0009, src/ciel_foundations/solvers/effective_white_thread_solver.py, tests/test_effective_white_thread.py]
+  - derivation_id: D-0011
+    slug: dynamic-softmax-weights-from-semantic-action
+    status: hypothesis
+    depends_on: [DEF-0011, DEF-0012]
+    downstream: [IF-0010, src/ciel_foundations/solvers/dynamic_path_weights_solver.py, tests/test_dynamic_path_weights.py, Simulations/code/sim_dynamic_path_weights.py]
+  - derivation_id: D-0012
+    slug: semantic-action-assembly-from-measurement-operators
+    status: hypothesis
+    depends_on: [DEF-0012, DEF-0013]
+    downstream: [IF-0011, src/ciel_foundations/solvers/semantic_action_measurement_solver.py, tests/test_semantic_action_measurement.py, Simulations/code/sim_semantic_action_measurement.py]
+  - derivation_id: D-0013
+    slug: spectral-tau-from-effective-white-thread
+    status: hypothesis
+    depends_on: [DEF-0011, DEF-0014]
+    downstream: [IF-0012, src/ciel_foundations/solvers/spectral_tau_from_white_thread_solver.py, tests/test_spectral_tau_from_white_thread.py, Simulations/code/sim_spectral_tau_from_white_thread.py]
+  - derivation_id: D-0014
+    slug: normalized-object-state-from-raw-energy
+    status: hypothesis
+    depends_on: [DEF-0015]
+    downstream: [IF-0013, src/ciel_foundations/solvers/object_state_energy_solver.py, tests/test_object_state_energy_solver.py, Simulations/code/sim_object_state_energy.py]
+  - derivation_id: D-0015
+    slug: repository-object-state-extraction-from-canonical-files
+    status: hypothesis
+    depends_on: [DEF-0015, DEF-0016]
+    downstream: [IF-0014, src/ciel_foundations/solvers/repo_object_state_extractor.py, tests/test_repo_object_state_extractor.py, Simulations/code/sim_repo_object_state_extraction.py]

@@ -1,0 +1,25 @@
+\section{Phase-Aware Composition of the Pairwise Kernel}
+\label{sec:phase-aware-kernel}
+
+\subsection{Abstract kernel refinement}
+To refine the abstract pairwise kernel used by the tau-from-coupling generator, define
+\begin{equation}
+A_{ij}=|W_{ij}|\,g_{\mathrm{phase}}(\gamma_i-\gamma_j;\lambda)\,g_{\mathrm{closure}}(R_H;\mu).
+\end{equation}
+
+\subsection{Phase alignment factor}
+A simple symmetric choice is
+\begin{equation}
+g_{\mathrm{phase}}(\delta\gamma;\lambda)=\exp\!\big[-\lambda(1-\cos\delta\gamma)\big],
+\qquad \lambda\ge 0.
+\end{equation}
+
+\subsection{Closure weight}
+A simple monotone penalty factor is
+\begin{equation}
+g_{\mathrm{closure}}(R_H;\mu)=\exp(-\mu R_H),
+\qquad \mu\ge 0.
+\end{equation}
+
+\subsection{Status}
+This section records a first hypothesis-level composition law for the kernel input to the \(\tau_i=f(A_{ij})\) generator.

@@ -1,0 +1,19 @@
+interface_id: IF-0009
+status: defined
+name: effective_white_thread_interface
+upstream:
+  definitions:
+    - DEF-0011
+  derivations:
+    - D-0010
+python_modules:
+  - src/ciel_foundations/solvers/effective_white_thread_solver.py
+required_functions:
+  - normalize_weights
+  - effective_white_thread
+contract:
+  - weights must be normalized to a convex combination
+  - the effective White-Thread must reduce to the primitive value for a single active channel
+  - the effective amplitude must remain bounded by one when primitives are bounded by one
+linked_tests:
+  - tests/test_effective_white_thread.py

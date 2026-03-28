@@ -1,0 +1,25 @@
+registry_id: REG-AGENT-0001
+status: defined
+scope: canonical agent-file authority for the Foundations repository
+policy:
+  - The canonical startup instruction for this repository is `AGENT.md` on `main`.
+  - Auxiliary branch-specific, uploaded, or external agent files may inform work only as non-canonical helper material.
+  - No auxiliary agent file may override root governance, source-of-truth rules, or canonical workflow unless transcribed and registered on `main`.
+entries:
+  - agent_id: AGENT-ROOT-0001
+    path: AGENT.md
+    canonical: true
+    class: native
+    role: startup_algorithm_and_hard_gates
+    status: defined
+
+  - agent_id: AGENT-AUX-0001
+    path: auxiliary_corpora/*
+    canonical: false
+    class: auxiliary
+    role: noncanonical_helper_material
+    status: auxiliary
+
+normalization_result:
+  canonical_agent_surface_count_on_main: 1
+  normalized_authority: AGENT.md

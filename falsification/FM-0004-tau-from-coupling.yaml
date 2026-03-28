@@ -1,0 +1,21 @@
+falsification_id: FM-0004
+status: defined
+scope: tau_from_coupling_generator
+claims:
+  - claim_id: CL-0012
+    statement: uniform coupling produces degenerate taus in the registered toy generator
+    target_tests:
+      - tests/test_tau_from_coupling.py::test_tau_from_uniform_kernel_is_degenerate
+    failure_condition: equal-coupling kernel generates a nondegenerate tau spectrum
+
+  - claim_id: CL-0013
+    statement: heterogeneous coupling produces positive, split taus
+    target_tests:
+      - tests/test_tau_from_coupling.py::test_tau_from_heterogeneous_kernel_is_positive_and_split
+    failure_condition: toy heterogeneous kernel yields nonpositive or unsplit tau values
+
+  - claim_id: CL-0014
+    statement: the logarithmic tau solution is gauge fixed to zero mean
+    target_tests:
+      - tests/test_tau_from_coupling.py::test_log_tau_solution_is_gauge_fixed_to_zero_mean
+    failure_condition: the registered logarithmic solution no longer has zero mean

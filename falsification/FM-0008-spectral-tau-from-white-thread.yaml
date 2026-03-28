@@ -1,0 +1,19 @@
+falsification_id: FM-0008
+status: defined
+scope: spectral_tau_from_white_thread
+claims:
+  - claim_id: CL-0024
+    statement: the Hermitian projection of the registered effective White-Thread toy value equals its real part in the symmetric sector
+    target_tests:
+      - tests/test_spectral_tau_from_white_thread.py::test_hermitian_projection_reduces_to_real_part_in_symmetric_sector
+    failure_condition: the projection no longer matches the real part in the registered symmetric toy setup
+  - claim_id: CL-0025
+    statement: the characteristic polynomial coefficients match the registered coupling matrix
+    target_tests:
+      - tests/test_spectral_tau_from_white_thread.py::test_characteristic_coefficients_match_registered_toy_matrix
+    failure_condition: the polynomial coefficients cease to match the registered coupling matrix
+  - claim_id: CL-0026
+    statement: the spectral tau modes match the registered eigenvalues of the toy coupling matrix
+    target_tests:
+      - tests/test_spectral_tau_from_white_thread.py::test_spectral_tau_modes_match_registered_roots
+    failure_condition: the computed tau modes diverge from the registered spectral roots

@@ -16,105 +16,91 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 
 ## Quick navigation
 ### Root entrypoints
-- `INDEX.md` — root governance index
-- `index.md` — global navigation spine
-- `systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md` — orchestration layer for active modules
-- `registries/global_index_registry.yaml` — machine-readable root index authority
-- `registries/global_cross_reference_map.yaml` — active global cross-reference spine for current foundations modules
-
-### Core governance
-- `AGENT.md`
-- `PROJECT_CHARTER.md`
-- `ORGANIZATION.md`
-- `STRUCTURE.md`
-- `ROADMAP.md`
+- `INDEX.md`
+- `index.md`
+- `GLOSSARY.md`
+- `systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md`
+- `registries/global_index_registry.yaml`
+- `registries/global_cross_reference_map.yaml`
+- `registries/agent_authority_registry.yaml`
+- `bibliography/README.md`
+- `AUDIT_SCHEMA.yaml`
+- `SEMANTIC_ACTION_REFERENCE_CARD.md`
+- `schemas/objects_state.schema.yaml`
+- `schemas/couplings.schema.yaml`
+- `docs/EXPORT_REPOSITORY_STATE.md`
 
 ## Current active foundations modules
-### Minimal projective / Berry / spin chain
-- axioms: `AX-0001`, `AX-0002`, `AX-0003`
-- definitions: `DEF-0001`, `DEF-0002`, `DEF-0003`
-- derivations: `D-0001`, `D-0002`
-- interface: `interfaces/IF-0001-minimal-cp1-berry-spin.yaml`
-- code: `src/ciel_foundations/geometry/projective_state.py`, `src/ciel_foundations/holonomy/berry.py`, `src/ciel_foundations/closure/euler.py`, `src/ciel_foundations/solvers/minimal_cp1_berry_spin_solver.py`
-- tests: `tests/test_projective_state.py`, `tests/test_berry_and_closure.py`
-- paper: `whitepapers/WP-MOD-minimal-projective-berry-spin.md`
-- LaTeX appendix: `LaTeX/appendices/APP-0001-minimal-cp1-berry-spin-numerical-derivations.tex`
+### Core piko chain
+- `DEF-0001..0007`
+- `D-0001..0006`
+- `IF-0001`, `IF-0002`, `IF-0004`, `IF-0005`
 
-### Tetrahedral relational frame
-- definition: `DEF-0004`
-- derivation: `D-0003`
-- interface: `interfaces/IF-0002-tetrahedral-relational-frame.yaml`
-- code: `src/ciel_foundations/solvers/tetrahedral_relational_frame_solver.py`
-- tests: `tests/test_tetrahedral_relational_frame.py`
-- paper: `whitepapers/WP-MOD-tetrahedral-relational-frame.md`
-- LaTeX section: `LaTeX/sections/SEC-0002-tetrahedral-relational-frame.tex`
-- LaTeX appendix: `LaTeX/appendices/APP-0002-tetrahedral-frame-numerical-derivations.tex`
+### Tau / kernel / White-Thread / action stack
+- `DEF-0008` — pairwise coupling kernel and tau-from-coupling generator
+- `DEF-0009` — phase-aware kernel composition
+- `DEF-0010` — White-Thread U(1) primitive
+- `DEF-0011` — loose-thread bundle and effective White-Thread
+- `DEF-0012` — dynamic path weights from semantic action
+- `DEF-0013` — semantic action measurement operators
+- `DEF-0014` — Hermitian coupling projection and spectral tau modes
+- `DEF-0015` — object-state energy functional
+- `DEF-0016` — repository object-state extraction surfaces
+- `D-0007`, `D-0008`, `D-0009`, `D-0010`, `D-0011`, `D-0012`, `D-0013`, `D-0014`, `D-0015`
+- `IF-0006`, `IF-0007`, `IF-0008`, `IF-0009`, `IF-0010`, `IF-0011`, `IF-0012`, `IF-0013`, `IF-0014`
 
-### Local attractor / nonlocal holonomic vortex
-- axiom: `AX-0005`
-- definitions: `DEF-0005`, `DEF-0006`
-- derivations: `D-0004`, `D-0005`
-- interface: `interfaces/IF-0004-nonlocal-holonomic-vortex.yaml`
-- code: `src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py`
-- tests: `tests/test_nonlocal_holonomic_vortex.py`
-- paper: `whitepapers/WP-MOD-local-attractor-holonomic-vortex.md`
-- LaTeX section: `LaTeX/sections/SEC-0003-local-attractor-holonomic-vortex.tex`
-- LaTeX appendix: `LaTeX/appendices/APP-0003-rotating-superfluid-field-numerical-derivations.tex`
+## Paper layer now includes
+- `SEC-0005` tau from coupling
+- `SEC-0006` phase-aware kernel composition
+- `SEC-0007` White-Thread primitive
+- `SEC-0008` effective White-Thread
+- `SEC-0009` dynamic path weights
+- `SEC-0010` semantic action measurement operators
+- `SEC-0011` spectral tau from White-Thread
+- `SEC-0012` object-state energy functional
+- `SEC-0013` repository object-state extraction
+- `APP-0005`..`APP-0011`
 
-### Fractal foundations spine at piko scale
-- definition: `DEF-0007`
-- derivation: `D-0006`
-- interface: `interfaces/IF-0005-piko-fractal-spine.yaml`
-- code: `src/ciel_foundations/solvers/piko_fractal_spine_solver.py`
-- tests: `tests/test_piko_fractal_spine.py`
-- paper: `whitepapers/WP-MOD-fractal-foundations-spine.md`
-- LaTeX section: `LaTeX/sections/SEC-0004-fractal-foundations-spine.tex`
-- LaTeX appendix: `LaTeX/appendices/APP-0004-piko-fractal-spine-numerical-derivations.tex`
+## Real export path
+To generate real `objects_state.csv` and `couplings.csv` from a checked-out repository tree, use:
+
+```bash
+python scripts/export_repository_state.py \
+  --repo-root . \
+  --objects-out exports/objects_state.csv \
+  --couplings-out exports/couplings.csv
+```
+
+See `docs/EXPORT_REPOSITORY_STATE.md`.
 
 ## Scope
 Included now:
 - axioms
-- state-space definitions
+- definitions
 - derivations
-- constants registry
 - solver modules
 - simulations and artifact tracking
 - whitepapers and LaTeX sections
 - bibliography and cross-reference infrastructure
-- operational modes (external formalisms mapped into CIEL operational roles)
-- assumptions, decisions, falsification criteria, interfaces, provenance, benchmarks
+- falsification, provenance, interfaces
+- audit schema and semantic action reference card
+- glossary support
+- object-state and coupling schemas
+- executable repository extraction surfaces
 
 Excluded for now:
 - Omega runtime
-- CQCL runtime integration
-- memory/agent layers
-- UI/persona/prompt infrastructure
+- CQCL integration
+- persona/UI/prompt layers
 
 ## Source of truth
-Source of truth is stored in:
-- Markdown / TeX for formal and explanatory text
-- YAML for registries, interfaces, assumptions, provenance, and cross-reference maps
-- Python for executable realization
-
-PDF files are generated artifacts, not source of truth.
-
-## Repository grouping by object type
-- `axioms/` — frozen axioms and registry
-- `definitions/` — formal objects and registries
-- `derivations/` — derivation texts and dependency DAG
-- `interfaces/` — module contracts
-- `src/ciel_foundations/` — executable realization
-- `tests/` — symbolic, numeric, and falsification-facing tests
-- `whitepapers/` — paper-backed explanatory modules
-- `LaTeX/` — publication sections and appendices
-- `Simulations/` — code, results, registry
-- `artifacts/` / `provenance/` / `falsification/` — traceability and failure criteria
+Source of truth is stored in Markdown/TeX, YAML registries/interfaces/provenance, and Python implementation files. PDF files are generated artifacts, not source of truth.
 
 ## Global cross-reference principle
 Repository-wide navigation should behave like a global organizational coupling graph:
 \[
 W_{ij}^{Global}: \text{object}_i \leftrightarrow \text{object}_j
 \]
-realized through hyperlinks, registries, dependency DAGs, interfaces, tests, simulations, artifacts, and provenance.
+implemented through hyperlinks, registries, dependency DAGs, interfaces, tests, simulations, artifacts, provenance, and bibliography.
 
 # The-Fundamental-Theory-of-Informational-Relations

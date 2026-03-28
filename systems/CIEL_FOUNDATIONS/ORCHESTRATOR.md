@@ -1,114 +1,38 @@
 # CIEL Foundations Orchestrator
 
-## Status
-`defined`
-
 ## Purpose
 This file is the human-readable orchestration layer for the canonical foundations repository.
-It does not replace the source-of-truth objects. It routes between them.
 
-Organizationally, it plays the role of a repository-wide coupling spine:
-\[
-W_{ij}^{Global}: \text{object}_i \leftrightarrow \text{object}_j
-\]
-implemented through hyperlinks, registries, dependency DAGs, interfaces, tests, artifacts, and provenance.
+## Active module groups
+### Core piko chain
+- `DEF-0001..0007`
+- `D-0001..0006`
+- core interfaces and solvers
 
-## Core rule
-Nothing becomes stable here by narration alone.
-Routing must always preserve:
-\[
-\text{Axiom} \to \text{Definition} \to \text{Derivation} \to \text{Implementation} \to \text{Test} \to \text{Status} \to \text{Interpretation}.
-\]
-
-## Layered entrypoints
-### Governance
-- [README.md](../../README.md)
-- [AGENT.md](../../AGENT.md)
-- [INDEX.md](../../INDEX.md)
-- [index.md](../../index.md)
-- [PROJECT_CHARTER.md](../../PROJECT_CHARTER.md)
-- [ORGANIZATION.md](../../ORGANIZATION.md)
-- [STRUCTURE.md](../../STRUCTURE.md)
-- [ROADMAP.md](../../ROADMAP.md)
-
-### Canonical formal layer
-- [axioms/](../../axioms/)
-- [definitions/](../../definitions/)
-- [derivations/](../../derivations/)
-- [interfaces/](../../interfaces/)
-- [registries/global_cross_reference_map.yaml](../../registries/global_cross_reference_map.yaml)
-
-### Executable layer
-- [src/ciel_foundations/](../../src/ciel_foundations/)
-- [tests/](../../tests/)
-- [Simulations/](../../Simulations/)
-- [artifacts/](../../artifacts/)
-- [provenance/](../../provenance/)
-- [falsification/](../../falsification/)
-
-### Paper layer
-- [whitepapers/](../../whitepapers/)
-- [LaTeX/](../../LaTeX/)
-
-## Current active module group
-### Minimal projective / Berry / spin chain
-- [AX-0001](../../axioms/AX-0001-projective-state-space.md)
-- [AX-0002](../../axioms/AX-0002-kahler-fubini-study-structure.md)
-- [AX-0003](../../axioms/AX-0003-spinor-sign-under-2pi.md)
-- [DEF-0001](../../definitions/DEF-0001-projective-ray-and-cp1.md)
-- [DEF-0002](../../definitions/DEF-0002-berry-connection-and-phase.md)
-- [DEF-0003](../../definitions/DEF-0003-closure-functional.md)
-- [D-0001](../../derivations/D-0001-hilbert-to-projective-cp1.md)
-- [D-0002](../../derivations/D-0002-berry-phase-and-spinor-sign.md)
-- [IF-0001](../../interfaces/IF-0001-minimal-cp1-berry-spin.yaml)
-- [solver](../../src/ciel_foundations/solvers/minimal_cp1_berry_spin_solver.py)
-- [tests](../../tests/test_projective_state.py)
-- [tests](../../tests/test_berry_and_closure.py)
-- [whitepaper](../../whitepapers/WP-MOD-minimal-projective-berry-spin.md)
-- [appendix](../../LaTeX/appendices/APP-0001-minimal-cp1-berry-spin-numerical-derivations.tex)
-
-### Tetrahedral extension chain
-- [DEF-0004](../../definitions/DEF-0004-regular-tetrahedron-on-s2.md)
-- [D-0003](../../derivations/D-0003-regular-tetrahedron-on-s2.md)
-- [IF-0002](../../interfaces/IF-0002-tetrahedral-relational-frame.yaml)
-- [solver](../../src/ciel_foundations/solvers/tetrahedral_relational_frame_solver.py)
-- [test](../../tests/test_tetrahedral_relational_frame.py)
-- [whitepaper](../../whitepapers/WP-MOD-tetrahedral-relational-frame.md)
-- [section](../../LaTeX/sections/SEC-0002-tetrahedral-relational-frame.tex)
-- [appendix](../../LaTeX/appendices/APP-0002-tetrahedral-frame-numerical-derivations.tex)
-
-### Local attractor / nonlocal holonomic vortex chain
-- [AX-0005](../../axioms/AX-0005-local-attractor-hierarchy.md)
-- [DEF-0005](../../definitions/DEF-0005-local-attractor-and-order-parameter.md)
-- [DEF-0006](../../definitions/DEF-0006-nonlocal-holonomic-vortex.md)
-- [D-0004](../../derivations/D-0004-local-attractor-axis-and-coriolis.md)
-- [D-0005](../../derivations/D-0005-spacetime-holonomic-circulation.md)
-- [IF-0004](../../interfaces/IF-0004-nonlocal-holonomic-vortex.yaml)
-- [solver](../../src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py)
-- [test](../../tests/test_nonlocal_holonomic_vortex.py)
-- [whitepaper](../../whitepapers/WP-MOD-local-attractor-holonomic-vortex.md)
-- [section](../../LaTeX/sections/SEC-0003-local-attractor-holonomic-vortex.tex)
-- [appendix](../../LaTeX/appendices/APP-0003-rotating-superfluid-field-numerical-derivations.tex)
-
-### Fractal foundations spine chain
-- [DEF-0007](../../definitions/DEF-0007-fractal-foundations-spine.md)
-- [D-0006](../../derivations/D-0006-fractal-inheritance-chain.md)
-- [IF-0005](../../interfaces/IF-0005-piko-fractal-spine.yaml)
-- [solver](../../src/ciel_foundations/solvers/piko_fractal_spine_solver.py)
-- [test](../../tests/test_piko_fractal_spine.py)
-- [whitepaper](../../whitepapers/WP-MOD-fractal-foundations-spine.md)
-- [section](../../LaTeX/sections/SEC-0004-fractal-foundations-spine.tex)
-- [appendix](../../LaTeX/appendices/APP-0004-piko-fractal-spine-numerical-derivations.tex)
+### Tau / kernel / White-Thread / action chain
+- `DEF-0008` + `D-0007` + `IF-0006`
+- `DEF-0009` + `D-0008` + `IF-0007`
+- `DEF-0010` + `D-0009` + `IF-0008`
+- `DEF-0011` + `D-0010` + `IF-0009`
+- `DEF-0012` + `D-0011` + `IF-0010`
+- `DEF-0013` + `D-0012` + `IF-0011`
+- `DEF-0014` + `D-0013` + `IF-0012`
+- `DEF-0015` + `D-0014` + `IF-0013`
+- `DEF-0016` + `D-0015` + `IF-0014`
+- bundle support: `AUDIT_SCHEMA.yaml`, `SEMANTIC_ACTION_REFERENCE_CARD.md`, `GLOSSARY.md`, `schemas/*.yaml`, `docs/EXPORT_REPOSITORY_STATE.md`
 
 ## Routing policy
-1. Start from `INDEX.md` or `index.md`.
+1. Start from `README.md`, `INDEX.md`, or `index.md`.
 2. Enter the target object through its registry or interface.
 3. Follow the dependency DAG upstream before touching downstream code.
-4. Use this orchestrator only as a global navigator, never as an alternative source of truth.
+4. Treat bibliography as support for attribution and context, not as automatic epistemic upgrade.
 
-## Next downstream modules to orchestrate
-- active closure law
-- white-thread primitives
-- tau-from-coupling layer
-- tensor-scalar extension
-- algebra layer targets: SO(3), SU(2), U(1)
+## Immediate open targets
+- semantic metric law
+- truth potential runtime operator
+- reduction threshold operator
+- semantic mass / orbital embedding operator
+- flavor/color identification beyond toy spectral modes
+- calibrated raw-energy functional beyond the first linear ansatz
+- richer semantic coupling rules beyond exact path mentions
+- capture and register a real full-tree export artifact

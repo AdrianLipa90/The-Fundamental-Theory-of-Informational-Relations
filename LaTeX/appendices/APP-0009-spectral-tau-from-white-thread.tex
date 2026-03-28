@@ -1,0 +1,47 @@
+\appendix
+\section{Numerical Appendix: Spectral Tau from Effective White-Thread}
+\label{app:spectral-tau-from-white-thread}
+
+\subsection{Registered toy transport}
+For the registered effective White-Thread value
+\begin{equation}
+W^{eff}_{12} \approx 0.74224129 + 0.12412309 i,
+\end{equation}
+we obtain
+\begin{equation}
+A_{12}=\Re(W^{eff}_{12})\approx 0.74224129.
+\end{equation}
+Take also
+\begin{equation}
+A_{13}=0.5,
+\qquad
+A_{23}=0.3.
+\end{equation}
+Hence
+\begin{equation}
+A=\begin{pmatrix}
+0 & 0.74224129 & 0.5\\
+0.74224129 & 0 & 0.3\\
+0.5 & 0.3 & 0
+\end{pmatrix}.
+\end{equation}
+
+\subsection{Characteristic polynomial}
+The polynomial is
+\begin{equation}
+-\lambda^3 + 0.8909211506872641\lambda + 0.222672387 = 0.
+\end{equation}
+
+\subsection{Spectral modes}
+The numerical roots are
+\begin{equation}
+\tau \approx (0.99893394,\ -0.60734102,\ -0.39159292).
+\end{equation}
+
+\subsection{Executable realization}
+The corresponding executable modules are:
+\begin{itemize}
+  \item \texttt{src/ciel\_foundations/solvers/spectral\_tau\_from\_white\_thread\_solver.py}
+  \item \texttt{tests/test\_spectral\_tau\_from\_white\_thread.py}
+  \item \texttt{Simulations/code/sim\_spectral\_tau\_from\_white\_thread.py}
+\end{itemize}

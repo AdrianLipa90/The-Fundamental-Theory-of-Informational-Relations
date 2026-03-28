@@ -1,0 +1,19 @@
+falsification_id: FM-0009
+status: defined
+scope: object_state_energy_normalization
+claims:
+  - claim_id: CL-0027
+    statement: normalized energies sum to one
+    target_tests:
+      - tests/test_object_state_energy_solver.py::test_normalized_energies_sum_to_one
+    failure_condition: normalized energies cease to form a probability-like partition
+  - claim_id: CL-0028
+    statement: amplitudes squared sum to one
+    target_tests:
+      - tests/test_object_state_energy_solver.py::test_amplitudes_squared_sum_to_one
+    failure_condition: amplitudes no longer represent a normalized state amplitude field
+  - claim_id: CL-0029
+    statement: local-state magnitudes equal amplitudes
+    target_tests:
+      - tests/test_object_state_energy_solver.py::test_local_state_magnitude_equals_amplitude
+    failure_condition: generated local states cease to preserve amplitude under phase encoding

@@ -1,0 +1,16 @@
+artifact_id: ART-0005
+status: defined
+generated_from:
+  simulation_id: SIM-0005
+  code_paths:
+    - Simulations/code/sim_white_thread_primitive.py
+    - src/ciel_foundations/solvers/white_thread_primitive_solver.py
+  formal_dependencies:
+    - DEF-0010
+    - D-0009
+parameters:
+  segment_integrals: [0.2, 0.3, -0.1]
+  psi_i: [1.0, 0.0]
+  psi_j: [0.6, 0.8]
+notes:
+  - This artifact is a toy abelian White-Thread transport demonstration.
