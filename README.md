@@ -18,6 +18,7 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 ### Root entrypoints
 - `INDEX.md`
 - `index.md`
+- `GLOSSARY.md`
 - `systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md`
 - `registries/global_index_registry.yaml`
 - `registries/global_cross_reference_map.yaml`
@@ -39,8 +40,9 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `DEF-0011` — loose-thread bundle and effective White-Thread
 - `DEF-0012` — dynamic path weights from semantic action
 - `DEF-0013` — semantic action measurement operators
-- `D-0007`, `D-0008`, `D-0009`, `D-0010`, `D-0011`, `D-0012`
-- `IF-0006`, `IF-0007`, `IF-0008`, `IF-0009`, `IF-0010`, `IF-0011`
+- `DEF-0014` — Hermitian coupling projection and spectral tau modes
+- `D-0007`, `D-0008`, `D-0009`, `D-0010`, `D-0011`, `D-0012`, `D-0013`
+- `IF-0006`, `IF-0007`, `IF-0008`, `IF-0009`, `IF-0010`, `IF-0011`, `IF-0012`
 
 ## Paper layer now includes
 - `SEC-0005` tau from coupling
@@ -49,7 +51,8 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `SEC-0008` effective White-Thread
 - `SEC-0009` dynamic path weights
 - `SEC-0010` semantic action measurement operators
-- `APP-0005`..`APP-0008`
+- `SEC-0011` spectral tau from White-Thread
+- `APP-0005`..`APP-0009`
 
 ## Scope
 Included now:
@@ -62,6 +65,7 @@ Included now:
 - bibliography and cross-reference infrastructure
 - falsification, provenance, interfaces
 - audit schema and semantic action reference card
+- glossary support
 
 Excluded for now:
 - Omega runtime

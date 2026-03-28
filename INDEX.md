@@ -7,6 +7,7 @@ This file is the root governance map and canonical table of contents for the pub
 - `AGENT.md`
 - `INDEX.md`
 - `index.md`
+- `GLOSSARY.md`
 - `systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md`
 - `registries/global_index_registry.yaml`
 - `registries/global_cross_reference_map.yaml`
@@ -28,12 +29,13 @@ This file is the root governance map and canonical table of contents for the pub
 - `DEF-0011` effective White-Thread from loose-thread bundle
 - `DEF-0012` dynamic path weights from semantic action
 - `DEF-0013` semantic action measurement operators
-- `D-0007..D-0012`
-- `IF-0006..IF-0011`
+- `DEF-0014` Hermitian coupling projection and spectral tau modes
+- `D-0007..D-0013`
+- `IF-0006..IF-0012`
 
 ## Current next-layer targets
 - semantic metric law beyond the first ansatz
 - runtime truth potential beyond the first structural/audit split
 - reduction threshold operators
 - semantic mass and orbital embedding operators
-- time-owning / winding operators
+- flavor/color identification beyond toy spectral modes

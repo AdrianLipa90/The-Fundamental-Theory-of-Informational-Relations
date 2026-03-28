@@ -4,6 +4,7 @@
 - `README.md`
 - `INDEX.md`
 - `index.md`
+- `GLOSSARY.md`
 - `registries/global_index_registry.yaml`
 - `systems/CIEL_FOUNDATIONS/ORCHESTRATOR.md`
 - `AUDIT_SCHEMA.yaml`
@@ -21,18 +22,21 @@
 - [DEF-0011](definitions/DEF-0011-loose-thread-bundle-and-effective-white-thread.md)
 - [DEF-0012](definitions/DEF-0012-dynamic-path-weights-from-semantic-action.md)
 - [DEF-0013](definitions/DEF-0013-semantic-action-measurement-operators.md)
+- [DEF-0014](definitions/DEF-0014-hermitian-coupling-projection-and-spectral-tau.md)
 - [D-0007](derivations/D-0007-tau-from-coupling-laplacian.md)
 - [D-0008](derivations/D-0008-kernel-from-holonomy-phase-and-closure.md)
 - [D-0009](derivations/D-0009-white-thread-u1-primitive.md)
 - [D-0010](derivations/D-0010-effective-white-thread-from-loose-thread-bundle.md)
 - [D-0011](derivations/D-0011-dynamic-softmax-weights-from-semantic-action.md)
 - [D-0012](derivations/D-0012-semantic-action-assembly-from-measurement-operators.md)
+- [D-0013](derivations/D-0013-spectral-tau-from-effective-white-thread.md)
 - [IF-0006](interfaces/IF-0006-tau-from-coupling.yaml)
 - [IF-0007](interfaces/IF-0007-phase-aware-kernel-composition.yaml)
 - [IF-0008](interfaces/IF-0008-white-thread-primitive.yaml)
 - [IF-0009](interfaces/IF-0009-effective-white-thread.yaml)
 - [IF-0010](interfaces/IF-0010-dynamic-path-weights.yaml)
 - [IF-0011](interfaces/IF-0011-semantic-action-measurement-operators.yaml)
+- [IF-0012](interfaces/IF-0012-spectral-tau-from-white-thread.yaml)
 
 ## Executable bindings
 - `src/ciel_foundations/solvers/tau_from_coupling_solver.py`
@@ -41,10 +45,11 @@
 - `src/ciel_foundations/solvers/effective_white_thread_solver.py`
 - `src/ciel_foundations/solvers/dynamic_path_weights_solver.py`
 - `src/ciel_foundations/solvers/semantic_action_measurement_solver.py`
+- `src/ciel_foundations/solvers/spectral_tau_from_white_thread_solver.py`
 
 ## Paper outputs
-- `SEC-0005`..`SEC-0010`
-- `APP-0005`..`APP-0008`
+- `SEC-0005`..`SEC-0011`
+- `APP-0005`..`APP-0009`
 
 ## Registries and bibliography
 - `definitions/definitions_registry.yaml`

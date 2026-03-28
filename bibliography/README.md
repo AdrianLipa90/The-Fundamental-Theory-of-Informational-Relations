@@ -8,25 +8,27 @@ This directory contains canonical bibliography surfaces for the Foundations repo
 Bibliography records support explanation, attribution, and literature mapping. They do **not** by themselves upgrade any repository object to `derived` or `verified` status.
 
 ## Canonical files
-- `bibliography/README.md` — human-readable bibliography entrypoint
-- `bibliography/foundations_seed.bib` — machine-readable seed bibliography for active foundations modules
+- `bibliography/README.md`
+- `bibliography/foundations_seed.bib`
 
 ## Current seed coverage
 ### Projective / geometric quantum foundations
-- Kibble (projective/symplectic formulation of quantum mechanics)
-- Berry (adiabatic geometric phase)
-- Aharonov–Anandan (cyclic geometric phase on ray space)
-- Wilczek–Zee (non-Abelian gauge structure)
+- Kibble
+- Berry
+- Aharonov–Anandan
+- Wilczek–Zee
 
 ### Rotating flow / superfluid context
-- Pethick & Smith, *Bose–Einstein Condensation in Dilute Gases*
-- Pethick & Smith, chapter on rotating condensates
-- OpenStax Coriolis reference for elementary rotating-frame kinematics
+- Pethick & Smith
+- rotating-condensate chapter
+- Coriolis reference
 
-### Tau-from-coupling generator context
-- Penrose (Moore--Penrose pseudoinverse)
-- Chung (spectral graph theory and weighted Laplacians)
-- Fiedler (algebraic connectivity of graphs)
+### Tau / kernel / spectral bridge context
+- Penrose
+- Chung
+- Fiedler
+- Wilson
+- Simon
 
 ## Use rule
 1. Bibliography entries may justify terminology, analogies, or standard background.

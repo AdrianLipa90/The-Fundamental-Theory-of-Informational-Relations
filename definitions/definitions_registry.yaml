@@ -6,134 +6,164 @@ entries:
     name: projective_ray_state
     file: definitions/DEF-0001-projective-ray-and-cp1.md
     status: defined
-    depends_on:
-      - AX-0001
-
+    depends_on: [AX-0001]
   - object_id: OBJ-CP1-0001
     name: minimal_cp1_state_space
     file: definitions/DEF-0001-projective-ray-and-cp1.md
     status: defined
-    depends_on:
-      - AX-0001
-      - AX-0002
-
+    depends_on: [AX-0001, AX-0002]
   - object_id: OBJ-FS-METRIC-0001
     name: fubini_study_metric
     file: definitions/DEF-0001-projective-ray-and-cp1.md
     status: defined
-    depends_on:
-      - AX-0002
-
+    depends_on: [AX-0002]
   - object_id: OBJ-BERRY-CONNECTION-0001
     name: berry_connection
     file: definitions/DEF-0002-berry-connection-and-phase.md
     status: defined
-    depends_on:
-      - AX-0002
-
+    depends_on: [AX-0002]
   - object_id: OBJ-BERRY-PHASE-0001
     name: berry_phase
     file: definitions/DEF-0002-berry-connection-and-phase.md
     status: defined
-    depends_on:
-      - OBJ-BERRY-CONNECTION-0001
-      - AX-0003
-
+    depends_on: [OBJ-BERRY-CONNECTION-0001, AX-0003]
   - object_id: OBJ-SPIN-BUNDLE-0001
     name: minimal_spin_bundle
     file: definitions/DEF-0002-berry-connection-and-phase.md
     status: defined
-    depends_on:
-      - AX-0003
-
+    depends_on: [AX-0003]
   - object_id: OBJ-CLOSURE-FUNCTIONAL-0001
     name: closure_functional_delta_H
     file: definitions/DEF-0003-closure-functional.md
     status: defined
-    depends_on:
-      - AX-0003
-
+    depends_on: [AX-0003]
   - object_id: OBJ-LOCAL-ATTRACTOR-0001
     name: local_attractor
     file: definitions/DEF-0005-local-attractor-and-order-parameter.md
     status: defined
-    depends_on:
-      - AX-0005
-
+    depends_on: [AX-0005]
   - object_id: OBJ-ORDER-PARAMETER-0001
     name: local_order_parameter
     file: definitions/DEF-0005-local-attractor-and-order-parameter.md
     status: defined
-    depends_on:
-      - AX-0002
-      - AX-0005
-
+    depends_on: [AX-0002, AX-0005]
   - object_id: OBJ-POLES-EQUATOR-0001
     name: local_poles_and_equator
     file: definitions/DEF-0005-local-attractor-and-order-parameter.md
     status: defined
-    depends_on:
-      - OBJ-LOCAL-ATTRACTOR-0001
-      - OBJ-ORDER-PARAMETER-0001
-
+    depends_on: [OBJ-LOCAL-ATTRACTOR-0001, OBJ-ORDER-PARAMETER-0001]
   - object_id: OBJ-NONLOCAL-HOLO-VORTEX-0001
     name: nonlocal_holonomic_vortex
     file: definitions/DEF-0006-nonlocal-holonomic-vortex.md
     status: defined
-    depends_on:
-      - DEF-0002
-      - DEF-0003
-      - DEF-0005
-
+    depends_on: [DEF-0002, DEF-0003, DEF-0005]
   - object_id: OBJ-CORIOLIS-0001
     name: coriolics_like_term
     file: definitions/DEF-0006-nonlocal-holonomic-vortex.md
     status: defined
-    depends_on:
-      - DEF-0005
-
+    depends_on: [DEF-0005]
   - object_id: OBJ-FRACTAL-SPINE-0001
     name: piko_fractal_foundations_spine
     file: definitions/DEF-0007-fractal-foundations-spine.md
     status: defined
-    depends_on:
-      - DEF-0001
-      - DEF-0004
-      - DEF-0005
-      - DEF-0006
-
+    depends_on: [DEF-0001, DEF-0004, DEF-0005, DEF-0006]
   - object_id: OBJ-PAIRWISE-KERNEL-0001
     name: pairwise_coupling_kernel
     file: definitions/DEF-0008-pairwise-coupling-kernel.md
     status: defined
-    depends_on:
-      - DEF-0002
-      - DEF-0003
-
+    depends_on: [DEF-0002, DEF-0003]
   - object_id: OBJ-TAU-FROM-COUPLING-0001
     name: tau_from_coupling_generator
     file: definitions/DEF-0008-pairwise-coupling-kernel.md
     status: hypothesis
-    depends_on:
-      - OBJ-PAIRWISE-KERNEL-0001
-
+    depends_on: [OBJ-PAIRWISE-KERNEL-0001]
   - object_id: OBJ-PHASE-AWARE-KERNEL-0001
     name: phase_aware_pairwise_kernel
     file: definitions/DEF-0009-phase-aware-kernel-composition.md
     status: hypothesis
-    depends_on:
-      - OBJ-PAIRWISE-KERNEL-0001
-
+    depends_on: [OBJ-PAIRWISE-KERNEL-0001]
   - object_id: OBJ-PHASE-ALIGNMENT-0001
     name: phase_alignment_weight
     file: definitions/DEF-0009-phase-aware-kernel-composition.md
     status: defined
-    depends_on:
-      - DEF-0002
-
+    depends_on: [DEF-0002]
   - object_id: OBJ-CLOSURE-WEIGHT-0001
     name: closure_weight
     file: definitions/DEF-0009-phase-aware-kernel-composition.md
     status: defined
-    depends_on:
-      - DEF-0003
+    depends_on: [DEF-0003]
+  - object_id: OBJ-WHITE-THREAD-PRIMITIVE-0001
+    name: white_thread_holonomy_primitive
+    file: definitions/DEF-0010-white-thread-holonomy-primitive.md
+    status: defined
+    depends_on: [DEF-0002]
+  - object_id: OBJ-U1-HOLONOMY-0001
+    name: u1_holonomy_primitive
+    file: definitions/DEF-0010-white-thread-holonomy-primitive.md
+    status: defined
+    depends_on: [DEF-0002]
+  - object_id: OBJ-WHITE-THREAD-MATRIX-ELEMENT-0001
+    name: white_thread_matrix_element
+    file: definitions/DEF-0010-white-thread-holonomy-primitive.md
+    status: defined
+    depends_on: [OBJ-U1-HOLONOMY-0001]
+  - object_id: OBJ-LOOSE-THREAD-BUNDLE-0001
+    name: loose_thread_bundle
+    file: definitions/DEF-0011-loose-thread-bundle-and-effective-white-thread.md
+    status: hypothesis
+    depends_on: [DEF-0010]
+  - object_id: OBJ-EFFECTIVE-WHITE-THREAD-0001
+    name: effective_white_thread
+    file: definitions/DEF-0011-loose-thread-bundle-and-effective-white-thread.md
+    status: hypothesis
+    depends_on: [OBJ-WHITE-THREAD-PRIMITIVE-0001]
+  - object_id: OBJ-PATH-ACTION-0001
+    name: semantic_path_action
+    file: definitions/DEF-0012-dynamic-path-weights-from-semantic-action.md
+    status: hypothesis
+    depends_on: [DEF-0011]
+  - object_id: OBJ-DYNAMIC-PATH-WEIGHTS-0001
+    name: dynamic_path_weights
+    file: definitions/DEF-0012-dynamic-path-weights-from-semantic-action.md
+    status: hypothesis
+    depends_on: [OBJ-PATH-ACTION-0001]
+  - object_id: OBJ-SEMANTIC-LENGTH-OP-0001
+    name: semantic_length_operator
+    file: definitions/DEF-0013-semantic-action-measurement-operators.md
+    status: hypothesis
+    depends_on: [OBJ-PATH-ACTION-0001]
+  - object_id: OBJ-PHASE-COST-OP-0001
+    name: phase_cost_operator
+    file: definitions/DEF-0013-semantic-action-measurement-operators.md
+    status: hypothesis
+    depends_on: [DEF-0002]
+  - object_id: OBJ-RELATIONAL-DEFECT-OP-0001
+    name: relational_defect_operator
+    file: definitions/DEF-0013-semantic-action-measurement-operators.md
+    status: hypothesis
+    depends_on: [DEF-0003]
+  - object_id: OBJ-TRUTH-STRUCTURAL-OP-0001
+    name: truth_structural_operator
+    file: definitions/DEF-0013-semantic-action-measurement-operators.md
+    status: hypothesis
+    depends_on: [DEF-0012]
+  - object_id: OBJ-TRUTH-AUDIT-OP-0001
+    name: truth_audit_operator
+    file: definitions/DEF-0013-semantic-action-measurement-operators.md
+    status: defined
+    depends_on: []
+  - object_id: OBJ-SEMANTIC-ACTION-STACK-0001
+    name: semantic_action_measurement_stack
+    file: definitions/DEF-0013-semantic-action-measurement-operators.md
+    status: hypothesis
+    depends_on: [OBJ-SEMANTIC-LENGTH-OP-0001, OBJ-PHASE-COST-OP-0001, OBJ-RELATIONAL-DEFECT-OP-0001, OBJ-TRUTH-STRUCTURAL-OP-0001, OBJ-TRUTH-AUDIT-OP-0001]
+  - object_id: OBJ-HERMITIAN-COUPLING-PROJECTION-0001
+    name: hermitian_coupling_projection
+    file: definitions/DEF-0014-hermitian-coupling-projection-and-spectral-tau.md
+    status: hypothesis
+    depends_on: [OBJ-EFFECTIVE-WHITE-THREAD-0001]
+  - object_id: OBJ-SPECTRAL-TAU-MODES-0001
+    name: spectral_tau_modes
+    file: definitions/DEF-0014-hermitian-coupling-projection-and-spectral-tau.md
+    status: hypothesis
+    depends_on: [OBJ-HERMITIAN-COUPLING-PROJECTION-0001]

@@ -5,56 +5,47 @@ entries:
     name: minimal_cp1_berry_spin_demo
     status: defined
     code_path: Simulations/code/sim_cp1_berry_spin.py
-    result_artifact_ids:
-      - ART-0001
-    depends_on:
-      - IF-0001
-      - D-0001
-      - D-0002
-    purpose:
-      - demonstrate projective CP1/Bloch parametrization
-      - demonstrate equatorial Berry phase accumulation
-      - demonstrate spinorial minus sign after a full cycle
-      - expose closure functional behavior for a simple phase pair
-
+    result_artifact_ids: [ART-0001]
+    depends_on: [IF-0001, D-0001, D-0002]
   - simulation_id: SIM-0002
     name: nonlocal_holonomic_vortex_demo
     status: defined
     code_path: Simulations/code/sim_nonlocal_holonomic_vortex.py
-    result_artifact_ids:
-      - ART-0002
-    depends_on:
-      - IF-0004
-      - D-0004
-      - D-0005
-    purpose:
-      - demonstrate local-attractor axis -> poles/equator structure
-      - demonstrate Coriolis term for a rotating local flow
-      - demonstrate nonzero spacetime circulation on a closed loop
-      - expose a toy nonlocal holonomic vortex criterion
-
+    result_artifact_ids: [ART-0002]
+    depends_on: [IF-0004, D-0004, D-0005]
   - simulation_id: SIM-0003
     name: piko_fractal_spine_demo
     status: defined
     code_path: Simulations/code/sim_piko_fractal_spine.py
-    result_artifact_ids:
-      - ART-0003
-    depends_on:
-      - IF-0005
-      - D-0006
-    purpose:
-      - consolidate CP1/Berry/spin, tetrahedral frame, and local attractor vortex into one piko snapshot
-      - expose a toy bounded consistency score for the consolidated spine
-
+    result_artifact_ids: [ART-0003]
+    depends_on: [IF-0005, D-0006]
   - simulation_id: SIM-0004
     name: tau_from_coupling_demo
     status: defined
     code_path: Simulations/code/sim_tau_from_coupling.py
-    result_artifact_ids:
-      - ART-0004
-    depends_on:
-      - IF-0006
-      - D-0007
-    purpose:
-      - demonstrate the tau-from-coupling Laplacian generator on a toy 3x3 kernel
-      - expose positivity, splitting, and gauge-fixed log-tau structure
+    result_artifact_ids: [ART-0004]
+    depends_on: [IF-0006, D-0007]
+  - simulation_id: SIM-0005
+    name: white_thread_primitive_demo
+    status: defined
+    code_path: Simulations/code/sim_white_thread_primitive.py
+    result_artifact_ids: [ART-0005]
+    depends_on: [IF-0008, D-0009]
+  - simulation_id: SIM-0006
+    name: dynamic_path_weights_demo
+    status: defined
+    code_path: Simulations/code/sim_dynamic_path_weights.py
+    result_artifact_ids: [ART-0006]
+    depends_on: [IF-0010, D-0011]
+  - simulation_id: SIM-0007
+    name: semantic_action_measurement_demo
+    status: defined
+    code_path: Simulations/code/sim_semantic_action_measurement.py
+    result_artifact_ids: [ART-0007]
+    depends_on: [IF-0011, D-0012]
+  - simulation_id: SIM-0008
+    name: spectral_tau_from_white_thread_demo
+    status: defined
+    code_path: Simulations/code/sim_spectral_tau_from_white_thread.py
+    result_artifact_ids: [ART-0008]
+    depends_on: [IF-0012, D-0013]
