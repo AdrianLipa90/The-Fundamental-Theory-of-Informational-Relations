@@ -1,0 +1,24 @@
+interface_id: IF-0014
+status: defined
+name: repository_object_state_extraction_interface
+upstream:
+  definitions:
+    - DEF-0016
+  derivations:
+    - D-0015
+python_modules:
+  - src/ciel_foundations/solvers/repo_object_state_extractor.py
+required_functions:
+  - discover_repository_files
+  - build_repository_couplings
+  - extract_repository_object_states
+  - write_repository_state_exports
+contract:
+  - exported object rows must satisfy `objects_state.schema.yaml`
+  - exported coupling rows must satisfy `couplings.schema.yaml`
+  - normalized energies in exported object rows must sum to one when at least one object is present
+  - every exported coupling source and target must correspond to a discovered object id
+linked_tests:
+  - tests/test_repo_object_state_extractor.py
+linked_simulations:
+  - SIM-0010

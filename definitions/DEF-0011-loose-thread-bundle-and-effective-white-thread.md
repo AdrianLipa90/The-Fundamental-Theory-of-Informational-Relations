@@ -41,5 +41,28 @@ If each primitive amplitude satisfies \(|W_{ij}^{(a)}|\le 1\), then
 \]
 by convexity and the triangle inequality.
 
+## Registered numeric trace
+For the registered one-channel reduction,
+\[
+W_{ij}^{\mathrm{eff}} = W_{ij}^{(1)}
+\]
+when \(\alpha_1=1\).
+For the registered two-channel toy example,
+\[
+W_{ij}^{\mathrm{eff}} = 0.5(0.6+0.0i)+0.5(0.0+0.8i)=0.3+0.4i,
+\qquad
+|W_{ij}^{\mathrm{eff}}|=0.5.
+\]
+Hence the convex bound remains satisfied.
+
+## Executable bindings
+- solver: `src/ciel_foundations/solvers/effective_white_thread_solver.py`
+- tests: `tests/test_effective_white_thread.py`
+- section: `LaTeX/sections/SEC-0008-effective-white-thread.tex`
+
+## Artifact bindings
+- upstream primitive artifact: `Simulations/results/ART-0005-white-thread-primitive-demo.csv`
+- downstream dynamic-weight artifact: `Simulations/results/ART-0006-dynamic-path-weights-demo.csv`
+
 ## Scope restriction
 This definition does not yet specify how the weights \(\alpha_a\) are generated dynamically. It only registers the first normalized aggregation law for loose-thread bundles.

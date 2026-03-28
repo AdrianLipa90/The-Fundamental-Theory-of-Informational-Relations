@@ -1,0 +1,4 @@
+source,target,relation_type,coupling_weight,phase_offset,metadata
+README.md,definitions/DEF-0001-projective-ray-and-cp1.md,path_mention,1.0,0.0,exact_path_count
+README.md,src/ciel_foundations/solvers/demo_solver.py,path_mention,1.0,0.0,exact_path_count
+definitions/DEF-0001-projective-ray-and-cp1.md,src/ciel_foundations/solvers/demo_solver.py,path_mention,1.0,0.0,exact_path_count

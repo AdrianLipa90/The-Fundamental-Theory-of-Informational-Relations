@@ -5,57 +5,76 @@ entries:
     name: cp1_berry_spin_demo_csv
     status: generated
     path: Simulations/results/ART-0001-cp1-berry-spin-demo.csv
-    sha256: 1a6ce1a7fbc6f94f60d567f4b96bfe2d20e59f73d09e4e9e6a638151d0a1631c
     created_utc: '2026-03-26'
-    code_source:
-      - Simulations/code/sim_cp1_berry_spin.py
-      - src/ciel_foundations/holonomy/berry.py
-    linked_derivations:
-      - D-0001
-      - D-0002
-    linked_tests:
-      - tests/test_projective_state.py
-      - tests/test_berry_and_closure.py
-
+    linked_derivations: [D-0001, D-0002]
+    linked_tests: [tests/test_projective_state.py, tests/test_berry_and_closure.py]
   - artifact_id: ART-0002
     name: nonlocal_holonomic_vortex_demo_csv
     status: generated
     path: Simulations/results/ART-0002-nonlocal-holonomic-vortex-demo.csv
-    sha256: 235e2fb1591a59169442efb0a299af51e738cf23c5a43a51c4423cd17431cb81
     created_utc: '2026-03-27'
-    code_source:
-      - Simulations/code/sim_nonlocal_holonomic_vortex.py
-      - src/ciel_foundations/solvers/nonlocal_holonomic_vortex_solver.py
-    linked_derivations:
-      - D-0004
-      - D-0005
-    linked_tests:
-      - tests/test_nonlocal_holonomic_vortex.py
-
+    linked_derivations: [D-0004, D-0005]
+    linked_tests: [tests/test_nonlocal_holonomic_vortex.py]
   - artifact_id: ART-0003
     name: piko_fractal_spine_demo_csv
     status: generated
     path: Simulations/results/ART-0003-piko-fractal-spine-demo.csv
-    sha256: c72b8a2477f31ff9ac84f0dc1bf6d4bb4b3ca37dd8252c70ad1c133e36f08eea
     created_utc: '2026-03-27'
-    code_source:
-      - Simulations/code/sim_piko_fractal_spine.py
-      - src/ciel_foundations/solvers/piko_fractal_spine_solver.py
-    linked_derivations:
-      - D-0006
-    linked_tests:
-      - tests/test_piko_fractal_spine.py
-
+    linked_derivations: [D-0006]
+    linked_tests: [tests/test_piko_fractal_spine.py]
   - artifact_id: ART-0004
     name: tau_from_coupling_demo_csv
     status: generated
     path: Simulations/results/ART-0004-tau-from-coupling-demo.csv
-    sha256: 2498ad973c62da0b78d3003b53847e4ba8f2d7811af02f91abe39c687364a54a
     created_utc: '2026-03-27'
-    code_source:
-      - Simulations/code/sim_tau_from_coupling.py
-      - src/ciel_foundations/solvers/tau_from_coupling_solver.py
-    linked_derivations:
-      - D-0007
-    linked_tests:
-      - tests/test_tau_from_coupling.py
+    linked_derivations: [D-0007]
+    linked_tests: [tests/test_tau_from_coupling.py]
+  - artifact_id: ART-0005
+    name: white_thread_primitive_demo_csv
+    status: generated
+    path: Simulations/results/ART-0005-white-thread-primitive-demo.csv
+    created_utc: '2026-03-27'
+    linked_derivations: [D-0009]
+    linked_tests: [tests/test_white_thread_primitive.py]
+  - artifact_id: ART-0006
+    name: dynamic_path_weights_demo_csv
+    status: generated
+    path: Simulations/results/ART-0006-dynamic-path-weights-demo.csv
+    created_utc: '2026-03-27'
+    linked_derivations: [D-0011]
+    linked_tests: [tests/test_dynamic_path_weights.py]
+  - artifact_id: ART-0007
+    name: semantic_action_measurement_demo_csv
+    status: generated
+    path: Simulations/results/ART-0007-semantic-action-measurement-demo.csv
+    created_utc: '2026-03-27'
+    linked_derivations: [D-0012]
+    linked_tests: [tests/test_semantic_action_measurement.py]
+  - artifact_id: ART-0008
+    name: spectral_tau_from_white_thread_demo_csv
+    status: generated
+    path: Simulations/results/ART-0008-spectral-tau-from-white-thread-demo.csv
+    created_utc: '2026-03-28'
+    linked_derivations: [D-0013]
+    linked_tests: [tests/test_spectral_tau_from_white_thread.py]
+  - artifact_id: ART-0009
+    name: object_state_energy_demo_csv
+    status: generated
+    path: Simulations/results/ART-0009-object-state-energy-demo.csv
+    created_utc: '2026-03-28'
+    linked_derivations: [D-0014]
+    linked_tests: [tests/test_object_state_energy_solver.py]
+  - artifact_id: ART-0010
+    name: repo_object_state_fixture_demo_csv
+    status: generated
+    path: Simulations/results/ART-0010-repo-object-state-fixture-demo.csv
+    created_utc: '2026-03-28'
+    linked_derivations: [D-0015]
+    linked_tests: [tests/test_repo_object_state_extractor.py]
+  - artifact_id: ART-0011
+    name: repo_couplings_fixture_demo_csv
+    status: generated
+    path: Simulations/results/ART-0011-repo-couplings-fixture-demo.csv
+    created_utc: '2026-03-28'
+    linked_derivations: [D-0015]
+    linked_tests: [tests/test_repo_object_state_extractor.py]

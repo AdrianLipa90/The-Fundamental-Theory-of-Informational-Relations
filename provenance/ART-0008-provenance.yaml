@@ -1,0 +1,18 @@
+artifact_id: ART-0008
+status: defined
+generated_from:
+  simulation_id: SIM-0008
+  code_paths:
+    - Simulations/code/sim_spectral_tau_from_white_thread.py
+    - src/ciel_foundations/solvers/spectral_tau_from_white_thread_solver.py
+  formal_dependencies:
+    - DEF-0011
+    - DEF-0014
+    - D-0013
+parameters:
+  w_eff_re: 0.74224129
+  w_eff_im: 0.12412309
+  a13: 0.5
+  a23: 0.3
+notes:
+  - This artifact demonstrates the first spectral bridge from effective White-Thread amplitudes to tau modes.

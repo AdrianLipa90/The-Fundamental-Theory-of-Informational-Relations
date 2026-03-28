@@ -1,0 +1,22 @@
+interface_id: IF-0012
+status: defined
+name: spectral_tau_from_white_thread_interface
+upstream:
+  definitions:
+    - DEF-0014
+  derivations:
+    - D-0013
+python_modules:
+  - src/ciel_foundations/solvers/spectral_tau_from_white_thread_solver.py
+required_functions:
+  - hermitian_projection_entry
+  - build_symmetric_coupling_matrix
+  - spectral_tau_modes
+contract:
+  - the projected coupling matrix must be symmetric in the toy real sector
+  - tau modes must equal the eigenvalues of the registered coupling matrix
+  - the characteristic polynomial coefficients must match the registered toy matrix
+linked_tests:
+  - tests/test_spectral_tau_from_white_thread.py
+linked_simulations:
+  - SIM-0008

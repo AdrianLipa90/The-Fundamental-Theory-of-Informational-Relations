@@ -1,0 +1,19 @@
+falsification_id: FM-0010
+status: defined
+scope: repository_object_state_extraction
+claims:
+  - claim_id: CL-0030
+    statement: repository discovery returns the expected canonical fixture files
+    target_tests:
+      - tests/test_repo_object_state_extractor.py::test_discover_repository_files_lists_fixture_paths
+    failure_condition: discovered file paths diverge from the registered fixture
+  - claim_id: CL-0031
+    statement: extracted normalized object energies sum to one
+    target_tests:
+      - tests/test_repo_object_state_extractor.py::test_extractor_builds_fixture_couplings_and_normalized_energy
+    failure_condition: exported normalized energies cease to form a unit partition
+  - claim_id: CL-0032
+    statement: exported couplings connect only discovered fixture objects
+    target_tests:
+      - tests/test_repo_object_state_extractor.py::test_extractor_builds_fixture_couplings_and_normalized_energy
+    failure_condition: exported couplings refer to missing or spurious object ids

@@ -1,0 +1,21 @@
+\section{Repository Object-State Extraction Surfaces}
+\label{sec:repo-object-state-extraction}
+
+\subsection{Discovery and local features}
+The repository tree is traversed to discover canonical file objects, excluding obvious runtime debris. For each file we extract local features
+\begin{equation}
+(\text{path},\text{type},\text{layer},\text{content\_hash},\text{size},\text{local\_mass}).
+\end{equation}
+
+\subsection{Coupling surface}
+The first coupling surface is defined by exact relative-path mention:
+\begin{equation}
+C_{ij}>0 \iff \text{path}_j \text{ appears in the text of object } i.
+\end{equation}
+This produces the export `couplings.csv`.
+
+\subsection{Object-state export}
+The extracted local and nonlocal features are inserted into the energetic state ansatz of Section~\ref{sec:object-state-energy}, yielding schema-conforming rows in `objects_state.csv`.
+
+\subsection{Status}
+This section records the first executable repository extraction surface. Richer semantic coupling rules remain open.

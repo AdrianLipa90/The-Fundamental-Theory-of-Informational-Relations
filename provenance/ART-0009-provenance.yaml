@@ -1,0 +1,14 @@
+artifact_id: ART-0009
+status: defined
+generated_from:
+  simulation_id: SIM-0009
+  code_paths:
+    - Simulations/code/sim_object_state_energy.py
+    - src/ciel_foundations/solvers/object_state_energy_solver.py
+  formal_dependencies:
+    - DEF-0015
+    - D-0014
+parameters:
+  raw_energies: [2.0, 3.0, 5.0]
+notes:
+  - This artifact demonstrates normalized object-state energies, amplitudes, phases, and local complex states.
