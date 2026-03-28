@@ -28,6 +28,7 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `SEMANTIC_ACTION_REFERENCE_CARD.md`
 - `schemas/objects_state.schema.yaml`
 - `schemas/couplings.schema.yaml`
+- `docs/EXPORT_REPOSITORY_STATE.md`
 
 ## Current active foundations modules
 ### Core piko chain
@@ -59,6 +60,18 @@ Axiom -> Definition -> Derivation -> Implementation -> Test -> Status -> Interpr
 - `SEC-0012` object-state energy functional
 - `SEC-0013` repository object-state extraction
 - `APP-0005`..`APP-0011`
+
+## Real export path
+To generate real `objects_state.csv` and `couplings.csv` from a checked-out repository tree, use:
+
+```bash
+python scripts/export_repository_state.py \
+  --repo-root . \
+  --objects-out exports/objects_state.csv \
+  --couplings-out exports/couplings.csv
+```
+
+See `docs/EXPORT_REPOSITORY_STATE.md`.
 
 ## Scope
 Included now:

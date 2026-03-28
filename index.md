@@ -11,6 +11,7 @@
 - `SEMANTIC_ACTION_REFERENCE_CARD.md`
 - `schemas/objects_state.schema.yaml`
 - `schemas/couplings.schema.yaml`
+- `docs/EXPORT_REPOSITORY_STATE.md`
 
 ## Active canonical modules
 ### Core piko chain
@@ -56,6 +57,7 @@
 - `src/ciel_foundations/solvers/spectral_tau_from_white_thread_solver.py`
 - `src/ciel_foundations/solvers/object_state_energy_solver.py`
 - `src/ciel_foundations/solvers/repo_object_state_extractor.py`
+- `scripts/export_repository_state.py`
 
 ## Paper outputs
 - `SEC-0005`..`SEC-0013`

@@ -17,6 +17,7 @@ This file is the root governance map and canonical table of contents for the pub
 - `SEMANTIC_ACTION_REFERENCE_CARD.md`
 - `schemas/objects_state.schema.yaml`
 - `schemas/couplings.schema.yaml`
+- `docs/EXPORT_REPOSITORY_STATE.md`
 
 ## Current active module families
 ### Core piko foundations
@@ -45,3 +46,4 @@ This file is the root governance map and canonical table of contents for the pub
 - flavor/color identification beyond toy spectral modes
 - calibrated raw-energy functional beyond the first linear ansatz
 - richer semantic coupling rules beyond exact path mentions
+- capture and register a real full-tree export artifact
