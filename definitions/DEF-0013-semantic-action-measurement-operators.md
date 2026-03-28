@@ -86,5 +86,37 @@ This operator belongs to post-hoc artifact evaluation rather than trajectory dyn
 ## 5. Canonical role
 This module is the first candidate measurement stack that makes every semantic-action component computationally explicit.
 
+## Registered numeric trace
+For the registered toy sample, the measured components are
+\[
+\widehat L \approx 2.64539977,
+\quad
+\widehat{\Delta\phi} \approx 0.13152863,
+\quad
+\widehat D_{rel} = 2.0,
+\]
+\[
+\widehat\Pi_{truth}^{struct} \approx 0.11666667,
+\quad
+\widehat\Pi_{truth}^{audit} = 0.15.
+\]
+With all coefficients equal to one,
+\[
+\mathcal S_{online} \approx 4.89359507,
+\qquad
+\mathcal S_{full} \approx 5.04359507.
+\]
+
+## Executable bindings
+- solver: `src/ciel_foundations/solvers/semantic_action_measurement_solver.py`
+- simulation: `Simulations/code/sim_semantic_action_measurement.py`
+- appendix: `LaTeX/appendices/APP-0008-semantic-action-measurement-operators.tex`
+- audit support: `AUDIT_SCHEMA.yaml`, `SEMANTIC_ACTION_REFERENCE_CARD.md`
+
+## Artifact bindings
+- result: `Simulations/results/ART-0007-semantic-action-measurement-demo.csv`
+- provenance: `provenance/ART-0007-provenance.yaml`
+- falsification: `falsification/FM-0007-semantic-action-measurement.yaml`
+
 ## Scope restriction
 The action decomposition is now operational, but the final semantic metric law, the runtime truth-potential operator, and calibration of the component coefficients remain open.
