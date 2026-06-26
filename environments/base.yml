@@ -1,7 +1,0 @@
-name: ciel-foundations-base
-dependencies:
-  - python=3.11
-  - numpy
-  - scipy
-  - pyyaml
-  - pytest

@@ -1,0 +1,114 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Decuplet Coefficients and Masses}
+\label{ch:decuplet_predictions}
+
+\section{Decuplet GMO Coefficients}
+
+The decuplet follows an equal-spacing rule in hypercharge \(Y\):
+
+\begin{equation}
+M = M_0' + \alpha_{10} + \beta_{10} Y.
+\label{eq:decuplet_formula}
+\end{equation}
+
+The coefficients are derived from the L-constants:
+
+\subsection{Coefficient \(\alpha_{10}\)}
+
+\begin{equation}
+\alpha_{10} = E_{\text{proton}}\,\kappa\,
+\frac{L_3^2 + L_4^2 + L_5^2 + L_3 + L_4 + L_5 + L_4}{L_4}.
+\label{eq:alpha10}
+\end{equation}
+
+\subsubsection{Term-by-Term Breakdown}
+
+\[
+\begin{aligned}
+L_3^2 &= 49,\\
+L_4^2 &= 4,\\
+L_5^2 &= 25,\\
+L_3   &= 7,\\
+L_4   &= 2,\\
+L_5   &= 5,\\
+L_4   &= 2.
+\end{aligned}
+\]
+
+Sum: \(49 + 4 + 25 + 7 + 2 + 5 + 2 = 94\).
+
+Dividing by \(L_4 = 2\): \(94/2 = 47\).
+
+\subsubsection{Numerical Evaluation}
+
+\[
+\begin{aligned}
+\alpha_{10} &= 938.272 \times 0.00919315 \times 47 \\
+            &= 8.62573 \times 47 \\
+            &= 405.41\ \mev.
+\end{aligned}
+\]
+
+\subsection{Coefficient \(\beta_{10}\)}
+
+\begin{equation}
+\beta_{10} = -E_{\text{proton}}\,\kappa\,
+\frac{L_3 L_5}{L_4}.
+\label{eq:beta10}
+\end{equation}
+
+\subsubsection{Numerical Evaluation}
+
+\[
+\begin{aligned}
+\frac{L_3 L_5}{L_4} &= \frac{7 \times 5}{2} = \frac{35}{2} = 17.5, \\[4pt]
+\beta_{10} &= -938.272 \times 0.00919315 \times 17.5 \\
+           &= -8.62573 \times 17.5 \\
+           &= -150.95\ \mev.
+\end{aligned}
+\]
+
+\section{Mass Calculation}
+
+\[
+\begin{aligned}
+M_{\Delta^{++}} &= M_0' + \alpha_{10} + \beta_{10}(+1) \\
+                &= 972.72 + 405.41 - 150.95 \\
+                &= 1227.18\ \mev, \\[4pt]
+M_{\Sigma^{*+}} &= M_0' + \alpha_{10} + \beta_{10}(0) \\
+                &= 972.72 + 405.41 \\
+                &= 1378.13\ \mev, \\[4pt]
+M_{\Xi^{*0}} &= M_0' + \alpha_{10} + \beta_{10}(-1) \\
+             &= 972.72 + 405.41 + 150.95 \\
+             &= 1529.08\ \mev, \\[4pt]
+M_{\Omega^-} &= M_0' + \alpha_{10} + \beta_{10}(-2) \\
+             &= 972.72 + 405.41 + 301.90 \\
+             &= 1680.03\ \mev.
+\end{aligned}
+\]
+
+\section{Complete Table}
+
+\[
+\begin{array}{lccc}
+\text{Particle} & \text{Predicted (MeV)} & \text{PDG (MeV)} & \text{Error} \\
+\hline
+\Delta^{++} & 1227.18 & 1232.0  & -0.39\% \\
+\Sigma^{*+} & 1378.13 & 1382.8  & -0.34\% \\
+\Xi^{*0}    & 1529.08 & 1531.8  & -0.18\% \\
+\Omega^-   & 1680.03 & 1672.45 & +0.45\%
+\end{array}
+\]
+
+Mean absolute error: \(0.34\%\).
+
+\section{Discussion}
+
+The decuplet fit is excellent: \(0.34\%\) mean error with no free parameters.
+The equal-spacing rule is satisfied to high precision.  The systematic
+pattern (negative error for lighter states, positive for \(\Omega^-\))
+suggests that the true equal spacing is slightly smaller than our
+\(\beta_{10} = -150.95\)~MeV, but the deviation is within 0.5\%.
+
+The decuplet is thus one of the best-described sectors in the Metatime
+framework.

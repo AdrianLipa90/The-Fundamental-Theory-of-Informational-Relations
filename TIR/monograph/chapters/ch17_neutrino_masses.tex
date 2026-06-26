@@ -1,0 +1,94 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Neutrino Masses}
+\label{ch:neutrino_masses}
+
+Neutrino masses are obtained from the tetrahedron action projection.
+
+\section{Base Action}
+
+The base action for the neutrino sector is:
+
+\[
+S_{\text{bare}} = \frac{1 + L_4/L_3}{2} = \frac{1 + 2/7}{2} = \frac{9}{14}.
+\]
+
+\section{Action Offset}
+
+The action offset is:
+
+\[
+dS = \kappa \cdot A_{\text{face}} \cdot (1-\kappa),
+\]
+
+where \(A_{\text{face}}\) is the projected tetrahedron face area:
+
+\[
+A_{\text{face}} = \frac{(L_4/L_3)^2}{2} = \frac{4/49}{2} = \frac{2}{49}.
+\]
+
+\section{First-Generation Action}
+
+\[
+S_1 = S_{\text{bare}} + \kappa\,dS.
+\]
+
+\section{Mass Ratios}
+
+The mass ratios are fixed by the tetrahedron signature:
+
+\[
+r = [1,\ L_4,\ L_3+L_4+1] = [1, 2, 10].
+\]
+
+The actions are:
+
+\[
+S_i = S_1 - \kappa\,\ln r_i.
+\]
+
+\section{Mass Calculation}
+
+\[
+m_i = E_P \times 10^6\ e^{-S_i/\kappa},
+\]
+
+where the factor \(10^6\) converts from MeV to eV.
+
+Numerically:
+
+\[
+\begin{aligned}
+m_1 &= 0.00501\ \eV, \\
+m_2 &= 0.01002\ \eV, \\
+m_3 &= 0.0501\ \eV.
+\end{aligned}
+\]
+
+\section{Mass Splittings}
+
+\[
+\begin{aligned}
+\Delta m_{21}^2 &= m_2^2 - m_1^2
+    = 7.5 \times 10^{-5}\ \eV^2
+    \quad (7.53 \times 10^{-5}\ \text{PDG}), \\[4pt]
+\Delta m_{31}^2 &= m_3^2 - m_1^2
+    = 2.48 \times 10^{-3}\ \eV^2
+    \quad (2.45 \times 10^{-3}\ \text{PDG}).
+\end{aligned}
+\]
+
+\section{Results Summary}
+
+\[
+\begin{array}{lccc}
+\text{Quantity} & \text{Predicted} & \text{PDG} & \text{Error} \\
+\hline
+m_1 & 0.00501\ \eV & --\ (\text{unknown}) & -- \\
+m_2 & 0.01002\ \eV & --\ (\text{unknown}) & -- \\
+m_3 & 0.0501\ \eV & --\ (\text{unknown}) & -- \\
+\Delta m_{21}^2 & 7.50\times 10^{-5}\ \eV^2 & 7.53\times 10^{-5} & -0.4\% \\
+\Delta m_{31}^2 & 2.48\times 10^{-3}\ \eV^2 & 2.45\times 10^{-3} & +1.2\% \\
+\end{array}
+\]
+
+The mass splittings agree with the PDG values to within 1.2\%.

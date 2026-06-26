@@ -1,9 +1,0 @@
-id: ASM-####
-name: 
-type: axiom | hypothesis | simplification | empirical_input
-statement: 
-status: active | deprecated | provisional
-used_by: []
-can_be_relaxed: true
-failure_mode: 
-notes:

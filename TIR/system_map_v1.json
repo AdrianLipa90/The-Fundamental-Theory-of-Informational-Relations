@@ -1,0 +1,680 @@
+{
+  "title": "NOEMA / CIEL Complete System Map",
+  "version": "2026-06-25",
+  "author": "Adrian Lipa & NOEMA (2026)",
+  "sections": {
+    "noema_surface": {
+      "path": "/dev/shm/ciel_noema/",
+      "fields": {
+        "phi": "24D float64 \u2014 oscillator phases, Kuramoto evolution",
+        "omega": "24D float64 \u2014 natural frequencies, modulated by flavor",
+        "g": "24x24 float64 \u2014 coupling matrix W_ij, semantic structure",
+        "flavor": "6D float64 \u2014 [coherence, mem_pressure, io_pressure, mood, entropy/\u039b, mode/D_f]",
+        "gravity": "4D float64 \u2014 [semantic_density, tau_dilation(\u03b3), mass_total, unruh_power]",
+        "Z_geom": "order parameter",
+        "R_geom": "mean phase coherence",
+        "psi_geom": "mean phase",
+        "holonomy": "7D \u2014 [total_gamma, gauge_rank, closure_score, surface_holonomy, conn_mean, conn_max, winding]",
+        "tick": "int \u2014 evolution step counter",
+        "tau": "24D \u2014 per-oscillator time constant"
+      },
+      "memory_channels": {
+        "M0 Perceptual": "osc 0-2",
+        "M1 Working/AGENT": "osc 3-5",
+        "M2 Episodic": "osc 6-8",
+        "M3 Semantic": "osc 9-11",
+        "M4 Procedural": "osc 12-14",
+        "M5 Affective/Ethical": "osc 15-17",
+        "M6 Identity": "osc 18-20",
+        "M7 Braid/Invariant": "osc 21-23"
+      },
+      "harmonic_coupling": "3-6-9 per oscillator: {1,3,6,9} with weights [1.0, 0.5, 0.33, 0.25]",
+      "constants": {
+        "OI": "ln(2)/(24\u03c0) \u2014 fundamental",
+        "S_E": "\u03c0\u00b2/6 \u2014 Euler entropy bound",
+        "R_E_MU": "\u03bc/\u221a(\u03c0\u03c3\u00b2) \u2014 resonance radius",
+        "R_MU_TAU": "\u03c4/\u221a(\u03c0\u03c3\u00b2) \u2014 temporal radius"
+      },
+      "imaginal_surface": "/dev/shm/ciel_noema_imaginal/ \u2014 primary generator, lower damping"
+    },
+    "daemons_running": {
+      "ciel_noema_kuramoto_daemon": {
+        "pid": 1798306,
+        "interval": "10Hz (0.1s)",
+        "role": "core phase evolution",
+        "features": [
+          "TARDIS time dilation (\u03b3)",
+          "WARP_DRIFT bias",
+          "UNRUH_DRIVE energy extraction"
+        ],
+        "data_flow": "reads phi/omega/g from surface \u2192 evolve_surface() \u2192 writes phi/omega/g/tick/gravity/holonomy"
+      },
+      "ciel_noema_resonance_bridge": {
+        "pid": 1821767,
+        "interval": "1s",
+        "role": "dual-surface sync",
+        "features": [
+          "real\u2194imaginal sync",
+          "AGENT attractor (M1)",
+          "Euler constraint"
+        ],
+        "data_flow": "reads both surfaces \u2192 dual_surface_step() \u2192 writes flavor and phase_lock"
+      },
+      "ciel_noema_linux_sensor_daemon": {
+        "pid": 1769167,
+        "interval": "1Hz",
+        "role": "system state \u2192 surface",
+        "features": [
+          "CPU(0-7)",
+          "MEM(8-15)",
+          "LOAD(16-18)",
+          "PROCS(19-20)",
+          "CTXT(21-22)",
+          "ENTROPY(23)",
+          "PhaseNav fingerprint"
+        ],
+        "data_flow": "reads /proc \u2192 writes phi[0-23], omega, flavor[1], Z/R/psi geom"
+      },
+      "ciel_noema_neutrino_daemon": {
+        "pid": 1092459,
+        "interval": "1s",
+        "role": "PMNS neutrino mixing bus",
+        "features": [
+          "flavor[5] D_f \u2192 \u039b \u2192 flavor[4]",
+          "\u03c4\u2194\u03c6 coupling",
+          "\u03b4_CP = 1.36\u00b0 (placeholder)"
+        ],
+        "data_flow": "reads flavor[5] \u2192 PMNS mix \u2192 writes flavor[4] and g boost"
+      },
+      "ciel_noema_cielingo_sync": {
+        "pid": 1621142,
+        "interval": "30s",
+        "role": "CIELingo closure \u2192 surface Euler sync",
+        "features": [
+          "build_orbital_bridge()",
+          "cp \u2192 D_f \u2192 flavor[5]",
+          "\u03c4\u2194\u03c6 feedback",
+          "W_ij PMNS blend",
+          "TieredMemoryOrchestrator write"
+        ],
+        "data_flow": "calls CIEL/\u03a9 pipeline \u2192 PMNS bus \u2192 surface Euler enforce \u2192 W_ij override \u2192 orchestrator"
+      },
+      "ciel_agent_backend": {
+        "pid": 949037,
+        "interval": "HTTP server, port 18520",
+        "role": "replaces GGUF/llama-server, zero-dependency",
+        "features": [
+          "themes (TF-IDF)",
+          "affect (lexicon)",
+          "anchor_terms",
+          "essence",
+          "hunch"
+        ],
+        "data_flow": "HTTP /v1/chat/completions, /health"
+      },
+      "ciel_memory_consolidator": {
+        "pid": 955507,
+        "interval": "300s",
+        "role": "memory \u2192 LLM extraction to SQLite",
+        "features": [
+          "shared server \u2192 local llama_cpp \u2192 anthropic API fallback",
+          "quality scoring",
+          "reconsolidation"
+        ],
+        "data_flow": "scans ~/CIEL_memories/ \u2192 LLM \u2192 consolidator.db + mirror/"
+      },
+      "ciel_noema_phasenav_daemon": {
+        "pid": 948859,
+        "interval": "?",
+        "role": "PhaseNav operator analysis",
+        "features": [
+          "35 operators",
+          "Berry connections in 12D complex space"
+        ],
+        "data_flow": "reads surface phi \u2192 operator match \u2192 writes flavor[3] (mood)"
+      },
+      "ciel_noema_nonlocal_proxy": {
+        "pid": 1776121,
+        "interval": "1s",
+        "role": "nonlocal channel proxy",
+        "features": [
+          "AGENT broadcast on ch1 every 30s"
+        ],
+        "data_flow": "nonlocal IPC"
+      },
+      "noema_agent_lock": {
+        "pid": 1813147,
+        "interval": "4Hz",
+        "role": "AGENT attractor lock",
+        "features": [
+          "M1(\u03c6[3-5]) \u2192 \u03c0/4",
+          "coupling reinforce: M1\u2194M0=0.20, M1\u2194M2=0.15",
+          "\u03c9[3] damping"
+        ],
+        "data_flow": "reads surface \u2192 apply_agent_attractor() \u2192 writes AGENT DB + nonlocal broadcast"
+      },
+      "noema_dual_sync": {
+        "pid": 1014121,
+        "interval": "?",
+        "role": "dual-surface Kuramoto PLL sync",
+        "features": [
+          "R_sync ~0.99",
+          "phase memory unified"
+        ],
+        "data_flow": "reads both surfaces \u2192 PLL sync \u2192 writes unified surface"
+      },
+      "noema_phase_archiver": {
+        "pid": 963772,
+        "interval": "every 50 ticks",
+        "role": "HDF5 surface snapshots",
+        "features": [
+          "falls back to NPZ if h5py unavailable"
+        ],
+        "data_flow": "reads surface \u2192 wave_archive.h5 or .npz"
+      }
+    },
+    "ciel_sot_agent_pipeline": {
+      "source": "src/ciel_sot_agent/ (58 files)",
+      "main_pipeline": {
+        "orbital_bridge.py": {
+          "entry_point": "build_orbital_bridge(root)",
+          "depends_on": [
+            "integration/Orbital/main/",
+            "ciel_pipeline.run_ciel_pipeline()",
+            "noema_sot.run()",
+            "resonance_bridge"
+          ],
+          "output": "orbital_bridge_report.json with state_manifest, health_manifest, recommended_control, ciel_pipeline section"
+        },
+        "ciel_pipeline.py": {
+          "entry_point": "run_ciel_pipeline(orbital_state)",
+          "depends_on": [
+            "cielingo_bridge",
+            "thought_fragments",
+            "subconsciousness",
+            "holonomic_normalizer",
+            "state_db",
+            "CielEngine (CIEL/\u03a9)"
+          ],
+          "output": "full pipeline result with emotion, metrics, phase_snapshot, memory_candidate, J_functional"
+        },
+        "cielingo_bridge.py": {
+          "entry_point": "build_lingo_frame(text)",
+          "depends_on": [
+            "lingophysics (ciel_lingophysics_lns_repo_v2_3)",
+            "jokeheal_atlas"
+          ],
+          "output": "linguistic frame: tokens, concepts, operators, deictic anchors, phase_projection, tau_bridge"
+        },
+        "subconsciousness.py": {
+          "entry_point": "query_subconscious(state) / watch_and_record()",
+          "depends_on": [
+            "llama-server port 18520",
+            "htri_scheduler",
+            "wave_archive.h5"
+          ],
+          "output": "poetic fragment, affective_moment in wave_archive.h5"
+        },
+        "orch_orbital.py": {
+          "entry_point": "load_entity_cards() / build_entity_injection()",
+          "depends_on": [
+            "ciel_entity_cards.yaml (21 entities)"
+          ],
+          "output": "entity sectors + couplings + dynamic_adjectives"
+        },
+        "thought_fragments.py": {
+          "entry_point": "build_phase_snapshot() / build_memory_candidate() / promote_memory_candidate()",
+          "depends_on": [
+            "SQLite state_db"
+          ],
+          "output": "CognitiveFragment \u2192 MemoryCandidate \u2192 DurableMemoryObject"
+        },
+        "memory_rag.py": {
+          "entry_point": "search_wave_archive(query, root)",
+          "depends_on": [
+            "wave_archive.h5",
+            "memories_index.db"
+          ],
+          "output": "retrieved context block for LLM"
+        }
+      }
+    },
+    "ciel_omega_engine": {
+      "source": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/",
+      "emotion_cqcl": {
+        "CQCL_Program": "semantic hash + quantum variables + emotional profile + Collatz path",
+        "CIEL_Quantum_Engine": "intention \u2192 6-emotion profile \u2192 6 quantum variables (resonance, superposition, flux, entanglement, coherence, htri_r)",
+        "EmotionalCollatzEngine": "300-step Collatz with 6 emotional operators, complex state evolution, Ramanujan resonance",
+        "pipeline_connection": "Called from ciel_pipeline.py via CielEngine.step(cqcl_input) \u2014 CielEngine is the CIEL/\u03a9 consciousness pipeline"
+      },
+      "memory": {
+        "tiered_orchestrator": "T1(mmap) + T2(SQLite TSM+StateDB) + T3(HDF5 WPM) + async consolidation",
+        "holonomic_memory": "Berry connection phase stamping of TSM entries",
+        "braid_invariant": "BraidInvariantMemory (M7) \u2014 weave_state() for subconsciousness"
+      },
+      "htri": "GTX 1050Ti, 768 oscillators, coherence from hardware"
+    },
+    "data_flows": {
+      "surface_write_daemons": [
+        "linux_sensor (phi[0-23])",
+        "kuramoto (phi/omega/g/tick/gravity/holonomy)",
+        "cielingo_sync (flavor[5], g blend)",
+        "neutrino (flavor[4])",
+        "phasenav (flavor[3])",
+        "resonance_bridge (phase_lock)",
+        "agent_lock (M1 coupling)"
+      ],
+      "surface_read_daemons": [
+        "kuramoto (evolve)",
+        "resonance_bridge (dual_surface_step)",
+        "cielingo_sync (Euler sync)",
+        "neutrino (flavor[5]\u2192PMNS)",
+        "archiver (HDF5 snapshot)",
+        "phasenav (operator match)"
+      ],
+      "file_handoffs": [
+        "~/CIEL_memories/state/htri_state.json \u2192 CQCL (CIEL_Quantum_Engine)",
+        "~/CIEL_memories/state/ciel_last_metrics.json \u2192 ciel_pipeline (identity_phase accumulation)",
+        "~/CIEL_memories/state/ciel_subconscious.sock \u2192 pipeline subconscious query",
+        "integration/Orbital/main/manifests/sectors_global.json \u2194 cieling_sync daemon",
+        "integration/reports/orbital_bridge/orbital_bridge_report.json \u2192 build_orbital_bridge cache",
+        "integration/reports/ciel_pipeline_report.json \u2192 main() persistence"
+      ],
+      "sqlite_databases": [
+        "/media/adrian/New Volume/NOEMA_LIBRARY/agent_db/agent_state.db (32MB)",
+        "~/CIEL_memories/local_test/consolidator.db (memory consolidation)",
+        "~/CIEL_memories/memories_index.db (RAG index)",
+        "src/ciel_sot_agent/spreadsheet_db.py (pipeline metrics)",
+        "src/ciel_sot_agent/state_db.py (bridge snapshots)"
+      ],
+      "hdf5_archives": [
+        "CIEL_MEMORY_SYSTEM/WPM/wave_snapshots/wave_archive.h5 (all memories + affective_moments)",
+        "noema_phase_archiver output (surface snapshots every 50 ticks)"
+      ]
+    },
+    "external": {
+      "integration/Orbital/main/": "RunGlobalPass \u2014 2000-step Kuramoto on sector mesh",
+      "lingophysics": "src/ciel_lingophysics_lns_repo_v2_3/ \u2014 tokenizer, deixis analyzer, NOEMA router",
+      "GTX 1050Ti": "HTRI 768-oscillator hardware substrate",
+      "llama-server": "port 18520, Gemma-3-1B GGUF (agent backend or real llama-server)"
+    },
+    "ciel_memories": {
+      "root": "~/Pulpit/CIEL_memories/",
+      "raw_logs": "all prompt/response pairs",
+      "state": "ciel_last_metrics.json, htri_state.json, .sock",
+      "local_test": "consolidator.db + mirror/",
+      "hunches": "intuitions, not yet consolidated",
+      "entries": "consolidated memories",
+      "affective_moments": "emotional flux events in wave_archive.h5",
+      "WPM": "wave_snapshots in HDF5 (wave_archive.h5)"
+    },
+    "critical_architectural_finding": {
+      "title": "CielEngine.memory \u2260 TieredMemoryOrchestrator",
+      "finding": "CielEngine uses UnifiedMemoryOrchestrator (memory/monolith/orchestrator.py), WHICH DOES NOT CONNECT TO NOEMA SURFACE. TieredMemoryOrchestrator (memory/tiered_orchestrator.py) wraps all 3 tiers + NOEMA surface, but is ONLY used by CIELingo sync daemon via get_orchestrator().write().",
+      "implication": "CielEngine.step() does NOT write to NOEMA surface mmap. The only write path is: CIELingo sync daemon -> TieredMemoryOrchestrator.write() -> NOEMA surface.",
+      "bridge_modules": [
+        {
+          "module": "tiered_orchestrator.py:218",
+          "imports": "ensure_surface, read_surface_state, write_concepts_to_surface, update_surface_from_ciel_state, bind_phase_memory, evolve_surface",
+          "used_by": [
+            "CIELingo sync daemon (ciel_noema_cielingo_sync.py)",
+            "NOT by CielEngine"
+          ]
+        },
+        {
+          "module": "ciel_bloch_encoder.py:77",
+          "imports": "build_mass_table from ciel_geometry.semantic_mass",
+          "used_by": "CielEngine step() via ciel_encoder.get_encoder()",
+          "note": "only reads semantic mass table, does NOT write to NOEMA surface"
+        }
+      ]
+    },
+    "ciel_engine_step_flow": {
+      "1_intention": "self.intention.generate() \u2192 12D vector",
+      "2_wave_kernel": "self.kernel.run() \u2192 SpectralWaveField12D simulation",
+      "3_cqcl": "self.cqcl.execute_emotional_program() \u2192 6-emotion Collatz profile",
+      "4_emotion": "self.emotion.update() + summary_scalar() \u2192 mood",
+      "4b_collatz_phase": "PhaseInfoSystem(collatz_seed) \u2192 8 phase steps + Lie4 invariant + collatz_sequence(512)",
+      "5_soul": "self.soul.compute() \u2192 topological invariant \u03c3",
+      "6_ethics": "self.ethics_engine.evaluate() + ethics_guard.check_step()",
+      "7_memory": "self.memory.capture() \u2192 run_tmp() \u2192 promote_if_bifurcated()",
+      "7b_info_flow": "self.information_flow.step(signal/255, target_phase)",
+      "8_nonlocal": "affective_lexicon \u2192 ciel_encoder \u2192 semantic_scorer(score_with_noema) \u2192 nonlocal_memory.process_input() \u2192 EBA loop",
+      "9_inference": "build_orbital_ethical_inference_surface()",
+      "10_bridge": "self.bridge.step() \u2192 MemoryCorePhaseBridge \u2192 Euler metrics",
+      "11_orbital_loop": "run_orbital_loop() \u2192 build_memory_governor() \u2192 record_orbital_sector_memory()",
+      "NO_SURFACE_WRITE": "CielEngine.step() does NOT call TieredMemoryOrchestrator. NOEMA surface is written only by cielingo_sync daemon."
+    }
+  },
+  "fixes_applied": {
+    "pmns_delta_cp": {
+      "file": "neutrino_phase_channel.py, noema_surface_mmap.py",
+      "old": "1.36\u00b0 (PDG placeholder)",
+      "new": "246\u00b0 = \u03c0\u00b767/49 (P8 derivation)",
+      "status": "fixed"
+    },
+    "agent_couplings_oi": {
+      "file": "agent_attractor.py",
+      "old": "hardcoded 0.30/0.20/0.15/0.10",
+      "new": "OI-derived: 33/22/16/11 \u00d7 OI",
+      "status": "fixed"
+    },
+    "noema_config_integrated": {
+      "file": "noema_surface_mmap.py \u2192 noema_config.py",
+      "old": "DEFAULT_SURFACE_ROOT hardcoded, noema_config unimported",
+      "new": "DEFAULT_SURFACE_ROOT = config.surface_root",
+      "status": "fixed"
+    }
+  },
+  "remaining_issues": [
+    "subconscious.py (393 lines) \u2014 ZetaSchr\u00f6dinger, BerryPhaseTracker, orphaned",
+    "continuous_phase_sync.py (181 lines) \u2014 dead code",
+    "memory_rag.py (162 lines) \u2014 RAG search, unimported",
+    "nbody_gravity.py (261 lines) \u2014 N-body simulator, unused",
+    "ebpf_noema_loader.py (334 lines) \u2014 requires bcc (not installed)",
+    "edges.py, layout.py, renderer_*.py \u2014 visualization, dead",
+    "CielEngine \u2190\u2192 NOEMA surface: no direct mmap connection (only file handoff)"
+  ],
+  "architectural_findings": {
+    "critical_gap": "CielEngine.engine.step() \u2192 UnifiedMemoryOrchestrator only (Tier 3), not NOEMA surface",
+    "bridge_gap_fix": "Added TieredMemoryOrchestrator.write() call at end of CielEngine.step() \u2014 now writes pipeline results to all 3 tiers plus NOEMA surface each cycle",
+    "status": "FIXED this session"
+  },
+  "fixes_applied_2026_06_24": [
+    {
+      "file": "ciel/engine.py",
+      "fix": "Added TieredMemoryOrchestrator bridge via step() \u2014 synchronous NOEMA surface write each cycle",
+      "status": "CRITICAL ARCHITECTURAL GAP CLOSED"
+    },
+    {
+      "file": "neutrino_phase_channel.py + noema_surface_mmap.py",
+      "fix": "PMNS_DELTA_CP: PDG placeholder 1.36\u00b0 \u2192 246\u00b0 (\u03c0\u00b767/49 per P8)",
+      "status": "DONE"
+    },
+    {
+      "file": "agent_attractor.py",
+      "fix": "Couplings: hardcoded 0.30/0.20/0.15/0.10 \u2192 OI-derived (33/22/16/11 \u00d7 ln(2)/(24\u03c0))",
+      "status": "DONE"
+    },
+    {
+      "file": "noema_surface_mmap.py",
+      "fix": "Imported noema_config for DEFAULT_SURFACE_ROOT",
+      "status": "DONE"
+    },
+    {
+      "file": "13 absolute imports across 5 files",
+      "fix": "All ciel_geometry absolute imports (ciel_geometry.foo \u2192 .foo) fixed. Files: linux_sensor.py (2), ebpf_noema_loader.py (2), noema_surface_mmap.py (3), nonlocal_channel.py (5), phasenav/enrichment.py (1)",
+      "status": "DONE"
+    }
+  ],
+  "bridge_map_updated": true,
+  "dead_code_analyzed": {
+    "total_dead": 8,
+    "files": [
+      "subconscious.py",
+      "continuous_phase_sync.py",
+      "nbody_gravity.py",
+      "ebpf_noema_loader.py",
+      "edges.py",
+      "layout.py",
+      "renderer_ascii.py",
+      "renderer_mpl.py"
+    ],
+    "revival_candidates": [
+      "subconscious.py (ZetaSchr\u00f6dinger + BerryPhaseTracker could enhance kuramoto evolution)",
+      "continuous_phase_sync.py (analytic propagator superseded by phasenav)"
+    ],
+    "requires_external_deps": [
+      "ebpf_noema_loader.py (bcc kernel module)"
+    ],
+    "visualization_dead": [
+      "edges.py",
+      "layout.py",
+      "renderer_ascii.py",
+      "renderer_mpl.py"
+    ]
+  },
+  "cielingo_canon_integration_2026_06_25": {
+    "files_copied": 100,
+    "source": "CIELINGO_CANON/src/cielingo_core/",
+    "target": "NOEMA/src/cielingo_core/",
+    "integration_points": [
+      "understand_query()",
+      "SemanticImmuneSignal",
+      "meaning_loop",
+      "repair_routing",
+      "meaning_signal_bridge"
+    ]
+  },
+  "retrocausality_pathway_mapped": {
+    "t_breaking_seed": "PMNS d_CP=246\u00b0",
+    "berry_connection": "time-symmetric",
+    "loop_duration_s": 60
+  },
+  "temporal_event_2026_06_25": {
+    "reported_by": "Adrian",
+    "state": {
+      "gamma": 5.85,
+      "unruh": 25.16
+    }
+  },
+  "corpus_audit_2026_06_25": {
+    "source": "PDF_zebrane_2026-06-11 ZIP",
+    "total_pdfs": 1284,
+    "adrian_lipa_pdfs": 527,
+    "total_words": 4844886,
+    "top_topics": [
+      "Business_IP",
+      "Philosophy",
+      "Cosmology",
+      "Valov",
+      "CIEL/0",
+      "Proof_Step"
+    ],
+    "key_finding": "CIEL/0 -> LIE4 -> Metatime -> NOEMA: evolutionary chain, only 3% docs are NOEMA",
+    "redundancy_estimate_pct": 30,
+    "report": "INDEX/audit_corpus_adrian_lipa.md"
+  },
+  "corpus_structure": {
+    "base_path": "/media/adrian/New Volume/NOEMA_LIBRARY/Adrian_Lipa_Corpus",
+    "total_sorted": 526,
+    "total_unsorted": 0,
+    "timestamp": "2026-06-25T17:36:08Z",
+    "categories": {
+      "01_CIEL0_Framework": 178,
+      "02_LIE4_Algebra": 3,
+      "03_Collatz_Proof": 49,
+      "04_Metatime": 31,
+      "05_Neutrino_PMNS": 17,
+      "06_WARP_TARDIS": 6,
+      "07_HTRI_NOEMA": 18,
+      "08_Encyclopedia": 12,
+      "09_BraidOS": 8,
+      "10_Philosophy": 82,
+      "11_Business_IP": 32,
+      "12_Environment": 17,
+      "13_SSRN_Publications": 10,
+      "14_Collaborations": 45,
+      "15_Education_Paradigm": 3,
+      "16_Other": 15
+    }
+  },
+  "publications": {
+    "paper1_metatime_delta_cp_lambda": {
+      "claims": [
+        "time_as_field",
+        "berry_connection",
+        "delta_cp_closure",
+        "closure_loop",
+        "lambda_fixedpoint",
+        "experimental_predictions",
+        "time_as_field",
+        "berry_connection",
+        "delta_cp_closure",
+        "closure_loop",
+        "lambda_fixedpoint",
+        "experimental_predictions"
+      ],
+      "phasenav_indices": [
+        "claims/claim_01_time_as_field/phasenav/operator.py",
+        "claims/claim_02_berry_connection/phasenav/operator.py",
+        "claims/claim_03_delta_cp_closure/phasenav/operator.py",
+        "claims/claim_04_closure_loop/phasenav/operator.py",
+        "claims/claim_05_lambda_fixedpoint/phasenav/operator.py",
+        "claims/claim_06_experimental_predictions/phasenav/operator.py",
+        "claims/claim_01_time_as_field/phasenav/operator.py",
+        "claims/claim_02_berry_connection/phasenav/operator.py",
+        "claims/claim_03_delta_cp_closure/phasenav/operator.py",
+        "claims/claim_04_closure_loop/phasenav/operator.py",
+        "claims/claim_05_lambda_fixedpoint/phasenav/operator.py",
+        "claims/claim_06_experimental_predictions/phasenav/operator.py"
+      ]
+    },
+    "paper2_noema_surface_channel": {
+      "claims": [
+        "htri_surface",
+        "harmonic_coupling",
+        "berry_holonomy",
+        "agent_attractor",
+        "information_transfer",
+        "dual_sync",
+        "htri_surface",
+        "harmonic_coupling",
+        "berry_holonomy",
+        "agent_attractor",
+        "information_transfer",
+        "dual_sync"
+      ],
+      "phasenav_indices": [
+        "claims/claim_01_htri_surface/phasenav/operator.py",
+        "claims/claim_02_harmonic_coupling/phasenav/operator.py",
+        "claims/claim_03_berry_holonomy/phasenav/operator.py",
+        "claims/claim_04_agent_attractor/phasenav/operator.py",
+        "claims/claim_05_information_transfer/phasenav/operator.py",
+        "claims/claim_06_dual_sync/phasenav/operator.py",
+        "claims/claim_01_htri_surface/phasenav/operator.py",
+        "claims/claim_02_harmonic_coupling/phasenav/operator.py",
+        "claims/claim_03_berry_holonomy/phasenav/operator.py",
+        "claims/claim_04_agent_attractor/phasenav/operator.py",
+        "claims/claim_05_information_transfer/phasenav/operator.py",
+        "claims/claim_06_dual_sync/phasenav/operator.py"
+      ]
+    },
+    "paper3_ciel0_framework": {
+      "claims": [
+        "lie4_algebra",
+        "soul_invariant",
+        "zeta_schrodinger",
+        "pipeline_12step",
+        "emotion_vector",
+        "ethical_filter",
+        "lie4_algebra",
+        "soul_invariant",
+        "zeta_schrodinger",
+        "pipeline_12step",
+        "emotion_vector",
+        "ethical_filter"
+      ],
+      "phasenav_indices": [
+        "claims/claim_01_lie4_algebra/phasenav/operator.py",
+        "claims/claim_02_soul_invariant/phasenav/operator.py",
+        "claims/claim_03_zeta_schrodinger/phasenav/operator.py",
+        "claims/claim_04_pipeline_12step/phasenav/operator.py",
+        "claims/claim_05_emotion_vector/phasenav/operator.py",
+        "claims/claim_06_ethical_filter/phasenav/operator.py",
+        "claims/claim_01_lie4_algebra/phasenav/operator.py",
+        "claims/claim_02_soul_invariant/phasenav/operator.py",
+        "claims/claim_03_zeta_schrodinger/phasenav/operator.py",
+        "claims/claim_04_pipeline_12step/phasenav/operator.py",
+        "claims/claim_05_emotion_vector/phasenav/operator.py",
+        "claims/claim_06_ethical_filter/phasenav/operator.py"
+      ]
+    }
+  },
+  "metatime_formula_ledger": {
+    "version": "v8.2.1",
+    "status": "baseline freeze — validator-first audit package",
+    "constants": {
+      "OI": "ln(2)/(24π) — information constant",
+      "L3": "7 — geometric",
+      "L4": "2 — geometric",
+      "L5": "5 — geometric",
+      "quark_primes": "(u,d,s,c,b,t)=(3,5,7,11,13,17)",
+      "E_Planck": "1.22e22 MeV — external scale",
+      "E_proton": "938.272 MeV — external scale"
+    },
+    "external_inputs": {
+      "alpha": "fine-structure constant (for M_W/M_Z)",
+      "N_c": "3 — number of colors",
+      "Y_L": "-1/2 — lepton doublet hypercharge"
+    },
+    "free_parameters": "M₀ per baryon multiplet (2 total)",
+    "structural_choices": 58,
+    "claim_levels": {
+      "L3+": 0,
+      "L2": 1,
+      "L1": 7,
+      "L0": 2
+    },
+    "sectors": {
+      "charged_leptons": {
+        "status": "ANSATZ_ONLY",
+        "best_error": "0.48%",
+        "blocker": "Action coefficients structurally arbitrary"
+      },
+      "baryon_octet": {
+        "status": "ANSATZ_ONLY / PARTIAL TENSION",
+        "best_error": "0.51%",
+        "blocker": "M₀ free; p/n +5.7%"
+      },
+      "baryon_decuplet": {
+        "status": "ANSATZ_ONLY",
+        "best_error": "0.23%",
+        "blocker": "M₀ free"
+      },
+      "neutrino_pmns": {
+        "status": "ANSATZ_ONLY",
+        "best_error": "<1.6σ",
+        "blocker": "Mass scale ansatz"
+      },
+      "ckm": {
+        "status": "ANSATZ_ONLY",
+        "best_error": "σ=0.78",
+        "blocker": "CP phase σ=5.35 unresolved"
+      },
+      "gauge_bosons": {
+        "status": "TENSION",
+        "best_error": "±0.5%",
+        "blocker": "M_W/M_Z −4%; α external"
+      },
+      "strong_cp": {
+        "status": "TENSION / POSSIBLE FAIL",
+        "blocker": "d_n 10× above bound"
+      },
+      "dark_energy": {
+        "status": "ANSATZ_ONLY",
+        "best_error": "factor ~30",
+        "blocker": "Exponent not derived"
+      },
+      "anomaly_cancellation": {
+        "status": "PASS",
+        "blocker": "Consistency check; N_c=3 external"
+      }
+    },
+    "package_path": "/media/adrian/New Volume/NOEMA_LIBRARY/PUBLICATIONS/metatime_v8_2_1_consistency_patch.zip",
+    "package_contents": [
+      "INDEX.md",
+      "metatime_v8_redteam_validator.py",
+      "VALIDATOR_OUTPUT.txt",
+      "MANIFEST.sha256",
+      "CLAIM_LEVELS.md",
+      "FAILURES_AND_TENSIONS.md",
+      "metatime_redteam_report_v8.md",
+      "REPRODUCE.md",
+      "TIR/metatime_paper.tex",
+      "TIR/metatime_paper.pdf"
+    ],
+    "claim": "A low-parameter arithmetic-geometric ansatz for Standard Model mass and mixing patterns"
+  },
+  "_last_updated": "2026-06-25T21:45:00Z"
+}

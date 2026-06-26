@@ -1,0 +1,74 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Source Code}
+\label{app:source_code}
+
+The Metatime audit script computes all SM parameters from the framework
+constants and verifies the zero-free-parameter claim.
+
+\section{Audit Script}
+
+The complete Python audit script is available in the file
+\texttt{metatime\_audit.py}.  Its structure is:
+
+\begin{verbatim}
+#!/usr/bin/env python3
+"""
+Metatime Framework — Rigorous Free Parameter Audit v2
+Computes every SM parameter from Metatime formulas.
+"""
+
+# Fundamental constants
+kappa = math.log(2) / (24 * math.pi)
+L3, L4, L5 = 7, 2, 5
+q = {'u':3, 'd':5, 's':7, 'c':11, 'b':13, 't':17}
+E_P = 1.22089e22       # MeV (Planck energy)
+E_p = 938.272          # MeV (proton mass)
+
+# Derived fine-structure constant
+alpha_inv = (L3*L4)**2 - L3**2 - L4*L5 + L4**2 * kappa
+\end{verbatim}
+
+\section{Usage}
+
+To verify all predictions:
+
+\begin{verbatim}
+$ python3 metatime_audit.py
+\end{verbatim}
+
+The script prints the full formula ledger, structural choice counts,
+and comparison with PDG values for all 26 SM parameters.
+
+\section{Output Summary}
+
+The audit confirms:
+
+\begin{itemize}
+\item \textbf{0 continuous free parameters} - all M$_0$, M$_0'$, $\alpha$
+now derived.
+\item \textbf{2 external scales}: $E_P$, $E_{\text{proton}}$.
+\item \textbf{3 external inputs}: $N_c=3$, $Y(L)=-1/2$, Crewther factor.
+\item \textbf{$\sim$50 structural choices} across all sectors.
+\end{itemize}
+
+\section{Monograph Files}
+
+The complete monograph source is organized as:
+
+\begin{verbatim}
+monograph/
+  metatime_monograph.tex    (main file)
+  chapters/
+    ch01_introduction.tex  ...  ch31_open_problems.tex
+  appendices/
+    appA_kappa_derivation.tex  ...  appI_source_code.tex
+  monograph_status.md       (living status document)
+\end{verbatim}
+
+Compile with:
+
+\begin{verbatim}
+$ pdflatex metatime_monograph.tex
+$ pdflatex metatime_monograph.tex
+$ pdflatex metatime_monograph.tex
+\end{verbatim}

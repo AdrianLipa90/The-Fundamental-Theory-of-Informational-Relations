@@ -1,8 +1,0 @@
-required:
-  - id
-  - name
-  - type
-  - path
-  - sha256
-  - created_at
-  - generated_by

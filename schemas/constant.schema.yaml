@@ -1,8 +1,0 @@
-required:
-  - id
-  - symbol
-  - name
-  - status
-  - derivation_doc
-  - code_ref
-  - depends_on

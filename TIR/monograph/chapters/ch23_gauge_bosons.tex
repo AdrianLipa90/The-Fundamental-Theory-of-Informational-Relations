@@ -1,0 +1,94 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Gauge Boson Masses}
+\label{ch:gauge_bosons}
+
+\section{SU(2) Gauge Coupling}
+
+The SU(2) gauge coupling $g$ is the sum of two tetrahedron edge ratios:
+
+\begin{equation}
+g = \frac{L_4}{L_3} + \frac{L_4}{L_5}
+  = \frac{2}{7} + \frac{2}{5}
+  = \frac{24}{35}
+  = 0.68571.
+\label{eq:g_coupling}
+\end{equation}
+
+The first term $L_4/L_3$ is the $\hat I$-$\hat M$ edge of the NOEMA
+tetrahedron (colour--annihilation mixing).  The second term $L_4/L_5$
+is the annihilation--intention mixing.  Their sum represents the full
+gauge coupling of SU(2) to the electroweak sector.
+
+\section{\(W\) Boson Mass}
+
+\[
+M_W = \frac{g}{2}\,v.
+\]
+
+With $v = 244.89$~GeV (Chapter~\ref{ch:higgs_vev}):
+
+\[
+M_W = \frac{0.68571}{2} \times 244.89
+     = 0.34286 \times 244.89
+     = 83.96\ \gev.
+\]
+
+\section{Comparison with PDG}
+
+The PDG value is $M_W^{\text{PDG}} = 80.377 \pm 0.012$~GeV.
+
+\[
+\frac{83.96 - 80.377}{80.377} = +4.46\%.
+\]
+
+This is a significant improvement over the earlier \(-22.6\%\) error
+(from $g = L_4/L_3 + L_4/(L_3+L_4)$).
+
+\section{\(Z\) Boson Mass}
+
+\[
+M_Z = \frac{M_W}{\cos\theta_W}.
+\]
+
+With $\cos\theta_W = 0.87669$ (Chapter~\ref{ch:weinberg_angle}):
+
+\[
+M_Z = \frac{83.96}{0.87669} = 95.77\ \gev.
+\]
+
+\section{Comparison with PDG}
+
+The PDG value is $M_Z^{\text{PDG}} = 91.188 \pm 0.002$~GeV.
+
+\[
+\frac{95.77 - 91.188}{91.188} = +5.02\%.
+\]
+
+\section{\(Z/W\) Mass Ratio}
+
+The ratio is well-predicted independently of the absolute scale:
+
+\[
+\frac{M_Z}{M_W} = \frac{1}{\cos\theta_W}
+               = \frac{1}{0.87669}
+               = 1.1407,
+\qquad
+\frac{91.188}{80.377} = 1.1346 \quad (0.5\%\ \text{error}).
+\]
+
+\section{Discussion}
+
+The $+4.5\%$ systematic offset in $M_W$ and $+5.0\%$ in $M_Z$ is
+consistent across both bosons, indicating that the SU(2) coupling
+$g = 24/35$ is slightly too large.  A $\kappa$ correction to the bare
+coupling:
+
+\[
+g_{\text{phys}} = g\,(1 - \kappa)
+                = \frac{24}{35}(1 - 0.00919315)
+                = 0.6794
+\]
+
+gives $M_W = 83.20$~GeV ($+3.5\%$) and $M_Z = 94.90$~GeV ($+4.1\%$),
+moving in the right direction.  The residual offset likely requires a
+full renormalization-group analysis.

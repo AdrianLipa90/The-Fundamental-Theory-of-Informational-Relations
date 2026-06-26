@@ -1,0 +1,103 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{SU(3) Group Theory Primer}
+\label{app:su3_primer}
+
+\section{Generators and Structure Constants}
+
+The Lie algebra $\mathfrak{su}(3)$ consists of eight traceless Hermitian
+$3\times 3$ matrices satisfying:
+
+\[
+[T^a, T^b] = i f^{abc} T^c,
+\]
+
+where $f^{abc}$ are the totally antisymmetric structure constants.
+The Gell-Mann matrices $\lambda^a$ provide the standard representation:
+
+\[
+\begin{aligned}
+\lambda^1 &= \begin{pmatrix}0&1&0\\1&0&0\\0&0&0\end{pmatrix},\quad
+\lambda^2 = \begin{pmatrix}0&-i&0\\i&0&0\\0&0&0\end{pmatrix},\quad
+\lambda^3 = \begin{pmatrix}1&0&0\\0&-1&0\\0&0&0\end{pmatrix}, \\[6pt]
+\lambda^4 &= \begin{pmatrix}0&0&1\\0&0&0\\1&0&0\end{pmatrix},\quad
+\lambda^5 = \begin{pmatrix}0&0&-i\\0&0&0\\i&0&0\end{pmatrix},\quad
+\lambda^6 = \begin{pmatrix}0&0&0\\0&0&1\\0&1&0\end{pmatrix}, \\[6pt]
+\lambda^7 &= \begin{pmatrix}0&0&0\\0&0&-i\\0&i&0\end{pmatrix},\quad
+\lambda^8 = \frac{1}{\sqrt{3}}\begin{pmatrix}1&0&0\\0&1&0\\0&0&-2\end{pmatrix}.
+\end{aligned}
+\]
+
+The structure constants $f^{abc}$ are non-zero only for:
+
+\[
+\begin{aligned}
+f^{123} &= 1, \\
+f^{147} = f^{246} = f^{257} = f^{345} &= 1/2, \\
+f^{156} = f^{367} &= -1/2, \\
+f^{458} = f^{678} &= \sqrt{3}/2.
+\end{aligned}
+\]
+
+\section{Cartan Algebra and Roots}
+
+The Cartan subalgebra is spanned by $T^3 = \lambda^3/2$ and
+$T^8 = \lambda^8/2$.  The simple roots are:
+
+\[
+\vec{\alpha}_1 = (1, 0),\qquad
+\vec{\alpha}_2 = \left(-\frac12, \frac{\sqrt{3}}{2}\right).
+\]
+
+The positive roots are $\vec{\alpha}_1$, $\vec{\alpha}_2$, and
+$\vec{\alpha}_1 + \vec{\alpha}_2 = (1/2, \sqrt{3}/2)$.
+
+\section{Irreducible Representations}
+
+The dimension of an SU(3) irrep with highest weight $(p,q)$ is:
+
+\[
+\dim(p,q) = \frac{(p+1)(q+1)(p+q+2)}{2}.
+\]
+
+Key representations:
+
+\[
+\begin{array}{ccc}
+(p,q) & \text{Dimension} & \text{Name} \\
+\hline
+(1,0) & 3 & \text{Fundamental (quark)} \\
+(0,1) & \bar{3} & \text{Antifundamental (antiquark)} \\
+(1,1) & 8 & \text{Adjoint (gluon, baryon octet)} \\
+(3,0) & 10 & \text{Decuplet} \\
+(2,2) & 27 & \text{Meson nonet} \\
+\end{array}
+\]
+
+\section{Young Tableaux}
+
+SU(3) representations are also classified by Young diagrams with at most
+two rows.  The tensor product decomposition gives:
+
+\[
+8 \otimes 3 = 15 \oplus \bar{6} \oplus 3,
+\]
+
+which is the quark--diquark decomposition used in
+Chapter~\ref{ch:gmo_formula}.
+
+\section{Casimir Operators}
+
+The quadratic Casimir for representation $(p,q)$ is:
+
+\[
+C_2(p,q) = \frac{1}{3}(p^2 + q^2 + pq + 3p + 3q).
+\]
+
+The cubic Casimir:
+
+\[
+C_3(p,q) = \frac{1}{18}(p-q)(2p + q + 3)(p + 2q + 3).
+\]
+
+These appear in the Gell-Mann--Okubo formula derivation
+(Chapter~\ref{ch:gmo_formula}).

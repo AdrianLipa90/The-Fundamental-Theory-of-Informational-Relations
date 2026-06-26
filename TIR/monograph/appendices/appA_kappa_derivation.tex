@@ -1,0 +1,89 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Derivation of $\kappa = \ln 2 / (24\pi)$}
+\label{app:kappa}
+
+\section{Shannon Information}
+
+The fundamental unit of information is the binary choice: the answer to a
+yes/no question, encoded as a single bit.  Claude Shannon proved in 1948
+that the entropy of a discrete random variable $X$ with $n$ equally
+likely outcomes is~\cite{shannon1948}:
+
+\[
+H(X) = \log_2 n \quad (\text{bits}).
+\]
+
+For $n=2$ (a single binary decision), $H = \log_2 2 = 1$ bit.  In natural
+units (nats), this is $H = \ln 2$ nats.  This is the irreducible
+information cost of distinguishing two quantum states.
+
+\section{Phase-Space Volume of $\mathbb{C}P^3$}
+
+The projective Hilbert space of three-flavour SU(3) colour is
+$\mathbb{C}P^{3}$, a K\"{a}hler manifold of real dimension 6.  Its
+symplectic volume (the integral of the K\"{a}hler form $\omega$ over the
+manifold) is:
+
+\[
+\text{Vol}(\mathbb{C}P^{3}) = \frac{\pi^3}{3!} = \frac{\pi^3}{6}.
+\]
+
+However, the relevant phase space for the Berry phase is the space of
+pure colour states modulo the $S(U(1) \times U(2))$ little group, which
+yields the quotient $\mathbb{C}P^{2}$ for a single colour direction.
+
+The tetrahedral discrete holonomy $A_4$ (the symmetry of the three
+lepton generations) has order 12.  When combined with the two possible
+spin orientations (Berry's original spin-1/2 in a magnetic field), the
+full denominator becomes:
+
+\[
+24\pi = 2 \times 12 \times \pi,
+\]
+
+where $\pi$ is the solid angle of the Bloch sphere for a spin-1/2 system
+(Berry's original phase).
+
+\section{The Ratio}
+
+Combining the information numerator and the geometric denominator:
+
+\[
+\kappa \equiv \frac{\ln 2}{24\pi}.
+\]
+
+Numerically:
+
+\[
+\kappa = \frac{0.6931471805599453}{75.39822368615503}
+       = 0.00919315000636\ldots
+\]
+
+\section{Why $24\pi$?  A Deeper View}
+
+The denominator decomposes as:
+
+\[
+24\pi = \underbrace{8}_{\text{gluons}} \times
+        \underbrace{3}_{\text{colours}} \times
+        \underbrace{\pi}_{\text{Bloch half-sphere}}.
+\]
+
+Equivalently:
+
+\[
+24\pi = \underbrace{4\pi}_{\text{full Bloch sphere}} \times
+        \underbrace{6}_{\text{Coxeter number of }A_4}.
+\]
+
+The tetrahedral group $A_4$ has Coxeter number $h = 6$, and the order
+of the corresponding reflection group is $24 = 6 \times 4$.  This is
+the same 24 that appears in the modular $j$-invariant, the Leech lattice,
+and the number of generations in the fermion spectrum.
+
+\section{No Free Parameter}
+
+$\kappa$ is not fitted to experimental data.  It is computed directly
+from two mathematical constants ($\ln 2$ and $\pi$) and two structural
+choices (the Coxeter number 6 and the spin factor 2).  There is no
+continuous degree of freedom.

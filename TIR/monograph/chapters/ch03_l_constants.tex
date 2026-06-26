@@ -1,0 +1,109 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{The L-Constants}
+\label{ch:l_constants}
+
+Three geometric constants underpin the Metatime arithmetic:
+\(L_3 = 7\), \(L_4 = 2\), and \(L_5 = 5\).  In this chapter we derive
+each from the Collatz iteration on prime-indexed orbits and from the
+twin-prime structure of the number 5.
+
+\section{The Collatz Iteration}
+
+The Collatz function (also known as the \(3n+1\) problem) is defined on
+positive integers by:
+
+\begin{equation}
+f(n) = \begin{cases}
+3n + 1 & \text{if } n \text{ is odd}, \\
+n/2   & \text{if } n \text{ is even}.
+\end{cases}
+\label{eq:collatz}
+\end{equation}
+
+Starting from any positive integer, repeated application of \(f\) eventually
+reaches the cycle \(4 \to 2 \to 1 \to 4\).  The Collatz depth of an integer
+\(n\) is the number of steps required to reach 1.
+
+\subsection{Collatz Depth of 3}
+
+Starting from \(n = 3\):
+
+\[
+\begin{array}{c|c}
+\text{Step} & \text{Value} \\ \hline
+0 & 3 \text{ (odd)} \\
+1 & 3\times 3 + 1 = 10 \text{ (even)} \\
+2 & 10/2 = 5 \text{ (odd)} \\
+3 & 3\times 5 + 1 = 16 \text{ (even)} \\
+4 & 16/2 = 8 \text{ (even)} \\
+5 & 8/2 = 4 \text{ (even)} \\
+6 & 4/2 = 2 \text{ (even)} \\
+7 & 2/2 = 1
+\end{array}
+\]
+
+The trajectory is: \(3 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1\),
+requiring 7 steps.  Hence:
+
+\begin{equation}
+L_3 \equiv \text{Collatz depth of 3} = 7.
+\label{eq:L3}
+\end{equation}
+
+\section{The Twin-Prime Constants}
+
+The twin-prime pair \((3,5)\) gives the remaining L-constants:
+
+\begin{itemize}
+\item The gap between the twin primes is \(5 - 3 = 2\), which defines the
+annihilation constant:
+\[
+L_4 \equiv 2.
+\]
+
+\item The larger twin prime is 5, which defines the intention dimension:
+\[
+L_5 \equiv 5.
+\]
+\end{itemize}
+
+Together these satisfy:
+
+\[
+L_4^{L_5} = 2^5 = 32,
+\]
+
+which is the dimension of the intention-phase space in the NOEMA tetrahedron
+construction.
+
+\section{Composite Constants}
+
+The L-constants combine to form several composite quantities that appear
+repeatedly in the sector formulas:
+
+\[
+\begin{array}{lcl}
+L_3 + L_4 = 9, & L_3 - 1 = 6, & L_4/L_5 = 2/5 = 0.4, \\
+L_3 + L_4 + L_5 = 14, & L_3^2 = 49, & L_4^2 = 4, \\
+L_4^{L_5} = 32, & L_3 L_4^{L_5} = 224, & (L_4/L_3)^2 = 4/49.
+\end{array}
+\]
+
+\section{Physical Interpretation}
+
+The L-constants admit the following physical interpretations:
+
+\begin{description}
+\item[\(L_3 = 7\):] The structural depth of flavour space, corresponding to
+the number of Collatz steps from 3 to 1.  Appears in denominators and as an
+exponent in mixing angles (\(\sin\theta_{13} = 1/L_3\)).
+
+\item[\(L_4 = 2\):] The annihilation constant, representing the twin-prime
+gap.  Appears as the fundamental binary splitting factor.
+
+\item[\(L_5 = 5\):] The intention dimension, the larger twin prime.
+Appears in ratios with \(L_4\) to set mixing scales.
+\end{description}
+
+These constants together with \(\kappa\) and the quark primes generate every
+numerical quantity in the Metatime framework.

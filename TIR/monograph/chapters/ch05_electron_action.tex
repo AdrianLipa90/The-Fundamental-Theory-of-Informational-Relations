@@ -1,0 +1,108 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Electron Action}
+\label{ch:electron_action}
+
+The electron is the lightest charged lepton, with mass \(m_e =
+0.510999\)~MeV.  Within the Metatime framework, this corresponds to the
+largest action on the Poincar\'{e} disk:
+
+\begin{equation}
+S_e = \frac12 - 3\kappa + \frac{\kappa}{L_3} - \frac{\kappa^2}{2}.
+\label{eq:Se_full}
+\end{equation}
+
+We now derive each term.
+
+\section{Spin-1/2 Degeneracy}
+
+The leading term \(1/2\) encodes the spin-1/2 degeneracy of the electron.
+On the Poincar\'{e} disk, a spin-1/2 fermion has two accessible spin states,
+contributing an additive constant to the action:
+
+\begin{equation}
+S_{\text{spin}} = \frac12.
+\label{eq:spin_term}
+\end{equation}
+
+\section{Three-Generation Information Deficit}
+
+The term \(-3\kappa\) represents the shared information deficit across the
+three fermion generations.  Each generation contributes \(-\kappa\) to the
+action, reflecting the information-theoretic cost of generational replication:
+
+\begin{equation}
+S_{\text{gen}} = -3\kappa.
+\label{eq:gen_term}
+\end{equation}
+
+The negative sign indicates that more generations reduce the action, making
+the corresponding particles heavier.
+
+\section{Collatz Channel Correction}
+
+The term \(+\kappa/L_3\) is a correction arising from the Collatz structure
+of flavour space.  The factor \(1/L_3 = 1/7\) reflects the structural depth
+of the first generation:
+
+\begin{equation}
+S_{\text{collatz}} = \frac{\kappa}{L_3}.
+\label{eq:collatz_term}
+\end{equation}
+
+\section{Second-Order Curvature Correction}
+
+The term \(-\kappa^2/2\) is the leading curvature correction on the
+Poincar\'{e} disk.  It is quadratic in \(\kappa\) and represents the
+information curvature of the disk:
+
+\begin{equation}
+S_{\text{curv}} = -\frac{\kappa^2}{2}.
+\label{eq:curv_term}
+\end{equation}
+
+\section{Full Evaluation}
+
+Summing all terms:
+
+\[
+\begin{aligned}
+S_e &= \frac12 - 3\kappa + \frac{\kappa}{L_3} - \frac{\kappa^2}{2} \\[4pt]
+    &= 0.5 - 3(0.00919315000636) + \frac{0.00919315000636}{7}
+       - \frac{(0.00919315000636)^2}{2} \\[4pt]
+    &= 0.5 - 0.02757945001908 + 0.00131330714377
+       - 0.00004225750274 \\[4pt]
+    &= 0.4736916001 \ldots
+\end{aligned}
+\]
+
+Thus the electron action is:
+
+\[
+\boxed{S_e = 0.4736916001\ldots}
+\]
+
+\section{Mass Prediction}
+
+From the exponential mass formula \(m = E_P e^{-S/\kappa}\):
+
+\[
+\begin{aligned}
+m_e &= E_P \, e^{-S_e/\kappa} \\
+    &= 1.22089 \times 10^{22} \cdot
+       e^{-0.4736916001 / 0.00919315000636} \\
+    &= 1.22089 \times 10^{22} \cdot
+       e^{-51.525803\ldots} \\[4pt]
+    &= 0.511642\ \mev.
+\end{aligned}
+\]
+
+Comparing with the PDG value:
+
+\[
+m_e^{\text{calc}} = 0.511642\ \mev,\qquad
+m_e^{\text{PDG}} = 0.510999\ \mev,\qquad
+\text{error} = +0.126\%.
+\]
+
+The agreement is within 0.13\%, confirming that the action construction
+captures the electron mass scale correctly.
