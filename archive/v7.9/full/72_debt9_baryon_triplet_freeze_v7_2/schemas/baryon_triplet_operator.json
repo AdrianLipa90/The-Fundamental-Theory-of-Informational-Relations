@@ -1,0 +1,28 @@
+{
+  "schema": "BARYON_TRIPLET_OPERATOR_V7_2",
+  "inputs": {
+    "quark_primes": {
+      "u": 3, "d": 5, "s": 7,
+      "c": 11, "b": 13, "t": 17
+    },
+    "S_P": 0.403685,
+    "OI": "log(2)/(24*pi)",
+    "L3": 7
+  },
+  "pipeline": [
+    "n = p * q * r",
+    "sigma_n = sum(d for d in 1..n if n % d == 0)",
+    "delta_s_oi = (sigma_n / n - 1) / L3",
+    "S = S_P + OI * delta_s_oi",
+    "E = E_P * exp(-S / OI)"
+  ],
+  "proton_validation": {
+    "n": 45,
+    "sigma_n": 78,
+    "predicted_mev": 938.27,
+    "reference_mev": 938.27209,
+    "error_pct": 0.0002
+  },
+  "status": "FROZEN",
+  "canon_allowed": false
+}

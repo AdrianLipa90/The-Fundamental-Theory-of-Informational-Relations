@@ -1,0 +1,50 @@
+{
+  "schema_version": "7.8",
+  "debt": "DEBT-014",
+  "operator": "tetrahedron_noema_closure",
+  "status": "FROZEN",
+  "geometry": {
+    "vertices": ["Î (intention)", "M̂ (mass/observation)", "Â_μ (mu axial)", "Â_τ (tau axial)"],
+    "edges": 6,
+    "faces": 4,
+    "volume": 1,
+    "poincare_disk_mapping": "r(p) = (p-7)/10 for primes; L4/L3 ratio for operators",
+    "space": "3D operator space (Î, M̂, Â) on Poincaré disk, 0D phase points on boundary"
+  },
+  "edge_formulas": {
+    "e1_I_M": "L4/L3 = 2/7",
+    "e2_I_A_mu": "L4/(L3+L4) = 2/9",
+    "e3_I_A_tau": "1/L3 = 1/7",
+    "e4_M_A_mu": "(L4/L3)^2/2 = 2/49",
+    "e5_M_A_tau": "e4*(L3+L4+1) = 20/49",
+    "e6_A_mu_A_tau": "L4/L3 + (L4/L3)^2 = 18/49"
+  },
+  "pmns_from_edges": {
+    "theta_13": "arcsin(e3)",
+    "sin_theta_13": "1/L3 = 0.1429",
+    "sin2_theta_12": "e2 + e6*e3 = 2/9 + 4/49 = 0.3039",
+    "theta_12": "arcsin(sqrt(e2 + e6*e3)) = 33.45°",
+    "sin2_theta_23": "1/2 + e1/L3 = 1/2 + 2/49 = 0.5408",
+    "theta_23": "arcsin(sqrt(1/2 + e1/L3)) = 47.34°",
+    "delta_CP": "pi*(1 + e1 + e1^2) = 67*pi/49 = 246.1°"
+  },
+  "neutrino_action": {
+    "bare": "(1+L4/L3)*hbar/2 = 9/14",
+    "calibration": "dS/OI = e4*(1-OI) = 2/49 * 0.990807",
+    "S1": "9/14 + OI*2/49*(1-OI) = 0.64322892",
+    "mass_ratio_r": [1, 2, 10],
+    "mass_from_action": "E = E_P * exp(-S/OI)"
+  },
+  "results": {
+    "delta_m2_21": "75.30 (10^-6 eV^2)",
+    "delta_m2_31": "2485 (10^-6 eV^2)",
+    "sigma_dm21": 0.0,
+    "sigma_dm31": 0.6,
+    "pmns_unitarity": "exact",
+    "J_CP": 0.0293
+  },
+  "combined_baryon_mean_err_pct": {
+    "octet": 0.51,
+    "decuplet": 0.23
+  }
+}

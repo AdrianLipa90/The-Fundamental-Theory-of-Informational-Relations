@@ -1,0 +1,273 @@
+\contentsline {part}{I\hspace {1em}Foundations}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}The Problem of Parameters}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Quantum Geometry as the Foundation}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}The Metatime Framework}{4}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Philosophy of the Framework}{4}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Scope of This Monograph}{5}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Relationship to Previous Work}{5}{section.1.6}%
+\contentsline {chapter}{\numberline {2}The Metatime Framework}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}The Information Constant \(\kappa \)}{7}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Berry Phase on the Poincar\'{e} Disk}{7}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Shannon Information}{7}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Tetrahedral Symmetry of Three-Flavour Space}{7}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Construction of \(\kappa \)}{8}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}The Exponential Mass Formula}{8}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Why the Exponential Form?}{8}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Action Construction Principles}{9}{section.2.3}%
+\contentsline {section}{\numberline {2.4}The NOEMA Tetrahedron}{9}{section.2.4}%
+\contentsline {section}{\numberline {2.5}External Scales and Inputs}{9}{section.2.5}%
+\contentsline {chapter}{\numberline {3}The L-Constants}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The Collatz Iteration}{11}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Collatz Depth of 3}{11}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}The Twin-Prime Constants}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Composite Constants}{12}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Physical Interpretation}{12}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Quark Primes}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Assignment Principle}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Flavour Geometry}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Sum and Difference Combinations}{13}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Physical Interpretation}{14}{section.4.4}%
+\contentsline {part}{II\hspace {1em}Charged Leptons}{15}{part.2}%
+\contentsline {chapter}{\numberline {5}Electron Action}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Spin-1/2 Degeneracy}{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Three-Generation Information Deficit}{17}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Collatz Channel Correction}{17}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Second-Order Curvature Correction}{18}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Full Evaluation}{18}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Mass Prediction}{18}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Generation Release Operators}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Electron-to-Muon Transition}{19}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Term-by-Term Derivation}{19}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Numerical Evaluation}{19}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}Muon-to-Tau Transition}{20}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Term-by-Term Derivation}{20}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Numerical Evaluation}{20}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Muon and Tau Actions}{20}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Action Summary}{20}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Lepton Mass Spectrum}{21}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Mass Calculation}{21}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Electron}{21}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Muon}{21}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Tau}{21}{subsection.7.1.3}%
+\contentsline {section}{\numberline {7.2}Results and Comparison}{21}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Error Analysis}{22}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Exponential Sensitivity}{22}{section.7.4}%
+\contentsline {part}{III\hspace {1em}Baryons}{23}{part.3}%
+\contentsline {chapter}{\numberline {8}The Gell-Mann--Okubo Mass Formula}{25}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Historical Background}{25}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Derivation from SU(3) Breaking}{25}{section.8.2}%
+\contentsline {section}{\numberline {8.3}GMO Relations}{25}{section.8.3}%
+\contentsline {section}{\numberline {8.4}GMO in the Metatime Framework}{26}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Derivation of the Octet Common Mass \(M_0\)}{27}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Physical Principle}{27}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Derivation}{27}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Numerical Evaluation}{28}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Consistency Check with \(\Lambda \)}{28}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Physical Interpretation}{28}{section.9.5}%
+\contentsline {chapter}{\numberline {10}Octet GMO Coefficients from J-KJ Eigenvalues}{29}{chapter.10}%
+\contentsline {section}{\numberline {10.1}The J-KJ Axial Vector}{29}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Coefficient \(\alpha \)}{29}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Coefficient \(\gamma \)}{29}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Coefficient \(\beta \)}{30}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Derivation Summary}{30}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Comparison with PDG-Fitted Values}{30}{section.10.6}%
+\contentsline {section}{\numberline {10.7}Why the Earlier Coefficients Were Incorrect}{30}{section.10.7}%
+\contentsline {chapter}{\numberline {11}Octet Mass Predictions}{31}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Mass Calculation}{31}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Complete Table}{31}{section.11.2}%
+\contentsline {section}{\numberline {11.3}The Gell-Mann--Okubo Relation}{31}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Comparison with Previous Version}{32}{section.11.4}%
+\contentsline {chapter}{\numberline {12}Derivation of the Decuplet Common Mass \(M_0'\)}{33}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Physical Principle}{33}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Derivation}{33}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Numerical Evaluation}{33}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Comparison with the Octet Scale}{33}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Consistency Check with \(\Omega ^-\)}{34}{section.12.5}%
+\contentsline {chapter}{\numberline {13}Decuplet Coefficients and Masses}{35}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Decuplet GMO Coefficients}{35}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}Coefficient \(\alpha _{10}\)}{35}{subsection.13.1.1}%
+\contentsline {subsubsection}{Term-by-Term Breakdown}{35}{section*.2}%
+\contentsline {subsubsection}{Numerical Evaluation}{35}{section*.3}%
+\contentsline {subsection}{\numberline {13.1.2}Coefficient \(\beta _{10}\)}{35}{subsection.13.1.2}%
+\contentsline {subsubsection}{Numerical Evaluation}{36}{section*.4}%
+\contentsline {section}{\numberline {13.2}Mass Calculation}{36}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Complete Table}{36}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Discussion}{36}{section.13.4}%
+\contentsline {part}{IV\hspace {1em}Mesons}{37}{part.4}%
+\contentsline {chapter}{\numberline {14}Pseudoscalar Mesons}{39}{chapter.14}%
+\contentsline {section}{\numberline {14.1}The Kuramoto Model on the Poincar\'{e} Disk}{39}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Pion Mass}{39}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Kaon Mass}{39}{section.14.3}%
+\contentsline {section}{\numberline {14.4}The \(\eta \) and \(\eta '\) Mesons}{40}{section.14.4}%
+\contentsline {section}{\numberline {14.5}Results Summary}{40}{section.14.5}%
+\contentsline {chapter}{\numberline {15}Heavy and Vector Mesons}{41}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Zeta-Operator Spectrum}{41}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Open Flavour States}{41}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Hidden Flavour States}{41}{section.15.3}%
+\contentsline {part}{V\hspace {1em}Neutrinos}{43}{part.5}%
+\contentsline {chapter}{\numberline {16}Neutrino PMNS Mixing}{45}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Tetrahedron Edge Lengths}{45}{section.16.1}%
+\contentsline {section}{\numberline {16.2}Mixing Angles}{45}{section.16.2}%
+\contentsline {section}{\numberline {16.3}Comparison with PDG}{46}{section.16.3}%
+\contentsline {chapter}{\numberline {17}Neutrino Masses}{47}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Base Action}{47}{section.17.1}%
+\contentsline {section}{\numberline {17.2}Action Offset}{47}{section.17.2}%
+\contentsline {section}{\numberline {17.3}First-Generation Action}{47}{section.17.3}%
+\contentsline {section}{\numberline {17.4}Mass Ratios}{47}{section.17.4}%
+\contentsline {section}{\numberline {17.5}Mass Calculation}{48}{section.17.5}%
+\contentsline {section}{\numberline {17.6}Mass Splittings}{48}{section.17.6}%
+\contentsline {section}{\numberline {17.7}Results Summary}{48}{section.17.7}%
+\contentsline {part}{VI\hspace {1em}CKM Quark Mixing}{49}{part.6}%
+\contentsline {chapter}{\numberline {18}CKM Quark Mixing Matrix}{51}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Wolfenstein Parameterization}{51}{section.18.1}%
+\contentsline {section}{\numberline {18.2}Cabibbo Angle}{51}{section.18.2}%
+\contentsline {subsection}{\numberline {18.2.1}Term-by-Term Breakdown}{51}{subsection.18.2.1}%
+\contentsline {subsection}{\numberline {18.2.2}Numerical Evaluation}{51}{subsection.18.2.2}%
+\contentsline {section}{\numberline {18.3}Other Wolfenstein Parameters}{52}{section.18.3}%
+\contentsline {subsection}{\numberline {18.3.1}\(|V_{cb}|\)}{52}{subsection.18.3.1}%
+\contentsline {subsection}{\numberline {18.3.2}\(|V_{ub}|\)}{52}{subsection.18.3.2}%
+\contentsline {subsection}{\numberline {18.3.3}\(A\)}{52}{subsection.18.3.3}%
+\contentsline {subsection}{\numberline {18.3.4}Jarlskog Invariant}{52}{subsection.18.3.4}%
+\contentsline {section}{\numberline {18.4}Full CKM Matrix}{52}{section.18.4}%
+\contentsline {section}{\numberline {18.5}Comparison with PDG}{52}{section.18.5}%
+\contentsline {chapter}{\numberline {19}CKM CP Violation}{53}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Direct Geometric Phase}{53}{section.19.1}%
+\contentsline {section}{\numberline {19.2}Comparison with PDG}{53}{section.19.2}%
+\contentsline {section}{\numberline {19.3}Jarlskog Invariant Consistency Check}{53}{section.19.3}%
+\contentsline {section}{\numberline {19.4}Why the Earlier Derivation Failed}{54}{section.19.4}%
+\contentsline {part}{VII\hspace {1em}Electroweak Sector}{55}{part.7}%
+\contentsline {chapter}{\numberline {20}Higgs Vacuum Expectation Value}{57}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Derivation}{57}{section.20.1}%
+\contentsline {subsection}{\numberline {20.1.1}Term-by-Term Breakdown}{57}{subsection.20.1.1}%
+\contentsline {subsection}{\numberline {20.1.2}Numerical Evaluation}{57}{subsection.20.1.2}%
+\contentsline {section}{\numberline {20.2}Comparison with PDG}{57}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Physical Interpretation}{57}{section.20.3}%
+\contentsline {chapter}{\numberline {21}Weinberg Angle}{59}{chapter.21}%
+\contentsline {section}{\numberline {21.1}Derivation}{59}{section.21.1}%
+\contentsline {subsection}{\numberline {21.1.1}Term-by-Term Breakdown}{59}{subsection.21.1.1}%
+\contentsline {subsection}{\numberline {21.1.2}Numerical Evaluation}{59}{subsection.21.1.2}%
+\contentsline {section}{\numberline {21.2}Comparison with PDG}{59}{section.21.2}%
+\contentsline {section}{\numberline {21.3}Derived Quantities}{59}{section.21.3}%
+\contentsline {chapter}{\numberline {22}The Fine-Structure Constant}{61}{chapter.22}%
+\contentsline {section}{\numberline {22.1}Derivation}{61}{section.22.1}%
+\contentsline {subsection}{\numberline {22.1.1}Term-by-Term Breakdown}{61}{subsection.22.1.1}%
+\contentsline {subsection}{\numberline {22.1.2}Numerical Evaluation}{61}{subsection.22.1.2}%
+\contentsline {section}{\numberline {22.2}Comparison with PDG}{61}{section.22.2}%
+\contentsline {section}{\numberline {22.3}Physical Interpretation}{61}{section.22.3}%
+\contentsline {chapter}{\numberline {23}Gauge Boson Masses}{63}{chapter.23}%
+\contentsline {section}{\numberline {23.1}SU(2) Gauge Coupling}{63}{section.23.1}%
+\contentsline {section}{\numberline {23.2}\(W\) Boson Mass}{63}{section.23.2}%
+\contentsline {section}{\numberline {23.3}Comparison with PDG}{63}{section.23.3}%
+\contentsline {section}{\numberline {23.4}\(Z\) Boson Mass}{63}{section.23.4}%
+\contentsline {section}{\numberline {23.5}Comparison with PDG}{64}{section.23.5}%
+\contentsline {section}{\numberline {23.6}\(Z/W\) Mass Ratio}{64}{section.23.6}%
+\contentsline {section}{\numberline {23.7}Discussion}{64}{section.23.7}%
+\contentsline {chapter}{\numberline {24}Higgs Boson Mass}{65}{chapter.24}%
+\contentsline {section}{\numberline {24.1}Revised Derivation}{65}{section.24.1}%
+\contentsline {subsection}{\numberline {24.1.1}Physical Interpretation}{65}{subsection.24.1.1}%
+\contentsline {section}{\numberline {24.2}Numerical Evaluation}{65}{section.24.2}%
+\contentsline {section}{\numberline {24.3}Comparison with PDG}{65}{section.24.3}%
+\contentsline {section}{\numberline {24.4}Why the Earlier Derivation Failed}{66}{section.24.4}%
+\contentsline {part}{VIII\hspace {1em}Strong CP Problem}{67}{part.8}%
+\contentsline {chapter}{\numberline {25}Strong CP Angle}{69}{chapter.25}%
+\contentsline {section}{\numberline {25.1}The Strong CP Problem}{69}{section.25.1}%
+\contentsline {section}{\numberline {25.2}Metatime Derivation}{69}{section.25.2}%
+\contentsline {subsection}{\numberline {25.2.1}Numerical Evaluation}{69}{subsection.25.2.1}%
+\contentsline {section}{\numberline {25.3}Neutron Electric Dipole Moment}{69}{section.25.3}%
+\contentsline {section}{\numberline {25.4}Comparison with Experiment}{70}{section.25.4}%
+\contentsline {chapter}{\numberline {26}Neutron Electric Dipole Moment}{71}{chapter.26}%
+\contentsline {section}{\numberline {26.1}Derivation from Strong CP}{71}{section.26.1}%
+\contentsline {section}{\numberline {26.2}Predicted Value}{71}{section.26.2}%
+\contentsline {section}{\numberline {26.3}Experimental Status}{71}{section.26.3}%
+\contentsline {section}{\numberline {26.4}Non-Discovery Scenario}{71}{section.26.4}%
+\contentsline {part}{IX\hspace {1em}Gauge Anomalies}{73}{part.9}%
+\contentsline {chapter}{\numberline {27}Hypercharge Assignments}{75}{chapter.27}%
+\contentsline {section}{\numberline {27.1}Metatime Hypercharge Formulas}{75}{section.27.1}%
+\contentsline {chapter}{\numberline {28}Anomaly Cancellation Conditions}{77}{chapter.28}%
+\contentsline {section}{\numberline {28.1}The Five Conditions}{77}{section.28.1}%
+\contentsline {section}{\numberline {28.2}Verification with Metatime Values}{77}{section.28.2}%
+\contentsline {section}{\numberline {28.3}The Baryon Number Anomaly}{78}{section.28.3}%
+\contentsline {section}{\numberline {28.4}Summary}{78}{section.28.4}%
+\contentsline {part}{X\hspace {1em}Cosmology}{79}{part.10}%
+\contentsline {chapter}{\numberline {29}Dark Energy and the Cosmological Constant}{81}{chapter.29}%
+\contentsline {section}{\numberline {29.1}The Cosmological Constant Problem}{81}{section.29.1}%
+\contentsline {section}{\numberline {29.2}Metatime Derivation}{81}{section.29.2}%
+\contentsline {subsection}{\numberline {29.2.1}Term-by-Term Breakdown}{81}{subsection.29.2.1}%
+\contentsline {subsection}{\numberline {29.2.2}Numerical Evaluation}{81}{subsection.29.2.2}%
+\contentsline {section}{\numberline {29.3}Comparison with Observation}{82}{section.29.3}%
+\contentsline {section}{\numberline {29.4}The Dark Energy Density Parameter}{82}{section.29.4}%
+\contentsline {section}{\numberline {29.5}Interpretation}{82}{section.29.5}%
+\contentsline {part}{XI\hspace {1em}Conclusions}{83}{part.11}%
+\contentsline {chapter}{\numberline {30}Complete Parameter Summary}{85}{chapter.30}%
+\contentsline {section}{\numberline {30.1}All 26 SM Parameters}{85}{section.30.1}%
+\contentsline {section}{\numberline {30.2}Overall Assessment}{87}{section.30.2}%
+\contentsline {chapter}{\numberline {31}Open Problems}{89}{chapter.31}%
+\contentsline {section}{\numberline {31.1}Summary of Tensions}{89}{section.31.1}%
+\contentsline {subsection}{\numberline {31.1.1}CKM CP Phase (Resolved)}{89}{subsection.31.1.1}%
+\contentsline {subsection}{\numberline {31.1.2}Baryon Octet Systematic Offset (Resolved)}{89}{subsection.31.1.2}%
+\contentsline {subsection}{\numberline {31.1.3}Gauge Boson Masses (\(+4.5\%\))}{89}{subsection.31.1.3}%
+\contentsline {subsection}{\numberline {31.1.4}Higgs Mass (Resolved)}{89}{subsection.31.1.4}%
+\contentsline {subsection}{\numberline {31.1.5}Neutron EDM (At the Limit)}{90}{subsection.31.1.5}%
+\contentsline {subsection}{\numberline {31.1.6}Anomaly \(A_5\) (Baryon Number)}{90}{subsection.31.1.6}%
+\contentsline {section}{\numberline {31.2}Future Work}{90}{section.31.2}%
+\contentsline {chapter}{\numberline {A}Derivation of $\kappa = \ln 2 / (24\pi )$}{91}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Shannon Information}{91}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Phase-Space Volume of $\mathbb {C}P^3$}{91}{section.A.2}%
+\contentsline {section}{\numberline {A.3}The Ratio}{91}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Why $24\pi $? A Deeper View}{92}{section.A.4}%
+\contentsline {section}{\numberline {A.5}No Free Parameter}{92}{section.A.5}%
+\contentsline {chapter}{\numberline {B}Collatz Prime Tables}{93}{appendix.B}%
+\contentsline {section}{\numberline {B.1}The Collatz Prime Sequence}{93}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Generation of Primes from $L_3$}{93}{section.B.2}%
+\contentsline {section}{\numberline {B.3}Table of Quark Masses}{93}{section.B.3}%
+\contentsline {section}{\numberline {B.4}Generation Ladder}{94}{section.B.4}%
+\contentsline {chapter}{\numberline {C}SU(3) Group Theory Primer}{95}{appendix.C}%
+\contentsline {section}{\numberline {C.1}Generators and Structure Constants}{95}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Cartan Algebra and Roots}{95}{section.C.2}%
+\contentsline {section}{\numberline {C.3}Irreducible Representations}{96}{section.C.3}%
+\contentsline {section}{\numberline {C.4}Young Tableaux}{96}{section.C.4}%
+\contentsline {section}{\numberline {C.5}Casimir Operators}{96}{section.C.5}%
+\contentsline {chapter}{\numberline {D}Poincar\'{e} Disk Geometry}{97}{appendix.D}%
+\contentsline {section}{\numberline {D.1}Definition}{97}{section.D.1}%
+\contentsline {section}{\numberline {D.2}Isometries}{97}{section.D.2}%
+\contentsline {section}{\numberline {D.3}Geodesics}{97}{section.D.3}%
+\contentsline {section}{\numberline {D.4}Boundary and Compactification}{97}{section.D.4}%
+\contentsline {section}{\numberline {D.5}Kuramoto Model on $\mathbb {D}$}{97}{section.D.5}%
+\contentsline {section}{\numberline {D.6}Hyperbolic Volume and $\kappa $}{98}{section.D.6}%
+\contentsline {chapter}{\numberline {E}Tetrahedron Algebraic Geometry}{99}{appendix.E}%
+\contentsline {section}{\numberline {E.1}The NOEMA Tetrahedron}{99}{section.E.1}%
+\contentsline {section}{\numberline {E.2}Edge Lengths}{99}{section.E.2}%
+\contentsline {section}{\numberline {E.3}Dihedral Angles}{99}{section.E.3}%
+\contentsline {section}{\numberline {E.4}Volume}{100}{section.E.4}%
+\contentsline {section}{\numberline {E.5}PMNS Mapping}{100}{section.E.5}%
+\contentsline {section}{\numberline {E.6}Mass Eigenvalues}{100}{section.E.6}%
+\contentsline {chapter}{\numberline {F}Baryon Mass Calculation Tables}{101}{appendix.F}%
+\contentsline {section}{\numberline {F.1}Octet Masses}{101}{section.F.1}%
+\contentsline {subsection}{\numberline {F.1.1}Numerical Terms}{101}{subsection.F.1.1}%
+\contentsline {subsection}{\numberline {F.1.2}Per-Particle Values}{102}{subsection.F.1.2}%
+\contentsline {section}{\numberline {F.2}Decuplet Masses}{102}{section.F.2}%
+\contentsline {subsection}{\numberline {F.2.1}Numerical Terms}{102}{subsection.F.2.1}%
+\contentsline {subsection}{\numberline {F.2.2}Per-Particle Values}{102}{subsection.F.2.2}%
+\contentsline {section}{\numberline {F.3}Error Summary}{102}{section.F.3}%
+\contentsline {chapter}{\numberline {G}Meson Mass Calculation Tables}{103}{appendix.G}%
+\contentsline {section}{\numberline {G.1}Pseudoscalar Mesons}{103}{section.G.1}%
+\contentsline {subsection}{\numberline {G.1.1}Pion}{103}{subsection.G.1.1}%
+\contentsline {subsection}{\numberline {G.1.2}Kaon}{103}{subsection.G.1.2}%
+\contentsline {subsection}{\numberline {G.1.3}Complete Pseudoscalar Table}{103}{subsection.G.1.3}%
+\contentsline {section}{\numberline {G.2}Vector Mesons}{103}{section.G.2}%
+\contentsline {subsection}{\numberline {G.2.1}Complete Vector Table}{104}{subsection.G.2.1}%
+\contentsline {section}{\numberline {G.3}Open Flavour States}{104}{section.G.3}%
+\contentsline {chapter}{\numberline {H}PDG Reference Tables}{105}{appendix.H}%
+\contentsline {section}{\numberline {H.1}Lepton Masses}{105}{section.H.1}%
+\contentsline {section}{\numberline {H.2}Baryon Octet Masses}{105}{section.H.2}%
+\contentsline {section}{\numberline {H.3}Baryon Decuplet Masses}{105}{section.H.3}%
+\contentsline {section}{\numberline {H.4}Neutrino Oscillation Parameters}{105}{section.H.4}%
+\contentsline {section}{\numberline {H.5}CKM Matrix Elements}{106}{section.H.5}%
+\contentsline {section}{\numberline {H.6}Electroweak Parameters}{106}{section.H.6}%
+\contentsline {section}{\numberline {H.7}Cosmological Parameters}{106}{section.H.7}%
+\contentsline {chapter}{\numberline {I}Source Code}{107}{appendix.I}%
+\contentsline {section}{\numberline {I.1}Audit Script}{107}{section.I.1}%
+\contentsline {section}{\numberline {I.2}Usage}{107}{section.I.2}%
+\contentsline {section}{\numberline {I.3}Output Summary}{107}{section.I.3}%
+\contentsline {section}{\numberline {I.4}Monograph Files}{108}{section.I.4}%

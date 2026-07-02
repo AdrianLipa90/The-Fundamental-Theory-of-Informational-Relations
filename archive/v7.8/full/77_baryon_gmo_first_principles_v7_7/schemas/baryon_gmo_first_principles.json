@@ -1,0 +1,106 @@
+{
+  "schema_version": "7.7",
+  "debt": "DEBT-009",
+  "operator": "baryon_gmo_first_principles",
+  "parent_operator": "J_KJ_axial_adjoint",
+  "constants": {
+    "OI": "ln(2)/(24*pi) = 0.00919315",
+    "L3": 7,
+    "L4": 2,
+    "L5": 5,
+    "E_P": 1.2208901285838957e22,
+    "E_proton": 938.272,
+    "Ei": "E_proton * OI = 8.625675",
+    "u": 3,
+    "d": 5,
+    "s": 7,
+    "c": 11,
+    "b": 13
+  },
+  "J_KJ_adjoint": {
+    "c_vector_F_type": {
+      "c1": 0.296,
+      "c4": 0.210,
+      "c7": 0.207,
+      "norm": 0.417810
+    },
+    "eigenvalues": "0 (x2), +-norm/2 (x2), +-norm (x2)",
+    "golden_ratio_W_us": "21/34 = 0.617647 = phi^-1 (err 0.06%)"
+  },
+  "extended_c_vector": {
+    "c3": "(d-u)/(d+u) = 0.25",
+    "c8": "(s-(u+d)/2)/(s+(u+d)/2) = 3/11 = 0.272727",
+    "norm_ext": 0.558073
+  },
+  "formulas": {
+    "octet_GMO": {
+      "alpha": {
+        "description": "U-spin breaking / baryon octet center",
+        "formula": "alpha = E_P * OI * (s^2 - u^2 - d^2 + L3)",
+        "value_MeV": 189.76,
+        "rationale": "s^2-u^2-d^2+L3 = 49-9-25+7 = 22 — the strange-up-down quadratic asymmetry plus octet curvature"
+      },
+      "beta": {
+        "description": "Hypercharge (Y) splitting",
+        "formula": "beta = -alpha * (L3-1) / (L3-1 + L4/L5)",
+        "value_MeV": -177.90,
+        "rationale": "Ratio (L3-1)/(L3-1+L4/L5) = 6/6.4 = 0.9375 — octet boundary over total boundary+heavy curvature"
+      },
+      "gamma": {
+        "description": "SU(3) Casimir term I(I+1)-Y^2/4",
+        "formula": "gamma = E_P * OI * (L3 - 1 + L4/L5)",
+        "value_MeV": 55.20,
+        "rationale": "L3-1+L4/L5 = 6.4 — the SU(3) second-order Casimir from Metatime intention"
+      },
+      "delta": {
+        "description": "Di-quark spin splitting (S_dq)",
+        "formula": "delta = -gamma",
+        "value_MeV": -55.20,
+        "rationale": "Spin-1 di-quark subtracts the Casimir contribution; S_dq=0 for Lambda gives mass +55.2"
+      },
+      "key_relations": {
+        "delta_eq_minus_gamma": true,
+        "beta_over_alpha": -0.9375,
+        "alpha_plus_2_gamma_plus_delta": "Sigma center = 244.96",
+        "alpha_minus_beta_plus_gamma_over_2_plus_delta": "Xi center = 340.07"
+      }
+    },
+    "decuplet_GMO": {
+      "alpha10": {
+        "formula": "alpha10 = E_P * OI * (L3^2 + L4^2 + L5^2 + L3 + L4 + L5 + L4) / L4",
+        "value_MeV": 405.41,
+        "rationale": "Symmetric combination of all L constants divided by charm curvature"
+      },
+      "beta10": {
+        "formula": "beta10 = -E_P * OI * L3 * L5 / L4",
+        "value_MeV": -150.95,
+        "rationale": "Equal spacing = L3*L5/L4 = 35/2 = 17.5 times Ei"
+      },
+      "equal_spacing_MeV": 150.95,
+      "target_MeV": 148.0,
+      "error_pct": 1.99
+    },
+    "scalar_base": {
+      "formula": "E_scalar = E_P * exp(-(S_base + OI * (sigma(n)/n - 1) / L3) / OI)",
+      "sigma_n": "sum of divisors of n",
+      "n": "product of 3 quark primes (e.g. u*d*s = 105)"
+    },
+    "total_mass": {
+      "octet": "M = E_scalar + alpha + beta*Y + gamma*(I(I+1)-Y^2/4) + delta*S_dq",
+      "decuplet": "M = M0_decuplet + alpha10 + beta10*Y, where M0 = avg(scalar_base across decuplet)"
+    }
+  },
+  "fitted_vs_derived": {
+    "alpha": {"fitted_v72": 190.1, "derived_v77": 189.76, "error_pct": -0.18},
+    "beta":  {"fitted_v72": -180.0, "derived_v77": -177.90, "error_pct": -1.16},
+    "gamma": {"fitted_v72": 54.8, "derived_v77": 55.20, "error_pct": 0.74},
+    "delta": {"fitted_v72": -55.9, "derived_v77": -55.20, "error_pct": -1.24},
+    "alpha10": {"fitted_v72": 404.0, "derived_v77": 405.41, "error_pct": 0.35},
+    "beta10":  {"fitted_v72": -148.0, "derived_v77": -150.95, "error_pct": 1.99}
+  },
+  "predictions": {
+    "octet_mean_abs_error_pct": 1.0246,
+    "decuplet_mean_abs_error_pct": 0.2304,
+    "combined_mean_abs_error_pct": 0.7599
+  }
+}

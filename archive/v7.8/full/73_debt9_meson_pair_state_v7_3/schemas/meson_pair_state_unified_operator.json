@@ -1,0 +1,24 @@
+{
+  "schema": "MESON_PAIR_STATE_UNIFIED_OPERATOR_V7_3",
+  "sector_A": {
+    "name": "Pseudoscalar (JP=0⁻)",
+    "operator": "SPECTRAL_ZETA_LEGENDRE_3_SQUARE",
+    "formula": "ΔS/OI = π/ζ(2) if r₃(p·q)=0 else ζ(2)-1",
+    "E_derivation": "E_p · exp(-ΔS/OI)",
+    "pion_error": 0.44,
+    "kaon_error": 0.28,
+    "eta_predicted_mev": 544.6,
+    "eta_error_pct": 0.6
+  },
+  "sector_B": {
+    "name": "Vector (JP=1⁻)",
+    "operator": "W_ij_EIGENVALUE_24x24",
+    "formula": "E = E_0 · exp(-λ_k) · exp(-2·OI)",
+    "E_0_mev": 1037.9,
+    "bogoliubov_correction": "exp(-2·OI) = 0.9818",
+    "phi_error_pct": 0.05,
+    "K_star_error_pct": 1.3
+  },
+  "status": "FROZEN",
+  "canon_allowed": false
+}

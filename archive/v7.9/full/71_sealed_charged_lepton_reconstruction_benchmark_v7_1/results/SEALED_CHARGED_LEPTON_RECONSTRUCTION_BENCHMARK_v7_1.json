@@ -1,0 +1,122 @@
+{
+  "schema": "METATIME_SEALED_CHARGED_LEPTON_RECONSTRUCTION_BENCHMARK_V7_1",
+  "module": "71_sealed_charged_lepton_reconstruction_benchmark_v7_1",
+  "created_utc": "2026-06-22T00:00:00Z",
+  "technical_status": "PASS",
+  "formal_status": "PASS_SEALED_CHARGED_LEPTON_RECONSTRUCTION_BENCHMARK_INSTALLED_V7_1",
+  "substantive_status": "SEALED_CHARGED_LEPTON_RECONSTRUCTION_SUB_PERCENT_ALL_CHANNELS",
+  "debt9_numeric_spectrum": "OPEN_NOT_CLOSED",
+  "canon_allowed": false,
+  "mass_spectrum_closure_claimed": false,
+  "benchmark_sealed_after_operator_freeze": true,
+  "input_policy": {
+    "uses_electron_mass_as_input": false,
+    "uses_muon_mass_as_input": false,
+    "uses_tau_mass_as_input": false,
+    "uses_pdg_tables_as_input": false,
+    "uses_exact_replay_tables_as_input": false,
+    "uses_v6_1_target_actions_as_input": false,
+    "allowed_inputs": [
+      "v6_7_derived_absolute_electron_action_S_e",
+      "v7_0_refined_e_to_mu_release_R_e_mu",
+      "v6_8_refined_mu_to_tau_release_R_mu_tau",
+      "Planck_E0_allowed_dimensional_normalizer",
+      "OI_information_preference_quantum"
+    ],
+    "scoring_inputs_separated": [
+      "electron_reference_MeV",
+      "muon_reference_MeV",
+      "tau_reference_MeV"
+    ]
+  },
+  "frozen_pipeline": {
+    "S_e_source": "v6.7 derived gate: S_e = 1/2 - 3*OI + OI/L3 - OI^2/2",
+    "R_e_mu_source": "v7.0 refined gate: R_e_mu = 5*OI + 2*OI/L3 + ((L3+1)/2)*OI^2",
+    "R_mu_tau_source": "v6.8 refined gate: R_mu_tau = 3*OI - OI/L3 - (L3/2)*OI^2",
+    "equations": [
+      "S_mu = S_e - R_e_mu",
+      "S_tau = S_mu - R_mu_tau",
+      "E_i = E_P * exp(-S_i/OI)"
+    ]
+  },
+  "constants": {
+    "OI": 0.009193150006360484,
+    "L3": 7.0,
+    "E_Planck_MeV": 1.2208901285838957e+22
+  },
+  "derived_actions": {
+    "electron": 0.47369160012116457,
+    "muon": 0.4247611797736728,
+    "tau": 0.3987908359229952
+  },
+  "derived_releases": {
+    "R_e_mu": 0.048930420347491774,
+    "R_mu_tau": 0.025970343850677605,
+    "R_e_tau": 0.07490076419816938
+  },
+  "prediction_rows": [
+    {
+      "particle": "electron",
+      "derived_action_S_i": 0.47369160012116457,
+      "predicted_energy_MeV": 0.5116420509844719,
+      "reference_energy_MeV_scoring_only": 0.51099895,
+      "absolute_error_MeV": 0.000643100984471956,
+      "relative_error": 0.0012585172327104705,
+      "relative_error_abs_percent": 0.12585172327104704,
+      "reference_used_as_input": false
+    },
+    {
+      "particle": "muon",
+      "derived_action_S_i": 0.4247611797736728,
+      "predicted_energy_MeV": 104.83176930043687,
+      "reference_energy_MeV_scoring_only": 105.65838,
+      "absolute_error_MeV": -0.82661069956313,
+      "relative_error": -0.007823427725875742,
+      "relative_error_abs_percent": 0.7823427725875742,
+      "reference_used_as_input": false
+    },
+    {
+      "particle": "tau",
+      "derived_action_S_i": 0.3987908359229952,
+      "predicted_energy_MeV": 1767.504069634979,
+      "reference_energy_MeV_scoring_only": 1776.86,
+      "absolute_error_MeV": -9.35593036502058,
+      "relative_error": -0.005265429108101349,
+      "relative_error_abs_percent": 0.5265429108101349,
+      "reference_used_as_input": false
+    }
+  ],
+  "metrics": {
+    "particle_count": 3,
+    "mean_abs_relative_error_percent": 0.4782458022229171,
+    "max_abs_relative_error_percent": 0.7823427725875742,
+    "electron_abs_relative_error_percent": 0.12585172327104704,
+    "muon_abs_relative_error_percent": 0.7823427725875742,
+    "tau_abs_relative_error_percent": 0.5265429108101349,
+    "predicted_mu_over_e": 204.89279389511805,
+    "scoring_mu_over_e": 206.76829179394596,
+    "mu_over_e_relative_error_percent": 0.9070529540849193,
+    "predicted_tau_over_mu": 16.8603857535734,
+    "scoring_tau_over_mu": 16.817028616187375,
+    "tau_over_mu_relative_error_percent": 0.2578168734534314,
+    "predicted_tau_over_e": 3454.209212923309,
+    "scoring_tau_over_e": 3477.228280018971,
+    "tau_over_e_relative_error_percent": 0.6620043486543043
+  },
+  "decision": {
+    "electron": "STRONG_NEAR_MATCH_FROM_DERIVED_S_E_GATE",
+    "muon": "SUB_PERCENT_ERROR_AFTER_V7_0_R_E_MU_REFINEMENT",
+    "tau": "SUB_PERCENT_ERROR_INHERITS_V7_0_E_MU_IMPROVEMENT",
+    "e_mu_release": "REFINED_GATE_CONFIRMED_AT_SUB_PERCENT",
+    "mass_spectrum_closure": "DENIED_STILL_OPEN_NOT_CANON",
+    "next_step": "DEBT-009: Hadron and meson sector split — freeze baryon triplet operators and meson pair-state binding operators separately."
+  },
+  "lineage": {
+    "parent_artifact": "v7.0 e→mu release refinement gate",
+    "module_dependencies": [
+      "67_absolute_electron_action_derivation_gate_v6_7",
+      "68_mu_tau_release_refinement_gate_v6_8",
+      "70_e_mu_release_refinement_gate_v7_0"
+    ]
+  }
+}

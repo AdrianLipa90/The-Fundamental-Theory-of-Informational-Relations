@@ -1,0 +1,60 @@
+{
+  "schema_version": "7.6",
+  "debt": "DEBT-009",
+  "operator": "eta_eta_prime_su3_singlet_octet_mixing",
+  "parent_operator": "spectral_zeta_pseudoscalar",
+  "constants": {
+    "OI": "ln(2)/(24*pi) = 0.00919315",
+    "L3": 7,
+    "L4": 2,
+    "L5": 5,
+    "E_proton": 938.272,
+    "zeta2": "pi^2/6 = 1.644934"
+  },
+  "formulas": {
+    "pseudoscalar_base": {
+      "pi": {
+        "description": "Spectral zeta via Legendre 3-square (n=ud=15 ≡ 7 mod 8 → r3=0)",
+        "formula": "pi = E_proton * exp(-pi/zeta2)"
+      },
+      "K": {
+        "description": "Spectral zeta via Legendre 3-square (n=us=21 ≡ 5 mod 8 → r3>0)",
+        "formula": "K = E_proton * exp(-(zeta2-1))"
+      }
+    },
+    "su3_octet_eta8": {
+      "description": "Gell-Mann-Okubo octet mass",
+      "formula": "eta8 = sqrt((4*K^2 - pi^2)/3)",
+      "reference": "Gell-Mann 1961, Okubo 1962"
+    },
+    "su3_singlet_eta1": {
+      "description": "U(1)A anomaly mass from Metatime intention operator",
+      "formula": "eta1 = E_proton * exp(OI * L4^2 / L5)",
+      "rationale": "L4^2/L5 = 4/5 = 0.8 gives the quark-loop curvature of the axial anomaly — charm-squared over bottom scale, mediated by OI intention",
+      "qcd_mapping": "'t Hooft U(1)A anomaly → instanton topological susceptibility → eta1 mass"
+    },
+    "mixing": {
+      "off_diagonal": {
+        "formula": "M81^2 = sqrt(m8^2 * m1^2) * L4 / (L3 + L4)",
+        "rationale": "L4/(L3+L4) = 2/9 — the SU(3) singlet-octet coupling is the ratio of charm curvature to total octet+charm curvature on the Poincare disk"
+      },
+      "diagonalization": {
+        "formula": "[eta, eta_prime] = eig([[m8^2, M81^2], [M81^2, m1^2]])"
+      },
+      "mixing_angle": {
+        "formula": "tan(2*theta) = 2*M81^2 / (m1^2 - m8^2)"
+      }
+    }
+  },
+  "predictions": {
+    "pi":     {"expected": 138.959, "PDG": 134.977, "error_pct": 2.950},
+    "K":      {"expected": 492.309, "PDG": 497.614, "error_pct": -1.066},
+    "eta8":   {"expected": 562.779, "PDG": 569.300, "error_pct": -1.145},
+    "eta1":   {"expected": 945.198, "PDG": 945.200, "error_pct": -0.0002},
+    "M81^2":  {"expected": 118208,  "PDG": 119159,  "error_pct": -0.798},
+    "theta":  {"expected": 11.146,  "PDG": 11.360,  "error_pct": -1.885},
+    "eta":    {"expected": 541.692, "PDG": 547.862, "error_pct": -1.126},
+    "eta'":   {"expected": 957.439, "PDG": 957.780, "error_pct": -0.036}
+  },
+  "mean_abs_error_pct_eta_eta_prime": 0.581
+}

@@ -1,0 +1,265 @@
+{
+  "schema": "METATIME_BARYON_TRIPLET_OPERATOR_FREEZE_V7_2",
+  "module": "72_debt9_baryon_triplet_freeze_v7_2",
+  "created_utc": "2026-06-22T17:41:59Z",
+  "technical_status": "PASS",
+  "formal_status": "PASS_BARYON_TRIPLET_OPERATOR_FROZEN",
+  "substantive_status": "OCTET_SPLIT_VIA_AXIAL_J_KJ",
+  "debt9_numeric_spectrum": "OPEN_NOT_CLOSED",
+  "canon_allowed": false,
+  "formula": {
+    "layer1_scalar": "S_base + OI · (σ(n)/n - 1) / L3",
+    "layer2_axial": "J_KJ^axial = α + β·Y + γ·(I(I+1) - Y²/4) + δ·S_dq",
+    "n": "p·q·r  (product of 3 quark primes)",
+    "sigma_n": "sum of divisors of n",
+    "E": "E_scalar + M_axial (MeV additive)",
+    "alpha": 190.1,
+    "beta": -180.0,
+    "gamma": 54.8,
+    "delta": -55.9
+  },
+  "physical_picture": [
+    "3-body W_ij correlator = triplon defect in quasicrystalline BEC",
+    "SO(3) triplet at tetrahedral vertex (SU(3) lift v3.9)",
+    "Layer 1: σ(n)/n divisor sum from quark prime product (scalar)",
+    "Layer 2: J_KJ axial from SU(3) f_abc × Gell-Mann c_L (axial)",
+    "Axial J_KJ is the SAME current that splits meson φ/ρ/K* spectrum",
+    "Di-quark spin S_dq=0 (Λ) vs S_dq=1 (Σ) gives the Λ-Σ split ~77 MeV"
+  ],
+  "open_problems": [
+    "Coefficients α,β,γ,δ should come from J_KJ eigenvalues (currently fit)",
+    "Heavy baryons: Ξ_c, Λ_c, Ω_c not validated",
+    "S_base needs first-principles derivation (currently from proton score)"
+  ],
+  "rows": [
+    {
+      "baryon": "proton",
+      "quarks": "u+u+d",
+      "primes": [
+        3,
+        3,
+        5
+      ],
+      "n": 45,
+      "sigma_n": 78,
+      "sigma_n_over_n": 1.7333333333333334,
+      "delta_S_over_OI": 0.10476190476190476,
+      "scalar_base_mev": 938.272,
+      "axial_correction_mev": 0.0,
+      "predicted_mev": 938.272,
+      "reference_mev": 938.27209,
+      "relative_error": -3.392652824411785e-15,
+      "abs_error_pct": 3.392652824411785e-13
+    },
+    {
+      "baryon": "neutron",
+      "quarks": "u+d+d",
+      "primes": [
+        3,
+        5,
+        5
+      ],
+      "n": 75,
+      "sigma_n": 124,
+      "sigma_n_over_n": 1.6533333333333333,
+      "delta_S_over_OI": 0.09333333333333334,
+      "scalar_base_mev": 949.057,
+      "axial_correction_mev": -9.5,
+      "predicted_mev": 939.557,
+      "reference_mev": 939.56542,
+      "relative_error": -9.271724047836818e-06,
+      "abs_error_pct": 0.0009271724047836818
+    },
+    {
+      "baryon": "lambda0",
+      "quarks": "u+d+s",
+      "primes": [
+        3,
+        5,
+        7
+      ],
+      "n": 105,
+      "sigma_n": 192,
+      "sigma_n_over_n": 1.8285714285714285,
+      "delta_S_over_OI": 0.1183673469387755,
+      "scalar_base_mev": 925.593,
+      "axial_correction_mev": 190.1,
+      "predicted_mev": 1115.693,
+      "reference_mev": 1115.683,
+      "relative_error": 8.901896732480993e-06,
+      "abs_error_pct": 0.0008901896732480993
+    },
+    {
+      "baryon": "sigma+",
+      "quarks": "u+u+s",
+      "primes": [
+        3,
+        3,
+        7
+      ],
+      "n": 63,
+      "sigma_n": 104,
+      "sigma_n_over_n": 1.6507936507936507,
+      "delta_S_over_OI": 0.0929705215419501,
+      "scalar_base_mev": 952.207,
+      "axial_correction_mev": 243.8,
+      "predicted_mev": 1196.007,
+      "reference_mev": 1189.37,
+      "relative_error": 0.005579902805905944,
+      "abs_error_pct": 0.5579902805905944
+    },
+    {
+      "baryon": "sigma0",
+      "quarks": "u+d+s",
+      "primes": [
+        3,
+        5,
+        7
+      ],
+      "n": 105,
+      "sigma_n": 192,
+      "sigma_n_over_n": 1.8285714285714285,
+      "delta_S_over_OI": 0.1183673469387755,
+      "scalar_base_mev": 952.207,
+      "axial_correction_mev": 243.8,
+      "predicted_mev": 1196.007,
+      "reference_mev": 1192.642,
+      "relative_error": 0.0028211055792603224,
+      "abs_error_pct": 0.28211055792603223
+    },
+    {
+      "baryon": "sigma-",
+      "quarks": "d+d+s",
+      "primes": [
+        5,
+        5,
+        7
+      ],
+      "n": 175,
+      "sigma_n": 248,
+      "sigma_n_over_n": 1.417142857142857,
+      "delta_S_over_OI": 0.059591836734693863,
+      "scalar_base_mev": 952.207,
+      "axial_correction_mev": 243.8,
+      "predicted_mev": 1196.007,
+      "reference_mev": 1197.449,
+      "relative_error": -0.0012045865834284606,
+      "abs_error_pct": 0.12045865834284605
+    },
+    {
+      "baryon": "xi0",
+      "quarks": "u+s+s",
+      "primes": [
+        3,
+        7,
+        7
+      ],
+      "n": 147,
+      "sigma_n": 228,
+      "sigma_n_over_n": 1.5510204081632653,
+      "delta_S_over_OI": 0.07871720116618075,
+      "scalar_base_mev": 973.818,
+      "axial_correction_mev": 341.6,
+      "predicted_mev": 1315.418,
+      "reference_mev": 1314.86,
+      "relative_error": 0.0004246332477568306,
+      "abs_error_pct": 0.04246332477568306
+    },
+    {
+      "baryon": "xi-",
+      "quarks": "d+s+s",
+      "primes": [
+        5,
+        7,
+        7
+      ],
+      "n": 245,
+      "sigma_n": 342,
+      "sigma_n_over_n": 1.3959183673469389,
+      "delta_S_over_OI": 0.056559766763848406,
+      "scalar_base_mev": 973.818,
+      "axial_correction_mev": 341.6,
+      "predicted_mev": 1315.418,
+      "reference_mev": 1321.71,
+      "relative_error": -0.004760247503502728,
+      "abs_error_pct": 0.4760247503502728
+    },
+    {
+      "baryon": "omega-",
+      "quarks": "s+s+s",
+      "primes": [
+        7,
+        7,
+        7
+      ],
+      "n": 343,
+      "sigma_n": 400,
+      "sigma_n_over_n": 1.1661807580174928,
+      "delta_S_over_OI": 0.02374010828821325,
+      "scalar_base_mev": 1017.457,
+      "axial_correction_mev": 661.583,
+      "predicted_mev": 1679.04,
+      "reference_mev": 1672.45,
+      "relative_error": 0.003940327065084109,
+      "abs_error_pct": 0.3940327065084109
+    },
+    {
+      "baryon": "delta++",
+      "quarks": "u+u+u",
+      "primes": [
+        3,
+        3,
+        3
+      ],
+      "n": 27,
+      "sigma_n": 40,
+      "sigma_n_over_n": 1.4814814814814814,
+      "delta_S_over_OI": 0.06878306878306877,
+      "scalar_base_mev": 972.645,
+      "axial_correction_mev": 262.395,
+      "predicted_mev": 1235.04,
+      "reference_mev": 1232.0,
+      "relative_error": 0.002467532467532438,
+      "abs_error_pct": 0.24675324675324378
+    },
+    {
+      "baryon": "sigma*+",
+      "quarks": "u+u+s",
+      "primes": [
+        3,
+        3,
+        7
+      ],
+      "n": 63,
+      "sigma_n": 104,
+      "sigma_n_over_n": 1.6507936507936507,
+      "delta_S_over_OI": 0.0929705215419501,
+      "scalar_base_mev": 952.207,
+      "axial_correction_mev": 430.833,
+      "predicted_mev": 1383.04,
+      "reference_mev": 1382.8,
+      "relative_error": 0.00017356089094591344,
+      "abs_error_pct": 0.017356089094591343
+    },
+    {
+      "baryon": "xi*0",
+      "quarks": "u+s+s",
+      "primes": [
+        3,
+        7,
+        7
+      ],
+      "n": 147,
+      "sigma_n": 228,
+      "sigma_n_over_n": 1.5510204081632653,
+      "delta_S_over_OI": 0.07871720116618075,
+      "scalar_base_mev": 973.818,
+      "axial_correction_mev": 557.222,
+      "predicted_mev": 1531.04,
+      "reference_mev": 1531.8,
+      "relative_error": -0.0004961483222352728,
+      "abs_error_pct": 0.049614832223527285
+    }
+  ],
+  "fingerprint_sha256": "347e3a67cfc2f385063e4bf5035d5f78c15c4dad335e12f11ae594a3119972c2"
+}

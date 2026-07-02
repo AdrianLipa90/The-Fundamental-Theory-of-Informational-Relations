@@ -1,0 +1,107 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Baryon Mass Calculation Tables}
+\label{app:baryon_calculations}
+
+\section{Octet Masses}
+
+The octet mass formula is:
+
+\[
+M = M_0 + \alpha + \beta Y + \gamma\left(I(I+1) - \frac{Y^2}{4}\right),
+\]
+
+with:
+
+\[
+\begin{aligned}
+M_0    &= E_{\text{proton}}(1 - (s+u)\kappa/L_3) = 925.95\ \mev, \\
+\alpha &= E_{\text{proton}}\,\kappa\,(q_s^2 - q_u^2 - q_d^2 + L_3), \\
+\gamma &= \alpha\,\frac{L_4(L_3 - L_4)}{L_3^2}
+       = \alpha \cdot \frac{10}{49}, \\
+\beta  &= -\alpha\,\frac{L_3^2 - 1}{L_3^2}
+       = -\alpha \cdot \frac{48}{49}.
+\end{aligned}
+\]
+
+\subsection{Numerical Terms}
+
+\[
+\begin{aligned}
+\kappa &= 0.00919315, \\
+E_{\text{proton}} &= 938.272\ \mev, \\
+E_{\text{proton}}\,\kappa &= 8.62573\ \mev, \\
+(q_s^2 - q_u^2 - q_d^2 + L_3) &= 49 - 9 - 25 + 7 = 22, \\
+\alpha &= 8.62573 \times 22 = 189.77\ \mev, \\
+\frac{L_4(L_3 - L_4)}{L_3^2} &= \frac{2 \times 5}{49} = \frac{10}{49}, \\
+\gamma &= 189.77 \times \frac{10}{49} = 38.73\ \mev, \\
+\frac{L_3^2 - 1}{L_3^2} &= \frac{48}{49}, \\
+\beta &= -189.77 \times \frac{48}{49} = -185.90\ \mev.
+\end{aligned}
+\]
+
+\subsection{Per-Particle Values}
+
+\[
+\begin{array}{ccccccc}
+\text{Particle} & Y & I(I{+}1) & \beta Y & \gamma(I(I{+}1){-}Y^2/4) & \text{Mass (MeV)} & \text{PDG (MeV)} \\
+\hline
+p,n & 1 & 0.75 & -185.90 & 38.73(0.75{-}0.25) = 19.37 & 925.95{+}189.77{-}185.90{+}19.37 = 949.19 & 938.92 \\
+\Lambda & 0 & 0 & 0 & 0 & 925.95{+}189.77 = 1115.72 & 1115.68 \\
+\Sigma & 0 & 2 & 0 & 38.73(2{-}0) = 77.46 & 925.95{+}189.77{+}77.46 = 1193.18 & 1193.15 \\
+\Xi & -1 & 0.75 & +185.90 & 38.73(0.75{-}0.25) = 19.37 & 925.95{+}189.77{+}185.90{+}19.37 = 1320.99 & 1318.29 \\
+\end{array}
+\]
+
+\section{Decuplet Masses}
+
+The decuplet mass formula is:
+
+\[
+M = M_0' + \alpha_{10} + \beta_{10} Y,
+\]
+
+with:
+
+\[
+\begin{aligned}
+M_0'    &= E_{\text{proton}}(1 + (s-u)\kappa) = 972.72\ \mev, \\
+\alpha_{10} &= E_{\text{proton}}\,\kappa\,\frac{L_3^2 + L_4^2 + L_5^2 + L_3 + L_4 + L_5 + L_4}{L_4}, \\
+\beta_{10} &= -E_{\text{proton}}\,\kappa\,\frac{L_3 L_5}{L_4}.
+\end{aligned}
+\]
+
+\subsection{Numerical Terms}
+
+\[
+\begin{aligned}
+L_3^2 + L_4^2 + L_5^2 + L_3 + L_4 + L_5 + L_4 &= 49 + 4 + 25 + 7 + 2 + 5 + 2 = 94, \\
+\frac{94}{L_4} &= \frac{94}{2} = 47, \\
+\alpha_{10} &= 8.62573 \times 47 = 405.41\ \mev, \\
+\frac{L_3 L_5}{L_4} &= \frac{35}{2} = 17.5, \\
+\beta_{10} &= -8.62573 \times 17.5 = -150.95\ \mev.
+\end{aligned}
+\]
+
+\subsection{Per-Particle Values}
+
+\[
+\begin{array}{ccccc}
+\text{Particle} & Y & \beta_{10} Y & \text{Mass (MeV)} & \text{PDG (MeV)} \\
+\hline
+\Delta^{++} & +1 & -150.95 & 972.72{+}405.41{-}150.95 = 1227.18 & 1232.0 \\
+\Sigma^{*+} & 0 & 0 & 972.72{+}405.41 = 1378.13 & 1382.8 \\
+\Xi^{*0} & -1 & +150.95 & 972.72{+}405.41{+}150.95 = 1529.08 & 1531.8 \\
+\Omega^- & -2 & +301.90 & 972.72{+}405.41{+}301.90 = 1680.03 & 1672.45 \\
+\end{array}
+\]
+
+\section{Error Summary}
+
+\[
+\begin{array}{lccc}
+\text{Sector} & \text{Mean error} & \text{Max error} & \text{RMS error} \\
+\hline
+\text{Octet} & 0.33\% & 1.10\% & 0.57\% \\
+\text{Decuplet} & 0.34\% & 0.45\% & 0.36\% \\
+\end{array}
+\]

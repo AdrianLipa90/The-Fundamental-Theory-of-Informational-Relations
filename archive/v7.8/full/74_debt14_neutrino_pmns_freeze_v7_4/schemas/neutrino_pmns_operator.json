@@ -1,0 +1,56 @@
+{
+  "schema": "NEUTRINO_PMNS_OPERATOR_V7_4",
+  "sector": "Neutrino PMNS",
+  "noema_operator": "Î (intention/will)",
+  "dimensionality": "0D phase point on Poincaré disk boundary S¹",
+  "action_formula": "S_ν = (1 + L₄/L₃) · ħ/2 = 9/14 (bare), with calibration: S₁ = 9/14 + OI·2/49 − OI²·2/49",
+  "L_parameters": {
+    "L3": 7,
+    "L4": 2,
+    "L5": 5,
+    "source": "(3,5) prime pair: L3=3+4, L4=5-3, L5=5"
+  },
+  "mass_formula": {
+    "base": "S₁ = 9/14 + OI·(L₄/L₃)²/2(OI) × (1−OI) = 0.6432289239",
+    "action_difference": "S_k = S₁ − OI·ln(r_k) where r = [1, L₄, L₃+L₄+1] = [1, 2, 10]",
+    "energy": "E = E_P · exp(−S_k/OI)",
+    "dm2_calibration": "dS/OI = (L₄/L₃)²/2 × (1−OI) = 2/49 × 0.990807"
+  },
+  "pmns_angles": {
+    "theta_13": {"formula": "arcsin(1/L₃)", "value_deg": 8.21},
+    "theta_12": {"formula": "arcsin² = L₄/(L₃+L₄) + (L₄/L₃)²", "value_deg": 33.45},
+    "theta_23": {"formula": "arcsin² = 1/2 + L₄/L₃²", "value_deg": 47.34},
+    "delta_CP": {"formula": "π·(1+L₄/L₃+(L₄/L₃)²)", "value_deg": 246.1}
+  },
+  "results_calibrated": {
+    "m1_eV": 0.00501,
+    "m2_eV": 0.01002,
+    "m3_eV": 0.0501,
+    "dm2_21_mueV2": 75.3,
+    "dm2_31_mueV2": 2485,
+    "sigma_dm21": 0.0,
+    "sigma_dm31": 0.8
+  },
+  "pmns_matrix": {
+    "U_e1": 0.8258,
+    "U_e2": 0.5456,
+    "U_e3": 0.1429,
+    "U_m1": 0.3474,
+    "U_m2": 0.5912,
+    "U_m3": 0.7279,
+    "U_t1": 0.4443,
+    "U_t2": 0.5940,
+    "U_t3": 0.6707,
+    "is_unitary": true
+  },
+  "hypothesis": {
+    "geometry": "Tetrahedron with vertices Î, M̂, Â_μ, Â_τ",
+    "edges": "6 edges = 3 angles + 1 CP phase + 2 mass splittings",
+    "calibration_origin": "dS/OI = (L₄/L₃)²/2 × (1−OI) — projected face area of tetrahedron",
+    "preference_dynamics": "Heisenberg mode (ħ/2) for base action, zeta mode (π²) for m₃ scale",
+    "dimension": "0D — no Legendre 3-square, spectral zeta, or Kepler mapping"
+  },
+  "status": "FROZEN_HYPOTHESIS",
+  "canon_allowed": false,
+  "parent": "73_debt9_meson_pair_state_v7_3"
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "7.5",
+  "debt": "DEBT-009",
+  "operator": "open_heavy_meson_semantic_curvature",
+  "constants": {
+    "OI": "ln(2)/(24*pi) = 0.00919315",
+    "L3": 7,
+    "L4": 2,
+    "L5": 5
+  },
+  "formulas": {
+    "hidden": {
+      "description": "lambda for qq-bar with both quarks at same heavy prime p > 7",
+      "rule": "lambda = OI * [p^2 + SUM_{lighter heavy q < p} (q^2 - L3^2 + L3/L5)]",
+      "applicable_to": ["J/psi (ccbar)", "Upsilon (bbbar)"]
+    },
+    "open": {
+      "description": "lambda for heavy-light meson (heavy p, light q)",
+      "rules": [
+        {
+          "heavy": "c (p=11)",
+          "light": "u (3) or d (5)",
+          "rule": "lambda = OI * p * (L3-1)",
+          "rationale": "First heavy — partial escape from cavity, boundary coupling c x (L3-1)"
+        },
+        {
+          "heavy": "c (p=11)",
+          "light": "s (7)",
+          "rule": "lambda = OI * [p * (L3-1) + (p-L3)*L5*L4/L3]",
+          "rationale": "s at cavity center (r=0) adds curvature from c-s axial alignment"
+        },
+        {
+          "heavy": "b (p=13)",
+          "light": "u (3) or d (5)",
+          "rule": "lambda = OI * (u^2 + s^2 + c^2)",
+          "rationale": "Full escape — b is pure SU(3) singlet, lambda from lighter quarks only"
+        },
+        {
+          "heavy": "b (p=13)",
+          "light": "s (7)",
+          "rule": "lambda = OI * [u^2 + s^2 + c^2 + (b-c)*(L3-1)/L3]",
+          "rationale": "bs has extra curvature from b-c crossing via SU(3) structure"
+        }
+      ]
+    }
+  },
+  "mass_formula": "E = E_0 * exp(-lambda_W) * exp(-2*OI),  where lambda_W = -lambda (negative for heavier-than-phi mesons)",
+  "predictions": {
+    "J/psi":  {"expected": 3099.32, "PDG": 3096.90, "error_pct": 0.08},
+    "Upsilon": {"expected": 9461.52, "PDG": 9460.30, "error_pct": 0.01},
+    "D+":      {"expected": 1869.29, "PDG": 1869.66, "error_pct": -0.02},
+    "D0":      {"expected": 1869.29, "PDG": 1864.84, "error_pct": 0.24},
+    "D_s+":    {"expected": 1970.12, "PDG": 1968.35, "error_pct": 0.09},
+    "B+":      {"expected": 5282.43, "PDG": 5279.34, "error_pct": 0.06},
+    "B0":      {"expected": 5282.43, "PDG": 5279.66, "error_pct": 0.05},
+    "B_s0":    {"expected": 5366.34, "PDG": 5366.92, "error_pct": -0.01}
+  },
+  "mean_abs_error_pct": 0.070
+}

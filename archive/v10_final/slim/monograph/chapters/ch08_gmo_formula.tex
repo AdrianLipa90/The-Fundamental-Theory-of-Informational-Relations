@@ -1,0 +1,84 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{The Gell-Mann--Okubo Mass Formula}
+\label{ch:gmo_formula}
+
+\section{Historical Background}
+
+The Gell-Mann--Okubo (GMO) mass formula~\cite{gellmann1961,okubo1962}
+was one of the early triumphs of SU(3) flavour symmetry.  It relates the
+masses of baryons within the same SU(3) multiplet through a linear
+expression in hypercharge \(Y\) and isospin \(I\):
+
+\begin{equation}
+M = a + bY + c\left[I(I+1) - \frac{Y^2}{4}\right],
+\label{eq:gmo_standard}
+\end{equation}
+
+where \(a\), \(b\), and \(c\) are constants determined by the symmetry
+breaking pattern.
+
+\section{Derivation from SU(3) Breaking}
+
+The SU(3) flavour symmetry is broken by the strange quark mass, which
+transforms as the eighth component of an octet.  To first order in the
+breaking, the mass operator is:
+
+\[
+M = M_0 + M_8 T_8,
+\]
+
+where \(T_8\) is the eighth Gell-Mann matrix.  In a given SU(3) multiplet,
+the eigenvalues of \(T_8\) are linear combinations of \(Y\) and \(I(I+1)\),
+leading to the GMO form.
+
+For the baryon octet, this gives:
+
+\[
+M = M_0 + \alpha + \beta Y + \gamma\left[I(I+1) - \frac{Y^2}{4}\right],
+\label{eq:gmo_metatime}
+\]
+
+where \(M_0\) is the common mass scale and \(\alpha, \beta, \gamma\) are
+SU(3)-breaking coefficients.
+
+\section{GMO Relations}
+
+The GMO formula implies a mass relation within the octet.  Using the
+assignments:
+
+\[
+\begin{array}{lccc}
+\text{Particle} & Y & I & I(I+1) - Y^2/4 \\
+\hline
+N (p,n) & +1 & 1/2 & 1/2 \\
+\Lambda & 0 & 0 & 0 \\
+\Sigma & 0 & 1 & 2 \\
+\Xi & -1 & 1/2 & 1/2
+\end{array}
+\]
+
+we obtain:
+
+\[
+\begin{aligned}
+M_N &= M_0 + \alpha + \beta + \gamma/2, \\
+M_\Lambda &= M_0 + \alpha, \\
+M_\Sigma &= M_0 + \alpha + 2\gamma, \\
+M_\Xi &= M_0 + \alpha - \beta + \gamma/2.
+\end{aligned}
+\]
+
+From these, the GMO relation follows:
+
+\[
+M_N + M_\Xi = \frac{3M_\Lambda + M_\Sigma}{2}.
+\]
+
+\section{GMO in the Metatime Framework}
+
+In the Metatime framework, the coefficients \(\alpha, \beta, \gamma\) are not
+free parameters but are derived from the L-constants and quark primes, as we
+show in Chapter~\ref{ch:octet_coefficients}.  The common mass \(M_0\) is
+derived from the exponential mass formula (Chapter~\ref{ch:octet_m0}).
+Thus the entire baryon octet spectrum is determined by the same constants
+that govern all other sectors.

@@ -1,0 +1,126 @@
+[
+  {
+    "name": "pion+",
+    "primes": [
+      3,
+      5
+    ],
+    "n": 15,
+    "sigma_n": 24,
+    "mass_asymmetry": 0.25,
+    "emergent": {
+      "delta_s_oi_overload": 29692.11975888045,
+      "delta_s_oi_peak_zpe": 1.1447170049113864,
+      "zpe_mean": 0.27282762889472933,
+      "zpe_max": 0.5243544651282283,
+      "zpe_min": 1.4260461572958178e-06,
+      "overload_mean": 272.96411095020807,
+      "overload_max": 524.6167735149928,
+      "curvature_mean": 1000.500250125076,
+      "d_hyperbolic_mean": 13.923494405631759
+    },
+    "candidates": {
+      "sigma_n_over_n": 1.6,
+      "sigma_n2_over_n2": 1.1555555555555554,
+      "6_over_pi": 1.909859317102744,
+      "zeta2_minus_1": 0.6449340668482264,
+      "abs_p2_minus_q2_over_L3": 2.2857142857142856,
+      "ln_p_over_q_squared": 1.8265997252713946,
+      "sigma_n_over_n_minus_1_times_L3": 4.200000000000001
+    },
+    "target": 1.909859317102744
+  },
+  {
+    "name": "kaon+",
+    "primes": [
+      3,
+      7
+    ],
+    "n": 21,
+    "sigma_n": 32,
+    "mass_asymmetry": 0.4,
+    "emergent": {
+      "delta_s_oi_overload": 27844.523454220816,
+      "delta_s_oi_peak_zpe": 39.795338863522744,
+      "zpe_mean": 0.2558508915297862,
+      "zpe_max": 0.5091592836211443,
+      "zpe_min": 1.5206924743493715e-08,
+      "overload_mean": 255.97888097027476,
+      "overload_max": 509.4139906164594,
+      "curvature_mean": 1000.500250125076,
+      "d_hyperbolic_mean": 13.850619207434693
+    },
+    "candidates": {
+      "sigma_n_over_n": 1.5238095238095237,
+      "sigma_n2_over_n2": 1.1337868480725624,
+      "6_over_pi": 1.909859317102744,
+      "zeta2_minus_1": 0.6449340668482264,
+      "abs_p2_minus_q2_over_L3": 5.714285714285714,
+      "ln_p_over_q_squared": 5.025395649517133,
+      "sigma_n_over_n_minus_1_times_L3": 3.666666666666666
+    },
+    "target": 0.6449340668482264
+  },
+  {
+    "name": "D+",
+    "primes": [
+      11,
+      5
+    ],
+    "n": 55,
+    "sigma_n": 72,
+    "mass_asymmetry": 0.375,
+    "emergent": {
+      "delta_s_oi_overload": 28479.447466312402,
+      "delta_s_oi_peak_zpe": 0.5334719278651062,
+      "zpe_mean": 0.26168492473974136,
+      "zpe_max": 0.512321301210054,
+      "zpe_min": 6.309770831960116e-09,
+      "overload_mean": 261.8158326560729,
+      "overload_max": 512.5775900050635,
+      "curvature_mean": 1000.500250125076,
+      "d_hyperbolic_mean": 13.836794368593585
+    },
+    "candidates": {
+      "sigma_n_over_n": 1.309090909090909,
+      "sigma_n2_over_n2": 1.048595041322314,
+      "6_over_pi": 1.909859317102744,
+      "zeta2_minus_1": 0.6449340668482264,
+      "abs_p2_minus_q2_over_L3": 13.714285714285714,
+      "ln_p_over_q_squared": 4.35165506378815,
+      "sigma_n_over_n_minus_1_times_L3": 2.1636363636363636
+    },
+    "target": null
+  },
+  {
+    "name": "B+",
+    "primes": [
+      3,
+      13
+    ],
+    "n": 39,
+    "sigma_n": 56,
+    "mass_asymmetry": 0.625,
+    "emergent": {
+      "delta_s_oi_overload": 24288.25658721839,
+      "delta_s_oi_peak_zpe": 30.099512889511796,
+      "zpe_mean": 0.22317394340616917,
+      "zpe_max": 0.4643292015701332,
+      "zpe_min": 6.754492542050901e-08,
+      "overload_mean": 223.28558619927182,
+      "overload_max": 464.5614823112951,
+      "curvature_mean": 1000.500250125076,
+      "d_hyperbolic_mean": 13.813310910803695
+    },
+    "candidates": {
+      "sigma_n_over_n": 1.435897435897436,
+      "sigma_n2_over_n2": 1.1176857330703485,
+      "6_over_pi": 1.909859317102744,
+      "zeta2_minus_1": 0.6449340668482264,
+      "abs_p2_minus_q2_over_L3": 22.857142857142858,
+      "ln_p_over_q_squared": 15.051010795223895,
+      "sigma_n_over_n_minus_1_times_L3": 3.051282051282051
+    },
+    "target": null
+  }
+]

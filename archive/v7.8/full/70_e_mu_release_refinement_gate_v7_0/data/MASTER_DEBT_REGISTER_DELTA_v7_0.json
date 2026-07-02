@@ -1,0 +1,8 @@
+{
+  "module": "70_e_mu_release_refinement_gate_v7_0",
+  "closed_as_gate": [
+    "DEBT-010-E-MU-RELEASE-REFINEMENT"
+  ],
+  "new_next_step": "v7.1 sealed charged-lepton reconstruction after e_mu refinement",
+  "status": "CLOSED_AS_RELEASE_REFINEMENT_GATE_NOT_CANON"
+}

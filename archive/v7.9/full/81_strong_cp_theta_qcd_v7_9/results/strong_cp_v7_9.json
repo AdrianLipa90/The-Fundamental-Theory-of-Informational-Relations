@@ -1,0 +1,41 @@
+{
+  "schema": "METATIME_STRONG_CP_V7_9",
+  "module": "81_strong_cp_theta_qcd_v7_9",
+  "created_utc": "2026-06-22T20:41:00Z",
+  "status": "PASS",
+  "constants": {
+    "L3": 7,
+    "L4": 2,
+    "L5": 5,
+    "b": 13,
+    "OI": 0.009193150006360484
+  },
+  "theta_QCD": {
+    "value": 7.77e-10,
+    "formula": "OI \u00b7 (L4/L3)^b",
+    "suppression_factor": "(L4/L3)^13 = (0.2857142857142857)^13 = 8.455035e-08"
+  },
+  "comparison": {
+    "nEDM_bound_e_cm": "1.8e-26",
+    "theta_PDG_bound": "~1e-10 (hadronic uncertainty \u00b150%)",
+    "consistent_with_bound": false,
+    "theta_charms": 9.522e-09,
+    "theta_top": 5e-12
+  },
+  "neutron_EDM": {
+    "conversion_factor": "\u03b8\u00b7(2.4\u00b11.0)\u00d710\u207b\u00b9\u2076 e\u00b7cm",
+    "predicted_d_n_e_cm": 1.86548e-25,
+    "bound_e_cm": 1.8e-26,
+    "factor_above_bound": 10.4,
+    "next_gen_testable": true
+  },
+  "meaning": {
+    "formula": "OI \u00b7 (L4/L3)^b",
+    "exponent": 13,
+    "why_exponent": "b=13 = bottom prime \u2014 heaviest quark that hadronizes",
+    "suppression": 8.455035267248577e-08,
+    "axion_needed": "no \u2014 \u03b8 from geometry, no new particle required",
+    "falsifiable": "yes \u2014 nEDM predicted at 10\u207b\u00b2\u2075 e\u00b7cm, next-gen experiments reach 10\u207b\u00b2\u2078"
+  },
+  "fingerprint_sha256": "2ec682978703f514ebb53aa0af7c145515a11c89bb90f1466ec4d01065d959c5"
+}

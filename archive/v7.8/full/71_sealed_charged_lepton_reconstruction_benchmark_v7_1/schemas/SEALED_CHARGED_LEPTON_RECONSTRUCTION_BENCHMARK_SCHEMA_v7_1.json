@@ -1,0 +1,17 @@
+{
+  "schema": "METATIME_SEALED_CHARGED_LEPTON_RECONSTRUCTION_BENCHMARK_SCHEMA_V7_1",
+  "module": "71_sealed_charged_lepton_reconstruction_benchmark_v7_1",
+  "required_fields": [
+    "particle",
+    "derived_action_S_i",
+    "predicted_energy_MeV",
+    "reference_energy_MeV_scoring_only",
+    "relative_error_abs_percent"
+  ],
+  "allowed_particles": ["electron", "muon", "tau"],
+  "frozen_pipeline_required": true,
+  "input_policy_required": true,
+  "benchmark_sealed": true,
+  "canon_allowed": false,
+  "mass_spectrum_closure_claimed": false
+}

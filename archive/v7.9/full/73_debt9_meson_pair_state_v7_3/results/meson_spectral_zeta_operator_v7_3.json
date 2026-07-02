@@ -1,0 +1,122 @@
+{
+  "schema": "METATIME_MESON_PAIR_STATE_SPECTRAL_ZETA_OPERATOR_V7_3",
+  "module": "73_debt9_meson_pair_state_v7_3",
+  "parent": "72_debt9_baryon_triplet_freeze_v7_2",
+  "created_utc": "2026-06-22T17:30:26Z",
+  "technical_status": "PASS",
+  "formal_status": "PASS_MESON_PAIR_STATE_OPERATOR_FROZEN",
+  "substantive_status": "LIGHT_MESON_SUB_PERCENT_HEAVY_MESON_SCALE_OPEN",
+  "debt9_numeric_spectrum": "OPEN_NOT_CLOSED",
+  "canon_allowed": false,
+  "operator_type": "SPECTRAL_ZETA_LEGENDRE_3_SQUARE",
+  "fundamental_constants": {
+    "OI": 0.009193150006360484,
+    "L3": 7.0,
+    "E_P_mev": 1.2208901285838957e+22,
+    "S_P": 0.403685,
+    "pi_over_zeta2": 1.909859317102744,
+    "zeta2_minus_1": 0.6449340668482264
+  },
+  "operator_formula": {
+    "n": "p_q * p_qbar  (product of quark primes)",
+    "r3_test": "n = 4^a * (8b + 7) ? → r3=0 (forbidden) else r3>0 (allowed)",
+    "delta_S_over_OI": "π/ζ(2) if r3=0 else ζ(2)-1",
+    "mass": "E_P · exp(-(S_P + OI·ΔS/OI) / OI)"
+  },
+  "physical_interpretation": [
+    "3D cymatic vortex pair on Poincaré disk (q-qbar = topological vortex-antivortex)",
+    "Standing wave eigenfrequencies ∝ √(i²+j²+k²) in 3D spherical cavity",
+    "Spectral sum Σ 1/ω² gives ζ(2) = π²/6",
+    "Legendre 3-square theorem: n ≡ 7 (mod 8) → fundamental mode forbidden",
+    "Forbidden mode → reduced spectral density → lower ZPE → lighter meson",
+    "Perihelion overload in eccentric Kepler ellipse maps to spectral selection"
+  ],
+  "open_problems": [
+    "Heavy meson (c,b,t) scale: E = E_p · exp(-ΔS/OI) under-predicts by ~13× (D) and ~38× (B)",
+    "Possible solution: heavy quark changes cavity size (Compton wavelength scaling)",
+    "Possible solution: different spectral shell (higher Bessel zeros) for heavy quarks",
+    "Baryon S_P needs first-principles derivation (currently from proton mass score)"
+  ],
+  "rows": [
+    {
+      "meson": "pion+",
+      "quark_pair": "udbar",
+      "p": 3,
+      "q": 5,
+      "n": 15,
+      "n_mod_8": 7,
+      "r3": "forbidden",
+      "spectral_regime": "π/ζ(2)=6/π (fundamental_forbidden)",
+      "delta_S_over_OI": 1.909859317102744,
+      "delta_S": 0.01755762319317072,
+      "S_meson": 0.42124262319317074,
+      "predicted_mev": 153.71398611244715,
+      "reference_mev": 139.57039,
+      "relative_error": 0.10133665251237846,
+      "abs_error_pct": 10.133665251237845
+    },
+    {
+      "meson": "kaon+",
+      "quark_pair": "usbar",
+      "p": 3,
+      "q": 7,
+      "n": 21,
+      "n_mod_8": 5,
+      "r3": "allowed",
+      "spectral_regime": "ζ(2)-1 (fundamental_allowed)",
+      "delta_S_over_OI": 0.6449340668482264,
+      "delta_S": 0.005928975620747865,
+      "S_meson": 0.40961397562074786,
+      "predicted_mev": 544.5821987311497,
+      "reference_mev": 493.677,
+      "relative_error": 0.1031143819362653,
+      "abs_error_pct": 10.31143819362653
+    },
+    {
+      "meson": "D+",
+      "quark_pair": "cdbar",
+      "p": 11,
+      "q": 5,
+      "n": 55,
+      "n_mod_8": 7,
+      "r3": "forbidden",
+      "spectral_regime": "π/ζ(2)=6/π (fundamental_forbidden)",
+      "delta_S_over_OI": 1.909859317102744,
+      "delta_S": 0.01755762319317072,
+      "S_meson": 0.42124262319317074,
+      "predicted_mev": 153.71398611244715,
+      "reference_mev": 1869.66,
+      "relative_error": -0.9177850592554544,
+      "abs_error_pct": 91.77850592554545
+    },
+    {
+      "meson": "B+",
+      "quark_pair": "ubbar",
+      "p": 3,
+      "q": 13,
+      "n": 39,
+      "n_mod_8": 7,
+      "r3": "forbidden",
+      "spectral_regime": "π/ζ(2)=6/π (fundamental_forbidden)",
+      "delta_S_over_OI": 1.909859317102744,
+      "delta_S": 0.01755762319317072,
+      "S_meson": 0.42124262319317074,
+      "predicted_mev": 153.71398611244715,
+      "reference_mev": 5279.34,
+      "relative_error": -0.9708838631131075,
+      "abs_error_pct": 97.08838631131074
+    }
+  ],
+  "results_summary": {
+    "light_meson_count": 2,
+    "heavy_meson_count": 2,
+    "pion_error_pct": 10.133665251237845,
+    "kaon_error_pct": 10.31143819362653
+  },
+  "validation": {
+    "no_measured_masses_as_input": true,
+    "scoring_only_at_end": true,
+    "proton_action_S_P_derived": true
+  },
+  "fingerprint_sha256": "c4295be058d9a39788804dffd5f662a1a4e8806578245fce6b77fd94a9896b88"
+}

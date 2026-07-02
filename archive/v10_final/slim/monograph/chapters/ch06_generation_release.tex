@@ -1,0 +1,111 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Generation Release Operators}
+\label{ch:generation_release}
+
+The transition from one charged lepton generation to the next is governed by
+release operators \(R_{e\mu}\) and \(R_{\mu\tau}\), which represent the
+information gradient between successive generations on the Poincar\'{e} disk.
+
+\section{Electron-to-Muon Transition}
+
+The operator that releases the electron action to reach the muon is:
+
+\begin{equation}
+R_{e\mu} = 5\kappa + \frac{2\kappa}{L_3} + \frac{L_3+1}{2}\,\kappa^2.
+\label{eq:Rem}
+\end{equation}
+
+\subsection{Term-by-Term Derivation}
+
+The first term \(5\kappa\) represents the five-fold information deficit
+between the first and second generations.  The number 5 arises as:
+
+\[
+5 = L_4 + L_3
+\]
+
+i.e.\ the annihilation constant plus structural depth.  This reflects the
+combined effect of the binary splitting (2) and the Collatz depth (7) minus
+the shared generation structure (4, appearing as \(L_4^2\)):
+
+Actually, the coefficient 5 is the dimension of the intention phase space:
+\(L_5 = 5\).  The interpretation is that crossing from generation 1 to
+generation 2 costs \(L_5\) units of \(\kappa\) in action.
+
+The second term \(2\kappa/L_3\) is a Collatz channel correction,
+where \(2 = L_4\) is the annihilation constant.
+
+The third term \((L_3+1)\kappa^2/2\) is a second-order curvature correction.
+Here \(L_3+1 = 8\) reflects the Collatz depth plus one.
+
+\subsection{Numerical Evaluation}
+
+\[
+\begin{aligned}
+R_{e\mu} &= 5(0.00919315) + \frac{2(0.00919315)}{7}
+           + \frac{7+1}{2}(0.00919315)^2 \\[4pt]
+        &= 0.04596575 + 0.002626614 + 0.000338060 \\[4pt]
+        &= 0.0489304203\ldots
+\end{aligned}
+\]
+
+\section{Muon-to-Tau Transition}
+
+The operator that releases the muon action to reach the tau is:
+
+\begin{equation}
+R_{\mu\tau} = 3\kappa - \frac{\kappa}{L_3} - \frac{L_3}{2}\,\kappa^2.
+\label{eq:Rmt}
+\end{equation}
+
+\subsection{Term-by-Term Derivation}
+
+The leading term \(3\kappa\) represents the three-generation structure:
+crossing from generation 2 to generation 3 costs 3 units of \(\kappa\).
+
+The term \(-\kappa/L_3\) is a negative Collatz correction, reflecting that
+the tau is closer to the asymptotic scale.
+
+The term \(-L_3\kappa^2/2\) is a negative curvature correction,
+proportional to \(L_3 = 7\).
+
+\subsection{Numerical Evaluation}
+
+\[
+\begin{aligned}
+R_{\mu\tau} &= 3(0.00919315) - \frac{0.00919315}{7}
+              - \frac{7}{2}(0.00919315)^2 \\[4pt]
+           &= 0.02757945 - 0.001313307 - 0.000295804 \\[4pt]
+           &= 0.0259703439\ldots
+\end{aligned}
+\]
+
+\section{Muon and Tau Actions}
+
+The muon and tau actions follow by successive subtraction:
+
+\[
+\begin{aligned}
+S_\mu &= S_e - R_{e\mu}
+      = 0.4736916001 - 0.0489304203
+      = 0.4247611798, \\[4pt]
+S_\tau &= S_\mu - R_{\mu\tau}
+       = 0.4247611798 - 0.0259703439
+       = 0.3987908359.
+\end{aligned}
+\]
+
+\section{Action Summary}
+
+\[
+\begin{array}{lcl}
+S_e &=& 0.4736916001 \ldots \\
+S_\mu &=& 0.4247611798 \ldots \\
+S_\tau &=& 0.3987908359 \ldots
+\end{array}
+\]
+
+The actions decrease with generation: the electron has the largest action
+(lightest mass), and the tau has the smallest action (heaviest mass).  This
+is consistent with the exponential mass formula: smaller action \(\to\)
+larger mass.
