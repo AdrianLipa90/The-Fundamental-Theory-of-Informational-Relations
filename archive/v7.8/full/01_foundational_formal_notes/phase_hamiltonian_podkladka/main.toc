@@ -1,0 +1,19 @@
+\babel@toc {english}{}\relax 
+\babel@toc {polish}{}\relax 
+\contentsline {section}{\numberline {1}Glowna teza}{3}{section.1}%
+\contentsline {section}{\numberline {2}Przestrzen relacyjna i wiazka fazowa}{3}{section.2}%
+\contentsline {section}{\numberline {3}Polaczenie Aharonov--Bohm--Berry--Euler}{3}{section.3}%
+\contentsline {section}{\numberline {4}Operator Informacji i Operator Intencji}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Dziedzina operatora}{4}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Twin-prime seed i rytm Collatza/Kolaca}{4}{section.5}%
+\contentsline {section}{\numberline {6}Fazowy free part Hamiltonianu}{5}{section.6}%
+\contentsline {section}{\numberline {7}Pedy kowariantne i czesc horyzontalna}{5}{section.7}%
+\contentsline {section}{\numberline {8}Euler--Berry constraint: zwiazanie $\epsilon $, $D$ i fazy}{5}{section.8}%
+\contentsline {section}{\numberline {9}Lagrangian relacyjno-fazowy}{6}{section.9}%
+\contentsline {section}{\numberline {10}Symulacje referencyjne}{6}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Wyniki uruchomionej paczki}{7}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Wizualizacja fazy intencyjnej}{7}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Minimalny program dalszej pracy}{10}{section.11}%
+\contentsline {section}{\numberline {A}Kod: Collatz phase i Euler--Berry epsilon scan}{11}{appendix.A}%
+\contentsline {section}{\numberline {B}Kod: macierzowy Hamiltonian i test unitarnosci}{15}{appendix.B}%
+\contentsline {section}{\numberline {C}Kod: runner symulacji}{17}{appendix.C}%

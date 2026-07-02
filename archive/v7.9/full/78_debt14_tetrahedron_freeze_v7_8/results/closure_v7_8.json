@@ -1,0 +1,138 @@
+{
+  "schema": "METATIME_CLOSURE_V7_8",
+  "module": "78_debt14_tetrahedron_freeze_v7_8",
+  "created_utc": "2026-06-22T19:38:39Z",
+  "status": "PASS",
+  "constants": {
+    "OI": 0.009193150006360484,
+    "L3": 7,
+    "L4": 2,
+    "L5": 5,
+    "E_P": 1.2208901285838957e+22,
+    "E_proton": 938.272,
+    "Ei": 8.625675242767864
+  },
+  "baryons": {
+    "GMO_octet": {
+      "alpha": 189.7649,
+      "beta": -177.9046,
+      "gamma": 55.2043,
+      "delta": -55.2043,
+      "mean_abs_err_pct": 0.5121
+    },
+    "GMO_decuplet": {
+      "alpha10": 405.4067,
+      "beta10": -150.9493,
+      "mean_abs_err_pct": 0.2304
+    },
+    "predictions": [
+      {
+        "name": "p",
+        "pred": 927.922,
+        "PDG": 938.272,
+        "err_pct": -1.103
+      },
+      {
+        "name": "n",
+        "pred": 927.922,
+        "PDG": 939.565,
+        "err_pct": -1.2391
+      },
+      {
+        "name": "L",
+        "pred": 1115.358,
+        "PDG": 1115.683,
+        "err_pct": -0.0292
+      },
+      {
+        "name": "S+",
+        "pred": 1197.176,
+        "PDG": 1189.37,
+        "err_pct": 0.6563
+      },
+      {
+        "name": "S0",
+        "pred": 1197.176,
+        "PDG": 1192.642,
+        "err_pct": 0.3801
+      },
+      {
+        "name": "S-",
+        "pred": 1197.176,
+        "PDG": 1197.449,
+        "err_pct": -0.0228
+      },
+      {
+        "name": "X0",
+        "pred": 1313.885,
+        "PDG": 1314.86,
+        "err_pct": -0.0741
+      },
+      {
+        "name": "X-",
+        "pred": 1313.885,
+        "PDG": 1321.71,
+        "err_pct": -0.592
+      },
+      {
+        "name": "D++",
+        "pred": 1230.091,
+        "PDG": 1232.0,
+        "err_pct": -0.155
+      },
+      {
+        "name": "S*+",
+        "pred": 1381.04,
+        "PDG": 1382.8,
+        "err_pct": -0.1273
+      },
+      {
+        "name": "X*0",
+        "pred": 1531.989,
+        "PDG": 1531.8,
+        "err_pct": 0.0124
+      },
+      {
+        "name": "O-",
+        "pred": 1682.939,
+        "PDG": 1672.45,
+        "err_pct": 0.6271
+      }
+    ]
+  },
+  "tetrahedron": {
+    "edges": {
+      "I_M": 0.285714,
+      "I_A_mu": 0.222222,
+      "I_A_tau": 0.142857,
+      "M_A_mu": 0.040816,
+      "M_A_tau": 0.408163,
+      "A_mu_A_tau": 0.367347
+    },
+    "face_area": 0.040816,
+    "volume": 0.136054,
+    "S_bare": 0.642857,
+    "dS_over_OI": 0.040441
+  },
+  "neutrinos": {
+    "S1": 0.64322892,
+    "masses_eV": [
+      0.00501,
+      0.01002,
+      0.0501
+    ],
+    "dm2_in_1e6_eV2": {
+      "dm21": 75.3,
+      "dm31": 2484.9,
+      "dm32": 2409.6
+    },
+    "pmns": {
+      "sin_theta13": 0.142857,
+      "sin2_theta12": 0.303855,
+      "sin2_theta23": 0.540816,
+      "delta_CP_deg": 246.1,
+      "J_CP": 0.029329
+    }
+  },
+  "fingerprint_sha256": "b02808d2177682835ee3c17db8b31cdcf4ea10699816121795d3a6bb76fe2fce"
+}

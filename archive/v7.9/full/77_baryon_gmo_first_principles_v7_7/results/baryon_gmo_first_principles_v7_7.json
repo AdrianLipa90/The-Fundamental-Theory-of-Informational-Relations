@@ -1,0 +1,232 @@
+{
+  "schema": "METATIME_BARYON_GMO_FIRST_PRINCIPLES_V7_7",
+  "module": "77_baryon_gmo_first_principles_v7_7",
+  "created_utc": "2026-06-22T19:32:23Z",
+  "status": "PASS",
+  "constants": {
+    "OI": 0.009193150006360484,
+    "L3": 7,
+    "L4": 2,
+    "L5": 5,
+    "E_P": 1.2208901285838957e+22,
+    "E_proton": 938.272,
+    "Ei": 8.625675242767864,
+    "u": 3,
+    "d": -150.9493167484376,
+    "s": 7,
+    "c": "β₁₀",
+    "b": 13
+  },
+  "J_KJ_eigenvalues": {
+    "c_vector": {
+      "c1": 0.296,
+      "c4": 0.21,
+      "c7": 0.207
+    },
+    "norm": 0.41781,
+    "eigenvalues": [
+      -0.41781,
+      -0.208905,
+      -0.208905,
+      0.0,
+      0.0,
+      0.208905,
+      0.208905,
+      0.41781
+    ],
+    "extended": {
+      "c3": 0.25,
+      "c8": 0.272727,
+      "norm_ext": 0.558073,
+      "golden_ratio_in_W_us": {
+        "W_us": 0.61764706,
+        "phi_inv": 0.61803399,
+        "diff_pct": -0.0626
+      }
+    }
+  },
+  "GMO_octet": {
+    "alpha_formula": "E_P·OI·(s²-u²-d²+L3)",
+    "beta_formula": "-α·(L3-1)/(L3-1+L4/L5)",
+    "gamma_formula": "E_P·OI·(L3-1+L4/L5)",
+    "delta_formula": "-γ",
+    "derived": {
+      "alpha": 189.7649,
+      "beta": -177.9046,
+      "gamma": 55.2043,
+      "delta": -55.2043
+    },
+    "fitted_v72": {
+      "alpha": 190.1,
+      "beta": -180.0,
+      "gamma": 54.8,
+      "delta": -55.9
+    },
+    "errors_vs_fit_pct": {
+      "alpha": -0.1763,
+      "beta": -1.1641,
+      "gamma": 0.7378,
+      "delta": -1.2445
+    },
+    "key_relations": {
+      "delta_eq_minus_gamma": true,
+      "beta_over_alpha": -0.9375,
+      "fit_beta_over_alpha": -0.94687
+    }
+  },
+  "GMO_decuplet": {
+    "alpha10_formula": "E_P·OI·(L3²+L4²+L5²+L3+L4+L5+L4)/L4",
+    "beta10_formula": "-E_P·OI·L3·L5/L4",
+    "derived": {
+      "alpha10": 405.4067,
+      "beta10": -150.9493
+    },
+    "fitted_v72": {
+      "alpha10": 404.0,
+      "beta10": -148.0
+    },
+    "errors_vs_fit_pct": {
+      "alpha10": 0.3482,
+      "beta10": 1.9928
+    }
+  },
+  "results": [
+    {
+      "name": "p",
+      "type": "octet",
+      "base": 938.272,
+      "axial": -15.742,
+      "pred": 922.53,
+      "PDG": 938.27209,
+      "err_pct": -1.6778,
+      "Y": 1.0,
+      "I2": 0.75,
+      "Sdq": 1
+    },
+    {
+      "name": "n",
+      "type": "octet",
+      "base": 949.057,
+      "axial": -15.742,
+      "pred": 933.315,
+      "PDG": 939.56542,
+      "err_pct": -0.6653,
+      "Y": 1.0,
+      "I2": 0.75,
+      "Sdq": 1
+    },
+    {
+      "name": "L",
+      "type": "octet",
+      "base": 925.593,
+      "axial": 189.765,
+      "pred": 1115.358,
+      "PDG": 1115.683,
+      "err_pct": -0.0292,
+      "Y": 0.0,
+      "I2": 0.0,
+      "Sdq": 0
+    },
+    {
+      "name": "S+",
+      "type": "octet",
+      "base": 949.401,
+      "axial": 244.969,
+      "pred": 1194.37,
+      "PDG": 1189.37,
+      "err_pct": 0.4204,
+      "Y": 0.0,
+      "I2": 2.0,
+      "Sdq": 1
+    },
+    {
+      "name": "S0",
+      "type": "octet",
+      "base": 925.593,
+      "axial": 244.969,
+      "pred": 1170.562,
+      "PDG": 1192.642,
+      "err_pct": -1.8514,
+      "Y": 0.0,
+      "I2": 2.0,
+      "Sdq": 1
+    },
+    {
+      "name": "S-",
+      "type": "octet",
+      "base": 981.626,
+      "axial": 244.969,
+      "pred": 1226.595,
+      "PDG": 1197.449,
+      "err_pct": 2.434,
+      "Y": 0.0,
+      "I2": 2.0,
+      "Sdq": 1
+    },
+    {
+      "name": "X0",
+      "type": "octet",
+      "base": 963.03,
+      "axial": 340.067,
+      "pred": 1303.097,
+      "PDG": 1314.86,
+      "err_pct": -0.8946,
+      "Y": -1.0,
+      "I2": 0.75,
+      "Sdq": 1
+    },
+    {
+      "name": "X-",
+      "type": "octet",
+      "base": 984.606,
+      "axial": 340.067,
+      "pred": 1324.674,
+      "PDG": 1321.71,
+      "err_pct": 0.2242,
+      "Y": -1.0,
+      "I2": 0.75,
+      "Sdq": 1
+    },
+    {
+      "name": "D++",
+      "type": "decuplet",
+      "base": 975.633,
+      "axial": 254.457,
+      "pred": 1230.091,
+      "PDG": 1232.0,
+      "err_pct": -0.155,
+      "Y": 1.0
+    },
+    {
+      "name": "S*+",
+      "type": "decuplet",
+      "base": 975.633,
+      "axial": 405.407,
+      "pred": 1381.04,
+      "PDG": 1382.8,
+      "err_pct": -0.1273,
+      "Y": 0.0
+    },
+    {
+      "name": "X*0",
+      "type": "decuplet",
+      "base": 975.633,
+      "axial": 556.356,
+      "pred": 1531.989,
+      "PDG": 1531.8,
+      "err_pct": 0.0124,
+      "Y": -1.0
+    },
+    {
+      "name": "O-",
+      "type": "decuplet",
+      "base": 975.633,
+      "axial": 707.305,
+      "pred": 1682.939,
+      "PDG": 1672.45,
+      "err_pct": 0.6271,
+      "Y": -2.0
+    }
+  ],
+  "fingerprint_sha256": "b39fe33935ca842063c23e7c37acab3433e8aac4a071af6b2a20c73b676c24d2"
+}

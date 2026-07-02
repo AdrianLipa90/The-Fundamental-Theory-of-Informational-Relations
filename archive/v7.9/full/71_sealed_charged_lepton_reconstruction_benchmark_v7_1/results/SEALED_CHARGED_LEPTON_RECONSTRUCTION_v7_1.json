@@ -1,0 +1,136 @@
+{
+  "schema": "METATIME_V7_1_DERIVATION_STEP_BY_STEP",
+  "module": "71_sealed_charged_lepton_reconstruction_benchmark_v7_1",
+  "parent": "70_e_mu_release_refinement_gate_v7_0",
+  "created_utc": "2026-06-22T00:00:00Z",
+  "pipeline_frozen": true,
+  "no_measured_masses_as_input": true,
+  "scoring_only_at_end": true,
+  "derivation_steps": [
+    {
+      "step": 1,
+      "symbol": "OI",
+      "formula": "ln(2)/(24·π)",
+      "source": "v5.3 Ramanujan OI Lepton Normalizer",
+      "value": 0.009193150006360484
+    },
+    {
+      "step": 2,
+      "symbol": "L3",
+      "formula": "Collatz(3→5→...→1)",
+      "source": "v4.5 Collatz Twin-Prime Tau Document",
+      "value": 7.0
+    },
+    {
+      "step": 3,
+      "symbol": "S_e",
+      "formula": "1/2 − 3·OI + OI/L3 − OI²/2",
+      "source": "v6.7 Absolute Electron Action Derivation Gate",
+      "value": 0.47369160012116457
+    },
+    {
+      "step": 4,
+      "symbol": "R_em",
+      "formula": "5·OI + 2·OI/L3 + ((L3+1)/2)·OI²",
+      "source": "v7.0 e-μ Release Refinement Gate",
+      "value": 0.048930420347491774
+    },
+    {
+      "step": 5,
+      "symbol": "R_mt",
+      "formula": "3·OI − OI/L3 − (L3/2)·OI²",
+      "source": "v6.8 μ-τ Release Refinement Gate",
+      "value": 0.025970343850677605
+    },
+    {
+      "step": 6,
+      "symbol": "E_P",
+      "formula": "sqrt(ħ·c⁵/G)",
+      "source": "v6.1 Planck Information-Action Ledger",
+      "value_MeV": 1.2208901285838957e22,
+      "constants": {
+        "h": 6.62607015e-34,
+        "c": 299792458.0,
+        "G": 6.67430e-11,
+        "eV_J": 1.602176634e-19
+      }
+    },
+    {
+      "step": 7,
+      "symbol": "S_μ",
+      "formula": "S_e − R_em",
+      "value": 0.4247611797736728,
+      "derived": true
+    },
+    {
+      "step": 8,
+      "symbol": "S_τ",
+      "formula": "S_μ − R_mt",
+      "value": 0.3987908359229952,
+      "derived": true
+    },
+    {
+      "step": 9,
+      "symbol": "E_i",
+      "formula": "E_P · exp(-S_i / OI)",
+      "values_MeV": {
+        "electron": 0.5116420509844719,
+        "muon": 104.83176930043687,
+        "tau": 1767.504069634979
+      },
+      "derived": true
+    }
+  ],
+  "results": [
+    {
+      "particle": "electron",
+      "sector": "charged_lepton",
+      "predicted_mev": 0.5116420509844719,
+      "reference_mev": 0.51099895,
+      "abs_error_mev": 0.0006431009844719556,
+      "rel_error": 0.0012585172327104705,
+      "rel_error_pct": 0.12585172327104705
+    },
+    {
+      "particle": "muon",
+      "sector": "charged_lepton",
+      "predicted_mev": 104.83176930043687,
+      "reference_mev": 105.65838,
+      "abs_error_mev": -0.8266106995631299,
+      "rel_error": -0.00782342772587578,
+      "rel_error_pct": 0.782342772587578
+    },
+    {
+      "particle": "tau",
+      "sector": "charged_lepton",
+      "predicted_mev": 1767.504069634979,
+      "reference_mev": 1776.86,
+      "abs_error_mev": -9.35593036502058,
+      "rel_error": -0.0052654291081012956,
+      "rel_error_pct": 0.5265429108101296
+    }
+  ],
+  "metrics": {
+    "mean_abs_relative_error": 0.004782458022229183,
+    "mean_abs_relative_error_pct": 0.4782458022229183,
+    "max_abs_relative_error": 0.00782342772587578,
+    "max_abs_relative_error_pct": 0.782342772587578,
+    "particle_count": 3,
+    "all_sub_1_percent": true,
+    "v6_9_comparison": {
+      "v6_9_mean_abs_error_pct": 3.4414842288192085,
+      "v7_1_mean_abs_error_pct": 0.4782458022229183,
+      "error_reduction_factor": 7.196
+    }
+  },
+  "debts": {
+    "charged_lepton_sector": "CLOSED_GATED_SUB_PERCENT",
+    "hadron_meson_split": "DEBT-009_OPEN_READY",
+    "neutrino_pmns": "DEBT-014_OPEN_UNASSIGNED"
+  },
+  "official_status": {
+    "technical": "PASS",
+    "formal": "PASS_SEALED_CHARGED_LEPTON_RECONSTRUCTION_BENCHMARK_INSTALLED_V7_1",
+    "canon": "DENIED"
+  }
+}

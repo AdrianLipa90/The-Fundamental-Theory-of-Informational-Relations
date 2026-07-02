@@ -1,0 +1,187 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{The Metatime Framework}
+\label{ch:metatime_framework}
+
+\section{The Information Constant \(\kappa\)}
+
+The fundamental constant of the Metatime framework is the information
+constant \(\kappa = \ln 2 / (24\pi)\).  We derive it from three ingredients:
+the Berry phase of a spin-1/2 system, the Shannon information of a binary
+decision, and the tetrahedral symmetry of three-flavour space.
+
+\subsection{Berry Phase on the Poincar\'{e} Disk}
+
+Consider a two-level quantum system (a spin-1/2 particle) whose Hamiltonian
+depends adiabatically on parameters \(\mathbf{R}(t)\).  After the parameters
+complete a closed cycle in parameter space, the system acquires a geometric
+phase---the Berry phase~\cite{berry1984}:
+
+\begin{equation}
+\gamma_n = i \oint \langle n(\mathbf{R}) | \nabla_{\mathbf{R}} n(\mathbf{R}) \rangle \cdot d\mathbf{R}.
+\label{eq:berry_general}
+\end{equation}
+
+For a spin-1/2 system, the parameter space is the Bloch sphere.
+A cycle that subtends a solid angle \(\Omega\) yields a Berry phase
+\(\gamma = \Omega/2\).  For a complete cycle \((\Omega = 4\pi)\), the Berry
+phase is:
+
+\begin{equation}
+\gamma_{\text{spin}} = \frac{4\pi}{2} = \pi.
+\label{eq:berry_spin_half}
+\end{equation}
+
+This is the natural geometric phase unit for a two-state quantum system.
+
+\subsection{Shannon Information}
+
+The information gained by resolving a binary outcome (e.g.\ a spin
+measurement) is~\cite{shannon1948}:
+
+\begin{equation}
+I = \ln 2 \quad \text{(nats)}.
+\label{eq:shannon_binary}
+\end{equation}
+
+This is the fundamental unit of information for a two-outcome measurement.
+
+\subsection{Tetrahedral Symmetry of Three-Flavour Space}
+
+The three-flavour structure of quarks and leptons (the three generations)
+is associated with the tetrahedral symmetry group.  The full tetrahedral
+symmetry group (including reflections) is \(S_4\), the symmetric group of
+four objects, with order 24.  (The rotational subgroup is \(A_4\) of order
+12.)
+
+The number 24 emerges as the discrete holonomy constraint: the three-flavour
+space is minimally quantized by the tetrahedral order.  (Note: the Weyl group
+of SU(3) is \(S_3\) of order 6, a different group; the use of \(S_4\) here
+reflects the tetrahedral NOEMA phase-space geometry, not the SU(3) root
+system.)
+
+\subsection{Construction of \(\kappa\)}
+
+The information constant \(\kappa\) combines these three ingredients:
+
+\begin{enumerate}
+\item The Shannon information of a binary resolution: \(\ln 2\) (numerator,
+encoding the information gained from a quantum measurement).
+\item The Berry phase of a spin-1/2 cycle: \(\pi\) (denominator, representing
+the geometric phase accumulated during one adiabatic cycle).
+\item The tetrahedral holonomy: 24 (denominator, normalizing the three-flavour
+discrete phase space).
+\end{enumerate}
+
+Thus:
+
+\begin{equation}
+\kappa \equiv \frac{\ln 2}{24\pi}.
+\label{eq:kappa_construction}
+\end{equation}
+
+\noindent Evaluating numerically:
+
+\[
+\kappa = \frac{0.6931471805599453}{24 \times 3.141592653589793}
+       = \frac{0.6931471805599453}{75.39822368615503}
+       = 0.009193150006360484.
+\]
+
+\noindent For most purposes, we use the approximation \(\kappa \approx
+9.19315 \times 10^{-3}\).
+
+\section{The Exponential Mass Formula}
+
+The central postulate of the Metatime framework is that every physical mass
+is determined by an action \(S\) on the Poincar\'{e} disk via an exponential
+Boltzmann-like factor:
+
+\begin{equation}
+m = E_P \, e^{-S/\kappa}.
+\label{eq:mass_formula}
+\end{equation}
+
+Here \(E_P = \sqrt{\hbar c^5 / G} = 1.22089 \times 10^{22}\)~MeV is the Planck
+energy (the fundamental scale of quantum gravity), and \(S\) is a
+dimensionless action constructed from the L-constants and quark primes.
+
+The exponential form arises from the geometric accumulation of phase on the
+Poincar\'{e} disk.  The action \(S\) is an entropy-like sum over flavour
+states, and the Boltzmann factor \(\exp(-S/\kappa)\) converts this action into
+a physical mass scale.
+
+\subsection{Why the Exponential Form?}
+
+Consider a quantum system on the Poincar\'{e} disk with a discrete set of
+accessible states.  The partition function is:
+
+\[
+Z = \sum_i e^{-E_i / k_B T}.
+\]
+
+In the geometric setting, the information constant \(\kappa\) plays the role
+of \(k_B T\) (the fundamental action quantum), and the mass \(m\) plays the
+role of the energy scale.  The action \(S\) encodes the number of accessible
+states: a larger action (more information) corresponds to a lighter particle,
+and a smaller action corresponds to a heavier particle.
+
+\section{Action Construction Principles}
+
+Each particle's action \(S\) is built from the following elements:
+
+\begin{enumerate}
+\item \textbf{Spin degeneracy:} A term \(\frac{1}{2}\) for spin-1/2 fermions,
+encoding the two spin states.
+\item \textbf{Generation terms:} Terms proportional to \(\kappa\) for each
+generation, representing the information deficit shared across generations.
+\item \textbf{Flavour terms:} Terms involving quark primes \(q_i\) and
+L-constants \(L_3, L_4, L_5\), encoding the flavour structure.
+\item \textbf{Geometric corrections:} Terms involving ratios of L-constants
+and powers of \(\kappa\), representing higher-order curvature corrections on
+the Poincar\'{e} disk.
+\end{enumerate}
+
+\section{The NOEMA Tetrahedron}
+
+The NOEMA (Neutral Operator Eigenvalue Mapping Algebra) tetrahedron is a
+geometric construction in the three-dimensional operator space spanned by:
+
+\[
+\{\hat I,\ \hat M,\ \hat A\},
+\]
+
+where \(\hat I\) is the isospin operator, \(\hat M\) is the mass operator,
+and \(\hat A\) is the axial operator.  The tetrahedron encodes the mixing
+patterns of quarks and leptons:
+
+\begin{itemize}
+\item The edge lengths are determined by \(L_3\) and \(L_4\).
+\item The face areas determine mass splittings.
+\item The dihedral angles determine mixing angles.
+\end{itemize}
+
+The NOEMA tetrahedron provides a unified geometric origin for the CKM and
+PMNS mixing matrices, as we show in Chapters~\ref{ch:ckm_matrix} and
+\ref{ch:pmns_mixing}.
+
+\section{External Scales and Inputs}
+
+The framework requires two external energy scales and three external numerical
+inputs:
+
+\begin{description}
+\item[\(E_P = 1.22089 \times 10^{22}\)~MeV:] The Planck energy, setting the
+absolute mass scale via the exponential formula.
+\item[\(E_{\text{proton}} = 938.272\)~MeV:] The proton mass, used as the
+reference scale for baryonic and electroweak quantities.
+\item[\(N_c = 3\):] The number of colours in QCD, needed for hypercharge
+assignments and anomaly cancellation.
+\item[\(Y(L) = -1/2\):] The lepton doublet hypercharge, required for anomaly
+cancellation checks.
+\item[\(\text{Crewther factor} = 2.4 \times 10^{-16}\):] The chiral
+perturbation theory factor relating \(\theta_{\text{QCD}}\) to the neutron
+electric dipole moment.
+\end{description}
+
+All other numerical quantities are derived from \(\kappa\), the L-constants,
+and the quark primes, with no continuous parameters fitted to data.

@@ -1,0 +1,247 @@
+%% Metatime Monograph
+%% Complete derivations of all Standard Model parameters from
+%% the Metatime framework: κ = ln(2)/(24π), L₃=7, L₄=2, L₅=5
+%%
+%% Adrian Lipa, Doncaster, UK
+%% Version 9.0 — Full Monograph
+%%
+%% Compile: pdflatex metatime_monograph.tex 
+%%          && pdflatex metatime_monograph.tex
+%%          && pdflatex metatime_monograph.tex
+
+\documentclass[11pt,a4paper,twoside]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,bm,mathtools}
+\usepackage{slashed}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{makeidx}
+\usepackage{verbatim}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage[
+  left=2.5cm, right=2.5cm, top=3cm, bottom=3cm,
+  headheight=14pt
+]{geometry}
+
+\makeindex
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+
+\newcommand{\OI}{\kappa}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\mev}{\,\text{MeV}}
+\newcommand{\gev}{\,\text{GeV}}
+\newcommand{\eV}{\,\text{eV}}
+\newcommand{\PDG}[1]{\ensuremath{#1^{\text{PDG}}}}
+\newcommand{\pdgsup}{\ensuremath{^{\text{PDG}}}}
+\newcommand{\Eproton}{E_{\text{proton}}}
+\newcommand{\Eplanck}{E_{P}}
+\newcommand{\keV}{\,\text{keV}}
+\newcommand{\tev}{\,\text{TeV}}
+\newcommand{\SM}{\text{SM}}
+
+\begin{document}
+
+\frontmatter
+
+\title{Metatime: A Complete Derivation of the Standard Model \\
+       from Geometric Phase Information Theory}
+\author{Adrian Lipa}
+\date{Independent Researcher, Doncaster, UK\\\today}
+
+\maketitle
+
+\tableofcontents
+
+\mainmatter
+
+%% ======================================================================
+%% PART I — FOUNDATIONS
+%% ======================================================================
+\part{Foundations}
+
+\include{chapters/ch01_introduction}
+\include{chapters/ch02_metatime_framework}
+\include{chapters/ch03_l_constants}
+\include{chapters/ch04_quark_primes}
+
+%% ======================================================================
+%% PART II — CHARGED LEPTONS
+%% ======================================================================
+\part{Charged Leptons}
+
+\include{chapters/ch05_electron_action}
+\include{chapters/ch06_generation_release}
+\include{chapters/ch07_lepton_spectrum}
+
+%% ======================================================================
+%% PART III — BARYONS
+%% ======================================================================
+\part{Baryons}
+
+\include{chapters/ch08_gmo_formula}
+\include{chapters/ch09_octet_m0}
+\include{chapters/ch10_octet_coefficients}
+\include{chapters/ch11_octet_predictions}
+\include{chapters/ch12_decuplet_m0prime}
+\include{chapters/ch13_decuplet_predictions}
+
+%% ======================================================================
+%% PART IV — MESONS
+%% ======================================================================
+\part{Mesons}
+
+\include{chapters/ch14_pseudoscalar_mesons}
+\include{chapters/ch15_heavy_mesons}
+
+%% ======================================================================
+%% PART V — NEUTRINOS
+%% ======================================================================
+\part{Neutrinos}
+
+\include{chapters/ch16_pmns_mixing}
+\include{chapters/ch17_neutrino_masses}
+
+%% ======================================================================
+%% PART VI — CKM QUARK MIXING
+%% ======================================================================
+\part{CKM Quark Mixing}
+
+\include{chapters/ch18_ckm_matrix}
+\include{chapters/ch19_ckm_cp_violation}
+
+%% ======================================================================
+%% PART VII — ELECTROWEAK SECTOR
+%% ======================================================================
+\part{Electroweak Sector}
+
+\include{chapters/ch20_higgs_vev}
+\include{chapters/ch21_weinberg_angle}
+\include{chapters/ch22_fine_structure}
+\include{chapters/ch23_gauge_bosons}
+\include{chapters/ch24_higgs_mass}
+
+%% ======================================================================
+%% PART VIII — STRONG CP
+%% ======================================================================
+\part{Strong CP Problem}
+
+\include{chapters/ch25_strong_cp_angle}
+\include{chapters/ch26_neutron_edm}
+
+%% ======================================================================
+%% PART IX — ANOMALIES
+%% ======================================================================
+\part{Gauge Anomalies}
+
+\include{chapters/ch27_hypercharge}
+\include{chapters/ch28_anomaly_cancellation}
+
+%% ======================================================================
+%% PART X — COSMOLOGY
+%% ======================================================================
+\part{Cosmology}
+
+\include{chapters/ch29_dark_energy}
+
+%% ======================================================================
+%% PART XI — CONCLUSIONS
+%% ======================================================================
+\part{Conclusions}
+
+\include{chapters/ch30_parameter_summary}
+\include{chapters/ch31_open_problems}
+
+%% ======================================================================
+%% APPENDICES
+%% ======================================================================
+\appendix
+
+\include{appendices/appA_kappa_derivation}
+\include{appendices/appB_collatz_tables}
+\include{appendices/appC_su3_primer}
+\include{appendices/appD_poincare_disk}
+\include{appendices/appE_tetrahedron_algebra}
+\include{appendices/appF_baryon_calculations}
+\include{appendices/appG_meson_calculations}
+\include{appendices/appH_pdg_tables}
+\include{appendices/appI_source_code}
+
+%% ======================================================================
+%% BIBLIOGRAPHY
+%% ======================================================================
+\begin{thebibliography}{99}
+
+\bibitem{PDG2024}
+S.~Navas \emph{et al.} (Particle Data Group),
+``Review of Particle Physics,''
+Phys.\ Rev.\ D \textbf{110}, 030001 (2024).
+
+\bibitem{crewther1979}
+R.~J.~Crewther, P.~Di~Vecchia, G.~Veneziano, and E.~Witten,
+``Chiral estimate of the electric dipole moment of the neutron in
+quantum chromodynamics,''
+Phys.\ Lett.\ B \textbf{88}, 123 (1979).
+
+\bibitem{pospelov2005}
+M.~Pospelov and A.~Ritz,
+``Electric dipole moments as probes of new physics,''
+Ann.\ Phys.\ (N.Y.) \textbf{318}, 119 (2005).
+
+\bibitem{Planck2018}
+N.~Aghanim \emph{et al.} (Planck Collaboration),
+``Planck 2018 results. VI. Cosmological parameters,''
+Astron.\ Astrophys.\ \textbf{641}, A6 (2020).
+
+\bibitem{gellmann1961}
+M.~Gell-Mann,
+``The eightfold way: A theory of strong interaction symmetry,''
+Caltech Synchrotron Laboratory Report CTSL-20 (1961).
+
+\bibitem{okubo1962}
+S.~Okubo,
+``Note on unitary symmetry in strong interactions,''
+Prog.\ Theor.\ Phys.\ \textbf{27}, 949 (1962).
+
+\bibitem{berry1984}
+M.~V.~Berry,
+``Quantal phase factors accompanying adiabatic changes,''
+Proc.\ R.\ Soc.\ Lond.\ A \textbf{392}, 45 (1984).
+
+\bibitem{witten1982}
+E.~Witten,
+``An SU(2) anomaly,''
+Phys.\ Lett.\ B \textbf{117}, 324 (1982).
+
+\bibitem{kobayashi1973}
+M.~Kobayashi and T.~Maskawa,
+``CP-violation in the renormalizable theory of weak interaction,''
+Prog.\ Theor.\ Phys.\ \textbf{49}, 652 (1973).
+
+\bibitem{pontryagin1955}
+L.~S.~Pontryagin,
+``Smooth manifolds and their applications in homotopy theory,''
+Trudy Mat.\ Inst.\ Steklov \textbf{45}, 1 (1955).
+
+\bibitem{shannon1948}
+C.~E.~Shannon,
+``A mathematical theory of communication,''
+Bell Syst.\ Tech.\ J.\ \textbf{27}, 379 (1948).
+
+\bibitem{t'Hooft1976}
+G.~'t~Hooft,
+``Symmetry breaking through Bell-Jackiw anomalies,''
+Phys.\ Rev.\ Lett.\ \textbf{37}, 8 (1976).
+
+\end{thebibliography}
+
+\backmatter
+\printindex
+
+\end{document}

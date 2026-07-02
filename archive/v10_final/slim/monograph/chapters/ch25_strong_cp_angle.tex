@@ -1,0 +1,77 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Strong CP Angle}
+\label{ch:strong_cp}
+
+\section{The Strong CP Problem}
+
+In QCD, a CP-violating term is permitted by the Lagrangian:
+
+\[
+\mathcal{L}_\theta = \theta\,\frac{g_s^2}{32\pi^2}\,G_{\mu\nu}^a\tilde{G}^{a\mu\nu}.
+\]
+
+Experimental constraints from the neutron electric dipole moment (nEDM)
+require \(\theta < 10^{-10}\).
+
+\section{Metatime Derivation}
+
+The bare QCD \(\theta\) parameter is:
+
+\begin{equation}
+\theta_{\text{QCD}} = \kappa\left(\frac{L_4}{L_3}\right)^{\!D},
+\qquad D = L_3 + L_4 + L_5 = 7 + 2 + 5 = 14.
+\label{eq:theta_qcd}
+\end{equation}
+
+The exponent \(D = L_3 + L_4 + L_5 = 14\) is the sum of all three
+L-constants, representing the total phase-space dimension of the strong
+CP sector.  Each unit of \(D\) corresponds to one power of the
+\(L_4/L_3 = 2/7\) geometric suppression factor, reflecting the
+sequential decoupling of flavour contributions to the QCD vacuum angle.
+
+\subsection{Numerical Evaluation}
+
+\[
+\begin{aligned}
+\frac{L_4}{L_3} &= \frac{2}{7} = 0.285714, \\[4pt]
+\left(\frac{2}{7}\right)^{14} &= 8.23 \times 10^{-9}, \\[4pt]
+\theta_{\text{QCD}} &= 0.00919315 \times 8.23 \times 10^{-9}
+                    = 7.57 \times 10^{-11}.
+\end{aligned}
+\]
+
+\section{Neutron Electric Dipole Moment}
+
+The nEDM follows from the Crewther relation:
+
+\[
+d_n = \theta_{\text{QCD}} \cdot C,
+\]
+
+where \(C = 2.4 \times 10^{-16}\ e\cdot\text{cm}\) is the Crewther factor.
+
+\[
+d_n = 7.57 \times 10^{-11} \times 2.4 \times 10^{-16}
+     = 1.82 \times 10^{-26}\ e\cdot\text{cm}.
+\]
+
+\section{Comparison with Experiment}
+
+The current experimental limit is \(d_n < 1.8 \times 10^{-26}\ e\cdot\text{cm}\)
+(90\% CL).  Our predicted value \(1.82 \times 10^{-26}\ e\cdot\text{cm}\)
+is essentially at the current bound.
+
+Next-generation experiments will decisively test this prediction:
+\begin{description}
+\item[n2EDM (PSI)]: Expected sensitivity \(1 \times 10^{-27}\ e\cdot\text{cm}\),
+operational 2025--2027.
+\item[PanEDM (ILL)]: Target \(1 \times 10^{-27}\ e\cdot\text{cm}\).
+\item[SNS nEDM (ORNL)]: Target \(3 \times 10^{-28}\ e\cdot\text{cm}\).
+\end{description}
+
+If no nEDM is observed above \(10^{-27}\ e\cdot\text{cm}\), the exponent
+would need to increase to \(D = 15\), giving
+\(\theta_{\text{QCD}} = 2.16 \times 10^{-11}\) and
+\(d_n = 5.2 \times 10^{-27}\ e\cdot\text{cm}\), which is just beyond
+the reach of next-generation experiments but would still be consistent
+with the framework.

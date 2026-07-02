@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "module70_validator": {
+    "validator_returncode": 0,
+    "stdout": "VALIDATION_MODULE70_v7_0: PASS\n",
+    "stderr": "",
+    "status": "PASS"
+  },
+  "nested_archives_count": 0,
+  "nested_archives": [],
+  "syntax_compile_status": "PASS",
+  "syntax_errors": [],
+  "syntax_warning_count": 4,
+  "syntax_warnings_sample": [
+    {
+      "file": "00_original_metatime/Metatime-main/simulations/Metatime_Framework(1).py",
+      "warning": "invalid escape sequence '\\h'"
+    },
+    {
+      "file": "00_original_metatime/Metatime-main/simulations/Metatime_Framework(1).py",
+      "warning": "invalid escape sequence '\\h'"
+    },
+    {
+      "file": "00_original_metatime/Metatime-main/simulations/Metatime_Framework(1).py",
+      "warning": "invalid escape sequence '\\p'"
+    },
+    {
+      "file": "00_original_metatime/Metatime-main/simulations/PBH/primordialblackhole.py",
+      "warning": "invalid escape sequence '\\D'"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Poincar\'{e} Disk Geometry}
+\label{app:poincare}
+
+\section{Definition}
+
+The Poincar\'{e} disk $\mathbb{D}$ is the unit disk in the complex plane
+equipped with the metric:
+
+\[
+ds^2 = \frac{4\,|dz|^2}{(1 - |z|^2)^2},
+\]
+
+where $z \in \mathbb{C}$, $|z| < 1$.  This is a model of the
+two-dimensional hyperbolic plane with constant negative curvature
+$K = -1$.
+
+\section{Isometries}
+
+The isometry group of $\mathbb{D}$ is $\text{PSU}(1,1)$, consisting of
+M\"{o}bius transformations:
+
+\[
+z \mapsto e^{i\theta}\,\frac{z - a}{1 - \bar{a}z},
+\qquad a \in \mathbb{D},\ \theta \in [0,2\pi).
+\]
+
+\section{Geodesics}
+
+Geodesics in $\mathbb{D}$ are arcs of circles orthogonal to the boundary
+$|z| = 1$, or diameters through the origin.  The geodesic distance between
+two points $z_1$ and $z_2$ is:
+
+\[
+d(z_1, z_2) = \operatorname{artanh}\left|
+\frac{z_1 - z_2}{1 - \bar{z}_1 z_2}
+\right|.
+\]
+
+\section{Boundary and Compactification}
+
+The boundary $\partial\mathbb{D} = \{z : |z| = 1\}$ corresponds to the
+conformal infinity of the hyperbolic plane.  In the Metatime framework,
+the boundary carries the information degrees of freedom.
+
+\section{Kuramoto Model on $\mathbb{D}$}
+
+A system of $N$ coupled oscillators on $\mathbb{D}$ follows the Kuramoto
+dynamics:
+
+\[
+\dot{z}_i = (1 - |z_i|^2)\left(i\omega_i z_i + \sum_{j\neq i} K_{ij} z_j\right),
+\]
+
+where $\omega_i$ are natural frequencies and $K_{ij}$ are coupling
+strengths determined by the quark primes.
+
+The synchronization order parameter is:
+
+\[
+r e^{i\psi} = \frac{1}{N}\sum_{j=1}^N \frac{z_j}{|z_j|}.
+\]
+
+For mesons, $N=2$ (quark and antiquark), and the coupled Kuramoto
+equations on $\mathbb{D}$ produce the mass gap via the action offset
+$S = \int \mathcal{L}\,dt$.
+
+\section{Hyperbolic Volume and $\kappa$}
+
+The area of a hyperbolic triangle with angles $\alpha,\beta,\gamma$ is:
+
+\[
+A = \pi - (\alpha + \beta + \gamma).
+\]
+
+For the tetrahedral angles appearing in the neutrino sector:
+
+\[
+\alpha = \arccos\frac{L_4}{L_3} = \arccos\frac{2}{7},
+\]
+
+the area gives $\kappa/2$, linking the information constant to hyperbolic
+geometry.

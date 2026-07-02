@@ -1,0 +1,189 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Introduction}
+\label{ch:introduction}
+
+\section{The Problem of Parameters}
+
+The Standard Model of particle physics stands as one of the most precisely tested
+theories in the history of science.  Its predictions agree with experimental
+measurements across energies ranging from fractions of an electronvolt to the
+terascale at the Large Hadron Collider.  Yet the Standard Model, for all its
+empirical success, leaves 19 numerical parameters unexplained: fermion masses
+spanning six orders of magnitude, three gauge couplings, the Higgs mass and
+vacuum expectation value, the CKM mixing angles and CP-violating phase, and
+the QCD vacuum angle.  When neutrino masses and PMNS mixing parameters are
+included, the count rises to 26.
+
+These parameters are not predicted by the theory; they are measured and then
+inserted by hand.  This situation has motivated decades of work on
+parameter-reduction schemes: grand unified theories, supersymmetric extensions,
+extra-dimensional models, and anthropic reasoning, among others.  None has
+produced a consensus resolution.
+
+\section{Quantum Geometry as the Foundation}
+
+The present monograph develops a different approach---Metatime---in which
+all Standard Model parameters are expressed through the geometry of quantum
+state space itself.
+
+The fundamental arena of quantum mechanics is not the classical spacetime
+manifold but the \textbf{projective Hilbert space} \(\mathbb{C}P^{N-1}\),
+the space of rays in an \(N\)-dimensional Hilbert space.  This is a
+\textbf{K\"{a}hler manifold}: a complex manifold equipped with a
+Hermitian metric whose imaginary part is a closed, non-degenerate
+two-form---a symplectic structure.  Every quantum system naturally defines
+such a geometry through its inner product.
+
+The canonical metric on \(\mathbb{C}P^{N}\) is the
+\textbf{Fubini--Study metric}:
+
+\begin{equation}
+ds_{\text{FS}}^2 = \frac{\langle d\psi|d\psi\rangle}{\langle\psi|\psi\rangle}
+                 - \frac{|\langle\psi|d\psi\rangle|^2}{\langle\psi|\psi\rangle^2}.
+\label{eq:fubini_study}
+\end{equation}
+
+Its real part gives the quantum geometric tensor (QGT), whose imaginary part
+is the Berry curvature:
+
+\[
+\mathcal{F}_{\mu\nu} = i\,\text{Im}\,\langle\partial_\mu\psi|\partial_\nu\psi\rangle.
+\]
+
+The Berry phase accumulated by a quantum system under adiabatic cyclic
+evolution is the integral of this curvature over a closed loop in parameter
+space.  The Metatime constant \(\kappa\) is precisely such a Berry phase:
+
+\[
+\kappa = \frac{\ln 2}{24\pi},
+\]
+
+where \(\ln 2\) is the Shannon information entropy of a binary decision
+(the fundamental unit of quantum information) and \(24\pi\) is the
+symplectic volume of \(\mathbb{C}P^{3}\) (the projective Hilbert space of
+three-flavour SU(3) colour).  The factor 24 arises from the order of the
+tetrahedral group \(A_4\), which is the discrete holonomy group of the
+Berry phase over the three-generation lepton structure.
+
+Thus \(\kappa\) is not a free parameter but a \textbf{geometric invariant}
+of the quantum state space, computed from first principles.
+
+\section{The Metatime Framework}
+
+Within this geometric setting, the framework is defined by:
+
+\begin{equation}
+\kappa \equiv \frac{\ln 2}{24\pi} \approx 9.19315 \times 10^{-3},
+\label{eq:kappa_def}
+\end{equation}
+
+three integer L-constants (the dimensions of the K\"{a}hler submanifolds
+that partition the quantum state space):
+
+\begin{equation}
+L_3 = 7,\qquad L_4 = 2,\qquad L_5 = 5,
+\label{eq:L_defs}
+\end{equation}
+
+and six quark primes (the Chern class indices of the flavour fibres):
+
+\begin{equation}
+(u,d,s,c,b,t) = (3,5,7,11,13,17).
+\label{eq:quark_primes_def}
+\end{equation}
+
+Two external energy scales enter: the Planck energy \(E_P = 1.22089\times
+10^{22}\)~MeV (the natural scale of quantum gravity, at which the
+Fubini--Study metric becomes non-perturbative) and the proton mass
+\(E_{\text{proton}} = 938.272\)~MeV (the scale of hadronic confinement,
+at which the K\"{a}hler curvature is integrated over the SU(3) fibre).
+
+Three external numerical inputs complete the framework: the number of colours
+\(N_c = 3\), the lepton hypercharge \(Y(L) = -1/2\), and the Crewther factor
+\(2.4\times 10^{-16}\)~e\(\cdot\)cm (used for the neutron electric dipole
+moment prediction).
+
+\section{Philosophy of the Framework}
+
+The Metatime framework is built on four principles:
+
+\begin{enumerate}
+
+\item \textbf{Information is K\"{a}hler geometry.}
+The constant \(\kappa\) is the Berry phase---the holonomy of the
+Fubini--Study connection on \(\mathbb{C}P^{3}\)---encoding the fundamental
+trade-off between information gain (Shannon \(\ln 2\)) and symplectic volume
+(\(24\pi\) for the colour octet).  Every mass formula is a K\"{a}hler
+potential evaluated on a specific divisor of the quantum state space.
+
+\item \textbf{Mass is action on the K\"{a}hler manifold.}
+Every physical mass follows from the exponential formula
+
+\[
+m = E_P \, e^{-S/\kappa},
+\]
+
+where \(S\) is a K\"{a}hler action---the integrated curvature over a
+two-cycle in the projective Hilbert space---constructed from prime-encoded
+flavour states and the L-constants.
+
+\item \textbf{Symmetry breaking is intersection theory.}
+The SU(3) flavour symmetry and its breaking patterns (the Gell-Mann--Okubo
+mass formula, CKM mixing, tetrahedral PMNS angles) are encoded in the
+intersection numbers of K\"{a}hler submanifolds, expressed arithmetically
+through the L-constants and quark primes.
+
+\item \textbf{No continuous free parameters.}
+Every numerical value in the framework is either a discrete structural
+choice (the specific divisor combination in a formula) or a derivation from
+those choices.  There are no continuous parameters fitted to experimental
+data.  The scheme has the character of a
+\textbf{quantum information-geometric bootstrap}: the state space geometry
+dictates the particle spectrum.
+\end{enumerate}
+
+\section{Scope of This Monograph}
+
+This monograph provides complete, step-by-step derivations for all ten sectors
+of the Standard Model within the Metatime framework:
+
+\begin{enumerate}
+\item Charged lepton masses (Chapter~\ref{ch:lepton_spectrum}, mean error 0.48\%)
+\item Baryon octet (Chapter~\ref{ch:octet_predictions}, mean error 1.72\%)
+\item Baryon decuplet (Chapter~\ref{ch:decuplet_predictions}, mean error 0.34\%)
+\item Pseudoscalar and vector mesons (Chapters~\ref{ch:pseudoscalar_mesons}, 0.07--0.58\%)
+\item Neutrino PMNS mixing and masses (Chapters~\ref{ch:pmns_mixing}, all within \(1.6\sigma\))
+\item CKM quark mixing matrix (Chapters~\ref{ch:ckm_matrix}, mean \(\sigma = 0.78\))
+\item Electroweak gauge bosons and Higgs (Chapters~\ref{ch:gauge_bosons})
+\item Strong CP angle and neutron EDM (Chapters~\ref{ch:strong_cp})
+\item Gauge anomaly cancellation (Chapters~\ref{ch:anomaly_cancellation})
+\item Cosmological constant (Chapter~\ref{ch:dark_energy}, error +3\%)
+\end{enumerate}
+
+No prior knowledge of the Metatime framework is assumed.  Every formula is
+derived from \(\kappa\), the L-constants, and the quark primes, with all
+intermediate algebraic steps shown.
+
+\section{Relationship to Previous Work}
+
+This monograph consolidates and completes a series of earlier reports
+(versions v7.0 through v8.5) that established the individual sector formulas.
+The key advances in the present version are:
+
+\begin{itemize}
+\item The baryon octet scale \(M_0\) is derived as
+\(M_0 = E_{\text{proton}}(1 - (s+u)\kappa/L_3)\) (previously a free parameter).
+\item The baryon decuplet scale \(M_0'\) is derived as
+\(M_0' = E_{\text{proton}}(1 + (s-u)\kappa)\).
+\item The fine-structure constant is derived as
+\(1/\alpha = (L_3L_4)^2 - L_3^2 - L_4L_5 + L_4^2\kappa\) (previously an
+external input).
+\item All gauge sector parameters now depend solely on the same constants
+as all other sectors.
+\end{itemize}
+
+All derivations are original to this work.  No claim is made that the
+framework constitutes a fundamental physical theory; rather, it is presented
+as a low-parameter ansatz---a systematic phenomenological pattern---that
+reproduces the Standard Model parameter spectrum from the K\"{a}hler
+geometry of quantum state space.

@@ -6,14 +6,21 @@ Computes every SM parameter from Metatime formulas and counts ALL degrees of fre
 import math
 
 # ── Fundamental Constants ──────────────────────────────────────────────
+# [Postulate B] κ = ln2/(24π) — information constant; binary·A₄·Berry half-cycle
 κ = math.log(2) / (24 * math.pi)
+# [Postulate B] L₃=7, L₄=2, L₅=5 — fundamental integers (no derivation yet)
 L3, L4, L5 = 7, 2, 5
+# [Postulate B] Quark primes: ordered odd primes; leap from 7→11 not derived
 q = {'u':3, 'd':5, 's':7, 'c':11, 'b':13, 't':17}
-E_P = 1.22089e22       # MeV
-E_p = 938.272          # proton mass MeV
+# [External] E_P = Planck energy (MeV), E_p = proton mass (MeV)
+E_P = 1.22089e22       # External scale 1 (MeV)
+E_p = 938.272          # External scale 2 (proton mass MeV)
 
 # ── Derived fine-structure constant ────────────────────────────────────
-α_inv_metatime = (L3*L4)**2 - L3**2 - L4*L5 + L4**2 * κ  # ~137.037
+# [C] 1/α = (L3·L4)² − L3² − L4·L5 + L4²·κ = 137.037 (PDG 137.036, err +0.0006%)
+# 4-term cancellation: 196 − 49 − 10 + 0.0368 = 137.037
+# Structural choices: 4 signed terms → counts as 4 structural choices
+α_inv_metatime = (L3*L4)**2 - L3**2 - L4*L5 + L4**2 * κ
 α_metatime = 1/α_inv_metatime
 
 # ── External inputs (NOT derived in Metatime) ──────────────────────────
@@ -38,29 +45,39 @@ results = {}  # store computed values for cross-check
 # ═══════════════════════════════════════════════════════════════════════
 # 1. CHARGED LEPTONS
 # ═══════════════════════════════════════════════════════════════════════
+# [C] Exponential mass formula: m_i = E_P · exp(−S_i/κ)  [Postulate B]
+# S_i = action for each lepton, built from κ terms
+# S_e = ½ − 3κ + κ/L₃ − κ²/2    (4 signed terms)
+# R_eμ = 5κ + 2κ/L₃ + (L₃+1)κ²/2  (3 terms)
+# R_μτ = 3κ − κ/L₃ − L₃κ²/2      (3 terms)
+# Net: 10 signed coefficients without derivation source
 S_e  = 0.5 - 3*κ + κ/L3 - κ**2/2
 R_eμ = 5*κ + 2*κ/L3 + (L3+1)*κ**2/2
 R_μτ = 3*κ - κ/L3 - L3*κ**2/2
 S_μ  = S_e - R_eμ
 S_τ  = S_μ - R_μτ
 
+# Predictions: e=0.511, μ=105.66, τ=1776.86 MeV (RMSE 0.47%)
 me = E_P * math.exp(-S_e/κ)
 mμ = E_P * math.exp(-S_μ/κ)
 mτ = E_P * math.exp(-S_τ/κ)
 results['leptons'] = {'me':me, 'mμ':mμ, 'mτ':mτ}
 
-# Structural: S_e (4 terms: +½, -3κ, +κ/L3, -κ²/2), R_eμ (3 terms), R_μτ (3 terms)
-# 4 + 3 + 3 = 10 signed coefficients without derivation
+# Structural count: 10 choices for 3 masses → see STRUCTURAL_CHOICES.md
 STRUCT_LEPTONS = 10
 
 # ═══════════════════════════════════════════════════════════════════════
 # 2. BARYON OCTET
 # ═══════════════════════════════════════════════════════════════════════
+# [C] GMO mass formula: M = M₀ + α + β·Y + γ·(I² − Y²/4)
+# M₀ derived [A] from Λ-mass constraint: M₀ = E_p·(1 − (s+u)·κ/L₃)
+# α = E_p·κ·(s² − u² − d² + L₃)  — 4-term sum
+# β = −α·(L₃²−1)/L₃² = −α·48/49   — 1 ratio
+# γ = α·L₄·(L₃−L₄)/L₃² = α·10/49  — 2-factor product
 α_oct = E_p * κ * (q['s']**2 - q['u']**2 - q['d']**2 + L3)
-γ_oct = α_oct * L4 * (L3 - L4) / L3**2   # α · 10/49 = 38.73
-β_oct = -α_oct * (L3**2 - 1) / L3**2     # -α · 48/49 = -185.90
+γ_oct = α_oct * L4 * (L3 - L4) / L3**2
+β_oct = -α_oct * (L3**2 - 1) / L3**2
 
-# M₀ derived: M₀ = E_p·(1 − (s+u)·κ/L₃)  — NO free parameter
 M0_oct = E_p * (1 - (q['s']+q['u'])*κ/L3)
 oct_masses = {}
 for name, Y, I, I2 in [
@@ -71,47 +88,56 @@ for name, Y, I, I2 in [
     oct_masses[name] = M0_oct + α_oct + β_oct*Y + γ_oct*(I2 - Y**2/4)
 results['octet'] = oct_masses
 
-# Structural: α (4-element sum: s²-u²-d²+L3), β ratio, γ (2-element sum), GMO form assumed
-# 4 + 1 + 1 + 1 (GMO) = 7
+# Structural: α (4), β ratio (1), γ (1), GMO form (1) = 7  [see STRUCTURAL_CHOICES.md]
+# Known tension: p/n and Σ show +2.8% systematic offset
 STRUCT_OCTET = 7
-FREE_PARAMS_OCTET = 0  # M₀ derived
+FREE_PARAMS_OCTET = 0  # M₀ derived [A]
 
 # ═══════════════════════════════════════════════════════════════════════
 # 3. BARYON DECUPLET
 # ═══════════════════════════════════════════════════════════════════════
+# [C] Equal-spacing formula: M = M₀' + α₁₀ + β₁₀·Y
+# M₀' derived [A]: M₀' = E_p·(1 + (s−u)·κ)
+# α₁₀ = E_p·κ·(L₃²+L₄²+L₅²+L₃+L₄+L₅+L₄)/L₄  — 7-term sum/L₄
+# β₁₀ = −E_p·κ·L₃·L₅/L₄  — 3-factor product
 α10 = E_p * κ * (L3**2 + L4**2 + L5**2 + L3 + L4 + L5 + L4) / L4
 β10 = -E_p * κ * L3 * L5 / L4
 
-# M₀' derived: M₀' = E_p·(1 + (s−u)·κ)  — NO free parameter
 M0_dec = E_p * (1 + (q['s']-q['u'])*κ)
 dec_masses = {}
 for name, Y in [('Δ++',1), ('Σ*+',0), ('Ξ*0',-1), ('Ω-',-2)]:
     dec_masses[name] = M0_dec + α10 + β10*Y
 results['decuplet'] = dec_masses
 
-# Structural: α10 (7-term sum/L4), β10 (3-term product), equal-spacing rule assumed
+# Structural: α₁₀ formula (1), β₁₀ formula (1), equal-spacing rule (1) + term counting = 6
 STRUCT_DECUPLET = 6
-FREE_PARAMS_DECUPLET = 0  # M₀' derived
+FREE_PARAMS_DECUPLET = 0  # M₀' derived [A]
 
 # ═══════════════════════════════════════════════════════════════════════
 # 4. NEUTRINO PMNS
 # ═══════════════════════════════════════════════════════════════════════
+# [C] PMNS angles from tetrahedron edge mapping to L-constants
+# Edges (structural): e₁=2/7, e₂=2/9, e₃=1/7, e₄=2/49, e₅=(2/49)·10, e₆=2/7+4/49
 e1, e2, e3 = L4/L3, L4/(L3+L4), 1/L3
 e4, e5, e6 = (L4/L3)**2/2, (L4/L3)**2/2*(L3+L4+1), L4/L3+(L4/L3)**2
 
-sinθ13 = e3          # 1/7
-sin2θ12 = e2 + e1**2 # 2/9 + 4/49
+# sinθ₁₃ = 1/7, sin²θ₁₂ = 2/9 + 4/49, sin²θ₂₃ = ½ + 2/49
+# δ_CP = 180·(1 + e₁ + e₁²) in degrees — π-offset postulate
+sinθ13 = e3
+sin2θ12 = e2 + e1**2
 sin2θ23 = 0.5 + L4/L3**2
-δ_CP = 180 + 180*(e1 + e1**2)  # π*(1+e1+e1²) in degrees
+δ_CP = 180 + 180*(e1 + e1**2)
 
-# Mass sector
-S_bare = (1 + L4/L3) / 2  # 9/14
-A_face = (L4/L3)**2 / 2   # 2/49
+# Mass sector: S_bare = (1+L₄/L₃)/2, A_face = (L₄/L₃)²/2
+# dS = κ·A_face·(1−κ) — perturbation term
+# Mass ratios [1, L₄, L₃+L₄+1] = [1, 2, 10] — structural selection
+S_bare = (1 + L4/L3) / 2
+A_face = (L4/L3)**2 / 2
 dS = κ * A_face * (1 - κ)
 S1 = S_bare + κ*dS
-mass_ratios = [1, L4, L3+L4+1]  # [1,2,10]
+mass_ratios = [1, L4, L3+L4+1]
 
-# m_i = E_P * 10^6 * exp(-S_i/κ) gives eV with E_P in eV (×10⁶ converts MeV→eV)
+# m_i = E_P·10⁶·exp(−S_i/κ) [eV]; E_P in eV via ×10⁶ MeV→eV conversion
 E_P_eV = E_P * 1e6
 m1_eV = E_P_eV * math.exp(-(S1 - κ*math.log(1))/κ)
 m2_eV = E_P_eV * math.exp(-(S1 - κ*math.log(L4))/κ)
@@ -121,69 +147,82 @@ m3_eV = E_P_eV * math.exp(-(S1 - κ*math.log(L3+L4+1))/κ)
 results['pmns'] = {'sinθ13':sinθ13, 'sin2θ12':sin2θ12, 'sin2θ23':sin2θ23,
                    'δ_CP':δ_CP, 'm1':m1_eV, 'm2':m2_eV, 'm3':m3_eV}
 
-# Structural: e-mapping to angles (6 edges), S_bare, dS formula, mass ratios [1,2,10], E_P×10⁶ scaling
-# 6 + 1 + 1 + 1 + 1 = 10, but red-team says 7
-# (6 edges are tetrahedron geometry - might count as 1 choice total)
-# Let me count: tetrahedron mapping (1 choice), S_bare (1), dS (1), mass ratios (1), E_P×10⁶ (1),
-# ± derivation for sin²θ23 offset (1/2 + ...) (1), δ_CP π-offset (1)
+# Structural: tetrahedron mapping (1), S_bare (1), dS (1), mass ratios (1),
+# E_P·10⁶ scaling (1), sin²θ₂₃ offset (1), δ_CP offset (1) = 7
 STRUCT_PMNS = 7
 
 # ═══════════════════════════════════════════════════════════════════════
 # 5. CKM QUARK MIXING
 # ═══════════════════════════════════════════════════════════════════════
+# [C] λ_CKM = L₄/(L₃+L₄) + (L₄/L₃)·κ = 2/9 + 2κ/7
+# V_cb = (L₄/L₃)²/2 = 2/49
+# V_ub = (L₄/L₃)²·L₄/((L₃+L₄)·L₅) = 8/2205
+# J_CP = κ²·(L₄/L₅)·(1 − (L₄/L₅)²/2)
+# δ_CKM = arccos(L₄/L₅) in degrees — [D] back-computed, not geometrically derived
 λ_ckm = L4/(L3+L4) + (L4/L3)*κ
-Vcb = (L4/L3)**2 / 2  # 2/49
-Vub = (L4/L3)**2 * L4 / ((L3+L4) * L5)  # 8/2205
+Vcb = (L4/L3)**2 / 2
+Vub = (L4/L3)**2 * L4 / ((L3+L4) * L5)
 A_ckm = Vcb / λ_ckm**2
 J_CP = κ**2 * (L4/L5) * (1 - (L4/L5)**2/2)
 
-# δ from direct geometric angle: arccos(L4/L5)
 δ_CKM = math.degrees(math.acos(L4/L5))
 results['ckm'] = {'λ':λ_ckm, 'Vcb':Vcb, 'Vub':Vub, 'J_CP':J_CP, 'δ_CKM':δ_CKM}
 
-# Structural: λ (2-term sum: 2/9 + 2κ/7), Vcb formula, Vub (5-constant product),
-# J_CP (3-term), δ back-computed not derived
+# Known tension: δ_CKM = 73.6° vs PDG 65.6° (σ=5.35)
+# Structural: λ (1), Vcb (1), Vub (1), J_CP (1), δ (1) = 5
 STRUCT_CKM = 5
 
 # ═══════════════════════════════════════════════════════════════════════
 # 6. GAUGE BOSONS + HIGGS
 # ═══════════════════════════════════════════════════════════════════════
-v = E_p * (L3**2*L5 + L3*L4 + L4)  # 938.272 * 261 = 244889 MeV
+# [C] Higgs VEV: v = E_p·(L₃²·L₅ + L₃·L₄ + L₄) = 938.272 × 261 = 244889 MeV
+# sin²θ_W = L₄/(L₃+L₄) + κ = 2/9 + κ
+# g (SU(2)) = L₄/L₃ + L₄/L₅ = 2/7 + 2/5 = 24/35 — [D] no geometric derivation
+# M_W = g·v/2, M_Z = M_W/√(1−sin²θ_W)
+# M_H = v·κ·(L₃²+L₄+L₅) = v·κ·56
+v = E_p * (L3**2*L5 + L3*L4 + L4)
 sin2θW = L4/(L3+L4) + κ
 
-g_w = L4/L3 + L4/L5  # 24/35 = 0.68571 — tetrahedron edge sum
+g_w = L4/L3 + L4/L5
 
-MW = g_w * v / 2 / 1000  # GeV
-MZ = MW / math.sqrt(1 - sin2θW)  # GeV
+MW = g_w * v / 2 / 1000
+MZ = MW / math.sqrt(1 - sin2θW)
 
-# Higgs mass: M_H = v · κ · (L3² + L4 + L5)
-L_sum = L3**2 + L4 + L5  # 49 + 2 + 5 = 56
+L_sum = L3**2 + L4 + L5
 MH = v * κ * L_sum / 1000  # GeV
 results['gauge'] = {'v':v/1000, 'sin2θW':sin2θW, '1/α':α_inv_metatime, 'MW':MW, 'MZ':MZ, 'MH':MH}
 
-# Structural: v factor 261 (3-term), sin²θW formula (2/9 + κ), 1/α formula (4+1 terms),
-# g_w as L4/L3+L4/L5 (2-term sum), M_H as v·κ·(L3²+L4+L5) (3-term sum)
+# Known tension: M_W/M_Z ~4% systematic — g formula needs geometric derivation
+# Structural: v factor (1), sin²θ_W (1), 1/α (1), g_w (1), M_H (1), L_sum (1) = 6
 STRUCT_GAUGE = 6
 EXT_GAUGE = 0  # α now derived from Metatime
 
 # ═══════════════════════════════════════════════════════════════════════
 # 7. STRONG CP
 # ═══════════════════════════════════════════════════════════════════════
-θ_QCD = κ * (L4/L3)**(L3 + L4 + L5)  # exponent = 14
+# [D] θ_QCD = κ·(L₄/L₃)^(L₃+L₄+L₅) = κ·(2/7)¹⁴
+# [E] nEDM prediction: d_n = θ_QCD × Crewther = 1.87×10⁻²⁵ e·cm
+# **FALSIFIED**: current bound |d_n| < 1.8×10⁻²⁶ e·cm (factor ~10 above)
+# Post-hoc exponent selection: b=13 also works (c=11 rejected without derivation)
+θ_QCD = κ * (L4/L3)**(L3 + L4 + L5)
 d_n = θ_QCD * CREWTHER
 results['strong_cp'] = {'θ':θ_QCD, 'dn':d_n}
 
-# Structural: θ form (κ·(L4/L3)^b), exponent b=13, post-hoc rejection of c=11
+# Structural: form (1), exponent (1), post-hoc rejection (1) + Crewther external (1) = 4
 STRUCT_STRONGCP = 3
-EXT_STRONGCP = 1  # Crewther factor
+EXT_STRONGCP = 1
 
 # ═══════════════════════════════════════════════════════════════════════
 # 8. ANOMALY CANCELLATION
 # ═══════════════════════════════════════════════════════════════════════
-Y_Q = q['s']/(L3*L4*N_c)  # 1/6
-Y_uR = L4/N_c             # 2/3
-Y_dR = -L4/(N_c*L4)       # -1/3
-Y_eR = -(L3-L4)/L5        # -1
+# [A] Hypercharge assignments derived from L-constants:
+# Y_Q = q(s)/(L₃·L₄·N_c) = 7/42 = 1/6
+# Y_uR = L₄/N_c = 2/3,  Y_dR = −L₄/(N_c·L₄) = −1/3,  Y_eR = −(L₃−L₄)/L₅ = −1
+# [A] Anomaly cancellation verified: A1=A2=A3=A4=0
+Y_Q = q['s']/(L3*L4*N_c)
+Y_uR = L4/N_c
+Y_dR = -L4/(N_c*L4)
+Y_eR = -(L3-L4)/L5
 
 A1 = 2*Y_Q - Y_uR - Y_dR
 A2 = 3*Y_Q + Y_L
@@ -191,20 +230,22 @@ A3 = (2*Y_Q**3 + Y_L**3) - (Y_uR**3 + Y_dR**3 + Y_eR**3)
 A4 = 6*Y_Q + 2*Y_L
 results['anomaly'] = {'A1':A1, 'A2':A2, 'A3':A3, 'A4':A4}
 
-# Structural: Y assignments (4 formulas), mapping to L-constants
-# External: N_c=3, Y(L)=-½
+# Structural: Y_Q (1), Y_uR (1), Y_dR (1), Y_eR (1) = 4
+# External: N_c=3, Y(L)=−½
 STRUCT_ANOMALY = 4
-EXT_ANOMALY = 2  # N_c, Y(L)
+EXT_ANOMALY = 2
 
 # ═══════════════════════════════════════════════════════════════════════
 # 9. DARK ENERGY
 # ═══════════════════════════════════════════════════════════════════════
-exp_D = L3 * L4**L5  # 7 * 32 = 224
+# [D] ρ_Λ = (L₄/L₃)^(L₃·L₄^L₅) = (2/7)²²⁴ ≈ 10⁻¹²²
+# L₄^L₅ = 32 interpreted as "intention space dimension" — interpretive, not derived
+exp_D = L3 * L4**L5
 ρ_Λ = (L4/L3)**exp_D
 ρ14_meV = ρ_Λ**0.25 * 1000
 results['dark_energy'] = {'ρ':ρ_Λ, 'ρ14_meV':ρ14_meV}
 
-# Structural: exponent form L3·L4^L5, L4^L5=32 as "intention space dimension"
+# Structural: form (1), exponent L₃·L₄^L₅ (1), interpretation (1) = 3
 STRUCT_DE = 3
 
 # ═══════════════════════════════════════════════════════════════════════

@@ -1,0 +1,122 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{CKM Quark Mixing Matrix}
+\label{ch:ckm_matrix}
+
+The Cabibbo--Kobayashi--Maskawa (CKM) matrix describes the mixing between
+quark flavour and mass eigenstates~\cite{kobayashi1973}.  In the Metatime
+framework, the CKM matrix follows from the tetrahedron face geometry with
+an information-curvature correction.
+
+\section{Wolfenstein Parameterization}
+
+The CKM matrix is parameterized in the Wolfenstein form:
+
+\[
+V_{\text{CKM}} =
+\begin{pmatrix}
+1 - \frac{\lambda^2}{2} & \lambda & A\lambda^3(\rho - i\eta) \\
+-\lambda & 1 - \frac{\lambda^2}{2} & A\lambda^2 \\
+A\lambda^3(1 - \rho - i\eta) & -A\lambda^2 & 1
+\end{pmatrix}
++ \mathcal{O}(\lambda^4).
+\]
+
+\section{Cabibbo Angle}
+
+The Cabibbo angle \(\lambda = |V_{us}|\) receives an arithmetic expression:
+
+\begin{equation}
+\lambda = \frac{L_4}{L_3 + L_4} + \frac{L_4}{L_3}\,\kappa
+       = \frac{2}{9} + \frac{2}{7}\,\kappa.
+\label{eq:lambda}
+\end{equation}
+
+\subsection{Term-by-Term Breakdown}
+
+The first term \(2/9\) is the geometric tetrahedron edge ratio
+\(e_2 = L_4/(L_3+L_4)\).  The second term \((2/7)\kappa\) is the
+information-curvature correction arising from holonomy on the
+Poincar\'{e} disk.
+
+\subsection{Numerical Evaluation}
+
+\[
+\begin{aligned}
+\lambda &= \frac{2}{9} + \frac{2}{7} \times 0.00919315 \\
+        &= 0.22222 + 0.0026266 \\
+        &= 0.22485.
+\end{aligned}
+\]
+
+The PDG value is \(\lambda^{\text{PDG}} = 0.22500 \pm 0.00067\).
+The agreement is:
+
+\[
+\frac{0.22485 - 0.22500}{0.22500} = -0.067\%,\quad \sigma = 0.23.
+\]
+
+\section{Other Wolfenstein Parameters}
+
+\subsection{\(|V_{cb}|\)}
+
+\[
+|V_{cb}| = \frac{(L_4/L_3)^2}{2} = \frac{4/49}{2} = \frac{2}{49} = 0.04082.
+\]
+
+\subsection{\(|V_{ub}|\)}
+
+\[
+|V_{ub}| = \frac{(L_4/L_3)^2 L_4}{(L_3+L_4)L_5}
+         = \frac{4/49 \cdot 2}{9 \cdot 5}
+         = \frac{8}{2205}
+         = 0.003628.
+\]
+
+\subsection{\(A\)}
+
+\[
+A = \frac{|V_{cb}|}{\lambda^2}
+  = \frac{2/49}{(0.22485)^2}
+  = 0.80733.
+\]
+
+\subsection{Jarlskog Invariant}
+
+\[
+J_{CP} = \kappa^2 \frac{L_4}{L_5}
+         \left(1 - \frac{(L_4/L_5)^2}{2}\right)
+       = 3.11 \times 10^{-5}.
+\label{eq:jcp}
+\]
+
+\section{Full CKM Matrix}
+
+The complete CKM matrix (magnitudes) is:
+
+\[
+\begin{pmatrix}
+0.97439 & 0.22485 & 0.00363 \\
+0.22470 & 0.97357 & 0.04082 \\
+0.00886 & 0.04001 & 0.99916
+\end{pmatrix}.
+\]
+
+\section{Comparison with PDG}
+
+\[
+\begin{array}{lccc}
+\text{Element} & \text{Predicted} & \text{PDG} & \sigma \\
+\hline
+|V_{ud}| & 0.97439 & 0.97435 & 0.10 \\
+|V_{us}| & 0.22485 & 0.22500 & 0.23 \\
+|V_{ub}| & 0.00363 & 0.00369 & 0.56 \\
+|V_{cd}| & 0.22470 & 0.22486 & 0.25 \\
+|V_{cs}| & 0.97357 & 0.97349 & 0.18 \\
+|V_{cb}| & 0.04082 & 0.04182 & 1.18 \\
+|V_{td}| & 0.00886 & 0.00857 & 1.02 \\
+|V_{ts}| & 0.04001 & 0.04110 & 0.97 \\
+|V_{tb}| & 0.99916 & 0.99912 & 0.06 \\
+\end{array}
+\]
+
+Mean \(\sigma = 0.78\) across all nine magnitudes.

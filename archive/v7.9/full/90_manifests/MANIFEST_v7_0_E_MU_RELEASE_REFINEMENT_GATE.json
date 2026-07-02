@@ -1,0 +1,12 @@
+{
+  "artifact": "METATIME_STANDARD_MODEL_DERIVATION_MERGED_REPO_v7_0_E_MU_RELEASE_REFINEMENT_GATE_NO_NESTED_ZIPS",
+  "parent": "METATIME_STANDARD_MODEL_DERIVATION_MERGED_REPO_v6_9_SEALED_CHARGED_LEPTON_RECONSTRUCTION_BENCHMARK_NO_NESTED_ZIPS",
+  "parent_sha256": "ee7cd3ce7691affbbd36ad24c9ebaf1d939eca61468482dbfd6be867330215f4",
+  "created_utc": "2026-06-21T20:51:05Z",
+  "added_module": "70_e_mu_release_refinement_gate_v7_0",
+  "nested_archives_count": 0,
+  "module70_validator": "PASS",
+  "full_root_syntax_compile": "PASS",
+  "canon_allowed": false,
+  "current_promotion": "DENY_CURRENT"
+}

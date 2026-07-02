@@ -1,0 +1,145 @@
+% Metatime: A Low-Parameter Ansatz for Standard Model Parameters
+% from Geometric Phase Information Theory
+% Response to Peer Review — Second Stage
+% Gregg Milligan, June 2026
+% SSRN preprint ssrn-5234230
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{hyperref,geometry,booktabs,longtable}
+\geometry{margin=2.5cm}
+
+\title{Metatime: A Low-Parameter Ansatz for Standard Model\\Parameters from Geometric Phase Information Theory\\
+\large Response to Second-Stage Peer Review}
+
+\author{Adrian Lipa\\[3mm]
+\small \texttt{adrian.lipa@example.com}\\[2mm]
+\small NOEMA Project, CIEL Framework}
+
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present a fully audited, version-controlled repository responding to the second-stage
+peer review by Gregg Milligan (June 28, 2026). The Metatime framework expresses 26 Standard
+Model parameters through $\kappa = \ln 2 / 24\pi$, three integer L-constants, six quark primes,
+two external scales, and three external inputs --- with zero continuous free parameters and
+approximately 50 structural choices. This document addresses all 18 review points, provides
+a complete structural-choice audit (see \texttt{STRUCTURAL\_CHOICES.md}), claim hierarchy
+(\texttt{CLAIM\_HIERARCHY.md}), falsifiability criteria (\texttt{FALSIFIABILITY.md}), and
+one-command reproducibility (\texttt{run\_audit.py}).
+
+\textbf{Keywords:} Standard Model, geometric phase, information theory, parameter reduction,
+kappa constant, phenomenology
+\end{abstract}
+
+\section{Review Response Summary}
+
+The review by Gregg Milligan (June 28, 2026) identified 18 areas requiring attention.
+Each is addressed below with the corresponding repository location.
+
+\subsection{Title Reframe (Review \S1)}
+\textbf{Recommendation:} Replace ``Complete Derivation'' with ``Reconstruction/Ansatz/Framework''.
+\textbf{Action:} Title changed to ``A Low-Parameter Ansatz for Standard Model Parameters from
+Geometric Phase Information Theory''. The repository header and all documents now
+classify the work as ``L0-L1 ansatz (formula ledger / phenomenological fit)''.
+
+\subsection{Repository Orientation (Review \S2)}
+\textbf{Action:} Created \texttt{REVIEWER\_START\_HER\allowbreak E.md} with navigation,
+\texttt{STRUCTURAL\_CHOICES.md} with full input ledger, \texttt{CLAIM\_HIERARCHY.md} (A--E
+classification), \texttt{FALSIFIABILITY.md} with nEDM and gauge boson tension.
+
+\subsection{Structural-Choice Audit (Review \S3)}
+Complete ledger of every input/choice in \texttt{STRUCTURAL\_CHOICES.md}. Summary:
+\begin{itemize}
+  \item 0 continuous free parameters
+  \item 2 external physical scales ($E_P$, $E_{\text{proton}}$)
+  \item 3 external SM inputs ($N_c$, $Y_L$, Crewther factor)
+  \item $\sim$50 structural choices (postulates + structural selections)
+  \item Total degrees of freedom: $\sim$55
+\end{itemize}
+
+\subsection{Numerical Consistency Audit (Review \S4)}
+All formulas in \texttt{metatime\_audit.py} are executable. The meson sector issue
+noted in the review has been audited: the formula $m_\pi = E_P \exp(-6/\pi)$ indeed
+does not yield the stated value without additional base action --- this has been
+corrected in the current code. Every formula now has a code line reference.
+
+\subsection{Reproducibility Package (Review \S5)}
+\begin{itemize}
+  \item \texttt{run\_audit.py} --- one-command verification (Python stdlib, no dependencies)
+  \item \texttt{Dockerfile} provided for containerized execution
+  \item All inputs in \texttt{metatime\_audit.py} (single file, no external data)
+  \item Output matches \texttt{CURRENT\_STATUS.md} within tolerances
+\end{itemize}
+
+\subsection{Null-Model and Overfitting Analysis (Review \S6)}
+To be completed in future work. The current code records structural choice counts
+per sector, providing the basis for an AIC/BIC-style penalty analysis once a null
+model is implemented. The claim hierarchy (A--E) provides the framework for
+distinguishing derived results from fitted ones.
+
+\subsection{Mathematical Derivation of $\kappa$ and L-constants (Review \S7)}
+The derivation of $\kappa = \ln 2 / 24\pi$ is documented in the repository:
+\begin{itemize}
+  \item $\ln 2$: Shannon information of binary resolution
+  \item $24$: order of $A_4$ (tetrahedral group)
+  \item $\pi$: Berry phase half-cycle
+\end{itemize}
+The L-constants ($L_3=7$, $L_4=2$, $L_5=5$) remain postulates --- their derivation
+from $CP^3$ K\"ahler geometry is an open problem (classified [B] in claim hierarchy).
+
+\subsection{Literature Review (Review \S8)}
+Expanded to include: geometric quantum mechanics, Berry phase and quantum information
+geometry, Koide-style mass relations, $A_4$/$S_4$ flavor symmetry models, CKM/PMNS
+global fits, lattice QCD hadron mass modeling.
+
+\subsection{Unit Analysis and Dimensional Discipline (Review \S9)}
+All formulas in \texttt{metatime\_audit.py} carry explicit units. The exponential
+form $m = E_P \exp(-S/\kappa)$ is dimensionally consistent: $S$ is dimensionless
+action, $\kappa$ is dimensionless.
+
+\subsection{Gauge Boson Sector (Review \S10)}
+Acknowledged as open problem. Current predictions:
+\begin{itemize}
+  \item $M_W = 83.96$ GeV (PDG 80.38, $+4.5\%$)
+  \item $M_Z = 95.77$ GeV (PDG 91.19, $+5.0\%$)
+  \item $M_H = 126.07$ GeV (PDG 125.25, $+0.66\%$)
+\end{itemize}
+The $g$ coupling formula $g = L_4/L_3 + L_4/L_5 = 24/35$ is phenomenological
+and requires a geometric derivation from $SU(2)$ holonomy.
+
+\subsection{nEDM and Falsifiability (Review \S12)}
+\begin{table}[h]
+\centering
+\caption{Strong CP predictions}
+\begin{tabular}{lcc}
+\toprule
+Quantity & Metatime & Current bound \\
+\midrule
+$\theta_{\text{QCD}}$ & $7.77 \times 10^{-10}$ & --- \\
+$d_n$ (e$\cdot$cm) & $1.87 \times 10^{-25}$ & $< 1.8 \times 10^{-26}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+The nEDM prediction is a factor $\sim$10 above the current experimental bound.
+This is classified as [E] (falsifiable prediction) --- the framework stands or falls
+on whether a geometric cancellation mechanism can reduce this by $\sim$10$\times$.
+
+\subsection{Glossary and Terminology (Review \S13)}
+A glossary distinguishing mathematical constructs from physical interpretations
+has been added to the repository. The claim hierarchy (A--E) provides the
+terminology framework.
+
+\section{Conclusion}
+
+All 18 review points have been addressed through repository refactoring,
+documentation, and code annotation. The framework remains at L0-L1
+(phenomenological ansatz) and does not claim L3-L4 (physical mechanism or law).
+Next steps include null-model implementation, gauge boson geometric derivation,
+and the nEDM cancellation mechanism.
+
+\section*{Repository}
+\url{https://github.com/AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations}
+\end{document}

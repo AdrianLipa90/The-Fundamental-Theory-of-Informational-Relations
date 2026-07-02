@@ -1,0 +1,52 @@
+{
+  "schema": "METATIME_DEBT_REGISTER_DELTA_V7_1",
+  "module": "71_sealed_charged_lepton_reconstruction_benchmark_v7_1",
+  "parent": "70_e_mu_release_refinement_gate_v7_0",
+  "created_utc": "2026-06-22T00:00:00Z",
+  "technical_status": "PASS",
+  "previous_open_debts": [
+    {"id": "DEBT-009", "title": "Hadron and meson sector split", "status": "BLOCKED_WITH_REASON"},
+    {"id": "DEBT-007", "title": "Absolute charged-lepton electron action offset S_e", "status": "CLOSED_AS_DERIVATION_GATE_NOT_CANON"},
+    {"id": "DEBT-008", "title": "mu-to-tau release refinement", "status": "CLOSED_AS_RELEASE_REFINEMENT_GATE_NOT_CANON"},
+    {"id": "DEBT-013", "title": "e-to-mu release refinement", "status": "CLOSED_AS_RELEASE_REFINEMENT_GATE_NOT_CANON"}
+  ],
+  "delta": {
+    "closed_this_gate": [],
+    "updated_this_gate": [
+      {
+        "id": "DEBT-009",
+        "field": "status",
+        "from": "BLOCKED_WITH_REASON",
+        "to": "OPEN_READY",
+        "reason": "Unblocked: charged-lepton sector now gated at 0.48% mean error; DEBT-005 and DEBT-006 (blockers) are closed. Proceed to hadron/meson sector split."
+      }
+    ],
+    "introduced_this_gate": [
+      {
+        "id": "DEBT-014",
+        "title": "Neutrino sector PMNS mixing derivation",
+        "severity": "HIGH",
+        "status": "OPEN_UNASSIGNED",
+        "description": "Derive PMNS mixing angles from first principles (currently PDG-valued placeholder). Blocked on DEBT-009 completion: hadron structure informs GUT-scale seesaw relations."
+      }
+    ]
+  },
+  "remaining_open": [
+    {
+      "id": "DEBT-009",
+      "title": "Hadron and meson sector split",
+      "status": "OPEN_READY"
+    },
+    {
+      "id": "DEBT-014",
+      "title": "Neutrino sector PMNS mixing derivation",
+      "status": "OPEN_UNASSIGNED"
+    }
+  ],
+  "decision": {
+    "charged_lepton_sector": "FULLY_GATED_SUB_PERCENT_ALL_CHANNELS",
+    "canon_promotion": "STILL_DENIED_OPEN_NOT_CANON",
+    "next_physics_frontier": "DEBT-009 hadron/meson split",
+    "next_infrastructure_gate": "v7.2 DEBT-009 baryon triplet freeze gate"
+  }
+}

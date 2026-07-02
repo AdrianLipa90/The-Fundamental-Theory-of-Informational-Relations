@@ -1,0 +1,50 @@
+[
+  {
+    "name": "pi",
+    "pred": 138.959,
+    "PDG": 134.977,
+    "error_pct": 2.9503
+  },
+  {
+    "name": "K",
+    "pred": 492.309,
+    "PDG": 497.614,
+    "error_pct": -1.0662
+  },
+  {
+    "name": "eta8 (GMO octet)",
+    "pred": 562.779,
+    "PDG": 569.3,
+    "error_pct": -1.1454
+  },
+  {
+    "name": "eta1 (singlet)",
+    "pred": 945.198,
+    "PDG": 945.2,
+    "error_pct": -0.0002
+  },
+  {
+    "name": "M81^2",
+    "pred": 118208.4,
+    "PDG": 119159,
+    "error_pct": -0.7978
+  },
+  {
+    "name": "theta (deg)",
+    "pred": 11.1459,
+    "PDG": 11.36,
+    "error_pct": -1.8847
+  },
+  {
+    "name": "eta",
+    "pred": 541.692,
+    "PDG": 547.862,
+    "error_pct": -1.1261
+  },
+  {
+    "name": "eta'",
+    "pred": 957.439,
+    "PDG": 957.78,
+    "error_pct": -0.0356
+  }
+]

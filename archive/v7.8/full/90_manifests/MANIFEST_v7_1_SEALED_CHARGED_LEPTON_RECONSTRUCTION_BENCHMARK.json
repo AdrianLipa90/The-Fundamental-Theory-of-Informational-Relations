@@ -1,0 +1,13 @@
+{
+  "artifact": "METATIME_STANDARD_MODEL_DERIVATION_MERGED_REPO_v7_0_E_MU_RELEASE_REFINEMENT_GATE_NO_NESTED_ZIPS",
+  "parent": "70_e_mu_release_refinement_gate_v7_0",
+  "added_module": "71_sealed_charged_lepton_reconstruction_benchmark_v7_1",
+  "created_utc": "2026-06-22T00:00:00Z",
+  "previous_modules": ["69", "70"],
+  "module71_validator": "PASS",
+  "nested_archives_count": 0,
+  "canon_allowed": false,
+  "current_promotion": "DENY_CURRENT",
+  "substantive": "SUB_PERCENT_ALL_CHARGED_LEPTON_CHANNELS",
+  "next_debt": "DEBT-009 hadron/meson sector split"
+}

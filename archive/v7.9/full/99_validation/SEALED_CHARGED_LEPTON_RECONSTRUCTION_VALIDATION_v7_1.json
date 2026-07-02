@@ -1,0 +1,47 @@
+{
+  "schema": "SEALED_CHARGED_LEPTON_RECONSTRUCTION_VALIDATION_V7_1",
+  "parent": "70_e_mu_release_refinement_gate_v7_0",
+  "created_utc": "2026-06-22T00:00:00Z",
+  "module": "v7.1",
+  "module71_validator": "PASS",
+  "full_root_compileall": "PASS",
+  "nested_archives_count": 0,
+  "technical_status": "PASS",
+  "substantive_status": "PASS_SEALED_CHARGED_LEPTON_RECONSTRUCTION_BENCHMARK_INSTALLED_V7_1",
+  "derivation": {
+    "pipeline": [
+      {"step": 1, "source": "v5.3", "symbol": "OI", "formula": "ln(2)/(24·π)", "value": 0.009193150006360484},
+      {"step": 2, "source": "v4.5", "symbol": "L3", "formula": "Collatz base channel", "value": 7.0},
+      {"step": 3, "source": "v6.7", "symbol": "S_e", "formula": "1/2 − 3·OI + OI/L3 − OI²/2", "value": 0.47369160012116457},
+      {"step": 4, "source": "v7.0", "symbol": "R_em", "formula": "5·OI + 2·OI/L3 + ((L3+1)/2)·OI²", "value": 0.048930420347491774},
+      {"step": 5, "source": "v6.8", "symbol": "R_mt", "formula": "3·OI − OI/L3 − (L3/2)·OI²", "value": 0.025970343850677605},
+      {"step": 6, "source": "v6.1", "symbol": "E_P", "formula": "sqrt(ħ·c⁵/G)", "value_MeV": 1.2208901285838957e22},
+      {"step": 7, "derived": true, "symbol": "S_μ", "formula": "S_e − R_em", "value": 0.4247611797736728},
+      {"step": 8, "derived": true, "symbol": "S_τ", "formula": "S_μ − R_mt", "value": 0.3987908359229952},
+      {"step": 9, "derived": true, "symbol": "E_i", "formula": "E_P · exp(-S_i/OI)", "values_MeV": {"e": 0.5116420509844719, "μ": 104.83176930043687, "τ": 1767.504069634979}}
+    ]
+  },
+  "metrics": {
+    "particle_count": 3,
+    "mean_abs_relative_error_percent": 0.4782458022929183,
+    "max_abs_relative_error_percent": 0.782342772587578,
+    "electron_abs_relative_error_percent": 0.12585172327104704,
+    "muon_abs_relative_error_percent": 0.782342772587578,
+    "tau_abs_relative_error_percent": 0.5265429108101349,
+    "predicted_mu_over_e": 216.75945988991637,
+    "scoring_mu_over_e": 206.76829179394596,
+    "mu_over_e_relative_error_percent": 4.8320600848833495,
+    "predicted_tau_over_mu": 16.8603857535734,
+    "scoring_tau_over_mu": 16.817028616187375,
+    "tau_over_mu_relative_error_percent": 0.2578168734534314,
+    "predicted_tau_over_e": 3654.648109480211,
+    "scoring_tau_over_e": 3477.228280018971,
+    "tau_over_e_relative_error_percent": 5.102334824571031
+  },
+  "comparison_vs_v6_9": {
+    "v6_9_mean_abs_error_percent": 3.4414842288192085,
+    "v7_1_mean_abs_error_percent": 0.4782458022929183,
+    "error_reduction_factor": 7.196,
+    "improvement_summary": "Fixed v6.2 frozen R_e_mu (3.44%) → v7.0 refined R_e_mu (0.48%). All three channels sub-1%."
+  }
+}

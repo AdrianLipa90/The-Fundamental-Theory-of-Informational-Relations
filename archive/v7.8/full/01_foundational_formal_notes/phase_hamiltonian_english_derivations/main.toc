@@ -1,0 +1,23 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Core thesis}{3}{section.1}%
+\contentsline {section}{\numberline {2}Relational configuration space and phase bundle}{3}{section.2}%
+\contentsline {section}{\numberline {3}Aharonov--Bohm--Berry--Euler connection}{3}{section.3}%
+\contentsline {section}{\numberline {4}Information constant, operator domain, and zero-level fluctuations}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Meaning of a defined domain}{4}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Twin-prime seed and Collatz/Kolac rhythm}{5}{section.5}%
+\contentsline {section}{\numberline {6}Euler--Berry constraint binding $\epsilon $, $D$, and phase}{5}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Euler and Berry quantization interpretation}{6}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Derivation I: canonical phase rotor embedding}{6}{section.7}%
+\contentsline {section}{\numberline {8}Derivation II: discrete Floquet phase generator}{7}{section.8}%
+\contentsline {section}{\numberline {9}Covariant quantum Hamiltonian}{8}{section.9}%
+\contentsline {section}{\numberline {10}Consistency conditions}{8}{section.10}%
+\contentsline {section}{\numberline {11}Reference simulations}{8}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Collatz phase accumulation}{8}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Euler--Berry closure scan}{10}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Finite matrix Hamiltonian check}{11}{subsection.11.3}%
+\contentsline {section}{\numberline {12}Interpretation}{12}{section.12}%
+\contentsline {section}{\numberline {13}Minimal next formal tasks}{12}{section.13}%
+\contentsline {section}{\numberline {A}Source code: Collatz phase simulation}{13}{appendix.A}%
+\contentsline {section}{\numberline {B}Source code: Euler--Berry constraint scan}{16}{appendix.B}%
+\contentsline {section}{\numberline {C}Source code: finite Hamiltonian matrix demo}{17}{appendix.C}%
+\contentsline {section}{\numberline {D}Source code: run all}{19}{appendix.D}%

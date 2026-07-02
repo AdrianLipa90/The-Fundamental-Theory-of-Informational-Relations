@@ -1,0 +1,65 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{The Fine-Structure Constant}
+\label{ch:fine_structure}
+
+\section{Derivation}
+
+The fine-structure constant \(\alpha = e^2/(4\pi)\) is one of the most
+precisely measured quantities in physics:
+
+\[
+\alpha^{-1} = 137.035999084.
+\]
+
+Within the Metatime framework, it receives a geometric expression from the
+L-constants and the information constant \(\kappa\):
+
+\begin{equation}
+\frac{1}{\alpha} = (L_3 L_4)^2 - L_3^{\,2} - L_4 L_5 + L_4^{\,2}\,\kappa.
+\label{eq:alpha_derived}
+\end{equation}
+
+\subsection{Term-by-Term Breakdown}
+
+\[
+\begin{aligned}
+(L_3 L_4)^2 &= (7 \times 2)^2 = 14^2 = 196, \\
+- L_3^{\,2} &= -49, \\
+- L_4 L_5 &= -2 \times 5 = -10, \\
++ L_4^{\,2}\,\kappa &= 4 \times 0.00919315000636 = 0.0367726.
+\end{aligned}
+\]
+
+\subsection{Numerical Evaluation}
+
+\[
+\frac{1}{\alpha} = 196 - 49 - 10 + 0.03677 = 137.03677.
+\]
+
+\section{Comparison with PDG}
+
+\[
+\frac{137.03677 - 137.035999}{137.035999} = +0.00056\%.
+\]
+
+This is an essentially perfect match, with a relative error of
+\(5.6 \times 10^{-6}\).
+
+\section{Physical Interpretation}
+
+The formula decomposes into geometric primitives:
+
+\begin{description}
+\item[\((L_3 L_4)^2 = 196\):] The full SU(3)\(\times\)SU(2) phase-space
+volume.  The product \(L_3 L_4 = 14\) is the combined colour--annihilation
+structure, and the square reflects the second-order nature of the
+electromagnetic coupling.
+\item[\(-L_3^2 = -49\):] Subtraction of the SU(3) self-coupling.  The
+strong interaction's self-energy contribution is removed to isolate the
+electromagnetic component.
+\item[\(-L_4 L_5 = -10\):] SU(2)\(\times\)U(1) mixing correction.  The
+weak interaction mixing subtracts a further contribution.
+\item[\(+L_4^2\kappa = 4\kappa\):] The Poincar\'{e} disk curvature
+correction, proportional to the information constant \(\kappa\) times the
+square of the annihilation constant.
+\end{description}

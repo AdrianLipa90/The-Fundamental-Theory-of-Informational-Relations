@@ -1,0 +1,67 @@
+{
+  "schema": "METATIME_MESON_PAIR_STATE_UNIFIED_OPERATOR_V7_3",
+  "module": "73_debt9_meson_pair_state_v7_3",
+  "parent": "72_debt9_baryon_triplet_freeze_v7_2",
+  "created_utc": "2026-06-22T17:41:59Z",
+  "technical_status": "PASS",
+  "formal_status": "PASS_MESON_PAIR_STATE_OPERATOR_FROZEN",
+  "substantive_status": "LIGHT_MESON_SUB_PERCENT_HEAVY_MESON_SCALE_OPEN",
+  "debt9_numeric_spectrum": "OPEN_NOT_CLOSED",
+  "canon_allowed": false,
+  "operator": {
+    "sector_A_pseudoscalar": {
+      "formula": "E = E_P · exp(-(S_P + OI·ΔS/OI)/OI)",
+      "delta_S_over_OI": "π/ζ(2) if r₃(p·q)=0 else ζ(2)-1",
+      "theorem": "Legendre 3-square (n=4^a·(8b+7) → r₃=0)",
+      "zeta_identity": "ζ(2) = π²/6"
+    },
+    "sector_B_vector": {
+      "formula": "E = E_0 · exp(-λ_k) · exp(-2·OI)",
+      "E_0": 1037.9,
+      "W_ij_dim": "24×24 (8 SU(3) channels × 3 oscillators)",
+      "J_KJ_source": "SU(3) Gell-Mann current algebra"
+    },
+    "unified_picture": [
+      "BEC supercondensate of 24 oscillators with W_ij coupling",
+      "Eigenvalue spectrum λ_k → meson mass eigenstates",
+      "Legendre selection: which eigenmode a q-qbar pair occupies",
+      "Bogoliubov correction exp(-2·OI) from condensate depletion",
+      "Spectral zeta emerges from 3D cymatic standing wave sum"
+    ]
+  },
+  "eigenvalues": [
+    {
+      "mode": "φ(1020) zero-mode",
+      "lambda": 0.0,
+      "mass_mev": 1018.991
+    },
+    {
+      "mode": "η/ρ/ω octet",
+      "lambda": 0.528,
+      "mass_mev": 600.984
+    },
+    {
+      "mode": "K* octet",
+      "lambda": 0.121,
+      "mass_mev": 902.861
+    },
+    {
+      "mode": "heavy 1",
+      "lambda": -0.897,
+      "mass_mev": 2498.806
+    },
+    {
+      "mode": "heavy 2",
+      "lambda": -1.817,
+      "mass_mev": 6270.231
+    }
+  ],
+  "open_problems": [
+    "Heavy meson (D+, B+) not derivable from spectral zeta alone",
+    "W_ij eigenvalue λ=-0.897 (2545 MeV) misaligns with D+(1869)",
+    "W_ij eigenvalue λ=-1.817 (6384 MeV) misaligns with B+(5279)",
+    "Hypothesis: heavy quark core changes W_ij cavity via QCD screening",
+    "Alternative: W_ij needs different prime-flavor coupling for c,b,t"
+  ],
+  "fingerprint_sha256": "d250a80318cd1010a9fe7d8d31c5d8e27889b84bffdf8ec0f1b0249907a8759a"
+}

@@ -1,0 +1,84 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Tetrahedron Algebraic Geometry}
+\label{app:tetrahedron}
+
+\section{The NOEMA Tetrahedron}
+
+The PMNS mixing angles arise from a tetrahedron in the operator space
+$\{\hat I, \hat M, \hat A_\mu, \hat A_\tau\}$, where:
+
+\begin{itemize}
+\item $\hat I$ is the identity operator (generation-neutral).
+\item $\hat M$ is the mass operator (diagonal in the flavour basis).
+\item $\hat A_\mu$ and $\hat A_\tau$ are the atmospheric and reactor
+annihilation operators.
+\end{itemize}
+
+\section{Edge Lengths}
+
+The six edges of the tetrahedron are determined by the L-constants:
+
+\[
+\begin{aligned}
+e_{IM} &= \frac{L_4}{L_3} = \frac{2}{7}, \\[4pt]
+e_{IA_\mu} &= \frac{L_4}{L_3+L_4} = \frac{2}{9}, \\[4pt]
+e_{IA_\tau} &= \frac{1}{L_3} = \frac{1}{7}, \\[4pt]
+e_{MA_\mu} &= \frac{(L_4/L_3)^2}{2} = \frac{2}{49}, \\[4pt]
+e_{MA_\tau} &= e_{MA_\mu}(L_3+L_4+1) = \frac{20}{49}, \\[4pt]
+e_{A_\mu A_\tau} &= \frac{L_4}{L_3} + \left(\frac{L_4}{L_3}\right)^2 = \frac{18}{49}.
+\end{aligned}
+\]
+
+\section{Dihedral Angles}
+
+The dihedral angles follow from the law of cosines for tetrahedra:
+
+\[
+\cos\theta_{ij} = \frac{e_{ik}^2 + e_{jk}^2 - e_{ij}^2}{2 e_{ik} e_{jk}}.
+\]
+
+\section{Volume}
+
+The tetrahedron volume in $\{\hat I, \hat M, \hat A_\mu, \hat A_\tau\}$
+space is:
+
+\[
+V = \frac{1}{12}\sqrt{2(L_4/L_3)^2(L_4/(L_3+L_4))^2(1/L_3)^2}
+  \times \det G,
+\]
+
+where $G$ is the Gram matrix of edge vectors.  The volume is proportional
+to $\kappa^3$, setting the scale for neutrino mass splittings.
+
+\section{PMNS Mapping}
+
+The mixing angles are obtained by projecting the tetrahedron onto the
+three coordinate planes:
+
+\[
+\begin{aligned}
+\sin\theta_{13} &= e_{IA_\tau} = 1/L_3, \\[4pt]
+\sin^2\theta_{12} &= e_{IA_\mu} + e_{IM}^2, \\[4pt]
+\sin^2\theta_{23} &= \frac12 + \frac{L_4}{L_3^2}.
+\end{aligned}
+\]
+
+The CP phase $\delta_{CP}$ is the holonomy of the tetrahedron's
+self-intersection form:
+
+\[
+\delta_{CP} = \pi\left(1 + \frac{L_4}{L_3} + \left(\frac{L_4}{L_3}\right)^2\right).
+\]
+
+\section{Mass Eigenvalues}
+
+The mass eigenvalues are the tetrahedron's face normals, projected onto
+the mass operator direction:
+
+\[
+m_i = E_P \times 10^6 \exp\left(-\frac{S_i}{\kappa}\right),
+\qquad
+S_i = S_{\text{bare}} - \kappa \ln r_i,
+\]
+
+with $r = [1, L_4, L_3+L_4+1] = [1, 2, 10]$.

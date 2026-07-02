@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "METATIME_E_MU_RELEASE_REFINEMENT_GATE_V7_0",
+  "type": "object",
+  "required": [
+    "schema",
+    "module",
+    "technical_status",
+    "formal_status",
+    "substantive_status",
+    "formula",
+    "input_policy",
+    "derived_e_mu_release_action",
+    "predicted_mu_over_e_energy_ratio",
+    "scoring_only",
+    "canon_allowed",
+    "mass_spectrum_closure_claimed"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string"
+    },
+    "module": {
+      "type": "string"
+    },
+    "technical_status": {
+      "type": "string"
+    },
+    "formal_status": {
+      "type": "string"
+    },
+    "substantive_status": {
+      "type": "string"
+    },
+    "formula": {
+      "type": "string"
+    },
+    "input_policy": {
+      "type": "object"
+    },
+    "derived_e_mu_release_action": {
+      "type": "number"
+    },
+    "predicted_mu_over_e_energy_ratio": {
+      "type": "number"
+    },
+    "scoring_only": {
+      "type": "object"
+    },
+    "canon_allowed": {
+      "type": "boolean"
+    },
+    "mass_spectrum_closure_claimed": {
+      "type": "boolean"
+    }
+  }
+}

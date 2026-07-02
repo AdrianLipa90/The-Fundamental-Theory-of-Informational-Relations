@@ -1,0 +1,71 @@
+{
+  "schema": "METATIME_GAUGE_BOSONS_V7_9",
+  "module": "80_debt15_gauge_bosons_v7_9",
+  "created_utc": "2026-06-22T20:58:20Z",
+  "status": "PASS",
+  "constants": {
+    "L3": 7,
+    "L4": 2,
+    "L5": 5,
+    "OI": 0.009193150006360484,
+    "E_proton": 938.272,
+    "alpha_EM": 0.0072973525692838015
+  },
+  "higgs_vev": {
+    "predicted_MeV": 244889.0,
+    "formula": "E_proton\u00b7(L3\u00b2\u00b7L5+L3\u00b7L4+L4)",
+    "PDG_MeV": 246220,
+    "err_pct": -0.5406
+  },
+  "weinberg_angle": {
+    "sin2_theta_W": 0.231415,
+    "formula": "L4/(L3+L4)+OI",
+    "theta_W_deg": 28.7544
+  },
+  "gauge_couplings": {
+    "e": 0.302822,
+    "g": 0.629494,
+    "g_prime": 0.345415
+  },
+  "gauge_bosons": [
+    {
+      "particle": "W",
+      "predicted_MeV": 77078.1,
+      "PDG_MeV": 80377,
+      "sigma": 274.91,
+      "err_pct": -4.1043
+    },
+    {
+      "particle": "Z",
+      "predicted_MeV": 87919.4,
+      "PDG_MeV": 91187.6,
+      "sigma": 1556.27,
+      "err_pct": -3.584
+    },
+    {
+      "particle": "H",
+      "predicted_MeV": 125942.9,
+      "PDG_MeV": 125250,
+      "sigma": 4.08,
+      "err_pct": 0.5532
+    }
+  ],
+  "consistency": {
+    "rho": 1.0,
+    "MW_MZ": 0.87669
+  },
+  "higgs_holonomic_leakage": {
+    "M_H_bare_MeV": 97955.6,
+    "lambda_h": 0.222222,
+    "M_H_phys_MeV": 125942.9,
+    "interpretation": "Higgs mass amplified by 1/(1-L4/(L3+L4)) = (L3+L4)/L3 due to unavoidable coupling to gauge/matter sectors"
+  },
+  "formulas": {
+    "VEV": "E_proton\u00b7(L3\u00b2\u00b7L5+L3\u00b7L4+L4)",
+    "sin\u00b2\u03b8_W": "L4/(L3+L4)+OI",
+    "M_W": "g\u00b7v/2",
+    "M_Z": "M_W/cos\u03b8_W",
+    "M_H": "v\u00b7L4/L5\u00b7(L3+L4)/L3 = M_H_bare/(1-L4/(L3+L4))"
+  },
+  "fingerprint_sha256": "8b1b42e111aeca0d3a32ec798524bdd65b5530bdd0a0ac846a89a1d14a8a0fdb"
+}

@@ -1,0 +1,90 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Lepton Mass Spectrum}
+\label{ch:lepton_spectrum}
+
+\section{Mass Calculation}
+
+Using the actions derived in Chapters~\ref{ch:electron_action} and
+\ref{ch:generation_release}, we compute all three charged lepton masses
+from the exponential formula \(m = E_P e^{-S/\kappa}\).
+
+\subsection{Electron}
+
+\[
+\begin{aligned}
+m_e &= E_P \exp(-S_e/\kappa) \\
+    &= 1.22089 \times 10^{22} \exp(-0.4736916001 / 0.00919315000636) \\
+    &= 1.22089 \times 10^{22} e^{-51.525803\ldots} \\
+    &= 0.511642\ \mev.
+\end{aligned}
+\]
+
+\subsection{Muon}
+
+\[
+\begin{aligned}
+m_\mu &= E_P \exp(-S_\mu/\kappa) \\
+      &= 1.22089 \times 10^{22} \exp(-0.4247611798 / 0.00919315000636) \\
+      &= 1.22089 \times 10^{22} e^{-46.202598\ldots} \\
+      &= 104.83177\ \mev.
+\end{aligned}
+\]
+
+\subsection{Tau}
+
+\[
+\begin{aligned}
+m_\tau &= E_P \exp(-S_\tau/\kappa) \\
+       &= 1.22089 \times 10^{22} \exp(-0.3987908359 / 0.00919315000636) \\
+       &= 1.22089 \times 10^{22} e^{-43.379114\ldots} \\
+       &= 1767.50407\ \mev.
+\end{aligned}
+\]
+
+\section{Results and Comparison}
+
+\[
+\begin{array}{lccc}
+\text{Particle} & \text{Predicted (MeV)} & \text{PDG (MeV)} & \text{Error} \\
+\hline
+e & 0.511642 & 0.510999 & +0.126\% \\
+\mu & 104.832 & 105.658 & -0.782\% \\
+\tau & 1767.504 & 1776.86 & -0.527\% \\
+\end{array}
+\]
+
+\noindent Mean absolute error: 0.48\%.
+
+\section{Error Analysis}
+
+The three errors are correlated: they all stem from the action construction.
+The electron error (+0.13\%) is the smallest, as the electron action was
+constructed term-by-term from first principles.  The muon and tau errors
+(\(-0.78\%\) and \(-0.53\%\)) are larger and opposite in sign, suggesting
+that the generation release operators slightly overestimate the information
+gradient between generations.
+
+The systematic pattern of errors (electron positive, muon/tau negative)
+suggests that a refined action for the release operators could further
+improve the fit.  However, the current 0.48\% mean error is already a factor
+of 7 improvement over the earlier v6.9 results (which had 3.5\% error).
+
+\section{Exponential Sensitivity}
+
+The exponential form \(m = E_P e^{-S/\kappa}\) implies that small changes in
+\(S\) produce large changes in \(m\).  Specifically:
+
+\[
+\frac{\delta m}{m} = -\frac{\delta S}{\kappa}.
+\]
+
+Since \(\kappa \approx 0.0092\), a change of \(\delta S = 0.0001\) in the
+action produces a \(\sim 1\%\) change in the mass.  The 0.48\% mean error
+therefore corresponds to an action uncertainty of approximately:
+
+\[
+|\delta S| \approx 0.48\% \times 0.0092 \approx 4.4 \times 10^{-5}.
+\]
+
+This demonstrates the extreme sensitivity of the mass formula and explains
+why the action coefficients must be specified to high precision.
