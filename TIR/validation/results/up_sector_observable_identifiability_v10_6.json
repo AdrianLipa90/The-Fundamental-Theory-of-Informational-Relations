@@ -1,0 +1,44 @@
+{
+  "architecture_refinement": {
+    "class_A": {
+      "name": "SECTOR_INVARIANT_BASELINE",
+      "primary_prospective_observable": "first qualifying post-2026-07-28 joint ATLAS/CMS direct charm-to-tau Higgs-coupling likelihood",
+      "reason": "c and tau occupy different declared sectors, so a sector baseline does not cancel from y_c/y_tau.",
+      "rule": "May use only coordinates invariant across generations inside a declared sector. Generation-varying coordinates must be assigned to class B."
+    },
+    "class_B": {
+      "frozen_v10_2_prediction_yc_over_yt": 0.006345210526463283,
+      "name": "UNIVERSAL_GENERATION_RELEASE",
+      "primary_prospective_observable": "first qualifying post-2026-07-28 joint ATLAS/CMS direct charm-to-top Higgs-coupling likelihood",
+      "rule": "May use generation-varying structural coordinates, but the same algebraic operator must be applied across all charged-fermion families."
+    }
+  },
+  "canon_allowed": false,
+  "current_promotion": "DENY_CURRENT",
+  "debt9_status": "OPEN_NOT_CLOSED",
+  "formula_selected": false,
+  "mass_benchmark_performed": false,
+  "methodological_status": "ARCHITECTURE_AND_OBSERVABLE_MAPPING_CORRECTION",
+  "module": "up_sector_observable_identifiability_v10_6",
+  "observed_higgs_likelihood_loaded": false,
+  "operator_fingerprint_sha256": "baa956fb41a1867f3f6c51435a1bdc0e41167091ec0c4a24d61206a4b60a9614",
+  "reclassification_rule": "Any proposed class-A functional that uses mode, generation, generation-varying v7, or another within-sector varying field is reclassified as class B before testing.",
+  "schema": "TIR_UP_SECTOR_OBSERVABLE_IDENTIFIABILITY_V10_6",
+  "sector_labels": {
+    "c": "heavy_quark_resonance",
+    "t": "heavy_quark_resonance",
+    "tau": "charged_lepton_small_seed"
+  },
+  "source_policy": {
+    "future_likelihood_value_inspected": false,
+    "non_electron_mass_used_to_select_formula": false,
+    "orientation_blob_sha": "838b2606e004049bf58d86a18cf0f345799aaa73",
+    "v10_2_prediction_blob_sha": "b7563fd294e9a688dd276b954ffe56fd499c621e"
+  },
+  "technical_status": "PASS",
+  "theorem": {
+    "c_and_t_share_sector": true,
+    "statement": "For a sector-invariant baseline B_s with s(c)=s(t), log(y_c/y_t)=[B_s+Delta_c]-[B_s+Delta_t]=Delta_c-Delta_t; therefore y_c/y_t is insensitive to B_s.",
+    "tau_is_cross_sector_from_c": true
+  }
+}
