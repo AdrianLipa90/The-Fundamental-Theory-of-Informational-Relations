@@ -1,13 +1,22 @@
 # Up-sector absolute-baseline preregistration v10.3
 
+> **Historical status / superseded:** v10.4 proved that a single common additive
+> `B_up` cannot close the fixed v10.2 up-sector trace.  This file is retained as
+> the original constraint freeze and contamination declaration, but its
+> common-baseline architecture is no longer an admissible next step.  The active
+> architecture rules are now defined by
+> `UP_SECTOR_COMMON_BASELINE_NO_GO_v10_4.md` and
+> `UP_SECTOR_ARCHITECTURE_PREREGISTRATION_v10_5.md`.
+
 ## Status
 
-- **Artifact class:** preregistration / constraint freeze
+- **Artifact class:** historical preregistration / constraint freeze
 - **Formula selected:** no
 - **Numerical benchmark performed:** no
 - **Canonical promotion allowed:** no
 - **Debt 9 status:** open
-- **Purpose:** prevent post-residual formula selection after the retrospective v10.2 sector-holonomy signal
+- **Purpose:** preserve the pre-v10.4 contamination and integrity declaration
+- **Active architecture status:** superseded by v10.4 and v10.5
 
 ## 1. Contamination declaration
 
@@ -21,11 +30,11 @@ The following information has already been inspected and therefore cannot serve 
 
 Any subsequent formula that is evaluated only against the same charged-fermion mass table is exploratory, even when its executable contains no mass input. Hashing a formula after it has been chosen from known residuals does not restore prospective independence.
 
-## 2. Research question
+## 2. Original research question — now closed as insufficient
 
-Can one derive a **single common absolute baseline for the entire up-type sector** from already declared informational geometry, without using a `u`-specific correction and without changing the successful relative release between `u`, `c`, and `t`?
+The original v10.3 question was whether one could derive a **single common absolute baseline for the entire up-type sector** from already declared informational geometry, without using a `u`-specific correction and without changing the successful relative release between `u`, `c`, and `t`.
 
-The desired decomposition is
+The proposed decomposition was
 
 \[
 \ln\frac{m_{u_g}}{m_e}
@@ -33,14 +42,10 @@ The desired decomposition is
 B_{\rm up}
 +
 \Delta_{\rm up}(g),
-\qquad g\in\{1,2,3\},
+\qquad g\in\{1,2,3\}.
 \]
 
-where:
-
-- `B_up` is common to `u`, `c`, and `t`;
-- `Delta_up(g)` is the already declared relative-generation trace;
-- neither term may contain observed up-sector masses or residual-derived numbers.
+v10.4 proves that this architecture cannot simultaneously remove the `u` residual and retain the current absolute `c/t` scale while `Delta_up(g)` is held fixed.  The proposal is therefore retained only as the hypothesis that was tested and rejected.
 
 ## 3. Frozen allowed inputs
 
@@ -75,34 +80,31 @@ The following are prohibited:
 - describing the same charged-fermion table as a prospective holdout;
 - promoting a candidate because it reproduces already inspected masses.
 
-## 5. Structural invariants that must be preserved
+These prohibitions remain active under v10.5.
 
-Every admissible baseline candidate must satisfy all of the following before any external validation:
+## 5. Historical structural invariants
 
-1. **Common-sector action:** the same `B_up` acts on `u`, `c`, and `t`.
-2. **No generation refit:** the v10.2 relative-generation release is not re-estimated from masses.
-3. **Order preservation:**
+The original v10.3 baseline candidate was required to satisfy:
+
+1. one common action on `u`, `c`, and `t`;
+2. no mass-derived generation refit;
+3. preservation of
    \[
-   m_u<m_c<m_t.
+   m_u<m_c<m_t;
    \]
-4. **Dimensional discipline:** `B_up` is dimensionless; the electron remains the only dimensional mass anchor in the current one-anchor architecture.
-5. **Ramanujan continuity:** the mandatory Ramanujan layer cannot be removed merely because another coordinate gives lower residuals.
-6. **Provenance:** every source field must be named, versioned and hashed.
-7. **Single formula:** no conditional branch keyed by particle name.
-8. **Quarantine preservation:** old-document heavy-sector assumptions remain explicitly labelled.
+4. dimensionless structural action with the electron as the sole dimensional anchor;
+5. mandatory Ramanujan continuity;
+6. complete provenance;
+7. no particle-name branch;
+8. preservation of old-document quarantine.
 
-## 6. Formula-selection procedure
+The first condition is superseded because v10.4 proves it is insufficient.  Conditions 2--8 remain part of the active integrity policy.
 
-Before any numerical comparison is made, a future module must produce:
+## 6. Historical formula-selection procedure
 
-- a symbolic derivation of `B_up`;
-- a machine-readable list of all structural inputs;
-- the exact branch/sign conventions;
-- an operator fingerprint;
-- algebraic and dimensional checks;
-- a declaration of the independent observable to be used for prospective validation.
+Before any numerical comparison, v10.3 required a symbolic derivation, machine-readable input ledger, exact branch/sign conventions, operator fingerprint, algebraic checks and a named independent observable.
 
-If more than one formula remains possible after symbolic derivation, none may be selected using the known charged-fermion masses. The alternatives must be retained as a finite preregistered family and tested on an independent observable under a multiplicity-aware rule.
+That process requirement remains valid.  The object to be derived is no longer a single common `B_up`; v10.5 allows only a universal pre-existing-sector functional or a universal relative-release operator.
 
 ## 7. Independent validation requirement
 
@@ -111,14 +113,14 @@ No clean unused charged-fermion mass remains inside the current table. Therefore
 An admissible independent test must satisfy all of the following:
 
 - it is named before its value is inspected for this purpose;
-- it follows from the same up-sector baseline without an additional free scale;
+- it follows from the same frozen operator without an additional free scale;
 - its extraction does not reuse the target mass residual as an intermediate quantity;
 - the success and failure thresholds are fixed beforehand;
-- failure is retained and reported without rewriting the baseline.
+- failure is retained and reported without rewriting the operator.
 
-Until such a test is identified, a new `B_up` formula may be documented only as a structural candidate.
+v10.5 names the primary prospective observable as the first qualifying post-2026-07-28 joint ATLAS/CMS direct charm-to-top Higgs-coupling likelihood.
 
-## 8. Prospective gates
+## 8. Active gates after supersession
 
 ### Technical gate
 
@@ -130,18 +132,16 @@ PASS requires zero observed mass or mixing inputs in the operator, zero particle
 
 ### Structural gate
 
-PASS requires a common up-sector baseline, preservation of `u<c<t`, preservation of the relative `c/t` release and compatibility with the declared colour/chirality geometry.
+The active structural gate is defined in v10.5: the candidate must be a universal sector functional or a universal relative-release operator, must pass cross-transfer and must preserve quarantine.
 
 ### Prospective validation gate
 
-PASS requires an independent preregistered observable. The known charged-fermion masses cannot satisfy this gate.
+PASS requires the independently preregistered observable. The known charged-fermion masses cannot satisfy this gate.
 
 ### Canonical gate
 
 Canonical promotion requires all four gates. Technical or retrospective numerical success alone is insufficient.
 
-## 9. Current frozen conclusion
+## 9. Superseded conclusion
 
-The v10.2 sector-holonomy trace is retained as a strong retrospective hypothesis generator. Its numerical pattern motivates the search for a common absolute up-sector baseline, but it does not determine that baseline.
-
-The next implementation must begin from this preregistration and must not infer a new coefficient from the known `u` residual.
+The v10.2 sector-holonomy trace remains a retrospective hypothesis generator.  v10.4 closes the common-baseline-only route.  The next implementation must begin from the v10.5 architecture freeze and must not infer a coefficient from the known `u` residual.
