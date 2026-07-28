@@ -2,28 +2,32 @@
 \chapter{Sector-Holonomy Release of the Collatz Quarter-Power Trace}
 \label{app:sector_holonomy_release}
 
-\section{Scope and status}
+\section{Scope and corrected methodological status}
 
 Appendix~\ref{app:collatz_quarter_power} established a comparative signal for
 the Collatz-derived exponent $3/4$, but the electron-anchored trace retained a
-geometric-mean multiplicative error close to ten.  This appendix tests the
-next predeclared bridge using only structural operators already present in the
-repository.
+geometric-mean multiplicative error close to ten.  The sector-holonomy formula
+reported here was constructed after inspection of that residual pattern.
+Consequently, it is a \emph{retrospective structural candidate}, not a
+prospective sealed test.
 
-The result is:
+The corrected status, recorded by the v10.2r1 ledger, is
 
 \[
 \boxed{
 \text{technical PASS}
 \;\land\;
-\text{sector-relative PASS}
+\text{retrospective structural signal}
 \;\land\;
 \text{physical spectrum FAIL/OPEN}
 }
 \]
 
-No particle-dependent residual coefficient is introduced and canonical
-promotion remains denied.
+No continuous coefficient was fitted and no particle-dependent residual
+correction was introduced.  Nevertheless, the formula-selection history makes
+the result ineligible for canonical promotion.  The v10.2r1 classification
+supersedes the original v10.2 epistemic label without changing the numerical
+operator or its fingerprint.
 
 \section{Base quarter-power coordinate}
 
@@ -40,7 +44,7 @@ Q_i=
 \label{eq:quarter_base_Q}
 \end{equation}
 
-The extension tested here is
+The retrospective v10.2 candidate is
 
 \begin{equation}
 \ln\frac{m_i}{m_e}=Q_i+G_i+H_i+W_i.
@@ -106,8 +110,8 @@ three independent copies of the same orientation release.
 \section{White-Thread down-sector release}
 
 The v3.5 White-Thread artifact defines a mass-free open-holonomy overlap
-between the oriented up and down bases.  For each down-type slot $d_i$, select
-the strongest structural channel
+between the oriented up and down bases.  For each down-type slot $d_i$, the
+v10.2 candidate selects the strongest structural channel
 
 \[
 w_i=\max_{u_j\in\{u,c,t\}}
@@ -122,17 +126,19 @@ W_i=L_4\ln w_i
 \end{equation}
 
 for down quarks and $W_i=0$ otherwise.  The selected channels are
-$u\rightarrow d$, $u\rightarrow s$, and $c\rightarrow b$.  This selection
-uses neither observed CKM elements nor observed masses.
+$u\rightarrow d$, $u\rightarrow s$, and $c\rightarrow b$.  The executable
+selection uses neither observed CKM elements nor observed masses.  Its choice
+as the v10.2 functional form nevertheless belongs to the retrospective
+model-selection history and cannot count as independent confirmation.
 
-\section{Numerical result}
+\section{Numerical retrospective result}
 
 The predictions are
 
 \begin{center}
 \begin{tabular}{lrrr}
 \toprule
-Particle & Quarter-power (GeV) & Sector operator (GeV) & Validation (GeV)\\
+Particle & Quarter-power (GeV) & Sector candidate (GeV) & Validation (GeV)\\
 \midrule
 $e$   & 0.000510999 & 0.000510999 & 0.000510999\\
 $\mu$ & 0.00152075  & 0.108819    & 0.105658\\
@@ -168,9 +174,11 @@ d<s<b,
 \qquad u<c<t
 \]
 
-is preserved.
+is preserved.  These numbers demonstrate that the declared coordinates form a
+promising hypothesis generator; they do not constitute an independently
+validated derivation.
 
-\section{Remaining obstruction}
+\section{Remaining obstruction and prospective requirement}
 
 The $u$ prediction remains too high by
 
@@ -180,11 +188,18 @@ The $u$ prediction remains too high by
 \frac{m_u^{\mathrm{pred}}}{m_u^{\mathrm{val}}}=24.18.
 \]
 
-This is now isolated as an inter-sector baseline problem rather than a failure
-of the generation-release slopes.  A $u$-specific subtraction would be a
-hidden fit and is forbidden.  The next admissible step is a sealed derivation
-of the absolute up-sector baseline from already declared colour, Berry and
-twin-prime geometry.
+This isolates an inter-sector baseline problem.  A $u$-specific subtraction
+would be a hidden fit and is forbidden.  Because the charged-fermion masses and
+v10.1 residuals have already been inspected, the same table can no longer
+serve as a clean prospective holdout for a further operator choice.
 
-The executable audit and result ledger are located at
+The next admissible step is therefore to preregister the allowed structural
+inputs, algebraic constraints, and independent validation observable before a
+new absolute up-sector baseline formula is evaluated.  Until such an
+independent prospective test exists, the sector-holonomy formula remains a
+retrospective candidate and Debt~9 remains open.
+
+The numerical executable is
 \texttt{TIR/validation/collatz\_sector\_holonomy\_mass\_audit\_v10\_2.py}.
+Its authoritative methodological status is supplied by
+\texttt{TIR/validation/collatz\_sector\_holonomy\_mass\_audit\_v10\_2r1.py}.
