@@ -221,6 +221,50 @@ pre-existing sector distinction such as \texttt{light\_quark\_seed} versus
 \texttt{heavy\_quark\_resonance}; it may not insert a correction keyed directly
 to \(u\).
 
+\subsection{Prospective Observable Identifiability (Corrected)}
+
+Appendix~\ref{app:observable_identifiability} separates the two admissible
+architecture classes experimentally.  A pure sector baseline has
+
+\[
+B_i=B_{s(i)},
+\]
+
+with coordinates invariant across generations inside the declared sector.
+Since charm and top both occupy \texttt{heavy\_quark\_resonance},
+
+\[
+\ln\frac{y_c}{y_t}
+=
+(B_{\rm heavy}+\Delta_c)-(B_{\rm heavy}+\Delta_t)
+=
+\Delta_c-\Delta_t.
+\]
+
+Therefore \(y_c/y_t\) cannot identify a sector-invariant baseline.  It tests
+only a generation-varying relative-release operator.  The frozen v10.2
+prediction for this class is
+
+\[
+\left|\frac{y_c}{y_t}\right|=0.006345210526463283.
+\]
+
+The sector-baseline class is instead assigned a future direct
+charm-to-tau coupling ratio, because charm and tau occupy different declared
+sectors.  Any candidate that uses generation, mode, generation-varying
+\(v_7\), or another within-sector varying field is reclassified as a relative
+release before testing.
+
+The representation-source audit also confirms that candidate construction must
+use the corrected v1.0 table satisfying
+
+\[
+-Y_L+Y_H+Y_R=0,
+\]
+
+rather than the erroneous \texttt{blocked} status displayed by the historical
+v0.7 CSV.
+
 \section{Future Work}
 
 \begin{enumerate}
@@ -235,13 +279,14 @@ coefficients with a dynamical eigenvalue equation for \(\beta\) and
 \(\gamma\).
 \item \textbf{CKM \(|V_{cb}|\)}: Revise the \(|V_{cb}|\) formula to
 incorporate a higher-order \(\kappa\) correction.
-\item \textbf{Preregistered up-sector architecture}: The common-baseline-only
-proposal is ruled out for the fixed v10.2 trace.  Before another numerical
-comparison, derive either a mass-free light/heavy up-sector split from the
-already declared seed, colour, chirality and Euler--Berry geometry, or a new
-structural relative-release operator.  The branch may use only pre-existing
-sector labels, must preserve the heavy-sector quarantine, may not be keyed by
-particle name, and requires an independent validation observable for promotion.
+\item \textbf{Preregistered up-sector architecture}: Derive either a
+sector-invariant universal functional or a universal generation-release
+operator.  The first class may use only generation-invariant sector features
+and is tested prospectively by direct \(y_c/y_\tau\); the second may use
+generation-varying structural coordinates by one cross-family rule and is
+tested prospectively by direct \(y_c/y_t\).  Both classes must preserve the
+heavy-sector quarantine, Ramanujan continuity, the three-candidate limit, and
+the prohibition on particle-name branches or residual scans.
 \item \textbf{Anomalous magnetic moments}: Extend the framework to
 \((g-2)_\mu\) and \((g-2)_e\).
 \item \textbf{Dark matter}: Identify a dark matter candidate from the
