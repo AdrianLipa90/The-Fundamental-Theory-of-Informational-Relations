@@ -7,11 +7,14 @@
   "canonical_promotion_allowed": false,
   "debt9_status": "OPEN_NOT_CLOSED",
   "manifest_fingerprint_sha256": "24946b1cbaca2bed29724a13b74d3d81dc018578691d72610afc081038fb7c3f",
+  "observable_mapping_status": "REFINED_BY_V10_6",
+  "v10_6_ledger": "TIR/validation/results/up_sector_observable_identifiability_v10_6.json",
   "source_blobs": {
     "eb_action_v1_6": "c021ebfeffef7d700d2d843a9ea5eaed4fe7754d",
     "ramanujan_v2_1": "ab9e290a7bc9ba5596a170b9c060b1f2f73a40d7",
     "sector_orientation_v3_4": "838b2606e004049bf58d86a18cf0f345799aaa73",
     "white_thread_v3_5": "9576ae22f783aa0a3c333b628aa4c21656ff75c3",
+    "representation_features_corrected_v1_0": "536dd830666e8100c00b046b625ce0028e424558",
     "v10_2_predictions_retrospective_only": "b7563fd294e9a688dd276b954ffe56fd499c621e"
   },
   "preexisting_sector_labels": [
@@ -21,14 +24,15 @@
   ],
   "allowed_candidate_classes": [
     {
-      "id": "UNIVERSAL_SECTOR_FUNCTIONAL",
-      "rule": "One algebraic functional F must act on pre-existing sector feature bundles across all charged sectors; no particle-name branch is allowed."
+      "id": "SECTOR_INVARIANT_UNIVERSAL_FUNCTIONAL",
+      "rule": "One algebraic functional F must act on generation-invariant pre-existing sector feature bundles across all charged sectors; no particle-name branch is allowed."
     },
     {
-      "id": "UNIVERSAL_RELATIVE_RELEASE_OPERATOR",
-      "rule": "One relative-release operator D must be applied by the same rule to charged-lepton, down-quark and up-quark families; no up-only residual repair is allowed."
+      "id": "UNIVERSAL_GENERATION_RELEASE_OPERATOR",
+      "rule": "One generation-varying relative-release operator D must be applied by the same algebraic rule to charged-lepton, down-quark and up-quark families; no up-only residual repair is allowed."
     }
   ],
+  "reclassification_rule": "Any class-A proposal using mode, generation, generation-varying v7 or another within-sector varying field is reclassified as class B before testing.",
   "max_preregistered_candidates": 3,
   "required_structural_inputs": [
     "twin-prime pair and centre seed",
@@ -39,7 +43,7 @@
     "colour depth",
     "hypercharge and electric-charge labels",
     "H_plus or H_minus chirality path",
-    "v7 orientation coordinate",
+    "v7 orientation coordinate where class B applies",
     "White-Thread open-holonomy coordinates where structurally applicable"
   ],
   "forbidden": [
@@ -50,17 +54,27 @@
     "known charged-fermion table described as a prospective holdout",
     "silent promotion of heavy-sector rows marked old_doc_bridge_ansatz_quarantined",
     "removal of the mandatory Ramanujan layer",
-    "more than three retained candidate formulas"
+    "more than three retained candidate formulas",
+    "using a generation-varying coordinate while labelling the candidate a sector-invariant baseline"
   ],
   "cross_transfer_gate": {
     "required": true,
     "rule": "Every candidate must emit structural coordinates for all charged-fermion sectors, including at least one sector not used to motivate the candidate. A singleton light-up correction is not admissible."
   },
-  "primary_independent_observable": {
-    "name": "direct charm-to-top Higgs Yukawa coupling ratio",
-    "dataset_rule": "Use the first public joint ATLAS/CMS likelihood or combination released after 2026-07-28 that reports direct charm and top Higgs coupling information without converting the current quark-mass table into the target.",
-    "success_rule": "The frozen prediction must lie inside the published 95% confidence region; otherwise record FAIL.",
-    "no_refit_after_release": true
+  "prospective_observables": {
+    "class_A_sector_invariant_baseline": {
+      "name": "direct charm-to-tau Higgs coupling ratio",
+      "dataset_rule": "Use the first public joint ATLAS/CMS likelihood or combination released after 2026-07-28 that reports direct charm and tau Higgs-coupling information without converting the current charged-fermion mass table into the target.",
+      "success_rule": "The frozen prediction must lie inside the published 95% confidence region; otherwise record FAIL.",
+      "no_refit_after_release": true
+    },
+    "class_B_universal_generation_release": {
+      "name": "direct charm-to-top Higgs coupling ratio",
+      "dataset_rule": "Use the first public joint ATLAS/CMS likelihood or combination released after 2026-07-28 that reports direct charm and top Higgs-coupling information without converting the current quark-mass table into the target.",
+      "frozen_v10_2_prediction_yc_over_yt": 0.006345210526463283,
+      "success_rule": "The frozen prediction must lie inside the published 95% confidence region; otherwise record FAIL.",
+      "no_refit_after_release": true
+    }
   },
   "fallback_if_primary_dataset_unavailable": {
     "status": "NO_PROMOTION",
