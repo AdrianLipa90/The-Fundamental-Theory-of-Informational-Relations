@@ -2,14 +2,20 @@
   "schema": "TIR_COLLATZ_SECTOR_HOLONOMY_MASS_AUDIT_V10_2",
   "module": "collatz_sector_holonomy_mass_audit_v10_2",
   "technical_status": "PASS",
-  "comparative_status": "PASS_SECTOR_OPERATOR_IMPROVES_GLOBAL_QUARTER_POWER_TRACE",
-  "sector_relative_status": "PASS_EXCLUDING_OPEN_UP_SECTOR_BASELINE",
+  "methodological_status": "SUPERSEDED_BY_V10_2R1_RETROSPECTIVE_CLASSIFICATION",
+  "method_status_superseded_by": "TIR/validation/results/collatz_sector_holonomy_mass_audit_v10_2r1.json",
+  "comparative_status": "RETROSPECTIVE_SIGNAL_ONLY",
+  "sector_relative_status": "RETROSPECTIVE_SIGNAL_EXCLUDING_OPEN_UP_SECTOR_BASELINE",
   "physical_mass_spectrum_status": "FAIL_OPEN",
   "debt9_status": "OPEN_NOT_CLOSED",
   "canon_allowed": false,
   "current_promotion": "DENY_CURRENT",
   "mass_derivation_claimed": false,
   "operator_trace_sha256": "0df162f79949fb81653089b488a01341a7d268364af95e3c86e27bd78d7d0ebe",
+  "formula_selected_after_v10_1_residual_review": true,
+  "continuous_parameters_fitted": false,
+  "particle_specific_residual_corrections": false,
+  "prospective_validation_claimed": false,
   "constants": {
     "kappa_ln2_over_24pi": 0.009193150006360484,
     "L3": 7,
@@ -53,12 +59,14 @@
     "status": "OPEN_INTER_SECTOR_BASELINE_NOT_SOLVED"
   },
   "operator_policy": {
-    "non_electron_observed_masses_used_before_freeze": false,
-    "observed_mixing_used": false,
+    "non_electron_observed_masses_used_inside_executable_operator": false,
+    "observed_mixing_used_inside_executable_operator": false,
     "particle_specific_residual_corrections": false,
-    "post_residual_tuning": false,
+    "formula_selected_after_v10_1_residual_review": true,
+    "continuous_parameters_fitted": false,
+    "prospective_validation_claimed": false,
+    "promotion_eligible": false,
     "ramanujan_layer_mandatory": true,
-    "heavy_quark_orientation_source_quarantine_preserved": true,
-    "white_thread_channel_selection": "maximum structural open-holonomy overlap per down slot; no mass or CKM input"
+    "heavy_quark_orientation_source_quarantine_preserved": true
   }
 }
