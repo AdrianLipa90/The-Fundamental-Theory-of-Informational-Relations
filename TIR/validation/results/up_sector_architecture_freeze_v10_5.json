@@ -6,7 +6,8 @@
   "benchmark_performed": false,
   "canonical_promotion_allowed": false,
   "debt9_status": "OPEN_NOT_CLOSED",
-  "manifest_fingerprint_sha256": "24946b1cbaca2bed29724a13b74d3d81dc018578691d72610afc081038fb7c3f",
+  "original_v10_5_manifest_fingerprint_sha256": "24946b1cbaca2bed29724a13b74d3d81dc018578691d72610afc081038fb7c3f",
+  "refined_observable_mapping_fingerprint_sha256": "baa956fb41a1867f3f6c51435a1bdc0e41167091ec0c4a24d61206a4b60a9614",
   "observable_mapping_status": "REFINED_BY_V10_6",
   "v10_6_ledger": "TIR/validation/results/up_sector_observable_identifiability_v10_6.json",
   "source_blobs": {
