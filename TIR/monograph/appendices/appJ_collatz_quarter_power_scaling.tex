@@ -1,0 +1,183 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Collatz Quarter-Power Scaling Audit}
+\label{app:collatz_quarter_power}
+
+This appendix records a candidate bridge between accelerated Collatz dynamics
+and the charged-fermion mass-scaling problem.  The bridge is tested under a
+one-anchor, no-hidden-fit protocol.  It is not promoted to the canonical mass
+law because the numerical spectrum remains physically inaccurate.
+
+\section{Accelerated Odd Collatz Map}
+
+For an odd positive integer $n$, define
+
+\begin{equation}
+T(n)=\frac{3n+1}{2^{a(n)}},
+\qquad
+ a(n)=\nu_2(3n+1),
+\label{eq:accelerated_collatz_quarter}
+\end{equation}
+
+where $\nu_2$ denotes the $2$-adic valuation.  Uniform odd residue classes
+satisfy
+
+\begin{equation}
+\Pr\bigl(a=k\bigr)=2^{-k},
+\qquad k\geq 1,
+\end{equation}
+
+and hence
+
+\begin{equation}
+\mathbb{E}[a]
+=\sum_{k=1}^{\infty}k2^{-k}
+=2.
+\end{equation}
+
+For large $n$, the additive $+1$ gives only a finite-size correction, and the
+logarithmic multiplier is
+
+\begin{equation}
+\begin{aligned}
+\rho_C
+&=\exp\left[
+\mathbb{E}\left(\ln\frac{3}{2^a}\right)
+\right] \\
+&=\exp\left(\ln3-\mathbb{E}[a]\ln2\right) \\
+&=\exp(\ln3-2\ln2)
+=\frac34.
+\end{aligned}
+\label{eq:collatz_rho_three_quarters}
+\end{equation}
+
+Enumeration of all odd residues below $2^{18}$ gives
+
+\begin{equation}
+\overline{a}=1.9999923706054688,
+\qquad
+\rho_C^{(18)}=0.7500039662304689,
+\end{equation}
+
+consistent with the asymptotic value $3/4$.
+
+\section{Logical Boundary}
+
+Equation~\eqref{eq:collatz_rho_three_quarters} derives $3/4$ as the
+asymptotic geometric-mean multiplier of the accelerated map.  It does not by
+itself prove that a structural particle coordinate must be raised to the
+power $3/4$.  The additional identification
+
+\begin{equation}
+\text{Collatz contraction multiplier}
+\quad\longrightarrow\quad
+\text{mass-scaling exponent}
+\end{equation}
+
+is therefore an explicit bridge hypothesis.  This distinction is essential:
+the arithmetic derivation of $\rho_C$ is a technical PASS, while its use in
+the particle spectrum remains subject to numerical falsification.
+
+\section{Inverse Action Coordinate}
+
+The archived Euler--Berry action coordinate $A_i$ decreases along the observed
+mass hierarchy.  Consequently, a direct power of $A_i/A_e$ compresses the
+hierarchy in the wrong direction.  The tested structural coordinate is
+instead
+
+\begin{equation}
+X_i=\frac{A_e}{A_i}.
+\label{eq:inverse_eb_action_coordinate}
+\end{equation}
+
+For a fixed exponent $\alpha$, define
+
+\begin{equation}
+\Phi_\alpha(X_i)=X_i^\alpha.
+\end{equation}
+
+The candidate one-anchor mass-ratio trace is
+
+\begin{equation}
+\boxed{
+\ln\frac{m_i}{m_e}
+=
+\frac{X_i^\alpha-1}{L_3\kappa}
++
+\frac{R_i-R_e}{\kappa}
+}
+\label{eq:quarter_power_mass_trace}
+\end{equation}
+
+with
+
+\begin{equation}
+\kappa=\frac{\ln2}{24\pi},
+\qquad
+L_3=7,
+\end{equation}
+
+and $R_i$ the pre-existing Ramanujan release coordinate.  The tested Collatz
+hypothesis fixes
+
+\begin{equation}
+\alpha=\rho_C=\frac34.
+\end{equation}
+
+No non-electron mass is used to construct or fingerprint the operator trace.
+The electron supplies the sole dimensional mass anchor; all other charged
+fermion masses enter only after the trace has been frozen.
+
+\section{Fixed-Comparator Audit}
+
+The $3/4$ hypothesis was compared with the predeclared exponents $2/3$, $1$,
+and $4/3$.  Errors are measured in logarithmic mass space and exclude the
+electron anchor.
+
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+Exponent & Mean $|\Delta\ln m|$ & Median & Maximum & Geometric factor \\
+\midrule
+$2/3$ & 2.5455 & 2.4786 & 4.6769 & 12.75 \\
+$\mathbf{3/4}$ & $\mathbf{2.2993}$ & $\mathbf{2.2966}$ & $\mathbf{4.4781}$ & $\mathbf{9.97}$ \\
+$1$ & 2.8506 & 3.1581 & 5.0162 & 17.30 \\
+$4/3$ & 5.3866 & 5.3597 & 7.7179 & 218.46 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The quarter-power operator is the best of these fixed comparators on all three
+reported error summaries and preserves the generation order in the charged
+lepton, down-quark, and up-quark families.
+
+A retrospective scan over $\alpha\in[0.2,1.5]$ with spacing $0.005$ places the
+minimum mean absolute logarithmic error at $\alpha=0.75$.  Because that scan
+uses validation masses, it is recorded only as a diagnostic and cannot be used
+to redefine the operator.
+
+\section{Physical Failure and Promotion Rule}
+
+Despite the comparative signal, the mean multiplicative error remains close
+to a factor of ten.  In particular, the candidate strongly underestimates the
+muon, tau, and top masses.  The accidental near agreement of the bottom-quark
+value is not sufficient for closure.
+
+The correct status is therefore
+
+\begin{equation}
+\boxed{
+\text{technical PASS}
+\;\wedge\;
+\text{comparative signal PASS}
+\;\wedge\;
+\text{physical spectrum FAIL}
+}
+\end{equation}
+
+and canonical promotion is denied.  The next admissible development is a
+predeclared sector term derived from Euler--Berry holonomy, chirality, colour,
+and twin-prime geometry.  Particle-by-particle residual corrections are not
+allowed.
+
+The executable audit is located at
+\texttt{TIR/validation/collatz\_quarter\_power\_mass\_audit\_v10\_1.py}.
