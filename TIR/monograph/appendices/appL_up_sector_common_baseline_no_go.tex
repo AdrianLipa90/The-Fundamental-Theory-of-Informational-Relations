@@ -1,0 +1,177 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{No-Go Theorem for a Common Up-Sector Baseline}
+\label{app:up_sector_common_baseline_no_go}
+
+\section{Scope and status}
+
+Appendix~\ref{app:sector_holonomy_release} isolated a large first-generation
+up-quark residual while the charm and top channels remained much closer to their
+validation scales.  The v10.3 preregistration proposed testing a common additive
+baseline for the full up-type sector.  This appendix proves that such a baseline
+cannot close the fixed v10.2 trace.
+
+The status is
+
+\[
+\boxed{
+\text{technical PASS}
+\;\land\;
+\text{common-baseline architecture FAIL}
+\;\land\;
+\text{physical spectrum OPEN}
+}
+\]
+
+The calculation is retrospective because the validation residuals have already
+been inspected.  It proposes no new mass coefficient and permits no canonical
+promotion.
+
+\section{Common-baseline architecture}
+
+Suppose the up-type masses are represented by
+
+\begin{equation}
+\ln\frac{m_{u_g}}{m_e}
+=
+B_{\rm up}+\Delta_{\rm up}(g),
+\qquad g\in\{u,c,t\},
+\label{eq:common_up_baseline}
+\end{equation}
+
+where the same dimensionless baseline $B_{\rm up}$ acts on all three channels
+and the relative trace $\Delta_{\rm up}(g)$ is held fixed.
+
+Let
+
+\begin{equation}
+r_g=\ln\frac{m_g^{\rm pred}}{m_g^{\rm val}}
+\label{eq:up_residual_definition}
+\end{equation}
+
+be the logarithmic residual.  Adding a common baseline shift $B$ gives
+
+\begin{equation}
+r'_g=r_g+B.
+\label{eq:translated_up_residual}
+\end{equation}
+
+\section{Translation-invariance theorem}
+
+\begin{theorem}[Common-baseline no-go]
+For a fixed residual vector $\{r_u,r_c,r_t\}$, a common additive shift cannot
+alter any pairwise residual difference.  A common shift exists such that
+$|r'_g|\leq\varepsilon$ for every up-type channel if and only if
+
+\[
+\max_g r_g-\min_g r_g\leq 2\varepsilon.
+\]
+
+The smallest achievable uniform absolute logarithmic error is
+
+\[
+\varepsilon_{\min}
+=
+\frac{\max_g r_g-\min_g r_g}{2}.
+\]
+\end{theorem}
+
+\begin{proof}
+For any pair $g,h$,
+
+\[
+r'_g-r'_h=(r_g+B)-(r_h+B)=r_g-r_h.
+\]
+
+Thus the residual spread is invariant.  The condition $|r_g+B|\leq\varepsilon$
+requires
+
+\[
+B\in[-r_g-\varepsilon,-r_g+\varepsilon]
+\]
+
+for every $g$.  These intervals have a common intersection exactly when the
+largest lower endpoint does not exceed the smallest upper endpoint, which is
+equivalent to $\max r-\min r\leq2\varepsilon$.  The minimax translation centres
+the extreme residuals around zero, giving half the spread.  \qed
+\end{proof}
+
+\section{Application to the v10.2 trace}
+
+The already inspected v10.2 residuals are
+
+\[
+r_u=3.1857238256,
+\qquad
+r_c=0.0818052322,
+\qquad
+r_t=0.2293790515.
+\]
+
+Their invariant spread is
+
+\begin{equation}
+\Delta r
+=
+\max r-\min r
+=
+3.1039185934.
+\label{eq:up_residual_spread}
+\end{equation}
+
+Therefore
+
+\begin{equation}
+\boxed{
+\varepsilon_{\min}=1.5519592967
+}
+\label{eq:up_minimax_error}
+\end{equation}
+
+and at least one channel must retain a multiplicative error not smaller than
+
+\begin{equation}
+\boxed{
+\exp(\varepsilon_{\min})=4.7207104.
+}
+\label{eq:up_minimax_factor}
+\end{equation}
+
+The optimal minimax shift is
+
+\[
+B_*=-\frac{\max r+\min r}{2}=-1.6337645289,
+\]
+
+for which
+
+\[
+|r'_u|=|r'_c|=1.5519592967,
+\qquad
+|r'_t|=1.4043854774.
+\]
+
+Hence no common baseline can bring all three up-type channels into the
+approximately $0.254$ logarithmic envelope achieved by the other v10.2
+non-anchor channels.
+
+\section{Interpretation}
+
+The no-go theorem applies to the architecture
+$B_{\rm up}+\Delta_{\rm up}(g)$ with the v10.2 relative trace frozen.  It does
+not disprove the Collatz quarter-power exponent and does not exclude a richer
+up-sector geometry.
+
+The repository already distinguishes the structural labels
+\texttt{light\_quark\_seed} and \texttt{heavy\_quark\_resonance}.  A future
+candidate may investigate whether these pre-existing sectors require distinct
+structural baselines, or whether the relative up-sector release itself must be
+rederived.  Such work must preserve the quarantine of the archived heavy-sector
+bridge and may not introduce a correction keyed directly to the particle name
+$u$.
+
+Any numerical comparison using the already inspected charged-fermion mass table
+remains retrospective.  Independent preregistered validation is still required
+for promotion.
+
+The executable audit is located at
+\texttt{TIR/validation/up\_sector\_common\_baseline\_no\_go\_v10\_4.py}.
