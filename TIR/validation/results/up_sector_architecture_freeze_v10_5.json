@@ -1,0 +1,69 @@
+{
+  "schema": "TIR_UP_SECTOR_ARCHITECTURE_FREEZE_V10_5",
+  "created_date": "2026-07-28",
+  "artifact_class": "PREREGISTRATION_AND_ARCHITECTURE_FREEZE",
+  "formula_selected": false,
+  "benchmark_performed": false,
+  "canonical_promotion_allowed": false,
+  "debt9_status": "OPEN_NOT_CLOSED",
+  "manifest_fingerprint_sha256": "24946b1cbaca2bed29724a13b74d3d81dc018578691d72610afc081038fb7c3f",
+  "source_blobs": {
+    "eb_action_v1_6": "c021ebfeffef7d700d2d843a9ea5eaed4fe7754d",
+    "ramanujan_v2_1": "ab9e290a7bc9ba5596a170b9c060b1f2f73a40d7",
+    "sector_orientation_v3_4": "838b2606e004049bf58d86a18cf0f345799aaa73",
+    "white_thread_v3_5": "9576ae22f783aa0a3c333b628aa4c21656ff75c3",
+    "v10_2_predictions_retrospective_only": "b7563fd294e9a688dd276b954ffe56fd499c621e"
+  },
+  "preexisting_sector_labels": [
+    "charged_lepton_small_seed",
+    "light_quark_seed",
+    "heavy_quark_resonance"
+  ],
+  "allowed_candidate_classes": [
+    {
+      "id": "UNIVERSAL_SECTOR_FUNCTIONAL",
+      "rule": "One algebraic functional F must act on pre-existing sector feature bundles across all charged sectors; no particle-name branch is allowed."
+    },
+    {
+      "id": "UNIVERSAL_RELATIVE_RELEASE_OPERATOR",
+      "rule": "One relative-release operator D must be applied by the same rule to charged-lepton, down-quark and up-quark families; no up-only residual repair is allowed."
+    }
+  ],
+  "max_preregistered_candidates": 3,
+  "required_structural_inputs": [
+    "twin-prime pair and centre seed",
+    "ordinary or accelerated Collatz invariants",
+    "Euler-Berry action coordinate",
+    "Ramanujan mandatory release coordinate",
+    "sector orientation label",
+    "colour depth",
+    "hypercharge and electric-charge labels",
+    "H_plus or H_minus chirality path",
+    "v7 orientation coordinate",
+    "White-Thread open-holonomy coordinates where structurally applicable"
+  ],
+  "forbidden": [
+    "particle-name branch",
+    "u-specific constant or phase",
+    "residual-derived factor or approximation to the known 24.18 offset",
+    "candidate scan selected by the known charged-fermion mass table",
+    "known charged-fermion table described as a prospective holdout",
+    "silent promotion of heavy-sector rows marked old_doc_bridge_ansatz_quarantined",
+    "removal of the mandatory Ramanujan layer",
+    "more than three retained candidate formulas"
+  ],
+  "cross_transfer_gate": {
+    "required": true,
+    "rule": "Every candidate must emit structural coordinates for all charged-fermion sectors, including at least one sector not used to motivate the candidate. A singleton light-up correction is not admissible."
+  },
+  "primary_independent_observable": {
+    "name": "direct charm-to-top Higgs Yukawa coupling ratio",
+    "dataset_rule": "Use the first public joint ATLAS/CMS likelihood or combination released after 2026-07-28 that reports direct charm and top Higgs coupling information without converting the current quark-mass table into the target.",
+    "success_rule": "The frozen prediction must lie inside the published 95% confidence region; otherwise record FAIL.",
+    "no_refit_after_release": true
+  },
+  "fallback_if_primary_dataset_unavailable": {
+    "status": "NO_PROMOTION",
+    "rule": "Retain the candidate as structural only; do not replace the named observable after inspecting alternatives."
+  }
+}
