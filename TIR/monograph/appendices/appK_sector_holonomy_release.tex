@@ -1,0 +1,190 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Sector-Holonomy Release of the Collatz Quarter-Power Trace}
+\label{app:sector_holonomy_release}
+
+\section{Scope and status}
+
+Appendix~\ref{app:collatz_quarter_power} established a comparative signal for
+the Collatz-derived exponent $3/4$, but the electron-anchored trace retained a
+geometric-mean multiplicative error close to ten.  This appendix tests the
+next predeclared bridge using only structural operators already present in the
+repository.
+
+The result is:
+
+\[
+\boxed{
+\text{technical PASS}
+\;\land\;
+\text{sector-relative PASS}
+\;\land\;
+\text{physical spectrum FAIL/OPEN}
+}
+\]
+
+No particle-dependent residual coefficient is introduced and canonical
+promotion remains denied.
+
+\section{Base quarter-power coordinate}
+
+Let $A_i$ denote the mass-free Euler--Berry action coordinate and $R_i$ the
+mandatory Ramanujan release coordinate.  The frozen v10.1 trace is
+
+\begin{equation}
+Q_i=
+\frac{(A_e/A_i)^{3/4}-1}{L_3\kappa}
++
+\frac{R_i-R_e}{\kappa},
+\qquad
+\kappa=\frac{\ln2}{24\pi}.
+\label{eq:quarter_base_Q}
+\end{equation}
+
+The extension tested here is
+
+\begin{equation}
+\ln\frac{m_i}{m_e}=Q_i+G_i+H_i+W_i.
+\label{eq:sector_full_operator}
+\end{equation}
+
+\section{Collatz generation release}
+
+For the twin-prime pair $(p,p+2)$ associated with an Euler--Berry row, define
+its centre $n=p+1$ and ordinary Collatz stopping length $\ell(n)$.  The three
+canonical centres satisfy
+
+\[
+\ell(4)=2,
+\qquad
+\ell(6)=8,
+\qquad
+\ell(12)=9.
+\]
+
+Let $c_i$ be the declared colour depth.  The available release depth is
+$L_5-c_i$, giving
+
+\begin{equation}
+G_i=(L_5-c_i)\frac{\ell_i-\ell_e}{L_3}.
+\label{eq:collatz_generation_release}
+\end{equation}
+
+For charged leptons, $c_i=0$ and the full intention depth $L_5=5$ is
+available.  For quarks, $c_i=3$, leaving the two-dimensional release depth
+$L_5-3=L_4=2$.
+
+\section{Signed orientation release}
+
+The pre-mass sector basis supplies a final orientation coordinate $v_{7,i}$
+and a chiral path through either $H_+$ or $H_-$.  Define
+
+\[
+s_i=
+\begin{cases}
++1,& H_+\text{ path},\\
+-1,& H_-\text{ path},\\
+0,& \text{neutral path}.
+\end{cases}
+\]
+
+Using the first structural generation $a(i)$ of the same family as a
+mass-free reference,
+
+\begin{equation}
+H_i=
+\frac{s_i}{\max(1,c_i)}
+\ln\left(
+\frac{1+|v_{7,i}|/\kappa}
+     {1+|v_{7,a(i)}|/\kappa}
+\right).
+\label{eq:signed_orientation_release}
+\end{equation}
+
+The colour normalization prevents a colour-depth-three channel from receiving
+three independent copies of the same orientation release.
+
+\section{White-Thread down-sector release}
+
+The v3.5 White-Thread artifact defines a mass-free open-holonomy overlap
+between the oriented up and down bases.  For each down-type slot $d_i$, select
+the strongest structural channel
+
+\[
+w_i=\max_{u_j\in\{u,c,t\}}
+\left|\mathcal O_{\mathrm{open}}(u_j,d_i)\right|.
+\]
+
+The release term is
+
+\begin{equation}
+W_i=L_4\ln w_i
+\label{eq:white_thread_release}
+\end{equation}
+
+for down quarks and $W_i=0$ otherwise.  The selected channels are
+$u\rightarrow d$, $u\rightarrow s$, and $c\rightarrow b$.  This selection
+uses neither observed CKM elements nor observed masses.
+
+\section{Numerical result}
+
+The predictions are
+
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Particle & Quarter-power (GeV) & Sector operator (GeV) & Validation (GeV)\\
+\midrule
+$e$   & 0.000510999 & 0.000510999 & 0.000510999\\
+$\mu$ & 0.00152075  & 0.108819    & 0.105658\\
+$\tau$& 0.0201752   & 1.64836     & 1.77686\\
+$d$   & 0.0275743   & 0.00461801  & 0.00467\\
+$s$   & 0.121639    & 0.120407    & 0.0934\\
+$b$   & 4.17760     & 5.33173     & 4.18\\
+$u$   & 0.0522391   & 0.0522391   & 0.00216\\
+$c$   & 0.248465    & 1.37826     & 1.27\\
+$t$   & 10.3185     & 217.213     & 172.69\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For the eight non-anchor slots, the mean absolute logarithmic error falls from
+$2.2993$ to $0.5137$, and the geometric-mean multiplicative error falls from
+$9.967$ to $1.672$.  Excluding only the unresolved $u$ baseline gives
+
+\[
+\overline{|\Delta\ln m|}=0.1320,
+\qquad
+\max|\Delta\ln m|=0.2540,
+\qquad
+\exp\overline{|\Delta\ln m|}=1.141.
+\]
+
+The ordering
+
+\[
+e<\mu<\tau,
+\qquad
+d<s<b,
+\qquad u<c<t
+\]
+
+is preserved.
+
+\section{Remaining obstruction}
+
+The $u$ prediction remains too high by
+
+\[
+\ln\frac{m_u^{\mathrm{pred}}}{m_u^{\mathrm{val}}}=3.1857,
+\qquad
+\frac{m_u^{\mathrm{pred}}}{m_u^{\mathrm{val}}}=24.18.
+\]
+
+This is now isolated as an inter-sector baseline problem rather than a failure
+of the generation-release slopes.  A $u$-specific subtraction would be a
+hidden fit and is forbidden.  The next admissible step is a sealed derivation
+of the absolute up-sector baseline from already declared colour, Berry and
+twin-prime geometry.
+
+The executable audit and result ledger are located at
+\texttt{TIR/validation/collatz\_sector\_holonomy\_mass\_audit\_v10\_2.py}.
