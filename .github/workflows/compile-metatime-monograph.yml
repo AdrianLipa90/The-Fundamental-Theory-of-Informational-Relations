@@ -39,20 +39,10 @@ jobs:
           from pathlib import Path
           path = Path('TIR/monograph/prepare_publication_candidate_v11_0.py')
           text = path.read_text(encoding='utf-8')
-          old = '''    text = re.sub(
-                  r"\\\\usepackage(?:\\[[^]]*\\])?\\{hyperref\\}",
-                  hyperref_block,
-                  text,
-                  count=1,
-              )'''
-          new = '''    text = re.sub(
-                  r"\\\\usepackage(?:\\[[^]]*\\])?\\{hyperref\\}",
-                  lambda _match: hyperref_block,
-                  text,
-                  count=1,
-              )'''
-          if old not in text:
-              raise SystemExit('Expected hyperref replacement block not found')
+          old = "        hyperref_block,\n        text,\n        count=1,\n    )"
+          new = "        lambda _match: hyperref_block,\n        text,\n        count=1,\n    )"
+          if text.count(old) != 1:
+              raise SystemExit(f'Expected one hyperref replacement argument, found {text.count(old)}')
           path.write_text(text.replace(old, new, 1), encoding='utf-8')
           PYPATCH
           chmod +x TIR/monograph/prepare_publication_candidate_v11_0.py
