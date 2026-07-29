@@ -1,0 +1,72 @@
+{
+  "schema": "TIR_COLLATZ_SECTOR_HOLONOMY_MASS_AUDIT_V10_2",
+  "module": "collatz_sector_holonomy_mass_audit_v10_2",
+  "technical_status": "PASS",
+  "methodological_status": "SUPERSEDED_BY_V10_2R1_RETROSPECTIVE_CLASSIFICATION",
+  "method_status_superseded_by": "TIR/validation/results/collatz_sector_holonomy_mass_audit_v10_2r1.json",
+  "comparative_status": "RETROSPECTIVE_SIGNAL_ONLY",
+  "sector_relative_status": "RETROSPECTIVE_SIGNAL_EXCLUDING_OPEN_UP_SECTOR_BASELINE",
+  "physical_mass_spectrum_status": "FAIL_OPEN",
+  "debt9_status": "OPEN_NOT_CLOSED",
+  "canon_allowed": false,
+  "current_promotion": "DENY_CURRENT",
+  "mass_derivation_claimed": false,
+  "operator_trace_sha256": "0df162f79949fb81653089b488a01341a7d268364af95e3c86e27bd78d7d0ebe",
+  "formula_selected_after_v10_1_residual_review": true,
+  "continuous_parameters_fitted": false,
+  "particle_specific_residual_corrections": false,
+  "prospective_validation_claimed": false,
+  "constants": {
+    "kappa_ln2_over_24pi": 0.009193150006360484,
+    "L3": 7,
+    "L4": 2,
+    "L5": 5,
+    "alpha_collatz": 0.75,
+    "dimensional_anchor": "e"
+  },
+  "quarter_summary": {
+    "count": 8,
+    "mean_abs_log_error": 2.2992971091881693,
+    "median_abs_log_error": 2.296642479191519,
+    "max_abs_log_error": 4.478149273754863,
+    "geometric_mean_multiplicative_error": 9.967174156934343
+  },
+  "sector_summary": {
+    "count": 8,
+    "mean_abs_log_error": 0.5137490341961286,
+    "median_abs_log_error": 0.1555921418456618,
+    "max_abs_log_error": 3.185723825578498,
+    "geometric_mean_multiplicative_error": 1.6715461462692092
+  },
+  "non_anchor_excluding_u_summary": {
+    "count": 7,
+    "mean_abs_log_error": 0.132038349712933,
+    "median_abs_log_error": 0.08180523217541318,
+    "max_abs_log_error": 0.25398458146888697,
+    "geometric_mean_multiplicative_error": 1.1411520812828295
+  },
+  "improved_slots": ["d", "mu", "s", "c", "tau", "t"],
+  "worsened_slots": ["b"],
+  "unchanged_open_slot": "u",
+  "generation_order": {
+    "charged_lepton": true,
+    "down_quark": true,
+    "up_quark": true
+  },
+  "u_sector_offset": {
+    "sector_log_error": 3.185723825578498,
+    "multiplicative_error": 24.184787639788727,
+    "status": "OPEN_INTER_SECTOR_BASELINE_NOT_SOLVED"
+  },
+  "operator_policy": {
+    "non_electron_observed_masses_used_inside_executable_operator": false,
+    "observed_mixing_used_inside_executable_operator": false,
+    "particle_specific_residual_corrections": false,
+    "formula_selected_after_v10_1_residual_review": true,
+    "continuous_parameters_fitted": false,
+    "prospective_validation_claimed": false,
+    "promotion_eligible": false,
+    "ramanujan_layer_mandatory": true,
+    "heavy_quark_orientation_source_quarantine_preserved": true
+  }
+}

@@ -1,100 +1,73 @@
 % !TEX root = ../metatime_monograph.tex
-\chapter{Open Problems}
+\chapter{Open Problems and Falsification Ledger}
 \label{ch:open_problems}
 
-\section{Summary of Tensions}
+% CITATION_CONTEXT_V10_9_BEGIN
+\paragraph{Established context.}
+The ledger follows falsifiability, preregistration, and reproducible
+computational practice \cite{Popper1959,Lakatos1978,Sandve2013,Wilson2014,Munafo2017,Nosek2018,Stark2018}.
+Prospective Higgs-coupling gates are anchored to direct experimental searches
+and reference data \cite{ATLAS2022Charm,PDG2024}.  A failed frozen test is
+retained rather than repaired post hoc.
+% CITATION_CONTEXT_V10_9_END
 
-The Metatime framework, while successful across most SM sectors, has
-several unresolved tensions.
+\section{Current physical status}
+\begin{description}
+  \item[Gauge bosons -- OPEN TENSION.] The frozen relations overshoot the quoted
+  $W$ and $Z$ masses by approximately $4.5\%$ and $5.0\%$.  No
+  renormalization-group derivation is presently supplied.
 
-\subsection{CKM CP Phase (Resolved)}
+  \item[Higgs mass -- RETROSPECTIVE REVISION.] The earlier $6.3$~TeV formula
+  failed.  The replacement $M_H=v\kappa(L_3^2+L_4+L_5)$ was adopted after the
+  target value was known.  Its small percentage offset is not prospective
+  evidence, and the statement ``within $2\sigma$'' has been withdrawn.
 
-The previous inversion of the Jarlskog relation gave
-\(\delta = 73.6^\circ\) (\(\sigma = 5.35\)).  The direct geometric
-formula:
+  \item[Neutron EDM -- PHYSICAL FAIL.] Correct arithmetic gives
+  $\theta_{\rm QCD}=2.2208\times10^{-10}$ and
+  $d_n=5.3299\times10^{-26}\,e\,\mathrm{cm}$, a factor $2.96$ above the bound
+  used in the manuscript.  The former value $1.82\times10^{-26}$ is superseded.
 
-\[
-\delta_{\text{CKM}} = \arccos\frac{L_4}{L_5}
-                    = \arccos\frac{2}{5}
-                    = 66.42^\circ
-\]
+  \item[Collatz quarter-power bridge -- OPEN.] The $3/4$ exponent beats the
+  declared fixed comparators but leaves a geometric-mean multiplicative error
+  $9.967$ and is not a closed charged-fermion spectrum.
 
-gives \(\sigma = 0.55\) relative to the PDG value
-\(65.6^\circ \pm 1.5^\circ\).  The CP phase is now the dihedral angle
-between the annihilation and intention axes of the NOEMA tetrahedron.
+  \item[Common up-sector baseline -- RESTRICTED NO-GO.] A common additive shift
+  cannot repair the frozen v10.2 up-sector residuals; the unavoidable worst
+  multiplicative error is at least $4.7207104$.
 
-\subsection{Baryon Octet Systematic Offset (Resolved)}
+  \item[Separable candidate family -- PROSPECTIVE.] Exactly three candidates and
+  the orthogonal ratios $y_c/y_\mu$ and $y_c/y_t$ remain frozen for the first
+  qualifying direct post-29-July-2026 likelihoods.  No fourth candidate, refit,
+  or observable substitution is allowed.
+\end{description}
 
-The previous octet coefficients \(\beta = -177.91\)~MeV and
-\(\gamma = 55.20\)~MeV gave a \(2.8\%\) systematic offset for \(p/n\)
-and \(\Sigma\).  The refined coefficients
-
-\[
-\beta = -\alpha\,\frac{L_3^2-1}{L_3^2} = -185.90\ \mev,\qquad
-\gamma = \alpha\,\frac{L_4(L_3-L_4)}{L_3^2} = 38.73\ \mev
-\]
-
-reduce the mean octet error from \(1.72\%\) to \(0.33\%\).  The
-residual \(+1.10\%\) in the nucleon mass reflects the intrinsic
-limitation of the Gell-Mann--Okubo formula, not a Metatime-specific
-issue.
-
-\subsection{Gauge Boson Masses (\(+4.5\%\))}
-
-The SU(2) coupling \(g = L_4/L_3 + L_4/L_5 = 24/35\) gives \(M_W\) and
-\(M_Z\) predictions \(4.5\%\) and \(5.0\%\) above the observed values.
-The offset is systematic and may be resolved by a \(\kappa\) correction
-or a full renormalization-group analysis.
-
-\subsection{Higgs Mass (Resolved)}
-
-The Higgs mass was the framework's most significant failure
-(\(+4900\%\)).  The revised formula:
-
-\[
-M_H = v\,\kappa\,(L_3^2 + L_4 + L_5)
-\]
-
-gives \(M_H = 126.07\)~GeV, within \(0.66\%\) of the PDG value
-\(125.25\)~GeV.  This sector is now one of the best-predicted.
-
-\subsection{Neutron EDM (Factor 3 Above Bound)}
-
-The predicted nEDM \(5.33 \times 10^{-26}\ e\cdot\text{cm}\) (using
-exponent \(D = L_3+L_4+L_5 = 14\)) is a factor \(\sim\)3 above the
-current experimental limit \(d_n < 1.8 \times 10^{-26}\ e\cdot\text{cm}\).
-This is a genuine tension: the framework lacks a cancellation mechanism
-at this level.  Next-generation experiments (n2EDM, PanEDM, SNS nEDM)
-will reach \(10^{-27}\) to \(10^{-28}\ e\cdot\text{cm}\) within 3--5
-years, testing whether this tension is resolved by a geometric
-suppression or whether it constitutes a full falsification.
-
-\subsection{Anomaly \(A_5\) (Baryon Number)}
-
-The non-cancellation of \(A_5 = 1/6\) is expected (it's the SM baryon
-anomaly), but its numerical coincidence with \(q_s/(L_3 L_4 N_c)\) is
-noted without derivation.
-
-\section{Future Work}
-
+\section{Methodological debts}
 \begin{enumerate}
-\item \textbf{Renormalization group flow}: Derive the running of gauge
-couplings from the Poincar\'{e} disk curvature to fix \(g\) and the
-gauge boson masses.
-\item \textbf{Higgs sector}: Identify the correct structural formula for
-\(M_H\), either as an exponential Kuramoto mass or as a modified VEV
-relation.
-\item \textbf{Kuramoto octet refinement}: Replace the static GMO
-coefficients with a dynamical eigenvalue equation for \(\beta\) and
-\(\gamma\).
-\item \textbf{CKM \(|V_{cb}|\)}: Revise the \(|V_{cb}|\) formula to
-incorporate a higher-order \(\kappa\) correction.
-\item \textbf{Anomalous magnetic moments}: Extend the framework to
-\((g-2)_\mu\) and \((g-2)_e\).
-\item \textbf{Dark matter}: Identify a dark matter candidate from the
-Metatime particle spectrum (sterile neutrino? hidden-sector gauge boson?).
-\item \textbf{Inflation}: Connect the metatime framework to the CMB
-power spectrum via the Poincar\'{e} disk metric.
+  \item construct a common likelihood with uncertainties and covariance rather
+  than a table of heterogeneous percentage errors;
+  \item define an effective complexity penalty for the approximately fifty
+  discrete structural choices;
+  \item specify mass, coupling, and weak-mixing-angle renormalization schemes and
+  scales before precision comparison;
+  \item derive, rather than retrospectively select, the functional forms used in
+  the Higgs, electroweak, and flavor sectors;
+  \item preserve all failed formulae and superseded arithmetic in the version
+  history.
+\end{enumerate}
+
+\section{Prospective program}
+\begin{enumerate}
+  \item evaluate the three frozen v10.7 candidates on the named direct
+  charm--muon and charm--top Higgs-coupling likelihoods using a
+  multiplicity-aware rule;
+  \item derive receiver-independent or externally reproducible tests for any
+  additional TIR/NOEMA claims before using them as physical evidence;
+  \item produce an RG-consistent electroweak comparison with matched schemes;
+  \item preregister any new mass formula before comparing it with the target
+  spectrum;
+  \item treat the current neutron-EDM formula as failed unless a new version
+  supplies an independently motivated uncertainty model or replacement before
+  inspecting a new result.
 \end{enumerate}
 
 \vfill

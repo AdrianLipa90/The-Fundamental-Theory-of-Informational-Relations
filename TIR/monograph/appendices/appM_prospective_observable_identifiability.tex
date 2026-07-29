@@ -1,0 +1,136 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Prospective-Observable Identifiability}
+\label{app:observable_identifiability}
+\label{app:prospective_observable_identifiability}
+
+
+% CITATION_CONTEXT_V10_9_BEGIN
+\paragraph{Established context.}
+Observable selection and cancellation tests are governed by preregistration and
+reproducibility principles \cite{Nosek2018,Munafo2017,Stark2018}.  Experimental
+anchoring uses direct Higgs--charm constraints and current particle reference data
+\cite{ATLAS2022Charm,PDG2024}; the assigned future ratios remain frozen model
+predictions.
+% CITATION_CONTEXT_V10_9_END
+
+\section{Scope}
+
+Appendix~\ref{app:up_sector_common_baseline_no_go} closed a single common
+additive up-sector baseline for the fixed v10.2 trace.  The subsequent v10.5
+freeze retained two possible architecture classes: a sector baseline and a
+universal generation-release operator.  These two classes cannot be tested by
+the same observable unless that observable is sensitive to both.
+
+This appendix proves the required identifiability split.  It selects no new
+mass formula and inspects no future Higgs-coupling likelihood.
+
+\section{Architecture classes}
+
+A pure sector-invariant baseline has the form
+
+\begin{equation}
+B_i=B_{s(i)},
+\label{eq:sector_invariant_baseline}
+\end{equation}
+
+where all input coordinates are invariant across generations inside the
+declared sector $s(i)$.  A candidate using generation, mode, generation-varying
+$v_7$, or a particle-level holonomy coordinate is reclassified as a relative
+release operator.
+
+The universal relative release has the form
+
+\begin{equation}
+\Delta_f(g)=D\!\left(Z_{f,g},Z_{f,a(g)}\right),
+\label{eq:universal_relative_release}
+\end{equation}
+
+with the same algebraic operator $D$ applied to charged leptons, down-type
+quarks, and up-type quarks.
+
+\section{Cancellation theorem}
+
+The frozen v3.4 orientation layer places both charm and top in the
+\path{heavy_quark_resonance} sector.  Hence a sector-invariant baseline
+gives
+
+\[
+\ln y_c=B_{\rm heavy}+\Delta_c,
+\qquad
+\ln y_t=B_{\rm heavy}+\Delta_t.
+\]
+
+Subtracting yields
+
+\begin{equation}
+\boxed{
+\ln\frac{y_c}{y_t}=\Delta_c-\Delta_t
+}
+\label{eq:yc_yt_baseline_cancellation}
+\end{equation}
+
+and the baseline cancels identically.  Therefore a direct charm-to-top Higgs
+coupling ratio cannot identify a pure sector baseline.  It can test only a
+within-sector relative-release operator.
+
+\section{Corrected prospective mapping}
+
+For the sector-invariant baseline class, the primary prospective observable is
+the first qualifying joint ATLAS/CMS direct charm-to-tau Higgs-coupling
+likelihood released after 28 July 2026.  Charm belongs to
+\path{heavy_quark_resonance}, whereas tau belongs to
+\path{charged_lepton_small_seed}; therefore the baseline does not cancel
+from $y_c/y_\tau$.
+
+For the universal generation-release class, the primary prospective observable
+remains the first qualifying joint ATLAS/CMS direct charm-to-top coupling
+likelihood released after the same date.  The frozen v10.2 structural
+prediction is
+
+\begin{equation}
+\boxed{
+\left|\frac{y_c}{y_t}\right|_{v10.2}
+=0.006345210526463283
+}
+\label{eq:frozen_yc_yt_prediction}
+\end{equation}
+
+from
+
+\[
+\ln\frac{y_c}{y_t}
+=7.899965155203114-12.96002015366969.
+\]
+
+Each prediction must be frozen before the corresponding likelihood is opened.
+PASS requires inclusion in the published 95\% confidence region.  Failure is
+retained without formula modification, and an unavailable dataset does not
+license post-hoc observable replacement.
+
+\section{Representation-source correction}
+
+The archived v0.7 representation CSV displayed gauge-allowed transitions as
+\texttt{blocked} because its residual label used an incorrect hypercharge sign.
+The repository corrected this in v1.0 using
+
+\begin{equation}
+-Y_L+Y_H+Y_R=0.
+\end{equation}
+
+Candidate construction must therefore use the corrected v1.0 representation
+features and not the erroneous v0.7 status column.
+
+\section{Status}
+
+\[
+\boxed{
+\text{technical PASS}
+\;\land\;
+\text{observable mapping corrected}
+\;\land\;
+\text{formula selection not begun}
+}
+\]
+
+The executable audit and machine-readable ledger are located at
+\path{TIR/validation/up_sector_observable_identifiability_v10_6.py}.

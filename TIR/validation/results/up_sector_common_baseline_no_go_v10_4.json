@@ -1,0 +1,60 @@
+{
+  "schema": "TIR_UP_SECTOR_COMMON_BASELINE_NO_GO_V10_4",
+  "module": "up_sector_common_baseline_no_go_v10_4",
+  "methodological_status": "RETROSPECTIVE_MATHEMATICAL_NO_GO_AUDIT",
+  "technical_status": "PASS",
+  "substantive_status": "COMMON_ADDITIVE_BASELINE_CANNOT_CLOSE_V10_2_UP_SECTOR",
+  "physical_mass_spectrum_status": "OPEN_NOT_CLOSED",
+  "canon_allowed": false,
+  "current_promotion": "DENY_CURRENT",
+  "mass_derivation_claimed": false,
+  "operator_fingerprint_sha256": "a0786567cca994b3b8e9abb8983dbf6b4134a4e57e97039e189a030227248f0a",
+  "v10_2_up_sector_log_residuals": {
+    "u": 3.185723825578498,
+    "c": 0.08180523217541318,
+    "t": 0.22937905151591045
+  },
+  "residual_spread_invariant_under_common_shift": 3.1039185934030846,
+  "minimum_achievable_uniform_absolute_log_error": 1.5519592967015423,
+  "minimum_achievable_worst_case_multiplicative_error": 4.720710399786464,
+  "reference_non_u_envelope": 0.254,
+  "reference_gate_possible_with_common_shift": false,
+  "reference_gate_shift_intervals": {
+    "u": [-3.439723825578498, -2.931723825578498],
+    "c": [-0.3358052321754132, 0.17219476782458681],
+    "t": [-0.48337905151591043, 0.02462094848408955]
+  },
+  "minimax_common_shift": {
+    "common_log_shift": -1.6337645288769556,
+    "absolute_log_errors": {
+      "u": 1.5519592967015423,
+      "c": 1.5519592967015423,
+      "t": 1.4043854773610451
+    },
+    "mean_absolute_log_error": 1.5027680235880432,
+    "median_absolute_log_error": 1.5519592967015423,
+    "maximum_absolute_log_error": 1.5519592967015423,
+    "geometric_mean_multiplicative_error": 4.494111676500691,
+    "worst_case_multiplicative_error": 4.720710399786464
+  },
+  "least_squares_common_shift_diagnostic": {
+    "common_log_shift": -1.1656360364232738,
+    "mean_absolute_log_error": 1.3467251927701493,
+    "maximum_absolute_log_error": 2.020087789155224
+  },
+  "l1_common_shift_diagnostic": {
+    "common_log_shift": -0.22937905151591045,
+    "mean_absolute_log_error": 1.0346395311343617,
+    "maximum_absolute_log_error": 2.9563447740625874
+  },
+  "theorem": {
+    "statement": "For r'_g=r_g+B, all pairwise differences r'_g-r'_h equal r_g-r_h. A common B can satisfy |r'_g|<=epsilon for every g iff max(r)-min(r)<=2*epsilon.",
+    "proof_class": "elementary translation invariance on the real line"
+  },
+  "conclusion": [
+    "The v10.3 common-baseline-only architecture is insufficient for the fixed v10.2 relative trace.",
+    "No choice of a single B_up can simultaneously retain the c/t absolute scale and remove the u offset.",
+    "The next structural candidate must revise the up-sector relative architecture or derive a pre-existing light-up/heavy-up sector split; it may not introduce a u-specific residual correction.",
+    "Any numerical comparison on the known charged-fermion table remains retrospective."
+  ]
+}

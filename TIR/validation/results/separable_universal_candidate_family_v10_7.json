@@ -1,0 +1,156 @@
+{
+  "schema": "TIR_SEPARABLE_UNIVERSAL_CANDIDATE_FAMILY_V10_7",
+  "created_date": "2026-07-29",
+  "formula_count": 3,
+  "mass_benchmark_performed": false,
+  "future_likelihood_inspected": false,
+  "canonical_promotion_allowed": false,
+  "constants": {
+    "kappa_ln2_over_24pi": 0.009193150006360484,
+    "L3": 7,
+    "alpha_collatz": 0.75
+  },
+  "architecture": "log_y(f,g)=F(S_f)+D(G_g,R_g); F is sector-invariant and D is universal across charged families",
+  "source_git_blobs": {
+    "charged_fermion_action_assembly_v1_0.csv": "afd4260e99880c6a4f01134c3dc8102404f1f245",
+    "representation_features_corrected_v1_0.csv": "536dd830666e8100c00b046b625ce0028e424558",
+    "ramanujan_seed_suppression_v2_1.py": "c8f708e2d9a81573b9c746ce5ecd717465b73a1d"
+  },
+  "source_file_sha256": {
+    "archive/v7.9/full/10_standard_model_derivation_stages/11_metatime_sm_full_action_seed_arbitration_v1_0/results/charged_fermion_action_assembly_v1_0.csv": "d1507386c4a534067a28531aea3a73e0ce7a65c2189fe0f699cfaa9ac8c70b80",
+    "archive/v7.9/full/10_standard_model_derivation_stages/11_metatime_sm_full_action_seed_arbitration_v1_0/results/representation_features_corrected_v1_0.csv": "5e567c9f1bf2b173719e143c49d54abb737e6f67bf1271dc9f6b17592ac9a3a2"
+  },
+  "sector_action_units": {
+    "charged_lepton": 4.5,
+    "down_quark": 3.0876164691516155,
+    "up_quark": 2.920949802484949
+  },
+  "generation_action_units": {
+    "1": 0.8471633855025916,
+    "2": 0.6088811663290957,
+    "3": 0.23926393244694075
+  },
+  "ramanujan_release_units": {
+    "1": 0.4754443238393299,
+    "2": 1.0262897039931138,
+    "3": 2.442442115365772
+  },
+  "candidates": {
+    "C1_LINEAR_SEPARABLE_ACTION": {
+      "sector_potential": {
+        "charged_lepton": -4.5,
+        "down_quark": -3.0876164691516155,
+        "up_quark": -2.920949802484949
+      },
+      "generation_release": {
+        "1": -0.37171906166326174,
+        "2": 0.4174085376640181,
+        "3": 2.203178182918831
+      },
+      "particle_log_coordinates": {
+        "e": -4.871719061663262,
+        "d": -3.459335530814877,
+        "u": -3.2926688641482107,
+        "mu": -4.082591462335982,
+        "s": -2.6702079314875973,
+        "c": -2.5035412648209308,
+        "tau": -2.296821817081169,
+        "b": -0.8844382862327844,
+        "t": -0.7177716195661179
+      },
+      "frozen_ratios": {
+        "class_A_yc_over_ymu": 4.850346751338371,
+        "class_B_yc_over_yt": 0.16766796647328305,
+        "diagnostic_yc_over_ytau": 0.8132477764871993,
+        "cross_transfer_ys_over_ymu": 4.105729884390491,
+        "cross_transfer_yu_over_ye": 4.850346751338371,
+        "generation_ymu_over_ye": 2.201475019971332,
+        "generation_ytau_over_ymu": 5.964168475552809,
+        "generation_yc_over_yu": 2.201475019971332,
+        "generation_yt_over_yc": 5.964168475552809
+      }
+    },
+    "C2_QUARTER_POWER_SEPARABLE_ACTION": {
+      "sector_potential": {
+        "charged_lepton": -3.0896507158606767,
+        "down_quark": -2.329257548378154,
+        "up_quark": -2.2343081524320993
+      },
+      "generation_release": {
+        "1": -0.40758552248234237,
+        "2": 0.33700378661298547,
+        "3": 2.100338292506093
+      },
+      "particle_log_coordinates": {
+        "e": -3.497236238343019,
+        "d": -2.7368430708604965,
+        "u": -2.6418936749144417,
+        "mu": -2.752646929247691,
+        "s": -1.9922537617651686,
+        "c": -1.8973043658191138,
+        "tau": -0.9893124233545838,
+        "b": -0.2289192558720612,
+        "t": -0.1339698599260064
+      },
+      "frozen_ratios": {
+        "class_A_yc_over_ymu": 2.3521800134268784,
+        "class_B_yc_over_yt": 0.17147213462587316,
+        "diagnostic_yc_over_ytau": 0.4033333279266218,
+        "cross_transfer_ys_over_ymu": 2.1391170864651157,
+        "cross_transfer_yu_over_ye": 2.3521800134268784,
+        "generation_ymu_over_ye": 2.1055765162614386,
+        "generation_ytau_over_ymu": 5.831851351135578,
+        "generation_yc_over_yu": 2.1055765162614386,
+        "generation_yt_over_yc": 5.831851351135578
+      }
+    },
+    "C3_INVERSE_QUARTER_INFORMATION_POTENTIAL": {
+      "sector_potential": {
+        "charged_lepton": 5.029539554905919,
+        "down_quark": 6.671447945756244,
+        "up_quark": 6.954958504425413
+      },
+      "generation_release": {
+        "1": 18.073400441625964,
+        "2": 23.5706651140233,
+        "3": 47.86584708163687
+      },
+      "particle_log_coordinates": {
+        "e": 23.102939996531884,
+        "d": 24.744848387382206,
+        "u": 25.028358946051377,
+        "mu": 28.60020466892922,
+        "s": 30.24211305977954,
+        "c": 30.525623618448712,
+        "tau": 52.89538663654279,
+        "b": 54.537295027393114,
+        "t": 54.820805586062285
+      },
+      "frozen_ratios": {
+        "class_A_yc_over_ymu": 6.858021228826222,
+        "class_B_yc_over_yt": 2.8101955040512466e-11,
+        "diagnostic_yc_over_ytau": 1.9272380423935524e-10,
+        "cross_transfer_ys_over_ymu": 5.165016983987512,
+        "cross_transfer_yu_over_ye": 6.858021228826222,
+        "generation_ymu_over_ye": 244.02353422829444,
+        "generation_ytau_over_ymu": 35584712827.216896,
+        "generation_yc_over_yu": 244.02353422829444,
+        "generation_yt_over_yc": 35584712827.217026
+      }
+    }
+  },
+  "prospective_observables": {
+    "class_A": "direct charm-to-muon Higgs coupling ratio y_c/y_mu from the first qualifying post-2026-07-29 joint ATLAS/CMS likelihood",
+    "class_B": "direct charm-to-top Higgs coupling ratio y_c/y_t from the first qualifying post-2026-07-29 joint ATLAS/CMS likelihood"
+  },
+  "method_status": "PROSPECTIVE_CANDIDATE_FAMILY_FROZEN_NO_SELECTION",
+  "forbidden_operator_inputs": [
+    "CKM_observed",
+    "PMNS_observed",
+    "future_likelihood_value",
+    "observed_mass",
+    "pdg_mass",
+    "target_mass"
+  ],
+  "candidate_family_fingerprint_sha256": "2bbf9985b6a4fc9d19d039e117b15eb446a51a3e8828a2894c8d797bb35f23f4"
+}

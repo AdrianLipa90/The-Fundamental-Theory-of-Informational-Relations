@@ -1,0 +1,36 @@
+{
+  "canonical_promotion": false,
+  "corrected_inconsistencies": {
+    "higgs_sigma_using_experimental_uncertainty_only": 4.823529411764707,
+    "neutron_edm_bound_ratio": 2.961082191271785,
+    "neutron_edm_e_cm": {
+      "corrected": 5.329947944289213e-26,
+      "old": 1.82e-26
+    },
+    "summary_count": {
+      "actual": 36,
+      "old": 26
+    },
+    "theta_qcd": {
+      "corrected": 2.2208116434538389e-10,
+      "old": 7.57e-11
+    }
+  },
+  "date": "2026-07-29",
+  "physical_status": {
+    "collatz_quarter_power_mass_bridge": "OPEN_NOT_CLOSED",
+    "common_up_sector_baseline": "RESTRICTED_NO_GO",
+    "gauge_boson_masses": "OPEN_TENSION",
+    "higgs_relation": "RETROSPECTIVE_REVISION",
+    "neutron_edm": "FAIL",
+    "v10_7_candidate_family": "PROSPECTIVE_FROZEN"
+  },
+  "required_files": [
+    "frontmatter/publication_frontmatter_v11_0.tex",
+    "appendices/appO_publication_protocol.tex",
+    "PUBLICATION_READINESS_v11_0.md",
+    "publication_readiness_v11_0.json"
+  ],
+  "status": "PUBLICATION_CANDIDATE_PENDING_CI",
+  "version": "11.0"
+}

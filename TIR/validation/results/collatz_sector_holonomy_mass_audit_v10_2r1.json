@@ -1,0 +1,47 @@
+{
+  "schema": "TIR_COLLATZ_SECTOR_HOLONOMY_MASS_AUDIT_V10_2R1",
+  "supersedes_method_status_of": "TIR_COLLATZ_SECTOR_HOLONOMY_MASS_AUDIT_V10_2",
+  "numerical_operator_changed": false,
+  "operator_trace_sha256": "0df162f79949fb81653089b488a01341a7d268364af95e3c86e27bd78d7d0ebe",
+  "technical_status": "PASS",
+  "methodological_status": "RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST",
+  "comparative_status": "RETROSPECTIVE_SIGNAL_GLOBAL_ERROR_REDUCTION",
+  "sector_relative_status": "RETROSPECTIVE_SIGNAL_EXCLUDING_OPEN_UP_SECTOR_BASELINE",
+  "physical_mass_spectrum_status": "FAIL_OPEN",
+  "debt9_status": "OPEN_NOT_CLOSED",
+  "canon_allowed": false,
+  "current_promotion": "DENY_CURRENT",
+  "mass_derivation_claimed": false,
+  "method_history": {
+    "formula_selected_after_v10_1_residual_review": true,
+    "continuous_parameters_fitted": false,
+    "particle_specific_residual_corrections": false,
+    "prospective_validation_claimed": false,
+    "independent_holdout_test_available": false,
+    "promotion_eligible": false
+  },
+  "quarter_summary": {
+    "mean_abs_log_error": 2.2992971091881693,
+    "median_abs_log_error": 2.296642479191519,
+    "max_abs_log_error": 4.478149273754863,
+    "geometric_mean_multiplicative_error": 9.967174156934343
+  },
+  "sector_summary": {
+    "mean_abs_log_error": 0.5137490341961286,
+    "median_abs_log_error": 0.1555921418456618,
+    "max_abs_log_error": 3.185723825578498,
+    "geometric_mean_multiplicative_error": 1.6715461462692092
+  },
+  "non_anchor_excluding_u_summary": {
+    "mean_abs_log_error": 0.132038349712933,
+    "median_abs_log_error": 0.08180523217541318,
+    "max_abs_log_error": 0.25398458146888697,
+    "geometric_mean_multiplicative_error": 1.1411520812828295
+  },
+  "u_sector_offset": {
+    "sector_log_error": 3.185723825578498,
+    "multiplicative_error": 24.184787639788727,
+    "status": "OPEN_INTER_SECTOR_BASELINE_NOT_SOLVED"
+  },
+  "next_allowed_claim": "Use v10.2 only as a retrospective hypothesis generator. Freeze a new operator or independent observable before any further validation result is inspected."
+}

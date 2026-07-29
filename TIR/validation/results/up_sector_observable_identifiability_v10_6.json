@@ -1,0 +1,50 @@
+{
+  "architecture_refinement": {
+    "class_A": {
+      "name": "SECTOR_INVARIANT_BASELINE",
+      "historical_v10_6_observable": "first qualifying post-2026-07-28 joint ATLAS/CMS direct charm-to-tau Higgs-coupling likelihood",
+      "historical_reason": "c and tau occupy different declared sectors, so a sector baseline does not cancel from y_c/y_tau.",
+      "v10_7_correction": "y_c/y_tau also contains a generation-2 versus generation-3 release difference and therefore does not isolate class A.",
+      "superseding_primary_observable": "first qualifying post-2026-07-29 joint ATLAS/CMS direct charm-to-muon Higgs-coupling likelihood",
+      "superseding_reason": "c and mu are both generation 2, so the complete D(G2,R2) term cancels and y_c/y_mu isolates the sector functional.",
+      "rule": "May use only coordinates invariant across generations inside a declared sector. Generation-varying coordinates must be assigned to class B."
+    },
+    "class_B": {
+      "historical_frozen_v10_2_prediction_yc_over_yt": 0.006345210526463283,
+      "name": "UNIVERSAL_GENERATION_RELEASE",
+      "primary_prospective_observable": "first qualifying post-2026-07-29 joint ATLAS/CMS direct charm-to-top Higgs-coupling likelihood",
+      "rule": "May use generation-varying structural coordinates, but the same algebraic operator must be applied across all charged-fermion families."
+    }
+  },
+  "canon_allowed": false,
+  "current_promotion": "DENY_CURRENT",
+  "debt9_status": "OPEN_NOT_CLOSED",
+  "formula_selected": false,
+  "mass_benchmark_performed": false,
+  "methodological_status": "ARCHITECTURE_IDENTIFIABILITY_THEOREM_RETAINED_CLASS_A_MAPPING_SUPERSEDED_BY_V10_7",
+  "module": "up_sector_observable_identifiability_v10_6",
+  "observed_higgs_likelihood_loaded": false,
+  "operator_fingerprint_sha256": "baa956fb41a1867f3f6c51435a1bdc0e41167091ec0c4a24d61206a4b60a9614",
+  "v10_7_candidate_family_fingerprint_sha256": "2bbf9985b6a4fc9d19d039e117b15eb446a51a3e8828a2894c8d797bb35f23f4",
+  "reclassification_rule": "Any proposed class-A functional that uses mode, generation, generation-varying v7, or another within-sector varying field is reclassified as class B before testing.",
+  "schema": "TIR_UP_SECTOR_OBSERVABLE_IDENTIFIABILITY_V10_6",
+  "sector_labels": {
+    "c": "up_type_generation_2",
+    "mu": "charged_lepton_generation_2",
+    "t": "up_type_generation_3",
+    "tau": "charged_lepton_generation_3"
+  },
+  "source_policy": {
+    "future_likelihood_value_inspected": false,
+    "non_electron_mass_used_to_select_formula": false,
+    "orientation_blob_sha": "838b2606e004049bf58d86a18cf0f345799aaa73",
+    "v10_2_prediction_blob_sha": "b7563fd294e9a688dd276b954ffe56fd499c621e"
+  },
+  "technical_status": "PASS",
+  "theorems": {
+    "same_sector_cancellation": "For a sector-invariant baseline B_s with s(c)=s(t), log(y_c/y_t)=Delta_c-Delta_t; y_c/y_t is insensitive to B_s.",
+    "same_generation_cancellation_v10_7": "For a separable architecture with g(c)=g(mu)=2, log(y_c/y_mu)=F(S_up)-F(S_lepton); the generation release cancels.",
+    "v10_6_cross_sector_only_limit": "Different sectors are necessary but not sufficient to isolate class A when the compared states belong to different generations."
+  },
+  "supersession_status": "PARTIALLY_SUPERSEDED_BY_V10_7_OBSERVABLE_MAPPING"
+}

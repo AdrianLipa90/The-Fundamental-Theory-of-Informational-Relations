@@ -1,0 +1,191 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Separable Universal Candidate Family}
+\label{app:separable_candidate_family}
+
+
+% CITATION_CONTEXT_V10_9_BEGIN
+\paragraph{Established context.}
+The candidate-family freeze follows falsifiability, preregistration, and
+multiplicity-aware interpretation \cite{Popper1959,Nosek2018,Munafo2017}.  Its
+geometric and arithmetic ingredients are externally contextualized by Berry,
+Collatz, and Ramanujan literature
+\cite{berry1984,Lagarias1985,Tao2022Collatz,Ramanujan1918}, while the three
+specific maps and their Yukawa-ratio predictions are original TIR candidates.
+% CITATION_CONTEXT_V10_9_END
+
+\section{Scope and status}
+
+Appendix~\ref{app:observable_identifiability} separated a
+sector-invariant baseline from a generation-varying release.  The present
+appendix freezes exactly three algebraic candidates before any qualifying
+future Higgs-coupling likelihood is inspected.
+
+The status is
+
+\[
+\boxed{
+\begin{gathered}
+\text{candidate family frozen}
+\;\land\;
+\text{no mass benchmark}\\
+\text{no candidate selected}
+\;\land\;
+\text{canonical promotion denied}
+\end{gathered}
+}
+\]
+
+\section{Structural coordinates}
+
+Let
+
+\[
+S_f=A_f^{\rm rep}+C_{\rm chir}
+\]
+
+be the generation-invariant charged-sector action.  The corrected v1.0
+representation table and the universal charged-Dirac chiral cost give
+
+\[
+S_\ell=4.5,
+\qquad
+S_d=3.0876164691516155,
+\qquad
+S_u=2.920949802484949.
+\]
+
+The v1.0 generation damping coordinates are
+
+\[
+G_1=0.8471633855025916,
+\qquad
+G_2=0.6088811663290957,
+\qquad
+G_3=0.23926393244694075.
+\]
+
+The mandatory v2.1 Ramanujan release units are
+
+\[
+R_1=0.4754443238393299,
+\qquad
+R_2=1.0262897039931138,
+\qquad
+R_3=2.442442115365772.
+\]
+
+No observed fermion mass enters these coordinates.
+
+\section{Separable architecture}
+
+Every candidate has the form
+
+\begin{equation}
+\ln y_{f,g}=F(S_f)+D(G_g,R_g).
+\label{eq:v107_separable_architecture}
+\end{equation}
+
+The same functions $F$ and $D$ act on charged leptons, down-type quarks, and
+up-type quarks.  This makes the sector and generation coordinates
+experimentally separable.
+
+\section{Candidate C1: linear action}
+
+\begin{equation}
+F_1(S)=-S,
+\qquad
+D_1(G,R)=-G+R.
+\label{eq:v107_candidate_c1}
+\end{equation}
+
+This is the direct exponential-damping interpretation of the v1.0 structural
+action.
+
+\section{Candidate C2: Collatz quarter-power action}
+
+\begin{equation}
+F_2(S)=-S^{3/4},
+\qquad
+D_2(G,R)=-G^{3/4}+R.
+\label{eq:v107_candidate_c2}
+\end{equation}
+
+The exponent is not refitted.  It is the accelerated-Collatz quarter-power
+already frozen in Appendix~\ref{app:collatz_quarter_power}.
+
+\section{Candidate C3: inverse quarter-power information potential}
+
+\begin{equation}
+F_3(S)=\frac{S^{-3/4}}{L_3\kappa},
+\qquad
+D_3(G,R)=\frac{G^{-3/4}}{L_3\kappa}+R.
+\label{eq:v107_candidate_c3}
+\end{equation}
+
+This is the separable universal-potential form corresponding to the inverse
+action coordinate used in the original quarter-power bridge.  Its large
+predicted generation range is retained rather than removed after inspection.
+
+\section{Orthogonal prospective observables}
+
+Charm and the muon are both second-generation states.  Therefore
+
+\begin{equation}
+\ln\frac{y_c}{y_\mu}=F(S_u)-F(S_\ell),
+\label{eq:v107_sector_observable}
+\end{equation}
+
+because $D(G_2,R_2)$ cancels exactly.  The primary class-A observable is thus
+the first qualifying post-29 July 2026 joint ATLAS/CMS direct charm-to-muon
+Higgs-coupling likelihood.
+
+Charm and top share the up-type/heavy sector in the frozen architecture, so
+
+\begin{equation}
+\ln\frac{y_c}{y_t}=D(G_2,R_2)-D(G_3,R_3),
+\label{eq:v107_generation_observable}
+\end{equation}
+
+and the sector baseline cancels.  The primary class-B observable remains the
+first qualifying post-29 July 2026 joint ATLAS/CMS direct charm-to-top
+Higgs-coupling likelihood.
+
+The previous use of $y_c/y_\tau$ as the primary class-A test is superseded: it
+crosses both sector and generation and therefore does not isolate the sector
+baseline.
+
+\section{Frozen predictions}
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Candidate & $y_c/y_\mu$ & $y_c/y_t$\\
+\midrule
+C1 linear action & 4.850346751338371 & 0.16766796647328305\\
+C2 quarter-power action & 2.3521800134268784 & 0.17147213462587316\\
+C3 inverse quarter potential & 6.858021228826222 & $2.8101955040512466\times10^{-11}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+All three candidates remain active.  No current mass table or already visible
+experimental likelihood is used to select among them.
+
+\section{Cross-transfer and decision rule}
+
+The same maps emit predictions for $y_s/y_\mu$, $y_u/y_e$, $y_\mu/y_e$,
+$y_\tau/y_\mu$, $y_c/y_u$, and $y_t/y_c$.  These are frozen diagnostics, not
+selection variables.
+
+For each candidate, PASS requires the frozen ratio to lie inside the published
+95\% confidence region of the assigned first qualifying likelihood.  Failure is
+retained without changing the formula or substituting another observable.  The
+three-member family requires a multiplicity-aware interpretation.
+
+The executable ledger is generated by
+
+\path{TIR/validation/separable_universal_candidate_family_v10_7.py}
+
+and carries fingerprint
+
+\path{2bbf9985b6a4fc9d19d039e117b15eb446a51a3e8828a2894c8d797bb35f23f4}.
