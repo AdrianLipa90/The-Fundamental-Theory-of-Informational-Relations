@@ -1,0 +1,137 @@
+\chapter{The Exact Complementary-Cancellation Theorem}
+\label{ch:cancellation}
+
+\section{Scalar readout of a two-branch state}
+Consider the coherent scalar readout
+\begin{equation}
+\mathcal A(\sigma,\phi)
+=\sqrt{\sigma}+e^{i\phi}\sqrt{1-\sigma},
+\qquad 0\leq\sigma\leq1.
+\label{eq:amp}
+\end{equation}
+This is the overlap of the state \eqref{eq:qubit-state} with the unnormalized symmetric readout bra $\bra{0}+\bra{1}$. The associated intensity is
+\begin{align}
+\mathcal I(\sigma,\phi)
+&=|\mathcal A(\sigma,\phi)|^2\\
+&=\sigma+(1-\sigma)+2\sqrt{\sigma(1-\sigma)}\cos\phi\\
+&=1+2\sqrt{\sigma(1-\sigma)}\cos\phi.
+\label{eq:intensity}
+\end{align}
+
+\begin{theorem}[Unique exact cancellation]
+\label{thm:cancellation}
+For $0\leq\sigma\leq1$ and real $\phi$,
+\begin{equation}
+\mathcal A(\sigma,\phi)=0
+\end{equation}
+if and only if
+\begin{equation}
+\sigma=\frac12,
+\qquad
+\phi=(2k+1)\pi,
+\quad k\in\mathbb Z.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Suppose $\mathcal A=0$. Then
+\begin{equation}
+\sqrt{\sigma}=-e^{i\phi}\sqrt{1-\sigma}.
+\end{equation}
+Taking absolute values gives $\sqrt{\sigma}=\sqrt{1-\sigma}$, hence $\sigma=1/2$. Substituting this back yields $1+e^{i\phi}=0$, so $e^{i\phi}=-1$ and $\phi=(2k+1)\pi$. Conversely, those conditions clearly give $\mathcal A=0$.
+\end{proof}
+
+This theorem is the cleanest rigorous core of the information-spinor hypothesis. Exact zero formation in a normalized complementary pair requires both equal weights and phase opposition. Neither condition alone is sufficient.
+
+\section{Alternative proof from the intensity bound}
+Since
+\begin{equation}
+0\leq\sqrt{\sigma(1-\sigma)}\leq\frac12,
+\end{equation}
+with equality only at $\sigma=1/2$, equation \eqref{eq:intensity} implies
+\begin{equation}
+\mathcal I(\sigma,\phi)
+\geq 1-2\sqrt{\sigma(1-\sigma)}\geq0.
+\end{equation}
+Equality in the first inequality requires $\cos\phi=-1$; equality in the second requires $\sigma=1/2$. This again proves Theorem \ref{thm:cancellation}.
+
+\section{Factorization of the residual at phase pi}
+At $\phi=\pi$,
+\begin{equation}
+\mathcal I(\sigma,\pi)
+=\left(\sqrt{\sigma}-\sqrt{1-\sigma}\right)^2.
+\end{equation}
+Rationalizing gives
+\begin{equation}
+\mathcal I(\sigma,\pi)
+=\frac{(2\sigma-1)^2}{\left(\sqrt{\sigma}+\sqrt{1-\sigma}\right)^2}.
+\label{eq:intensity-delta}
+\end{equation}
+Hence the cancellation residual is an even, nonnegative function of the centered coordinate $\delta=\sigma-1/2$ and vanishes quadratically at the balance axis.
+
+Near $\delta=0$,
+\begin{equation}
+\mathcal I\!\left(\frac12+\delta,\pi\right)
+=2\delta^2+2\delta^4+O(\delta^6).
+\end{equation}
+The leading coefficient matches the leading Shannon entropy deficit derived in Chapter \ref{ch:shannon}:
+\begin{equation}
+\ln2-\Hbin\!\left(\frac12+\delta\right)
+=2\delta^2+O(\delta^4).
+\end{equation}
+Thus, infinitesimally, informational imbalance and destructive-interference failure have the same quadratic cost.
+
+\begin{proposition}[Local equivalence of balance costs]
+As $\delta\to0$,
+\begin{equation}
+\frac{\mathcal I(1/2+\delta,\pi)}{\ln2-\Hbin(1/2+\delta)}\longrightarrow1.
+\end{equation}
+\end{proposition}
+
+This local equality is stronger than the observation that both quantities have minima at $1/2$. It shows that, to second order, the Shannon information deficit is numerically identical to the loss of perfect phase cancellation in the normalized two-branch state.
+
+\section{Geometric interpretation}
+At $\sigma=1/2$, the state is
+\begin{equation}
+\ket{\psi(1/2,\phi)}
+=\frac{1}{\sqrt2}\left(\ket0+e^{i\phi}\ket1\right).
+\end{equation}
+The points $\phi=0$ and $\phi=\pi$ are antipodal equatorial states. The cancellation readout at $\phi=\pi$ is orthogonal to the symmetric readout direction. Thus the zero is represented by a projective orthogonality event at the same equator that carries the $-1$ Berry holonomy.
+
+\section{Generalized readout weights}
+For completeness, consider
+\begin{equation}
+\mathcal A_{a,b}(\sigma,\phi)
+=a\sqrt{\sigma}+b e^{i\phi}\sqrt{1-\sigma},
+\end{equation}
+with positive real $a,b$. Exact cancellation requires
+\begin{equation}
+\frac{\sigma}{1-\sigma}=\frac{b^2}{a^2},
+\end{equation}
+so
+\begin{equation}
+\sigma=\frac{b^2}{a^2+b^2}.
+\end{equation}
+Therefore $1/2$ is selected only by a symmetric readout $a=b$. The symmetry of the zeta functional equation is what motivates equal branch normalization. A canonical construction must derive, not merely choose, that symmetry.
+
+\section{What this theorem does and does not establish}
+The theorem proves the implication
+\begin{equation}
+\text{normalized complementary cancellation}
+\Longrightarrow
+\sigma=\frac12.
+\end{equation}
+It does not prove
+\begin{equation}
+\zeta(s)=0
+\Longrightarrow
+\text{normalized complementary cancellation}.
+\end{equation}
+The second implication is the open representation problem. Every later claim is organized around this logical boundary.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.76\textwidth]{destructive_interference.pdf}
+\caption{At relative phase $\pi$, unequal complementary amplitudes leave a positive residual. Exact cancellation occurs only at $\sigma=1/2$.}
+\label{fig:cancellation}
+\end{figure}

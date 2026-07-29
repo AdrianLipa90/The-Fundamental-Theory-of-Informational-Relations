@@ -1,0 +1,114 @@
+\chapter{Detailed Derivations}
+\label{app:derivations}
+
+\section{Taylor expansion of binary entropy}
+Let $\sigma=1/2+\delta$. Then
+\begin{align}
+\Hbin\!\left(\frac12+\delta\right)
+={}&-\left(\frac12+\delta\right)
+\ln\left(\frac12+\delta\right)
+-\left(\frac12-\delta\right)
+\ln\left(\frac12-\delta\right).
+\end{align}
+Using
+\begin{equation}
+\ln\left(\frac12\pm\delta\right)
+=-\ln2+\ln(1\pm2\delta)
+\end{equation}
+and the power series for $\ln(1+x)$ gives
+\begin{equation}
+\Hbin\!\left(\frac12+\delta\right)
+=\ln2-2\delta^2-\frac43\delta^4-\frac{32}{15}\delta^6+O(\delta^8).
+\end{equation}
+All odd powers cancel by complement symmetry.
+
+\section{Taylor expansion of the cancellation residual}
+At phase $\pi$,
+\begin{equation}
+\mathcal I
+=\left(\sqrt{\frac12+\delta}-\sqrt{\frac12-\delta}\right)^2.
+\end{equation}
+Since
+\begin{equation}
+\mathcal I=1-2\sqrt{\frac14-\delta^2}
+=1-\sqrt{1-4\delta^2},
+\end{equation}
+the binomial series yields
+\begin{equation}
+\mathcal I
+=2\delta^2+2\delta^4+4\delta^6+10\delta^8+O(\delta^{10}).
+\end{equation}
+Thus the information deficit and interference residual coincide only to leading nonzero order; their higher-order coefficients differ.
+
+\section{Fisher coordinate and Bloch angle}
+For $\sigma=\cos^2(\theta/2)$,
+\begin{equation}
+\frac{\dd\sigma^2}{\sigma(1-\sigma)}
+=\frac{(\frac14\sin^2\theta\,\dd\theta^2)}{\frac14\sin^2\theta}
+=\dd\theta^2.
+\end{equation}
+The Fisher distance from the balanced point is therefore
+\begin{equation}
+d_F(\sigma,1/2)
+=\left|\theta-\frac\pi2\right|
+=\left|2\arccos\sqrt\sigma-\frac\pi2\right|.
+\end{equation}
+
+\section{Berry connection in two gauges}
+The north-patch gauge used in the main text gives
+\begin{equation}
+\ket{\psi_N}
+=\cos(\theta/2)\ket0+e^{i\phi}\sin(\theta/2)\ket1,
+\end{equation}
+with
+\begin{equation}
+\mathcal A_N=-\sin^2(\theta/2)\,\dd\phi
+=-\frac{1-\cos\theta}{2}\dd\phi.
+\end{equation}
+A south-patch gauge may be chosen as
+\begin{equation}
+\ket{\psi_S}=e^{-i\phi}\cos(\theta/2)\ket0+\sin(\theta/2)\ket1,
+\end{equation}
+with
+\begin{equation}
+\mathcal A_S=\cos^2(\theta/2)\,\dd\phi
+=\frac{1+\cos\theta}{2}\dd\phi.
+\end{equation}
+Their difference is
+\begin{equation}
+\mathcal A_S-\mathcal A_N=\dd\phi,
+\end{equation}
+so the integrated phases differ by $2\pi$ and the holonomy is identical.
+
+\section{Modulus of the functional-equation factor}
+On the critical line, the functional equation and conjugation give
+\begin{equation}
+\zeta(s)=\chi(s)\overline{\zeta(s)}.
+\end{equation}
+At a point where $\zeta(s)\neq0$, taking absolute values yields
+\begin{equation}
+|\zeta(s)|=|\chi(s)|\,|\zeta(s)|,
+\end{equation}
+so $|\chi(s)|=1$. The identity extends continuously through zeros. This argument uses the fixed-line relation $1-s=\overline s$ and therefore does not hold off the line.
+
+\section{Half-density term in the dilation generator}
+Define the unitary dilation group on $L^2(\mathbb R_+,\dd x)$ by
+\begin{equation}
+(U_a f)(x)=e^{a/2}f(e^a x).
+\end{equation}
+Unitarity follows from
+\begin{align}
+\|U_a f\|^2
+&=\int_0^\infty e^a|f(e^a x)|^2\,\dd x\\
+&=\int_0^\infty |f(y)|^2\,\dd y.
+\end{align}
+Differentiating at $a=0$ gives
+\begin{equation}
+\left.\frac{\dd}{\dd a}U_a f\right|_{a=0}
+=\frac12 f+x f'.
+\end{equation}
+Therefore the self-adjoint generator convention $U_a=e^{-ia\widehat D}$ gives
+\begin{equation}
+\widehat D=-i\left(x\frac{\dd}{\dd x}+\frac12\right).
+\end{equation}
+The half term is required by the Jacobian of the unitary action.

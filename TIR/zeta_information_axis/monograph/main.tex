@@ -1,0 +1,136 @@
+\documentclass[11pt,oneside]{book}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\usepackage{unicode-math}
+\setmathfont{DejaVu Math TeX Gyre}
+\usepackage{microtype}
+\setlength{\emergencystretch}{3em}
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{graphicx}
+\graphicspath{{../figures/}}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{imakeidx}
+\makeindex
+
+\hypersetup{
+  pdftitle={The Information-Spinor Critical Axis},
+  pdfauthor={Adrian Lipa},
+  pdfsubject={Shannon balance, Euler-Berry holonomy, and Riemann zeta symmetry},
+  pdfkeywords={Riemann hypothesis, zeta function, Shannon entropy, Berry phase, spinor, Bloch sphere, Hilbert-Polya},
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{The Information-Spinor Critical Axis}
+\fancyhead[R]{Adrian Lipa}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{openproblem}[theorem]{Open Problem}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Epistemic Warning}
+
+\newcommand{\Ree}{\operatorname{Re}}
+\newcommand{\Imm}{\operatorname{Im}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\Hbin}{H_{\mathrm{bin}}}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\newcommand{\braket}[2]{\langle #1\mid #2\rangle}
+\newcommand{\status}[1]{\textsf{#1}}
+
+\begin{document}
+
+\frontmatter
+\begin{titlepage}
+\centering
+\vspace*{2.0cm}
+{\Huge\bfseries The Information-Spinor Critical Axis\par}
+\vspace{0.5cm}
+{\Large Shannon Balance, Euler-Berry Holonomy, and the Riemann Zeta Symmetry\par}
+\vspace{1.5cm}
+{\Large Adrian Lipa\par}
+\vspace{0.3cm}
+{\large Independent Researcher, Doncaster, United Kingdom\par}
+\vfill
+{\large Research Monograph v0.1\par}
+{\large 29 July 2026\par}
+\vspace{1cm}
+\begin{minipage}{0.88\textwidth}
+\small
+\textbf{Status statement.} This monograph proves a set of exact mathematical bridges among binary Shannon balance, complementary two-channel interference, qubit/Bloch geometry, Berry holonomy, and the fixed axis of the completed Riemann zeta functional equation. It then formulates a conditional critical-axis selection theorem. It does \emph{not} claim an unconditional proof of the Riemann hypothesis. The remaining implication is isolated as an explicit operator/kernel problem.
+\end{minipage}
+\end{titlepage}
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+The critical line $\Ree s=1/2$ simultaneously appears as the fixed set of the zeta involution, the maximum-entropy point of a binary probability simplex, the equator of a qubit Bloch sphere, and the unique point at which two complementary amplitudes can cancel under a relative phase of $\pi$. This monograph develops those coincidences into a precise framework. First, it derives the Shannon balance theorem $\Hbin(1/2)=\ln 2$. Second, it embeds the Bernoulli parameter $\sigma$ into the normalized state $\ket{\psi}=\sqrt{\sigma}\ket{0}+e^{i\phi}\sqrt{1-\sigma}\ket{1}$ and proves that exact destructive interference occurs if and only if $\sigma=1/2$ and $\phi=\pi$ modulo $2\pi$. Third, it computes the Berry phase of a full azimuthal cycle and shows that at $\sigma=1/2$ the holonomy is $-1$, the spinorial sign associated with a $2\pi$ cycle. Fourth, it places this geometry beside the completed zeta symmetry $\xi(s)=\xi(1-s)$ and the anti-linear involution $J(s)=1-\overline{s}$, whose fixed set is precisely $\Ree s=1/2$. The Dirichlet eta identity $\eta(s)=(1-2^{1-s})\zeta(s)$ and $\eta(1)=\ln2$ supply an exact parity/alternation bridge, while the Hardy $Z$ function supplies the established critical-line phase normalization. The principal result is conditional: if each nontrivial zero is represented by a locally normalized complementary two-branch cancellation state compatible with the zeta involution, then its real part must equal $1/2$. The unresolved task is therefore not the selection of the axis but the construction of a canonical representation or self-adjoint operator that forces every zero into that local cancellation class.
+
+\chapter*{Claim Ledger}
+\addcontentsline{toc}{chapter}{Claim Ledger}
+\begin{longtable}{@{}p{0.28\textwidth}p{0.18\textwidth}p{0.46\textwidth}@{}}
+\toprule
+Claim & Status & Meaning\\
+\midrule
+Binary entropy has a unique maximum at $\sigma=1/2$ with value $\ln2$. & \status{THEOREM} & Standard calculus result, proved here.\\
+The complement involution $\sigma\mapsto1-\sigma$ has the unique fixed point $1/2$. & \status{THEOREM} & Elementary and exact.\\
+Two complementary amplitudes cancel exactly at relative phase $\pi$ iff $\sigma=1/2$. & \status{THEOREM} & Exact algebraic result, proved here.\\
+The equatorial qubit cycle has Berry holonomy $-1$. & \status{THEOREM} & Exact within the stated gauge convention; the holonomy is gauge invariant.\\
+The completed zeta function is symmetric under $s\mapsto1-s$, and its anti-linear fixed axis is $\Ree s=1/2$. & \status{THEOREM} & Classical analytic number theory.\\
+$\eta(s)=(1-2^{1-s})\zeta(s)$ and $\eta(1)=\ln2$. & \status{THEOREM} & Classical identity.\\
+The parameter identification $\sigma=\Ree s$ is canonical. & \status{MODEL POSTULATE} & Motivated by complement symmetry, not supplied by standard zeta theory.\\
+Every nontrivial zeta zero is a local balanced two-channel cancellation state. & \status{OPEN ASSUMPTION} & This is the missing bridge.\\
+All nontrivial zeta zeros lie on $\Ree s=1/2$. & \status{OPEN} & The Riemann hypothesis is not proved here.\\
+\bottomrule
+\end{longtable}
+
+\tableofcontents
+
+\mainmatter
+\input{chapters/01_problem_and_method}
+\input{chapters/02_zeta_symmetry}
+\input{chapters/03_shannon_geometry}
+\input{chapters/04_bloch_berry_spinor}
+\input{chapters/05_cancellation_theorem}
+\input{chapters/06_eta_bridge}
+\input{chapters/07_hardy_phase}
+\input{chapters/08_conditional_axis_theorem}
+\input{chapters/09_operator_programme}
+\input{chapters/10_numerical_audit}
+\input{chapters/11_falsification_and_roadmap}
+\input{chapters/12_conclusion}
+
+\appendix
+\input{chapters/appA_detailed_derivations}
+\input{chapters/appB_reproducibility}
+\input{references}
+\printindex
+
+\end{document}

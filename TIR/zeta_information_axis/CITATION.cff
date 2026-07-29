@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite the monograph and the exact repository commit used."
+title: "The Information-Spinor Critical Axis: Shannon Balance, Euler-Berry Holonomy, and the Riemann Zeta Symmetry"
+type: software
+version: 0.1.0
+date-released: 2026-07-29
+authors:
+  - family-names: Lipa
+    given-names: Adrian
+    affiliation: Independent Researcher, Doncaster, United Kingdom
+repository-code: "https://github.com/AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations"
+license: AGPL-3.0-or-later
+preferred-citation:
+  type: book
+  title: "The Information-Spinor Critical Axis: Shannon Balance, Euler-Berry Holonomy, and the Riemann Zeta Symmetry"
+  authors:
+    - family-names: Lipa
+      given-names: Adrian
+  year: 2026

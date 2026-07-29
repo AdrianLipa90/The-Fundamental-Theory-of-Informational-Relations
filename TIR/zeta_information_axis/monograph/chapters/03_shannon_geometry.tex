@@ -1,0 +1,129 @@
+\chapter{Binary Shannon Balance and Information Geometry}
+\label{ch:shannon}
+
+\section{Entropy in natural units}
+For a Bernoulli distribution with probabilities $\sigma$ and $1-\sigma$, the Shannon entropy in nats is
+\begin{equation}
+\Hbin(\sigma)
+=-\sigma\ln\sigma-(1-\sigma)\ln(1-\sigma),
+\qquad 0\leq\sigma\leq1.
+\label{eq:binary-entropy}
+\end{equation}
+The endpoint convention $0\ln0=0$ is understood. Shannon's original axiomatic derivation identifies the logarithm as the additive measure compatible with composition of choices; the base fixes the unit \cite{Shannon1948}. In base $e$, a balanced binary choice has entropy $\ln2$.
+
+\begin{theorem}[Unique binary entropy maximum]
+The function $\Hbin$ is strictly concave on $(0,1)$ and has the unique maximum
+\begin{equation}
+\Hbin\!\left(\frac12\right)=\ln2.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Differentiation gives
+\begin{equation}
+\Hbin'(\sigma)=\ln\!\left(\frac{1-\sigma}{\sigma}\right),
+\end{equation}
+so the only stationary point satisfies $1-\sigma=\sigma$, hence $\sigma=1/2$. A second differentiation yields
+\begin{equation}
+\Hbin''(\sigma)
+=-\frac1\sigma-\frac1{1-\sigma}
+=-\frac{1}{\sigma(1-\sigma)}<0.
+\end{equation}
+Therefore the stationary point is the unique global maximum. Substitution gives
+\begin{equation}
+\Hbin(1/2)
+=-2\left(\frac12\ln\frac12\right)=\ln2.
+\end{equation}
+\end{proof}
+
+The number $\ln2$ is therefore not being inserted by hand at the balanced point. It is the exact natural-unit information of one maximally uncertain binary distinction.
+
+\section{Complement symmetry}
+Define the complement map
+\begin{equation}
+C(\sigma)=1-\sigma.
+\end{equation}
+Then
+\begin{equation}
+\Hbin(C(\sigma))=\Hbin(\sigma),
+\end{equation}
+and the unique fixed point of $C$ is $1/2$. This is formally parallel to the zeta complement $s\mapsto1-s$. The parallel becomes exact only after the model identification
+\begin{assumption}[Real-part/probability identification]
+\label{ass:sigma}
+Within the information-spinor representation, identify the Bernoulli coordinate with the real part of the zeta argument:
+\begin{equation}
+\sigma=\Ree s.
+\end{equation}
+\end{assumption}
+
+This assumption is natural because both coordinates lie in $(0,1)$ in their respective critical domains and both are acted on by the same complement $\sigma\mapsto1-\sigma$. Nevertheless, standard analytic number theory does not declare $\Ree s$ to be a probability. The identification is a modelling step and remains subject to justification by an operator or integral representation.
+
+\section{Fisher metric of the Bernoulli family}
+The Bernoulli family has Fisher information
+\begin{equation}
+g(\sigma)=\frac{1}{\sigma(1-\sigma)}.
+\end{equation}
+Thus the infinitesimal Fisher--Rao line element is
+\begin{equation}
+\dd \ell^2=\frac{\dd\sigma^2}{\sigma(1-\sigma)}.
+\label{eq:fisher-line}
+\end{equation}
+The metric diverges at the deterministic boundaries and is symmetric about $1/2$. Introduce an angular coordinate $\theta$ by
+\begin{equation}
+\sigma=\cos^2\!\left(\frac{\theta}{2}\right)
+=\frac{1+\cos\theta}{2}.
+\label{eq:sigma-theta}
+\end{equation}
+Then
+\begin{equation}
+\dd\sigma=-\frac12\sin\theta\,\dd\theta,
+\qquad
+\sigma(1-\sigma)=\frac14\sin^2\theta,
+\end{equation}
+so \eqref{eq:fisher-line} reduces to
+\begin{equation}
+\dd \ell^2=\dd\theta^2.
+\end{equation}
+The Bernoulli manifold is therefore an interval with a natural angular coordinate. The balanced point $\sigma=1/2$ corresponds to $\theta=\pi/2$.
+
+This is already the polar angle of the Bloch-sphere representation used in the next chapter. The information metric and the quantum-state geometry are thus joined by the square-root embedding rather than by metaphor.
+
+\section{Square-root amplitude embedding}
+Define
+\begin{equation}
+\boldsymbol{a}(\sigma)=
+\begin{pmatrix}
+\sqrt{\sigma}\\
+\sqrt{1-\sigma}
+\end{pmatrix}.
+\end{equation}
+Then $\|\boldsymbol{a}\|^2=1$, so the probability simplex is embedded into the unit circle in amplitude coordinates. The complement exchanges the two components. The balanced point becomes
+\begin{equation}
+\boldsymbol{a}(1/2)=\frac{1}{\sqrt2}
+\begin{pmatrix}1\\1\end{pmatrix}.
+\end{equation}
+
+The square-root map is important because coherent cancellation acts on amplitudes, not directly on probabilities. A phase can rotate one amplitude relative to the other. The exact zero condition will therefore combine Shannon's equality of probabilities with a phase opposition of their square roots.
+
+\section{Entropy deficit as a balance cost}
+Define the entropy deficit
+\begin{equation}
+D_S(\sigma)=\ln2-\Hbin(\sigma)\geq0.
+\end{equation}
+Near $\sigma=1/2$, write $\sigma=1/2+\delta$. A Taylor expansion gives
+\begin{equation}
+\Hbin\!\left(\frac12+\delta\right)
+=\ln2-2\delta^2-\frac43\delta^4+O(\delta^6),
+\end{equation}
+so
+\begin{equation}
+D_S(\sigma)=2\delta^2+\frac43\delta^4+O(\delta^6).
+\end{equation}
+The leading penalty for leaving the balance axis is quadratic. Any operator model that realizes $D_S$ as a positive energy or action would have a unique minimum at the critical line. This observation will later motivate a candidate confinement term, while remaining distinct from a proof that zeta zeros minimize it.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.76\textwidth]{binary_entropy.pdf}
+\caption{Binary Shannon entropy in nats. The unique balance point is $\sigma=1/2$, where the entropy equals $\ln2$.}
+\label{fig:entropy}
+\end{figure}

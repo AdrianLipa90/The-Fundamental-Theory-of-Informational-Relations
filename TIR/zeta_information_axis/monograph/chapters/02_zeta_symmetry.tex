@@ -1,0 +1,119 @@
+\chapter{The Completed Zeta Function and Its Fixed Axis}
+\label{ch:zeta}
+
+\section{Definition and analytic continuation}
+For $\Ree s>1$, the Riemann zeta function is defined by the absolutely convergent Dirichlet series
+\begin{equation}
+\zeta(s)=\sum_{n=1}^{\infty}n^{-s}
+\end{equation}
+and by the Euler product
+\begin{equation}
+\zeta(s)=\prod_{p\ \mathrm{prime}}\left(1-p^{-s}\right)^{-1}.
+\end{equation}
+It extends meromorphically to the complex plane with a single simple pole at $s=1$. The nontrivial zeros lie in the critical strip $0<\Ree s<1$ and are symmetric about both the real axis and the critical line \cite{Riemann1859,Titchmarsh1986,DLMF25}.
+
+A convenient entire completion is
+\begin{equation}
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma\!\left(\frac{s}{2}\right)\zeta(s).
+\label{eq:xi-def}
+\end{equation}
+The factors outside $\zeta$ remove the pole and package the trivial zeros into the gamma factor. The completed function obeys
+\begin{equation}
+\xi(s)=\xi(1-s).
+\label{eq:xi-fe}
+\end{equation}
+It also satisfies Schwarz reflection,
+\begin{equation}
+\xi(\overline{s})=\overline{\xi(s)},
+\label{eq:xi-conj}
+\end{equation}
+because its defining data are real on the real axis and the analytic continuation respects conjugation.
+
+\section{Linear and anti-linear symmetries}
+There are two related transformations:
+\begin{equation}
+R(s)=1-s,
+\qquad
+J(s)=1-\overline{s}.
+\end{equation}
+Both are involutions:
+\begin{equation}
+R(R(s))=s,
+\qquad
+J(J(s))=s.
+\end{equation}
+The fixed points of $R$ are only the single complex point $s=1/2$, while the fixed points of $J$ form the entire vertical critical line.
+
+\begin{theorem}[Fixed set of the zeta anti-involution]
+For $s=\sigma+it$,
+\begin{equation}
+J(s)=s
+\quad\Longleftrightarrow\quad
+\sigma=\frac12.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Since
+\begin{equation}
+J(\sigma+it)=1-(\sigma-it)=1-\sigma+it,
+\end{equation}
+the equation $J(s)=s$ is equivalent to $1-\sigma=\sigma$, hence $\sigma=1/2$. The imaginary coordinate remains arbitrary.
+\end{proof}
+
+Thus the critical line is not an arbitrary vertical line. It is the fixed locus of the reflection that combines the functional-equation complement $s\mapsto1-s$ with complex conjugation.
+
+\section{Orbit structure of zeros}
+If $\rho$ is a nontrivial zero, then the classical symmetries imply that
+\begin{equation}
+\rho,\quad \overline{\rho},\quad 1-\rho,\quad 1-\overline{\rho}
+\end{equation}
+are also zeros, with multiplicities preserved. If $\Ree\rho\neq1/2$ and $\Imm\rho\neq0$, these are generically four distinct points. If $\Ree\rho=1/2$, then $1-\overline{\rho}=\rho$, and the quartet collapses to the conjugate pair $\rho,\overline{\rho}$.
+
+\begin{warning}
+The functional equation guarantees orbit symmetry. It does not, by itself, require every zero to be a fixed point of $J$. Any proposed proof must supply a new reason why four-point orbits are impossible.
+\end{warning}
+
+This distinction is the logical center of the monograph. The information-spinor construction naturally selects fixed points, but a separate theorem is needed to show that all zero states belong to that fixed class.
+
+\section{Centered coordinate}
+Introduce
+\begin{equation}
+z=s-\frac12.
+\end{equation}
+Then the functional equation becomes an evenness relation. Define
+\begin{equation}
+\Xi_c(z)=\xi\!\left(\frac12+z\right).
+\end{equation}
+Equation \eqref{eq:xi-fe} gives
+\begin{equation}
+\Xi_c(z)=\Xi_c(-z).
+\end{equation}
+The critical line corresponds to purely imaginary $z=it$. The traditional real Riemann $\Xi$ function is
+\begin{equation}
+\Xi(t)=\xi\!\left(\frac12+it\right),
+\end{equation}
+which is real and even for real $t$.
+
+The centered coordinate already has the form of a balance displacement. The real deviation
+\begin{equation}
+\delta=\sigma-\frac12
+\end{equation}
+changes sign under complement. The information model will identify this with the signed displacement from equal binary weight.
+
+\section{The phase factor in the uncompleted functional equation}
+One may write
+\begin{equation}
+\zeta(s)=\chi(s)\zeta(1-s),
+\end{equation}
+where one standard choice is
+\begin{equation}
+\chi(s)=2^s\pi^{s-1}\sin\!\left(\frac{\pi s}{2}\right)\Gamma(1-s).
+\end{equation}
+On the critical line $s=1/2+it$, the relation $1-s=\overline{s}$ and Schwarz reflection give
+\begin{equation}
+\zeta(s)=\chi(s)\overline{\zeta(s)}.
+\end{equation}
+Moreover $|\chi(1/2+it)|=1$. Therefore $\chi$ is a pure phase on the fixed axis. This established fact anticipates the later geometric statement: the critical line is where the dual branches are related by phase without a modulus imbalance.
+
+Off the line, the duality factor generally changes modulus as well as phase. That observation motivates, but does not prove, the interpretation of $\sigma=1/2$ as the unitary or balanced duality axis.

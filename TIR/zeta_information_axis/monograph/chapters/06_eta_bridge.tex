@@ -1,0 +1,119 @@
+\chapter{The Dirichlet Eta Bridge: Alternation, Parity, and ln 2}
+\label{ch:eta}
+
+\section{Alternating Dirichlet series}
+The Dirichlet eta function is
+\begin{equation}
+\eta(s)=\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^s}.
+\label{eq:eta-series}
+\end{equation}
+The alternating factor may be written
+\begin{equation}
+(-1)^{n-1}=e^{i\pi(n-1)},
+\end{equation}
+so the series carries an exact binary phase alternation. It converges for $\Ree s>0$ by the Dirichlet test and provides a useful continuation of the zeta relation into the critical strip.
+
+Separate the zeta series into odd and even terms for $\Ree s>1$:
+\begin{align}
+\eta(s)
+&=\sum_{n=1}^{\infty}n^{-s}-2\sum_{m=1}^{\infty}(2m)^{-s}\\
+&=\zeta(s)-2^{1-s}\zeta(s)\\
+&=\left(1-2^{1-s}\right)\zeta(s).
+\label{eq:eta-zeta}
+\end{align}
+By analytic continuation the identity holds throughout the common domain.
+
+\begin{theorem}[Eta-zeta factorization]
+\begin{equation}
+\eta(s)=\left(1-2^{1-s}\right)\zeta(s).
+\end{equation}
+Moreover,
+\begin{equation}
+\eta(1)=\ln2.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The factorization was derived above where both series converge absolutely and extends analytically. At $s=1$, equation \eqref{eq:eta-series} becomes the alternating harmonic series, whose sum is $\ln2$.
+\end{proof}
+
+This is an exact point of contact among zeta, a binary sign phase, and the natural-unit binary information constant.
+
+\section{Mellin transform of the fermionic kernel}
+For $\Ree s>0$,
+\begin{equation}
+\int_0^\infty \frac{x^{s-1}}{e^x+1}\,\dd x
+=\Gamma(s)\eta(s).
+\label{eq:eta-mellin}
+\end{equation}
+Indeed,
+\begin{equation}
+\frac{1}{e^x+1}
+=\sum_{n=1}^{\infty}(-1)^{n-1}e^{-nx},
+\end{equation}
+and termwise Mellin transformation yields \eqref{eq:eta-mellin}. The denominator $e^x+1$ is conventionally called fermionic because it appears in Fermi--Dirac statistics. This terminology does not by itself establish a physical fermion behind zeta zeros, but it reinforces the exact role of sign alternation.
+
+At $s=1$,
+\begin{equation}
+\eta(1)
+=\int_0^\infty\frac{\dd x}{e^x+1}
+=\ln2.
+\end{equation}
+Thus $\ln2$ is simultaneously a Shannon binary entropy, an alternating harmonic sum, and the total weight of the simplest Fermi--Dirac kernel.
+
+\section{Zeros introduced by the prefactor}
+The factor
+\begin{equation}
+f(s)=1-2^{1-s}
+\end{equation}
+vanishes when
+\begin{equation}
+(1-s)\ln2=2\pi i k,
+\qquad k\in\mathbb Z,
+\end{equation}
+that is,
+\begin{equation}
+s=1-\frac{2\pi i k}{\ln2}.
+\end{equation}
+These zeros lie on the line $\Ree s=1$, not in the open critical strip. Therefore within $0<\Ree s<1$, $\eta$ and $\zeta$ have the same zeros with the same multiplicities.
+
+\begin{proposition}
+For every $s$ with $0<\Ree s<1$,
+\begin{equation}
+\eta(s)=0\quad\Longleftrightarrow\quad\zeta(s)=0.
+\end{equation}
+\end{proposition}
+
+The eta function is therefore a legitimate critical-strip representation of the nontrivial zero set.
+
+\section{Why eta is not yet the missing proof}
+The alternation $(-1)^{n-1}$ establishes a $0/\pi$ phase pattern over parity classes. However, the series contains infinitely many weighted terms, not an immediately normalized pair of complementary amplitudes. Grouping odd and even contributions gives
+\begin{equation}
+\eta(s)=O(s)-E(s),
+\end{equation}
+where in the absolute-convergence domain
+\begin{equation}
+O(s)=(1-2^{-s})\zeta(s),
+\qquad
+E(s)=2^{-s}\zeta(s).
+\end{equation}
+At a zeta zero, both analytically continued components vanish because both contain the common factor $\zeta(s)$. This factorization does not by itself show a nontrivial cancellation between two finite nonzero branch amplitudes.
+
+The useful content of eta is therefore structural:
+\begin{enumerate}
+\item it places $\ln2$ and zeta in one exact identity;
+\item it implements binary phase alternation;
+\item it shares the nontrivial critical-strip zeros;
+\item it suggests that a normalized parity decomposition may be possible.
+\end{enumerate}
+The missing step is a canonical renormalization or operator factorization that converts the infinite alternating sum into the two-branch cancellation form of Chapter \ref{ch:cancellation} without dividing by the very zero one seeks to explain.
+
+\section{A proposed normalized parity problem}
+Let $\mathcal H_o$ and $\mathcal H_e$ denote odd and even sectors of an appropriate Hilbert space. The research target is to construct states $\ket{O_s}$ and $\ket{E_s}$ and a bounded readout $L$ such that
+\begin{equation}
+\xi(s)=N(s)\,L\left(
+\sqrt{\sigma}\ket{O_s}
++e^{i\Phi(s)}\sqrt{1-\sigma}\ket{E_s}
+\right),
+\end{equation}
+where $N(s)$ is nonzero in the critical strip, complement exchanges the sectors, and $L$ has exact cancellation only at equal weights and phase $\pi$. This is not asserted to exist; it is a concrete formulation of the missing representation theorem.

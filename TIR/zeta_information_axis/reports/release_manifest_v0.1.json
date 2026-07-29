@@ -1,0 +1,20 @@
+{
+  "generated_utc": "2026-07-29T18:05:56+00:00",
+  "version": "0.1.0",
+  "artifact": "monograph/information_spinor_critical_axis.pdf",
+  "sha256": "b04b5f2d84f52236e21dd24392bbb622c1cc03fd9e99e041caf40a8475001e53",
+  "pages": 50,
+  "page_size": "595.28 x 841.89 pts (A4)",
+  "pdf_version": "1.5",
+  "encrypted": "no",
+  "suspects": "no",
+  "type3_fonts_present": false,
+  "pytest": "14 passed",
+  "overfull_boxes": 0,
+  "scientific_status": {
+    "exact_bridge": "PASS",
+    "conditional_axis_theorem": "PASS_AS_CONDITIONAL",
+    "canonical_zero_state_representation": "OPEN_GAP",
+    "riemann_hypothesis": "OPEN_NOT_CLAIMED"
+  }
+}

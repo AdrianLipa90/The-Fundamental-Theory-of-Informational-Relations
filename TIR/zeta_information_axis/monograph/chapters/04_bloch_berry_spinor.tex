@@ -1,0 +1,129 @@
+\chapter{Bloch Geometry, Berry Holonomy, and the Spinor Sign}
+\label{ch:bloch}
+
+\section{Two-level state}
+The square-root embedding becomes a normalized complex two-level state after introducing a relative phase:
+\begin{equation}
+\ket{\psi(\sigma,\phi)}
+=\sqrt{\sigma}\ket{0}
++e^{i\phi}\sqrt{1-\sigma}\ket{1}.
+\label{eq:qubit-state}
+\end{equation}
+Using \eqref{eq:sigma-theta}, this can be written
+\begin{equation}
+\ket{\psi(\theta,\phi)}
+=\cos\!\left(\frac\theta2\right)\ket{0}
++e^{i\phi}\sin\!\left(\frac\theta2\right)\ket{1}.
+\end{equation}
+Up to an irrelevant global phase, this is the standard pure-qubit parametrization. Its Bloch vector is
+\begin{equation}
+\boldsymbol{n}=(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta).
+\end{equation}
+Since $\cos\theta=2\sigma-1$, the complement $\sigma\mapsto1-\sigma$ reflects the Bloch vector through the equatorial plane.
+
+\begin{proposition}[Balanced point equals the Bloch equator]
+The information-balanced condition $\sigma=1/2$ is equivalent to
+\begin{equation}
+n_z=0,
+\end{equation}
+so the full phase orbit lies on the Bloch equator.
+\end{proposition}
+
+\begin{proof}
+From $n_z=\cos\theta=2\sigma-1$, one has $n_z=0$ if and only if $\sigma=1/2$.
+\end{proof}
+
+\section{Berry connection}
+Let $\phi$ vary adiabatically around a full cycle while $\sigma$ is held fixed. Differentiate \eqref{eq:qubit-state}:
+\begin{equation}
+\partial_\phi\ket{\psi}
+=i e^{i\phi}\sqrt{1-\sigma}\ket{1}.
+\end{equation}
+The Berry connection along the cycle is
+\begin{equation}
+\mathcal A_\phi
+=i\braket{\psi}{\partial_\phi\psi}
+=i\left[i(1-\sigma)\right]
+=-(1-\sigma).
+\end{equation}
+Therefore the geometric phase is
+\begin{equation}
+\gamma_B(\sigma)
+=\int_0^{2\pi}\mathcal A_\phi\,\dd\phi
+=-2\pi(1-\sigma).
+\label{eq:berry-sigma}
+\end{equation}
+A different gauge may shift $\gamma_B$ by an integer multiple of $2\pi$, but the holonomy
+\begin{equation}
+\mathcal U_B(\sigma)=e^{i\gamma_B(\sigma)}
+\end{equation}
+is gauge invariant.
+
+The same result follows from the solid-angle formula. The latitude at polar angle $\theta$ encloses solid angle
+\begin{equation}
+\Omega=2\pi(1-\cos\theta),
+\end{equation}
+and a spin-$1/2$ state acquires
+\begin{equation}
+\gamma_B=-\frac{\Omega}{2}
+=-\pi(1-\cos\theta)
+=-2\pi(1-\sigma).
+\end{equation}
+
+\section{Equatorial holonomy}
+\begin{theorem}[Information-balanced spinor holonomy]
+For the state family \eqref{eq:qubit-state}, a full azimuthal cycle at the balanced point has
+\begin{equation}
+\gamma_B(1/2)=-\pi\pmod{2\pi},
+\qquad
+\mathcal U_B(1/2)=-1.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Substituting $\sigma=1/2$ into \eqref{eq:berry-sigma} gives $\gamma_B=-\pi$. Euler's formula then gives $e^{-i\pi}=-1$.
+\end{proof}
+
+Thus the same point that maximizes binary entropy also produces the nontrivial sign holonomy of a spinor-like two-state cycle.
+
+\section{Two pi and four pi}
+For a spin-$1/2$ representation, a physical rotation by angle $\alpha$ about a unit axis $\boldsymbol{n}$ is represented by
+\begin{equation}
+U(\alpha)=\exp\!\left(-\frac{i\alpha}{2}\boldsymbol{n}\cdot\boldsymbol{\sigma}\right),
+\end{equation}
+where $\boldsymbol{\sigma}$ are the Pauli matrices. Therefore
+\begin{equation}
+U(2\pi)=-I,
+\qquad
+U(4\pi)=I.
+\end{equation}
+The factor $1/2$ is the representation weight responsible for the double cover $SU(2)\to SO(3)$. In the present construction, an analogous half-weight appears as the balance coordinate of the two complementary amplitudes.
+
+It is essential to distinguish two claims:
+\begin{enumerate}
+\item \emph{Established:} spin-$1/2$ representations have a $-1$ sign under a $2\pi$ rotation.
+\item \emph{Proposed identification:} the real coordinate of a zeta zero is represented by the population weight of a two-level state whose equatorial holonomy implements the zeta phase balance.
+\end{enumerate}
+The second is not implied merely by the first.
+
+\section{Euler phase versus geometric phase}
+The equation $e^{i\pi}=-1$ is algebraically universal. It does not by itself select $1/2$. The selection occurs because the Berry phase depends on the population coordinate:
+\begin{equation}
+\gamma_B(\sigma)=-2\pi(1-\sigma).
+\end{equation}
+Requiring the holonomy to equal $-1$ gives
+\begin{equation}
+-2\pi(1-\sigma)=\pi\pmod{2\pi},
+\end{equation}
+which yields
+\begin{equation}
+\sigma=\frac12\pmod1.
+\end{equation}
+In the probability interval $0\leq\sigma\leq1$, the nontrivial interior solution is $1/2$. The phase requirement therefore selects the same point as Shannon balance.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.66\textwidth]{bloch_equator.pdf}
+\caption{Schematic Bloch geometry. Complement exchange reflects north and south populations, while $\sigma=1/2$ is the fixed equator.}
+\label{fig:bloch}
+\end{figure}

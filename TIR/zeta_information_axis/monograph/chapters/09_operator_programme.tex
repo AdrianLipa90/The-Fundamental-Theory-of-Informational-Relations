@@ -1,0 +1,128 @@
+\chapter{Operator, Kernel, and Spectral Realization Programme}
+\label{ch:operator}
+
+\section{Hilbert--Pólya criterion}
+A standard sufficient route to the Riemann hypothesis is to construct a self-adjoint operator $\widehat H$ whose spectrum consists of the ordinates of the nontrivial zeros. In its cleanest form, one seeks a relation such as
+\begin{equation}
+D(E)=C(E)\,\xi\!\left(\frac12+iE\right),
+\label{eq:spectral-det}
+\end{equation}
+where $D(E)$ is a spectral determinant of $\widehat H$ and $C(E)$ is nonzero in the relevant domain. If $\widehat H$ is self-adjoint, its eigenvalues $E$ are real. The corresponding zeros then have real part $1/2$.
+
+The principal difficulty is not writing an operator with a spectrum fitted to a pre-existing list of zeros. It is constructing a natural operator whose domain, boundary conditions, self-adjointness, and determinant are derived independently from arithmetic or geometry. Berry and Keating related the smooth zero-counting function to the semiclassical Hamiltonian $H=xp$, while Connes developed an absorption-spectrum interpretation through noncommutative geometry \cite{BerryKeating1999,Connes1999}. These are structural precedents rather than completed proofs.
+
+\section{Information-spinor operator ansatz}
+The present framework suggests a tensor-product Hilbert space
+\begin{equation}
+\mathcal H=\mathcal H_{\mathrm{arith}}\otimes\mathbb C^2,
+\end{equation}
+where the two-dimensional factor carries the complement degree of freedom. Let $\tau_x,\tau_y,\tau_z$ denote Pauli matrices acting on the complement factor. A schematic operator may be written
+\begin{equation}
+\widehat{\mathcal D}
+=\widehat H_{\mathrm{arith}}\otimes I
++\widehat V\otimes\tau_x
++\widehat W\otimes\tau_y
++\widehat M\otimes\tau_z.
+\label{eq:dirac-ansatz}
+\end{equation}
+The exchange involution acts as $\tau_x$ combined with complex conjugation. The balance axis corresponds to vanishing expectation of $\tau_z$:
+\begin{equation}
+\langle\tau_z\rangle=2\sigma-1=0.
+\end{equation}
+A chiral or particle-hole type symmetry could force eigenstates at a zero to have equal complement populations.
+
+This is only an architecture. To become useful, the arithmetic operators must be specified and the determinant or scattering matrix must be shown to reproduce $\xi$.
+
+\section{Positive balance penalty}
+The Shannon deficit defines a nonnegative scalar potential
+\begin{equation}
+V_S(\sigma)=\ln2-\Hbin(\sigma).
+\end{equation}
+Likewise, the phase-$\pi$ cancellation residual is
+\begin{equation}
+V_I(\sigma)=\left(\sqrt\sigma-\sqrt{1-\sigma}\right)^2.
+\end{equation}
+Both vanish uniquely at $1/2$ and agree to quadratic order. An effective transverse Hamiltonian could contain
+\begin{equation}
+\widehat H_\perp
+=-\alpha\frac{\dd^2}{\dd\sigma^2}
++\beta V_S(\sigma)
++\gamma V_I(\sigma),
+\end{equation}
+with suitable boundary conditions on $(0,1)$. Its ground state would be centered at $1/2$, but this alone would not prove that all zeta spectral states have zero transverse displacement. Excited transverse states generally exist. A supersymmetry, projection, topological index, or constraint would be needed to restrict the physical sector to the balanced mode.
+
+\section{Holonomy as a boundary condition}
+The Berry connection of Chapter \ref{ch:bloch} suggests imposing a monodromy condition
+\begin{equation}
+\Psi(\phi+2\pi)=-\Psi(\phi).
+\label{eq:antiperiodic}
+\end{equation}
+Antiperiodic boundary conditions yield half-integer Fourier modes
+\begin{equation}
+\Psi_m(\phi)=e^{i(m+1/2)\phi},
+\qquad m\in\mathbb Z.
+\end{equation}
+This is a precise mechanism by which a half shift appears spectrally. The challenge is to derive the zeta real part from this half-shift rather than merely reproducing a familiar spin structure.
+
+One possible target is a transfer operator or Dirac-type operator whose Mellin exponent is shifted by the spin structure:
+\begin{equation}
+s=\frac12+iE.
+\end{equation}
+If the $1/2$ is a fixed spin-connection contribution and $E$ is the real spectrum of a self-adjoint generator, RH follows. The unresolved tasks are to identify the arithmetic evolution and prove the determinant identity \eqref{eq:spectral-det}.
+
+\section{Mellin generator and dilation}
+The classical generator of dilations is $xp$. Quantum mechanically, a symmetric realization is
+\begin{equation}
+\widehat D=\frac12(\widehat x\widehat p+\widehat p\widehat x)
+=-i\left(x\frac{\dd}{\dd x}+\frac12\right)
+\end{equation}
+on an appropriate domain. The appearance of $1/2$ here is forced by symmetric ordering and by unitarity of dilations in $L^2(\mathbb R_+,\dd x)$. Indeed, the unitary dilation group acts as
+\begin{equation}
+(U_a f)(x)=e^{a/2}f(e^a x),
+\end{equation}
+and its generator contains the half-density term.
+
+This provides a second exact origin of the half shift, independent of Shannon entropy. Mellin eigenfunctions behave as
+\begin{equation}
+f_E(x)=x^{-1/2+iE},
+\end{equation}
+up to conventions. Their exponent lies on the critical line. Berry--Keating type models exploit this dilation structure \cite{BerryKeating1999,Sierra2007}.
+
+\begin{proposition}[Half-density origin of the critical line]
+The unitary representation of dilations on $L^2(\mathbb R_+,\dd x)$ has generalized eigenfunctions with Mellin exponent $-1/2+iE$. Under the conventional zeta Mellin variable, this corresponds to a fixed real part $1/2$.
+\end{proposition}
+
+The proposition explains why self-adjoint dilation generators naturally live on the critical line. It still does not establish that their spectral boundary condition is the zeta function.
+
+\section{Kernel criterion}
+Another route starts with the cosine transform \eqref{eq:xi-fourier}. A sufficient result would be a theorem placing the kernel $\Phi$ in a class whose Fourier transform has only real zeros. Candidate concepts include Pólya frequency functions, total positivity, variation-diminishing transforms, and de Branges spaces.
+
+The information interpretation suggests examining whether $\Phi$ can be normalized as a probability or amplitude kernel whose complement operation has a unique fixed point. The relevant test is not whether $\Phi$ is positive; positivity alone is insufficient to force real zeros of a Fourier transform. One needs a much stronger structural property.
+
+\section{De Branges strategy}
+De Branges theory gives conditions under which an entire function belongs to a Hermite--Biehler class and has controlled zero geometry. A possible target is to construct an entire function $E(z)$ such that
+\begin{equation}
+\Xi(z)=\frac12\left(E(z)+E^{\#}(z)\right),
+\qquad
+E^{\#}(z)=\overline{E(\overline z)},
+\end{equation}
+with
+\begin{equation}
+|E(z)|>|E^{\#}(z)|
+\qquad \text{for }\Imm z>0.
+\end{equation}
+Such an inequality would encode a positivity or causality condition. In the two-branch language, $E$ and $E^{\#}$ are complementary amplitudes, and the real axis is their fixed boundary. Establishing the Hermite--Biehler inequality for an appropriate zeta-derived $E$ would be a substantive proof route rather than a restatement of symmetry.
+
+\section{Minimal proof obligations}
+A publishable operator claim must specify:
+\begin{enumerate}
+\item the Hilbert space and inner product;
+\item the dense operator domain;
+\item the adjoint and deficiency indices;
+\item the self-adjoint extension, if any;
+\item the boundary conditions and why they are arithmetic rather than fitted;
+\item the determinant or scattering function;
+\item proof that any prefactor multiplying $\xi$ is nonzero in the critical strip;
+\item proof that no tabulated zero data were inserted into the operator.
+\end{enumerate}
+Without these items, an operator analogy remains heuristic.

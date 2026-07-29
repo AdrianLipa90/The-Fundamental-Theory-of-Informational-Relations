@@ -1,0 +1,87 @@
+\chapter{Problem, Scope, and Method}
+\label{ch:problem}
+
+\section{The proposed mechanism}
+The working hypothesis of this monograph can be stated in one sentence:
+
+\begin{quote}
+The real coordinate $\sigma=\Ree s$ of a nontrivial zeta zero is selected by the simultaneous requirements of complementary information balance and a phase reversal, so that the unique admissible cancellation axis is $\sigma=1/2$.
+\end{quote}
+
+The statement contains three distinct mathematical objects that must not be conflated:
+\begin{enumerate}[label=(\roman*)]
+\item the analytic symmetry of the completed Riemann zeta function;
+\item the binary information geometry of a pair of complementary weights $\sigma$ and $1-\sigma$;
+\item the geometry and holonomy of a two-level complex state.
+\end{enumerate}
+The goal is to derive each layer independently and then identify the precise extra assumption required to connect them.
+
+The central discipline of the project is that a compelling structural coincidence is not automatically a proof. The line $\Ree s=1/2$ is already distinguished by the functional equation. The difficult part of the Riemann hypothesis is to exclude zeros that occur in symmetric pairs away from that line. Any successful argument must therefore do more than rediscover the symmetry. It must supply a positivity, self-adjointness, local fixed-point, or equivalent mechanism that forbids off-axis quartets.
+
+\section{Four levels of assertion}
+We use the following hierarchy throughout.
+
+\begin{description}[style=nextline]
+\item[THEOREM] A statement proved from explicit assumptions by standard mathematics.
+\item[PROPOSITION] A derived statement of narrower scope, often used as a bridge between chapters.
+\item[MODEL POSTULATE] An identification introduced to build the information-spinor representation. It is mathematically consistent but not forced by standard zeta theory.
+\item[OPEN GAP] A missing implication whose proof would be needed before any claim of a proof of the Riemann hypothesis.
+\end{description}
+
+This hierarchy is not cosmetic. It prevents the most common failure mode in speculative work on the zeta function: replacing the sentence ``the critical line is the symmetry axis'' with the much stronger and unproved sentence ``all zeros must lie on the symmetry axis.'' The first is classical. The second is the Riemann hypothesis.
+
+\section{The three appearances of one half}
+The number $1/2$ enters the construction in three exact ways.
+
+First, the binary Shannon entropy in natural units,
+\begin{equation}
+\Hbin(\sigma)=-\sigma\ln\sigma-(1-\sigma)\ln(1-\sigma),
+\end{equation}
+has a unique maximum at $\sigma=1/2$, with value $\ln2$. This is the point at which the two alternatives carry equal probability weight.
+
+Second, a normalized two-level state may be written as
+\begin{equation}
+\ket{\psi(\sigma,\phi)}
+=\sqrt{\sigma}\ket{0}+e^{i\phi}\sqrt{1-\sigma}\ket{1}.
+\end{equation}
+At the relative phase $\phi=\pi$, the scalar interference amplitude
+\begin{equation}
+\mathcal A(\sigma,\pi)=\sqrt{\sigma}-\sqrt{1-\sigma}
+\end{equation}
+vanishes if and only if $\sigma=1/2$. Thus equal information weight and exact phase cancellation select the same point.
+
+Third, the completed zeta function obeys a reflection symmetry about the line $\Ree s=1/2$. The anti-linear involution
+\begin{equation}
+J(s)=1-\overline{s}
+\end{equation}
+has fixed points exactly when $\Ree s=1/2$.
+
+The mathematical programme is to determine whether these three facts are merely compatible or whether a canonical representation makes them logically dependent.
+
+\section{Why the Berry phase is relevant}
+The state $\ket{\psi(\sigma,\phi)}$ traces a latitude on the Bloch sphere as $\phi$ advances from $0$ to $2\pi$. At the balanced point $\sigma=1/2$, this latitude is the equator. A direct calculation gives the Berry phase
+\begin{equation}
+\gamma_B(\sigma)=-2\pi(1-\sigma)
+\end{equation}
+for the chosen gauge, hence
+\begin{equation}
+\gamma_B(1/2)=-\pi,
+\qquad
+\exp(i\gamma_B)=-1.
+\end{equation}
+This is the spinorial sign reversal associated with a full $2\pi$ cycle. The relevant content is not merely Euler's identity $e^{i\pi}=-1$; it is that the same phase arises as a geometric holonomy at the information-balanced equator. Berry's original formulation and Simon's line-bundle interpretation establish the standard geometric setting for this calculation \cite{Berry1984,Simon1983}.
+
+\section{What would count as a proof}
+A proof of the Riemann hypothesis within this programme would require at least one of the following:
+\begin{enumerate}
+\item a canonical map from each nontrivial zero to a normalized two-branch state for which zerohood is equivalent to exact destructive interference;
+\item a self-adjoint operator whose spectral determinant is proportional to $\xi(1/2+iE)$;
+\item a positive or totally positive kernel representation whose real-zero theorem applies to the Riemann $\Xi$ function;
+\item a proof that the zeta functional equation acts locally on each zero state, rather than only globally by pairing distinct zeros.
+\end{enumerate}
+The present monograph completes neither item. It isolates the required implication in a form that can be attacked mathematically and computationally.
+
+\section{Relation to established programmes}
+The operator route is related to the Hilbert--Pólya idea and to spectral models developed by Berry and Keating, Connes, Sierra, and others \cite{BerryKeating1999,Connes1999,Sierra2007}. Those programmes ask whether the ordinates of the zeros arise as spectral data of a Hermitian or self-adjoint system. The distinctive proposal here is that the real part $1/2$ may be interpreted as a balance coordinate in a two-state information geometry and simultaneously as the equatorial location of a $\pi$ holonomy.
+
+This interpretation is intended to sharpen the target, not to replace the operator problem. The spectral mechanism must still be constructed.

@@ -1,0 +1,55 @@
+\chapter{Repository and Reproducibility Protocol}
+\label{app:repo}
+
+\section{Directory structure}
+\begin{verbatim}
+information_spinor_critical_axis/
+  README.md
+  LICENSES.md
+  CITATION.cff
+  Makefile
+  pyproject.toml
+  monograph/
+    main.tex
+    chapters/
+    references.tex
+  src/critical_axis/
+    core.py
+  scripts/
+    make_figures.py
+    run_audit.py
+  tests/
+    test_core.py
+  figures/
+  reports/
+  logs/changes.jsonl
+  .github/workflows/compile.yml
+\end{verbatim}
+
+\section{Build environment}
+The reference build uses Python 3.11 or later, \texttt{mpmath}, \texttt{numpy}, \texttt{matplotlib}, \texttt{pytest}, XeLaTeX, and \texttt{latexmk}. No network access is required after dependencies are installed.
+
+\section{Append-only change record}
+Every conceptual or code change receives a new JSON Lines entry with:
+\begin{enumerate}
+\item UTC timestamp;
+\item version and change identifier;
+\item scope;
+\item rationale;
+\item affected files;
+\item claim impact;
+\item validation performed.
+\end{enumerate}
+Historical entries are not edited or deleted. Corrections are appended as new entries.
+
+\section{Reproduction levels}
+\begin{description}
+\item[Level 1: algebra.] Run the test suite and reproduce exact residuals.
+\item[Level 2: figures.] Regenerate all plots from source.
+\item[Level 3: publication.] Compile the XeLaTeX monograph and inspect the PDF.
+\item[Level 4: independent implementation.] Reimplement the identities without importing the package.
+\item[Level 5: adversarial audit.] Attempt to construct synthetic off-axis zeros or branch states and test whether the assumptions silently exclude them.
+\end{description}
+
+\section{Provenance rule}
+Numerical zero ordinates produced by \texttt{mpmath.zetazero} are treated as reproduced reference data, not as a proof source. Any future spectral model must generate its eigenvalues without reading a zero table.

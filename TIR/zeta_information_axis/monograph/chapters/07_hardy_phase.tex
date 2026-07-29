@@ -1,0 +1,79 @@
+\chapter{Critical-Line Phase Normalization and the Hardy Z Function}
+\label{ch:hardy}
+
+\section{Pure-phase duality on the fixed axis}
+Write the functional equation as
+\begin{equation}
+\zeta(s)=\chi(s)\zeta(1-s).
+\end{equation}
+On $s=1/2+it$, one has $1-s=\overline{s}$, hence
+\begin{equation}
+\zeta\!\left(\frac12+it\right)
+=\chi\!\left(\frac12+it\right)
+\overline{\zeta\!\left(\frac12+it\right)}.
+\label{eq:phase-duality}
+\end{equation}
+The modulus of $\chi$ is one on this line. Therefore there exists a real phase $\vartheta(t)$ such that
+\begin{equation}
+\chi\!\left(\frac12+it\right)=e^{-2i\vartheta(t)}.
+\end{equation}
+Define the Hardy function
+\begin{equation}
+Z(t)=e^{i\vartheta(t)}\zeta\!\left(\frac12+it\right).
+\label{eq:hardyZ}
+\end{equation}
+Equation \eqref{eq:phase-duality} implies $Z(t)=\overline{Z(t)}$, so $Z(t)$ is real for real $t$. Its real zeros are precisely the zeros of zeta on the critical line \cite{Titchmarsh1986,DLMF25}.
+
+This is an established phase-normalization result. It shows that the fixed axis converts the functional-equation duality into a real observable after removing a known phase.
+
+\section{Balance of modulus and phase}
+The critical line is distinguished by
+\begin{equation}
+|\chi(1/2+it)|=1.
+\end{equation}
+Thus duality changes phase but not magnitude. Away from the line, one generally has $|\chi(s)|\neq1$. In a two-branch interpretation, this means that the functional equation relates branches of unequal norm away from the fixed axis, while the axis supports unitary phase matching.
+
+This statement must be handled carefully. A complex equation can vanish through cancellation even when individual terms have unequal raw norms if other coefficients or remainders are present. The modulus-one property is therefore a strong motivation for a balanced-state model, not an independent proof of RH.
+
+\section{Approximate functional equation}
+A standard approximate functional equation decomposes zeta into a direct Dirichlet sum and a dual sum multiplied by $\chi(s)$, schematically
+\begin{equation}
+\zeta(s)
+=\sum_{n\leq x}n^{-s}
++\chi(s)\sum_{n\leq y}n^{s-1}
++R(s;x,y),
+\qquad xy\asymp\frac{|t|}{2\pi}.
+\label{eq:afe}
+\end{equation}
+On the critical line and with symmetric truncation $x\approx y$, the two sums are conjugate after phase normalization. This is the analytic-number-theory analogue of two complementary branches with matched weight.
+
+The Riemann--Siegel formula sharpens this decomposition and is the basis of efficient evaluation of $Z(t)$. The observed zeros occur when the phase-normalized real quantity changes sign or reaches zero. The information-spinor programme proposes that the exact completion of this dual-sum structure may possess a projective two-channel interpretation.
+
+\section{Riemann Xi as a real Fourier transform}
+The completed function on the critical line admits a cosine-transform representation of the form
+\begin{equation}
+\Xi(t)=\int_0^\infty \Phi(u)\cos(tu)\,\dd u,
+\label{eq:xi-fourier}
+\end{equation}
+for a rapidly decaying real kernel $\Phi$. Hence $\Xi$ is real and even. The Riemann hypothesis is equivalent to all zeros of this entire function occurring at real $t$.
+
+This representation suggests a second route to the missing theorem. Instead of building a two-dimensional state for each zero, one may seek a positivity or total-positivity property of $\Phi$ strong enough to enforce real zeros of its Fourier transform. Classical work surrounding the de Bruijn--Newman deformation illustrates how heat-flow and zero geometry can encode the problem \cite{deBruijn1950,Newman1976,RodgersTao2020}.
+
+\section{Phase quantization at a zero}
+At a simple critical-line zero $t_n$, the real function $Z(t)$ crosses zero. Between zeros it has a sign, and its phase-normalized zeta value is either aligned or anti-aligned with the real readout. The cancellation theorem suggests representing the zero crossing by a relative phase of $\pi$ between dual contributions.
+
+A rigorous implementation would require an exact identity
+\begin{equation}
+Z(t)=\mathcal N(t)\left[
+\sqrt{\sigma(t)}F_+(t)
++e^{i\phi(t)}\sqrt{1-\sigma(t)}F_-(t)
+\right]
+\end{equation}
+with $F_-$ canonically conjugate or complementary to $F_+$ and with nonvanishing normalization. On the critical line $\sigma=1/2$ would be fixed, and zerohood would reduce to phase opposition. The approximate functional equation provides a template but not yet such an exact normalized identity.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.84\textwidth]{hardy_z_zeros.pdf}
+\caption{Numerical Hardy $Z(t)$ and the first ten tabulated critical-line zeros. This reproduces known data; it is not evidence that no off-line zeros exist.}
+\label{fig:hardy}
+\end{figure}
