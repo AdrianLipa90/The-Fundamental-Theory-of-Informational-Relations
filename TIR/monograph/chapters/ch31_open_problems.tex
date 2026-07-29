@@ -215,55 +215,81 @@ and at least one up-type channel must retain a multiplicative error of at least
 
 Thus a common \(B_{\rm up}\) cannot simultaneously remove the \(u\) offset and
 retain the current absolute \(c/t\) scale.  The no-go applies to the restricted
-architecture, not to the Collatz quarter-power hypothesis itself.  The next
-structural step must either rederive the relative up-sector release or use a
-pre-existing sector distinction such as \texttt{light\_quark\_seed} versus
-\texttt{heavy\_quark\_resonance}; it may not insert a correction keyed directly
-to \(u\).
+architecture, not to the Collatz quarter-power hypothesis itself.
 
-\subsection{Prospective Observable Identifiability (Corrected)}
+\subsection{Observable Identifiability and Separable Candidate Family}
 
-Appendix~\ref{app:observable_identifiability} separates the two admissible
-architecture classes experimentally.  A pure sector baseline has
+Appendices~\ref{app:prospective_observable_identifiability} and
+\ref{app:separable_candidate_family} refine the admissible architecture to
 
 \[
-B_i=B_{s(i)},
+\boxed{
+\ln y_{f,g}=F(S_f)+D(G_g,R_g)
+}
 \]
 
-with coordinates invariant across generations inside the declared sector.
-Since charm and top both occupy \texttt{heavy\_quark\_resonance},
+with one sector-invariant function \(F\), one universal generation function
+\(D\), and the mandatory Ramanujan release \(R_g\).
+
+The v10.6 result that \(y_c/y_t\) cancels a common sector baseline remains
+valid.  Its original assignment of \(y_c/y_\tau\) as the primary sector test is
+superseded, because that ratio crosses both sector and generation.  Charm and
+the muon are both second-generation states, so
 
 \[
-\ln\frac{y_c}{y_t}
-=
-(B_{\rm heavy}+\Delta_c)-(B_{\rm heavy}+\Delta_t)
-=
-\Delta_c-\Delta_t.
+\ln\frac{y_c}{y_\mu}=F(S_u)-F(S_\ell),
 \]
 
-Therefore \(y_c/y_t\) cannot identify a sector-invariant baseline.  It tests
-only a generation-varying relative-release operator.  The frozen v10.2
-prediction for this class is
+while charm and top share the up/heavy sector, so
 
 \[
-\left|\frac{y_c}{y_t}\right|=0.006345210526463283.
+\ln\frac{y_c}{y_t}=D(G_2,R_2)-D(G_3,R_3).
 \]
 
-The sector-baseline class is instead assigned a future direct
-charm-to-tau coupling ratio, because charm and tau occupy different declared
-sectors.  Any candidate that uses generation, mode, generation-varying
-\(v_7\), or another within-sector varying field is reclassified as a relative
-release before testing.
+The first ratio isolates the sector functional; the second isolates the
+generation release.
 
-The representation-source audit also confirms that candidate construction must
-use the corrected v1.0 table satisfying
+Exactly three candidates are frozen without mass comparison:
 
 \[
--Y_L+Y_H+Y_R=0,
+F_1(S)=-S,
+\qquad
+D_1(G,R)=-G+R,
 \]
 
-rather than the erroneous \texttt{blocked} status displayed by the historical
-v0.7 CSV.
+\[
+F_2(S)=-S^{3/4},
+\qquad
+D_2(G,R)=-G^{3/4}+R,
+\]
+
+and
+
+\[
+F_3(S)=\frac{S^{-3/4}}{L_3\kappa},
+\qquad
+D_3(G,R)=\frac{G^{-3/4}}{L_3\kappa}+R.
+\]
+
+Their frozen prospective ratios are
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Candidate & $y_c/y_\mu$ & $y_c/y_t$\\
+\midrule
+C1 & 4.850346751338371 & 0.16766796647328305\\
+C2 & 2.3521800134268784 & 0.17147213462587316\\
+C3 & 6.858021228826222 & $2.8101955040512466\times10^{-11}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+No candidate is selected.  The extreme C3 result is retained.  The first
+qualifying joint ATLAS/CMS direct charm--muon and charm--top likelihoods
+released after 29 July 2026 are the named prospective tests.  Multiplicity-aware
+interpretation is mandatory, and failure may not trigger formula alteration or
+observable substitution.
 
 \section{Future Work}
 
@@ -279,14 +305,12 @@ coefficients with a dynamical eigenvalue equation for \(\beta\) and
 \(\gamma\).
 \item \textbf{CKM \(|V_{cb}|\)}: Revise the \(|V_{cb}|\) formula to
 incorporate a higher-order \(\kappa\) correction.
-\item \textbf{Preregistered up-sector architecture}: Derive either a
-sector-invariant universal functional or a universal generation-release
-operator.  The first class may use only generation-invariant sector features
-and is tested prospectively by direct \(y_c/y_\tau\); the second may use
-generation-varying structural coordinates by one cross-family rule and is
-tested prospectively by direct \(y_c/y_t\).  Both classes must preserve the
-heavy-sector quarantine, Ramanujan continuity, the three-candidate limit, and
-the prohibition on particle-name branches or residual scans.
+\item \textbf{Prospective candidate-family validation}: Preserve all three
+v10.7 candidates until the named post-29-July-2026 likelihoods are inspected.
+Use direct \(y_c/y_\mu\) for the sector functional and direct \(y_c/y_t\) for
+the universal generation release.  Apply a multiplicity-aware rule, retain
+FAIL results, preserve Ramanujan continuity and heavy-sector quarantine, and
+do not add a fourth candidate.
 \item \textbf{Anomalous magnetic moments}: Extend the framework to
 \((g-2)_\mu\) and \((g-2)_e\).
 \item \textbf{Dark matter}: Identify a dark matter candidate from the
