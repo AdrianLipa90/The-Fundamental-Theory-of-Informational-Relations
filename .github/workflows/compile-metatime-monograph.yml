@@ -18,9 +18,10 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - name: Checkout exact PR revision
+      - name: Checkout exact branch head revision
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 1
 
       - name: Record checkout provenance
@@ -29,6 +30,9 @@ jobs:
           set -euo pipefail
           git rev-parse HEAD | tee checkout_head_sha.txt
           git status --short --branch | tee checkout_status.txt
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+          fi
 
       - name: Install LaTeX toolchain
         shell: bash
@@ -62,7 +66,7 @@ jobs:
       - name: Upload compiled monograph and logs
         uses: actions/upload-artifact@v4
         with:
-          name: metatime-monograph-pr77
+          name: metatime-monograph-pr77-head
           if-no-files-found: error
           retention-days: 30
           path: |
