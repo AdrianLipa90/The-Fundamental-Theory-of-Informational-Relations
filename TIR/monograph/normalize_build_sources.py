@@ -2,11 +2,12 @@
 """Normalize LaTeX references and line breaking before monograph compilation.
 
 The transformations are deterministic and idempotent. They do not alter any
-scientific formula or numerical result; they only repair cross-references and
-prevent non-breaking paths/tables from overflowing the page.
+scientific formula or numerical result; they only repair cross-references,
+bibliographic TeX, and non-breaking paths/tables that could prevent a clean PDF.
 """
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 
@@ -21,36 +22,75 @@ def replace(path: str, old: str, new: str, count: int = -1) -> bool:
     return True
 
 
-def main() -> None:
-    root = "TIR/monograph/metatime_monograph.tex"
-    replace(
-        root,
-        "\\usepackage{graphicx}\n\\usepackage{hyperref}",
-        "\\usepackage{graphicx}\n\\usepackage{xurl}\n\\usepackage{microtype}\n\\usepackage{hyperref}",
-        1,
-    )
-    replace(
-        root,
-        "]{geometry}\n",
-        "]{geometry}\n\\setlength{\\emergencystretch}{3em}\n",
-        1,
+def normalize_root(path: str) -> None:
+    p = Path(path)
+    text = p.read_text(encoding="utf-8")
+    original = text
+
+    if "\\usepackage{xurl}" not in text:
+        text = text.replace(
+            "\\usepackage{graphicx}\n\\usepackage{hyperref}",
+            "\\usepackage{graphicx}\n\\usepackage{xurl}\n"
+            "\\usepackage[protrusion=true,expansion=false]{microtype}\n"
+            "\\usepackage{hyperref}",
+            1,
+        )
+    text = text.replace(
+        "\\usepackage{microtype}",
+        "\\usepackage[protrusion=true,expansion=false]{microtype}",
     )
 
-    app_m = "TIR/monograph/appendices/appM_prospective_observable_identifiability.tex"
-    replace(
-        app_m,
-        "\\label{app:observable_identifiability}\n",
-        "\\label{app:observable_identifiability}\n"
-        "\\label{app:prospective_observable_identifiability}\n",
-        1,
+    # Collapse any historical repeated insertions and ensure exactly one line.
+    stretch = "\\setlength{\\emergencystretch}{3em}\n"
+    text = re.sub(
+        r"(?:\\setlength\{\\emergencystretch\}\{3em\}\n)+",
+        stretch,
+        text,
     )
-    replace(app_m, "\\texttt{heavy\\_quark\\_resonance}", "\\path{heavy_quark_resonance}")
-    replace(app_m, "\\texttt{charged\\_lepton\\_small\\_seed}", "\\path{charged_lepton_small_seed}")
-    replace(
-        app_m,
+    if stretch not in text:
+        text = text.replace("]{geometry}\n", "]{geometry}\n" + stretch, 1)
+
+    if text != original:
+        p.write_text(text, encoding="utf-8")
+        print(f"UPDATED: {path}")
+    else:
+        print(f"SKIP already normalized: {path}")
+
+
+def normalize_app_m(path: str) -> None:
+    p = Path(path)
+    text = p.read_text(encoding="utf-8")
+    original = text
+    alias = "\\label{app:prospective_observable_identifiability}\n"
+    text = re.sub(r"(?:" + re.escape(alias) + r")+", alias, text)
+    if alias not in text:
+        text = text.replace(
+            "\\label{app:observable_identifiability}\n",
+            "\\label{app:observable_identifiability}\n" + alias,
+            1,
+        )
+    text = text.replace("\\texttt{heavy\\_quark\\_resonance}", "\\path{heavy_quark_resonance}")
+    text = text.replace(
+        "\\texttt{charged\\_lepton\\_small\\_seed}",
+        "\\path{charged_lepton_small_seed}",
+    )
+    text = text.replace(
         "\\texttt{TIR/validation/up\\_sector\\_observable\\_identifiability\\_v10\\_6.py}",
         "\\path{TIR/validation/up_sector_observable_identifiability_v10_6.py}",
     )
+    if text != original:
+        p.write_text(text, encoding="utf-8")
+        print(f"UPDATED: {path}")
+    else:
+        print(f"SKIP already normalized: {path}")
+
+
+def main() -> None:
+    root = "TIR/monograph/metatime_monograph.tex"
+    normalize_root(root)
+
+    app_m = "TIR/monograph/appendices/appM_prospective_observable_identifiability.tex"
+    normalize_app_m(app_m)
 
     app_n = "TIR/monograph/appendices/appN_separable_candidate_family.tex"
     replace(
@@ -163,6 +203,10 @@ p,n & 1 & 0.75 & -185.90 & 38.73(0.75{-}0.25) = 19.37 & 925.95{+}189.77{-}185.90
 $}
 \\end{center}""",
     )
+
+    refs = "TIR/monograph/references_expanded_v10_8.tex"
+    replace(refs, "K.~{\\dot Z}yczkowski", "K.~\\.{Z}yczkowski")
+    replace(refs, "tensor product of semifinite W^*-algebras", "tensor product of semifinite $W^*$-algebras")
 
 
 if __name__ == "__main__":
