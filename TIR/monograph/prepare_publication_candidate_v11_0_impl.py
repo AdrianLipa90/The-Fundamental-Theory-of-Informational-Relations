@@ -17,6 +17,13 @@ ROOT = Path(__file__).resolve().parent
 
 
 def write(rel: str, content: str) -> None:
+    """
+    Write normalized UTF-8 content to a path relative to the repository root.
+    
+    Parameters:
+        rel (str): Relative path of the target file.
+        content (str): Text to dedent and normalize before writing.
+    """
     path = ROOT / rel
     path.parent.mkdir(parents=True, exist_ok=True)
     normalized = dedent(content).lstrip("\n").rstrip() + "\n"
@@ -28,6 +35,11 @@ def write(rel: str, content: str) -> None:
 
 
 def patch_root() -> None:
+    """
+    Update the monograph root LaTeX file for the v11.0 publication candidate.
+    
+    The update is idempotent and preserves the file when all required content is already present.
+    """
     path = ROOT / "metatime_monograph.tex"
     text = path.read_text(encoding="utf-8")
     original = text
@@ -114,6 +126,9 @@ def patch_root() -> None:
 
 
 def extend_bibliography() -> None:
+    """
+    Add model-selection and likelihood-method references to the expanded bibliography when they are absent.
+    """
     path = ROOT / "references_expanded_v10_8.tex"
     text = path.read_text(encoding="utf-8")
     if "\\bibitem{Akaike1974}" in text:
@@ -154,6 +169,11 @@ def extend_bibliography() -> None:
 
 
 def patch_citation_audit() -> None:
+    """
+    Update the citation-audit helper for the v11.0 publication candidate.
+    
+    The update changes report paths and version metadata, adds citation context for the publication protocol when needed, and writes the helper only when its content changes.
+    """
     path = ROOT / "add_citation_context_v10_9.py"
     text = path.read_text(encoding="utf-8")
     original = text
@@ -189,6 +209,13 @@ def patch_citation_audit() -> None:
 
 
 def main() -> None:
+    """
+    Prepare the v11.0 publication-candidate source files and readiness artifacts.
+    
+    The process updates the monograph, bibliography, citation audit, publication
+    content, and machine-readable readiness ledgers using deterministic, idempotent
+    file operations.
+    """
     patch_root()
 
     write("frontmatter/publication_frontmatter_v11_0.tex", r"""

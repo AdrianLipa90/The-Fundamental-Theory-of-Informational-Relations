@@ -12,6 +12,18 @@ from pathlib import Path
 
 
 def replace(path: str, old: str, new: str, count: int = -1) -> bool:
+    """
+    Replace occurrences of specified text in a UTF-8 text file.
+    
+    Parameters:
+    	path (str): Path to the file to modify.
+    	old (str): Text to replace.
+    	new (str): Replacement text.
+    	count (int): Maximum number of replacements, or -1 to replace all occurrences.
+    
+    Returns:
+    	bool: True if the file was updated, False if the target text was absent.
+    """
     p = Path(path)
     text = p.read_text(encoding="utf-8")
     if old not in text:
@@ -23,6 +35,12 @@ def replace(path: str, old: str, new: str, count: int = -1) -> bool:
 
 
 def normalize_root(path: str) -> None:
+    """
+    Normalize LaTeX package configuration and emergency-stretch settings in a source file.
+    
+    Parameters:
+        path (str): Path to the LaTeX source file to normalize.
+    """
     p = Path(path)
     text = p.read_text(encoding="utf-8")
     original = text
@@ -58,6 +76,12 @@ def normalize_root(path: str) -> None:
 
 
 def normalize_app_m(path: str) -> None:
+    """
+    Normalize Appendix M labels and LaTeX path references in a source file.
+    
+    Parameters:
+    	path (str): Path to the LaTeX source file to normalize.
+    """
     p = Path(path)
     text = p.read_text(encoding="utf-8")
     original = text
@@ -90,6 +114,7 @@ def normalize_app_m(path: str) -> None:
 
 
 def main() -> None:
+    """Normalize all targeted LaTeX source files used to build the monograph."""
     root = "TIR/monograph/metatime_monograph.tex"
     normalize_root(root)
 

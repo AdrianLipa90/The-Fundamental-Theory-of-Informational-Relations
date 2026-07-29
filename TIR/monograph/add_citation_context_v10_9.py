@@ -309,11 +309,26 @@ The protocol below applies those norms to interpretation of this monograph.""",
 
 
 def bibliography_keys() -> set[str]:
+    """
+    Extract all bibliography entry keys from the configured bibliography file.
+    
+    Returns:
+    	set[str]: The bibliography keys found in `\\bibitem{...}` entries.
+    """
     text = BIBLIOGRAPHY.read_text(encoding="utf-8")
     return set(re.findall(r"\\bibitem\{([^}]+)\}", text))
 
 
 def cited_keys(text: str) -> List[str]:
+    """
+    Extract citation keys from LaTeX citation commands.
+    
+    Parameters:
+        text (str): LaTeX source text containing citation commands.
+    
+    Returns:
+        List[str]: Citation keys in their order of appearance.
+    """
     keys: List[str] = []
     for group in re.findall(r"\\cite\{([^}]+)\}", text):
         keys.extend(k.strip() for k in group.split(",") if k.strip())
@@ -321,6 +336,19 @@ def cited_keys(text: str) -> List[str]:
 
 
 def insert_after_heading(text: str, block: str) -> str:
+    """
+    Insert a marked context block after the first chapter heading.
+    
+    Parameters:
+        text (str): LaTeX document content.
+        block (str): Context text to insert.
+    
+    Returns:
+        str: The document content with the marked block inserted.
+    
+    Raises:
+        ValueError: If the document contains no chapter command.
+    """
     lines = text.splitlines(keepends=True)
     chapter_idx = next(
         (i for i, line in enumerate(lines) if line.lstrip().startswith("\\chapter")),
@@ -340,6 +368,16 @@ def insert_after_heading(text: str, block: str) -> str:
 
 
 def apply_context(path: Path, block: str) -> bool:
+    """
+    Apply a delimited context block to a LaTeX file when it has not already been inserted.
+    
+    Parameters:
+    	path (Path): The target LaTeX file.
+    	block (str): The context paragraph to insert.
+    
+    Returns:
+    	bool: `True` if the context was inserted, `False` if the file already contains it.
+    """
     text = path.read_text(encoding="utf-8")
     if BEGIN in text:
         return False
@@ -348,6 +386,9 @@ def apply_context(path: Path, block: str) -> bool:
 
 
 def update_version() -> None:
+    """
+    Update the monograph's first version line to the publication candidate version.
+    """
     root = ROOT / "metatime_monograph.tex"
     text = root.read_text(encoding="utf-8")
     text = re.sub(
@@ -360,6 +401,14 @@ def update_version() -> None:
 
 
 def write_reports(rows: List[dict], bib_count: int, unique_cited: set[str]) -> None:
+    """
+    Write JSON and Markdown citation coverage reports from the audit results.
+    
+    Parameters:
+        rows (List[dict]): Per-file audit records containing citation counts, unique key counts, and context status.
+        bib_count (int): Number of entries in the expanded bibliography.
+        unique_cited (set[str]): Bibliography keys cited across all audited files.
+    """
     zero = [row["path"] for row in rows if row["citation_commands"] == 0]
     payload = {
         "version": "v11.0",
@@ -399,6 +448,13 @@ def write_reports(rows: List[dict], bib_count: int, unique_cited: set[str]) -> N
 
 
 def main() -> None:
+    """
+    Audit mapped monograph files, update citation context and version metadata, and generate coverage reports.
+    
+    Raises:
+        SystemExit: If the bibliography is empty, mapped files or citation keys are invalid,
+            or an audited file has no local citations.
+    """
     bib = bibliography_keys()
     if not bib:
         raise SystemExit("No bibliography keys found")

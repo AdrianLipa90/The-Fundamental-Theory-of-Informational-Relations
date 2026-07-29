@@ -19,6 +19,13 @@ OUT = Path(__file__).resolve().parent / "results"
 
 
 def main() -> None:
+    """
+    Run the audit benchmark and write the method-status correction report.
+    
+    The report records benchmark results, operator identity, methodological status,
+    and restrictions on current promotion claims. It is written to the results
+    directory and printed to standard output.
+    """
     structural = core.structural_inputs()
     frozen = core.freeze_operator(structural)
     result = core.benchmark(frozen)

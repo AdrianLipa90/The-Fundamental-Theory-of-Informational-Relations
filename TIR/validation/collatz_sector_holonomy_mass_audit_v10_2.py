@@ -82,6 +82,18 @@ ANCHOR = "e"
 
 
 def read_csv(path: Path) -> List[Dict[str, str]]:
+    """
+    Read a CSV file and return its rows as string-keyed dictionaries.
+    
+    Parameters:
+    	path (Path): Path to the CSV file.
+    
+    Returns:
+    	List[Dict[str, str]]: The rows read from the CSV file.
+    
+    Raises:
+    	FileNotFoundError: If the CSV file does not exist.
+    """
     if not path.exists():
         raise FileNotFoundError(path)
     with path.open(newline="", encoding="utf-8") as handle:
@@ -89,10 +101,31 @@ def read_csv(path: Path) -> List[Dict[str, str]]:
 
 
 def pair_key(row: Dict[str, str]) -> str:
+    """
+    Build a canonical pair key from the row's seed values.
+    
+    Parameters:
+        row (Dict[str, str]): Row containing string-valued ``seed_p`` and ``seed_q`` fields.
+    
+    Returns:
+        str: Pair key formatted as ``"p-q"`` using integer seed values.
+    """
     return f"{int(float(row['seed_p']))}-{int(float(row['seed_q']))}"
 
 
 def pair_center(pair: str) -> int:
+    """
+    Return the center value of a twin-prime pair.
+    
+    Parameters:
+    	pair (str): A pair formatted as "p-q" where q is two greater than p.
+    
+    Returns:
+    	int: The center value between the two pair elements.
+    
+    Raises:
+    	ValueError: If the pair is not formatted as a twin-prime pair.
+    """
     p, q = (int(part) for part in pair.split("-"))
     if q - p != 2:
         raise ValueError(f"Expected twin-prime pair, got {pair}")
@@ -100,6 +133,20 @@ def pair_center(pair: str) -> int:
 
 
 def collatz_stopping_length(n: int, max_steps: int = 10000) -> int:
+    """
+    Count the Collatz steps required for a positive integer to reach 1.
+    
+    Parameters:
+    	n (int): The positive starting integer.
+    	max_steps (int): The maximum number of steps to evaluate.
+    
+    Returns:
+    	int: The number of steps taken to reach 1.
+    
+    Raises:
+    	ValueError: If `n` is less than 1.
+    	RuntimeError: If the orbit does not reach 1 within `max_steps`.
+    """
     if n < 1:
         raise ValueError("Collatz seed must be positive")
     x = n
@@ -113,6 +160,15 @@ def collatz_stopping_length(n: int, max_steps: int = 10000) -> int:
 
 
 def chirality_sign(path: str) -> int:
+    """
+    Determine the chirality sign indicated by a path.
+    
+    Parameters:
+    	path (str): Path containing a chirality marker.
+    
+    Returns:
+    	int: `1` for paths containing `"H_plus"`, `-1` for paths containing `"H_minus"`, and `0` when neither marker is present.
+    """
     if "H_plus" in path:
         return +1
     if "H_minus" in path:
@@ -121,7 +177,16 @@ def chirality_sign(path: str) -> int:
 
 
 def structural_inputs() -> Dict[str, Any]:
-    """Load and merge mass-free structural artifacts only."""
+    """
+    Load and merge mass-free structural artifacts for the mass audit.
+    
+    Returns:
+        Dict[str, Any]: Structural rows, family-anchor mappings, and strongest
+        white-thread candidates grouped by down-particle slot.
+    
+    Raises:
+        RuntimeError: If a required Ramanujan or orientation record is missing.
+    """
     eb_rows = read_csv(EB_ACTION_CSV)
     ram_rows = read_csv(RAMANUJAN_CSV)
     orientation_rows = read_csv(ORIENTATION_CSV)
@@ -198,6 +263,18 @@ def structural_inputs() -> Dict[str, Any]:
 
 
 def freeze_operator(structural: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Freeze structural inputs into per-fermion operator traces and a deterministic fingerprint.
+    
+    Parameters:
+        structural (Dict[str, Any]): Mass-free structural inputs containing merged rows,
+            family anchors, and strongest white-thread channels.
+    
+    Returns:
+        Dict[str, Any]: A mapping containing the SHA-256 operator trace fingerprint
+            under ``operator_trace_sha256`` and the computed per-fermion traces under
+            ``traces``.
+    """
     rows = structural["rows"]
     anchor = next(row for row in rows if row["fermion"] == ANCHOR)
     a_anchor = anchor["eb_action_kappa"]
@@ -316,6 +393,17 @@ def freeze_operator(structural: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def summarize(predictions: List[Dict[str, Any]], error_key: str) -> Dict[str, Any]:
+    """
+    Summarize absolute log errors for non-anchor predictions.
+    
+    Parameters:
+        predictions (List[Dict[str, Any]]): Prediction rows containing anchor markers and errors.
+        error_key (str): Key identifying the log-error value to summarize.
+    
+    Returns:
+        Dict[str, Any]: Summary containing the count, mean, median, and maximum absolute
+            log errors, plus the geometric mean multiplicative error.
+    """
     rows = [row for row in predictions if not row["is_anchor"]]
     errors = [abs(row[error_key]) for row in rows]
     return {
@@ -328,6 +416,16 @@ def summarize(predictions: List[Dict[str, Any]], error_key: str) -> Dict[str, An
 
 
 def order_pass(predictions: List[Dict[str, Any]], family: str) -> bool:
+    """
+    Determine whether predicted masses strictly increase by generation within a particle family.
+    
+    Parameters:
+    	predictions (List[Dict[str, Any]]): Prediction rows containing family, generation, and sector mass fields.
+    	family (str): Particle family to evaluate.
+    
+    Returns:
+    	bool: `True` if each successive generation has a greater predicted mass, `False` otherwise.
+    """
     rows = sorted(
         (row for row in predictions if row["class"] == family),
         key=lambda row: row["generation"],
@@ -337,6 +435,15 @@ def order_pass(predictions: List[Dict[str, Any]], family: str) -> bool:
 
 
 def benchmark(frozen: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Benchmark frozen mass-ratio traces against validation masses and summarize prediction accuracy.
+    
+    Parameters:
+    	frozen (Dict[str, Any]): Frozen operator output containing per-fermion traces.
+    
+    Returns:
+    	Dict[str, Any]: Benchmark results with per-fermion predictions and errors, aggregate accuracy summaries, generation-order checks, improvement comparisons, and pass/fail status indicators.
+    """
     targets = {
         row["fermion"]: float(row["mass_GeV"])
         for row in read_csv(TARGET_CSV)
@@ -430,6 +537,13 @@ def benchmark(frozen: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
+    """
+    Write row dictionaries to a CSV file.
+    
+    Parameters:
+        path (Path): Destination path for the CSV file.
+        rows (List[Dict[str, Any]]): Rows to write, using the first row's keys as column names.
+    """
     if not rows:
         return
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -441,6 +555,9 @@ def write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
 
 
 def main() -> None:
+    """
+    Generate the sector-holonomy mass audit report and per-slot prediction CSV.
+    """
     structural = structural_inputs()
     frozen = freeze_operator(structural)
     result = benchmark(frozen)

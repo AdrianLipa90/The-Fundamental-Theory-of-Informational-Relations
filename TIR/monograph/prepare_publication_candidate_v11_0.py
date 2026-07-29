@@ -8,6 +8,18 @@ from pathlib import Path
 _original_sub = re.sub
 
 def _literal_hyperref_sub(pattern, repl, string, count=0, flags=0):
+    """Apply substitutions involving hyperref patterns with literal string replacements.
+    
+    Parameters:
+        pattern: The regular-expression pattern to search for.
+        repl: The replacement string or callable.
+        string: The text in which to perform the substitution.
+        count: The maximum number of substitutions to make.
+        flags: Regular-expression compilation flags.
+    
+    Returns:
+        The string resulting from the substitutions.
+    """
     if isinstance(repl, str) and "hyperref" in str(pattern):
         return _original_sub(
             pattern,
