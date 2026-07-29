@@ -68,6 +68,30 @@ jobs:
             TIR/monograph/prepare_publication_candidate_v11_0_impl.py
           python3 TIR/monograph/normalize_build_sources.py
           python3 TIR/monograph/prepare_publication_candidate_v11_0.py
+          python3 - <<'PYDEDUP'
+          from pathlib import Path
+
+          path = Path('TIR/monograph/metatime_monograph.tex')
+          lines = path.read_text(encoding='utf-8').splitlines(keepends=True)
+          targets = {
+              r'\newcommand{\claimstatus}[1]{\par\noindent\textbf{Claim status: #1}\par}',
+              r'\newcommand{\datasetstatus}[1]{\par\noindent\textbf{Data status: #1}\par}',
+          }
+          seen = set()
+          output = []
+          for line in lines:
+              stripped = line.rstrip('\r\n')
+              if stripped in targets:
+                  if stripped in seen:
+                      continue
+                  seen.add(stripped)
+              output.append(line)
+          missing = targets - seen
+          if missing:
+              raise SystemExit(f'Missing publication status macro definitions: {sorted(missing)}')
+          path.write_text(''.join(output), encoding='utf-8')
+          print('DEDUP PASS: exactly one claimstatus and datasetstatus definition retained')
+          PYDEDUP
           python3 TIR/monograph/add_citation_context_v10_9.py
           git diff --check
 
