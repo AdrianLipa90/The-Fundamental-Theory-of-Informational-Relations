@@ -41,8 +41,7 @@ jobs:
           path = Path('TIR/monograph/prepare_publication_candidate_v11_0.py')
           text = path.read_text(encoding='utf-8')
           tree = ast.parse(text)
-          positional = []
-          keyword = []
+          matches = []
           for node in ast.walk(tree):
               if not isinstance(node, ast.Call):
                   continue
@@ -55,25 +54,32 @@ jobs:
               )
               if not is_re_sub:
                   continue
+              pattern = node.args[0] if node.args else next((item.value for item in node.keywords if item.arg == 'pattern'), None)
+              if not isinstance(pattern, ast.Constant) or not isinstance(pattern.value, str) or 'hyperref' not in pattern.value:
+                  continue
               if len(node.args) >= 2:
-                  second = node.args[1]
-                  if isinstance(second, ast.Name) and second.id == 'hyperref_block':
-                      positional.append(second.lineno)
-              for item in node.keywords:
-                  if item.arg == 'repl' and isinstance(item.value, ast.Name) and item.value.id == 'hyperref_block':
-                      keyword.append(item.value.lineno)
-          targets = [('positional', line) for line in positional] + [('keyword', line) for line in keyword]
-          if len(targets) != 1:
-              raise SystemExit(f'Expected one AST hyperref target, found {targets}')
-          kind, lineno = targets[0]
+                  replacement = node.args[1]
+                  matches.append(('positional', replacement))
+              else:
+                  item = next((item for item in node.keywords if item.arg == 'repl'), None)
+                  if item is not None:
+                      matches.append(('keyword', item.value))
+          if len(matches) != 1:
+              raise SystemExit(f'Expected one hyperref-pattern re.sub call, found {len(matches)}')
+          kind, replacement = matches[0]
+          source = ast.get_source_segment(text, replacement)
+          if not source:
+              raise SystemExit('Could not recover hyperref replacement source')
           lines = text.splitlines(keepends=True)
-          index = lineno - 1
+          index = replacement.lineno - 1
+          if replacement.end_lineno != replacement.lineno:
+              raise SystemExit('Unexpected multiline hyperref replacement expression')
           indent = lines[index][:len(lines[index]) - len(lines[index].lstrip())]
           ending = '\n' if lines[index].endswith('\n') else ''
           if kind == 'keyword':
-              lines[index] = f'{indent}repl=lambda _match: hyperref_block,{ending}'
+              lines[index] = f'{indent}repl=lambda _match: {source},{ending}'
           else:
-              lines[index] = f'{indent}lambda _match: hyperref_block,{ending}'
+              lines[index] = f'{indent}lambda _match: {source},{ending}'
           path.write_text(''.join(lines), encoding='utf-8')
           PYPATCH
           chmod +x TIR/monograph/prepare_publication_candidate_v11_0.py
