@@ -32,36 +32,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git fetch --no-tags --depth=1 origin 4e61ef6632ed97aa3d21b57c8afcc31371af52b2
-          git show 4e61ef6632ed97aa3d21b57c8afcc31371af52b2:.github/bootstrap/prepare_publication_candidate_v11_0.py.gz.b64 \
-            | base64 -d | gzip -d > TIR/monograph/prepare_publication_candidate_v11_0_impl.py
-          cat > TIR/monograph/prepare_publication_candidate_v11_0.py <<'PYWRAP'
-          #!/usr/bin/env python3
-          from __future__ import annotations
-
-          import re
-          import runpy
-          from pathlib import Path
-
-          _original_sub = re.sub
-
-          def _literal_hyperref_sub(pattern, repl, string, count=0, flags=0):
-              if isinstance(repl, str) and "hyperref" in str(pattern):
-                  return _original_sub(
-                      pattern,
-                      lambda _match: repl,
-                      string,
-                      count=count,
-                      flags=flags,
-                  )
-              return _original_sub(pattern, repl, string, count=count, flags=flags)
-
-          re.sub = _literal_hyperref_sub
-          runpy.run_path(
-              str(Path(__file__).with_name("prepare_publication_candidate_v11_0_impl.py")),
-              run_name="__main__",
-          )
-          PYWRAP
           chmod +x TIR/monograph/prepare_publication_candidate_v11_0.py
           python3 -m py_compile \
             TIR/monograph/prepare_publication_candidate_v11_0.py \
