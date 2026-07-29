@@ -1,6 +1,6 @@
 # The Fundamental Theory of Informational Relations
 
-[![Metatime publication build](https://github.com/AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations/actions/workflows/compile-metatime-monograph.yml/badge.svg)](https://github.com/AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations/actions/workflows/compile-metatime-monograph.yml)
+https://www.researchgate.net/publication/408131825_Metatime_A_Low-Parameter_Ansatz_for_Standard_Model_Parameters_from_Geometric_Phase_Information_Theory
 
 **Author:** Adrian Lipa — Independent Researcher, Doncaster, United Kingdom  
 **Current monograph:** Metatime v11.0 Publication Candidate  
