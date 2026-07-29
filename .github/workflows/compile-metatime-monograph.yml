@@ -32,9 +32,31 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          base64 -d .github/bootstrap/prepare_publication_candidate_v11_0.py.gz.b64 \
-            | gzip -d > TIR/monograph/prepare_publication_candidate_v11_0.py
+          git fetch --no-tags --depth=1 origin 4e61ef6632ed97aa3d21b57c8afcc31371af52b2
+          git show 4e61ef6632ed97aa3d21b57c8afcc31371af52b2:.github/bootstrap/prepare_publication_candidate_v11_0.py.gz.b64 \
+            | base64 -d | gzip -d > TIR/monograph/prepare_publication_candidate_v11_0.py
+          python3 - <<'PYPATCH'
+          from pathlib import Path
+          path = Path('TIR/monograph/prepare_publication_candidate_v11_0.py')
+          text = path.read_text(encoding='utf-8')
+          old = '''    text = re.sub(
+                  r"\\\\usepackage(?:\\[[^]]*\\])?\\{hyperref\\}",
+                  hyperref_block,
+                  text,
+                  count=1,
+              )'''
+          new = '''    text = re.sub(
+                  r"\\\\usepackage(?:\\[[^]]*\\])?\\{hyperref\\}",
+                  lambda _match: hyperref_block,
+                  text,
+                  count=1,
+              )'''
+          if old not in text:
+              raise SystemExit('Expected hyperref replacement block not found')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PYPATCH
           chmod +x TIR/monograph/prepare_publication_candidate_v11_0.py
+          python3 -m py_compile TIR/monograph/prepare_publication_candidate_v11_0.py
           python3 TIR/monograph/normalize_build_sources.py
           python3 TIR/monograph/prepare_publication_candidate_v11_0.py
           python3 TIR/monograph/add_citation_context_v10_9.py
