@@ -34,6 +34,7 @@ jobs:
           set -euo pipefail
           python3 TIR/monograph/normalize_build_sources.py
           sed -i 's/\\usepackage{microtype}/\\usepackage[protrusion=true,expansion=false]{microtype}/' TIR/monograph/metatime_monograph.tex
+          perl -0pi -e 's/(\\label\{app:prospective_observable_identifiability\}\n){2,}/\\label{app:prospective_observable_identifiability}\n/g' TIR/monograph/appendices/appM_prospective_observable_identifiability.tex
           git diff --check
 
       - name: Commit normalized LaTeX sources
@@ -87,11 +88,12 @@ jobs:
           sha256sum TIR/monograph/metatime_monograph.pdf | tee metatime_monograph.pdf.sha256
           ! grep -Eq "undefined references|Reference .* undefined|Citation .* undefined" TIR/monograph/metatime_monograph.log
           ! grep -q "Overfull \\hbox" TIR/monograph/metatime_monograph.log
+          ! grep -Eq "multiply defined|multiply-defined" TIR/monograph/metatime_monograph.log
 
       - name: Upload compiled monograph and logs
         uses: actions/upload-artifact@v4
         with:
-          name: metatime-monograph-pr77-final
+          name: metatime-monograph-pr77-clean
           if-no-files-found: error
           retention-days: 30
           path: |
