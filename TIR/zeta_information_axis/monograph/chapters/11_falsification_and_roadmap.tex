@@ -1,0 +1,80 @@
+\chapter{Falsification Criteria and Research Roadmap}
+\label{ch:roadmap}
+
+\section{How the model can fail}
+The information-spinor interpretation should be abandoned or substantially revised if any of the following occurs:
+\begin{enumerate}
+\item no noncircular normalized two-branch representation of $\xi$ can be constructed;
+\item every candidate representation requires insertion of $\Ree s=1/2$ before the zero condition is evaluated;
+\item the complement branches can be rescaled arbitrarily, making the equal-weight conclusion gauge dependent;
+\item a proposed operator is not essentially self-adjoint and no natural self-adjoint extension exists;
+\item the spectral determinant reproduces only the average zero density, not the fluctuation spectrum;
+\item the determinant identity contains an unanalysed prefactor with zeros in the critical strip;
+\item numerical agreement disappears for frozen, out-of-sample ordinates;
+\item the holonomy is a removable gauge artifact rather than a gauge-invariant cycle phase.
+\end{enumerate}
+
+These are not peripheral cautions. They define the empirical and mathematical content of the programme.
+
+\section{Stage I: exact representation search}
+The first objective is an exact zeta or Xi decomposition into complementary branches. Candidate starting points are:
+\begin{enumerate}
+\item the theta-function integral underlying the functional equation;
+\item the Riemann--Siegel integral and approximate functional equation;
+\item odd/even sectors of the eta representation;
+\item Mellin transforms on $L^2(\mathbb R_+)$ with unitary dilation;
+\item de Branges or Hermite--Biehler decompositions.
+\end{enumerate}
+Each construction must be evaluated by the no-circularity criterion of Chapter \ref{ch:conditional}.
+
+\section{Stage II: derive equal branch normalization}
+Even if two branches are found, the coefficient equality must be derived. Promising mechanisms include:
+\begin{enumerate}
+\item unitarity of the functional-equation scattering matrix on the fixed axis;
+\item an exchange symmetry with a conserved norm;
+\item a CPT-like antiunitary involution;
+\item half-density normalization of the Mellin transform;
+\item a projective metric that fixes the square-root amplitudes uniquely.
+\end{enumerate}
+A manually chosen normalization would weaken the result to a coordinate convention.
+
+\section{Stage III: establish pointwise rather than pairwise self-duality}
+This is the decisive stage. Global symmetry allows off-axis pairs. The project must identify a local principle that prevents a zero from being paired with a distinct partner. Candidate principles are:
+\begin{enumerate}
+\item self-adjointness of the spectral generator;
+\item positivity of a Weil-type quadratic form;
+\item a topological index that pins zero modes to the symmetry boundary;
+\item a protected chiral zero mode in a two-component operator;
+\item total positivity of the Xi kernel.
+\end{enumerate}
+
+\section{Stage IV: independent review}
+Before any claim stronger than a conditional theorem, the work should undergo:
+\begin{enumerate}
+\item line-by-line review by an analytic number theorist;
+\item operator-domain review by a functional analyst;
+\item independent reproduction of the code and build;
+\item adversarial search for hidden use of RH-equivalent assumptions;
+\item explicit comparison with known failed proof patterns.
+\end{enumerate}
+
+\section{Publication ladder}
+The work naturally separates into publishable units:
+\begin{description}
+\item[Paper A.] Exact equivalence of Shannon balance, complementary cancellation, Bloch equator, and Berry $-1$ holonomy.
+\item[Paper B.] Dirichlet eta as a parity-phase bridge and the normalized parity representation problem.
+\item[Paper C.] A candidate dilation-spinor operator with full domain and self-adjointness audit.
+\item[Paper D.] Kernel positivity or de Branges formulation, if a nontrivial inequality is established.
+\end{description}
+Paper A can be mathematically complete without claiming RH. Papers C or D would contain the genuinely difficult number-theoretic advance.
+
+\section{Versioning and frozen claims}
+Version v0.1 freezes the following claims:
+\begin{enumerate}
+\item the exact bridge theorem inside the two-state model;
+\item the conditional critical-axis theorem;
+\item the explicit statement that the zero-state representation remains unproved;
+\item the numerical audit protocol;
+\item the operator and kernel proof obligations.
+\end{enumerate}
+Future versions must preserve this ledger append-only. A later correction must add a new record rather than rewrite the historical claim state.

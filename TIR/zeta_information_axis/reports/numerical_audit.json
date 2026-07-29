@@ -1,0 +1,77 @@
+{
+  "generated_utc": "2026-07-29T18:05:53+00:00",
+  "precision_decimal_digits": 80,
+  "claim_policy": {
+    "exact_identities": "PASS means algebraic or standard analytic identities reproduced numerically",
+    "riemann_hypothesis": "OPEN; no proof is claimed",
+    "model_identification": "The identification sigma = Re(s) is an explicit modelling postulate"
+  },
+  "shannon": {
+    "H_half": "0.69314718055994530941723212145817656807550013436026",
+    "ln2": "0.69314718055994530941723212145817656807550013436026",
+    "H_prime_half": "0.0",
+    "H_second_half": "-4.0",
+    "status": "PASS"
+  },
+  "two_channel_cancellation": {
+    "amplitude_at_half_pi": {
+      "real": "0.0",
+      "imag": "2.3185623714045895057247720334380851428699624597481e-81"
+    },
+    "absolute_residual": "2.3185623714045895057247720334380851428699624597481e-81",
+    "status": "PASS"
+  },
+  "berry_holonomy": {
+    "holonomy_at_half": {
+      "real": "-1.0",
+      "imag": "-3.2789423508482956091478037076370951158778160351177e-81"
+    },
+    "minus_one_residual": "3.2789423508482956091478037076370951158778160351177e-81",
+    "status": "PASS"
+  },
+  "xi_functional_equation": {
+    "residuals": [
+      "2.9649931715335846568480364519196928459184266387911e-82",
+      "3.6238805429854923583698223301240690339002992251892e-82",
+      "5.6295361694275227657494855538133394514843204261925e-82"
+    ],
+    "status": "PASS"
+  },
+  "eta_factorization": {
+    "residuals": [
+      "0.0",
+      "1.3177747429038154030435717564087523759637451727961e-82",
+      "1.0562768105118689879309174154675920402942616826248e-81"
+    ],
+    "eta_one_minus_ln2": "0.0",
+    "status": "PASS"
+  },
+  "first_20_tabulated_zeros": [
+    {"index":1,"zero":{"real":"0.5","imag":"14.134725141734693790457251983562470270784257115699"},"critical_line_residual":"0.0","zeta_residual":"5.28444408664405484757215997626e-81"},
+    {"index":2,"zero":{"real":"0.5","imag":"21.022039638771554992628479593896902777334340524903"},"critical_line_residual":"0.0","zeta_residual":"1.66481153932021901380933249873e-80"},
+    {"index":3,"zero":{"real":"0.5","imag":"25.010857580145688763213790992562821818659549672558"},"critical_line_residual":"0.0","zeta_residual":"7.81196657970548378617784748376e-81"},
+    {"index":4,"zero":{"real":"0.5","imag":"30.424876125859513210311897530584091320181560023715"},"critical_line_residual":"0.0","zeta_residual":"1.61918558590079240074646151758e-80"},
+    {"index":5,"zero":{"real":"0.5","imag":"32.935061587739189690662368964074903488812715603517"},"critical_line_residual":"0.0","zeta_residual":"3.20685021800535972698164404883e-80"},
+    {"index":6,"zero":{"real":"0.5","imag":"37.586178158825671257217763480705332821405597350831"},"critical_line_residual":"0.0","zeta_residual":"5.45427647591564544031975948356e-80"},
+    {"index":7,"zero":{"real":"0.5","imag":"40.918719012147495187398126914633254395726165962777"},"critical_line_residual":"0.0","zeta_residual":"3.92290389934755252453031699495e-80"},
+    {"index":8,"zero":{"real":"0.5","imag":"43.327073280914999519496122165406805782645668371837"},"critical_line_residual":"0.0","zeta_residual":"1.71815762653886254468044527955e-80"},
+    {"index":9,"zero":{"real":"0.5","imag":"48.005150881167159727942472749427516041686844001144"},"critical_line_residual":"0.0","zeta_residual":"4.92759667229055325740561056891e-80"},
+    {"index":10,"zero":{"real":"0.5","imag":"49.773832477672302181916784678563724057723178299677"},"critical_line_residual":"0.0","zeta_residual":"8.20890910741775366710084546499e-81"},
+    {"index":11,"zero":{"real":"0.5","imag":"52.970321477714460644147296608880990063825017888821"},"critical_line_residual":"0.0","zeta_residual":"5.49423533023003251180412707353e-80"},
+    {"index":12,"zero":{"real":"0.5","imag":"56.446247697063394804367759476706127552782264471717"},"critical_line_residual":"0.0","zeta_residual":"5.77457989137373087298720581086e-80"},
+    {"index":13,"zero":{"real":"0.5","imag":"59.347044002602353079653648674992219031098772806467"},"critical_line_residual":"0.0","zeta_residual":"3.42727673434586416983121238253e-80"},
+    {"index":14,"zero":{"real":"0.5","imag":"60.831778524609809844259901824524003802910090451219"},"critical_line_residual":"0.0","zeta_residual":"3.35987556384305171158889097142e-80"},
+    {"index":15,"zero":{"real":"0.5","imag":"65.112544048081606660875054253183705029348149295167"},"critical_line_residual":"0.0","zeta_residual":"6.05622693795813251574379017392e-80"},
+    {"index":16,"zero":{"real":"0.5","imag":"67.079810529494173714478828896522216770107144951746"},"critical_line_residual":"0.0","zeta_residual":"1.16430531653176946547215549444e-81"},
+    {"index":17,"zero":{"real":"0.5","imag":"69.546401711173979252926857526554738443012474209603"},"critical_line_residual":"0.0","zeta_residual":"1.34370763732421210763577970623e-79"},
+    {"index":18,"zero":{"real":"0.5","imag":"72.067157674481907582522107969826168390480906621457"},"critical_line_residual":"0.0","zeta_residual":"1.47461051386542677273961469924e-79"},
+    {"index":19,"zero":{"real":"0.5","imag":"75.704690699083933168326916762030345922811903530697"},"critical_line_residual":"0.0","zeta_residual":"5.83820076198835853900185062094e-80"},
+    {"index":20,"zero":{"real":"0.5","imag":"77.144840068874805372682664856304637015796032449234"},"critical_line_residual":"0.0","zeta_residual":"2.16862471323590936834797581388e-80"}
+  ],
+  "global_status": {
+    "technical_identities": "PASS",
+    "numerical_reproduction": "PASS",
+    "critical_axis_explanation": "CONDITIONAL THEOREM",
+    "riemann_hypothesis": "OPEN"
+  }
+}

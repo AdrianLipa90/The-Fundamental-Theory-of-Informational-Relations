@@ -1,0 +1,109 @@
+\chapter{The Conditional Information-Spinor Critical-Axis Theorem}
+\label{ch:conditional}
+
+\section{Abstract cancellation representation}
+We now state the exact conditional result. Let $\rho=\sigma+it$ be a nontrivial zero of $\xi$. Suppose there exists a canonical normalized representation of its zero condition by two complementary branches. The word \emph{canonical} means that the representation is derived from zeta data and does not contain parameters fitted separately to each zero.
+
+\begin{assumption}[Complementary zero-state representation]
+\label{ass:zero-state}
+For each nontrivial zero $\rho$ there exist normalized branch vectors $\ket{0_\rho}$ and $\ket{1_\rho}$, a nonzero scalar normalization $N(\rho)$, and a readout functional $L_\rho$ symmetric under branch exchange such that
+\begin{equation}
+\xi(\rho)=N(\rho)L_\rho\left[
+\sqrt{\sigma}\ket{0_\rho}
++e^{i\phi(\rho)}\sqrt{1-\sigma}\ket{1_\rho}
+\right],
+\label{eq:zero-rep}
+\end{equation}
+with the following properties:
+\begin{enumerate}[label=(A\arabic*)]
+\item $\sigma=\Ree\rho$;
+\item $J:\rho\mapsto1-\overline\rho$ exchanges the two branches;
+\item symmetry of $L_\rho$ reduces zerohood to cancellation of equal readout amplitudes;
+\item the relative zero phase is $\phi(\rho)=\pi\pmod{2\pi}$;
+\item $N(\rho)\neq0$ and neither branch readout vanishes separately at $\rho$.
+\end{enumerate}
+\end{assumption}
+
+Condition (A5) blocks a tautological factorization in which each branch already contains the factor $\xi(\rho)=0$.
+
+\begin{theorem}[Conditional critical-axis selection]
+\label{thm:conditional}
+Under Assumption \ref{ass:zero-state}, every nontrivial zero $\rho$ satisfies
+\begin{equation}
+\Ree\rho=\frac12.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By (A3)--(A5), the zero condition is a genuine cancellation between two nonzero complementary amplitudes. By (A4), their relative phase is $\pi$. Symmetric readout then reduces the condition to the amplitude of Theorem \ref{thm:cancellation}:
+\begin{equation}
+\sqrt{\sigma}-\sqrt{1-\sigma}=0.
+\end{equation}
+Hence $\sigma=1/2$. By (A1), $\sigma=\Ree\rho$, giving the result.
+\end{proof}
+
+\begin{corollary}
+If Assumption \ref{ass:zero-state} is established for every nontrivial zero, then the Riemann hypothesis follows.
+\end{corollary}
+
+This corollary is logically correct but does not lessen the difficulty: proving the assumption is the substantive open task.
+
+\section{Equivalent fixed-point formulation}
+The same result can be expressed without explicit amplitudes.
+
+\begin{assumption}[Local self-duality]
+Each nontrivial zero is individually invariant under the anti-linear zeta involution:
+\begin{equation}
+J(\rho)=\rho.
+\end{equation}
+\end{assumption}
+
+Then the fixed-set theorem of Chapter \ref{ch:zeta} immediately gives $\Ree\rho=1/2$. However, this assumption is nearly equivalent to RH itself. The amplitude formulation is more useful only if the local self-duality can be derived from independent normalization, unitarity, or positivity principles.
+
+\section{Information and holonomy version}
+A more geometric set of sufficient conditions is:
+\begin{enumerate}
+\item zero states are normalized points of a two-state projective space;
+\item complement acts as the exchange of populations;
+\item analytic continuation around the relevant cycle has holonomy $-1$;
+\item the zero readout is orthogonality to the symmetric state;
+\item the representation is faithful and nondegenerate.
+\end{enumerate}
+The holonomy condition yields $\sigma=1/2$ modulo one, while the probability domain selects the interior value $1/2$. Shannon entropy at that point is then $\ln2$.
+
+\begin{proposition}[Triple coincidence under the model]
+Under Assumption \ref{ass:sigma}, the following conditions are equivalent within the two-state representation:
+\begin{align}
+\sigma&=\frac12,\\
+\Hbin(\sigma)&=\ln2,\\
+C(\sigma)&=\sigma,\\
+n_z&=0,\\
+\mathcal U_B(\sigma)&=-1,\\
+\mathcal A(\sigma,\pi)&=0.
+\end{align}
+\end{proposition}
+
+\begin{proof}
+The equivalence of the first three statements follows from Chapter \ref{ch:shannon}; the Bloch condition from $n_z=2\sigma-1$; the holonomy from Chapter \ref{ch:bloch}; and the cancellation condition from Theorem \ref{thm:cancellation}.
+\end{proof}
+
+This proposition is a genuine unification inside the model. It says that maximum binary distinction, complement fixedness, equatorial geometry, spinor sign, and destructive interference are different coordinates of the same balanced state.
+
+\section{Why off-axis quartets remain possible without the assumption}
+Suppose $\rho=1/2+\delta+it$ with $\delta\neq0$ is a hypothetical zero. The zeta symmetries generate the partner $J(\rho)=1/2-\delta+it$. A global two-state construction could assign those two distinct points as complementary states rather than forcing either one to be self-dual. In that case the pair as a whole is balanced even though each member is not.
+
+Therefore a proof must exclude \emph{pairwise balance without pointwise balance}. This is the exact obstruction. Possible exclusion mechanisms include:
+\begin{enumerate}
+\item a self-adjoint spectral operator whose eigenparameter is real;
+\item a positive norm that would be violated by paired nonreal eigenvalues;
+\item a local unitarity law requiring $|\chi(s)|=1$ at every zero;
+\item a canonical readout for which branch norms cannot be externally rescaled;
+\item a total-positivity theorem for the Xi kernel.
+\end{enumerate}
+
+\section{A no-circularity criterion}
+Any future proof claiming to establish Assumption \ref{ass:zero-state} should pass the following test:
+\begin{quote}
+Could the proposed branch states and normalization be defined before knowing that $\Ree\rho=1/2$, and do they remain nonsingular for a hypothetical off-axis zero?
+\end{quote}
+If the construction explicitly inserts $\sigma=1/2$, uses a list of critical-line zeros as input, or divides by a factor vanishing at the target zero, it is circular.

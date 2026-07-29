@@ -1,0 +1,65 @@
+\chapter{Symbolic and Numerical Audit}
+\label{ch:audit}
+
+\section{Purpose of computation}
+Numerics cannot prove that every zeta zero lies on the critical line. They can, however, verify the implementation of exact identities, detect algebraic mistakes, and test whether proposed normalizations become singular or circular. The repository therefore includes deterministic tests and a machine-readable audit.
+
+\section{Audited identities}
+The test suite checks:
+\begin{enumerate}
+\item $\Hbin(1/2)=\ln2$;
+\item $\Hbin'(1/2)=0$ and $\Hbin''(1/2)<0$;
+\item $\mathcal A(1/2,\pi)=0$;
+\item $\mathcal A(\sigma,\pi)\neq0$ for representative $\sigma\neq1/2$;
+\item $e^{i\gamma_B(1/2)}=-1$;
+\item $J(1/2+it)=1/2+it$;
+\item $\xi(s)=\xi(1-s)$ at high precision for generic complex points;
+\item $\eta(s)=(1-2^{1-s})\zeta(s)$;
+\item $\eta(1)=\ln2$;
+\item reproduction of the first tabulated nontrivial zeros through the numerical library.
+\end{enumerate}
+
+The final check is explicitly labeled as reproduction of known critical-line zeros. It does not search the entire critical strip and cannot exclude off-axis zeros.
+
+\section{Numerical stability}
+The completed function
+\begin{equation}
+\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)
+\end{equation}
+contains factors of very different magnitudes at large $|t|$. Arbitrary precision arithmetic is used to reduce cancellation error. The audit stores residuals rather than converting all checks to binary pass/fail at machine precision.
+
+For a claimed exact identity, the expected residual should decrease when the working precision increases. A residual that plateaus indicates either an implementation error or an ill-conditioned formula.
+
+\section{Claim-aware output}
+The audit report separates four statuses:
+\begin{description}
+\item[Technical identities: PASS.] The code reproduces the exact formulas.
+\item[Numerical reproduction: PASS.] The first selected tabulated zeros and symmetries are recovered.
+\item[Critical-axis explanation: CONDITIONAL THEOREM.] The cancellation mechanism is exact given the representation assumption.
+\item[Riemann hypothesis: OPEN.] No exhaustive proof is claimed.
+\end{description}
+
+This separation is preserved in both JSON and Markdown reports so that later code changes cannot silently promote a conditional result.
+
+\section{Prospective computational tests}
+The following tests are proposed for the next research phase:
+\begin{enumerate}
+\item construct exact dual branches from the approximate functional equation and quantify their norm mismatch as a function of $\sigma$;
+\item test candidate normalizations on synthetic off-axis points rather than only on known zeros;
+\item verify that a proposed branch map remains finite at zeros;
+\item search for a positive-definite Gram representation of finite Xi-kernel truncations;
+\item compute deficiency indices for candidate dilation-spinor operators;
+\item compare the spectral counting function with the Riemann--von Mangoldt formula without fitting individual ordinates;
+\item freeze all free parameters before evaluating high zeros not used in development.
+\end{enumerate}
+
+\section{Reproducibility commands}
+From the repository root:
+\begin{verbatim}
+python3 -m pip install -e .[test]
+python3 scripts/make_figures.py
+python3 scripts/run_audit.py
+pytest -q
+make monograph
+\end{verbatim}
+The resulting PDF, figures, and reports are deterministic up to timestamps and platform-level font metadata.

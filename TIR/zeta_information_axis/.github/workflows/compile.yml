@@ -1,0 +1,46 @@
+name: information-spinor-critical-axis
+
+on:
+  push:
+    paths:
+      - 'TIR/zeta_information_axis/**'
+  pull_request:
+    paths:
+      - 'TIR/zeta_information_axis/**'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: TIR/zeta_information_axis
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python dependencies
+        run: python -m pip install -e .[test]
+      - name: Install TeX and PDF tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-xetex texlive-latex-extra texlive-science poppler-utils qpdf
+      - name: Run tests
+        run: pytest -q
+      - name: Generate audit and monograph
+        run: make monograph
+      - name: Publication preflight
+        run: |
+          qpdf --check monograph/information_spinor_critical_axis.pdf
+          pdfinfo monograph/information_spinor_critical_axis.pdf | tee reports/pdfinfo.txt
+          pdffonts monograph/information_spinor_critical_axis.pdf | tee reports/pdffonts.txt
+          ! grep -q "Type 3" reports/pdffonts.txt
+          ! grep -q "Overfull" monograph/main.log
+          ! grep -Eiq "undefined references|undefined citations|multiply defined" monograph/main.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: information-spinor-critical-axis
+          path: |
+            TIR/zeta_information_axis/monograph/information_spinor_critical_axis.pdf
+            TIR/zeta_information_axis/reports/numerical_audit.json
+            TIR/zeta_information_axis/reports/numerical_audit.md
