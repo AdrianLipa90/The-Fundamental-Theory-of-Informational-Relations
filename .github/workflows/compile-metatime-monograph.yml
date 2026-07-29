@@ -41,9 +41,10 @@ jobs:
           path = Path('TIR/monograph/prepare_publication_candidate_v11_0.py')
           text = path.read_text(encoding='utf-8')
           tree = ast.parse(text)
-          targets = []
+          positional = []
+          keyword = []
           for node in ast.walk(tree):
-              if not isinstance(node, ast.Call) or len(node.args) < 2:
+              if not isinstance(node, ast.Call):
                   continue
               func = node.func
               is_re_sub = (
@@ -52,16 +53,27 @@ jobs:
                   and isinstance(func.value, ast.Name)
                   and func.value.id == 're'
               )
-              second = node.args[1]
-              if is_re_sub and isinstance(second, ast.Name) and second.id == 'hyperref_block':
-                  targets.append(second.lineno)
+              if not is_re_sub:
+                  continue
+              if len(node.args) >= 2:
+                  second = node.args[1]
+                  if isinstance(second, ast.Name) and second.id == 'hyperref_block':
+                      positional.append(second.lineno)
+              for item in node.keywords:
+                  if item.arg == 'repl' and isinstance(item.value, ast.Name) and item.value.id == 'hyperref_block':
+                      keyword.append(item.value.lineno)
+          targets = [('positional', line) for line in positional] + [('keyword', line) for line in keyword]
           if len(targets) != 1:
               raise SystemExit(f'Expected one AST hyperref target, found {targets}')
+          kind, lineno = targets[0]
           lines = text.splitlines(keepends=True)
-          index = targets[0] - 1
+          index = lineno - 1
           indent = lines[index][:len(lines[index]) - len(lines[index].lstrip())]
           ending = '\n' if lines[index].endswith('\n') else ''
-          lines[index] = f'{indent}lambda _match: hyperref_block,{ending}'
+          if kind == 'keyword':
+              lines[index] = f'{indent}repl=lambda _match: hyperref_block,{ending}'
+          else:
+              lines[index] = f'{indent}lambda _match: hyperref_block,{ending}'
           path.write_text(''.join(lines), encoding='utf-8')
           PYPATCH
           chmod +x TIR/monograph/prepare_publication_candidate_v11_0.py
