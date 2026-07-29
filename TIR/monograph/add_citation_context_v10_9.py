@@ -16,8 +16,8 @@ from typing import Dict, List
 
 ROOT = Path(__file__).resolve().parent
 BIBLIOGRAPHY = ROOT / "references_expanded_v10_8.tex"
-REPORT_MD = ROOT / "CITATION_COVERAGE_v10_9.md"
-REPORT_JSON = ROOT / "citation_coverage_v10_9.json"
+REPORT_MD = ROOT / "CITATION_COVERAGE_v11_0.md"
+REPORT_JSON = ROOT / "citation_coverage_v11_0.json"
 BEGIN = "% CITATION_CONTEXT_V10_9_BEGIN"
 END = "% CITATION_CONTEXT_V10_9_END"
 
@@ -300,6 +300,11 @@ geometric and arithmetic ingredients are externally contextualized by Berry,
 Collatz, and Ramanujan literature
 \cite{berry1984,Lagarias1985,Tao2022Collatz,Ramanujan1918}, while the three
 specific maps and their Yukawa-ratio predictions are original TIR candidates.""",
+    "appendices/appO_publication_protocol.tex": r"""\paragraph{Established context.}
+Model comparison, likelihood inference, preregistration, and reproducible
+computation are grounded in the statistical and methodological literature
+\cite{Akaike1974,Schwarz1978,Wilks1938,Cowan2011,Nosek2018,Sandve2013}.
+The protocol below applies those norms to interpretation of this monograph.""",
 }
 
 
@@ -347,7 +352,7 @@ def update_version() -> None:
     text = root.read_text(encoding="utf-8")
     text = re.sub(
         r"%% Version [^\n]+",
-        "%% Version 10.9 - Citation-integrated monograph",
+        "%% Version 11.0 - Publication Candidate",
         text,
         count=1,
     )
@@ -357,7 +362,7 @@ def update_version() -> None:
 def write_reports(rows: List[dict], bib_count: int, unique_cited: set[str]) -> None:
     zero = [row["path"] for row in rows if row["citation_commands"] == 0]
     payload = {
-        "version": "v10.9",
+        "version": "v11.0",
         "bibliography_entries": bib_count,
         "covered_files": len(rows),
         "files_without_citations": zero,
@@ -366,7 +371,7 @@ def write_reports(rows: List[dict], bib_count: int, unique_cited: set[str]) -> N
     }
     REPORT_JSON.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     lines = [
-        "# Citation Coverage Audit v10.9",
+        "# Citation Coverage Audit v11.0",
         "",
         "Status: `PASS` if every listed chapter and appendix contains at least one local citation and every citation key resolves to the expanded bibliography.",
         "",
@@ -377,7 +382,7 @@ def write_reports(rows: List[dict], bib_count: int, unique_cited: set[str]) -> N
         "",
         "The inserted paragraphs establish external scientific context only. They do not assert that cited authors endorse TIR/Metatime or that original model claims follow from the cited work.",
         "",
-        "| File | Citation commands | Unique keys | v10.9 context |",
+        "| File | Citation commands | Unique keys | local context |",
         "|---|---:|---:|---|",
     ]
     for row in rows:

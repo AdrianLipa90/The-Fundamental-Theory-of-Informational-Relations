@@ -1,9 +1,9 @@
 %% Metatime Monograph
-%% Complete derivations of all Standard Model parameters from
-%% the Metatime framework: κ = ln(2)/(24π), L₃=7, L₄=2, L₅=5
+%% Publication-candidate presentation of an exploratory low-parameter ansatz
+%% with explicit claim classes, data conventions, failures, and prospective gates
 %%
 %% Adrian Lipa, Doncaster, UK
-%% Version 10.9 - Citation-integrated monograph
+%% Version 11.0 - Publication Candidate
 %%
 %% Compile: pdflatex metatime_monograph.tex 
 %%          && pdflatex metatime_monograph.tex
@@ -13,12 +13,20 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm,bm,mathtools}
 \usepackage{slashed}
 \usepackage{graphicx}
 \usepackage{xurl}
 \usepackage[protrusion=true,expansion=false]{microtype}
-\usepackage{hyperref}
+\usepackage[
+  hidelinks,
+  pdfpagelayout=TwoPageRight,
+  pdftitle={Metatime: Publication Candidate of a Low-Parameter Phenomenological Ansatz},
+  pdfauthor={Adrian Lipa},
+  pdfsubject={Geometric-phase information structures and particle, flavor, hadronic, and cosmological observables},
+  pdfkeywords={Metatime, TIR, geometric phase, information geometry, Standard Model phenomenology, Collatz, Ramanujan, falsifiability}
+]{hyperref}
 \usepackage{makeidx}
 \usepackage{verbatim}
 \usepackage{longtable}
@@ -35,6 +43,8 @@
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
+\newcommand{\claimstatus}[1]{\par\noindent\textbf{Claim status: #1}\par}
+\newcommand{\datasetstatus}[1]{\par\noindent\textbf{Data status: #1}\par}
 
 \newcommand{\OI}{\kappa}
 \newcommand{\Lam}{\Lambda}
@@ -50,15 +60,17 @@
 \newcommand{\SM}{\text{SM}}
 
 \begin{document}
+\raggedbottom
 
 \frontmatter
 
-\title{Metatime: A Low-Parameter Ansatz for Standard Model \\
-       Parameters from Geometric Phase Information Theory}
+\title{Metatime: A Publication Candidate for an Exploratory\\
+       Low-Parameter Phenomenological Ansatz}
 \author{Adrian Lipa}
-\date{Independent Researcher, Doncaster, UK\\\today}
+\date{Independent Researcher, Doncaster, UK\\Version 11.0 -- 29 July 2026}
 
 \maketitle
+\input{frontmatter/publication_frontmatter_v11_0}
 
 \tableofcontents
 
@@ -180,6 +192,7 @@
 \include{appendices/appL_up_sector_common_baseline_no_go}
 \include{appendices/appM_prospective_observable_identifiability}
 \include{appendices/appN_separable_candidate_family}
+\include{appendices/appO_publication_protocol}
 
 %% ======================================================================
 %% BIBLIOGRAPHY

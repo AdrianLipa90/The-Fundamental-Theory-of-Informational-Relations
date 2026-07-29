@@ -1,0 +1,285 @@
+{
+  "bibliography_entries": 137,
+  "covered_files": 46,
+  "files_without_citations": [],
+  "rows": [
+    {
+      "citation_commands": 5,
+      "context_present": true,
+      "path": "appendices/appA_kappa_derivation.tex",
+      "unique_keys": 7
+    },
+    {
+      "citation_commands": 1,
+      "context_present": true,
+      "path": "appendices/appB_collatz_tables.tex",
+      "unique_keys": 4
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "appendices/appC_su3_primer.tex",
+      "unique_keys": 7
+    },
+    {
+      "citation_commands": 1,
+      "context_present": true,
+      "path": "appendices/appD_poincare_disk.tex",
+      "unique_keys": 3
+    },
+    {
+      "citation_commands": 1,
+      "context_present": true,
+      "path": "appendices/appE_tetrahedron_algebra.tex",
+      "unique_keys": 5
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "appendices/appF_baryon_calculations.tex",
+      "unique_keys": 3
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "appendices/appG_meson_calculations.tex",
+      "unique_keys": 4
+    },
+    {
+      "citation_commands": 1,
+      "context_present": true,
+      "path": "appendices/appH_pdg_tables.tex",
+      "unique_keys": 3
+    },
+    {
+      "citation_commands": 1,
+      "context_present": true,
+      "path": "appendices/appI_source_code.tex",
+      "unique_keys": 4
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "appendices/appJ_collatz_quarter_power_scaling.tex",
+      "unique_keys": 6
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "appendices/appK_sector_holonomy_release.tex",
+      "unique_keys": 6
+    },
+    {
+      "citation_commands": 1,
+      "context_present": true,
+      "path": "appendices/appL_up_sector_common_baseline_no_go.tex",
+      "unique_keys": 4
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "appendices/appM_prospective_observable_identifiability.tex",
+      "unique_keys": 5
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "appendices/appN_separable_candidate_family.tex",
+      "unique_keys": 7
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "appendices/appO_publication_protocol.tex",
+      "unique_keys": 9
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch01_introduction.tex",
+      "unique_keys": 7
+    },
+    {
+      "citation_commands": 4,
+      "context_present": true,
+      "path": "chapters/ch02_metatime_framework.tex",
+      "unique_keys": 9
+    },
+    {
+      "citation_commands": 1,
+      "context_present": true,
+      "path": "chapters/ch03_l_constants.tex",
+      "unique_keys": 4
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch04_quark_primes.tex",
+      "unique_keys": 8
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch05_electron_action.tex",
+      "unique_keys": 7
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch06_generation_release.tex",
+      "unique_keys": 6
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch07_lepton_spectrum.tex",
+      "unique_keys": 6
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch08_gmo_formula.tex",
+      "unique_keys": 4
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch09_octet_m0.tex",
+      "unique_keys": 5
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch10_octet_coefficients.tex",
+      "unique_keys": 6
+    },
+    {
+      "citation_commands": 1,
+      "context_present": true,
+      "path": "chapters/ch11_octet_predictions.tex",
+      "unique_keys": 3
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch12_decuplet_m0prime.tex",
+      "unique_keys": 4
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch13_decuplet_predictions.tex",
+      "unique_keys": 3
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch14_pseudoscalar_mesons.tex",
+      "unique_keys": 7
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch15_heavy_mesons.tex",
+      "unique_keys": 6
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch16_pmns_mixing.tex",
+      "unique_keys": 9
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch17_neutrino_masses.tex",
+      "unique_keys": 6
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch18_ckm_matrix.tex",
+      "unique_keys": 4
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch19_ckm_cp_violation.tex",
+      "unique_keys": 4
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch20_higgs_vev.tex",
+      "unique_keys": 8
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch21_weinberg_angle.tex",
+      "unique_keys": 4
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch22_fine_structure.tex",
+      "unique_keys": 7
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch23_gauge_bosons.tex",
+      "unique_keys": 8
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch24_higgs_mass.tex",
+      "unique_keys": 6
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch25_strong_cp_angle.tex",
+      "unique_keys": 7
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch26_neutron_edm.tex",
+      "unique_keys": 3
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch27_hypercharge.tex",
+      "unique_keys": 7
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch28_anomaly_cancellation.tex",
+      "unique_keys": 6
+    },
+    {
+      "citation_commands": 3,
+      "context_present": true,
+      "path": "chapters/ch29_dark_energy.tex",
+      "unique_keys": 12
+    },
+    {
+      "citation_commands": 1,
+      "context_present": true,
+      "path": "chapters/ch30_parameter_summary.tex",
+      "unique_keys": 7
+    },
+    {
+      "citation_commands": 2,
+      "context_present": true,
+      "path": "chapters/ch31_open_problems.tex",
+      "unique_keys": 9
+    }
+  ],
+  "unique_cited_keys": 104,
+  "version": "v11.0"
+}

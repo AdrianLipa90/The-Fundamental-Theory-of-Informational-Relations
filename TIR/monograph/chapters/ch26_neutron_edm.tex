@@ -1,72 +1,49 @@
 % !TEX root = ../metatime_monograph.tex
-\chapter{Neutron Electric Dipole Moment}
+\chapter{Neutron Electric Dipole Moment: Constraint Audit}
 \label{ch:neutron_edm}
-
 
 % CITATION_CONTEXT_V10_9_BEGIN
 \paragraph{Established context.}
 The link between a QCD CP phase and the neutron electric dipole moment follows
 the chiral and effective-field-theory literature
-\cite{crewther1979,pospelov2005}.  The experimental bound is represented by the
-modern neutron-EDM measurement \cite{Abel2020nEDM}.  The numerical mapping from
-the Metatime angle to $d_n$ is therefore directly falsifiable against external
-data.
+\cite{crewther1979,pospelov2005}.  The experimental constraint is represented by
+the modern neutron-EDM measurement \cite{Abel2020nEDM}.
 % CITATION_CONTEXT_V10_9_END
 
-\section{Derivation from Strong CP}
+\claimstatus{D -- falsification audit of the fixed strong-CP assignment.}
 
-The neutron electric dipole moment (nEDM) follows directly from the QCD
-\(\theta\) angle (Chapter~\ref{ch:strong_cp}):
-
+\section{Fixed mapping}
+Using Chapter \ref{ch:strong_cp},
 \[
-d_n = \theta_{\text{QCD}} \cdot C.
+  \theta_{\rm QCD}=2.2208116435\times10^{-10},
+  \qquad
+  C=2.4\times10^{-16}\ e\,\mathrm{cm},
+\]
+and therefore
+\[
+  \boxed{d_n^{\rm model}=5.3299\times10^{-26}\ e\,\mathrm{cm}}.
 \]
 
-The Crewther factor \(C\) relates the CP-violating gluon operator to the
-nucleon dipole moment through chiral perturbation theory~\cite{crewther1979}:
-
+\section{Experimental comparison}
+The bound used in this release is
 \[
-C = \frac{e m_u m_d}{4\pi^2 f_\pi^2 (m_u + m_d)} \ln\frac{m_\pi^2}{m_\eta^2}
-  \approx 2.4 \times 10^{-16}\ e\cdot\text{cm}.
+  |d_n|<1.8\times10^{-26}\ e\,\mathrm{cm}\qquad(90\%\ \mathrm{CL}).
 \]
+The model value is $2.96$ times the bound.  The current fixed implementation
+therefore fails this constraint.  This result is not described as ``at the
+limit'' and is not deferred to a future experiment.
 
-\section{Predicted Value}
+\section{Allowed interpretation}
+The failure applies to the conjunction of the exponent $14$, the chosen
+$\kappa$, and the fixed coefficient $C$.  It does not by itself prove that every
+possible information-geometric strong-CP construction is excluded.  However,
+changing the exponent to $15$, adding a suppression factor, or selecting a new
+coefficient after seeing the bound would constitute a new model version and
+cannot be counted as confirmation of the frozen formula.
 
-\[
-\begin{aligned}
-\theta_{\text{QCD}} &= \kappa\left(\frac{L_4}{L_3}\right)^{L_3+L_4+L_5}
-                    = \kappa\left(\frac{2}{7}\right)^{14}
-                    = 2.22 \times 10^{-10}, \\[4pt]
-d_n^{\text{pred}} &= 2.22 \times 10^{-10} \times 2.4 \times 10^{-16} \\
-                  &= 5.33 \times 10^{-26}\ e\cdot\text{cm}.
-\end{aligned}
-\]
-
-\section{Experimental Status}
-
-Current limit: \(d_n^{\text{exp}} < 1.8 \times 10^{-26}\ e\cdot\text{cm}\)
-(90\% CL).
-
-The predicted value is a factor \(\sim\)3 above the current experimental bound.
-This is a tension---the framework does not predict a cancellation mechanism
-at this level---but is within reach of next-generation experiments.
-
-\section{Falsification Criterion}
-
-If next-generation experiments (n2EDM at PSI, PanEDM at ILL, SNS nEDM at
-ORNL, reaching \(10^{-27}\) to \(10^{-28}\ e\cdot\text{cm}\)) observe no
-nEDM, the framework would require either:
-\begin{enumerate}
-  \item An additional geometric suppression factor (not yet identified), or
-  \item A revision of the exponent structure (changing \(L_3+L_4+L_5=14\)
-        to a different combinatorial rule).
-\end{enumerate}
-Without such a mechanism, the \(3\times\) tension would not be resolved
-by the current framework alone.
-
-\section{Comparison with Axion Models}
-
-Unlike the Peccei--Quinn axion solution, Metatime predicts no axion, no
-axion halo, and no ADMX detection signal.  The absence of axion evidence
-is consistent with the framework.  Conversely, axion discovery would
-falsify the Metatime strong CP solution.
+\section{Relation to axion models}
+The minimal Metatime implementation contains no Peccei--Quinn axion.  Discovery
+of an axion would contradict the minimal claim that no additional strong-CP
+degree of freedom is required; it would not automatically falsify every other
+mathematical component of TIR.  Conversely, the absence of an axion is not
+positive evidence for the present nEDM formula.

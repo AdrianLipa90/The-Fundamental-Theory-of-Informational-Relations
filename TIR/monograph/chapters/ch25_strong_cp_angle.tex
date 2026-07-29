@@ -2,87 +2,56 @@
 \chapter{Strong CP Angle}
 \label{ch:strong_cp}
 
-
 % CITATION_CONTEXT_V10_9_BEGIN
 \paragraph{Established context.}
 The strong-CP problem is tied to nonperturbative gauge topology and the QCD
 vacuum, with standard discussions including 't Hooft, Peccei--Quinn, Weinberg,
 and Wilczek \cite{tHooft1976,PecceiQuinn1977,Weinberg1978Axion,Wilczek1978Axion}.
-Phenomenological consequences are reviewed by Crewther and Pospelov--Ritz
-\cite{crewther1979,pospelov2005}; the value derived here is the distinct TIR
-proposal.
+Phenomenological EDM consequences are reviewed by Crewther and Pospelov--Ritz
+\cite{crewther1979,pospelov2005}; the value below is the distinct TIR proposal.
 % CITATION_CONTEXT_V10_9_END
 
-\section{The Strong CP Problem}
+\claimstatus{B/C -- model assignment with a current physical constraint FAIL.}
 
-In QCD, a CP-violating term is permitted by the Lagrangian:
-
-\[
-\mathcal{L}_\theta = \theta\,\frac{g_s^2}{32\pi^2}\,G_{\mu\nu}^a\tilde{G}^{a\mu\nu}.
-\]
-
-Experimental constraints from the neutron electric dipole moment (nEDM)
-require \(\theta < 10^{-10}\).
-
-\section{Metatime Derivation}
-
-The bare QCD \(\theta\) parameter is:
-
+\section{Model assignment}
+The monograph assigns
 \begin{equation}
-\theta_{\text{QCD}} = \kappa\left(\frac{L_4}{L_3}\right)^{\!D},
-\qquad D = L_3 + L_4 + L_5 = 7 + 2 + 5 = 14.
-\label{eq:theta_qcd}
+  \theta_{\rm QCD}=\kappa\left(\frac{L_4}{L_3}\right)^{14},
+  \qquad 14=L_3+L_4+L_5.
+  \label{eq:theta_qcd}
 \end{equation}
+The exponent and suppression rule are model postulates; they are not derived from
+QCD in this work.
 
-The exponent \(D = L_3 + L_4 + L_5 = 14\) is the sum of all three
-L-constants, representing the total phase-space dimension of the strong
-CP sector.  Each unit of \(D\) corresponds to one power of the
-\(L_4/L_3 = 2/7\) geometric suppression factor, reflecting the
-sequential decoupling of flavour contributions to the QCD vacuum angle.
-
-\subsection{Numerical Evaluation}
-
+\section{Correct numerical evaluation}
 \[
-\begin{aligned}
-\frac{L_4}{L_3} &= \frac{2}{7} = 0.285714, \\[4pt]
-\left(\frac{2}{7}\right)^{14} &= 8.23 \times 10^{-9}, \\[4pt]
-\theta_{\text{QCD}} &= 0.00919315 \times 8.23 \times 10^{-9}
-                    = 7.57 \times 10^{-11}.
-\end{aligned}
+\left(\frac27\right)^{14}=2.4157243621\times10^{-8},
+\qquad
+\theta_{\rm QCD}=2.2208116435\times10^{-10}.
+\]
+The earlier value $7.57\times10^{-11}$ resulted from an arithmetic error in
+$(2/7)^{14}$ and is superseded.
+
+With the fixed coefficient used in this monograph,
+\[
+  C=2.4\times10^{-16}\ e\,\mathrm{cm},
+  \qquad
+  d_n=\theta_{\rm QCD}C
+  =5.3299\times10^{-26}\ e\,\mathrm{cm}.
 \]
 
-\section{Neutron Electric Dipole Moment}
-
-The nEDM follows from the Crewther relation:
-
+\section{Constraint status}
+The experimental result represented by Abel \emph{et al.} is
+$d_n=(0.0\pm1.1_{\rm stat}\pm0.2_{\rm sys})\times10^{-26}\,e\,\mathrm{cm}$,
+corresponding to the $90\%$ confidence upper bound
+$|d_n|<1.8\times10^{-26}\,e\,\mathrm{cm}$ used here
+\cite{Abel2020nEDM}.  The fixed model value is a factor
 \[
-d_n = \theta_{\text{QCD}} \cdot C,
+  \frac{5.3299}{1.8}=2.96
 \]
+above that bound.  Under the fixed coefficient and exponent, the calculation is
+a technical PASS and the physical constraint is a FAIL.
 
-where \(C = 2.4 \times 10^{-16}\ e\cdot\text{cm}\) is the Crewther factor.
-
-\[
-d_n = 7.57 \times 10^{-11} \times 2.4 \times 10^{-16}
-     = 1.82 \times 10^{-26}\ e\cdot\text{cm}.
-\]
-
-\section{Comparison with Experiment}
-
-The current experimental limit is \(d_n < 1.8 \times 10^{-26}\ e\cdot\text{cm}\)
-(90\% CL).  Our predicted value \(1.82 \times 10^{-26}\ e\cdot\text{cm}\)
-is essentially at the current bound.
-
-Next-generation experiments will decisively test this prediction:
-\begin{description}
-\item[n2EDM (PSI)]: Expected sensitivity \(1 \times 10^{-27}\ e\cdot\text{cm}\),
-operational 2025--2027.
-\item[PanEDM (ILL)]: Target \(1 \times 10^{-27}\ e\cdot\text{cm}\).
-\item[SNS nEDM (ORNL)]: Target \(3 \times 10^{-28}\ e\cdot\text{cm}\).
-\end{description}
-
-If no nEDM is observed above \(10^{-27}\ e\cdot\text{cm}\), the exponent
-would need to increase to \(D = 15\), giving
-\(\theta_{\text{QCD}} = 2.16 \times 10^{-11}\) and
-\(d_n = 5.2 \times 10^{-27}\ e\cdot\text{cm}\), which is just beyond
-the reach of next-generation experiments but would still be consistent
-with the framework.
+Hadronic matching carries theory uncertainty, but no quantitative uncertainty
+model is supplied in this monograph.  A post-hoc exponent change or unidentified
+suppression factor is therefore not accepted as a repair.

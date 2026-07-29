@@ -1,332 +1,73 @@
 % !TEX root = ../metatime_monograph.tex
-\chapter{Open Problems}
+\chapter{Open Problems and Falsification Ledger}
 \label{ch:open_problems}
-
 
 % CITATION_CONTEXT_V10_9_BEGIN
 \paragraph{Established context.}
-The open-problem ledger follows falsifiability, preregistration, and reproducible
+The ledger follows falsifiability, preregistration, and reproducible
 computational practice \cite{Popper1959,Lakatos1978,Sandve2013,Wilson2014,Munafo2017,Nosek2018,Stark2018}.
-Prospective Higgs-coupling gates are anchored to direct experimental searches and
-current reference data \cite{ATLAS2022Charm,PDG2024}.  A failed frozen test is to
-be retained as a failure rather than repaired by post-hoc parameter changes.
+Prospective Higgs-coupling gates are anchored to direct experimental searches
+and reference data \cite{ATLAS2022Charm,PDG2024}.  A failed frozen test is
+retained rather than repaired post hoc.
 % CITATION_CONTEXT_V10_9_END
 
-\section{Summary of Tensions}
-
-The Metatime framework, while successful across most SM sectors, has
-several unresolved tensions.
-
-\subsection{CKM CP Phase (Resolved)}
-
-The previous inversion of the Jarlskog relation gave
-\(\delta = 73.6^\circ\) (\(\sigma = 5.35\)).  The direct geometric
-formula:
-
-\[
-\delta_{\text{CKM}} = \arccos\frac{L_4}{L_5}
-                    = \arccos\frac{2}{5}
-                    = 66.42^\circ
-\]
-
-gives \(\sigma = 0.55\) relative to the PDG value
-\(65.6^\circ \pm 1.5^\circ\).  The CP phase is now the dihedral angle
-between the annihilation and intention axes of the NOEMA tetrahedron.
-
-\subsection{Baryon Octet Systematic Offset (Resolved)}
-
-The previous octet coefficients \(\beta = -177.91\)~MeV and
-\(\gamma = 55.20\)~MeV gave a \(2.8\%\) systematic offset for \(p/n\)
-and \(\Sigma\).  The refined coefficients
-
-\[
-\beta = -\alpha\,\frac{L_3^2-1}{L_3^2} = -185.90\ \mev,\qquad
-\gamma = \alpha\,\frac{L_4(L_3-L_4)}{L_3^2} = 38.73\ \mev
-\]
-
-reduce the mean octet error from \(1.72\%\) to \(0.33\%\).  The
-residual \(+1.10\%\) in the nucleon mass reflects the intrinsic
-limitation of the Gell-Mann--Okubo formula, not a Metatime-specific
-issue.
-
-\subsection{Gauge Boson Masses (\(+4.5\%\))}
-
-The SU(2) coupling \(g = L_4/L_3 + L_4/L_5 = 24/35\) gives \(M_W\) and
-\(M_Z\) predictions \(4.5\%\) and \(5.0\%\) above the observed values.
-The offset is systematic and may be resolved by a \(\kappa\) correction
-or a full renormalization-group analysis.
-
-\subsection{Higgs Mass (Resolved)}
-
-The Higgs mass was the framework's most significant failure
-(\(+4900\%\)).  The revised formula:
-
-\[
-M_H = v\,\kappa\,(L_3^2 + L_4 + L_5)
-\]
-
-gives \(M_H = 126.07\)~GeV, within \(0.66\%\) of the PDG value
-\(125.25\)~GeV.  This sector is now one of the best-predicted.
-
-\subsection{Neutron EDM (Factor 3 Above Bound)}
-
-The predicted nEDM \(5.33 \times 10^{-26}\ e\cdot\text{cm}\) (using
-exponent \(D = L_3+L_4+L_5 = 14\)) is a factor \(\sim\)3 above the
-current experimental limit \(d_n < 1.8 \times 10^{-26}\ e\cdot\text{cm}\).
-This is a genuine tension: the framework lacks a cancellation mechanism
-at this level.  Next-generation experiments (n2EDM, PanEDM, SNS nEDM)
-will reach \(10^{-27}\) to \(10^{-28}\ e\cdot\text{cm}\) within 3--5
-years, testing whether this tension is resolved by a geometric
-suppression or whether it constitutes a full falsification.
-
-\subsection{Anomaly \(A_5\) (Baryon Number)}
-
-The non-cancellation of \(A_5 = 1/6\) is expected (it's the SM baryon
-anomaly), but its numerical coincidence with \(q_s/(L_3 L_4 N_c)\) is
-noted without derivation.
-
-\subsection{Collatz Quarter-Power Mass Bridge (Comparative Signal; Open)}
-
-The accelerated odd Collatz map gives the asymptotic geometric-mean
-multiplier
-
-\[
-\rho_C
-=\exp\left(\ln3-\mathbb{E}[\nu_2(3n+1)]\ln2\right)
-=\frac34,
-\]
-
-because uniform odd residue classes satisfy
-\(\mathbb{E}[\nu_2(3n+1)]=2\).  Appendix~\ref{app:collatz_quarter_power}
-therefore tests the predeclared bridge
-
-\[
-X_i=\frac{A_e}{A_i},
-\qquad
-\ln\frac{m_i}{m_e}
-=
-\frac{X_i^{3/4}-1}{L_3\kappa}
-+
-\frac{R_i-R_e}{\kappa},
-\]
-
-where \(A_i\) is the mass-free Euler--Berry action coordinate and
-\(R_i\) is the mandatory Ramanujan release coordinate.
-
-The \(3/4\) variant beats the fixed \(2/3\), \(1\), and \(4/3\)
-comparators on mean, median, and maximum absolute logarithmic error and
-preserves the generation ordering in all three charged-fermion families.
-The isolated quarter-power trace nevertheless has a geometric-mean
-multiplicative error of \(9.967\), so it is not a closed mass derivation.
-
-\subsection{Sector-Holonomy Release (Retrospective; Offset Open)}
-
-Appendix~\ref{app:sector_holonomy_release} records the candidate
-
-\[
-\ln\frac{m_i}{m_e}=Q_i+G_i+H_i+W_i,
-\]
-
-with
-
-\[
-G_i=(L_5-c_i)\frac{\ell_i-\ell_e}{L_3},
-\]
-
-\[
-H_i=
-\frac{s_i}{\max(1,c_i)}
-\ln\left(
-\frac{1+|v_{7,i}|/\kappa}
-     {1+|v_{7,a(i)}|/\kappa}
-\right),
-\]
-
-and, for down quarks,
-
-\[
-W_i=L_4\ln\max_{u_j}
-\left|\mathcal O_{\mathrm{open}}(u_j,d_i)\right|.
-\]
-
-The executable operator contains no observed non-electron mass, no observed
-mixing element, no fitted continuous coefficient, and no particle-specific
-residual correction.  However, its functional form was selected after review
-of the v10.1 residual pattern.  It is therefore a retrospective structural
-candidate rather than a prospective sealed validation.  The v10.2r1 ledger
-supersedes the original v10.2 methodological label while preserving the
-numerical trace.
-
-As a retrospective diagnostic, the global non-anchor geometric-mean
-multiplicative error falls from \(9.967\) to \(1.672\).  Excluding the
-still-unresolved absolute \(u\)-sector baseline, the remaining seven
-non-anchor slots have
-
-\[
-\overline{|\Delta\ln m|}=0.1320,
-\qquad
-\max|\Delta\ln m|=0.2540,
-\qquad
-\exp\overline{|\Delta\ln m|}=1.141.
-\]
-
-The generation ordering remains correct in every charged-fermion family.
-The dominant residual is
-
-\[
-\frac{m_u^{\mathrm{pred}}}{m_u^{\mathrm{val}}}=24.18.
-\]
-
-This identifies a problem in the up-sector architecture, but it does not
-provide an independent confirmation.  A particle-specific subtraction is
-forbidden; Debt~9 and canonical promotion remain open.
-
-\subsection{Common Up-Sector Baseline (No-Go for the Fixed v10.2 Trace)}
-
-Appendix~\ref{app:up_sector_common_baseline_no_go} tests the v10.3 proposal
-
-\[
-\ln\frac{m_{u_g}}{m_e}=B_{\rm up}+\Delta_{\rm up}(g)
-\]
-
-with one common additive baseline and the v10.2 relative trace held fixed.  If
-\(r_g\) denotes the logarithmic mass residual, a common shift gives
-\(r'_g=r_g+B_{\rm up}\) and therefore preserves every pairwise residual
-difference.  The v10.2 up-sector residuals are
-
-\[
-r_u=3.1857238256,
-\qquad
-r_c=0.0818052322,
-\qquad
-r_t=0.2293790515.
-\]
-
-Their invariant spread is
-
-\[
-\max r-\min r=3.1039185934.
-\]
-
-Consequently, the smallest possible uniform absolute logarithmic error under
-any common shift is
-
-\[
-\boxed{
-\varepsilon_{\min}=\frac{\max r-\min r}{2}=1.5519592967
-}
-\]
-
-and at least one up-type channel must retain a multiplicative error of at least
-
-\[
-\boxed{e^{\varepsilon_{\min}}=4.7207104.}
-\]
-
-Thus a common \(B_{\rm up}\) cannot simultaneously remove the \(u\) offset and
-retain the current absolute \(c/t\) scale.  The no-go applies to the restricted
-architecture, not to the Collatz quarter-power hypothesis itself.
-
-\subsection{Observable Identifiability and Separable Candidate Family}
-
-Appendices~\ref{app:prospective_observable_identifiability} and
-\ref{app:separable_candidate_family} refine the admissible architecture to
-
-\[
-\boxed{
-\ln y_{f,g}=F(S_f)+D(G_g,R_g)
-}
-\]
-
-with one sector-invariant function \(F\), one universal generation function
-\(D\), and the mandatory Ramanujan release \(R_g\).
-
-The v10.6 result that \(y_c/y_t\) cancels a common sector baseline remains
-valid.  Its original assignment of \(y_c/y_\tau\) as the primary sector test is
-superseded, because that ratio crosses both sector and generation.  Charm and
-the muon are both second-generation states, so
-
-\[
-\ln\frac{y_c}{y_\mu}=F(S_u)-F(S_\ell),
-\]
-
-while charm and top share the up/heavy sector, so
-
-\[
-\ln\frac{y_c}{y_t}=D(G_2,R_2)-D(G_3,R_3).
-\]
-
-The first ratio isolates the sector functional; the second isolates the
-generation release.
-
-Exactly three candidates are frozen without mass comparison:
-
-\[
-F_1(S)=-S,
-\qquad
-D_1(G,R)=-G+R,
-\]
-
-\[
-F_2(S)=-S^{3/4},
-\qquad
-D_2(G,R)=-G^{3/4}+R,
-\]
-
-and
-
-\[
-F_3(S)=\frac{S^{-3/4}}{L_3\kappa},
-\qquad
-D_3(G,R)=\frac{G^{-3/4}}{L_3\kappa}+R.
-\]
-
-Their frozen prospective ratios are
-
-\begin{center}
-\begin{tabular}{lrr}
-\toprule
-Candidate & $y_c/y_\mu$ & $y_c/y_t$\\
-\midrule
-C1 & 4.850346751338371 & 0.16766796647328305\\
-C2 & 2.3521800134268784 & 0.17147213462587316\\
-C3 & 6.858021228826222 & $2.8101955040512466\times10^{-11}$\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-No candidate is selected.  The extreme C3 result is retained.  The first
-qualifying joint ATLAS/CMS direct charm--muon and charm--top likelihoods
-released after 29 July 2026 are the named prospective tests.  Multiplicity-aware
-interpretation is mandatory, and failure may not trigger formula alteration or
-observable substitution.
-
-\section{Future Work}
-
+\section{Current physical status}
+\begin{description}
+  \item[Gauge bosons -- OPEN TENSION.] The frozen relations overshoot the quoted
+  $W$ and $Z$ masses by approximately $4.5\%$ and $5.0\%$.  No
+  renormalization-group derivation is presently supplied.
+
+  \item[Higgs mass -- RETROSPECTIVE REVISION.] The earlier $6.3$~TeV formula
+  failed.  The replacement $M_H=v\kappa(L_3^2+L_4+L_5)$ was adopted after the
+  target value was known.  Its small percentage offset is not prospective
+  evidence, and the statement ``within $2\sigma$'' has been withdrawn.
+
+  \item[Neutron EDM -- PHYSICAL FAIL.] Correct arithmetic gives
+  $\theta_{\rm QCD}=2.2208\times10^{-10}$ and
+  $d_n=5.3299\times10^{-26}\,e\,\mathrm{cm}$, a factor $2.96$ above the bound
+  used in the manuscript.  The former value $1.82\times10^{-26}$ is superseded.
+
+  \item[Collatz quarter-power bridge -- OPEN.] The $3/4$ exponent beats the
+  declared fixed comparators but leaves a geometric-mean multiplicative error
+  $9.967$ and is not a closed charged-fermion spectrum.
+
+  \item[Common up-sector baseline -- RESTRICTED NO-GO.] A common additive shift
+  cannot repair the frozen v10.2 up-sector residuals; the unavoidable worst
+  multiplicative error is at least $4.7207104$.
+
+  \item[Separable candidate family -- PROSPECTIVE.] Exactly three candidates and
+  the orthogonal ratios $y_c/y_\mu$ and $y_c/y_t$ remain frozen for the first
+  qualifying direct post-29-July-2026 likelihoods.  No fourth candidate, refit,
+  or observable substitution is allowed.
+\end{description}
+
+\section{Methodological debts}
 \begin{enumerate}
-\item \textbf{Renormalization group flow}: Derive the running of gauge
-couplings from the Poincar\'{e} disk curvature to fix \(g\) and the
-gauge boson masses.
-\item \textbf{Higgs sector}: Identify the correct structural formula for
-\(M_H\), either as an exponential Kuramoto mass or as a modified VEV
-relation.
-\item \textbf{Kuramoto octet refinement}: Replace the static GMO
-coefficients with a dynamical eigenvalue equation for \(\beta\) and
-\(\gamma\).
-\item \textbf{CKM \(|V_{cb}|\)}: Revise the \(|V_{cb}|\) formula to
-incorporate a higher-order \(\kappa\) correction.
-\item \textbf{Prospective candidate-family validation}: Preserve all three
-v10.7 candidates until the named post-29-July-2026 likelihoods are inspected.
-Use direct \(y_c/y_\mu\) for the sector functional and direct \(y_c/y_t\) for
-the universal generation release.  Apply a multiplicity-aware rule, retain
-FAIL results, preserve Ramanujan continuity and heavy-sector quarantine, and
-do not add a fourth candidate.
-\item \textbf{Anomalous magnetic moments}: Extend the framework to
-\((g-2)_\mu\) and \((g-2)_e\).
-\item \textbf{Dark matter}: Identify a dark matter candidate from the
-Metatime particle spectrum (sterile neutrino? hidden-sector gauge boson?).
-\item \textbf{Inflation}: Connect the metatime framework to the CMB
-power spectrum via the Poincar\'{e} disk metric.
+  \item construct a common likelihood with uncertainties and covariance rather
+  than a table of heterogeneous percentage errors;
+  \item define an effective complexity penalty for the approximately fifty
+  discrete structural choices;
+  \item specify mass, coupling, and weak-mixing-angle renormalization schemes and
+  scales before precision comparison;
+  \item derive, rather than retrospectively select, the functional forms used in
+  the Higgs, electroweak, and flavor sectors;
+  \item preserve all failed formulae and superseded arithmetic in the version
+  history.
+\end{enumerate}
+
+\section{Prospective program}
+\begin{enumerate}
+  \item evaluate the three frozen v10.7 candidates on the named direct
+  charm--muon and charm--top Higgs-coupling likelihoods using a
+  multiplicity-aware rule;
+  \item derive receiver-independent or externally reproducible tests for any
+  additional TIR/NOEMA claims before using them as physical evidence;
+  \item produce an RG-consistent electroweak comparison with matched schemes;
+  \item preregister any new mass formula before comparing it with the target
+  spectrum;
+  \item treat the current neutron-EDM formula as failed unless a new version
+  supplies an independently motivated uncertainty model or replacement before
+  inspecting a new result.
 \end{enumerate}
 
 \vfill

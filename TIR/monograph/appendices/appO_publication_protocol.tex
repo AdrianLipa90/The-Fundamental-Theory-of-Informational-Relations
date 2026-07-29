@@ -1,0 +1,117 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Publication Protocol, Data Provenance, and Statistical Interpretation}
+\label{app:publication_protocol}
+
+% CITATION_CONTEXT_V10_9_BEGIN
+\paragraph{Established context.}
+Model comparison, likelihood inference, preregistration, and reproducible
+computation are grounded in the statistical and methodological literature
+\cite{Akaike1974,Schwarz1978,Wilks1938,Cowan2011,Nosek2018,Sandve2013}.
+The protocol below applies those norms to interpretation of this monograph.
+% CITATION_CONTEXT_V10_9_END
+
+\claimstatus{Methodological protocol; it governs interpretation but is not a
+physical derivation.}
+
+\section{Purpose}
+This appendix fixes the publication-level interpretation of the numerical
+material in the monograph.  It prevents a close numerical match from being
+promoted to independent evidence when the corresponding formula was selected
+retrospectively, and it prevents quantities with incompatible statistical
+meanings from being merged into a single accuracy score.  The protocol follows
+standard concerns in model selection, likelihood inference, preregistration,
+and reproducible computation
+\cite{Akaike1974,Schwarz1978,Wilks1938,Cowan2011,Nosek2018,Sandve2013}.
+
+\section{Data snapshot and external inputs}
+The numerical comparison tables are a frozen audit snapshot dated 29 July 2026.
+Unless an entry explicitly states otherwise, a quoted reference value is the
+value used during development of the v10 series and is not asserted to be the
+latest global fit.  The principal external reference compilations are PDG,
+CODATA, and Planck \cite{PDG2024,CODATA2022,Planck2018}.
+
+External inputs include the Planck scale, the proton mass where used as a
+hadronic scale, $N_c=3$, the assigned lepton hypercharge, and the hadronic
+coefficient used to map $\theta_{\rm QCD}$ to the neutron EDM.  The electron is
+the sole dimensional anchor in the Collatz charged-fermion mass audit.  Results
+depending on an anchor are not independent predictions of that anchor.
+
+\section{Renormalization and scheme conventions}
+The current monograph does not derive renormalization-group running.  Therefore:
+\begin{enumerate}
+  \item masses quoted for charged leptons, hadrons, and gauge bosons are compared
+  with the reference mass conventions stated or implied by the cited source;
+  \item $\sin^2\theta_W$, gauge couplings, quark masses, and Yukawa couplings are
+  scheme- and scale-dependent and must not be compared at precision level unless
+  the same scheme and scale are used;
+  \item future ratios $y_c/y_\mu$ and $y_c/y_t$ must be taken from a common direct
+  experimental likelihood or translated to a common scheme before testing the
+  frozen candidates;
+  \item no sub-percent claim is made for a cross-scheme comparison.
+\end{enumerate}
+
+\section{Residuals and aggregate summaries}
+For a positive observable $x$, the preferred scale-free residual is
+\[
+  r=\ln\!\left(\frac{x_{\rm model}}{x_{\rm ref}}\right),
+  \qquad
+  f=\exp(|r|),
+\]
+where $f$ is the multiplicative error factor.  A normalized pull may be quoted
+only when a defensible model uncertainty and reference uncertainty are both
+available:
+\[
+  z=\frac{x_{\rm model}-x_{\rm ref}}
+  {\sqrt{\sigma_{\rm model}^2+\sigma_{\rm ref}^2}}.
+\]
+Circular variables such as phases require circular distance.  Upper limits such
+as the neutron EDM are pass/fail constraints and are excluded from mean-error
+calculations.  External anchors and values used to choose a formula are also
+excluded from prospective performance scores.
+
+The earlier statement of a mean error across ``26 SM parameters'' is withdrawn.
+The summary actually contains 36 heterogeneous observables and derived
+quantities, including hadron masses and cosmological quantities that are not
+independent parameters of the Standard Model Lagrangian.  Sector-level
+descriptive residuals may be reported, but no single global percentage is used
+as evidence.
+
+\section{Model complexity}
+``Zero continuous fitted parameters'' does not mean zero model complexity.  The
+construction contains approximately fifty discrete structural choices,
+including integer assignments, prime labels, formula families, anchor choices,
+and sector mappings.  Interpretation must therefore account for discrete
+selection freedom and post-selection.  Information criteria such as AIC or BIC
+are not applied here because a complete likelihood and effective parameter count
+have not yet been defined; their absence is a declared limitation, not evidence
+in favor of the model.
+
+\section{Retrospective and prospective evidence}
+All numerical sector formulas developed with access to their target values are
+classified as retrospective assignments.  They may motivate structure but do
+not constitute independent confirmation.  The v10.7 candidate family is the
+principal prospective component because the three formulas, two orthogonal
+observables, post-29-July-2026 data gate, and no-refit rule are frozen in advance.
+Multiplicity-aware likelihood interpretation is mandatory.
+
+\section{Current physical failures}
+\begin{enumerate}
+  \item The fixed gauge-boson relations overshoot the quoted $W$ and $Z$ masses
+  by approximately $4.5\%$ and $5.0\%$.
+  \item With $\kappa=\ln2/(24\pi)$ and exponent $14$, the strong-CP assignment
+  gives $\theta_{\rm QCD}=2.2208\times10^{-10}$ and, with the fixed hadronic
+  coefficient used here, $d_n=5.3299\times10^{-26}\,e\,\mathrm{cm}$.  This is a
+  technical calculation PASS but a physical constraint FAIL against the
+  $1.8\times10^{-26}\,e\,\mathrm{cm}$ bound used in the manuscript.
+  \item The isolated Collatz $3/4$ mass trace has a geometric-mean multiplicative
+  error of $9.967$ and is not a closed spectrum derivation.
+\end{enumerate}
+
+These failures are retained without hidden suppression factors, exponent changes,
+or candidate substitution.
+
+\section{Publication gate}
+A release is a publication candidate only if the build has no unresolved
+citations or references, no multiply defined labels, no overfull boxes, nonempty
+PDF metadata, embedded non-Type-3 fonts, a complete citation-coverage ledger, and
+a publication-readiness ledger recording the physical PASS/FAIL separation.
