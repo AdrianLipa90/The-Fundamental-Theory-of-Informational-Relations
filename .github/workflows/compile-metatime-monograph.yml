@@ -1,9 +1,6 @@
 name: Compile Metatime monograph
 
 on:
-  push:
-    branches:
-      - agent/collatz-quarter-power-scaling
   pull_request:
     branches:
       - main
@@ -21,7 +18,7 @@ jobs:
       - name: Checkout exact branch head revision
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          ref: agent/collatz-quarter-power-scaling
           fetch-depth: 1
 
       - name: Verify initial checkout provenance
@@ -31,161 +28,11 @@ jobs:
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
 
-      - name: Normalize monograph references and line breaking
+      - name: Normalize monograph references and layout
         shell: bash
         run: |
           set -euo pipefail
-          python3 - <<'PY'
-          from pathlib import Path
-
-          def replace(path: str, old: str, new: str, count: int = -1) -> None:
-              p = Path(path)
-              text = p.read_text(encoding="utf-8")
-              if old not in text:
-                  print(f"SKIP already normalized: {path}")
-                  return
-              text = text.replace(old, new, count)
-              p.write_text(text, encoding="utf-8")
-              print(f"UPDATED: {path}")
-
-          root = "TIR/monograph/metatime_monograph.tex"
-          replace(
-              root,
-              r"\usepackage{graphicx}" + "\n" + r"\usepackage{hyperref}",
-              r"\usepackage{graphicx}" + "\n" + r"\usepackage{xurl}" + "\n" + r"\usepackage{microtype}" + "\n" + r"\usepackage{hyperref}",
-              1,
-          )
-          replace(
-              root,
-              r"]{geometry}" + "\n",
-              r"]{geometry}" + "\n" + r"\setlength{\emergencystretch}{3em}" + "\n",
-              1,
-          )
-
-          app_m = "TIR/monograph/appendices/appM_prospective_observable_identifiability.tex"
-          replace(
-              app_m,
-              r"\label{app:observable_identifiability}" + "\n",
-              r"\label{app:observable_identifiability}" + "\n" + r"\label{app:prospective_observable_identifiability}" + "\n",
-              1,
-          )
-          replace(app_m, r"\texttt{heavy\_quark\_resonance}", r"\path{heavy_quark_resonance}")
-          replace(app_m, r"\texttt{charged\_lepton\_small\_seed}", r"\path{charged_lepton_small_seed}")
-          replace(
-              app_m,
-              r"\texttt{TIR/validation/up\_sector\_observable\_identifiability\_v10\_6.py}",
-              r"\path{TIR/validation/up_sector_observable_identifiability_v10_6.py}",
-          )
-
-          app_n = "TIR/monograph/appendices/appN_separable_candidate_family.tex"
-          replace(app_n, r"Appendix~\ref{app:prospective_observable_identifiability}", r"Appendix~\ref{app:observable_identifiability}")
-          replace(
-              app_n,
-              r"""\[
-\boxed{
-\text{candidate family frozen}
-\;\land\;
-\text{no mass benchmark}
-\;\land\;
-\text{no candidate selected}
-\;\land\;
-\text{canonical promotion denied}
-}
-\]""",
-              r"""\[
-\boxed{
-\begin{gathered}
-\text{candidate family frozen}
-\;\land\;
-\text{no mass benchmark}\\
-\text{no candidate selected}
-\;\land\;
-\text{canonical promotion denied}
-\end{gathered}
-}
-\]""",
-          )
-          replace(
-              app_n,
-              r"\texttt{TIR/validation/separable\_universal\_candidate\_family\_v10\_7.py}",
-              r"\path{TIR/validation/separable_universal_candidate_family_v10_7.py}",
-          )
-          replace(
-              app_n,
-              r"\texttt{2bbf9985b6a4fc9d19d039e117b15eb446a51a3e8828a2894c8d797bb35f23f4}",
-              r"\path{2bbf9985b6a4fc9d19d039e117b15eb446a51a3e8828a2894c8d797bb35f23f4}",
-          )
-
-          app_k = "TIR/monograph/appendices/appK_sector_holonomy_release.tex"
-          replace(
-              app_k,
-              r"\chapter{Sector-Holonomy Release of the Collatz Quarter-Power Trace}",
-              r"\chapter[Sector-Holonomy Release]{Sector-Holonomy Release of the Collatz Quarter-Power Trace}",
-              1,
-          )
-          replace(
-              app_k,
-              r"\texttt{TIR/validation/collatz\_sector\_holonomy\_mass\_audit\_v10\_2.py}",
-              r"\path{TIR/validation/collatz_sector_holonomy_mass_audit_v10_2.py}",
-          )
-          replace(
-              app_k,
-              r"\texttt{TIR/validation/collatz\_sector\_holonomy\_mass\_audit\_v10\_2r1.py}",
-              r"\path{TIR/validation/collatz_sector_holonomy_mass_audit_v10_2r1.py}",
-          )
-
-          app_j = "TIR/monograph/appendices/appJ_collatz_quarter_power_scaling.tex"
-          replace(
-              app_j,
-              r"\texttt{TIR/validation/collatz\_quarter\_power\_mass\_audit\_v10\_1.py}",
-              r"\path{TIR/validation/collatz_quarter_power_mass_audit_v10_1.py}",
-          )
-
-          app_l = "TIR/monograph/appendices/appL_up_sector_common_baseline_no_go.tex"
-          replace(app_l, r"\texttt{light\_quark\_seed}", r"\path{light_quark_seed}")
-          replace(app_l, r"\texttt{heavy\_quark\_resonance}", r"\path{heavy_quark_resonance}")
-          replace(
-              app_l,
-              r"\texttt{TIR/validation/up\_sector\_common\_baseline\_no\_go\_v10\_4.py}",
-              r"\path{TIR/validation/up_sector_common_baseline_no_go_v10_4.py}",
-          )
-
-          ch31 = "TIR/monograph/chapters/ch31_open_problems.tex"
-          replace(
-              ch31,
-              r"\subsection{Sector-Holonomy Release (Retrospective Signal; Absolute Offset Open)}",
-              r"\subsection{Sector-Holonomy Release (Retrospective; Offset Open)}",
-              1,
-          )
-
-          app_f = "TIR/monograph/appendices/appF_baryon_calculations.tex"
-          replace(
-              app_f,
-              r"""\[
-\begin{array}{ccccccc}
-\text{Particle} & Y & I(I{+}1) & \beta Y & \gamma(I(I{+}1){-}Y^2/4) & \text{Mass (MeV)} & \text{PDG (MeV)} \\
-\hline
-p,n & 1 & 0.75 & -185.90 & 38.73(0.75{-}0.25) = 19.37 & 925.95{+}189.77{-}185.90{+}19.37 = 949.19 & 938.92 \\
-\Lambda & 0 & 0 & 0 & 0 & 925.95{+}189.77 = 1115.72 & 1115.68 \\
-\Sigma & 0 & 2 & 0 & 38.73(2{-}0) = 77.46 & 925.95{+}189.77{+}77.46 = 1193.18 & 1193.15 \\
-\Xi & -1 & 0.75 & +185.90 & 38.73(0.75{-}0.25) = 19.37 & 925.95{+}189.77{+}185.90{+}19.37 = 1320.99 & 1318.29 \\
-\end{array}
-\]""",
-              r"""\begin{center}
-\resizebox{\textwidth}{!}{$
-\begin{array}{ccccccc}
-\text{Particle} & Y & I(I{+}1) & \beta Y & \gamma(I(I{+}1){-}Y^2/4) & \text{Mass (MeV)} & \text{PDG (MeV)} \\
-\hline
-p,n & 1 & 0.75 & -185.90 & 38.73(0.75{-}0.25) = 19.37 & 925.95{+}189.77{-}185.90{+}19.37 = 949.19 & 938.92 \\
-\Lambda & 0 & 0 & 0 & 0 & 925.95{+}189.77 = 1115.72 & 1115.68 \\
-\Sigma & 0 & 2 & 0 & 38.73(2{-}0) = 77.46 & 925.95{+}189.77{+}77.46 = 1193.18 & 1193.15 \\
-\Xi & -1 & 0.75 & +185.90 & 38.73(0.75{-}0.25) = 19.37 & 925.95{+}189.77{+}185.90{+}19.37 = 1320.99 & 1318.29 \\
-\end{array}
-$}
-\end{center}""",
-          )
-          PY
-
+          python3 TIR/monograph/normalize_build_sources.py
           git diff --check
 
       - name: Commit normalized LaTeX sources
@@ -199,7 +46,7 @@ $}
             echo "No source normalization changes required."
           else
             git commit -m "docs: fix monograph references and layout warnings"
-            git push origin "HEAD:${{ github.event.pull_request.head.ref || github.ref_name }}"
+            git push origin HEAD:agent/collatz-quarter-power-scaling
           fi
 
       - name: Record final checkout provenance
