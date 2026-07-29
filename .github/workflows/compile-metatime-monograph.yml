@@ -1,4 +1,5 @@
 name: Compile Metatime publication candidate
+# Final exact-head publication verification for v11.0.
 
 on:
   pull_request:
