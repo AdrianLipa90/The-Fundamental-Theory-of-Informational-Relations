@@ -1,0 +1,71 @@
+name: Compile Metatime monograph
+
+on:
+  push:
+    branches:
+      - agent/collatz-quarter-power-scaling
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-monograph:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout exact branch revision
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Record checkout provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD | tee checkout_head_sha.txt
+          git status --short --branch | tee checkout_status.txt
+
+      - name: Install LaTeX toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            latexmk \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-science
+
+      - name: Compile monograph
+        shell: bash
+        working-directory: TIR/monograph
+        run: |
+          set -o pipefail
+          latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error metatime_monograph.tex 2>&1 | tee compile-console.log
+
+      - name: Verify PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s TIR/monograph/metatime_monograph.pdf
+          pdfinfo TIR/monograph/metatime_monograph.pdf | tee pdfinfo.txt
+          sha256sum TIR/monograph/metatime_monograph.pdf | tee metatime_monograph.pdf.sha256
+
+      - name: Upload compiled monograph and logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: metatime-monograph-pr77
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            TIR/monograph/metatime_monograph.pdf
+            TIR/monograph/metatime_monograph.log
+            TIR/monograph/compile-console.log
+            checkout_head_sha.txt
+            checkout_status.txt
+            pdfinfo.txt
+            metatime_monograph.pdf.sha256
