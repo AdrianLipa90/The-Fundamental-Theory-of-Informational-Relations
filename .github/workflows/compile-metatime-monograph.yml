@@ -34,56 +34,38 @@ jobs:
           set -euo pipefail
           git fetch --no-tags --depth=1 origin 4e61ef6632ed97aa3d21b57c8afcc31371af52b2
           git show 4e61ef6632ed97aa3d21b57c8afcc31371af52b2:.github/bootstrap/prepare_publication_candidate_v11_0.py.gz.b64 \
-            | base64 -d | gzip -d > TIR/monograph/prepare_publication_candidate_v11_0.py
-          python3 - <<'PYPATCH'
-          import ast
+            | base64 -d | gzip -d > TIR/monograph/prepare_publication_candidate_v11_0_impl.py
+          cat > TIR/monograph/prepare_publication_candidate_v11_0.py <<'PYWRAP'
+          #!/usr/bin/env python3
+          from __future__ import annotations
+
+          import re
+          import runpy
           from pathlib import Path
-          path = Path('TIR/monograph/prepare_publication_candidate_v11_0.py')
-          text = path.read_text(encoding='utf-8')
-          tree = ast.parse(text)
-          matches = []
-          for node in ast.walk(tree):
-              if not isinstance(node, ast.Call):
-                  continue
-              func = node.func
-              is_re_sub = (
-                  isinstance(func, ast.Attribute)
-                  and func.attr == 'sub'
-                  and isinstance(func.value, ast.Name)
-                  and func.value.id == 're'
-              )
-              if not is_re_sub:
-                  continue
-              pattern = node.args[0] if node.args else next((item.value for item in node.keywords if item.arg == 'pattern'), None)
-              if not isinstance(pattern, ast.Constant) or not isinstance(pattern.value, str) or 'hyperref' not in pattern.value:
-                  continue
-              if len(node.args) >= 2:
-                  replacement = node.args[1]
-                  matches.append(('positional', replacement))
-              else:
-                  item = next((item for item in node.keywords if item.arg == 'repl'), None)
-                  if item is not None:
-                      matches.append(('keyword', item.value))
-          if len(matches) != 1:
-              raise SystemExit(f'Expected one hyperref-pattern re.sub call, found {len(matches)}')
-          kind, replacement = matches[0]
-          source = ast.get_source_segment(text, replacement)
-          if not source:
-              raise SystemExit('Could not recover hyperref replacement source')
-          lines = text.splitlines(keepends=True)
-          index = replacement.lineno - 1
-          if replacement.end_lineno != replacement.lineno:
-              raise SystemExit('Unexpected multiline hyperref replacement expression')
-          indent = lines[index][:len(lines[index]) - len(lines[index].lstrip())]
-          ending = '\n' if lines[index].endswith('\n') else ''
-          if kind == 'keyword':
-              lines[index] = f'{indent}repl=lambda _match: {source},{ending}'
-          else:
-              lines[index] = f'{indent}lambda _match: {source},{ending}'
-          path.write_text(''.join(lines), encoding='utf-8')
-          PYPATCH
+
+          _original_sub = re.sub
+
+          def _literal_hyperref_sub(pattern, repl, string, count=0, flags=0):
+              if isinstance(repl, str) and "hyperref" in str(pattern):
+                  return _original_sub(
+                      pattern,
+                      lambda _match: repl,
+                      string,
+                      count=count,
+                      flags=flags,
+                  )
+              return _original_sub(pattern, repl, string, count=count, flags=flags)
+
+          re.sub = _literal_hyperref_sub
+          runpy.run_path(
+              str(Path(__file__).with_name("prepare_publication_candidate_v11_0_impl.py")),
+              run_name="__main__",
+          )
+          PYWRAP
           chmod +x TIR/monograph/prepare_publication_candidate_v11_0.py
-          python3 -m py_compile TIR/monograph/prepare_publication_candidate_v11_0.py
+          python3 -m py_compile \
+            TIR/monograph/prepare_publication_candidate_v11_0.py \
+            TIR/monograph/prepare_publication_candidate_v11_0_impl.py
           python3 TIR/monograph/normalize_build_sources.py
           python3 TIR/monograph/prepare_publication_candidate_v11_0.py
           python3 TIR/monograph/add_citation_context_v10_9.py
