@@ -28,16 +28,17 @@ jobs:
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
 
-      - name: Normalize monograph references and layout
+      - name: Normalize sources and integrate citation context
         shell: bash
         run: |
           set -euo pipefail
           python3 TIR/monograph/normalize_build_sources.py
+          python3 TIR/monograph/add_citation_context_v10_9.py
           sed -i 's/\\usepackage{microtype}/\\usepackage[protrusion=true,expansion=false]{microtype}/' TIR/monograph/metatime_monograph.tex
           perl -0pi -e 's/(\\label\{app:prospective_observable_identifiability\}\n){2,}/\\label{app:prospective_observable_identifiability}\n/g' TIR/monograph/appendices/appM_prospective_observable_identifiability.tex
           git diff --check
 
-      - name: Commit normalized LaTeX sources
+      - name: Commit normalized and citation-integrated LaTeX sources
         shell: bash
         run: |
           set -euo pipefail
@@ -45,9 +46,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add TIR/monograph
           if git diff --cached --quiet; then
-            echo "No source normalization changes required."
+            echo "No source or citation integration changes required."
           else
-            git commit -m "docs: fix monograph references and layout warnings"
+            git commit -m "docs: integrate local citation context v10.9"
             git push origin HEAD:agent/collatz-quarter-power-scaling
           fi
 
@@ -79,27 +80,33 @@ jobs:
           set -o pipefail
           latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error metatime_monograph.tex 2>&1 | tee compile-console.log
 
-      - name: Verify PDF and warnings
+      - name: Verify PDF, citations, and warnings
         shell: bash
         run: |
           set -euo pipefail
           test -s TIR/monograph/metatime_monograph.pdf
+          test -s TIR/monograph/CITATION_COVERAGE_v10_9.md
+          test -s TIR/monograph/citation_coverage_v10_9.json
+          grep -q "TECHNICAL PASS - LOCAL CITATION COVERAGE COMPLETE" TIR/monograph/CITATION_COVERAGE_v10_9.md
           pdfinfo TIR/monograph/metatime_monograph.pdf | tee pdfinfo.txt
           sha256sum TIR/monograph/metatime_monograph.pdf | tee metatime_monograph.pdf.sha256
           ! grep -Eq "undefined references|Reference .* undefined|Citation .* undefined" TIR/monograph/metatime_monograph.log
           ! grep -q "Overfull \\hbox" TIR/monograph/metatime_monograph.log
           ! grep -Eq "multiply defined|multiply-defined" TIR/monograph/metatime_monograph.log
 
-      - name: Upload compiled monograph and logs
+      - name: Upload compiled monograph, citation audit, and logs
         uses: actions/upload-artifact@v4
         with:
-          name: metatime-monograph-pr77-clean
+          name: metatime-monograph-pr77-citations-v10-9
           if-no-files-found: error
           retention-days: 30
           path: |
             TIR/monograph/metatime_monograph.pdf
             TIR/monograph/metatime_monograph.log
             TIR/monograph/compile-console.log
+            TIR/monograph/CITATION_COVERAGE_v10_9.md
+            TIR/monograph/citation_coverage_v10_9.json
+            TIR/monograph/references_expanded_v10_8.tex
             checkout_head_sha.txt
             checkout_status.txt
             pdfinfo.txt
