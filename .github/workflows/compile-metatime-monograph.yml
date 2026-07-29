@@ -33,6 +33,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 TIR/monograph/normalize_build_sources.py
+          sed -i 's/\\usepackage{microtype}/\\usepackage[protrusion=true,expansion=false]{microtype}/' TIR/monograph/metatime_monograph.tex
           git diff --check
 
       - name: Commit normalized LaTeX sources
