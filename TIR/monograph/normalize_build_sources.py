@@ -44,7 +44,7 @@ def normalize_root(path: str) -> None:
     stretch = "\\setlength{\\emergencystretch}{3em}\n"
     text = re.sub(
         r"(?:\\setlength\{\\emergencystretch\}\{3em\}\n)+",
-        stretch,
+        lambda _match: stretch,
         text,
     )
     if stretch not in text:
@@ -62,7 +62,11 @@ def normalize_app_m(path: str) -> None:
     text = p.read_text(encoding="utf-8")
     original = text
     alias = "\\label{app:prospective_observable_identifiability}\n"
-    text = re.sub(r"(?:" + re.escape(alias) + r")+", alias, text)
+    text = re.sub(
+        r"(?:" + re.escape(alias) + r")+",
+        lambda _match: alias,
+        text,
+    )
     if alias not in text:
         text = text.replace(
             "\\label{app:observable_identifiability}\n",
