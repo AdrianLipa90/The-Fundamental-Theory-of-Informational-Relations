@@ -33,11 +33,18 @@ jobs:
         run: |
           set -euo pipefail
           chmod +x TIR/monograph/prepare_publication_candidate_v11_0.py
-          python3 -m py_compile \
-            TIR/monograph/prepare_publication_candidate_v11_0.py \
-            TIR/monograph/prepare_publication_candidate_v11_0_impl.py
+          python3 - <<'PYSYNTAX'
+          from pathlib import Path
+          for filename in (
+              'TIR/monograph/prepare_publication_candidate_v11_0.py',
+              'TIR/monograph/prepare_publication_candidate_v11_0_impl.py',
+          ):
+              source = Path(filename).read_text(encoding='utf-8')
+              compile(source, filename, 'exec')
+              print(f'SYNTAX PASS: {filename}')
+          PYSYNTAX
           python3 TIR/monograph/normalize_build_sources.py
-          python3 TIR/monograph/prepare_publication_candidate_v11_0.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/prepare_publication_candidate_v11_0.py
           python3 - <<'PYDEDUP'
           from pathlib import Path
 
@@ -62,7 +69,8 @@ jobs:
           path.write_text(''.join(output), encoding='utf-8')
           print('DEDUP PASS: exactly one claimstatus and datasetstatus definition retained')
           PYDEDUP
-          python3 TIR/monograph/add_citation_context_v10_9.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/add_citation_context_v10_9.py
+          rm -rf TIR/monograph/__pycache__
           git diff --check
 
       - name: Commit publication candidate sources
@@ -71,7 +79,8 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add TIR/monograph
+          rm -rf TIR/monograph/__pycache__
+          git add -A TIR/monograph
           if git diff --cached --quiet; then
             echo "Publication candidate sources already current."
           else
@@ -126,6 +135,8 @@ jobs:
           grep -q '2.96' TIR/monograph/chapters/ch26_neutron_edm.tex
           ! grep -R -q "All 26 SM Parameters" TIR/monograph/chapters TIR/monograph/appendices TIR/monograph/frontmatter
           ! grep -R -q "Mean absolute error across all 26" TIR/monograph/chapters TIR/monograph/appendices TIR/monograph/frontmatter
+          ! find TIR/monograph -type d -name __pycache__ -print -quit | grep -q .
+          ! find TIR/monograph -type f -name '*.pyc' -print -quit | grep -q .
           ! grep -Eq "undefined references|Reference .* undefined|Citation .* undefined" "$LOG"
           ! grep -q "Overfull \\hbox" "$LOG"
           ! grep -Eq "multiply defined|multiply-defined" "$LOG"
@@ -168,6 +179,7 @@ jobs:
             echo "Renormalization limitations: explicit"
             echo "PDF metadata: populated"
             echo "Fonts: embedded, no Type 3"
+            echo "Repository: no Python bytecode artifacts"
           } | tee publication_preflight.txt
 
       - name: Upload publication candidate and ledgers
