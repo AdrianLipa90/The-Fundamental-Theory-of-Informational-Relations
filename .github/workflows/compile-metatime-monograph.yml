@@ -36,14 +36,19 @@ jobs:
           git show 4e61ef6632ed97aa3d21b57c8afcc31371af52b2:.github/bootstrap/prepare_publication_candidate_v11_0.py.gz.b64 \
             | base64 -d | gzip -d > TIR/monograph/prepare_publication_candidate_v11_0.py
           python3 - <<'PYPATCH'
+          import re
           from pathlib import Path
           path = Path('TIR/monograph/prepare_publication_candidate_v11_0.py')
           text = path.read_text(encoding='utf-8')
-          old = "        hyperref_block,\n        text,\n        count=1,\n    )"
-          new = "        lambda _match: hyperref_block,\n        text,\n        count=1,\n    )"
-          if text.count(old) != 1:
-              raise SystemExit(f'Expected one hyperref replacement argument, found {text.count(old)}')
-          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          text, count = re.subn(
+              r'(?m)^(?P<indent>\s*)hyperref_block,\s*$',
+              lambda match: f"{match.group('indent')}lambda _match: hyperref_block,",
+              text,
+              count=1,
+          )
+          if count != 1:
+              raise SystemExit(f'Expected one hyperref replacement argument, found {count}')
+          path.write_text(text, encoding='utf-8')
           PYPATCH
           chmod +x TIR/monograph/prepare_publication_candidate_v11_0.py
           python3 -m py_compile TIR/monograph/prepare_publication_candidate_v11_0.py
