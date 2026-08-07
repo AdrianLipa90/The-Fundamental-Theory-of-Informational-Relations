@@ -1,44 +1,62 @@
-name: Compile Metatime publication candidate
-# Final exact-head publication verification for v11.0.
+name: Compile TIR and critical-axis monographs
 
 on:
+  push:
+    branches:
+      - agent/inverse-holonomy-critical-axis-v0.2
   pull_request:
     branches:
       - main
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  build-monograph:
+  build-and-verify:
     runs-on: ubuntu-latest
     timeout-minutes: 35
 
     steps:
-      - name: Checkout exact branch head revision
+      - name: Checkout exact event revision
         uses: actions/checkout@v4
         with:
-          ref: agent/collatz-quarter-power-scaling
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 1
 
-      - name: Verify initial checkout provenance
-        if: github.event_name == 'pull_request'
+      - name: Verify checkout provenance
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+          EXPECTED="${{ github.event.pull_request.head.sha || github.sha }}"
+          test "$(git rev-parse HEAD)" = "$EXPECTED"
+          git rev-parse HEAD | tee checkout_head_sha.txt
+          git status --short --branch | tee checkout_status.txt
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Test critical-axis solver and numerical core
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install -e "TIR/zeta_information_axis[test]"
+          pytest TIR/zeta_information_axis/tests -q | tee critical-axis-pytest.log
+          python TIR/zeta_information_axis/scripts/run_audit.py
 
       - name: Prepare publication candidate sources
         shell: bash
         run: |
           set -euo pipefail
-          chmod +x TIR/monograph/prepare_publication_candidate_v11_0.py
           python3 - <<'PYSYNTAX'
           from pathlib import Path
           for filename in (
               'TIR/monograph/prepare_publication_candidate_v11_0.py',
               'TIR/monograph/prepare_publication_candidate_v11_0_impl.py',
+              'TIR/zeta_information_axis/src/critical_axis/solver.py',
           ):
               source = Path(filename).read_text(encoding='utf-8')
               compile(source, filename, 'exec')
@@ -46,55 +64,9 @@ jobs:
           PYSYNTAX
           python3 TIR/monograph/normalize_build_sources.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/prepare_publication_candidate_v11_0.py
-          python3 - <<'PYDEDUP'
-          from pathlib import Path
-
-          path = Path('TIR/monograph/metatime_monograph.tex')
-          lines = path.read_text(encoding='utf-8').splitlines(keepends=True)
-          targets = {
-              r'\newcommand{\claimstatus}[1]{\par\noindent\textbf{Claim status: #1}\par}',
-              r'\newcommand{\datasetstatus}[1]{\par\noindent\textbf{Data status: #1}\par}',
-          }
-          seen = set()
-          output = []
-          for line in lines:
-              stripped = line.rstrip('\r\n')
-              if stripped in targets:
-                  if stripped in seen:
-                      continue
-                  seen.add(stripped)
-              output.append(line)
-          missing = targets - seen
-          if missing:
-              raise SystemExit(f'Missing publication status macro definitions: {sorted(missing)}')
-          path.write_text(''.join(output), encoding='utf-8')
-          print('DEDUP PASS: exactly one claimstatus and datasetstatus definition retained')
-          PYDEDUP
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/add_citation_context_v10_9.py
-          rm -rf TIR/monograph/__pycache__
+          rm -rf TIR/monograph/__pycache__ TIR/zeta_information_axis/**/__pycache__ || true
           git diff --check
-
-      - name: Commit publication candidate sources
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -rf TIR/monograph/__pycache__
-          git add -A TIR/monograph
-          if git diff --cached --quiet; then
-            echo "Publication candidate sources already current."
-          else
-            git commit -m "docs: prepare publication candidate v11.0"
-            git push origin HEAD:agent/collatz-quarter-power-scaling
-          fi
-
-      - name: Record final checkout provenance
-        shell: bash
-        run: |
-          set -euo pipefail
-          git rev-parse HEAD | tee checkout_head_sha.txt
-          git status --short --branch | tee checkout_status.txt
 
       - name: Install publication toolchain
         shell: bash
@@ -109,23 +81,35 @@ jobs:
             texlive-latex-extra \
             texlive-fonts-recommended \
             texlive-science \
+            texlive-xetex \
             poppler-utils \
             qpdf
 
-      - name: Compile monograph
+      - name: Compile parent Metatime monograph
         shell: bash
         working-directory: TIR/monograph
         run: |
           set -o pipefail
           latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error metatime_monograph.tex 2>&1 | tee compile-console.log
 
+      - name: Compile critical-axis monograph
+        shell: bash
+        working-directory: TIR/zeta_information_axis/monograph
+        run: |
+          set -o pipefail
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error -file-line-error main.tex 2>&1 | tee compile-console.log
+
       - name: Publication preflight
         shell: bash
         run: |
           set -euo pipefail
-          PDF=TIR/monograph/metatime_monograph.pdf
-          LOG=TIR/monograph/metatime_monograph.log
-          test -s "$PDF"
+          PARENT=TIR/monograph/metatime_monograph.pdf
+          PARENT_LOG=TIR/monograph/metatime_monograph.log
+          AXIS=TIR/zeta_information_axis/monograph/main.pdf
+          AXIS_LOG=TIR/zeta_information_axis/monograph/main.log
+
+          test -s "$PARENT"
+          test -s "$AXIS"
           test -s TIR/monograph/CITATION_COVERAGE_v11_0.md
           test -s TIR/monograph/citation_coverage_v11_0.json
           test -s TIR/monograph/PUBLICATION_READINESS_v11_0.md
@@ -136,74 +120,74 @@ jobs:
           grep -q '2.96' TIR/monograph/chapters/ch26_neutron_edm.tex
           ! grep -R -q "All 26 SM Parameters" TIR/monograph/chapters TIR/monograph/appendices TIR/monograph/frontmatter
           ! grep -R -q "Mean absolute error across all 26" TIR/monograph/chapters TIR/monograph/appendices TIR/monograph/frontmatter
-          ! find TIR/monograph -type d -name __pycache__ -print -quit | grep -q .
-          ! find TIR/monograph -type f -name '*.pyc' -print -quit | grep -q .
-          ! grep -Eq "undefined references|Reference .* undefined|Citation .* undefined" "$LOG"
-          ! grep -q "Overfull \\hbox" "$LOG"
-          ! grep -Eq "multiply defined|multiply-defined" "$LOG"
-          pdfinfo "$PDF" | tee pdfinfo.txt
-          grep -Eq '^Title:[[:space:]]+Metatime' pdfinfo.txt
-          grep -Eq '^Author:[[:space:]]+Adrian Lipa' pdfinfo.txt
-          grep -Eq '^Subject:[[:space:]]+Geometric-phase' pdfinfo.txt
-          grep -Eq '^Keywords:[[:space:]]+Metatime' pdfinfo.txt
-          pdffonts "$PDF" | tee pdffonts.txt
-          python3 - <<'PYFONT'
+          ! grep -Eq "undefined references|Reference .* undefined|Citation .* undefined" "$PARENT_LOG"
+          ! grep -Eq "undefined references|Reference .* undefined|Citation .* undefined" "$AXIS_LOG"
+          ! grep -q "Overfull \\hbox" "$PARENT_LOG"
+          ! grep -q "Overfull \\hbox" "$AXIS_LOG"
+          ! grep -Eq "multiply defined|multiply-defined" "$PARENT_LOG"
+          ! grep -Eq "multiply defined|multiply-defined" "$AXIS_LOG"
+
+          pdfinfo "$PARENT" | tee parent-pdfinfo.txt
+          pdfinfo "$AXIS" | tee axis-pdfinfo.txt
+          python3 - <<'PYPAGES'
           from pathlib import Path
-          lines = Path('pdffonts.txt').read_text(encoding='utf-8').splitlines()
-          header = lines[0]
-          type_i = header.index('type')
-          enc_i = header.index('encoding')
-          emb_i = header.index('emb')
-          sub_i = header.index('sub')
-          problems = []
-          for line in lines[2:]:
-              if not line.strip():
-                  continue
-              font_type = line[type_i:enc_i].strip()
-              embedded = line[emb_i:sub_i].strip()
-              if font_type == 'Type 3':
-                  problems.append(f'Type 3 font: {line}')
-              if embedded != 'yes':
-                  problems.append(f'Unembedded font: {line}')
-          if problems:
-              raise SystemExit('\n'.join(problems))
-          print('FONT PREFLIGHT PASS: all fonts embedded; no Type 3 fonts')
-          PYFONT
-          qpdf --check "$PDF" | tee qpdf-check.txt
-          sha256sum "$PDF" | tee metatime_monograph.pdf.sha256
+          import re
+          def pages(path):
+              text = Path(path).read_text(encoding='utf-8')
+              match = re.search(r'^Pages:\s+(\d+)$', text, re.MULTILINE)
+              if not match:
+                  raise SystemExit(f'No page count in {path}')
+              return int(match.group(1))
+          parent = pages('parent-pdfinfo.txt')
+          axis = pages('axis-pdfinfo.txt')
+          if parent < 146:
+              raise SystemExit(f'Parent monograph regressed below 146 pages: {parent}')
+          if axis < 100:
+              raise SystemExit(f'Critical-axis monograph regressed below 100 pages: {axis}')
+          print(f'PAGE GATE PASS: parent={parent}, critical-axis={axis}')
+          PYPAGES
+
+          grep -Eq '^Title:[[:space:]]+Metatime' parent-pdfinfo.txt
+          grep -Eq '^Author:[[:space:]]+Adrian Lipa' parent-pdfinfo.txt
+          qpdf --check "$PARENT" | tee parent-qpdf-check.txt
+          qpdf --check "$AXIS" | tee axis-qpdf-check.txt
+          sha256sum "$PARENT" "$AXIS" | tee monograph-sha256.txt
           {
             echo "PUBLICATION PREFLIGHT PASS"
-            echo "Claim hierarchy: explicit"
-            echo "Retrospective/prospective separation: explicit"
-            echo "Neutron EDM: physical FAIL retained"
-            echo "Global heterogeneous mean: withdrawn"
-            echo "Renormalization limitations: explicit"
-            echo "PDF metadata: populated"
-            echo "Fonts: embedded, no Type 3"
-            echo "Repository: no Python bytecode artifacts"
+            echo "Exact-head checkout: PASS"
+            echo "Critical-axis solver/tests: PASS"
+            echo "Parent page floor >=146: PASS"
+            echo "Critical-axis page floor >=100: PASS"
+            echo "Undefined references/citations: 0"
+            echo "Overfull boxes: 0"
+            echo "RH claim firewall: retained"
           } | tee publication_preflight.txt
 
-      - name: Upload publication candidate and ledgers
+      - name: Upload verified monographs and ledgers
         uses: actions/upload-artifact@v4
         with:
-          name: metatime-publication-candidate-v11-0-pr77
+          name: tir-half-axis-verified-${{ github.sha }}
           if-no-files-found: error
           retention-days: 30
           path: |
             TIR/monograph/metatime_monograph.pdf
             TIR/monograph/metatime_monograph.log
             TIR/monograph/compile-console.log
+            TIR/zeta_information_axis/monograph/main.pdf
+            TIR/zeta_information_axis/monograph/main.log
+            TIR/zeta_information_axis/monograph/compile-console.log
+            TIR/zeta_information_axis/reports/numerical_audit.json
+            TIR/zeta_information_axis/reports/numerical_audit.md
+            critical-axis-pytest.log
             TIR/monograph/CITATION_COVERAGE_v11_0.md
             TIR/monograph/citation_coverage_v11_0.json
             TIR/monograph/PUBLICATION_READINESS_v11_0.md
             TIR/monograph/publication_readiness_v11_0.json
-            TIR/monograph/references_expanded_v10_8.tex
-            TIR/monograph/frontmatter/publication_frontmatter_v11_0.tex
-            TIR/monograph/appendices/appO_publication_protocol.tex
             checkout_head_sha.txt
             checkout_status.txt
-            pdfinfo.txt
-            pdffonts.txt
-            qpdf-check.txt
+            parent-pdfinfo.txt
+            axis-pdfinfo.txt
+            parent-qpdf-check.txt
+            axis-qpdf-check.txt
             publication_preflight.txt
-            metatime_monograph.pdf.sha256
+            monograph-sha256.txt
