@@ -4,6 +4,9 @@
 The long publication-candidate monograph has a stricter claim taxonomy than the
 older REVTeX paper.  This patch synchronizes the paper's front matter and κ
 section with the reviewed 2026-08-07 state without touching archived copies.
+It also repairs two representation defects found during review: literal ``\\n``
+text inserted by an earlier patch and a duplicate ``eq:oi`` label in the
+introduction.
 """
 from __future__ import annotations
 
@@ -39,6 +42,16 @@ publication snapshot.  The framework is therefore reported as a falsifiable
 phenomenological programme, not as an experimentally established derivation of
 all Standard Model parameters from first principles.
 \end{abstract}
+""").strip()
+
+INTRO_BRIDGE = dedent(r"""
+The Metatime framework organizes these quantities around a declared structural
+normalization and a small set of discrete assignments.  The normalization
+$\kappa=\ln2/(24\pi)$ is defined and audited in
+Sec.~\ref{sec:constants}; its exact phase-rate consequence is given in
+Eq.~\eqref{eq:kappa_phase_rate_paper}.  The remaining constants and flavour
+labels are model assignments whose evidential status is evaluated sector by
+sector rather than inferred from the normalization alone.
 """).strip()
 
 INFO_SECTION = dedent(r"""
@@ -91,6 +104,12 @@ $\Gamma_{\mathcal I}$ as a surface-refresh observable remains an additional,
 operationally open hypothesis.
 """).strip()
 
+EXTERNAL_SCALES_TAIL = dedent(r"""
+Additional external anchors and conversion inputs are declared explicitly in
+the publication-candidate monograph; results depending on them are not
+independent predictions of those anchors.
+""").strip()
+
 
 def replace_once(text: str, pattern: str, replacement: str, label: str) -> str:
     updated, count = re.subn(pattern, lambda _m: replacement, text, count=1, flags=re.S)
@@ -99,9 +118,49 @@ def replace_once(text: str, pattern: str, replacement: str, label: str) -> str:
     return updated
 
 
+def normalize_literal_newlines(text: str) -> str:
+    """Repair only the known prose-level literal ``\\n`` artifacts.
+
+    We intentionally do not replace every occurrence globally because TeX or
+    code-like content may legitimately contain a backslash followed by ``n``.
+    """
+    known = {
+        r"structural\nnormalization": "structural\nnormalization",
+        r"the\npublication-candidate": "the\npublication-candidate",
+        r"independent\npredictions": "independent\npredictions",
+    }
+    for broken, repaired in known.items():
+        text = text.replace(broken, repaired)
+    return text
+
+
+def patch_introduction(text: str) -> str:
+    """Replace the old κ mini-derivation in the introduction by one cross-link.
+
+    This removes the second ``eq:oi`` definition and makes the constants section
+    the single source of the κ equation in the short paper.
+    """
+    start = "The Metatime framework organizes these quantities around"
+    stop = "The paper is organized as follows."
+    if start not in text:
+        return text
+    start_i = text.index(start)
+    stop_i = text.index(stop, start_i)
+    return text[:start_i] + INTRO_BRIDGE + "\n\n" + text[stop_i:]
+
+
+def assert_single_labels(text: str) -> None:
+    for label in ("eq:oi", "eq:kappa_phase_rate_paper"):
+        count = text.count(f"\\label{{{label}}}")
+        if count != 1:
+            raise SystemExit(f"{label}: expected one label after patch, found {count}")
+
+
 def main() -> None:
     text = PAPER.read_text(encoding="utf-8")
     original = text
+
+    text = normalize_literal_newlines(text)
 
     if "current audit gives $d_n\\simeq5.33" not in text:
         text = replace_once(
@@ -119,26 +178,33 @@ def main() -> None:
             "information constant section",
         )
 
+    text = patch_introduction(text)
+
     text = text.replace(
         "No other experimental\ndata are used.",
-        "Additional external anchors and conversion inputs are declared explicitly in the\\n"
-        "publication-candidate monograph; results depending on them are not independent\\n"
-        "predictions of those anchors.",
+        EXTERNAL_SCALES_TAIL,
+    )
+    text = text.replace(
+        "No other experimental data are used.",
+        EXTERNAL_SCALES_TAIL,
     )
 
     text = text.replace(
         "eliminating all continuous free parameters.",
-        "eliminating those particular continuous baryon scales while leaving the model's discrete structural complexity explicit.",
+        "eliminating those particular continuous baryon scales while leaving the "
+        "model's discrete structural complexity explicit.",
     )
 
-    # Remove the strongest stale κ-origin sentence if it survives outside the replaced subsection.
+    # Remove the strongest stale κ-origin sentence if it survives an older source
+    # layout not caught by patch_introduction().
     text = text.replace(
         "The Metatime framework proposes that all of these parameters arise from a\n"
         "single information-theoretic constant---the Berry phase accumulated by a\n"
         "quantum system on the Poincar\\'{e} disk:",
-        "The Metatime framework organizes these quantities around the TIR structural\\n"
-        "normalization",
+        INTRO_BRIDGE,
     )
+
+    assert_single_labels(text)
 
     if text != original:
         PAPER.write_text(text, encoding="utf-8")
