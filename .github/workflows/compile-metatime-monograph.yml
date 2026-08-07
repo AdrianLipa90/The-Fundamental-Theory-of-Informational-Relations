@@ -59,6 +59,7 @@ jobs:
           for filename in (
               'TIR/monograph/prepare_publication_candidate_v11_0.py',
               'TIR/monograph/prepare_publication_candidate_v11_0_impl.py',
+              'TIR/monograph/audit_information_spinor_crosswalk.py',
               'TIR/zeta_information_axis/src/critical_axis/solver.py',
               'TIR/zeta_information_axis/scripts/solve_axis.py',
           ):
@@ -69,6 +70,7 @@ jobs:
           python3 TIR/monograph/normalize_build_sources.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/prepare_publication_candidate_v11_0.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/add_citation_context_v10_9.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/audit_information_spinor_crosswalk.py
           rm -rf TIR/monograph/__pycache__ || true
           find TIR/zeta_information_axis -type d -name __pycache__ -prune -exec rm -rf {} + || true
           git diff --check
@@ -117,10 +119,13 @@ jobs:
           test -s "$AXIS"
           test -s TIR/monograph/CITATION_COVERAGE_v11_0.md
           test -s TIR/monograph/citation_coverage_v11_0.json
+          test -s TIR/monograph/INFORMATION_SPINOR_CROSSWALK_AUDIT.md
+          test -s TIR/monograph/information_spinor_crosswalk_audit.json
           test -s TIR/monograph/PUBLICATION_READINESS_v11_0.md
           test -s TIR/monograph/publication_readiness_v11_0.json
           test -s TIR/zeta_information_axis/reports/solver_receipt.json
           grep -q "TECHNICAL PASS - LOCAL CITATION COVERAGE COMPLETE" TIR/monograph/CITATION_COVERAGE_v11_0.md
+          grep -q "INFORMATION-SPINOR CROSSWALK AUDIT PASS" <(python TIR/monograph/audit_information_spinor_crosswalk.py)
           grep -q '"neutron_edm": "FAIL"' TIR/monograph/publication_readiness_v11_0.json
           grep -q '5.3299' TIR/monograph/chapters/ch25_strong_cp_angle.tex
           grep -q '2.96' TIR/monograph/chapters/ch26_neutron_edm.tex
@@ -162,6 +167,8 @@ jobs:
             echo "PUBLICATION PREFLIGHT PASS"
             echo "Exact-head checkout: PASS"
             echo "Critical-axis solver/tests: PASS"
+            echo "Legacy citation coverage: PASS"
+            echo "Information-spinor crosswalk audit: PASS"
             echo "Parent page floor >=146: PASS"
             echo "Critical-axis page floor >=100: PASS"
             echo "Undefined references/citations: 0"
@@ -189,6 +196,8 @@ jobs:
             solver-console.json
             TIR/monograph/CITATION_COVERAGE_v11_0.md
             TIR/monograph/citation_coverage_v11_0.json
+            TIR/monograph/INFORMATION_SPINOR_CROSSWALK_AUDIT.md
+            TIR/monograph/information_spinor_crosswalk_audit.json
             TIR/monograph/PUBLICATION_READINESS_v11_0.md
             TIR/monograph/publication_readiness_v11_0.json
             checkout_head_sha.txt
