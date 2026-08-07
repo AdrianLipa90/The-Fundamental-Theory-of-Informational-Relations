@@ -86,10 +86,57 @@ cycles.  The dimensions are correspondingly
   \qquad [\Gamma_{\mathcal I}]=T^{-1}.
 \]
 
+\section{Constraint manifold and effective degree of freedom}
+\label{app:kappa-constraint-manifold}
+It is useful to state explicitly that the quantities appearing above are not
+independent parameters.  Introduce
+\[
+  \mathbf q=(\kappa,\omega,f,\Gamma_{\mathcal I})\in\mathbb R^4
+\]
+and the three constraints
+\begin{align}
+  C_1(\mathbf q)&=\kappa-\frac{\ln2}{24\pi}=0,\\
+  C_2(\mathbf q)&=\omega-2\pi f=0,\\
+  C_3(\mathbf q)&=\Gamma_{\mathcal I}-\kappa\omega=0.
+\end{align}
+Their Jacobian is
+\[
+  J_C=
+  \begin{pmatrix}
+    1 & 0 & 0 & 0\\
+    0 & 1 & -2\pi & 0\\
+    -\omega & -\kappa & 0 & 1
+  \end{pmatrix}.
+\]
+The rows are linearly independent everywhere: the first row fixes the
+$\kappa$ direction, the second fixes the $\omega$--$f$ conversion, and the
+third has a unit component in the $\Gamma_{\mathcal I}$ direction.  Hence
+$\operatorname{rank}J_C=3$, and the regular constraint set
+\[
+  \mathcal C=\{\mathbf q\in\mathbb R^4:C_1=C_2=C_3=0\}
+\]
+is one-dimensional.  A global parametrization by the cyclic frequency is
+\[
+  \boxed{
+  \mathbf q(f)=
+  \left(
+    \frac{\ln2}{24\pi},
+    2\pi f,
+    f,
+    \frac{\ln2}{12}f
+  \right)}.
+\]
+Thus, conditional on the Metatime normalization postulate and the definition
+$d\mathcal I=\kappa\,d\phi$, only one continuous degree of freedom remains in
+this four-quantity subsystem.  Choosing $f$ fixes $\omega$ and
+$\Gamma_{\mathcal I}$; $\kappa$ is fixed by the model definition.  This is a
+parameter-counting statement, not an empirical determination of $f$.
+
 \paragraph{Claim boundary.}
 The identity
-$\Gamma_{\mathcal I}=\kappa\omega=(\ln2/12)f$ is an exact consequence of the
-stated definitions.  Identifying $\Gamma_{\mathcal I}$ with a physical
+$\Gamma_{\mathcal I}=\kappa\omega=(\ln2/12)f$ and the one-dimensional
+constraint-manifold statement are exact consequences of the stated
+definitions.  Identifying $\Gamma_{\mathcal I}$ with a physical
 ``surface-refresh rate'' is a further Metatime/TIR interpretation and therefore
 requires an operational definition of the surface and prospective observables.
 No claim is made that standard quantum mechanics independently implies that
