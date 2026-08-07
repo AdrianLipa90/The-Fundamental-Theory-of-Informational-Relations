@@ -42,6 +42,7 @@ jobs:
               'TIR/monograph/apply_kappa_phase_rate_patch.py',
               'TIR/apply_metatime_paper_review_patch.py',
               'TIR/validation/kappa_phase_rate_identity_v11_1.py',
+              'TIR/validation/review_source_contract_v11_1.py',
           ):
               source = Path(filename).read_text(encoding='utf-8')
               compile(source, filename, 'exec')
@@ -52,6 +53,7 @@ jobs:
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/apply_kappa_phase_rate_patch.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/apply_metatime_paper_review_patch.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/validation/kappa_phase_rate_identity_v11_1.py | tee kappa_phase_rate_receipt.json
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/validation/review_source_contract_v11_1.py | tee review_source_contract_receipt.json
           python3 - <<'PYDEDUP'
           from pathlib import Path
 
@@ -145,9 +147,15 @@ jobs:
           test -s "$PDF"
           test -s "$PAPER_PDF"
           test -s kappa_phase_rate_receipt.json
+          test -s review_source_contract_receipt.json
           grep -q '"technical_status": "PASS"' kappa_phase_rate_receipt.json
+          grep -q '"technical_status": "PASS"' review_source_contract_receipt.json
+          grep -q '"pi_cancelled_exactly": true' kappa_phase_rate_receipt.json
+          grep -q '"exact_prefactor":' kappa_phase_rate_receipt.json
           grep -q '\\label{app:kappa-constraint-manifold}' TIR/monograph/appendices/appA_kappa_derivation.tex
           grep -q '\\frac{\\ln2}{12}' TIR/monograph/appendices/appA_kappa_derivation.tex
+          grep -q '\\include{appendices/appP_secret_half_cross_relation}' TIR/monograph/metatime_monograph.tex
+          grep -q '\\label{eq:self-duality-not-extremality}' TIR/monograph/appendices/appP_secret_half_cross_relation.tex
           grep -q '\\label{eq:kappa_phase_rate_paper}' TIR/metatime_paper.tex
           grep -q '5.33\\times10^{-26}' TIR/metatime_paper.tex
           ! grep -q 'full-sphere cycle, the Berry phase is \\$\\pi' TIR/metatime_paper.tex
@@ -201,8 +209,9 @@ jobs:
           sha256sum "$PAPER_PDF" | tee metatime_paper.pdf.sha256
           {
             echo "PUBLICATION PREFLIGHT PASS"
-            echo "Kappa phase-rate identity: technical PASS"
+            echo "Kappa phase-rate identity: exact factor certificate PASS"
             echo "Constraint manifold: dimension 1 conditional on stated definitions"
+            echo "TIR-half source contract: PASS"
             echo "Short paper κ/Berry language: synchronized"
             echo "Claim hierarchy: explicit"
             echo "Retrospective/prospective separation: explicit"
@@ -234,7 +243,9 @@ jobs:
             TIR/monograph/references_expanded_v10_8.tex
             TIR/monograph/frontmatter/publication_frontmatter_v11_0.tex
             TIR/monograph/appendices/appO_publication_protocol.tex
+            TIR/monograph/appendices/appP_secret_half_cross_relation.tex
             kappa_phase_rate_receipt.json
+            review_source_contract_receipt.json
             checkout_head_sha.txt
             checkout_status.txt
             pdfinfo.txt
