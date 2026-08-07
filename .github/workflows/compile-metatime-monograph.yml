@@ -46,6 +46,9 @@ jobs:
           python -m pip install -e "TIR/zeta_information_axis[test]"
           pytest TIR/zeta_information_axis/tests -q | tee critical-axis-pytest.log
           python TIR/zeta_information_axis/scripts/run_audit.py
+          python TIR/zeta_information_axis/scripts/solve_axis.py --output TIR/zeta_information_axis/reports/solver_receipt.json > solver-console.json
+          grep -q '"half_axis_consensus": true' TIR/zeta_information_axis/reports/solver_receipt.json
+          grep -q '"rh_derived": false' TIR/zeta_information_axis/reports/solver_receipt.json
 
       - name: Prepare publication candidate sources
         shell: bash
@@ -57,6 +60,7 @@ jobs:
               'TIR/monograph/prepare_publication_candidate_v11_0.py',
               'TIR/monograph/prepare_publication_candidate_v11_0_impl.py',
               'TIR/zeta_information_axis/src/critical_axis/solver.py',
+              'TIR/zeta_information_axis/scripts/solve_axis.py',
           ):
               source = Path(filename).read_text(encoding='utf-8')
               compile(source, filename, 'exec')
@@ -65,7 +69,8 @@ jobs:
           python3 TIR/monograph/normalize_build_sources.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/prepare_publication_candidate_v11_0.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/add_citation_context_v10_9.py
-          rm -rf TIR/monograph/__pycache__ TIR/zeta_information_axis/**/__pycache__ || true
+          rm -rf TIR/monograph/__pycache__ || true
+          find TIR/zeta_information_axis -type d -name __pycache__ -prune -exec rm -rf {} + || true
           git diff --check
 
       - name: Install publication toolchain
@@ -114,6 +119,7 @@ jobs:
           test -s TIR/monograph/citation_coverage_v11_0.json
           test -s TIR/monograph/PUBLICATION_READINESS_v11_0.md
           test -s TIR/monograph/publication_readiness_v11_0.json
+          test -s TIR/zeta_information_axis/reports/solver_receipt.json
           grep -q "TECHNICAL PASS - LOCAL CITATION COVERAGE COMPLETE" TIR/monograph/CITATION_COVERAGE_v11_0.md
           grep -q '"neutron_edm": "FAIL"' TIR/monograph/publication_readiness_v11_0.json
           grep -q '5.3299' TIR/monograph/chapters/ch25_strong_cp_angle.tex
@@ -178,7 +184,9 @@ jobs:
             TIR/zeta_information_axis/monograph/compile-console.log
             TIR/zeta_information_axis/reports/numerical_audit.json
             TIR/zeta_information_axis/reports/numerical_audit.md
+            TIR/zeta_information_axis/reports/solver_receipt.json
             critical-axis-pytest.log
+            solver-console.json
             TIR/monograph/CITATION_COVERAGE_v11_0.md
             TIR/monograph/citation_coverage_v11_0.json
             TIR/monograph/PUBLICATION_READINESS_v11_0.md
