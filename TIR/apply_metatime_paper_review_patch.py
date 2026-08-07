@@ -119,15 +119,12 @@ def replace_once(text: str, pattern: str, replacement: str, label: str) -> str:
 
 
 def normalize_literal_newlines(text: str) -> str:
-    """Repair only the known prose-level literal ``\\n`` artifacts.
-
-    We intentionally do not replace every occurrence globally because TeX or
-    code-like content may legitimately contain a backslash followed by ``n``.
-    """
+    """Repair only known prose-level literal backslash-n artifacts."""
+    slash_n = chr(92) + "n"
     known = {
-        r"structural\nnormalization": "structural\nnormalization",
-        r"the\npublication-candidate": "the\npublication-candidate",
-        r"independent\npredictions": "independent\npredictions",
+        "structural" + slash_n + "normalization": "structural\nnormalization",
+        "the" + slash_n + "publication-candidate": "the\npublication-candidate",
+        "independent" + slash_n + "predictions": "independent\npredictions",
     }
     for broken, repaired in known.items():
         text = text.replace(broken, repaired)
@@ -180,14 +177,9 @@ def main() -> None:
 
     text = patch_introduction(text)
 
-    text = text.replace(
-        "No other experimental\ndata are used.",
-        EXTERNAL_SCALES_TAIL,
-    )
-    text = text.replace(
-        "No other experimental data are used.",
-        EXTERNAL_SCALES_TAIL,
-    )
+    literal_old = "No other experimental" + chr(92) + "ndata are used."
+    text = text.replace(literal_old, EXTERNAL_SCALES_TAIL)
+    text = text.replace("No other experimental data are used.", EXTERNAL_SCALES_TAIL)
 
     text = text.replace(
         "eliminating all continuous free parameters.",
