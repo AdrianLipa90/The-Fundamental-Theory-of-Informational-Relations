@@ -40,6 +40,61 @@ $\mathbb{C}P^3$, a theorem about the Standard Model, or a Coxeter invariant of
 $A_4$.  Standard Coxeter-group terminology should not be conflated with the
 alternating group $A_4$ \cite{Humphreys1990}.
 
+\section{Exact phase-rate identity}
+\label{app:kappa-phase-rate}
+Let $\phi(t)$ denote a phase coordinate and define its angular rate in the
+standard way,
+\begin{equation}
+  \omega\equiv\frac{d\phi}{dt}=2\pi f,
+  \label{eq:kappa-omega-frequency}
+\end{equation}
+where $f$ is the cyclic frequency.  If informational accumulation is measured
+per unit phase by
+\begin{equation}
+  d\mathcal I\equiv\kappa\,d\phi,
+  \label{eq:kappa-information-phase-increment}
+\end{equation}
+then its rate is fixed algebraically:
+\begin{align}
+  \Gamma_{\mathcal I}
+  \equiv\frac{d\mathcal I}{dt}
+  &=\kappa\frac{d\phi}{dt}
+    =\kappa\omega \\
+  &=\frac{\ln2}{24\pi}(2\pi f)
+    =\boxed{\frac{\ln2}{12}\,f}.
+  \label{eq:kappa-phase-refresh-identity}
+\end{align}
+Equivalently, one complete phase cycle $\Delta\phi=2\pi$ carries the fixed
+increment
+\begin{equation}
+  \Delta\mathcal I_{\rm cycle}
+  =2\pi\kappa
+  =\frac{\ln2}{12},
+  \label{eq:kappa-information-per-cycle}
+\end{equation}
+so that $f$ cycles per unit time yield
+$\Gamma_{\mathcal I}=f\,\Delta\mathcal I_{\rm cycle}$.
+
+Once the definitions of $\kappa$ and $\omega=2\pi f$ are fixed, equation
+\eqref{eq:kappa-phase-refresh-identity} contains no additional continuous
+coefficient and admits no alternative algebraic prefactor.  The $2\pi$ factor
+is required because $\kappa$ multiplies angular phase whereas $f$ counts full
+cycles.  The dimensions are correspondingly
+\[
+  [\kappa]=1,
+  \qquad [\omega]=T^{-1},
+  \qquad [\Gamma_{\mathcal I}]=T^{-1}.
+\]
+
+\paragraph{Claim boundary.}
+The identity
+$\Gamma_{\mathcal I}=\kappa\omega=(\ln2/12)f$ is an exact consequence of the
+stated definitions.  Identifying $\Gamma_{\mathcal I}$ with a physical
+``surface-refresh rate'' is a further Metatime/TIR interpretation and therefore
+requires an operational definition of the surface and prospective observables.
+No claim is made that standard quantum mechanics independently implies that
+physical interpretation.
+
 \section{Mnemonic decompositions}
 Relations such as $24=8\times3$ may be used as mnemonics for gluon and color
 counts, but they are not independent derivations.  Likewise, appearances of the
