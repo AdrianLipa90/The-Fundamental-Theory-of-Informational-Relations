@@ -1,141 +1,247 @@
-# Structural-Choice Audit
+# Structural-Choice Audit — v11.1 review
 
-Every input, constant, and formula choice in Metatime, classified by type.
+This ledger tracks the principal non-continuous choices, external anchors and
+formula selections used by live Metatime/TIR constructions.  It is a
+**model-complexity audit**, not a statistical parameter-count theorem.
 
 ## Legend
-| Type | Label | Description |
-|------|-------|-------------|
-| P | Postulate | Framework principle, not derived |
-| M | Mathematical identity | Proven from prior mathematics |
-| E_phys | Physical external input | Measured constant (non-SM) |
-| E_SM | SM external input | Taken from Standard Model |
-| S | Structural selection | Discrete choice among alternatives |
-| R | Retrospective fit | Selected to match known data |
-| H | Hypothesis | Open/falsifiable prediction |
 
-## Master Table
+| Type | Meaning |
+|---|---|
+| `A` | Established external mathematical/physical ingredient. |
+| `P` | TIR postulate or structural definition. |
+| `S` | Discrete structural selection among alternatives. |
+| `R` | Retrospective formula/architecture choice made with access to target data. |
+| `F` | External physical scale, convention or conversion input. |
+| `E` | Prospectively frozen candidate or observable. |
+| `D` | Diagnostic/failure/no-go construction. |
 
-### Fundamental constants
-| Symbol | Value | Type | Notes |
-|--------|-------|------|-------|
-| κ = ln2/(24π) | 0.00919315 | P | Information constant; binary outcome·A₄·Berry half-cycle |
-| L₃ | 7 | P | Integer from CP³ Kähler dimension? |
-| L₄ | 2 | P | Twin-prime gap? Tetrahedron edge? |
-| L₅ | 5 | P | Larger twin prime; tetrahedron face? |
+An algebraically derived quantity may be exact **conditional on upstream P/S/R
+choices**.  That does not make the upstream choices established physics.
 
-### Quark prime assignments
-| Symbol | Value | Type | Notes |
-|--------|-------|------|-------|
-| q(u) | 3 | S | First odd prime |
-| q(d) | 5 | S | Second odd prime |
-| q(s) | 7 | S | Third odd prime (= L₃) |
-| q(c) | 11 | S | Fifth prime (4 skipped?) |
-| q(b) | 13 | S | Sixth prime |
-| q(t) | 17 | S | Seventh prime |
+## Fundamental structural layer
 
-Alternative prime mappings not tested. The leap from L₃=7 to q(c)=11 skips prime 7→11 without derivation. Structural choice count: 6.
+| Symbol / rule | Value | Type | Review status |
+|---|---:|---|---|
+| binary entropy maximum | \(p=1/2\), \(H_2=\ln2\) | A | Standard information theory. |
+| angular-frequency conversion | \(\omega=2\pi f\) | A | Standard definition. |
+| \(\kappa\) | \(\ln2/(24\pi)\) | P | TIR structural normalization; not an independently established first-principles invariant. |
+| \(L_3\) | 7 | P | Discrete TIR integer; unique derivation remains open. |
+| \(L_4\) | 2 | P | Discrete TIR integer; unique derivation remains open. |
+| \(L_5\) | 5 | P | Discrete TIR integer; unique derivation remains open. |
+| informational phase rule | \(d\mathcal I=\kappa d\phi\) | P | TIR definition. |
 
-### External scales & inputs
-| Symbol | Value | Type | Source |
-|--------|-------|------|--------|
-| E_P | 1.22089e22 MeV | E_phys | Planck energy |
-| E_proton | 938.272 MeV | E_phys | Proton mass |
-| N_c | 3 | E_SM | Number of colors |
-| Y_L | −½ | E_SM | Lepton hypercharge |
-| Crewther C | 2.4×10⁻¹⁶ e·cm/θ | E_phys | nEDM conversion factor |
+The reviewed κ phase-rate consequence
 
-### Charged leptons
-| Choice | Type | Count |
-|--------|------|-------|
-| S_e structure: ½ − 3κ + κ/L₃ − κ²/2 | S | 4 signed terms |
-| R_eμ: 5κ + 2κ/L₃ + (L₃+1)κ²/2 | S | 3 terms |
-| R_μτ: 3κ − κ/L₃ − L₃κ²/2 | S | 3 terms |
-| Exponential decay: m_i = E_P·exp(−S_i/κ) | P | Form postulate |
-| **Total structural** | | **10** |
+\[
+\Gamma_{\mathcal I}=\kappa\omega=\frac{\ln2}{12}f
+\]
 
-### Baryon octet
-| Choice | Type | Count |
-|--------|------|-------|
-| α formula: E_p·κ·(s² − u² − d² + L₃) | S | 4-term sum |
-| β ratio: −α·(L₃²−1)/L₃² | S | 1 ratio |
-| γ ratio: α·L₄·(L₃−L₄)/L₃² | S | 2-factor product |
-| GMO form assumed | S | 1 structural assumption |
-| M₀ derived: E_p·(1 − (s+u)·κ/L₃) | M | Derived from Λ mass |
-| **Total structural** | | **7** |
+is exact conditional on the above definitions and introduces no additional
+continuous coefficient in that four-quantity subsystem.
 
-### Baryon decuplet
-| Choice | Type | Count |
-|--------|------|-------|
-| α₁₀: E_p·κ·(L₃²+L₄²+L₅²+L₃+L₄+L₅+L₄)/L₄ | S | 7-term sum/L₄ |
-| β₁₀: −E_p·κ·L₃·L₅/L₄ | S | 3-factor product |
-| Equal-spacing rule | S | 1 structural assumption |
-| M₀' derived: E_p·(1 + (s−u)·κ) | M | Derived from Δ mass |
-| **Total structural** | | **6** |
+## Discrete flavour labels
 
-### Neutrino PMNS
-| Choice | Type | Count |
-|--------|------|-------|
-| Tetrahedron edge → PMNS mapping | S | 1 assignment |
-| S_bare = (1+L₄/L₃)/2 | S | 1 formula |
-| dS = κ·A_face·(1−κ) | S | 1 formula |
-| Mass ratios [1, L₄, L₃+L₄+1] | S | 1 selection |
-| E_P·10⁶ eV scaling | S | 1 conversion |
-| sin²θ₂₃ ½+ offset | S | 1 offset |
-| δ_CP 180°+ offset | S | 1 offset |
-| **Total structural** | | **7** |
+| Label | Value | Type | Comment |
+|---|---:|---|---|
+| \(q(u)\) | 3 | S | Discrete flavour label. |
+| \(q(d)\) | 5 | S | Discrete flavour label. |
+| \(q(s)\) | 7 | S | Coincides numerically with \(L_3\). |
+| \(q(c)\) | 11 | S | Selection theorem remains open. |
+| \(q(b)\) | 13 | S | Selection theorem remains open. |
+| \(q(t)\) | 17 | S | Selection theorem remains open. |
 
-### CKM
-| Choice | Type | Count |
-|--------|------|-------|
-| λ = L₄/(L₃+L₄) + (L₄/L₃)·κ | S | 2-term sum |
-| V_cb = (L₄/L₃)²/2 | S | 1 formula |
-| V_ub = (L₄/L₃)²·L₄/((L₃+L₄)·L₅) | S | 5-constant product |
-| J_CP = κ²·(L₄/L₅)·(1 − (L₄/L₅)²/2) | S | 3-factor |
-| δ_CKM = arccos(L₄/L₅) | S | 1 back-computation |
-| **Total structural** | | **5** |
+Alternative prime assignments are not excluded merely by the success of one
+retrospectively developed mapping.  Uniqueness requires its own theorem or a
+prospective model-comparison gate.
 
-### Gauge bosons + Higgs
-| Choice | Type | Count |
-|--------|------|-------|
-| VEV v = E_p·(L₃²·L₅ + L₃·L₄ + L₄) | S | 3-term sum = 261 |
-| sin²θ_W = L₄/(L₃+L₄) + κ | S | 2-term |
-| 1/α = (L₃L₄)² − L₃² − L₄L₅ + L₄²κ | S | 4-term |
-| g_w = L₄/L₃ + L₄/L₅ | S | 2-term |
-| M_H = v·κ·(L₃²+L₄+L₅) | S | 3-term |
-| **Total structural** | | **5** |
+## External scales and inputs
 
-### Strong CP
-| Choice | Type | Count |
-|--------|------|-------|
-| θ_QCD = κ·(L₄/L₃)^b | S | Form choice |
-| Exponent b = L₃+L₄+L₅ = 14 | S | Exponent selection |
-| Post-hoc rejection of c=11 | R | Alternative not justified |
-| + Crewther factor (external) | E_phys | 1 |
-| **Total structural** | | **3** |
+The exact external-input set is sector dependent.  Common live examples include:
 
-### Anomaly cancellation
-| Choice | Type | Count |
-|--------|------|-------|
-| Y_Q = q(s)/(L₃·L₄·N_c) = 1/6 | M | Derived if you accept L-constants |
-| Y_uR = L₄/N_c = 2/3 | M | Ditto |
-| Y_dR = −L₄/(N_c·L₄) = −1/3 | M | Ditto |
-| Y_eR = −(L₃−L₄)/L₅ = −1 | M | Ditto |
-| + External: N_c, Y(L) | E_SM | 2 |
-| **Total structural** | | **4** |
+| Input | Role | Type |
+|---|---|---|
+| Planck scale / energy | dimensional scale in selected exponential mass constructions | F |
+| proton mass | reference scale in selected hadronic/electroweak constructions | F |
+| \(N_c=3\) | QCD colour count used in anomaly bookkeeping | F/A |
+| lepton-doublet hypercharge convention | anomaly-sector input | F/A |
+| hadronic strong-CP→nEDM coefficient | converts the model \(\theta_{\rm QCD}\) to the frozen neutron-EDM observable | F |
 
-### Dark energy
-| Choice | Type | Count |
-|--------|------|-------|
-| ρ_Λ = (L₄/L₃)^(L₃·L₄^L₅) | S | Form + exponent |
-| L₄^L₅ = 32 as "intention space dimension" | S | Interpretation |
-| **Total structural** | | **3** |
+A prediction depending on an anchor is not an independent prediction of that
+anchor.
 
-## Grand Total
+## Charged-lepton architecture
 
-| Category | Count |
-|----------|-------|
-| Free continuous parameters | 0 |
-| External physical scales | 2 |
-| External SM inputs | 3 |
-| Structural choices (P + S) | ~50 |
-| **Total degrees of freedom** | **55** |
+The historical charged-lepton construction contains multiple signed terms in
+the electron action and generation-release operators, together with the
+exponential mass ansatz.  These should be counted as structural/retrospective
+architecture choices, not as zero model complexity.
+
+Representative live forms include:
+
+| Choice | Type |
+|---|---|
+| \(S_e=1/2-3\kappa+\kappa/L_3-\kappa^2/2\) | S/R |
+| electron→muon release expression | S/R |
+| muon→tau release expression | S/R |
+| \(m=E_P e^{-S/\kappa}\) | P + sector-specific R/S action construction |
+
+## Baryon octet and decuplet
+
+The GMO functional form is established hadron phenomenology; the particular
+TIR mappings of coefficients and baselines are model assignments.
+
+| Construction | Type | Boundary |
+|---|---|---|
+| TIR octet \(\alpha,\beta,\gamma\) relations | S/R | Developed against known hadronic structure. |
+| octet baseline \(M_0\) relation | R/S | Do not classify as an independent mathematical theorem merely because it is algebraically evaluable. |
+| TIR decuplet coefficient relations | S/R | Retrospective sector architecture. |
+| decuplet baseline \(M_0'\) relation | R/S | Same boundary. |
+
+Historical residuals, including systematic offsets, remain part of the evidence
+ledger.
+
+## Neutrino / PMNS architecture
+
+Examples of discrete or retrospective assignments include:
+
+- tetrahedral-coordinate → PMNS mapping;
+- bare-state and release expressions;
+- selected mass-ratio patterns;
+- phase/angle offsets;
+- dimensional conversion choices.
+
+These are `S/R` unless a separate derivation proves their uniqueness.  The
+presence of exact trigonometric or algebraic evaluation does not by itself
+promote the mapping to established physics.
+
+## CKM architecture
+
+Representative reviewed structural forms include
+
+\[
+\lambda=\frac{L_4}{L_3+L_4}+\frac{L_4}{L_3}\kappa,
+\]
+
+plus specific expressions for \(V_{cb}\), \(V_{ub}\), \(J_{CP}\) and a phase
+mapping.  The formulas are auditable, but their sector selection/history makes
+them model architecture (`S/R`) rather than independent class-A identities.
+
+## Gauge / electroweak / Higgs architecture
+
+The live TIR formula family includes selected relations for the Higgs VEV,
+\(\sin^2\theta_W\), the fine-structure expression, gauge couplings and Higgs
+mass.  The algebraic formulas are reproducible; their physical assignments are
+`S/R` unless frozen prospectively.
+
+Important evidence boundary: the active gauge-boson mass relations retain
+several-percent physical tension.  The existence of accurate relations in other
+subquantities does not erase this failure.
+
+## Strong CP
+
+The reviewed active assignment is
+
+\[
+\theta_{\rm QCD}=\kappa\left(\frac{L_4}{L_3}\right)^{14}
+\approx2.2208\times10^{-10}.
+\]
+
+Structural components:
+
+| Component | Type |
+|---|---|
+| exponential/power-law form | S/R |
+| exponent 14 selection | S/R |
+| fixed hadronic conversion coefficient | F |
+
+The resulting frozen publication mapping gives
+
+\[
+d_n\approx5.3299\times10^{-26}\,e\,\mathrm{cm},
+\]
+
+which is a **physical FAIL** against the \(1.8\times10^{-26}\,e\,\mathrm{cm}\)
+manuscript bound.  No hypothetical suppression mechanism is counted as an
+existing model component.
+
+## Anomaly bookkeeping
+
+Once the relevant hypercharges and \(N_c\) are supplied, anomaly-cancellation
+checks are exact algebraic bookkeeping.  However, a TIR expression that
+reconstructs a known hypercharge from \(L_i\) values must retain the logical
+distinction between:
+
+1. the exact cancellation identity once assignments are given; and
+2. the model claim that the assignments are physically generated by TIR.
+
+The former may be exact; the latter remains conditional on the TIR mapping.
+
+## Cosmological assignments
+
+Relations such as a power of \(L_4/L_3\) selected to reproduce a dark-energy
+scale are retrospective/model assignments unless a prospective transfer test is
+frozen.  Interpretive labels such as an auxiliary ``dimension'' do not by
+themselves constitute derivations.
+
+## TIR ↔ Secret-of-a-Half structural interface
+
+The cross-review isolates the chain
+
+\[
+\frac12
+\xrightarrow{A}\ln2
+\xrightarrow{P}\kappa
+\xrightarrow{\text{exact conditional algebra}}\Gamma_{\mathcal I}.
+\]
+
+This is useful precisely because it prevents the exact half-side theorem from
+being used to hide the discrete TIR normalization choice.
+
+The sibling DHSE Stage-M theorem adds another complexity constraint:
+self-duality alone does not generate an extremum.  Any TIR sector that promotes
+a self-dual coordinate to a preferred state needs an additional structural law
+(positivity, convexity, variational closure, etc.), which itself must be counted
+and tested.
+
+## Prospective architecture
+
+The v10.7 separable candidate family is retained as a prospective component.
+Its finite candidate set, target observables and no-refit rule are frozen.
+Those choices are part of the model complexity even before the future likelihood
+is evaluated.
+
+## Parameter-count statement
+
+The old shorthand
+
+```text
+0 continuous free parameters + ~50 structural choices = 55 degrees of freedom
+```
+
+is **not a valid statistical degree-of-freedom calculation**.
+
+The reviewed statement is narrower:
+
+- several defining formulas contain no continuously fitted coefficient;
+- the programme nevertheless contains many discrete structural choices,
+  retrospective architecture decisions and external anchors;
+- a statistically meaningful effective parameter count has not yet been derived
+  for the full heterogeneous model;
+- therefore AIC/BIC or a global likelihood penalty cannot be honestly computed
+  until a common likelihood and effective-complexity model are specified.
+
+## Audit invariant
+
+Every new formula should declare:
+
+1. upstream A/P/S/R/F/E/D dependencies;
+2. whether target data were visible during formula selection;
+3. any dimensional anchor or external conversion factor;
+4. whether the formula is exact, conditional, retrospective, diagnostic or
+   prospective;
+5. what alternative discrete choices were available;
+6. the prospective decision rule, if one exists.
+
+Model complexity is not erased by replacing a continuous fit parameter with a
+large number of discrete design choices.

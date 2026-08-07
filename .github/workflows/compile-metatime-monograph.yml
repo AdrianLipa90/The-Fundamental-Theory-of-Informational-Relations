@@ -1,5 +1,5 @@
 name: Compile Metatime publication candidate
-# Final exact-head publication verification for v11.0.
+# Exact-head publication verification for v11.x review branches.
 
 on:
   pull_request:
@@ -13,13 +13,13 @@ permissions:
 jobs:
   build-monograph:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 40
 
     steps:
-      - name: Checkout exact branch head revision
+      - name: Checkout exact requested revision
         uses: actions/checkout@v4
         with:
-          ref: agent/collatz-quarter-power-scaling
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 1
 
       - name: Verify initial checkout provenance
@@ -29,7 +29,7 @@ jobs:
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
 
-      - name: Prepare publication candidate sources
+      - name: Prepare reviewed publication sources
         shell: bash
         run: |
           set -euo pipefail
@@ -39,6 +39,10 @@ jobs:
           for filename in (
               'TIR/monograph/prepare_publication_candidate_v11_0.py',
               'TIR/monograph/prepare_publication_candidate_v11_0_impl.py',
+              'TIR/monograph/apply_kappa_phase_rate_patch.py',
+              'TIR/apply_metatime_paper_review_patch.py',
+              'TIR/validation/kappa_phase_rate_identity_v11_1.py',
+              'TIR/validation/review_source_contract_v11_1.py',
           ):
               source = Path(filename).read_text(encoding='utf-8')
               compile(source, filename, 'exec')
@@ -46,6 +50,10 @@ jobs:
           PYSYNTAX
           python3 TIR/monograph/normalize_build_sources.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/prepare_publication_candidate_v11_0.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/apply_kappa_phase_rate_patch.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/apply_metatime_paper_review_patch.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/validation/kappa_phase_rate_identity_v11_1.py | tee kappa_phase_rate_receipt.json
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/validation/review_source_contract_v11_1.py | tee review_source_contract_receipt.json
           python3 - <<'PYDEDUP'
           from pathlib import Path
 
@@ -71,22 +79,23 @@ jobs:
           print('DEDUP PASS: exactly one claimstatus and datasetstatus definition retained')
           PYDEDUP
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/add_citation_context_v10_9.py
-          rm -rf TIR/monograph/__pycache__
+          rm -rf TIR/monograph/__pycache__ TIR/validation/__pycache__ TIR/__pycache__
           git diff --check
 
-      - name: Commit publication candidate sources
+      - name: Commit generated reviewed sources to PR head
+        if: github.event_name == 'pull_request'
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -rf TIR/monograph/__pycache__
-          git add -A TIR/monograph
+          rm -rf TIR/monograph/__pycache__ TIR/validation/__pycache__ TIR/__pycache__
+          git add -A TIR/monograph TIR/metatime_paper.tex
           if git diff --cached --quiet; then
-            echo "Publication candidate sources already current."
+            echo "Reviewed publication sources already current."
           else
-            git commit -m "docs: prepare publication candidate v11.0"
-            git push origin HEAD:agent/collatz-quarter-power-scaling
+            git commit -m "docs: prepare reviewed Metatime publication sources"
+            git push origin HEAD:${{ github.head_ref }}
           fi
 
       - name: Record final checkout provenance
@@ -109,6 +118,7 @@ jobs:
             texlive-latex-extra \
             texlive-fonts-recommended \
             texlive-science \
+            texlive-publishers \
             poppler-utils \
             qpdf
 
@@ -119,13 +129,36 @@ jobs:
           set -o pipefail
           latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error metatime_monograph.tex 2>&1 | tee compile-console.log
 
+      - name: Compile short Metatime paper
+        shell: bash
+        working-directory: TIR
+        run: |
+          set -o pipefail
+          latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error metatime_paper.tex 2>&1 | tee metatime-paper-compile-console.log
+
       - name: Publication preflight
         shell: bash
         run: |
           set -euo pipefail
           PDF=TIR/monograph/metatime_monograph.pdf
           LOG=TIR/monograph/metatime_monograph.log
+          PAPER_PDF=TIR/metatime_paper.pdf
+          PAPER_LOG=TIR/metatime_paper.log
           test -s "$PDF"
+          test -s "$PAPER_PDF"
+          test -s kappa_phase_rate_receipt.json
+          test -s review_source_contract_receipt.json
+          grep -q '"technical_status": "PASS"' kappa_phase_rate_receipt.json
+          grep -q '"technical_status": "PASS"' review_source_contract_receipt.json
+          grep -q '"pi_cancelled_exactly": true' kappa_phase_rate_receipt.json
+          grep -q '"exact_prefactor":' kappa_phase_rate_receipt.json
+          grep -q '\\label{app:kappa-constraint-manifold}' TIR/monograph/appendices/appA_kappa_derivation.tex
+          grep -q '\\frac{\\ln2}{12}' TIR/monograph/appendices/appA_kappa_derivation.tex
+          grep -q '\\include{appendices/appP_secret_half_cross_relation}' TIR/monograph/metatime_monograph.tex
+          grep -q '\\label{eq:self-duality-not-extremality}' TIR/monograph/appendices/appP_secret_half_cross_relation.tex
+          grep -q '\\label{eq:kappa_phase_rate_paper}' TIR/metatime_paper.tex
+          grep -q '5.33\\times10^{-26}' TIR/metatime_paper.tex
+          ! grep -q 'full-sphere cycle, the Berry phase is \\$\\pi' TIR/metatime_paper.tex
           test -s TIR/monograph/CITATION_COVERAGE_v11_0.md
           test -s TIR/monograph/citation_coverage_v11_0.json
           test -s TIR/monograph/PUBLICATION_READINESS_v11_0.md
@@ -136,11 +169,12 @@ jobs:
           grep -q '2.96' TIR/monograph/chapters/ch26_neutron_edm.tex
           ! grep -R -q "All 26 SM Parameters" TIR/monograph/chapters TIR/monograph/appendices TIR/monograph/frontmatter
           ! grep -R -q "Mean absolute error across all 26" TIR/monograph/chapters TIR/monograph/appendices TIR/monograph/frontmatter
-          ! find TIR/monograph -type d -name __pycache__ -print -quit | grep -q .
-          ! find TIR/monograph -type f -name '*.pyc' -print -quit | grep -q .
+          ! find TIR/monograph TIR/validation TIR -type d -name __pycache__ -print -quit | grep -q .
+          ! find TIR/monograph TIR/validation TIR -type f -name '*.pyc' -print -quit | grep -q .
           ! grep -Eq "undefined references|Reference .* undefined|Citation .* undefined" "$LOG"
           ! grep -q "Overfull \\hbox" "$LOG"
           ! grep -Eq "multiply defined|multiply-defined" "$LOG"
+          ! grep -Eq "undefined references|Reference .* undefined" "$PAPER_LOG"
           pdfinfo "$PDF" | tee pdfinfo.txt
           grep -Eq '^Title:[[:space:]]+Metatime' pdfinfo.txt
           grep -Eq '^Author:[[:space:]]+Adrian Lipa' pdfinfo.txt
@@ -170,9 +204,15 @@ jobs:
           print('FONT PREFLIGHT PASS: all fonts embedded; no Type 3 fonts')
           PYFONT
           qpdf --check "$PDF" | tee qpdf-check.txt
+          qpdf --check "$PAPER_PDF" | tee qpdf-paper-check.txt
           sha256sum "$PDF" | tee metatime_monograph.pdf.sha256
+          sha256sum "$PAPER_PDF" | tee metatime_paper.pdf.sha256
           {
             echo "PUBLICATION PREFLIGHT PASS"
+            echo "Kappa phase-rate identity: exact factor certificate PASS"
+            echo "Constraint manifold: dimension 1 conditional on stated definitions"
+            echo "TIR-half source contract: PASS"
+            echo "Short paper κ/Berry language: synchronized"
             echo "Claim hierarchy: explicit"
             echo "Retrospective/prospective separation: explicit"
             echo "Neutron EDM: physical FAIL retained"
@@ -186,13 +226,16 @@ jobs:
       - name: Upload publication candidate and ledgers
         uses: actions/upload-artifact@v4
         with:
-          name: metatime-publication-candidate-v11-0-pr77
+          name: metatime-publication-candidate-v11-x
           if-no-files-found: error
           retention-days: 30
           path: |
             TIR/monograph/metatime_monograph.pdf
             TIR/monograph/metatime_monograph.log
             TIR/monograph/compile-console.log
+            TIR/metatime_paper.pdf
+            TIR/metatime_paper.log
+            TIR/metatime-paper-compile-console.log
             TIR/monograph/CITATION_COVERAGE_v11_0.md
             TIR/monograph/citation_coverage_v11_0.json
             TIR/monograph/PUBLICATION_READINESS_v11_0.md
@@ -200,10 +243,15 @@ jobs:
             TIR/monograph/references_expanded_v10_8.tex
             TIR/monograph/frontmatter/publication_frontmatter_v11_0.tex
             TIR/monograph/appendices/appO_publication_protocol.tex
+            TIR/monograph/appendices/appP_secret_half_cross_relation.tex
+            kappa_phase_rate_receipt.json
+            review_source_contract_receipt.json
             checkout_head_sha.txt
             checkout_status.txt
             pdfinfo.txt
             pdffonts.txt
             qpdf-check.txt
+            qpdf-paper-check.txt
             publication_preflight.txt
             metatime_monograph.pdf.sha256
+            metatime_paper.pdf.sha256

@@ -3,7 +3,7 @@
 https://www.researchgate.net/publication/408131825_Metatime_A_Low-Parameter_Ansatz_for_Standard_Model_Parameters_from_Geometric_Phase_Information_Theory
 
 **Author:** Adrian Lipa — Independent Researcher, Doncaster, United Kingdom  
-**Current monograph:** Metatime v11.0 Publication Candidate  
+**Current monograph:** Metatime v11.0 Publication Candidate + 2026-08-07 κ/½ review branch  
 **Research status:** exploratory phenomenological programme; not a peer-reviewed confirmation of a final physical theory
 
 ## Overview
@@ -18,6 +18,33 @@ The current monograph develops the **Metatime** formulation around the informati
 
 which is treated in this repository as a **model postulate with structural motivation**, not as an established theorem of quantum field theory or differential geometry.
 
+For angular phase rate
+
+\[
+\omega=\frac{d\phi}{dt}=2\pi f
+\]
+
+and the TIR definition
+
+\[
+d\mathcal I=\kappa\,d\phi,
+\]
+
+the 2026-08-07 review records the exact conditional identity
+
+\[
+\boxed{
+\Gamma_{\mathcal I}
+=\frac{d\mathcal I}{dt}
+=\kappa\omega
+=\frac{\ln2}{12}f
+},
+\qquad
+\Delta\mathcal I_{\rm cycle}=\frac{\ln2}{12}.
+\]
+
+The cancellation of \(\pi\) is an exact consequence of converting angular phase rate to cyclic frequency; it is not an independent evaluation of \(\pi\).  The four quantities \((\kappa,\omega,f,\Gamma_{\mathcal I})\) obey three independent constraints and therefore form a one-dimensional regular constraint manifold conditional on the stated TIR definitions.
+
 The programme includes:
 
 - geometric-phase and information-geometric constructions;
@@ -25,6 +52,8 @@ The programme includes:
 - discrete prime, Ramanujan, and Collatz layers;
 - charged-fermion mass and Yukawa audits;
 - flavor, neutrino, hadronic, gauge, Higgs, strong-CP, and cosmological relations;
+- an explicit TIR ↔ Secret-of-a-Half formal interface;
+- exact/conditional/open claim separation;
 - explicit retrospective/prospective separation;
 - reproducible numerical and publication-readiness audits;
 - retained negative results and falsification gates.
@@ -35,8 +64,14 @@ This repository deliberately separates technical correctness from physical succe
 
 | Component | Current status | Interpretation |
 |---|---|---|
-| Publication build | **PASS** | The v11.0 monograph compiles reproducibly and passes citation, reference, layout, metadata, font, and PDF-integrity gates. |
+| v11.0 baseline publication build | **PASS** | The baseline v11.0 monograph passed citation, reference, layout, metadata, font, and PDF-integrity gates. Review-branch changes require their own fresh CI before promotion. |
 | \(\kappa=\ln 2/(24\pi)\) | **MODEL POSTULATE** | Structurally motivated within TIR; not claimed as an established first-principles theorem. |
+| \(\omega=2\pi f\) | **STANDARD DEFINITION** | Conversion between cyclic and angular frequency. |
+| \(\Gamma_{\mathcal I}=\kappa\omega=(\ln2/12)f\) | **EXACT CONDITIONAL IDENTITY** | Algebraically exact once the TIR normalization and \(d\mathcal I=\kappa d\phi\) are adopted. |
+| \((\kappa,\omega,f,\Gamma_{\mathcal I})\) constraint manifold | **EXACT CONDITIONAL** | Three independent constraints in four named quantities; one continuous degree of freedom. |
+| Physical “surface-refresh” interpretation | **OPEN** | Requires an operational observable; not established by the algebraic identity alone. |
+| Secret-of-a-Half cross-relation | **FORMAL INTERFACE** | Exact binary midpoint/entropy results feed a TIR definition; the normalization denominator and physical interpretation remain separate claims. |
+| Reciprocal self-duality ⇒ dynamical maximum | **FALSE IN DECLARED DHSE STAGE-M UNIVERSE** | Exact finite counterexamples occur at word lengths 1 and 4; an additional extremality condition is required. |
 | Accelerated Collatz quarter-power layer | **TECHNICAL PASS** | The specified residue-class audit yields the expected multiplier \(\rho_C=3/4\). |
 | Isolated Collatz mass bridge | **OPEN / PHYSICAL FAIL** | The frozen v10.1 trace retains a geometric-mean multiplicative error of approximately \(9.967\times\). |
 | Retrospective sector-holonomy trace | **RETROSPECTIVE** | Useful as a diagnostic construction, but not independent confirmation. |
@@ -46,7 +81,51 @@ This repository deliberately separates technical correctness from physical succe
 | Higgs relation | **RETROSPECTIVE REVISION** | The former precision claim has been withdrawn. |
 | Neutron electric dipole moment | **PHYSICAL FAIL** | The active prediction is \(5.3299\times10^{-26}\,e\,\mathrm{cm}\), about \(2.96\times\) above the manuscript bound. |
 | Full physical closure | **NOT CLAIMED** | Open derivational debts and empirical tensions remain. |
-| Canonical promotion | **DENIED** | The framework is not presented as an experimentally established replacement for the Standard Model. |
+| Canonical promotion | **DENIED PENDING EVIDENCE** | The framework is not presented as an experimentally established replacement for the Standard Model. |
+
+## TIR ↔ Secret-of-a-Half review interface
+
+The exact information-theoretic input is
+
+\[
+\operatorname*{arg\,max}_{0<p<1}H_2(p)=\frac12,
+\qquad
+H_2\!\left(\frac12\right)=\ln2.
+\]
+
+The typed cross-framework chain is
+
+\[
+\boxed{
+\frac12
+\xrightarrow{\;H_2\;}
+\ln2
+\xrightarrow{\;\text{TIR definition}\;}
+\frac{\ln2}{24\pi}
+\xrightarrow{\;\omega=2\pi f\;}
+\frac{\ln2}{12}f
+}.
+\]
+
+The arrows do not all have the same epistemic type: the first is exact information theory, the second contains the TIR structural normalization, and the last is an exact algebraic consequence conditional on that normalization and the informational phase definition.
+
+The review also imports a necessary negative theorem from DHSE-001 Stage M:
+
+\[
+N_n(q)=N_n(1/q)
+\;\not\Rightarrow\;
+q=1\text{ is a global maximum}.
+\]
+
+Thus self-duality alone cannot be used in TIR as a shortcut to stability, preference, or attractor status.  Any such inference requires an additional theorem or condition such as positivity, convexity, monotonicity, or a variational principle.
+
+The canonical review record is:
+
+`TIR/docs/cross_reviews/TIR_SECRET_HALF_2026-08-07.md`
+
+and the monograph interface is Appendix P:
+
+`TIR/monograph/appendices/appP_secret_half_cross_relation.tex`.
 
 ## Frozen prospective candidate family
 
@@ -86,11 +165,11 @@ Frozen predictions:
 
 No fourth candidate may be introduced, and no candidate, observable, or formula may be replaced after inspecting the assigned future likelihood.
 
-## Publication candidate v11.0
+## Publication candidate v11.0 and κ/½ review
 
-The v11.0 revision adds a publication-level claim hierarchy and corrects several earlier overstatements.
+The v11.0 revision added a publication-level claim hierarchy and corrected several earlier overstatements.  The 2026-08-07 review adds the κ phase-rate closure and cross-framework boundary work without promoting the physical interpretation.
 
-Principal changes include:
+Principal changes now include:
 
 - replacement of the inaccurate “26 Standard Model parameters” label with a 36-observable scope statement;
 - withdrawal of a single heterogeneous global percentage-error claim;
@@ -99,7 +178,11 @@ Principal changes include:
 - corrected strong-CP and neutron-EDM arithmetic;
 - explicit retention of physical failures;
 - a data-provenance and statistical-interpretation protocol;
-- expanded bibliography and complete local citation coverage;
+- corrected spin-\(1/2\) Berry-phase normalization language;
+- exact symbolic certification of the \(2\pi\) cancellation in \(\kappa\omega\);
+- explicit constraint-manifold parameter counting;
+- a TIR ↔ Secret-of-a-Half cross-relation appendix with non-circularity rules;
+- expanded bibliography and local citation context;
 - PDF metadata, embedded publication fonts, hidden links, and automated preflight checks.
 
 The numerical tables should be read as a **frozen audit snapshot dated 29 July 2026**, not as a continuously updated global-fit database.
@@ -113,13 +196,22 @@ The numerical tables should be read as a **frozen audit snapshot dated 29 July 2
 │   └── workflows/
 │       └── compile-metatime-monograph.yml
 ├── TIR/
+│   ├── metatime_paper.tex
+│   ├── apply_metatime_paper_review_patch.py
+│   ├── docs/
+│   │   └── cross_reviews/
+│   │       └── TIR_SECRET_HALF_2026-08-07.md
+│   ├── validation/
+│   │   └── kappa_phase_rate_identity_v11_1.py
 │   └── monograph/
 │       ├── metatime_monograph.tex
+│       ├── apply_kappa_phase_rate_patch.py
 │       ├── frontmatter/
 │       │   └── publication_frontmatter_v11_0.tex
 │       ├── chapters/
 │       ├── appendices/
-│       │   └── appO_publication_protocol.tex
+│       │   ├── appO_publication_protocol.tex
+│       │   └── appP_secret_half_cross_relation.tex
 │       ├── references_expanded_v10_8.tex
 │       ├── PUBLICATION_READINESS_v11_0.md
 │       ├── publication_readiness_v11_0.json
@@ -133,7 +225,7 @@ The numerical tables should be read as a **frozen audit snapshot dated 29 July 2
     └── historical releases and audit material
 ```
 
-## Build the monograph
+## Build the reviewed publications
 
 ### Dependencies
 
@@ -146,57 +238,44 @@ The GitHub Actions build uses:
 - `texlive-latex-extra`;
 - `texlive-fonts-recommended`;
 - `texlive-science`;
+- `texlive-publishers`;
 - `poppler-utils`;
 - `qpdf`.
 
-On Debian or Ubuntu:
+### Reproduce source integration and audits
 
-```bash
-sudo apt-get update
-sudo apt-get install -y \
-  latexmk \
-  lmodern \
-  texlive-latex-base \
-  texlive-latex-recommended \
-  texlive-latex-extra \
-  texlive-fonts-recommended \
-  texlive-science \
-  poppler-utils \
-  qpdf
+From the repository root:
+
+```text
+python3 TIR/monograph/normalize_build_sources.py
+PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/prepare_publication_candidate_v11_0.py
+PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/apply_kappa_phase_rate_patch.py
+PYTHONDONTWRITEBYTECODE=1 python3 TIR/apply_metatime_paper_review_patch.py
+PYTHONDONTWRITEBYTECODE=1 python3 TIR/validation/kappa_phase_rate_identity_v11_1.py
+PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/add_citation_context_v10_9.py
 ```
 
-### Reproduce the source integration and PDF
+Then compile the long monograph from `TIR/monograph/` and the short paper from `TIR/` with `latexmk -pdf` and the repository's preflight settings.
 
-```bash
-cd TIR/monograph
-
-python3 normalize_build_sources.py
-PYTHONDONTWRITEBYTECODE=1 python3 prepare_publication_candidate_v11_0.py
-PYTHONDONTWRITEBYTECODE=1 python3 add_citation_context_v10_9.py
-
-latexmk -pdf \
-  -interaction=nonstopmode \
-  -halt-on-error \
-  -file-line-error \
-  metatime_monograph.tex
-```
-
-The resulting file is:
+The expected publication artifacts are:
 
 ```text
 TIR/monograph/metatime_monograph.pdf
+TIR/metatime_paper.pdf
 ```
 
 ## Automated publication gates
 
-The workflow checks:
+The review workflow checks or is intended to check:
 
 - exact-head checkout provenance;
 - deterministic and idempotent source preparation;
+- exact symbolic κ phase-rate factor cancellation plus numerical implementation sanity checks;
+- the rank-3 constraint certificate;
 - complete local citation coverage;
 - zero unresolved citations and references;
 - zero multiply defined labels;
-- zero overfull boxes;
+- zero overfull boxes in the monograph;
 - nonempty PDF title, author, subject, and keywords;
 - embedded fonts and absence of Type 3 fonts;
 - `qpdf` syntax and stream integrity;
@@ -204,6 +283,8 @@ The workflow checks:
 - explicit preservation of the neutron-EDM physical FAIL;
 - absence of generated Python bytecode artifacts;
 - artifact upload with checksums and audit ledgers.
+
+A baseline PASS must not be reported as a PASS for a modified review head.  Review-branch validation is reported only after a workflow actually runs on that head.
 
 ## Evidence and interpretation policy
 
@@ -216,6 +297,9 @@ When reading or extending this repository:
 5. **Do not modify the frozen prospective family after inspecting future data.**
 6. **Preserve Ramanujan continuity in the scaling programme.**
 7. **Keep technical PASS and physical PASS/FAIL separate.**
+8. **Do not promote a conditional algebraic identity into an empirical physical law without an operational observable.**
+9. **Do not infer extremality from reciprocal self-duality alone.**
+10. **Do not use the TIR ↔ Secret-of-a-Half cross-relation circularly to prove a normalization assumption.**
 
 ## Citation
 
@@ -229,7 +313,7 @@ Until a DOI-backed release is deposited, cite the repository and the exact commi
   year         = {2026},
   howpublished = {The Fundamental Theory of Informational Relations repository},
   url          = {https://github.com/AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations},
-  note         = {Version 11.0; cite the exact Git commit used}
+  note         = {Version 11.0 plus review-state commit; cite the exact Git commit used}
 }
 ```
 
