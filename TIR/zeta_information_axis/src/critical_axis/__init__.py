@@ -1,4 +1,4 @@
-"""Information-spinor critical-axis audit package."""
+"""Information-spinor critical-axis audit and solver package."""
 
 from .core import (
     CancellationResult,
@@ -27,6 +27,22 @@ from .core import (
     u1_holonomy,
     zeta_involution,
 )
+from .solver import (
+    ClaimSolver,
+    ClaimStatus,
+    ClosureResult,
+    DEFAULT_SOLVER,
+    HALF_AXIS_RULES,
+    ProofStep,
+    Rule,
+    kappa_from_projective_cycle,
+    solve_half_axis_routes,
+    solve_sigma_from_berry_minus_one,
+    solve_sigma_from_cancellation,
+    solve_sigma_from_complement,
+    solve_sigma_from_entropy,
+    validate_half_axis_routes,
+)
 
 __all__ = [
     "CancellationResult",
@@ -54,4 +70,18 @@ __all__ = [
     "two_channel_amplitude",
     "u1_holonomy",
     "zeta_involution",
+    "ClaimSolver",
+    "ClaimStatus",
+    "ClosureResult",
+    "DEFAULT_SOLVER",
+    "HALF_AXIS_RULES",
+    "ProofStep",
+    "Rule",
+    "kappa_from_projective_cycle",
+    "solve_half_axis_routes",
+    "solve_sigma_from_berry_minus_one",
+    "solve_sigma_from_cancellation",
+    "solve_sigma_from_complement",
+    "solve_sigma_from_entropy",
+    "validate_half_axis_routes",
 ]
