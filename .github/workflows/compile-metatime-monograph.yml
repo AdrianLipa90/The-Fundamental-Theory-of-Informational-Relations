@@ -1,5 +1,5 @@
 name: Compile Metatime publication candidate
-# Final exact-head publication verification for v11.0.
+# Exact-head publication verification for v11.x review branches.
 
 on:
   pull_request:
@@ -16,10 +16,10 @@ jobs:
     timeout-minutes: 35
 
     steps:
-      - name: Checkout exact branch head revision
+      - name: Checkout exact requested revision
         uses: actions/checkout@v4
         with:
-          ref: agent/collatz-quarter-power-scaling
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 1
 
       - name: Verify initial checkout provenance
@@ -39,6 +39,8 @@ jobs:
           for filename in (
               'TIR/monograph/prepare_publication_candidate_v11_0.py',
               'TIR/monograph/prepare_publication_candidate_v11_0_impl.py',
+              'TIR/monograph/apply_kappa_phase_rate_patch.py',
+              'TIR/validation/kappa_phase_rate_identity_v11_1.py',
           ):
               source = Path(filename).read_text(encoding='utf-8')
               compile(source, filename, 'exec')
@@ -46,6 +48,8 @@ jobs:
           PYSYNTAX
           python3 TIR/monograph/normalize_build_sources.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/prepare_publication_candidate_v11_0.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/apply_kappa_phase_rate_patch.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/validation/kappa_phase_rate_identity_v11_1.py | tee kappa_phase_rate_receipt.json
           python3 - <<'PYDEDUP'
           from pathlib import Path
 
@@ -71,22 +75,23 @@ jobs:
           print('DEDUP PASS: exactly one claimstatus and datasetstatus definition retained')
           PYDEDUP
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/add_citation_context_v10_9.py
-          rm -rf TIR/monograph/__pycache__
+          rm -rf TIR/monograph/__pycache__ TIR/validation/__pycache__
           git diff --check
 
-      - name: Commit publication candidate sources
+      - name: Commit generated publication sources to PR head
+        if: github.event_name == 'pull_request'
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -rf TIR/monograph/__pycache__
+          rm -rf TIR/monograph/__pycache__ TIR/validation/__pycache__
           git add -A TIR/monograph
           if git diff --cached --quiet; then
             echo "Publication candidate sources already current."
           else
-            git commit -m "docs: prepare publication candidate v11.0"
-            git push origin HEAD:agent/collatz-quarter-power-scaling
+            git commit -m "docs: prepare publication candidate v11.x"
+            git push origin HEAD:${{ github.head_ref }}
           fi
 
       - name: Record final checkout provenance
@@ -126,6 +131,10 @@ jobs:
           PDF=TIR/monograph/metatime_monograph.pdf
           LOG=TIR/monograph/metatime_monograph.log
           test -s "$PDF"
+          test -s kappa_phase_rate_receipt.json
+          grep -q '"technical_status": "PASS"' kappa_phase_rate_receipt.json
+          grep -q '\\label{app:kappa-constraint-manifold}' TIR/monograph/appendices/appA_kappa_derivation.tex
+          grep -q '\\frac{\\ln2}{12}' TIR/monograph/appendices/appA_kappa_derivation.tex
           test -s TIR/monograph/CITATION_COVERAGE_v11_0.md
           test -s TIR/monograph/citation_coverage_v11_0.json
           test -s TIR/monograph/PUBLICATION_READINESS_v11_0.md
@@ -136,8 +145,8 @@ jobs:
           grep -q '2.96' TIR/monograph/chapters/ch26_neutron_edm.tex
           ! grep -R -q "All 26 SM Parameters" TIR/monograph/chapters TIR/monograph/appendices TIR/monograph/frontmatter
           ! grep -R -q "Mean absolute error across all 26" TIR/monograph/chapters TIR/monograph/appendices TIR/monograph/frontmatter
-          ! find TIR/monograph -type d -name __pycache__ -print -quit | grep -q .
-          ! find TIR/monograph -type f -name '*.pyc' -print -quit | grep -q .
+          ! find TIR/monograph TIR/validation -type d -name __pycache__ -print -quit | grep -q .
+          ! find TIR/monograph TIR/validation -type f -name '*.pyc' -print -quit | grep -q .
           ! grep -Eq "undefined references|Reference .* undefined|Citation .* undefined" "$LOG"
           ! grep -q "Overfull \\hbox" "$LOG"
           ! grep -Eq "multiply defined|multiply-defined" "$LOG"
@@ -173,6 +182,8 @@ jobs:
           sha256sum "$PDF" | tee metatime_monograph.pdf.sha256
           {
             echo "PUBLICATION PREFLIGHT PASS"
+            echo "Kappa phase-rate identity: technical PASS"
+            echo "Constraint manifold: dimension 1 conditional on stated definitions"
             echo "Claim hierarchy: explicit"
             echo "Retrospective/prospective separation: explicit"
             echo "Neutron EDM: physical FAIL retained"
@@ -186,7 +197,7 @@ jobs:
       - name: Upload publication candidate and ledgers
         uses: actions/upload-artifact@v4
         with:
-          name: metatime-publication-candidate-v11-0-pr77
+          name: metatime-publication-candidate-v11-x
           if-no-files-found: error
           retention-days: 30
           path: |
@@ -200,6 +211,7 @@ jobs:
             TIR/monograph/references_expanded_v10_8.tex
             TIR/monograph/frontmatter/publication_frontmatter_v11_0.tex
             TIR/monograph/appendices/appO_publication_protocol.tex
+            kappa_phase_rate_receipt.json
             checkout_head_sha.txt
             checkout_status.txt
             pdfinfo.txt
