@@ -1,0 +1,214 @@
+\chapter{Identity Axis, Normalized Cycles, and the Typed Relation Solver}
+\label{ch:identity-solver}
+
+\section{Purpose}
+The preceding chapters establish several mathematically distinct routes that meet at the same balanced coordinate.  This chapter does not add a new proof of the Riemann hypothesis.  It does two narrower jobs.  First, it separates the \emph{identity coordinate} from phase evolution by introducing a normalized recurrence coordinate before radians.  Second, it formalizes the implication structure as a typed solver so that exact theorems, standard structures, model assignments, and open bridges cannot be silently composed as if they had the same epistemic status.
+
+The corresponding executable is
+\begin{center}
+\path{TIR/zeta_information_axis/src/critical_axis/solver.py}.
+\end{center}
+The runtime counterpart is the CIEL/PhaseNav geometry-dependency layer in the companion \texttt{noema-phasenav-core} repository.  The two layers have deliberately different responsibilities: TIR records what follows from what; PhaseNav supplies geometric states, tangent vectors, normalized cycles, relation paths, and holonomy candidates.
+
+\section{The identity axis is not a frozen state}
+Let the binary identity coordinate be $\Sigma$.  The distinguished balance axis is
+\begin{equation}
+\Sigma_\star=\frac12.
+\label{eq:sigma-axis}
+\end{equation}
+The meaning of ``axis'' is crucial.  A system may move along an orbit while preserving the level-set condition that identifies the relevant sector.  In the qubit reduction, fixing $\sigma=1/2$ fixes
+\begin{equation}
+n_z=2\sigma-1=0,
+\end{equation}
+while the azimuthal phase remains free.  Thus identity need not mean a static state.  It means that phase evolution occurs on an invariant leaf selected by the identity coordinate.
+
+Introduce the centered coordinate
+\begin{equation}
+x=\sigma-\frac12.
+\label{eq:centered-sigma}
+\end{equation}
+Then binary complement becomes reflection,
+\begin{equation}
+\sigma\mapsto1-\sigma
+\qquad\Longleftrightarrow\qquad
+x\mapsto-x.
+\label{eq:sigma-reflection}
+\end{equation}
+This gives a primitive geometric interpretation of sign: $x<0$ and $x>0$ are opposite orientations from the identity axis, while $x=0$ is the fixed axis itself.  In the PhaseNav dependency package this principle is implemented by \texttt{IdentityAxis} and \texttt{OrientedScalar} rather than by assigning semantic meaning to a sign after the fact.
+
+\section{Frequency before angle}
+Let
+\begin{equation}
+q\in\mathbb R/\mathbb Z
+\label{eq:q-cycle}
+\end{equation}
+be a normalized cycle coordinate.  One recurrence is $q\mapsto q+1$.  The intrinsic frequency is therefore the winding rate
+\begin{equation}
+f_q=\frac{\Delta N}{\Delta t},
+\label{eq:winding-frequency}
+\end{equation}
+which requires neither radians nor a prior numerical value of $\pi$.
+
+Only after the recurrent topology has been defined do we choose an angular representation
+\begin{equation}
+\phi=Cq,
+\label{eq:closure-C}
+\end{equation}
+where $C$ is the closure period in the chosen angular unit.  Standard radians correspond to $C=2\pi$.  This ordering is conceptually useful because it distinguishes three layers:
+\begin{equation}
+\boxed{
+\text{recurrence}\;\longrightarrow\;\text{winding}\;\longrightarrow\;\text{angular representation}
+}.
+\end{equation}
+The topology of a cycle is therefore prior to its radian parametrization.
+
+\section{Spinorial double cover}
+For a spin-$1/2$ lift, one projective cycle changes the spinor sheet while two projective cycles restore it:
+\begin{equation}
++1\longrightarrow-1\longrightarrow+1.
+\label{eq:spinor-sheet-cycle}
+\end{equation}
+Equivalently,
+\begin{equation}
+T_{\rm spin}=2T_{\rm proj}.
+\label{eq:double-period}
+\end{equation}
+This statement can be made before introducing $2\pi$ and $4\pi$.  The latter are the radian representatives obtained only after applying \eqref{eq:closure-C} with $C=2\pi$.
+
+\section{Independent routes to the half axis}
+Within their stated domains, four routes select the same value:
+\begin{enumerate}
+\item \textbf{Complement fixedness:}
+\begin{equation}
+\sigma=1-\sigma\quad\Longrightarrow\quad\sigma=\frac12.
+\end{equation}
+\item \textbf{Shannon stationarity and concavity:}
+\begin{equation}
+H'_{\rm bin}(\sigma)=0,
+\qquad H''_{\rm bin}(\sigma)<0
+\quad\Longrightarrow\quad
+\sigma=\frac12.
+\end{equation}
+\item \textbf{Equatorial Berry holonomy:} for the state family of Chapter~\ref{ch:bloch},
+\begin{equation}
+\mathcal U_B(\sigma)=-1
+\quad\Longrightarrow\quad
+\sigma=\frac12
+\end{equation}
+for the nontrivial interior branch.
+\item \textbf{Symmetric complementary cancellation:}
+\begin{equation}
+\sqrt\sigma-e^{0}\sqrt{1-\sigma}=0
+\quad\Longrightarrow\quad
+\sigma=\frac12,
+\end{equation}
+where the minus sign is the relative half-turn phase of Theorem~\ref{thm:cancellation}.
+\end{enumerate}
+The executable solver evaluates these routes independently and verifies their common solution.  Their agreement is a consistency result inside the declared representations; it is not permission to bypass the open zeta zero-state bridge.
+
+\section{Arithmetic--geometry factorization of the information normalization}
+Write the information assigned to one normalized projective turn as
+\begin{equation}
+\frac{\dd I}{\dd q}=\frac{\ln2}{12}.
+\label{eq:info-per-turn}
+\end{equation}
+Equation~\eqref{eq:info-per-turn} is a TIR/Metatime model assignment, not a theorem of Shannon theory.  Given that assignment and the angular closure \eqref{eq:closure-C}, the density with respect to angular phase is exactly
+\begin{equation}
+\frac{\dd I}{\dd\phi}
+=
+\frac{\ln2}{12C}.
+\label{eq:kappa-C}
+\end{equation}
+For the radian representation $C=2\pi$ this becomes
+\begin{equation}
+\boxed{
+\kappa=\frac{\ln2}{24\pi}
+}.
+\label{eq:kappa-cross-derived}
+\end{equation}
+Thus the arithmetic and geometric factors are explicitly separated:
+\begin{equation}
+\boxed{
+24\pi
+=
+\underbrace{12}_{\text{declared information-cycle count}}
+\underbrace{2\pi}_{\text{geometric closure in radians}}.
+}
+\end{equation}
+
+The integer factor has several exact factorizations,
+\begin{equation}
+24=8\cdot3=12\cdot2=6\cdot4.
+\label{eq:24-cross-factorization}
+\end{equation}
+The equality of the integers is exact arithmetic.  Assigning the factors respectively to eight mixing sectors and three flavours, twelve projective cycles and two half-turns, or six spinor cycles and four half-turns is model semantics.  The solver therefore records those assignments as \status{MODEL}, not as independent theorem-level derivations.
+
+\section{Paired implication graph}
+The relevant $1/2$ slice is better represented as a graph than as a list of isolated coincidences.  The principal exact or standard edges are
+\begin{align}
+\sigma=\frac12
+&\Longrightarrow C(\sigma)=\sigma,\\
+\sigma=\frac12
+&\Longrightarrow H_{\rm bin}(\sigma)=\ln2,\\
+\sigma=\frac12+\text{qubit representation}
+&\Longrightarrow n_z=0,\\
+n_z=0+\text{one equatorial loop}
+&\Longrightarrow \mathcal U_B=-1,\\
+\sigma=\frac12+\text{symmetric readout}+\text{half-turn}
+&\Longrightarrow \mathcal A=0,\\
+\text{centred zeta chart}+\mathcal I(u)=1/u
+&\Longrightarrow \text{critical-axis set invariance},\\
+\text{projective cycle}+\text{spin }\frac12
+&\Longrightarrow \text{double cover}.
+\end{align}
+The graph may contain several edges incident on the same node.  ``Everything has a pair'' therefore means that every declared concept participates in at least one typed relational edge; it does \emph{not} mean that every concept has exactly one exclusive partner.
+
+\section{Holonomy is an edge property, not a universal decoration}
+A semantic relation is not automatically holonomic.  A holonomy is attached only when a connection and a closed or composable path are defined.  This prevents category errors such as assigning an arbitrary $\pi$ phase to an energy--matter pair merely because both are part of the same ontology.
+
+For a path $P=(v_0,\ldots,v_n)$ whose edges carry normalized phase increments $h_k\in\mathbb R/\mathbb Z$, the composable holonomy coordinate is
+\begin{equation}
+h(P)=\sum_{k=0}^{n-1}h_k\pmod1.
+\label{eq:path-holonomy-turns}
+\end{equation}
+A complex $U(1)$ representative may be chosen afterwards.  The PhaseNav dependency layer stores the normalized turn first; this keeps the primitive relation independent of radian convention.
+
+\section{Typed closure and the RH firewall}
+Each solver rule has a status in
+\begin{equation}
+\{\status{EXACT},\status{STANDARD},\status{MODEL},\status{OPEN}\}.
+\end{equation}
+The default closure engine permits only \status{EXACT} and \status{STANDARD} rules.  Model closure additionally permits \status{MODEL}.  \status{OPEN} rules are never automatically promoted.
+
+The critical firewall is therefore explicit.  The chain
+\begin{equation}
+\text{zero-state representation}
++\text{exact cancellation}
++\sigma=\Ree s
+\Longrightarrow
+\text{all nontrivial zeros on }\Ree s=\frac12
+\end{equation}
+is stored as \status{OPEN}.  Consequently neither exact nor model closure can derive the Riemann hypothesis.  Instead the solver reports \texttt{zero\_state\_representation} as the missing premise.
+
+\section{TIR crosswalk}
+The parent Metatime/TIR monograph supplies the broader structures used here:
+\begin{itemize}
+\item the information normalization $\kappa$ and its publication claim boundary;
+\item the Poincar\'e-disk geometry and phase-holonomy language;
+\item three-flavour/neutrino structures;
+\item sector-holonomy operators and their retrospective/prospective status discipline.
+\end{itemize}
+The parent monograph must therefore be read together with the dedicated critical-axis monograph.  The direction of implication is asymmetric: the parent TIR supplies model-level structural assignments, while the present monograph supplies exact half-axis theorems and returns only those consequences that satisfy the solver's status gate.
+
+\section{Implementation contract}
+The executable contract is:
+\begin{enumerate}
+\item geometry creates centered and tangent coordinates;
+\item recurrence creates $q\in\mathbb R/\mathbb Z$ and winding frequency;
+\item a representation map may convert turns to radians;
+\item vectorization consumes geometric tangent coordinates rather than opaque semantic hashes;
+\item relation edges carry explicit status and optional holonomy;
+\item the solver composes only status-authorized hyperedges;
+\item generated PhaseNav paths remain candidates until a TIR rule supplies independent semantic provenance.
+\end{enumerate}
+This gives a concrete separation between geometry, semantics, and proof status while preserving the exploratory role of the broader TIR programme.
