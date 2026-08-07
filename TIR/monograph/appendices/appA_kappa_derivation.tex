@@ -28,27 +28,60 @@ The framework defines
   \boxed{\kappa\equiv\frac{\ln2}{24\pi}}
   =0.00919315000636\ldots .
 \]
-The denominator is motivated by the discrete normalization
+The original discrete normalization was written
 \[
   24\pi=2\,|A_4|\,\pi,
   \qquad |A_4|=12,
 \]
 combining a two-orientation factor, the order of the rotational tetrahedral
-group, and a reference phase scale $\pi$.  This is an ansatz internal to the
-framework.  It is not asserted to be the symplectic volume of
+group, and a reference half-turn phase scale.  This is an ansatz internal to
+the framework.  It is not asserted to be the symplectic volume of
 $\mathbb{C}P^3$, a theorem about the Standard Model, or a Coxeter invariant of
 $A_4$.  Standard Coxeter-group terminology should not be conflated with the
 alternating group $A_4$ \cite{Humphreys1990}.
 
-\section{Mnemonic decompositions}
-Relations such as $24=8\times3$ may be used as mnemonics for gluon and color
-counts, but they are not independent derivations.  Likewise, appearances of the
-integer $24$ in modular forms or lattices do not establish a physical connection
-without an explicit map and theorem.
+\section{Normalized-cycle factorization}
+The information-spinor crosswalk in
+Appendix~\ref{app:information_spinor_crosswalk} separates recurrence from its
+radian representation.  Let $q\in\mathbb R/\mathbb Z$ denote normalized turns
+and let $C$ denote the angular closure period.  If the model assigns
+\[
+\frac{\dd I}{\dd q}=\frac{\ln2}{12},
+\]
+then the angular information density is exactly
+\[
+\frac{\dd I}{\dd\phi}=\frac{\ln2}{12C}.
+\]
+Choosing the standard radian representation $C=2\pi$ reproduces
+\[
+\frac{\dd I}{\dd\phi}=\frac{\ln2}{24\pi}=\kappa.
+\]
+This is a useful conditional cross-derivation because the arithmetic cycle
+assignment and the geometric closure are exposed separately.  It does not by
+itself derive the twelve-cycle assignment from established physics.
+
+\section{Cross-factorizations of the integer 24}
+The identity
+\[
+24=8\times3=12\times2=6\times4
+\]
+is exact arithmetic.  Metatime/TIR may use these factorizations as mutually
+compatible semantic decompositions---for example declared mixing sectors and
+flavours, projective cycles and half-turns, or spinor cycles and lifted
+half-turns.  Their numerical agreement is an internal consistency constraint;
+it is not three statistically independent experimental derivations of the same
+physical constant.
+
+Likewise, appearances of the integer $24$ in modular forms, lattices, group
+orders, or unrelated counting problems do not establish a physical connection
+without an explicit map and theorem.  The solver introduced in the dedicated
+critical-axis programme therefore labels the arithmetic equalities separately
+from their model-level physical interpretations.
 
 \section{Parameter-counting statement}
 The numerical value of $\kappa$ is not obtained by a continuous fit.  It does,
-however, depend on discrete structural choices.  The appropriate publication
-claim is therefore ``no continuously fitted coefficient in the definition,''
-not ``derived uniquely from first principles.''  Its physical relevance must be
-tested by transfer to observables and by prospective predictions.
+however, depend on discrete structural choices, including the model's cycle and
+sector assignments.  The appropriate publication claim is therefore ``no
+continuously fitted coefficient in the definition,'' not ``derived uniquely
+from first principles.''  Its physical relevance must be tested by transfer to
+observables and by prospective predictions.
