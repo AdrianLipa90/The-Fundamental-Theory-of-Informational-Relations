@@ -1,176 +1,339 @@
-# CURRENT STATUS — Metatime Formula Ledger
+# CURRENT STATUS — Metatime/TIR
 
-**Version:** v10.0 (2026-07-02, Dr-Milligan-reviewed)
-**Author:** Adrian R.
-**Status:** `PEER_REVIEWED` — low-parameter ansatz (L0-L1 phenomenological), not derivation
-**Reviewer:** Gregg Milligan (ResearchGate + Second Stage, 2026-06-28)
-**Branch:** `Dr-Milligan-reviewed`
+**Review line:** v11.1-review  
+**Review date:** 2026-08-07  
+**Author:** Adrian Lipa  
+**Branch:** `agent/kappa-phase-refresh-identity-v0.1`  
+**Pull request:** #80 — `Review κ phase-rate closure and Metatime normalization`  
+**Promotion:** review-only; not merged to `main`
 
-## Peer Review Summary (Gregg Milligan, 2026-06-28)
+This file describes the **live reviewed source state**.  Historical v7–v10
+status reports and reviewer-era formula ledgers remain provenance in `archive/`
+and must not be used as the current claim ledger without checking the live v11
+publication sources.
 
-### Classification
-- **Level**: L0-L1 ansatz (phenomenological fit), NOT complete derivation
-- **Free params**: 0 continuous, 2 external scales, 3 external inputs, ~50 structural choices
-- **Status**: Interesting low-parameter mapping, not a first-principles SM derivation
+## 1. Current scientific classification
 
-### Milligan 18 Points — All Addressed
-| Point | Topic | Resolution |
-|-------|-------|------------|
-| 1–2 | Core constants L₃,L₄,L₅ origin | Noted as [B] postulates in audit — no deeper derivation claimed |
-| 3 | M_W/M_Z ~4% systematic | Documented in Open Items #1 |
-| 4 | CKM CP phase δ_CKM (σ=5.35) | Documented in Open Items #2 |
-| 5 | Baryon octet +2.8% sys. | Documented in Open Items #3 |
-| 6 | nEDM 5.33e-26 (3× bound) | Added falsifiability criterion — falsified at 10× if exponent 13 |
-| 7–9 | Strong CP, dark energy, α | Claim hierarchy labelled [C]/[D]/[E]; falsifiability docs added |
-| 10 | Structural choices unacknowledged | 50-choice ledger in STRUCTURAL_CHOICES.md |
-| 11 | "Derivation" vs "ansatz" terminology | Title changed: "Ansatz" not "Derivation"; intro reframed |
-| 12 | No testable predictions beyond SM | Falsifiability criteria documented per sector |
-| 13 | CKM CP phase ambiguity | A_r1 correction separated from A_structural formula |
-| 14–15 | Reproducibility | run_audit.py 9/9 PASS, Dockerfile, REPRODUCIBILITY.md |
-| 16 | Archive provenance | Full timeline v7.0→v10.0 in archive/ with dedup TIMELINE.md |
-| 17 | L0-L1 classification accepted | Intro: "We emphasize this is a low-parameter ansatz..." |
-| 18 | No axion claim | Explicitly stated: no axion, testable nEDM prediction |
+Metatime/TIR is an **exploratory low-parameter phenomenological programme**.
+It is not currently claimed as:
 
-### Tensions Remaining (Known)
-- M_W/M_Z ~4% systematic from g (SU(2) coupling)
-- CKM CP phase δ = 73.6° vs PDG 65.6° (σ=5.35)
-- Baryon octet p/n, Σ +2.8% systematic offset (GMO coefficients β, γ)
+- an experimentally established replacement for the Standard Model;
+- a complete first-principles derivation of all Standard Model observables;
+- a zero-complexity theory;
+- a proof that a proposed physical surface-refresh process exists;
+- a proof of the Riemann Hypothesis through the Secret-of-a-Half interface.
 
-## All Sectors
-| Sector | Module | Result | Status | Claim |
-|--------|--------|--------|--------|-------|
-| Charged leptons (e, μ, τ) | v7.1 | 0.48% mean err | ✅ | [C] |
-| Baryon octet (M₀ derived) | v7.8 | 1.72% mean err (+2.8% sys.) | ✅ | [C] |
-| Baryon decuplet (M₀' derived) | v7.8 | 0.34% mean err | ✅ | [C] |
-| Pseudoscalar mesons (π, K, η, η′) | v7.6 | 0.58% mean err | ✅ | [C] |
-| Heavy/vector mesons | v7.5 | 0.07% mean err | ✅ | [C] |
-| Neutrino PMNS + Δm² | v7.8 | <1.6σ all params | ✅ | [C] |
-| GMO coefficients from Metatime | v7.7 | 0.2–2.0% | ✅ | [D] |
-| CKM quark mixing (DEBT-010) | v7.9r1 | Mean σ=0.78 | ✅ | [C] |
-| Gauge bosons (DEBT-015) | v7.9 | VEV −0.54%, sin²θ_W +0.08% | ✅ | [D] |
-| Strong CP θ_QCD (DEBT-016) | v7.9 | θ = 7.77×10⁻¹⁰ | ✅ | [D] |
-| Gauge anomaly cancellation (DEBT-017) | v7.9 | All 5 conditions | ✅ | [E] |
-| Dark energy D_Λ (DEBT-018) | v7.9 | (2/7)²²⁴ ≈ 10⁻¹²² | ✅ | [E] |
-| Formal proofs (P1–P11) | v7.9 | 11 completed | ✅ | [B] |
+The v11 publication architecture separates established results, model
+postulates, retrospective assignments, diagnostics/failures, external anchors,
+and prospectively frozen predictions.
 
-**Legend**: [B]=Postulate, [C]=Mathematical consequence, [D]=Testable prediction, [E]=Speculative
+## 2. κ normalization and exact phase-rate closure
 
-## Key Results
+TIR defines
 
-### CKM Matrix (DEBT-010) — Refined v7.9r1
-| Element | Predicted | PDG | σ |
-|---------|-----------|-----|-----|
-| λ | 0.22485 | 0.22500 | 0.23 |
-| A | 0.80733 | 0.826 | — |
-| \|V_ub\| | 0.003628 | 0.00369 | 0.56 |
-| \|V_cb\| | 0.04082 | 0.04182 | 1.18 |
-| J_CP | 3.11×10⁻⁵ | 3.08×10⁻⁵ | 0.33 |
-| Mean σ | — | — | **0.78** |
+\[
+\boxed{\kappa\equiv\frac{\ln2}{24\pi}}.
+\]
 
-Formula: λ = L4/(L3+L4) + (L4/L3)·OI = 2/9 + (2/7)·ln(2)/(24π) = 0.22485 (err −0.067%)
-Pre-refinement v7.9 (not r1) used structural A = (L3+L4)²/(2·L3²) = 0.82653. r1 corrected A = V_cb/λ² = 0.80733.
+Current status of this equation:
 
-### Gauge Bosons (DEBT-015)
-| Quantity | Predicted | PDG | Error |
-|----------|-----------|-----|-------|
-| v (Higgs VEV) | 244.89 GeV | 246.22 GeV | −0.54% |
-| sin²θ_W | 0.23142 | 0.23122 | **+0.08%** |
-| M_W | 77.08 GeV | 80.38 GeV | −4.10% |
-| M_Z | 87.92 GeV | 91.19 GeV | −3.58% |
-| M_H | 125.94 GeV | 125.25 GeV | **+0.55%** |
+- **classification:** model postulate / structural definition;
+- **continuous fit:** none in the numerical coefficient itself;
+- **discrete structural choices:** present and explicit;
+- **standard-physics first-principles derivation:** not claimed.
 
-Higgs mass: M_H = v·L4/L5·(L3+L4)/L3 = v·(2/5)·(9/7) = 125.94 GeV
-Holonomic leakage λ_h = L4/(L3+L4) = 2/9: 27.99 GeV leaks to W/Z/fermion channels.
+For angular phase
 
-### Strong CP (DEBT-016)
-θ_QCD = OI·(L4/L3)^b = ln(2)/(24π)·(2/7)^(L₃+L₄+L₅) = ln(2)/(24π)·(2/7)¹⁴ = 2.22×10⁻¹⁰
-d_n ≈ 5.33×10⁻²⁶ e·cm — **factor ~3 above current bound |d_n| < 1.8×10⁻²⁶** (90% CL)
-Testable in next-gen nEDM (10⁻²⁸ sensitivity). No axion needed.
+\[
+\omega\equiv\frac{d\phi}{dt}=2\pi f
+\]
 
-### Dark Energy (DEBT-018)
-ρ_Λ = (L4/L3)^(L3·L4^L5) = (2/7)²²⁴ ≈ 1.35×10⁻¹²²
-Within observed range (1–3×10⁻¹²²). Λ is a geometric phase, not QFT vacuum energy.
+and the TIR definition
 
-## Total SM Parameters Replaced by Metatime
-- ~50 structural choices (low-parameter ansatz, per Milligan L0-L1 classification)
-- 19 (26 with ν) SM parameters expressed via arithmetic + geometry
-- 0 continuous free parameters (M₀, M₀', α now derived from framework constants)
-- 2 external scales (E_P, E_proton)
-- 3 external inputs (N_c=3, Y(L)=-½, Crewther factor)
-- All formulas from 5 constants: L3=7, L4=2, L5=5, OI=ln(2)/(24π), E_proton=938.272 MeV
+\[
+d\mathcal I\equiv\kappa\,d\phi,
+\]
 
-## Claim Hierarchy (per Milligan review)
-| Label | Meaning | Count |
-|-------|---------|-------|
-| [B] | Postulate — no deeper derivation | 5 (κ, L₃, L₄, L₅, quark primes) |
-| [C] | Mathematical consequence of postulates | 9 sectors |
-| [D] | Testable prediction (falsifiable) | 3 (gauge bosons, θ_QCD, α) |
-| [E] | Speculative / structural consistency | 3 (anomaly, D_Λ, formal proofs) |
+the reviewed exact conditional identity is
 
-## Reproducibility
-- **One-command audit**: `python3 TIR/run_audit.py` — 9/9 PASS, stdlib only
-- **Docker**: `docker build -t metatime-audit . && docker run metatime-audit`
-- **External deps**: zero (stdlib Python 3 + standard TeX Live)
-- **Audit script**: `TIR/metatime_audit.py` — 350 lines, annotated with claim labels
+\[
+\boxed{
+\Gamma_{\mathcal I}
+\equiv\frac{d\mathcal I}{dt}
+=\kappa\omega
+=\frac{\ln2}{12}f
+}.
+\]
 
-## Archive Timeline
-| Version | Date | Content | Location |
-|---------|------|---------|----------|
-| v7.8 | Pre-June | Original full module repo | `archive/v7.8/` |
-| v7.9 | Pre-June | Paper + module with gauge/DE sectors | `archive/v7.9/` |
-| v7.9r1 | Pre-June | CKM refinement, corrected A | `archive/v7.9r1/` |
-| v10.0 | 2026-07-02 | Milligan-reviewed: audit, docs, repro | `archive/v10_final/` |
+One complete phase cycle carries
 
-Full TIMELINE: `archive/TIMELINE.md`
+\[
+\boxed{
+\Delta\mathcal I_{\rm cycle}=2\pi\kappa=\frac{\ln2}{12}
+}.
+\]
 
-## Open Items
-1. M_W/M_Z ~4% systematic from g (SU(2) coupling) — needs full geometric derivation
-2. CKM CP phase δ = 73.6° vs PDG 65.6° (σ=5.35) — linked to V_cb structural precision
-3. Baryon octet p/n and Σ show +2.8% systematic offset — GMO coefficients β, γ from J-KJ eigenvalues need refinement
-4. Monograph PDF compilation — requested via CIELPC (remote), pending result
-5. Push `Dr-Milligan-reviewed` to GitHub origin if remote configured
+The cancellation of \(\pi\) is an exact consequence of converting angular rate
+to cyclic frequency.  It is not an independent construction of \(\pi\).
 
-## Known Falsification Criteria (per Milligan)
-| Prediction | Value | Current Bound | Falsified At |
-|-----------|-------|---------------|--------------|
-| nEDM | 5.33e-26 e·cm | 1.8e-26 (90% CL) | 10× bound if exponent = 13 |
-| M_W | 77.08 GeV | 80.38 GeV | Measurement confirmation |
-| M_Z | 87.92 GeV | 91.19 GeV | Measurement confirmation |
-| θ_QCD | 7.77e-10 | < 10⁻¹⁰ (indirect) | Next-gen nEDM (10⁻²⁸) |
+### Constraint count
 
-## Major Fixes — v10.0 / Dr-Milligan-reviewed (2026-07-02)
-1. **All 18 Milligan review points addressed** — see docs below
-2. **Audit annotation**: metatime_audit.py labelled with [B]/[C]/[D]/[E] claim hierarchy + structural choice counts
-3. **New reviewer docs**: STRUCTURAL_CHOICES.md (50 choices), CLAIM_HIERARCHY.md, FALSIFIABILITY.md, REPRODUCIBILITY.md, REVIEWER_START_HERE.md
-4. **Reproducibility runner**: run_audit.py (9/9 PASS) + Dockerfile
-5. **Archive cleanup**: `_archive_old/` → `archive/{v7.8,v7.9,v7.9r1,v10_final}/` with dedup + TIMELINE.md
-6. **Monograph corrections**: title ("Ansatz" vs "Derivation"), nEDM value (5.33e-26, 3× bound), exponent table (14), intro reframed
-7. **Canon merge**: `canon/metatime/` in NOEMA canon with LORE.md, MANIFEST.json
-8. **2nd peer paper**: `researchgate/ssrn-5234230.tex` — response to Milligan
-9. **CIELPC compilation request**: Monograph sent for remote pdflatex
+For
 
-## Major Fixes — v8.5 (2026-06-26)
-1. **α (fine-structure) derived**: 1/α = (L₃·L₄)² − L₃² − L₄·L₅ + L₄²·κ = 137.037 (PDG 137.036, error +0.0006%). Eliminates last external gauge input.
-2. **External inputs reduced**: From 4 to 3 (α now derived, no longer external).
+\[
+\mathbf q=(\kappa,\omega,f,\Gamma_{\mathcal I})
+\]
 
-## Major Fixes — v8.4 (2026-06-26)
-1. **M₀ derived (octet)**: M₀ = E_p·(1 − (s+u)·κ/L₃) = 925.95 MeV — eliminates 1 free parameter.
-2. **M₀' derived (decuplet)**: M₀' = E_p·(1 + (s−u)·κ) = 972.72 MeV — eliminates 1 free parameter.
-3. **β, γ formulas kept from J-KJ eigenvalues**: Table fixed to match formulas (1.72% error, +2.8% systematic in p/n,Σ).
-4. **δ·S_dq term removed**: Overparameterized GMO; standard form sufficient.
-5. **Abstract and conclusions updated**: "No continuous free parameters."
+with
 
-## Paper Inconsistencies Fixed (2026-06-22)
-1. **Section numbering**: Introduction → "Section XII concludes" (was XIII).
-2. **Twin-prime definition**: Corrected to "L4=2 is twin-prime gap (5−3=2), L5=5 is larger twin prime."
-3. **κ derivation**: Added Shannon-information step → κ = ln2/(24π).
-4. **nEDM tension**: Updated with falsifiable prediction.
-5. **CKM A definition**: Both A_old (structural) and A_r1 (V_cb/λ²) documented. Versioned JSONs untouched.
+\[
+C_1=\kappa-\frac{\ln2}{24\pi},
+\qquad
+C_2=\omega-2\pi f,
+\qquad
+C_3=\Gamma_{\mathcal I}-\kappa\omega,
+\]
 
-## Critical Rules (for future sessions)
-- **NEVER modify versioned result JSONs** (`ckm_v7_9.json` etc.) — historical snapshots
-- **NEVER delete files** without explicit permission
-- Archive at `archive/` with dedup; old `_archive_old/` deleted per Milligan point #16
-- Repo origin: `/tmp/metatime_source` (cloned), branch `Dr-Milligan-reviewed`
-- Paper author is Adrian — not "user"
-- Answer truthfully, mark uncertainty, never claim derivation where ansatz holds
+the constraint Jacobian has rank three.  Conditional on the definitions, the
+subsystem is therefore one-dimensional:
+
+\[
+\boxed{
+\mathbf q(f)=
+\left(
+\frac{\ln2}{24\pi},
+2\pi f,
+f,
+\frac{\ln2}{12}f
+\right)}.
+\]
+
+A physical identification of \(\Gamma_{\mathcal I}\) with a measurable
+``surface-refresh rate'' remains an **open operational interpretation**.
+
+## 3. Corrected Berry-phase normalization
+
+The reviewed source uses the standard spin-\(1/2\) relation
+
+\[
+\gamma=-\frac{\Omega}{2}\pmod{2\pi}.
+\]
+
+Therefore:
+
+- hemisphere solid angle \(|\Omega|=2\pi\) gives phase magnitude \(\pi\);
+- full-sphere solid angle \(4\pi\) gives phase magnitude \(2\pi\), trivial modulo
+  \(2\pi\).
+
+The older statement `4π/2 = π` has been removed from the live reviewed
+Metatime framework.  The factor \(\pi\) in the TIR normalization is treated as
+a chosen spinorial/geometric reference phase scale, not as the Berry phase of a
+full-sphere loop.
+
+## 4. TIR ↔ Secret-of-a-Half interface
+
+The reviewed typed chain is
+
+\[
+\boxed{
+\frac12
+\xrightarrow{\;H_2\;}
+\ln2
+\xrightarrow{\;\text{TIR definition}\;}
+\kappa
+\xrightarrow{\;d\mathcal I=\kappa d\phi\;}
+\Gamma_{\mathcal I}
+}.
+\]
+
+Logical types:
+
+1. \(H_2(1/2)=\ln2\) and uniqueness of the binary entropy maximum are exact
+   information theory;
+2. \(\ln2\mapsto\kappa=\ln2/(24\pi)\) contains the TIR structural
+   normalization postulate;
+3. \(\kappa\mapsto\Gamma_{\mathcal I}=(\ln2/12)f\) is exact conditional on the
+   TIR phase-information definition.
+
+The interface is documented in:
+
+- `TIR/docs/cross_reviews/TIR_SECRET_HALF_2026-08-07.md`;
+- `TIR/monograph/appendices/appP_secret_half_cross_relation.tex`.
+
+It must not be used circularly to prove the TIR normalization.
+
+## 5. Exact negative theorem imported from DHSE-001 Stage M
+
+The sibling `secret-of-a-half` review establishes, on its declared finite
+Möbius universe,
+
+\[
+N_n(q)=N_n(1/q)
+\]
+
+but nevertheless finds off-centre global maximizers for word lengths 1 and 4.
+Consequently,
+
+\[
+\boxed{
+\text{reciprocal self-duality}
+\not\Rightarrow
+\text{dynamical extremum at the self-dual point}
+}.
+\]
+
+TIR may therefore use self-duality as a symmetry constraint, but any claim of
+preference, stability, attractor status, or extremality requires an additional
+condition or theorem such as positivity, convexity, monotonicity, or a
+variational principle.
+
+## 6. Reproducibility layers
+
+### Selected legacy subset
+
+`TIR/run_audit.py --json`
+
+- checks nine selected historical quantities against frozen engineering
+  tolerances;
+- reports schema `TIR_SELECTED_LEGACY_REPRODUCIBILITY_V11_1`;
+- a technical PASS is **not** a full physical PASS or global accuracy score.
+
+### Exact κ phase-rate audit
+
+`TIR/validation/kappa_phase_rate_identity_v11_1.py`
+
+Primary certificate tracks formal factors exactly:
+
+\[
+\frac1{24}(\ln2)\pi^{-1}\times2\pi f
+=\frac1{12}(\ln2)f.
+\]
+
+It then performs secondary numerical implementation checks and records the
+rank-three constraint certificate.
+
+### Reviewed source contract
+
+`TIR/validation/review_source_contract_v11_1.py`
+
+Protects the reviewed κ sections, corrected Berry normalization, source-code
+appendix, Appendix P, cross-review boundary and legacy technical/physical claim
+separation.
+
+## 7. Publication state
+
+The long publication source is
+
+`TIR/monograph/metatime_monograph.tex`
+
+and the short paper source is
+
+`TIR/metatime_paper.tex`.
+
+The 7 August review adds:
+
+- exact κ phase-rate and constraint-manifold sections;
+- corrected Berry-phase normalization;
+- a reviewed source-code/reproducibility appendix;
+- Appendix P for the TIR ↔ Secret-of-a-Half interface;
+- a synchronized short-paper patch;
+- an exact-head CI source contract and publication preflight.
+
+The authoritative workflow is:
+
+`.github/workflows/compile-metatime-monograph.yml`.
+
+**Validation rule:** a PASS belongs only to the exact commit tested.  A prior
+green run must not be transferred to a later modified review head.
+
+## 8. Physical tensions retained
+
+The v11 publication protocol intentionally retains failures and tensions rather
+than hiding them inside an aggregate score.
+
+### Gauge sector
+
+The active gauge-boson mass relations remain at several-percent tension with
+the comparison values used by the monograph.  They are not promoted to precision
+predictions.
+
+### Strong CP / neutron EDM
+
+For the active exponent-14 strong-CP assignment, the reviewed publication
+snapshot gives approximately
+
+\[
+\theta_{\rm QCD}=2.2208\times10^{-10}
+\]
+
+and, with the fixed hadronic conversion coefficient used by the manuscript,
+
+\[
+\boxed{
+d_n=5.3299\times10^{-26}\ e\,\mathrm{cm}
+}.
+\]
+
+Against the manuscript bound
+
+\[
+1.8\times10^{-26}\ e\,\mathrm{cm},
+\]
+
+this is a factor of approximately \(2.96\) high.  The computation may be a
+technical PASS while the empirical constraint is a **physical FAIL**.
+
+### Collatz isolated mass trace
+
+The isolated frozen Collatz quarter-power trace remains an incomplete
+retrospective signal rather than a closed spectrum derivation.  Its known
+multiplicative error is retained by the v11 publication protocol.
+
+## 9. Prospective component
+
+The v10.7 separable candidate family remains the principal frozen prospective
+component.  Candidate formulas, orthogonal observables and no-refit rules must
+remain fixed before the assigned future likelihood is inspected.
+
+Retrospective formula assignments are not counted as independent confirmation
+merely because they reproduce their development-era targets.
+
+## 10. Current open mathematical and physical work
+
+1. Determine whether the discrete denominator \(24\pi\) can acquire a stronger
+   non-circular derivation, or remain explicitly a TIR normalization postulate.
+2. Define an operational observable corresponding to
+   \(\Gamma_{\mathcal I}\) before making a physical refresh-rate claim.
+3. Characterize what additional conditions turn self-duality into extremality
+   in the relevant dynamical sectors.
+4. Continue the Collatz/holonomy and sector-specific derivational audits without
+   hiding negative results.
+5. Keep renormalization scale/scheme conventions explicit for scale-dependent
+   particle quantities.
+6. Evaluate frozen prospective candidates only against their preregistered
+   observables and decision rules.
+7. Maintain the Secret-of-a-Half zeta bridges as open unless their complete
+   proof dependencies are actually closed.
+
+## 11. Historical status
+
+The previous v10.0 / Dr-Milligan-reviewed status document contained useful
+historical review notes but also several now-stale statements, including old
+sector classifications, build state, branch information and reproducibility
+language.  Those historical records are preserved in repository history and
+`archive/`; this file is the live review-state summary.
+
+## Invariant
+
+\[
+\boxed{
+\text{technical PASS}
+\neq
+\text{formal proof of every model assumption}
+\neq
+\text{physical PASS}
+}
+\]
+
+Every promotion requires the evidence class appropriate to the claim being
+promoted.
