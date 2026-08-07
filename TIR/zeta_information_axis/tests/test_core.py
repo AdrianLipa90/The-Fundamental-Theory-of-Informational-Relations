@@ -82,6 +82,12 @@ def test_reciprocal_commutes_with_centered_involution() -> None:
     assert abs(lhs - rhs) < mp.mpf("1e-45")
 
 
+def test_naive_centered_reciprocal_is_not_zero_set_symmetry() -> None:
+    for zero in first_nontrivial_zeros(10):
+        mapped_s = mp.mpf("0.5") + centered_inversion(zero)
+        assert abs(mp.zeta(mapped_s)) > mp.mpf("0.1")
+
+
 def test_reciprocal_rejects_center() -> None:
     with pytest.raises(ValueError):
         reciprocal_map(0)
