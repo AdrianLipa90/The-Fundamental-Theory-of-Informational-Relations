@@ -11,7 +11,11 @@ The information-spinor interpretation should be abandoned or substantially revis
 \item the spectral determinant reproduces only the average zero density, not the fluctuation spectrum;
 \item the determinant identity contains an unanalysed prefactor with zeros in the critical strip;
 \item numerical agreement disappears for frozen, out-of-sample ordinates;
-\item the holonomy is a removable gauge artifact rather than a gauge-invariant cycle phase.
+\item the holonomy is a removable gauge artifact rather than a gauge-invariant cycle phase;
+\item the centred reciprocal symmetry $u\mapsto1/u$ cannot be lifted from the ambient coordinate plane to any canonical zeta-derived state, kernel, operator, or transfer object;
+\item the proposed $\pi$ zero-closure phase can only be obtained by inserting the critical-line condition in advance;
+\item the AB/Berry and Hubble sectors cannot be joined by an explicit dimensionless bridge without introducing a fitted scale or violating dimensional consistency;
+\item the Hubble normalization is presented as a physical horizon theorem when the construction supplies only the definitional scale $c/H_0$.
 \end{enumerate}
 
 These are not peripheral cautions. They define the empirical and mathematical content of the programme.
@@ -27,6 +31,8 @@ The first objective is an exact zeta or Xi decomposition into complementary bran
 \end{enumerate}
 Each construction must be evaluated by the no-circularity criterion of Chapter \ref{ch:conditional}.
 
+Version v0.2 adds one more discriminator: after centring $u=s-1/2$, determine whether the candidate object carries a natural action conjugate to reciprocal inversion $u\mapsto1/u$. The algebraic commutation of reciprocal inversion with the centred zeta involution is already exact; the open question is whether that symmetry belongs to the zeta-derived object itself rather than merely to its coordinate plane.
+
 \section{Stage II: derive equal branch normalization}
 Even if two branches are found, the coefficient equality must be derived. Promising mechanisms include:
 \begin{enumerate}
@@ -34,7 +40,8 @@ Even if two branches are found, the coefficient equality must be derived. Promis
 \item an exchange symmetry with a conserved norm;
 \item a CPT-like antiunitary involution;
 \item half-density normalization of the Mellin transform;
-\item a projective metric that fixes the square-root amplitudes uniquely.
+\item a projective metric that fixes the square-root amplitudes uniquely;
+\item a canonical $U(1)$ connection whose loop holonomy fixes the relative phase without fitting individual zeros.
 \end{enumerate}
 A manually chosen normalization would weaken the result to a coordinate convention.
 
@@ -45,8 +52,21 @@ This is the decisive stage. Global symmetry allows off-axis pairs. The project m
 \item positivity of a Weil-type quadratic form;
 \item a topological index that pins zero modes to the symmetry boundary;
 \item a protected chiral zero mode in a two-component operator;
-\item total positivity of the Xi kernel.
+\item total positivity of the Xi kernel;
+\item a reciprocal-holonomy constraint acting on a faithful zeta-derived state rather than only on $s$ as an external coordinate.
 \end{enumerate}
+
+\section{Stage III-B: inverse--holonomy bridge audit}
+The v0.2 postulates create a specific intermediate programme that can be tested before any stronger RH claim.
+\begin{enumerate}
+\item Construct a canonical zeta-derived loop or connection and compute its gauge-invariant holonomy.
+\item Test whether zerohood forces $\theta_\gamma=\pi\pmod{2\pi}$ rather than merely allowing it.
+\item Determine whether the reciprocal map acts on that same state space and whether its commutation with $\widetilde J$ survives the lift.
+\item Keep the conformal reciprocal chart $1/u$ separate from the non-holomorphic disk compactification $u/(1+|u|)$.
+\item If the Hubble scale is retained, derive a dimensionless coupling that links $H_0L/c$ to the loop sector without a fitted conversion constant.
+\item Treat the broader $W_{ij}$ connector as a TIR dependency only; do not use an undeveloped $W_{ij}$ dynamics to close the zeta proof obligation in this module.
+\end{enumerate}
+Failure of any one of these steps leaves the corresponding layer at model-postulate status and does not damage the already proved reciprocal and $U(1)$ identities.
 
 \section{Stage IV: independent review}
 Before any claim stronger than a conditional theorem, the work should undergo:
@@ -65,8 +85,9 @@ The work naturally separates into publishable units:
 \item[Paper B.] Dirichlet eta as a parity-phase bridge and the normalized parity representation problem.
 \item[Paper C.] A candidate dilation-spinor operator with full domain and self-adjointness audit.
 \item[Paper D.] Kernel positivity or de Branges formulation, if a nontrivial inequality is established.
+\item[Paper E.] Centred reciprocal geometry and $U(1)$ holonomy compatibility, provided the distinction between exact geometry and the AB/Hubble TIR postulate remains explicit.
 \end{description}
-Paper A can be mathematically complete without claiming RH. Papers C or D would contain the genuinely difficult number-theoretic advance.
+Paper A can be mathematically complete without claiming RH. Papers C or D would contain the genuinely difficult number-theoretic advance. Paper E is publishable as a structural note only if it does not present the reciprocal compatibility or Hubble normalization as an RH proof.
 
 \section{Versioning and frozen claims}
 Version v0.1 freezes the following claims:
@@ -76,5 +97,14 @@ Version v0.1 freezes the following claims:
 \item the explicit statement that the zero-state representation remains unproved;
 \item the numerical audit protocol;
 \item the operator and kernel proof obligations.
+\end{enumerate}
+Version v0.2 appends, without rewriting that baseline:
+\begin{enumerate}
+\item exact centred reciprocal/involution compatibility;
+\item exact critical-axis set invariance under reciprocal inversion;
+\item exact radial centre--boundary compactification;
+\item conditional promotion of the affine strip-to-simplex coordinate;
+\item exact common $U(1)$ holonomy class for Berry and Aharonov--Bohm phases;
+\item explicit model-postulate status for the AB/Hubble potential-tension correspondence and canonical $\pi$ zero closure.
 \end{enumerate}
 Future versions must preserve this ledger append-only. A later correction must add a new record rather than rewrite the historical claim state.
