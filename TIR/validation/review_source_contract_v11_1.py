@@ -99,8 +99,17 @@ def build_receipt() -> dict[str, object]:
 
     if cross_review.is_file():
         text = cross_review.read_text(encoding="utf-8")
+        lowered = text.lower()
+        has_reciprocal_boundary = (
+            "reciprocal symmetry" in lowered
+            and (
+                "does **not**" in lowered
+                or r"\not\Rightarrow" in text
+                or "false in declared stage m universe" in lowered
+            )
+        )
         require(
-            "reciprocal symmetry" in text.lower() and "does not" in text.lower(),
+            has_reciprocal_boundary,
             "Cross-review record must retain the negative self-duality boundary",
             failures,
         )
