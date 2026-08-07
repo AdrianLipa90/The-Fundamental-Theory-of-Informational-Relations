@@ -31,11 +31,29 @@ The v0.1 entries above are historical and are not rewritten. The v0.2 records be
 | C-018 | Canonical zerohood enforces a gauge-invariant `pi` loop closure. | OPEN POSTULATE | Must be derived from zeta data, not inserted as a boundary condition. |
 | C-019 | The naive lifted map `T(s)=1/2 + 1/(s-1/2)` is a symmetry of the nontrivial zeta zero set. | NEGATIVE CONTROL / FAIL | The first 10 tabulated zeros map to points with `abs(zeta(T(rho))) > 0.1`; the first image is about `1.447`. Reciprocal symmetry is therefore currently only an ambient/axis symmetry, not a zero-set symmetry. |
 
+## v0.2 identity-cycle and solver extension
+
+| ID | Claim | Status | Falsification / open debt |
+|---|---|---|---|
+| C-020 | A recurrent phase coordinate can be defined as `q in R/Z`, with intrinsic frequency `f_q=Delta winding/Delta t`, before selecting radians. | DEFINITION / TOPOLOGICAL FACT | An angular representation still requires a closure constant `C`. |
+| C-021 | Spin-1/2 gives a double cover in which two projective recurrences restore the spinor sheet. | STANDARD THEOREM | This alone does not identify zeta states with spinors. |
+| C-022 | `24 = 8*3 = 12*2 = 6*4`. | EXACT ARITHMETIC | Assigning these factors to mixes/flavours, projective cycles, or spinor cycles is model semantics. |
+| C-023 | One binary information quantum is distributed across 12 projective recurrences, so `dI/dq = ln(2)/12`. | MODEL POSTULATE | Requires an independent derivation of the 12-cycle information assignment. |
+| C-024 | Given C-023 and angular closure `phi=C*q`, `dI/dphi=ln(2)/(12*C)`; with `C=2*pi` this equals `ln(2)/(24*pi)`. | CONDITIONAL ARITHMETIC THEOREM | Does not promote C-023 from model status. |
+| C-025 | Complement, Shannon stationarity, balanced Berry holonomy, and symmetric phase-opposition cancellation independently select `sigma=1/2` within their stated domains. | CROSS-CHECK / PASS | Agreement is internal consistency, not a zeta zero-state theorem. |
+| C-026 | The typed solver may compose EXACT/STANDARD rules by default and MODEL rules only explicitly; OPEN rules are never auto-promoted. | IMPLEMENTATION CONTRACT | Any route producing RH without the zero-state bridge is a solver failure. |
+| C-027 | Geometry-first PhaseNav vectorization may represent sign as tangent orientation and zero as vanishing displacement from an axis or between phase-crystal coordinates. | IMPLEMENTATION / MODEL GEOMETRY | This is a coordinate architecture, not a theorem that physical numbers originate this way. |
+
 ## Promotion verdict
 
 - **C-006 is partially promoted, not fully closed.** Its coordinate-theoretic core becomes C-013, a conditional theorem. Its physically substantive remainder is isolated as C-014.
 - **C-004 gains a stronger structural interpretation** through C-015: Berry and Aharonov–Bohm phases belong to the same `U(1)` holonomy class.
+- **C-020/C-021 separate recurrence from radian representation.** The double-cover factor `2` can be stated before inserting `2*pi/4*pi` notation.
+- **C-022 is exact arithmetic but not independent physical evidence.** Its sector labels remain model semantics.
+- **C-024 is a valid conditional reconstruction of `kappa`; it does not erase C-023's model debt.**
+- **C-025 strengthens internal coherence around the half axis without promoting C-007.**
+- **C-026 is an explicit logical firewall.** Exact/model closure must report `zero_state_representation` as missing rather than infer RH.
 - **C-010/C-011 do not promote C-007 by themselves.** C-019 explicitly blocks the naive zero-to-zero interpretation of reciprocal inversion.
-- **C-007 remains OPEN GAP.** Reciprocal symmetry does not yet construct a genuine zero-state cancellation representation.
+- **C-007 remains OPEN GAP.** Reciprocal symmetry and holonomy do not yet construct a genuine zero-state cancellation representation.
 - **C-008 remains OPEN.** No unconditional proof of the Riemann hypothesis is claimed.
 - `W_[ij]` is referenced only as a broader TIR holonomic relation/information connector; its definition and dynamics are out of scope for this module.
