@@ -29,11 +29,13 @@ The v0.1 entries above are historical and are not rewritten. The v0.2 records be
 | C-016 | `L_H=c/H_0` and `r_H=H_0 L/c` provide a dimensionless radial normalization with `r_H(L_H)=1`. | DEFINITION / IDENTITY | Treating this as the compactified zeta boundary is not standard cosmology. |
 | C-017 | The AB/Berry local holonomy sector and Hubble radial normalization are two coordinates of one TIR potential-tension architecture. | MODEL POSTULATE | Requires an explicit dimensionless bridge and independent physical derivation. |
 | C-018 | Canonical zerohood enforces a gauge-invariant `pi` loop closure. | OPEN POSTULATE | Must be derived from zeta data, not inserted as a boundary condition. |
+| C-019 | The naive lifted map `T(s)=1/2 + 1/(s-1/2)` is a symmetry of the nontrivial zeta zero set. | NEGATIVE CONTROL / FAIL | The first 10 tabulated zeros map to points with `abs(zeta(T(rho))) > 0.1`; the first image is about `1.447`. Reciprocal symmetry is therefore currently only an ambient/axis symmetry, not a zero-set symmetry. |
 
 ## Promotion verdict
 
 - **C-006 is partially promoted, not fully closed.** Its coordinate-theoretic core becomes C-013, a conditional theorem. Its physically substantive remainder is isolated as C-014.
 - **C-004 gains a stronger structural interpretation** through C-015: Berry and Aharonov–Bohm phases belong to the same `U(1)` holonomy class.
+- **C-010/C-011 do not promote C-007 by themselves.** C-019 explicitly blocks the naive zero-to-zero interpretation of reciprocal inversion.
 - **C-007 remains OPEN GAP.** Reciprocal symmetry does not yet construct a genuine zero-state cancellation representation.
 - **C-008 remains OPEN.** No unconditional proof of the Riemann hypothesis is claimed.
 - `W_[ij]` is referenced only as a broader TIR holonomic relation/information connector; its definition and dynamics are out of scope for this module.
