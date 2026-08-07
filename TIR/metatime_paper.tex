@@ -35,36 +35,29 @@
 \date{\today}
 
 \begin{abstract}
-The Standard Model of particle physics contains 19 free parameters (26 with neutrinos):
-fermion masses, gauge couplings, the Higgs mass and vacuum expectation value,
-CKM mixing angles and phase, the QCD theta parameter, and (if extended) neutrino
-masses and PMNS angles.  We present a low-parameter arithmetic ansatz---Metatime---in which all of these
-quantities are expressed through a single information constant $\kappa = \ln 2/(24\pi)$,
-three geometric constants $L_3 = 7$, $L_4 = 2$, $L_5 = 5$, and six quark primes
-$(u,d,s,c,b,t) = (3,5,7,11,13,17)$.  The Planck energy $E_P$ and the proton mass
-$E_{\text{proton}}$ serve as two external scales.  The only continuous quantities
-that were free in earlier versions---the baryon octet scale $M_0$ and decuplet
-scale $M_0'$---are now derived from the same constants (Sec.~\ref{sec:baryons}),
-eliminating all continuous free parameters.  All expressions follow from arithmetic
-and phase geometry on the Poincar\'{e} disk.  We report results for all charged leptons (mean error
-0.48\,\%), baryon octet (0.33\,\%), baryon decuplet (0.34\,\%), pseudoscalar and
-vector mesons (0.58\,\%), neutrino PMNS parameters (all within $1.6\sigma$),
-CKM matrix magnitudes (mean $\sigma = 0.78$; the CP phase
-$\delta = \arccos(L_4/L_5) = 66.4^\circ$ agrees with the PDG
-$65.6^\circ$ at $\sigma = 0.55$), electroweak gauge bosons and the Higgs
-($M_H = v\kappa(L_3^2+L_4+L_5) = 126.07$~GeV, $+0.66\%$;
-$M_W = 83.96$~GeV ($+4.5\%$), $M_Z = 95.77$~GeV ($+5.0\%$) from
-$g = L_4/L_3 + L_4/L_5 = 24/35$; the fine-structure constant is
-$1/\alpha = 137.037$, $+0.0006\%$), the strong CP angle
-($\theta_{\text{QCD}} = \kappa(2/7)^{14} = 7.57\times 10^{-11}$,
-predicting $d_n = 1.82\times 10^{-26}$~e$\cdot$cm at the current
-experimental bound),
-gauge anomaly cancellation
-(all five conditions satisfied as a consistency check), and the cosmological constant
-($\rho_\Lambda = (2/7)^{224} \approx 1.4 \times 10^{-122}$, an ansatz
-within a factor $\sim 30$ of the observed value).
-The framework suggests that mass, mixing, and cosmic acceleration may be unified
-phase phenomena, but several sectors require further derivation.
+Metatime/TIR is presented here as an exploratory low-parameter arithmetic and
+phase-geometry ansatz for patterns across particle, flavour, hadronic, and
+cosmological observables.  Its structural normalization is
+$\kappa=\ln2/(24\pi)$ together with discrete constants
+$(L_3,L_4,L_5)=(7,2,5)$ and prime-valued flavour labels.  The coefficient
+$\kappa$ is a TIR model definition with structural motivation; it is not claimed
+to be independently derived by standard quantum mechanics or the Standard
+Model.  With angular phase rate $\omega=2\pi f$ and the TIR definition
+$d\mathcal I=\kappa\,d\phi$, the information-rate identity
+$\Gamma_{\mathcal I}=\kappa\omega=(\ln2/12)f$ follows exactly and carries no
+additional continuous coefficient.
+
+The numerical sector relations remain heterogeneous in evidential status:
+several are retrospective assignments or anchored constructions, while named
+future tests are treated separately as prospective.  The publication record
+retains material failures rather than absorbing them into a global accuracy
+score.  In particular, the fixed gauge-boson relations remain approximately
+$4.5\%$--$5.0\%$ high, and the frozen strong-CP-to-neutron-EDM mapping used in
+the current audit gives $d_n\simeq5.33\times10^{-26}\,e\,\mathrm{cm}$, about
+$2.96$ times the $1.8\times10^{-26}\,e\,\mathrm{cm}$ bound used by the
+publication snapshot.  The framework is therefore reported as a falsifiable
+phenomenological programme, not as an experimentally established derivation of
+all Standard Model parameters from first principles.
 \end{abstract}
 
 \maketitle
@@ -79,9 +72,7 @@ couplings, the Higgs mass and vacuum expectation value (VEV), CKM mixing
 angles and CP phase, and the QCD vacuum angle.  When neutrino masses and
 PMNS mixing are included, the count rises to 26.
 
-The Metatime framework proposes that all of these parameters arise from a
-single information-theoretic constant---the Berry phase accumulated by a
-quantum system on the Poincar\'{e} disk:
+The Metatime framework organizes these quantities around the TIR structural\nnormalization
 \begin{equation}
 \kappa \equiv \frac{\ln 2}{24\pi} \approx 9.19315 \times 10^{-3}.
 \label{eq:oi}
@@ -108,27 +99,51 @@ strong CP, anomaly cancellation, and dark energy.  Section~XII concludes.
 
 \subsection{The information constant $\kappa$}
 
-The constant $\kappa$ is the geometric Berry phase of a two-level system
-evolving on the Poincar\'{e} disk:
+TIR defines
 \begin{equation}
-\kappa = \frac{1}{2} \oint \mathcal{A} \, d\phi,
+\kappa \equiv \frac{\ln 2}{24\pi}
+\approx 9.19315 \times 10^{-3}.
+\label{eq:oi}
 \end{equation}
-where $\mathcal{A}$ is the connection one-form.  For a spin-1/2 system
-completing one adiabatic cycle, the Berry phase is $\pi$.  The natural
-measure of information gained from resolving a binary outcome is
-$\ln 2$ (the Shannon information in nats).  The full tetrahedral symmetry
-group $S_4$ (rotational $A_4$ extended by reflections) has order 24, representing the
-discrete holonomy constraints of the three-flavor structure.  (The Weyl
-group of $SU(3)$ is $S_3$ of order~6, a distinct group; the use of $S_4$
-reflects the tetrahedral NOEMA phase-space geometry, not the $SU(3)$ root
-system.)
+The numerator $\ln2$ is the Shannon entropy of a binary equiprobable choice.
+The denominator is a TIR discrete normalization
+$24\pi=2|A_4|\pi$, with $|A_4|=12$, combining an orientation factor, the
+rotational tetrahedral group order, and a reference spinorial/geometric phase
+scale $\pi$.  This is a model postulate with structural motivation, not a
+standard invariant derived from the cited ingredients.
 
-Combining these: the binary decision yields $\ln 2$, the Berry half-cycle
-contributes $\pi$ in the denominator, and the tetrahedral order 24
-normalizes the phase space.  The logarithm emerges because the action
-accumulates geometrically as $\exp(-S/\kappa)$, where $S$ itself is an
-entropy-like sum over prime-encoded flavor states.  Evaluating gives
-\eqref{eq:oi}.
+For a spin-$1/2$ state, the standard Berry phase is
+$\gamma=-\Omega/2$ modulo $2\pi$, where $\Omega$ is the enclosed Bloch-sphere
+solid angle.  Thus a hemisphere ($|\Omega|=2\pi$) yields phase magnitude $\pi$,
+whereas a full-sphere solid angle $4\pi$ yields magnitude $2\pi$, trivial modulo
+$2\pi$.  The reference $\pi$ in the TIR normalization must therefore not be
+justified by claiming that a full-sphere cycle produces Berry phase $\pi$.
+
+If $\phi$ is an angular phase coordinate,
+\begin{equation}
+\omega\equiv\frac{d\phi}{dt}=2\pi f,
+\end{equation}
+and TIR defines informational accumulation per unit phase by
+\begin{equation}
+d\mathcal I\equiv\kappa\,d\phi,
+\end{equation}
+then
+\begin{equation}
+\boxed{
+\Gamma_{\mathcal I}
+\equiv\frac{d\mathcal I}{dt}
+=\kappa\omega
+=\frac{\ln2}{12}f
+}.
+\label{eq:kappa_phase_rate_paper}
+\end{equation}
+One complete phase cycle consequently carries
+$\Delta\mathcal I_{\rm cycle}=\ln2/12$.  Conditional on these definitions, the
+four quantities $(\kappa,\omega,f,\Gamma_{\mathcal I})$ obey three independent
+constraints and hence form a one-dimensional regular constraint manifold,
+parametrized by $f$.  A physical interpretation of
+$\Gamma_{\mathcal I}$ as a surface-refresh observable remains an additional,
+operationally open hypothesis.
 
 \subsection{The L-constants}
 
@@ -159,8 +174,7 @@ strangeness scale.
 
 Two scales enter as external inputs: the Planck energy
 $E_P = \sqrt{\hbar c^5 / G} = 1.22089 \times 10^{22}$~MeV, and the
-proton mass $E_{\text{proton}} = 938.272$~MeV.  No other experimental
-data are used.
+proton mass $E_{\text{proton}} = 938.272$~MeV.  Additional external anchors and conversion inputs are declared explicitly in the\npublication-candidate monograph; results depending on them are not independent\npredictions of those anchors.
 
 \section{Charged Leptons}
 \label{sec:leptons}
@@ -714,7 +728,7 @@ and the formulas contain an estimated 58 structural choices (independent
 decisions in term construction); the framework is a low-parameter ansatz
 rather than a first-principles derivation.  The previously free $M_0$
 parameters per baryon multiplet are now derived from framework constants
-(Sec.~\ref{sec:baryons}), eliminating all continuous free parameters.
+(Sec.~\ref{sec:baryons}), eliminating those particular continuous baryon scales while leaving the model's discrete structural complexity explicit.
 All 26 SM observables are expressed through arithmetic formulas.
 
 The phenomenological quality of the fit varies by sector:
