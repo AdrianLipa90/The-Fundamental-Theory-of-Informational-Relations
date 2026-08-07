@@ -2,6 +2,11 @@
 
 The module deliberately separates exact mathematics from model identifications.
 No function in this file claims a proof of the Riemann hypothesis.
+
+v0.2 adds the centred reciprocal chart, radial compactification, generic U(1)
+holonomy helpers, an Aharonov--Bohm phase wrapper, and a dimensionless Hubble
+radial normalization.  The latter two are kept separate from any claim that
+they are the same physical field or potential.
 """
 
 from __future__ import annotations
@@ -88,6 +93,120 @@ def berry_holonomy(sigma: float | mp.mpf) -> mp.mpc:
 def zeta_involution(s: complex | mp.mpc) -> mp.mpc:
     z = mp.mpc(s)
     return 1 - mp.conj(z)
+
+
+def centered_coordinate(s: complex | mp.mpc) -> mp.mpc:
+    """Translate the critical line Re(s)=1/2 to the imaginary axis."""
+    return mp.mpc(s) - mp.mpf("0.5")
+
+
+def centered_zeta_involution(u: complex | mp.mpc) -> mp.mpc:
+    """Zeta anti-linear involution in u=s-1/2 coordinates: u -> -conj(u)."""
+    return -mp.conj(mp.mpc(u))
+
+
+def reciprocal_map(u: complex | mp.mpc) -> mp.mpc:
+    """Reciprocal chart I(u)=1/u on the punctured plane.
+
+    I is holomorphic and conformal wherever u != 0.  It exchanges the local
+    neighbourhood of the centred point with the asymptotic region.
+    """
+    z = mp.mpc(u)
+    if z == 0:
+        raise ValueError("reciprocal_map is undefined at u=0")
+    return 1 / z
+
+
+def centered_inversion(s: complex | mp.mpc) -> mp.mpc:
+    """Apply the reciprocal chart after centring at s=1/2."""
+    return reciprocal_map(centered_coordinate(s))
+
+
+def compactified_radius(u: complex | mp.mpc) -> mp.mpf:
+    """Non-holomorphic radial compactification r -> r/(1+r) in [0,1)."""
+    r = abs(mp.mpc(u))
+    return r / (1 + r)
+
+
+def radial_compactification(u: complex | mp.mpc) -> mp.mpc:
+    """Map C radially into the open unit disk while preserving angle.
+
+    C(u)=u/(1+|u|) sends u=0 to the disk centre and |u|->infinity to the
+    unit-circle boundary.  Unlike 1/u, this map is intentionally non-conformal.
+    """
+    z = mp.mpc(u)
+    return z / (1 + abs(z))
+
+
+def strip_probability_coordinate(s: complex | mp.mpc) -> mp.mpf:
+    """Affine endpoint-preserving strip coordinate p=Re(s).
+
+    This implements the unique affine map from Re(s) in [0,1] to a binary
+    probability p in [0,1] that maps the strip boundaries to 0 and 1.
+    It does not assert that a zeta zero is physically a probability state.
+    """
+    sigma = mp.re(mp.mpc(s))
+    if sigma < 0 or sigma > 1:
+        raise ValueError("Re(s) must lie in the critical strip [0,1]")
+    return mp.mpf(sigma)
+
+
+def u1_holonomy(loop_phase: float | mp.mpf | mp.mpc) -> mp.mpc:
+    """Holonomy exp(i*theta) for a dimensionless U(1) loop phase theta."""
+    return mp.e ** (1j * mp.mpc(loop_phase))
+
+
+def aharonov_bohm_holonomy(
+    loop_integral: float | mp.mpf | mp.mpc,
+    charge_over_hbar: float | mp.mpf | mp.mpc = 1,
+) -> mp.mpc:
+    """Aharonov--Bohm U(1) holonomy.
+
+    `loop_integral` represents integral A_mu dx^mu in a chosen convention and
+    `charge_over_hbar` supplies the conversion to a dimensionless phase.
+    """
+    theta = mp.mpc(charge_over_hbar) * mp.mpc(loop_integral)
+    return u1_holonomy(theta)
+
+
+def hubble_length(
+    hubble_rate: float | mp.mpf,
+    propagation_speed: float | mp.mpf = 1,
+) -> mp.mpf:
+    """Return the scale L_H = c/H for positive H and c.
+
+    The default propagation_speed=1 is suitable for natural/unitless tests.
+    No cosmological horizon claim is implied.
+    """
+    h = mp.mpf(hubble_rate)
+    c = mp.mpf(propagation_speed)
+    if h <= 0:
+        raise ValueError("hubble_rate must be positive")
+    if c <= 0:
+        raise ValueError("propagation_speed must be positive")
+    return c / h
+
+
+def normalized_hubble_radius(
+    length: float | mp.mpf,
+    hubble_rate: float | mp.mpf,
+    propagation_speed: float | mp.mpf = 1,
+) -> mp.mpf:
+    """Dimensionless radial coordinate H*L/c.
+
+    It equals one at L=c/H.  Interpreting that scale as a boundary or
+    potential-tension normalization is a model postulate, not an identity.
+    """
+    ell = mp.mpf(length)
+    h = mp.mpf(hubble_rate)
+    c = mp.mpf(propagation_speed)
+    if ell < 0:
+        raise ValueError("length must be non-negative")
+    if h <= 0:
+        raise ValueError("hubble_rate must be positive")
+    if c <= 0:
+        raise ValueError("propagation_speed must be positive")
+    return h * ell / c
 
 
 def completed_xi(s: complex | mp.mpc) -> mp.mpc:
