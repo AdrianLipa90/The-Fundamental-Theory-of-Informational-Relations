@@ -1,0 +1,16 @@
+{
+  "schema": "tir.phasenav-noema-dependency-receipt/v0.7",
+  "status": "PASS",
+  "receipt_sha256": "95a60a59a2e472e903e10a79e4539c439258192713e42e67be9aa712f6e830cd",
+  "phasenav_commit": "54f65f2ca7d35cdd98f0ab8984cc1a8d74444a96",
+  "noema_commit": "42a0a8916e81ca27f2213bf0f28538f046c2e89a",
+  "routing_dimension": 36,
+  "intrinsic_coefficient_dimension": 4,
+  "role_router": "STRUCTURAL_ROLE_ROUTING_PASS",
+  "tir_slot_binding": "OPEN",
+  "collatz_stopping_orientation": "RETROSPECTIVE_CANDIDATE_NEEDS_PROSPECTIVE_TEST",
+  "soh_c004": "OPEN",
+  "soh_c005": "OPEN",
+  "tir_neutron_edm": "PHYSICAL_FAIL",
+  "scientific_promotion": "NOT_PERFORMED"
+}
