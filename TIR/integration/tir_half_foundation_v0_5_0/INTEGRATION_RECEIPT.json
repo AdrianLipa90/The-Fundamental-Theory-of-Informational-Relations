@@ -1,0 +1,21 @@
+{
+  "coefficient_audit": {
+    "assignment_open_count": 10,
+    "magnitude_unparented_count": 0
+  },
+  "github_target": "integration branch; not main",
+  "graph": {
+    "edges": 89,
+    "nodes": 83,
+    "paths": 7,
+    "sha256": "b2fec0c566aac74c7b62af6911cbbabc7c2785db231ef05487c55ea52d900328"
+  },
+  "proof_boundary": {
+    "SOH_C004": "OPEN",
+    "SOH_C005": "OPEN",
+    "canon_promoted": false
+  },
+  "schema": "tir-half-foundation/github-integration-v0.5",
+  "source_package_zip_sha256": "0bfb1272374abce939bf5602e2743cf3113452683e7e056a514e85c80555f675",
+  "status": "PASS"
+}
