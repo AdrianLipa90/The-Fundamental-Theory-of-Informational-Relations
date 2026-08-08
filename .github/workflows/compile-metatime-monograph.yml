@@ -1,5 +1,5 @@
 name: Compile Metatime publication candidate
-# Final exact-head publication verification for v11.0.
+# Exact-head publication verification for v11.0.
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build-monograph:
@@ -16,25 +16,20 @@ jobs:
     timeout-minutes: 35
 
     steps:
-      - name: Checkout exact branch head revision
+      - name: Checkout exact event head revision
         uses: actions/checkout@v4
         with:
-          ref: agent/collatz-quarter-power-scaling
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 1
 
       - name: Verify initial checkout provenance
         if: github.event_name == 'pull_request'
-        shell: bash
-        run: |
-          set -euo pipefail
-          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+        run: test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
 
       - name: Prepare publication candidate sources
-        shell: bash
         run: |
           set -euo pipefail
-          chmod +x TIR/monograph/prepare_publication_candidate_v11_0.py
-          python3 - <<'PYSYNTAX'
+          python3 - <<'PY'
           from pathlib import Path
           for filename in (
               'TIR/monograph/prepare_publication_candidate_v11_0.py',
@@ -43,12 +38,11 @@ jobs:
               source = Path(filename).read_text(encoding='utf-8')
               compile(source, filename, 'exec')
               print(f'SYNTAX PASS: {filename}')
-          PYSYNTAX
+          PY
           python3 TIR/monograph/normalize_build_sources.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/prepare_publication_candidate_v11_0.py
-          python3 - <<'PYDEDUP'
+          python3 - <<'PY'
           from pathlib import Path
-
           path = Path('TIR/monograph/metatime_monograph.tex')
           lines = path.read_text(encoding='utf-8').splitlines(keepends=True)
           targets = {
@@ -66,61 +60,36 @@ jobs:
               output.append(line)
           missing = targets - seen
           if missing:
-              raise SystemExit(f'Missing publication status macro definitions: {sorted(missing)}')
+              raise SystemExit(f'Missing publication status macros: {sorted(missing)}')
           path.write_text(''.join(output), encoding='utf-8')
-          print('DEDUP PASS: exactly one claimstatus and datasetstatus definition retained')
-          PYDEDUP
+          print('DEDUP PASS')
+          PY
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/add_citation_context_v10_9.py
           rm -rf TIR/monograph/__pycache__
           git diff --check
 
-      - name: Commit publication candidate sources
-        shell: bash
+      - name: Record validation provenance
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -rf TIR/monograph/__pycache__
-          git add -A TIR/monograph
-          if git diff --cached --quiet; then
-            echo "Publication candidate sources already current."
-          else
-            git commit -m "docs: prepare publication candidate v11.0"
-            git push origin HEAD:agent/collatz-quarter-power-scaling
-          fi
-
-      - name: Record final checkout provenance
-        shell: bash
-        run: |
-          set -euo pipefail
           git rev-parse HEAD | tee checkout_head_sha.txt
           git status --short --branch | tee checkout_status.txt
+          git diff -- TIR/monograph > prepared-publication.diff
 
       - name: Install publication toolchain
-        shell: bash
         run: |
-          set -euo pipefail
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            latexmk \
-            lmodern \
-            texlive-latex-base \
-            texlive-latex-recommended \
-            texlive-latex-extra \
-            texlive-fonts-recommended \
-            texlive-science \
-            poppler-utils \
-            qpdf
+            latexmk lmodern texlive-latex-base texlive-latex-recommended \
+            texlive-latex-extra texlive-fonts-recommended texlive-science \
+            poppler-utils qpdf
 
       - name: Compile monograph
-        shell: bash
         working-directory: TIR/monograph
         run: |
           set -o pipefail
-          latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error metatime_monograph.tex 2>&1 | tee compile-console.log
+          latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error \
+            metatime_monograph.tex 2>&1 | tee compile-console.log
 
       - name: Publication preflight
-        shell: bash
         run: |
           set -euo pipefail
           PDF=TIR/monograph/metatime_monograph.pdf
@@ -147,7 +116,7 @@ jobs:
           grep -Eq '^Subject:[[:space:]]+Geometric-phase' pdfinfo.txt
           grep -Eq '^Keywords:[[:space:]]+Metatime' pdfinfo.txt
           pdffonts "$PDF" | tee pdffonts.txt
-          python3 - <<'PYFONT'
+          python3 - <<'PY'
           from pathlib import Path
           lines = Path('pdffonts.txt').read_text(encoding='utf-8').splitlines()
           header = lines[0]
@@ -167,26 +136,16 @@ jobs:
                   problems.append(f'Unembedded font: {line}')
           if problems:
               raise SystemExit('\n'.join(problems))
-          print('FONT PREFLIGHT PASS: all fonts embedded; no Type 3 fonts')
-          PYFONT
+          print('FONT PREFLIGHT PASS')
+          PY
           qpdf --check "$PDF" | tee qpdf-check.txt
           sha256sum "$PDF" | tee metatime_monograph.pdf.sha256
-          {
-            echo "PUBLICATION PREFLIGHT PASS"
-            echo "Claim hierarchy: explicit"
-            echo "Retrospective/prospective separation: explicit"
-            echo "Neutron EDM: physical FAIL retained"
-            echo "Global heterogeneous mean: withdrawn"
-            echo "Renormalization limitations: explicit"
-            echo "PDF metadata: populated"
-            echo "Fonts: embedded, no Type 3"
-            echo "Repository: no Python bytecode artifacts"
-          } | tee publication_preflight.txt
+          echo "PUBLICATION PREFLIGHT PASS" | tee publication_preflight.txt
 
       - name: Upload publication candidate and ledgers
         uses: actions/upload-artifact@v4
         with:
-          name: metatime-publication-candidate-v11-0-pr77
+          name: metatime-publication-candidate-v11-0
           if-no-files-found: error
           retention-days: 30
           path: |
@@ -197,11 +156,9 @@ jobs:
             TIR/monograph/citation_coverage_v11_0.json
             TIR/monograph/PUBLICATION_READINESS_v11_0.md
             TIR/monograph/publication_readiness_v11_0.json
-            TIR/monograph/references_expanded_v10_8.tex
-            TIR/monograph/frontmatter/publication_frontmatter_v11_0.tex
-            TIR/monograph/appendices/appO_publication_protocol.tex
             checkout_head_sha.txt
             checkout_status.txt
+            prepared-publication.diff
             pdfinfo.txt
             pdffonts.txt
             qpdf-check.txt
