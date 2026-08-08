@@ -1,0 +1,38 @@
+{
+  "schema": "tir-half/atomic-assignment-canonization/v0.6",
+  "status": "PASS_WITH_OPEN_TIR_BINDING",
+  "source_package_zip_sha256": "3402beb604ad1b332880706bee1a26913a8c1ae3239295d04e242177e5dfae87",
+  "validation": {
+    "pytest": "28 PASS",
+    "skill": "PASS",
+    "phase_nav_v36": "PASS",
+    "foundation_regression": "PASS"
+  },
+  "canonized": {
+    "slot_role_routing": "STRUCTURAL_ROLE_ROUTING_PASS",
+    "roles": {
+      "h": "projective_half_spin_identity",
+      "a": "generation_seed_release",
+      "b": "collatz_return_axis",
+      "c": "poincare_berry_curvature_holonomy"
+    },
+    "relational_gradient_orientation": "IMPLEMENTED_PROJECT_OPERATOR",
+    "relational_gradient_rule": "sign(-dV_dphi)",
+    "orbital_direction_rule": "IMPLEMENTED_PROJECT_ORBITAL_RULE"
+  },
+  "proof_firewall": {
+    "mass_as_input": "FORBIDDEN",
+    "yukawa_as_input": "FORBIDDEN",
+    "known_coefficient_tuple_as_input": "FORBIDDEN",
+    "coefficient_enriched_phase36_as_input": "FORBIDDEN"
+  },
+  "not_promoted": {
+    "gradient_to_TIR_slot_binding": "OPEN_PROSPECTIVE_VALIDATION_REQUIRED",
+    "collatz_stopping_sign_rule": "RETROSPECTIVE_CANDIDATE_NEEDS_PROSPECTIVE_TEST",
+    "collatz_destination_curvature_magnitude": "RETROSPECTIVE_CANDIDATE_UNDERDETERMINED",
+    "SOH_C004": "OPEN",
+    "SOH_C005": "OPEN"
+  },
+  "github_target": "agent/atomic-assignment-canon-v0.6",
+  "main_write": false
+}
