@@ -31,11 +31,29 @@ REFERENCE_ENVELOPE = 0.254  # retrospective v10.2 non-u maximum |log error|
 
 
 def read_rows(path: Path) -> List[Dict[str, str]]:
+    """
+    Read CSV records from a UTF-8-encoded file.
+    
+    Parameters:
+    	path (Path): Path to the CSV file.
+    
+    Returns:
+    	List[Dict[str, str]]: Rows represented as dictionaries keyed by CSV column names.
+    """
     with path.open(newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle))
 
 
 def residuals_from_v10_2() -> Dict[str, float]:
+    """
+    Load the v10.2 logarithmic residual for each required up-sector slot.
+    
+    Returns:
+        Dict[str, float]: Mapping of up-sector slot names to their logarithmic residuals.
+    
+    Raises:
+        RuntimeError: If a required up-sector slot is missing from the input data.
+    """
     rows = read_rows(INPUT)
     by_slot = {row["fermion"]: row for row in rows}
     missing = [slot for slot in UP_SLOTS if slot not in by_slot]
@@ -45,6 +63,16 @@ def residuals_from_v10_2() -> Dict[str, float]:
 
 
 def shifted_metrics(residuals: Dict[str, float], shift: float) -> Dict[str, Any]:
+    """
+    Compute absolute residual errors and aggregate multiplicative error metrics after applying a common logarithmic shift.
+    
+    Parameters:
+        residuals (Dict[str, float]): Logarithmic residuals keyed by sector slot.
+        shift (float): Common logarithmic shift applied to each residual.
+    
+    Returns:
+        Dict[str, Any]: The applied shift, per-slot absolute logarithmic errors, and aggregate error metrics.
+    """
     errors = {slot: abs(value + shift) for slot, value in residuals.items()}
     values = list(errors.values())
     return {
@@ -59,6 +87,7 @@ def shifted_metrics(residuals: Dict[str, float], shift: float) -> Dict[str, Any]
 
 
 def main() -> None:
+    """Generate and persist the retrospective common-baseline no-go audit report."""
     residuals = residuals_from_v10_2()
     values = list(residuals.values())
     r_min = min(values)

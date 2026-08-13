@@ -66,6 +66,15 @@ CANDIDATE_IDS = (
 
 
 def sha256_file(path: Path) -> str:
+    """
+    Compute the SHA-256 hexadecimal digest of a file.
+    
+    Parameters:
+        path (Path): File to hash.
+    
+    Returns:
+        str: SHA-256 hexadecimal digest of the file contents.
+    """
     h = hashlib.sha256()
     with path.open("rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
@@ -74,6 +83,19 @@ def sha256_file(path: Path) -> str:
 
 
 def collatz_orbit(n: int, max_steps: int = 512) -> List[int]:
+    """
+    Build the Collatz sequence from a starting integer until it reaches 1.
+    
+    Parameters:
+    	n (int): Starting integer.
+    	max_steps (int): Maximum number of values allowed in the sequence.
+    
+    Returns:
+    	List[int]: The Collatz orbit, including the starting integer and 1.
+    
+    Raises:
+    	RuntimeError: If the sequence does not reach 1 within the step limit.
+    """
     out = [n]
     while out[-1] != 1 and len(out) < max_steps:
         x = out[-1]
@@ -84,6 +106,16 @@ def collatz_orbit(n: int, max_steps: int = 512) -> List[int]:
 
 
 def ramanujan_sum(q: int, n: int) -> int:
+    """
+    Compute the integer-valued Ramanujan sum for a modulus and index.
+    
+    Parameters:
+    	q (int): The modulus used to select coprime terms.
+    	n (int): The index applied to each term.
+    
+    Returns:
+    	int: The Ramanujan sum rounded to the nearest integer.
+    """
     total = 0.0
     for a in range(1, q + 1):
         if math.gcd(a, q) == 1:
@@ -92,11 +124,27 @@ def ramanujan_sum(q: int, n: int) -> int:
 
 
 def hardy_ramanujan_entropy(n: int) -> float:
+    """Compute the Hardy–Ramanujan entropy approximation for an integer.
+    
+    Parameters:
+    	n (int): The integer used in the approximation.
+    
+    Returns:
+    	float: The entropy value, using 1 when n is less than 1.
+    """
     return math.pi * math.sqrt(2.0 * max(n, 1) / 3.0)
 
 
 def ramanujan_release_unit(pair: Tuple[int, int]) -> float:
-    """Return action/kappa from the frozen v2.1 Ramanujan gate."""
+    """
+    Compute the Ramanujan release unit for a pair of seed integers.
+    
+    Parameters:
+        pair (Tuple[int, int]): Seed integers used to derive the release value.
+    
+    Returns:
+        float: A non-negative release unit.
+    """
     p, q = pair
     n = p * q
     ref = 11 * 13
@@ -116,6 +164,17 @@ def ramanujan_release_unit(pair: Tuple[int, int]) -> float:
 def load_sources() -> Tuple[
     Dict[str, float], Dict[int, float], Dict[int, Tuple[int, int]], Dict[str, Tuple[str, int]]
 ]:
+    """
+    Load and validate the representation and charged-fermion source artifacts.
+    
+    Returns:
+        A tuple containing sector action units, generation action units, generation
+        seed pairs, and a mapping from fermion names to sector and generation.
+    
+    Raises:
+        FileNotFoundError: If a required source artifact is missing.
+        RuntimeError: If either source fails validation or is incomplete.
+    """
     if not ACTION_SOURCE.exists() or not REPRESENTATION_SOURCE.exists():
         raise FileNotFoundError("required v1.0 source artifact is missing")
 
@@ -153,6 +212,19 @@ def load_sources() -> Tuple[
 
 
 def sector_potential(candidate_id: str, action: float) -> float:
+    """
+    Compute the sector potential for a candidate formulation and action value.
+    
+    Parameters:
+    	candidate_id (str): Identifier of the candidate formulation.
+    	action (float): Sector action unit.
+    
+    Returns:
+    	float: The candidate-specific sector potential.
+    
+    Raises:
+    	KeyError: If `candidate_id` is not recognized.
+    """
     if candidate_id == "C1_LINEAR_SEPARABLE_ACTION":
         return -action
     if candidate_id == "C2_QUARTER_POWER_SEPARABLE_ACTION":
@@ -167,6 +239,20 @@ def generation_release(
     generation_action_unit: float,
     ramanujan_unit: float,
 ) -> float:
+    """
+    Calculate the generation contribution for a candidate formulation, including the Ramanujan release.
+    
+    Parameters:
+    	candidate_id (str): Identifier of the candidate formulation.
+    	generation_action_unit (float): Generation action unit used to calculate the base contribution.
+    	ramanujan_unit (float): Ramanujan release added to the base contribution.
+    
+    Returns:
+    	float: The candidate-specific generation contribution including the Ramanujan release.
+    
+    Raises:
+    	KeyError: If candidate_id is not a recognized candidate formulation.
+    """
     if candidate_id == "C1_LINEAR_SEPARABLE_ACTION":
         base = -generation_action_unit
     elif candidate_id == "C2_QUARTER_POWER_SEPARABLE_ACTION":
@@ -179,10 +265,28 @@ def generation_release(
 
 
 def ratio(log_coordinates: Dict[str, float], numerator: str, denominator: str) -> float:
+    """
+    Compute the ratio represented by two logarithmic coordinates.
+    
+    Parameters:
+    	log_coordinates (Dict[str, float]): Mapping of names to logarithmic values.
+    	numerator (str): Name of the numerator coordinate.
+    	denominator (str): Name of the denominator coordinate.
+    
+    Returns:
+    	float: Exponential ratio of the numerator coordinate to the denominator coordinate.
+    """
     return math.exp(log_coordinates[numerator] - log_coordinates[denominator])
 
 
 def main() -> None:
+    """
+    Freeze the candidate family and write its JSON and CSV artifacts.
+    
+    The generated candidates and ratio observables are computed from the pre-frozen
+    source data without performing mass benchmarking or inspecting future
+    likelihoods.
+    """
     sector_action, generation_action, generation_seed, particle_map = load_sources()
     ramanujan_release = {
         generation: ramanujan_release_unit(pair)

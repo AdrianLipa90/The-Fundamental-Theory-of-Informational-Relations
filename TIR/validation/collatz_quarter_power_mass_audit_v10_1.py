@@ -76,6 +76,18 @@ FIXED_EXPONENTS = {
 
 
 def read_csv(path: Path) -> List[Dict[str, str]]:
+    """
+    Read a CSV file and return its rows as dictionaries keyed by column name.
+    
+    Parameters:
+        path (Path): Path to the CSV file.
+    
+    Returns:
+        List[Dict[str, str]]: The parsed CSV rows.
+    
+    Raises:
+        FileNotFoundError: If the CSV file does not exist.
+    """
     if not path.exists():
         raise FileNotFoundError(path)
     with path.open(newline="", encoding="utf-8") as handle:
@@ -83,10 +95,31 @@ def read_csv(path: Path) -> List[Dict[str, str]]:
 
 
 def pair_key(row: Dict[str, str]) -> str:
+    """
+    Build a seed-pair key from a row's numeric seed values.
+    
+    Parameters:
+    	row (Dict[str, str]): A row containing `seed_p` and `seed_q` values.
+    
+    Returns:
+    	str: The integer-formatted seed pair joined by a hyphen.
+    """
     return f"{int(float(row['seed_p']))}-{int(float(row['seed_q']))}"
 
 
 def v2(n: int) -> int:
+    """
+    Compute the exponent of 2 in the prime factorization of a positive integer.
+    
+    Parameters:
+        n (int): The positive integer to evaluate.
+    
+    Returns:
+        int: The number of times 2 divides `n`.
+    
+    Raises:
+        ValueError: If `n` is less than or equal to zero.
+    """
     if n <= 0:
         raise ValueError("v2 is defined here only for positive integers")
     count = 0
@@ -98,12 +131,15 @@ def v2(n: int) -> int:
 
 def collatz_residue_audit(bits: int = RESIDUE_BITS) -> Dict[str, float]:
     """
-    Enumerate odd residue representatives below 2**bits.
-
-    For the accelerated odd map
-        T(n) = (3n+1) / 2**a,  a = v2(3n+1),
-    uniform odd residues give E[a] -> 2 and therefore
-        exp(E[ln(3/2**a)]) -> 3/4.
+    Audit the 2-adic valuations of 3n + 1 for odd residues below 2**bits.
+    
+    Parameters:
+        bits (int): Number of residue bits to enumerate; must be at least 4.
+    
+    Returns:
+        Dict[str, float]: Audit statistics including the empirical and asymptotic
+            scaling factors, their absolute error, the mean valuation, and the
+            maximum observed valuation.
     """
     if bits < 4:
         raise ValueError("bits must be >= 4")
@@ -124,9 +160,15 @@ def collatz_residue_audit(bits: int = RESIDUE_BITS) -> Dict[str, float]:
 
 def structural_rows() -> List[Dict[str, Any]]:
     """
-    Merge only mass-free structural inputs.
-
-    Validation targets are deliberately not loaded in this function.
+    Merge mass-free structural inputs from the archived action and Ramanujan tables.
+    
+    Returns:
+    	List[Dict[str, Any]]: Structural records containing the fermion metadata,
+    	seed pair, action values, and an indicator that observed mass was not used.
+    
+    Raises:
+    	RuntimeError: If a seed pair has no matching Ramanujan record or the electron
+    	structural anchor is missing.
     """
     eb_rows = read_csv(EB_ACTION_CSV)
     ram_rows = read_csv(RAMANUJAN_CSV)
@@ -157,7 +199,15 @@ def structural_rows() -> List[Dict[str, Any]]:
 
 
 def freeze_operator_trace(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
-    """Freeze all fixed-exponent traces before target masses are loaded."""
+    """
+    Freeze fixed-exponent operator traces from mass-free structural rows.
+    
+    Parameters:
+        rows (List[Dict[str, Any]]): Structural rows, including the anchor row.
+    
+    Returns:
+        Dict[str, Any]: A SHA-256 fingerprint and the per-variant operator trace records.
+    """
     anchor = next(row for row in rows if row["fermion"] == ANCHOR)
     a_anchor = anchor["eb_action_kappa"]
     r_anchor = anchor["ramanujan_scaled_action"]
@@ -211,6 +261,16 @@ def freeze_operator_trace(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
 
 
 def class_order_pass(predictions: List[Dict[str, Any]], family: str) -> bool:
+    """
+    Determine whether predicted masses increase strictly by generation within a particle family.
+    
+    Parameters:
+        predictions (List[Dict[str, Any]]): Prediction records containing class, generation, and predicted mass fields.
+        family (str): Particle family to evaluate.
+    
+    Returns:
+        bool: `true` if predicted masses strictly increase by generation, `false` otherwise.
+    """
     rows = sorted(
         (row for row in predictions if row["class"] == family),
         key=lambda row: row["generation"],
@@ -223,6 +283,16 @@ def summarize_variant(
     name: str,
     predictions: List[Dict[str, Any]],
 ) -> Dict[str, Any]:
+    """
+    Summarize prediction errors and generation-order checks for an operator variant.
+    
+    Parameters:
+    	name (str): Name of the operator variant.
+    	predictions (List[Dict[str, Any]]): Prediction records, including anchor and non-anchor entries.
+    
+    Returns:
+    	Dict[str, Any]: Error metrics and class-order validation results for the variant.
+    """
     non_anchor = [row for row in predictions if not row["is_anchor"]]
     absolute_log_errors = [row["abs_log_error"] for row in non_anchor]
     return {
@@ -245,7 +315,18 @@ def summarize_variant(
 
 
 def benchmark(frozen: Dict[str, Any]) -> Dict[str, Any]:
-    """Load masses only after the structural operator has been fingerprinted."""
+    """
+    Benchmark fixed operator variants against validation masses and report diagnostic metrics and gating results.
+    
+    Parameters:
+        frozen (Dict[str, Any]): Fingerprinted operator trace data containing per-fermion predictions.
+    
+    Returns:
+        Dict[str, Any]: Validation predictions, per-variant summaries, post-hoc alpha diagnostics, and quarter-power gate results.
+    
+    Raises:
+        RuntimeError: If the anchor mass or a mass required by an operator trace is missing.
+    """
     target_rows = read_csv(TARGET_CSV)
     targets = {row["fermion"]: float(row["mass_GeV"]) for row in target_rows}
     if ANCHOR not in targets:
@@ -370,11 +451,27 @@ def benchmark(frozen: Dict[str, Any]) -> Dict[str, Any]:
 def flatten_predictions(
     predictions_by_variant: Dict[str, List[Dict[str, Any]]]
 ) -> Iterable[Dict[str, Any]]:
+    """
+    Yield prediction records for each fixed exponent variant.
+    
+    Parameters:
+        predictions_by_variant (Dict[str, List[Dict[str, Any]]]): Prediction records grouped by variant name.
+    
+    Returns:
+        Iterable[Dict[str, Any]]: Prediction records ordered by the variants in `FIXED_EXPONENTS`.
+    """
     for variant in FIXED_EXPONENTS:
         yield from predictions_by_variant[variant]
 
 
 def main() -> None:
+    """
+    Run the Collatz quarter-power mass-scaling audit and write its JSON and CSV reports.
+    
+    The audit evaluates the residue scaling, freezes mass-free operator traces, benchmarks
+    the fixed exponent variants, and records status information without permitting
+    promotion to a canonical mass law.
+    """
     residue = collatz_residue_audit()
     structural = structural_rows()
     frozen = freeze_operator_trace(structural)

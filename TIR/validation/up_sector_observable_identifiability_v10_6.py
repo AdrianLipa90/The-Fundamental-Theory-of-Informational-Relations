@@ -38,6 +38,18 @@ V10_2_PREDICTIONS = (
 
 
 def read_csv(path: Path) -> List[Dict[str, str]]:
+    """
+    Load CSV rows from a file.
+    
+    Parameters:
+        path (Path): Path to the CSV file.
+    
+    Returns:
+        List[Dict[str, str]]: CSV rows represented as dictionaries.
+    
+    Raises:
+        FileNotFoundError: If the CSV file does not exist.
+    """
     if not path.exists():
         raise FileNotFoundError(path)
     with path.open(newline="", encoding="utf-8") as handle:
@@ -45,6 +57,15 @@ def read_csv(path: Path) -> List[Dict[str, str]]:
 
 
 def canonical_sha256(obj: Any) -> str:
+    """
+    Return a deterministic SHA-256 hexadecimal digest for a JSON-serializable object.
+    
+    Parameters:
+        obj (Any): Object to serialize and hash.
+    
+    Returns:
+        str: SHA-256 hexadecimal digest of the object's canonical JSON representation.
+    """
     encoded = json.dumps(
         obj,
         sort_keys=True,
@@ -55,6 +76,13 @@ def canonical_sha256(obj: Any) -> str:
 
 
 def main() -> None:
+    """
+    Run the sector observable identifiability audit and write its JSON payload.
+    
+    Raises:
+    	RuntimeError: If required orientation or prediction rows are missing, or if
+    		the required sector relationships are not satisfied.
+    """
     orientation = {row["particle"]: row for row in read_csv(ORIENTATION_CSV)}
     predictions = {
         row["fermion"]: row for row in read_csv(V10_2_PREDICTIONS)
