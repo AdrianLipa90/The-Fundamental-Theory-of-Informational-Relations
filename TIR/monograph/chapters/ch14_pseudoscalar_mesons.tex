@@ -2,104 +2,54 @@
 \chapter{Pseudoscalar Mesons}
 \label{ch:pseudoscalar_mesons}
 
-Meson masses in the Metatime framework emerge from the Kuramoto
-coupled-oscillator dynamics of a \(q\bar{q}\) pair on the Poincar\'{e}
-disk.
+\section{Status after the PDG 2026 arithmetic audit}
+This chapter is retained as a record of the meson ansatz, but its previous
+numerical prediction claims for the pion and kaon are quarantined.
 
-\section{The Kuramoto Model on the Poincar\'{e} Disk}
-
-A meson is modelled as two coupled oscillators (the quark and antiquark)
-on the Poincar\'{e} disk.  The synchronization dynamics follow the Kuramoto
-model:
-
+The original text assigned
 \[
-\dot{\theta}_i = \omega_i + \sum_{j \neq i} K_{ij} \sin(\theta_j - \theta_i),
+\frac{\Delta S_\pi}{\kappa}=\frac{6}{\pi}
 \]
-
-where \(\theta_i\) are the phase angles and \(K_{ij}\) are the coupling
-strengths determined by the flavour content.
-
-\section{Pion Mass}
-
-The pion (\(u\bar{d}\)) is the lightest meson.  Its action offset is:
-
-\begin{equation}
-\frac{\Delta S_\pi}{\kappa} = \frac{6}{\pi} \approx 1.90986.
-\label{eq:pion_action}
-\end{equation}
-
-The factor \(6/\pi\) arises from the perihelion overload of the phase orbit
-for a \(u\bar{d}\) pair on the Poincar\'{e} disk.
-
-The pion mass is then:
-
+and then wrote
 \[
-m_\pi = E_P \exp\left(-\frac{\Delta S_\pi}{\kappa}\right).
+m_\pi=E_P\exp\!\left(-\frac{\Delta S_\pi}{\kappa}\right)
+     =1.22089\times10^{22}e^{-6/\pi}\ {\rm MeV}.
 \]
-
-Numerically:
-
+The right-hand side evaluates to approximately
 \[
-m_\pi = 1.22089\times 10^{22} \cdot e^{-1.90986} \approx 139.57\ \mev.
+1.81\times10^{21}\ {\rm MeV},
 \]
+not $139.57$ MeV.
 
-\section{Kaon Mass}
-
-The kaon (\(u\bar{s}\)) contains a strange antiquark.  Its action offset is:
-
-\begin{equation}
-\frac{\Delta S_K}{\kappa} = \zeta(2) - 1 = \frac{\pi^2}{6} - 1 \approx 0.64493.
-\label{eq:kaon_action}
-\end{equation}
-
-Here \(\zeta(2) = \pi^2/6 \approx 1.64493\) is the Riemann zeta function at
-\(s=2\), representing the geometric series sum over the strange quark
-excitations.
-
-The kaon mass:
-
+Likewise, the printed kaon expression
 \[
-m_K = 1.22089\times 10^{22} \cdot e^{-0.64493} \approx 493.68\ \mev.
+m_K=E_P\exp[-(\zeta(2)-1)]
 \]
-
-\section{The \(\eta\) and \(\eta'\) Mesons}
-
-The \(\eta\) and \(\eta'\) mesons are mixtures of the SU(3) octet and singlet
-states.  Their masses follow from diagonalizing the \(2\times 2\) mixing
-operator:
-
-\begin{equation}
-\mathcal{M}^2 =
-\begin{pmatrix}
-m_8^2 & M_{81}^2 \\
-M_{81}^2 & m_1^2
-\end{pmatrix},
-\label{eq:eta_mixing}
-\end{equation}
-
-with entries derived from the SU(3) octet-singlet structure via the
-L-constants.  The eigenvalues give the physical \(\eta\) and \(\eta'\) masses:
-
+evaluates to approximately
 \[
-\begin{aligned}
-m_\eta &\approx 547.86\ \mev \quad (547.86\ \text{PDG}), \\
-m_{\eta'} &\approx 957.78\ \mev \quad (957.78\ \text{PDG}).
-\end{aligned}
+6.41\times10^{21}\ {\rm MeV},
 \]
+not $493.68$ MeV.
 
-\section{Results Summary}
-
+\section{Interpretation}
+The near-common logarithmic discrepancy suggests that the printed relations may
+be missing an absolute base action $S_0$:
 \[
-\begin{array}{lccc}
-\text{Meson} & \text{Predicted (MeV)} & \text{PDG (MeV)} & \text{Error} \\
-\hline
-\pi^\pm & 139.57 & 139.57 & 0.00\% \\
-\pi^0 & 134.98 & 134.98 & 0.00\% \\
-K^\pm & 493.68 & 493.68 & 0.00\% \\
-K^0 & 497.61 & 497.61 & 0.00\% \\
-\eta & 547.86 & 547.86 & 0.00\% \\
-\eta' & 957.78 & 957.78 & 0.00\% \\
-\end{array}
+m=E_P\exp\!\left[-\frac{S_0+\Delta S}{\kappa}\right].
 \]
+However, $S_0$ is not derived in the present meson construction.  Inferring it
+from the observed meson masses would be a fit and is therefore not promoted.
 
-Mean absolute error: 0.58\% across all pseudoscalar states.
+\section{Eta-sector and heavier mesons}
+The $\eta/\eta'$ mixing idea and the heavy/vector meson assignments remain
+candidate structures.  Their previous near-exact agreement with PDG cannot be
+counted as independent validation until all matrix entries and state-specific
+mass maps are executable from frozen non-mass inputs.
+
+\section{Required gate}
+No meson mass in this chapter is promoted as a prospective prediction until:
+\begin{enumerate}
+\item the absolute action baseline is derived independently of the target mass;
+\item all numerical steps reproduce the printed result;
+\item the formula is frozen and hashed before opening the comparison data.
+\end{enumerate}
