@@ -1,0 +1,14 @@
+{
+  "schema": "tir.polygonal.stage26.family-blind-gluon/v0.1",
+  "status": "PASS",
+  "checks": {
+    "eight_independent_color_generators": true,
+    "family_commutators_zero": true,
+    "extended_gell_mann_gram": true
+  },
+  "generator_rank": 8,
+  "family_commutator_max_abs": 0.0,
+  "gram_max_abs_residual": 1.7763568394002505e-15,
+  "evidence_class": "NUMERICAL_LINEAR_ALGEBRA_REPLAY_OF_EXACT_TENSOR_IDENTITY",
+  "scope": "eight su(3)_C generators extended over three family labels"
+}
