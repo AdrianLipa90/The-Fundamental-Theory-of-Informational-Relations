@@ -1,0 +1,28 @@
+{
+  "schema": "TIR-POLYGONAL-SPINOR-DOUBLE-COVER/0.1",
+  "scope": "pure mathematics",
+  "N4": {
+    "spinor_lift_order": 8,
+    "C4_times_C2_group_order": 8,
+    "C4_times_C2_max_element_order": 4,
+    "U4_power4_minus_identity_error": 3.5876077807826975e-16,
+    "U4_power8_identity_error": 7.175215561565395e-16,
+    "global_rotation_group": "S4",
+    "global_rotation_group_order": 24,
+    "binary_double_cover": "2O",
+    "binary_group_order": 48
+  },
+  "N5": {
+    "spinor_lift_order": 10,
+    "C5_times_C2_group_order": 10,
+    "C5_times_C2_max_element_order": 10,
+    "U5_power5_minus_identity_error": 2.7782264690147754e-16,
+    "U5_power10_identity_error": 5.753305784451283e-16,
+    "global_rotation_group": "A5",
+    "global_rotation_group_order": 60,
+    "binary_double_cover": "2I",
+    "binary_group_order": 120
+  },
+  "discriminant": "The N=4 direct product and cyclic spinor preimage have different element-order structure; the N=5 direct product is cyclic and matches the local C10 preimage abstractly.",
+  "verdict": "PASS"
+}
