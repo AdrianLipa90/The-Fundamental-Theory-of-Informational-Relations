@@ -1,0 +1,33 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE34_CKM_SU3F_CARRIER_RECEIPT_V0_1",
+  "created_local": "2026-08-25T13:50:00+01:00",
+  "status": "PASS",
+  "script": "TIR/frozen_predictions/validation/scripts/ckm_su3f_stage34_v01.py",
+  "script_sha256": "f7b9c26e8064353cf5264622abec20a5225605e49bfeeaaf0ad471713a86dd52",
+  "execution": {
+    "environment": "assistant local Python replay using the exact committed source",
+    "return_code": 0,
+    "inputs": {
+      "kappa": 0.009193150006360484,
+      "a": 0.2857142857142857,
+      "b": 0.2222222222222222,
+      "c": 0.4,
+      "lambda": 0.22484883650975376,
+      "V_cb": 0.04081632653061224,
+      "V_ub": 0.0036281179138321993,
+      "delta_deg": 66.42182152179817
+    },
+    "checks": {
+      "unitarity_residual_max_abs": 2.220446049250313e-16,
+      "determinant_minus_one_abs": 2.220446049522218e-16,
+      "color_family_commutator_residual_max_abs": 0.0
+    }
+  },
+  "source_blobs": {
+    "stage34_document": "6ea62112f228f85be04015d03a4dec0c79f8c92e",
+    "stage33_endpoint_dictionary": "31f93f3f1211137554d9b593316b07b3c8cd48b9",
+    "stage32_provenance_audit": "1a647d4565126610103841516f4635903ee1f6f8"
+  },
+  "verdict": "STAGE_34_CKM_SU3F_REPRESENTATION_PASS",
+  "epistemic_boundary": "This receipt validates the SU(3)_F representation and color-family commutation. It does not upgrade the existing CKM numerical formulas beyond the Stage 32 postdictive provenance classification."
+}
