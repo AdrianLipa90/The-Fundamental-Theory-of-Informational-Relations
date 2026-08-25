@@ -1,0 +1,50 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE46_LOW_COMPLEXITY_DISTANCE_IDENTITY_RECEIPT_V0_1",
+  "status": "PASS_WITH_NONUNIQUENESS_BOUNDARY",
+  "constants": {
+    "L3": 7,
+    "L4": 2,
+    "L5": 5
+  },
+  "targets": {
+    "d12": 4,
+    "d13": 88,
+    "d23": 90
+  },
+  "search_grammar": {
+    "leaves": ["L3", "L4", "L5"],
+    "leaf_repetition_allowed": true,
+    "operators": ["+", "-", "*", "/"],
+    "maximum_binary_operations": 3,
+    "exact_rational_arithmetic": true,
+    "commutative_operand_order_canonicalized": true,
+    "parenthesized_expression_trees_retained": true
+  },
+  "enumerated_expression_tree_counts": {
+    "0_operations": 3,
+    "1_operation": 30,
+    "2_operations": 531,
+    "3_operations": 12120
+  },
+  "hit_counts": {
+    "4": 239,
+    "88": 1,
+    "90": 5
+  },
+  "d13_unique_hit": "(((L3*L3)-L5)*L4)",
+  "d23_hits": [
+    "(((L3+L4)*L4)*L5)",
+    "(((L3+L4)*L5)*L4)",
+    "(((L5*L5)-L3)*L5)",
+    "((L3+L4)*(L4*L5))",
+    "((L3+L4)*(L5+L5))"
+  ],
+  "checks": {
+    "d12_nonunique": true,
+    "d13_unique_in_frozen_grammar": true,
+    "d23_five_tree_hits": true
+  },
+  "physical_amplitude_claim": false,
+  "distance_to_amplitude_rule_promoted": false,
+  "verdict": "STAGE_46_LOW_COMPLEXITY_IDENTITY_AUDIT_PASS_WITH_NONUNIQUENESS_BOUNDARY"
+}
