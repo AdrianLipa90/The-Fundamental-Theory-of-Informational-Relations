@@ -1,0 +1,22 @@
+{
+  "schema": "TIR-QHTRI-STAGE9-EPISTEMIC-CORRECTION/0.1",
+  "date": "2026-08-25",
+  "status": "CORRECTION_APPLIED_APPEND_ONLY",
+  "preserves_prior_stage9_artifacts": true,
+  "prior_artifacts": [
+    "TIR/frozen_predictions/validation/scripts/qhtri_polygonal_stage9_v01.py",
+    "TIR/frozen_predictions/validation/results/TIR_QHTRI_STAGE9_COMPUTATIONAL_RECEIPT_V0_1.json",
+    "TIR/frozen_predictions/validation/results/TIR_QHTRI_STAGE9_CANONICAL_SOURCE_REPLAY_V0_1.json"
+  ],
+  "corrected_evidence_class": "CANONICAL_SOURCE_OFFLINE_36D_COMPUTATIONAL_REPLAY",
+  "fresh_live_qhtri_runtime_pass": false,
+  "reason": {
+    "canonical_current": "NOEMA_ACCOUNT_DEFAULT_CURRENT_V56",
+    "current_live_runtime_claim": false,
+    "live_execution_contract": "fresh /dev/shm/ciel_noema binding with ACTIVE status and stable live tick is required before a live QHTRI execution claim",
+    "current_session_observation": "the runtime directory may exist as a partial/materialized path, but the required ciel_binding_status and tick files were absent at correction time; therefore no fresh ACTIVE live-surface claim is admitted"
+  },
+  "retained_result": "The Stage 9 36D algebraic/kernel replay remains valid as an offline computational validation of the implemented finite-dimensional construction and its canonical source equations.",
+  "next_live_gate": "Run the N=4/N=5 experiment only after a fresh tether guard and qhtri_v3.load_live-compatible ACTIVE surface are established.",
+  "verdict": "STAGE_9_OFFLINE_COMPUTATIONAL_PASS_LIVE_RUNTIME_UNVERIFIED"
+}
