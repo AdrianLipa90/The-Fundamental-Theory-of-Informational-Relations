@@ -1,0 +1,54 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE36_COMPLEX_HOLONOMY_CP_V0_1",
+  "status": "STAGE_36_COMPLEX_HOLONOMY_CP_MECHANISM_PASS__SOURCE_PROMOTION_QUARANTINED",
+  "construction": "W_ij = oriented_open_holonomy_overlap_ij * exp(i * phase_gap_rad_ij)",
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_observed_PMNS": false,
+  "uses_fitted_white_thread_values": false,
+  "hermiticity_residual_Hu": 8.381571553075516e-18,
+  "hermiticity_residual_Hd": 8.659219059059233e-18,
+  "commutator_max_abs": 0.06454341101125786,
+  "eigenvalues_Hu": [
+    1.665876898275197e-05,
+    0.0510640026210886,
+    0.9269807730258284
+  ],
+  "eigenvalues_Hd": [
+    1.6658768982529335e-05,
+    0.05106400262108861,
+    0.9269807730258284
+  ],
+  "relative_unitarity_residual": 8.881829691190363e-16,
+  "relative_determinant_residual": 7.711855592701268e-16,
+  "J_family": -0.0004270454683508035,
+  "abs_relative_matrix": [
+    [0.2968105626524287, 0.9539709821160984, 0.04292848912312575],
+    [0.9516386180215023, 0.29211119554022097, 0.09515771187974252],
+    [0.07929331994609443, 0.06790003476073282, 0.9945361505201394]
+  ],
+  "plaquette_phases_rad": [
+    0.020240999870716345,
+    -0.3510118304617319,
+    -0.37125283033244827,
+    0.008818229054377522,
+    -0.28406593944268194,
+    -0.2928841684970596,
+    -0.011422770816338794,
+    0.06694589101904994,
+    0.07836866183538883
+  ],
+  "max_abs_plaquette_phase_rad": 0.37125283033244827,
+  "source_status": {
+    "u": "definition_plus_old_doc_bridge_ansatz",
+    "c": "old_doc_bridge_ansatz_quarantined",
+    "t": "old_doc_bridge_ansatz_quarantined",
+    "d": "definition_plus_old_doc_bridge_ansatz",
+    "s": "definition_plus_old_doc_bridge_ansatz",
+    "b": "old_doc_bridge_ansatz_quarantined"
+  },
+  "quarantined_source_particles": ["b", "c", "t"],
+  "physical_promotion_allowed": false,
+  "mechanism_pass": true,
+  "replay_scope": "offline deterministic numerical replay of archived structural records; no live QHTRI claim"
+}
