@@ -102,14 +102,33 @@ for every `G_C in SU(3)_C` and every CKM-form `V_F in SU(3)_F`.
 
 ## Existing structural candidate
 
-Using the archived v7.9/r1 structural angles gives a numerical matrix with
+Using the Stage 33 endpoint dictionary
 
-```text
-max unitarity residual ≈ 2.22e-16
-|det(V)-1| ≈ 2.22e-16
+```math
+a=\frac27,\qquad b=\frac29,\qquad c=\frac25,
 ```
 
-so the candidate lies on the derived family carrier to numerical precision.
+with
+
+```math
+\lambda=b+a\kappa,
+\qquad
+|V_{cb}|=\frac{a^2}{2},
+\qquad
+|V_{ub}|=\frac{a^2bc}{2},
+\qquad
+\delta=\arccos c,
+```
+
+the numerical carrier has
+
+```text
+max unitarity residual = 2.220446049250313e-16
+|det(V)-1| = 2.220446049522218e-16
+color-family commutator residual = 0.0
+```
+
+so the candidate lies on the derived family carrier to numerical precision and commutes with the independent color action.
 
 ## Result
 
@@ -117,6 +136,14 @@ The exceptional threefold carrier supplies an explicit representation space for 
 
 Stage 32 continues to govern the predictive status of the existing angle formulas; Stage 34 establishes their group-theoretic home.
 
-## Reproducibility
+## Reproducibility closure
+
+Executable:
 
 `TIR/frozen_predictions/validation/scripts/ckm_su3f_stage34_v01.py`
+
+Append-only receipt:
+
+`TIR/frozen_predictions/validation/results/TIR_POLYGONAL_STAGE34_CKM_SU3F_CARRIER_RECEIPT_V0_1.json`
+
+The exact committed source was replayed in the assistant-local Python environment with return code `0`. The receipt records the input invariants, the `SU(3)_F` unitarity and determinant checks, and the exact zero commutator for the deterministic color-cycle witness.
