@@ -39,7 +39,6 @@ The remaining one-family Standard Model multiplicities tensor with the family tr
 ```text
 Q      : 3_C x 2_L x 3_F = 18
 u^c    : 3bar_C x 1   x 3_F = 9
-
 d^c    : 3bar_C x 1   x 3_F = 9
 L      : 1   x 2_L x 3_F = 6
 e^c    : 1   x 1   x 3_F = 3
