@@ -1,0 +1,31 @@
+{
+  "schema": "TIR-E7-E8-MULTIPLICITY/0.1",
+  "stage": 17,
+  "E7_under_E6_x_U1": {
+    "adjoint_dimension": 133,
+    "E6_core": 78,
+    "U1_singlet": 1,
+    "E6_27": 27,
+    "E6_27bar": 27,
+    "positive_27_SO10_16_multiplicity": 1
+  },
+  "E8_under_E6_x_SU3": {
+    "adjoint_dimension": 248,
+    "E6_core": 78,
+    "SU3_commutant_adjoint": 8,
+    "E6_27_x_SU3_3": 81,
+    "E6_27bar_x_SU3_3bar": 81,
+    "positive_27_SO10_16_multiplicity": 3,
+    "positive_16_triplet_dimension": 48
+  },
+  "checks": {
+    "E7_branch_dimension": true,
+    "E8_branch_dimension": true,
+    "E6_27_branch_dimension": true,
+    "E7_single_27_multiplicity": true,
+    "E8_27_triplet_multiplicity": true,
+    "E8_16_triplet_dimension": true
+  },
+  "verdict": "PASS",
+  "physical_family_identification": "OPEN"
+}
