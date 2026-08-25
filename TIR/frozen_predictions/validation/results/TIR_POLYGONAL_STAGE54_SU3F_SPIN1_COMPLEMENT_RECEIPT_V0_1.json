@@ -1,0 +1,26 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE54_SU3F_SPIN1_COMPLEMENT_RECEIPT_V0_1",
+  "status": "PASS",
+  "embedding": "Stage 52 explicit spin-1 SU(2) subset SU(3)_F",
+  "D0": {
+    "spin2_fraction_exact": "(143-63*sqrt(5))/302",
+    "spin2_fraction_numeric": 0.007045421912295527,
+    "spin1_fraction_numeric": 0.9929545780877044,
+    "spin2_component_nonzero": true
+  },
+  "C0": {
+    "spin2_fraction_exact": "1/3",
+    "spin2_fraction_numeric": 0.3333333333333333,
+    "spin1_fraction_exact": "2/3",
+    "spin1_fraction_numeric": 0.6666666666666667,
+    "spin2_component_nonzero": true
+  },
+  "adjoint_casimir_spectrum": [2.0,2.0,2.0,6.0,6.0,6.0,6.0,6.0],
+  "multiplicities": {"j1_eigenvalue_2": 3, "j2_eigenvalue_6": 5},
+  "max_projected_casimir_residual": 2.220446049250313e-16,
+  "compact_embedding_dynamically_selected": false,
+  "physical_spin2_particle_assignment_claimed": false,
+  "CKM_input_used": false,
+  "mass_input_used": false,
+  "verdict": "STAGE_54_FROZEN_SU3F_GENERATORS_HAVE_SPIN2_COMPLEMENT_PASS"
+}
