@@ -1,0 +1,140 @@
+{
+  "schema": "TIR-QHTRI-POLYGONAL/0.1",
+  "stage": "9",
+  "scope": "pure computational mathematics; no atomic/PDG inputs",
+  "dimension": 36,
+  "active_sector_dimension": 6,
+  "generator": "C3 x Z2 six-state lift",
+  "radii_sweep": [
+    0.25,
+    0.5,
+    0.75,
+    0.95
+  ],
+  "gates": {
+    "H36_hermiticity_error": 2.220446049250313e-16,
+    "U36_unitarity_error": 8.881784197001252e-16,
+    "single_step_generator_error": 1.7203360430544156e-15,
+    "projected_period_3_error": 1.7763568394002505e-15,
+    "lifted_period_3_state_error_expected_nonzero": 1.0000000000000009,
+    "lifted_period_6_state_error": 1.5639852265219325e-15,
+    "characteristic_polynomial_lambda6_minus_1_error": 1.861183259375922e-15,
+    "eigenvalue_sixth_root_residual": 4.0217819489551846e-15,
+    "poincare_polynomial_residual_max_by_radius": {
+      "0.25": 2.42861286636753e-17,
+      "0.5": 1.942890293094024e-16,
+      "0.75": 6.938893903907228e-16,
+      "0.95": 1.336885555457667e-15
+    },
+    "generator_power_identity_errors": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5": 1.0,
+      "6": 0.0
+    }
+  },
+  "trajectory": [
+    {
+      "step": 0,
+      "basis_index": 0,
+      "projected_C3_index": 0,
+      "sheet": 0,
+      "norm": 1.0
+    },
+    {
+      "step": 1,
+      "basis_index": 3,
+      "projected_C3_index": 1,
+      "sheet": 1,
+      "norm": 1.0000000000000004
+    },
+    {
+      "step": 2,
+      "basis_index": 4,
+      "projected_C3_index": 2,
+      "sheet": 0,
+      "norm": 1.0000000000000009
+    },
+    {
+      "step": 3,
+      "basis_index": 1,
+      "projected_C3_index": 0,
+      "sheet": 1,
+      "norm": 1.0000000000000018
+    },
+    {
+      "step": 4,
+      "basis_index": 2,
+      "projected_C3_index": 1,
+      "sheet": 0,
+      "norm": 1.0000000000000022
+    },
+    {
+      "step": 5,
+      "basis_index": 5,
+      "projected_C3_index": 2,
+      "sheet": 1,
+      "norm": 1.0000000000000027
+    },
+    {
+      "step": 6,
+      "basis_index": 0,
+      "projected_C3_index": 0,
+      "sheet": 0,
+      "norm": 1.000000000000003
+    }
+  ],
+  "equal_edge_polygon_geometry": [
+    {
+      "N": 3,
+      "c": -0.33333333333333326,
+      "base_radius": 0.9428090415820634,
+      "status": "NONDEGENERATE"
+    },
+    {
+      "N": 4,
+      "c": 6.123233995736766e-17,
+      "base_radius": 1.0,
+      "status": "NONDEGENERATE"
+    },
+    {
+      "N": 5,
+      "c": 0.44721359549995804,
+      "base_radius": 0.8944271909999159,
+      "status": "NONDEGENERATE"
+    },
+    {
+      "N": 6,
+      "c": 1.0000000000000004,
+      "base_radius": 0.0,
+      "status": "DEGENERATE"
+    },
+    {
+      "N": 7,
+      "c": 1.6568757573375212,
+      "base_radius": null,
+      "status": "OUTSIDE_BLOCH_SPHERE"
+    },
+    {
+      "N": 8,
+      "c": 2.414213562373096,
+      "base_radius": null,
+      "status": "OUTSIDE_BLOCH_SPHERE"
+    },
+    {
+      "N": 9,
+      "c": 3.274316085206513,
+      "base_radius": null,
+      "status": "OUTSIDE_BLOCH_SPHERE"
+    },
+    {
+      "N": 10,
+      "c": 4.236067977499792,
+      "base_radius": null,
+      "status": "OUTSIDE_BLOCH_SPHERE"
+    }
+  ],
+  "verdict": "PASS"
+}
