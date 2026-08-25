@@ -1,0 +1,63 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE39_TWO_OPERATOR_FAMILY_CANDIDATE_V0_1",
+  "status": "STAGE_39_STRUCTURAL_CANDIDATE_FROZEN",
+  "candidate": "H(alpha)=D+alpha*F3*D*F3^dagger",
+  "primary_axis": "D=diag(c3,c4,c5)",
+  "c_values": [-0.3333333333333333, 0.0, 0.4472135954999579],
+  "endpoint_ratios": {"a": 0.2857142857142857, "b": 0.2222222222222222},
+  "both_sector_assignments_retained": true,
+  "target_data_loaded": false,
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "outputs": {
+    "primary_cN": {
+      "u=a_d=b": {
+        "commutator_max_abs": 0.011206297974936162,
+        "unitarity_residual": 4.440892478965608e-16,
+        "determinant_residual": 1.0408340855860843e-17,
+        "J_family": -2.0174220730068447e-05,
+        "abs_relative_matrix": [
+          [0.9991535144711765, 0.03747786182200955, 0.016960671954454887],
+          [0.03735379529202662, 0.9987742637499005, 0.032475591574677325],
+          [0.017232193626397094, 0.032332335889852425, 0.9993286103973651]
+        ]
+      },
+      "u=b_d=a": {
+        "commutator_max_abs": 0.011206297974936162,
+        "unitarity_residual": 4.440892541463855e-16,
+        "determinant_residual": 4.336808689942018e-18,
+        "J_family": 2.0174220730068325e-05,
+        "abs_relative_matrix": [
+          [0.9991535144711765, 0.03735379529202662, 0.017232193626397094],
+          [0.03747786182200955, 0.9987742637499005, 0.032332335889852425],
+          [0.016960671954454887, 0.03247559157467732, 0.9993286103973651]
+        ]
+      }
+    },
+    "control_polygon_N": {
+      "u=a_d=b": {
+        "commutator_max_abs": 0.07331431989709558,
+        "J_family": -2.0366945593919316e-05,
+        "abs_relative_matrix": [
+          [0.999259412269125, 0.034407408712728564, 0.017226642657164233],
+          [0.034407408712728675, 0.9988154286209991, 0.03440740871272953],
+          [0.017226642657164188, 0.03440740871272956, 0.9992594122691255]
+        ]
+      }
+    },
+    "control_ADE_node_count": {
+      "u=a_d=b": {
+        "commutator_max_abs": 0.07331431989709564,
+        "J_family": -2.0366945593920346e-05,
+        "abs_relative_matrix": [
+          [0.9992594122691251, 0.034407408712729966, 0.017226642657164462],
+          [0.03440740871272999, 0.998815428620999, 0.034407408712729536],
+          [0.01722664265716435, 0.034407408712729466, 0.9992594122691251]
+        ]
+      }
+    }
+  },
+  "candidate_execution_pass": true,
+  "predictive_status": "FROZEN_STRUCTURAL_CANDIDATE_POSTDICTION_CONTEXT"
+}
