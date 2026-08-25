@@ -1,0 +1,20 @@
+{
+  "schema": "tir.polygonal.stage22.seed-precedence/v0.1",
+  "status": "PASS",
+  "active_order": [[3,5],[5,7],[11,13]],
+  "full_action_values": {
+    "3-5": 0.8471633855025916,
+    "5-7": 0.6088811663290957,
+    "11-13": 0.23926393244694075
+  },
+  "checks": {
+    "three_unique_seeds": true,
+    "strict_full_action_order": true,
+    "expected_v10_order": true,
+    "generation_labels_match_order": true,
+    "historical_order_preserved_as_distinct": true
+  },
+  "mass_input_used": false,
+  "evidence_class": "REPRODUCED_FROM_FROZEN_REPOSITORY_VALUES_AND_VERSION_PRECEDENCE",
+  "scope": "ordered seed-label basis"
+}
