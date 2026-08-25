@@ -1,0 +1,44 @@
+{
+  "schema": "TIR-E8-THREEFOLD-SM-CARRIER/0.1",
+  "stage": 21,
+  "carrier": "(16,3) subset of (27,3) under E8 -> E6 x SU3",
+  "one_copy_hypercharge_multiplicities": {
+    "-2/3": 3,
+    "-1/2": 2,
+    "0": 1,
+    "1/6": 6,
+    "1/3": 3,
+    "1": 1
+  },
+  "threefold_hypercharge_multiplicities": {
+    "-2/3": 9,
+    "-1/2": 6,
+    "0": 3,
+    "1/6": 18,
+    "1/3": 9,
+    "1": 3
+  },
+  "total_state_count": 48,
+  "trace_Y": "0",
+  "per_copy_anomaly_residuals": {
+    "SU3^2_U1": "0",
+    "SU2^2_U1": "0",
+    "gravity^2_U1": "0",
+    "U1^3": "0"
+  },
+  "threefold_anomaly_residuals": {
+    "SU3^2_U1": "0",
+    "SU2^2_U1": "0",
+    "gravity^2_U1": "0",
+    "U1^3": "0"
+  },
+  "checks": {
+    "E8_16_triplet_dimension_48": true,
+    "three_exact_copies": true,
+    "threefold_trace_Y_zero": true,
+    "per_copy_anomalies_zero": true,
+    "threefold_anomalies_zero": true
+  },
+  "verdict": "PASS",
+  "TIR_seed_to_SU3_weight_map": "OPEN_BIJECTION_GATE"
+}
