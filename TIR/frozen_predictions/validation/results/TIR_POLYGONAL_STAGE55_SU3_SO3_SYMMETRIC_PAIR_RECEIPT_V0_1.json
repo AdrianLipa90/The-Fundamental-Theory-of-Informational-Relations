@@ -1,0 +1,20 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE55_SU3_SO3_SYMMETRIC_PAIR_RECEIPT_V0_1",
+  "status": "PASS",
+  "dimensions": {"k": 3, "p": 5, "total": 8},
+  "compact_subgroup": "SO(3) = image of spin-1 SU(2)",
+  "symmetric_pair": "(su(3), so(3))",
+  "coset": "SU(3)/SO(3)",
+  "coset_dimension": 5,
+  "bracket_relations": {
+    "[k,k]_subset_k": true,
+    "[k,p]_subset_p": true,
+    "[p,p]_subset_k": true
+  },
+  "max_forbidden_projection_residual": 7.021666937153402e-16,
+  "CP_statement": "SO(3) subgroup has J=0 from Stage 53; leaving the subgroup requires a p-component",
+  "polygon_N5_identification_claimed": false,
+  "CKM_input_used": false,
+  "mass_input_used": false,
+  "verdict": "STAGE_55_SU3_SO3_SYMMETRIC_PAIR_PASS"
+}
