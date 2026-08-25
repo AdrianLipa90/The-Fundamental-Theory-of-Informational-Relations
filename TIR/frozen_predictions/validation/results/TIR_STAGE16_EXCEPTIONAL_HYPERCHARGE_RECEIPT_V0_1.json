@@ -1,0 +1,37 @@
+{
+  "schema": "TIR-EXCEPTIONAL-HYPERCHARGE/0.1",
+  "stage": 16,
+  "Y5_fundamental": ["-1/3", "-1/3", "-1/3", "1/2", "1/2"],
+  "SU5_10_hypercharge_multiplicities": {
+    "-2/3": 3,
+    "1/6": 6,
+    "1": 1
+  },
+  "SU5_bar5_hypercharge_multiplicities": {
+    "-1/2": 2,
+    "1/3": 3
+  },
+  "singlet_hypercharge": "0",
+  "anomaly_residuals": {
+    "SU3^2_U1": "0",
+    "SU2^2_U1": "0",
+    "gravity^2_U1": "0",
+    "U1^3": "0"
+  },
+  "branch_dimension_checks": {
+    "E7_adjoint_to_E6_U1": true,
+    "E8_adjoint_to_E6_SU3": true,
+    "E6_27_to_SO10": true,
+    "SO10_16_to_SU5": true,
+    "SU5_family_state_count": true
+  },
+  "checks": {
+    "Y5_traceless": true,
+    "10_weights_match_TIR_v3_8": true,
+    "bar5_weights_match_TIR_v3_8": true,
+    "anomalies_zero": true,
+    "branch_dimensions_close": true
+  },
+  "verdict": "PASS",
+  "physical_family_assignment": "OPEN"
+}
