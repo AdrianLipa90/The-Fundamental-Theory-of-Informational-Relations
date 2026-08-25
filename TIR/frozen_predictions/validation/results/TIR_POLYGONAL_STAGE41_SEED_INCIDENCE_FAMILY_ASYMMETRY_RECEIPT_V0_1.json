@@ -1,0 +1,31 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE41_SEED_INCIDENCE_FAMILY_ASYMMETRY_V0_1",
+  "status": "STAGE_41_SEED_INCIDENCE_ASYMMETRY_PASS",
+  "ordered_seeds": [[3,5],[5,7],[11,13]],
+  "prime_basis": [3,5,7,11,13],
+  "incidence_matrix": [
+    [1.0,1.0,0.0,0.0,0.0],
+    [0.0,1.0,1.0,0.0,0.0],
+    [0.0,0.0,0.0,1.0,1.0]
+  ],
+  "normalized_gram": [
+    [1.0,0.5,0.0],
+    [0.5,1.0,0.0],
+    [0.0,0.0,1.0]
+  ],
+  "family_adjacency": [
+    [0.0,0.5,0.0],
+    [0.5,0.0,0.0],
+    [0.0,0.0,0.0]
+  ],
+  "overlap_12": 0.5,
+  "overlap_23": 0.0,
+  "overlap_13": 0.0,
+  "unique_shared_seed_channel": "1<->2",
+  "adjacency_eigenvalues": [-0.5,0.0,0.5],
+  "expected_12_block_eigenvectors": "(s1+s2)/sqrt(2), (s1-s2)/sqrt(2)",
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "pass": true
+}
