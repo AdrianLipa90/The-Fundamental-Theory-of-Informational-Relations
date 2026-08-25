@@ -1,0 +1,58 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE40_STAGE39_CKM_RETROSPECTIVE_V0_1",
+  "status": "STAGE_40_FULL_CKM_SHAPE_FAIL__MECHANISM_RETAINED",
+  "comparison_type": "RETROSPECTIVE_DIAGNOSTIC",
+  "stage39_mutated": false,
+  "retuning_performed": false,
+  "assignment_selected_by_fit": false,
+  "reference_schema": "METATIME_CKM_V7_9R1",
+  "reference_fingerprint": "211beddf2e9e4a96264faf088ef75df3f3931ba1a630b1c0382fba7ebab7bd3b",
+  "scores": [
+    {
+      "assignment": "u=a_d=b",
+      "max_abs_matrix_difference": 0.18736949817799045,
+      "mean_abs_matrix_difference": 0.05139787773563646,
+      "frobenius_difference": 0.2680143819435105,
+      "key_element_ratios_candidate_over_reference": {
+        "Vus": 0.1666813513932721,
+        "Vub": 4.67478251944668,
+        "Vcb": 0.79565718922104,
+        "Vtd": 1.9459597539568754,
+        "Vts": 0.8081326283996336
+      },
+      "J_abs": 2.0174220730068447e-05,
+      "J_reference": 3.11012e-05,
+      "J_abs_ratio_candidate_over_reference": 0.6486637406295721,
+      "full_ckm_shape_pass": false
+    },
+    {
+      "assignment": "u=b_d=a",
+      "max_abs_matrix_difference": 0.18749356470797338,
+      "mean_abs_matrix_difference": 0.05139787773563647,
+      "frobenius_difference": 0.26802017627166735,
+      "key_element_ratios_candidate_over_reference": {
+        "Vus": 0.16612957026503056,
+        "Vub": 4.749620637243833,
+        "Vcb": 0.7921474020239196,
+        "Vtd": 1.9152979440107967,
+        "Vts": 0.8117132417368551
+      },
+      "J_abs": 2.0174220730068325e-05,
+      "J_reference": 3.11012e-05,
+      "J_abs_ratio_candidate_over_reference": 0.6486637406295681,
+      "full_ckm_shape_pass": false
+    }
+  ],
+  "failure_drivers": [
+    "Cabibbo-like Vus magnitude strongly underproduced",
+    "Vub magnitude strongly overproduced",
+    "Vtd magnitude overproduced",
+    "J magnitude below archived structural CKM value"
+  ],
+  "retained_results": [
+    "unitary relative family transformation",
+    "hierarchical near-identity magnitude matrix",
+    "non-zero rephasing-invariant family CP measure",
+    "parameter-free Stage 39 freeze"
+  ]
+}
