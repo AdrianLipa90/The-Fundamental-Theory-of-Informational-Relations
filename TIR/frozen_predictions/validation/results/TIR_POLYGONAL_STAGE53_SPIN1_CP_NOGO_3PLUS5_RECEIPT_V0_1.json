@@ -1,0 +1,18 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE53_SPIN1_CP_NOGO_3PLUS5_RECEIPT_V0_1",
+  "status": "PASS",
+  "general_form": "D^1(alpha,beta,gamma)=P_L(alpha) d^1(beta) P_R(gamma), with d^1 real",
+  "rephasing_result": "all spin-1 subgroup phases removable by row/column phases",
+  "Jarlskog_result": "J=0 identically for spin-1 subgroup elements",
+  "numerical_sample_max_abs_J": 2.0816681711721685e-17,
+  "adjoint_decomposition": {
+    "End(C^3)": "1 + 3 + 5",
+    "su3_traceless": "3 + 5",
+    "compact_spin1_subalgebra_dimension": 3,
+    "complement_dimension": 5
+  },
+  "polygon_N5_identification_claimed": false,
+  "CKM_input_used": false,
+  "mass_input_used": false,
+  "verdict": "STAGE_53_SPIN1_CP_NOGO_AND_SU3_3PLUS5_DECOMPOSITION_PASS"
+}
