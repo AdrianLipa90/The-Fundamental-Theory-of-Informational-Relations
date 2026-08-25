@@ -1,0 +1,23 @@
+{
+  "schema":"TIR-PLATONIC-GRAPH-SPECTRA/0.1",
+  "scope":"pure geometry and graph spectral mathematics",
+  "N4_octahedron":{
+    "degree":4,
+    "adjacency_spectrum":[-2,-2,0,0,0,4],
+    "adjacency_target_residual":4.440990072813111e-16,
+    "normalized_exchange_spectrum":[-0.5,-0.5,0,0,0,1],
+    "spectral_radius":1.0
+  },
+  "N5_icosahedron":{
+    "degree":5,
+    "adjacency_spectrum_exact":"5^1, sqrt(5)^3, -sqrt(5)^3, -1^5",
+    "adjacency_target_residual":1.7763568394002505e-15,
+    "normalized_exchange_spectrum_exact":"1^1, (1/sqrt(5))^3, (-1/sqrt(5))^3, (-1/5)^5",
+    "spectral_radius":0.9999999999999998
+  },
+  "characteristic_polynomials":{
+    "N4":"lambda^3 (lambda - 4) (lambda + 2)^2",
+    "N5":"(lambda - 5) (lambda + 1)^5 (lambda^2 - 5)^3"
+  },
+  "verdict":"PASS"
+}
