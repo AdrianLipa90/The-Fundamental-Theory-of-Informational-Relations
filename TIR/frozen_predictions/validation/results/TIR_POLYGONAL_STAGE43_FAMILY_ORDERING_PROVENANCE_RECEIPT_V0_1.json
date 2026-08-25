@@ -1,0 +1,14 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE43_FAMILY_ORDERING_PROVENANCE_V0_1",
+  "status": "STAGE_43_ORDERING_PRINCIPLE_FOUND__EXACT_WEIGHT_MAP_OPEN",
+  "ordered_collatz_accumulation_present": true,
+  "exact_rho_s_derivation_debt_present": true,
+  "reference_simulation_declares_model_choice": true,
+  "reference_simulation_eta_default": 0.35,
+  "eta_promoted_to_family_selector": false,
+  "result": "TIR contains an ordered Collatz-step accumulation principle, while the exact rho_s(k) weighting remains an explicit derivation debt.",
+  "admissible_next_step": "derive or freeze rho_s(k) independently before using Collatz ordering to select a quantitative SU(3)_F path",
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "pass": true
+}
