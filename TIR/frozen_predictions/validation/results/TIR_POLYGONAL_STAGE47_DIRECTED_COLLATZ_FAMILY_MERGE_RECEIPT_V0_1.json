@@ -1,0 +1,26 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE47_DIRECTED_COLLATZ_FAMILY_MERGE_RECEIPT_V0_1",
+  "status": "PASS",
+  "scalar_seeds": [15, 35, 143],
+  "directed_reachability_steps": [
+    [0, 4, null],
+    [null, 0, null],
+    [null, 90, 0]
+  ],
+  "pairwise_first_merges": {
+    "12": {"merge_node": 35, "steps": [4, 0], "total_cost": 4},
+    "13": {"merge_node": 46, "steps": [1, 87], "total_cost": 88},
+    "23": {"merge_node": 35, "steps": [0, 90], "total_cost": 90}
+  },
+  "derived_exact_relations": {
+    "C4_of_15": 35,
+    "C90_of_143": 35,
+    "C1_of_15": 46,
+    "C3_of_46": 35
+  },
+  "seed_level_reachability_graph": "n1 -> n2 <- n3",
+  "unique_common_forward_reachable_seed": 35,
+  "physical_generation_preference_claim": false,
+  "distance_to_amplitude_rule_promoted": false,
+  "verdict": "STAGE_47_DIRECTED_COLLATZ_FAMILY_MERGE_PASS"
+}
