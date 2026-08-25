@@ -1,0 +1,23 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE37_FAMILY_AXIS_COMMUTING_NOGO_V0_1",
+  "status": "STAGE_37_COMMON_FAMILY_AXIS_NOGO_PASS",
+  "theorem": "If H_u=f(K) and H_d=g(K) for one common normal K, then [H_u,H_d]=0.",
+  "family_axes_checked": {
+    "polygon_N": [3, 4, 5],
+    "affine_ADE_node_counts": [7, 8, 9],
+    "local_geometry_cN": [-0.3333333333333333, 0.0, 0.4472135954999579]
+  },
+  "commutator_residuals": {
+    "N_axis": 0.0,
+    "ADE_node_axis": 0.0,
+    "c_axis": 0.0
+  },
+  "max_commutator_residual": 0.0,
+  "relative_mixing_representative": "I3",
+  "J_family": 0.0,
+  "consequence": "A second non-commuting geometric/holonomic operator is required for non-trivial family mixing.",
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "pass": true,
+  "replay_scope": "pure mathematical/algebraic gate with numerical sanity instances"
+}
