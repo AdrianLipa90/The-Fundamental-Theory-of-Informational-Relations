@@ -1,0 +1,19 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE52_COMPACT_REAL_FORM_SYM2_RECEIPT_V0_1",
+  "status": "PASS_SELECTION_OPEN",
+  "representation_dimension": 3,
+  "embedding": "Sym^2(SU(2)) subset SU(3)",
+  "commutator_residuals": {
+    "[Jx,Jy]-iJz": 2.220446049250313e-16,
+    "[Jy,Jz]-iJx": 0.0,
+    "[Jz,Jx]-iJy": 0.0
+  },
+  "generators_hermitian": true,
+  "generators_traceless": true,
+  "minus_i_generators_antihermitian_traceless": true,
+  "relation_to_stage50": "different real form after complexification, not similarity unitarization",
+  "compact_real_form_dynamically_selected": false,
+  "CKM_input_used": false,
+  "mass_input_used": false,
+  "verdict": "STAGE_52_COMPACT_REAL_FORM_SYM2_BRIDGE_PASS_SELECTION_OPEN"
+}
