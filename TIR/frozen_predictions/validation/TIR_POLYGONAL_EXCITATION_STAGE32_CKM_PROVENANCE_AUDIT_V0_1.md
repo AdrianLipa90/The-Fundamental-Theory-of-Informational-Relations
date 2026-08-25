@@ -68,6 +68,18 @@ structural formula candidate: RETAIN
 prospective prediction status: POSTDICTIVE
 ```
 
+## Reproducibility closure
+
+The Stage 32 executable is
+
+`TIR/frozen_predictions/validation/scripts/ckm_provenance_stage32_v01.py`.
+
+The append-only execution receipt is
+
+`TIR/frozen_predictions/validation/results/TIR_POLYGONAL_STAGE32_CKM_PROVENANCE_AUDIT_RECEIPT_V0_1.json`.
+
+The exact committed source was replayed in the assistant-local Python environment with return code `0`. The base and refined constructions both returned maximum unitarity residual `2.220446049250313e-16`; determinant residuals were of the same floating-point order. The executable contains no PDG numerical inputs. The `POSTDICTIVE` classification is retained from the documented development provenance rather than inferred from the replay.
+
 ## Next gate
 
 Use the newly derived polygonal/McKay family geometry to test whether the constants entering the structural CKM candidate can be reconstructed from independently fixed geometric invariants, without using CKM data in that reconstruction.
