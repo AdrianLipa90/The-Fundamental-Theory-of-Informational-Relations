@@ -1,0 +1,21 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE60_A5_LOW_ORDER_INVARIANT_SELECTOR_RECEIPT_V0_1",
+  "status": "STAGE_60_A5_LOW_ORDER_SELECTOR_NONUNIQUENESS_PASS",
+  "molien_invariant_multiplicities_degree_0_to_8": [1, 0, 1, 2, 2, 4, 7, 7, 12],
+  "molien_max_integer_residual": 2.1908401019269757e-15,
+  "degree_1_invariant_dimension": 0,
+  "degree_2_invariant_dimension": 1,
+  "degree_3_invariant_dimension": 2,
+  "sym0_basis_orthonormality_residual": 2.220446049250313e-16,
+  "explicit_cubic_tensor_rank": 2,
+  "explicit_cubic_tensor_correlation": 0.5976143046671968,
+  "explicit_cubic_invariants": [
+    "tr(S^3)",
+    "sum_a tr(S Q_a)^3"
+  ],
+  "result": "A5 has no invariant linear direction, one quadratic norm, and a two-dimensional cubic invariant space; A5 symmetry alone does not select a unique low-order anisotropic family functional.",
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "pass": true
+}
