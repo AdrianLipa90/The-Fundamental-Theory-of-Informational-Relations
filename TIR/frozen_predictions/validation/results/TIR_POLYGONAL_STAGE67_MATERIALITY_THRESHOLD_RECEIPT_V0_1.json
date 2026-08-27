@@ -1,0 +1,99 @@
+{
+  "checks": {
+    "mass_audit_denies_canonical_mass_derivation": true,
+    "mass_audit_keeps_physical_mass_open": true,
+    "nonzero_gauge_invariant_source_witness_exists": true,
+    "stage27_quark_link_gauge_invariance_pass": true,
+    "stage28_gauge_matter_action_pass": true,
+    "strict_equal_edge_N6_is_degenerate_boundary": true,
+    "strict_equal_edge_N7_is_forbidden_on_unit_sphere": true
+  },
+  "claim_gates": {
+    "bound_state_energy": "OPEN",
+    "continuum_stress_energy": "OPEN",
+    "mass_normalization": "OPEN",
+    "physical_materiality": "OPEN",
+    "structural_matter_carrier": "PASS"
+  },
+  "dependencies": {
+    "mass_audit": "TIR/validation/results/collatz_sector_holonomy_mass_audit_v10_2r1.json",
+    "stage27": "TIR/frozen_predictions/validation/results/TIR_POLYGONAL_STAGE27_QUARK_LINK_COUPLING_RECEIPT_V0_1.json",
+    "stage28": "TIR/frozen_predictions/validation/results/TIR_POLYGONAL_STAGE28_DISCRETE_GAUGE_MATTER_RECEIPT_V0_1.json"
+  },
+  "gremlin_role": "candidate-generation/audit; promotion is controlled by executable gates",
+  "mass_firewall": {
+    "canon_allowed": false,
+    "consequence": "Stage 67 admits a structural sourced matter carrier. Absolute mass normalization, bound-state energy, continuum stress-energy, and physical materiality remain later gates.",
+    "debt9_status": "OPEN_NOT_CLOSED",
+    "mass_derivation_claimed": false,
+    "physical_mass_spectrum_status": "FAIL_OPEN",
+    "source_schema": "TIR_COLLATZ_SECTOR_HOLONOMY_MASS_AUDIT_V10_2R1"
+  },
+  "schema": "tir.polygonal.stage67.materiality-threshold/v0.1",
+  "source_carrier": {
+    "definition": "B_ij=q_i^dagger W_ij q_j",
+    "septahedral_alias_literal_polyhedron_identity": false,
+    "six_plus_one_typing": "terminal geometric-six boundary plus one independent gauge-matter source degree",
+    "witness": {
+      "B_after_imag": 2.7755575615628914e-17,
+      "B_after_real": 1.0000000000000002,
+      "B_before_real": 1.0,
+      "gauge_invariant_witness": true,
+      "gauge_residual": 2.237726045655905e-16,
+      "nonzero_source_witness": true
+    }
+  },
+  "status": "PASS",
+  "status_detail": "STRUCTURAL_MATERIAL_CARRIER_PASS__MASS_NORMALIZATION_AND_PHYSICAL_MATERIALITY_OPEN",
+  "strict_equal_edge_geometry": {
+    "N3_to_N7": [
+      {
+        "N": 3,
+        "c_N": -0.33333333333333326,
+        "degenerate_boundary": false,
+        "nondegenerate_on_unit_sphere": true,
+        "r_N": 0.9428090415820634,
+        "r_N_squared": 0.888888888888889,
+        "strict_equal_edge_forbidden": false
+      },
+      {
+        "N": 4,
+        "c_N": 6.123233995736767e-17,
+        "degenerate_boundary": false,
+        "nondegenerate_on_unit_sphere": true,
+        "r_N": 1.0,
+        "r_N_squared": 1.0,
+        "strict_equal_edge_forbidden": false
+      },
+      {
+        "N": 5,
+        "c_N": 0.447213595499958,
+        "degenerate_boundary": false,
+        "nondegenerate_on_unit_sphere": true,
+        "r_N": 0.8944271909999159,
+        "r_N_squared": 0.7999999999999999,
+        "strict_equal_edge_forbidden": false
+      },
+      {
+        "N": 6,
+        "c_N": 1.0000000000000004,
+        "degenerate_boundary": true,
+        "nondegenerate_on_unit_sphere": false,
+        "r_N": 0.0,
+        "r_N_squared": 0.0,
+        "strict_equal_edge_forbidden": false
+      },
+      {
+        "N": 7,
+        "c_N": 1.655970555211364,
+        "degenerate_boundary": false,
+        "nondegenerate_on_unit_sphere": false,
+        "r_N": null,
+        "r_N_squared": -1.7422384797270327,
+        "strict_equal_edge_forbidden": true
+      }
+    ],
+    "formula": "c_N=cos(2*pi/N)/(1-cos(2*pi/N)); r_N^2=1-c_N^2",
+    "interpretation": "N=6 is the terminal degenerate boundary of the strict equal-edge continuation; N=7 is outside the unit-sphere branch under the same rule."
+  }
+}
