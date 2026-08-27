@@ -32,7 +32,7 @@
   "schema": "tir.polygonal.stage67.materiality-threshold/v0.1",
   "source_carrier": {
     "definition": "B_ij=q_i^dagger W_ij q_j",
-    "septahedral_alias_literal_polyhedron_identity": false,
+    "septahedral_alias_semantics": "GEOMETRIC_SIX_BOUNDARY_PLUS_SOURCE_ONE",
     "six_plus_one_typing": "terminal geometric-six boundary plus one independent gauge-matter source degree",
     "witness": {
       "B_after_imag": 2.7755575615628914e-17,
