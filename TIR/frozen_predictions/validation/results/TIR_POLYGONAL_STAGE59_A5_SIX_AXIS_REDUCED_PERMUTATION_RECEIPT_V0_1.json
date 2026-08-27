@@ -1,0 +1,26 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE59_A5_SIX_AXIS_REDUCED_PERMUTATION_RECEIPT_V0_1",
+  "status": "STAGE_59_A5_SIX_AXIS_REDUCED_PERMUTATION_FIVE_PASS",
+  "icosahedral_rotation_count": 60,
+  "axis_count": 6,
+  "faithful_axis_permutation_image_size": 60,
+  "fixed_axis_statistics": {
+    "order_1_fixed_6": 1,
+    "order_2_fixed_2": 15,
+    "order_3_fixed_0": 20,
+    "order_5_fixed_1": 24
+  },
+  "permutation_character_A5_classes": [6, 2, 0, 1, 1],
+  "reduced_character_A5_classes": [5, 1, -1, 0, 0],
+  "reduced_character_norm": 1.0,
+  "quadrupole_map_rank": 5,
+  "quadrupole_map_kernel_dimension": 1,
+  "quadrupole_sum_residual": 2.220446049250313e-16,
+  "equivariance_max_residual": 2.220446049250313e-16,
+  "result": "The six-axis permutation carrier decomposes as 1 + 5, and the reduced 5 is A5-equivariantly isomorphic to the quadrupole Sym^2_0(R^3) carrier.",
+  "stage6_six_state_action_identified_with_stage59": false,
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "pass": true
+}

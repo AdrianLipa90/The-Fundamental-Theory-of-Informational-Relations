@@ -1,0 +1,38 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE66_STATIONARY_SELECTOR_RECEIPT_V0_1",
+  "status": "STAGE_66_UNIQUE_STATIONARY_SELECTOR_PASS_WITH_SADDLE_CLASSIFICATION",
+  "eta": -12.455810446022179,
+  "eta_exact": "-75*(59+21*sqrt(5))/638",
+  "eta_formula_residual": 2.842170943040401e-14,
+  "lagrange_lambda": -4.055216601242205,
+  "lagrange_lambda_exact": "-(8765+4758*sqrt(5))/4785",
+  "lagrange_lambda_formula_residual": 1.0658141036401503e-14,
+  "stationarity_residual": 8.881784197001252e-16,
+  "sym0_basis_orthonormality_residual": 2.220446049250313e-16,
+  "constrained_hessian_eigenvalues": [
+    -11.90911727477222,
+    10.605331748726776,
+    12.165649803726645,
+    13.469435329772088
+  ],
+  "constrained_hessian_signature": {
+    "negative": 1,
+    "zero": 0,
+    "positive": 3
+  },
+  "constrained_hessian_classification": "SADDLE",
+  "spectrum_exact_formula_residual": 3.552713678800501e-14,
+  "Aseed_C3_orbit_alignment_matrix_abs": [
+    [0.0, 1.0, 0.0, 0.0],
+    [1.0, 0.0, 0.0, 0.0],
+    [0.0, 0.0, 0.0, 1.0]
+  ],
+  "negative_mode_best_Aseed_orbit_index": 1,
+  "negative_mode_best_Aseed_orbit_label": "P3 A_seed P3^T",
+  "negative_mode_best_alignment": 1.0,
+  "Aseed_used_to_solve_eta": false,
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "pass": true
+}

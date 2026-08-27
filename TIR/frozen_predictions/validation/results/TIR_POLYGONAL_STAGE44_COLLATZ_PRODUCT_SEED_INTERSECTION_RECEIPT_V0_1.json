@@ -1,0 +1,46 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE44_COLLATZ_PRODUCT_SEED_INTERSECTION_V0_1",
+  "status": "STAGE_44_COLLATZ_PRODUCT_SEED_INTERSECTION_PASS",
+  "ordered_twin_prime_pairs": [[3,5],[5,7],[11,13]],
+  "scalar_seed_rule": "n0=p*(p+2)",
+  "scalar_seeds": [15,35,143],
+  "stopping_lengths": [17,13,103],
+  "pair_meetings": {
+    "1_2": {
+      "meeting_node": 35,
+      "steps_from_a": 4,
+      "steps_from_b": 0,
+      "total_meeting_steps": 4,
+      "common_node_count": 14,
+      "orbit_union_node_count": 18,
+      "orbit_jaccard": 0.7777777777777778
+    },
+    "1_3": {
+      "meeting_node": 46,
+      "steps_from_a": 1,
+      "steps_from_b": 87,
+      "total_meeting_steps": 88,
+      "common_node_count": 17,
+      "orbit_union_node_count": 105,
+      "orbit_jaccard": 0.1619047619047619
+    },
+    "2_3": {
+      "meeting_node": 35,
+      "steps_from_a": 0,
+      "steps_from_b": 90,
+      "total_meeting_steps": 90,
+      "common_node_count": 14,
+      "orbit_union_node_count": 104,
+      "orbit_jaccard": 0.1346153846153846
+    }
+  },
+  "meeting_distance_matrix": [[0,4,88],[4,0,90],[88,90,0]],
+  "distance_hierarchy": "d12 << d13 ~= d23",
+  "ratio_d13_over_d12": 22.0,
+  "ratio_d23_over_d12": 22.5,
+  "uses_rhythm_eta": false,
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "pass": true
+}

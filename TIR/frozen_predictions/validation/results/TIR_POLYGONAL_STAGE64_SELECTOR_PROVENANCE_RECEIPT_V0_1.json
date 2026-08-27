@@ -1,0 +1,23 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE64_SELECTOR_PROVENANCE_RECEIPT_V0_1",
+  "status": "STAGE_64_CANONICAL_SCALAR_SELECTOR_REMAINS_OPEN_PASS",
+  "gate_type": "formal_provenance_audit_with_algebraic_checks",
+  "kappa": 0.009193150006360484,
+  "kappa_projective_ratio_residual": 0.0,
+  "quadratic_normalization_residual": 0.0,
+  "distinct_normalized_direction_inner_product": 0.0,
+  "provenance_findings": {
+    "kappa_role": "overall_scale",
+    "quadratic_A5_role": "norm_radius",
+    "A5_rigid_embedding_role": "carrier_orientation",
+    "collatz_role": "ordered_words_present_quantitative_operator_rhythm_open",
+    "euler_berry_role": "constructive_coherence_functional_open",
+    "zeta_role": "coherence_axis_exact_weighting_functional_open"
+  },
+  "canonical_scalar_selector_status": "OPEN",
+  "new_selector_promoted": false,
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "pass": true
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "TIR-POLYGONAL-PLATONIC-CLOSURE/0.1",
+  "scope": "pure mathematics; no particle/atomic/PDG inputs",
+  "rows": {
+    "3": {
+      "N": 3,
+      "c_N": -0.33333333333333326,
+      "base_radius": 0.9428090415820634,
+      "apex_edge_spread": 2.220446049250313e-16,
+      "base_edge_spread": 4.440892098500626e-16,
+      "equal_edge_residual": 2.220446049250313e-16,
+      "angular_defect": 3.141592653589793,
+      "closure_counts": {"V": 4.0, "E": 6.0, "F": 4.0},
+      "gauss_bonnet_residual": 0.0
+    },
+    "4": {
+      "N": 4,
+      "c_N": 6.123233995736767e-17,
+      "base_radius": 1.0,
+      "apex_edge_spread": 0.0,
+      "base_edge_spread": 2.220446049250313e-16,
+      "equal_edge_residual": 2.220446049250313e-16,
+      "angular_defect": 2.0943951023931957,
+      "closure_counts": {"V": 6.0, "E": 12.0, "F": 8.0},
+      "gauss_bonnet_residual": 1.7763568394002505e-15
+    },
+    "5": {
+      "N": 5,
+      "c_N": 0.447213595499958,
+      "base_radius": 0.8944271909999159,
+      "apex_edge_spread": 2.220446049250313e-16,
+      "base_edge_spread": 4.440892098500626e-16,
+      "equal_edge_residual": 2.220446049250313e-16,
+      "angular_defect": 1.0471975511965974,
+      "closure_counts": {"V": 12.0, "E": 30.0, "F": 20.0},
+      "gauss_bonnet_residual": 3.552713678800501e-15
+    },
+    "6": {
+      "N": 6,
+      "c_N": 1.0000000000000004,
+      "base_radius": 0.0,
+      "apex_edge_spread": 0.0,
+      "base_edge_spread": 0.0,
+      "equal_edge_residual": 4.440892098500626e-16,
+      "angular_defect": 0.0,
+      "closure_counts": null
+    }
+  },
+  "N4_octahedral_local_star": true,
+  "N5_icosahedral_local_star": true,
+  "finite_spherical_closures": {
+    "3": "tetrahedron {3,3}",
+    "4": "octahedron {3,4}",
+    "5": "icosahedron {3,5}"
+  },
+  "N6_boundary": "Euclidean triangular {3,6}; zero angular defect; finite spherical V formula diverges",
+  "verdict": "PASS"
+}

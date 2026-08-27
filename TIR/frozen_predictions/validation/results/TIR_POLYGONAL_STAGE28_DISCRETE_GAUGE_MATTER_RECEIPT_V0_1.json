@@ -1,0 +1,15 @@
+{
+  "schema": "tir.polygonal.stage28.discrete-gauge-matter/v0.1",
+  "status": "PASS",
+  "checks": {
+    "full_action_invariant": true,
+    "wilson_term_invariant": true,
+    "matter_term_invariant": true
+  },
+  "full_action_residual": 3.3306690738754696e-15,
+  "wilson_term_residual": 2.4424906541753444e-15,
+  "matter_term_residual": 1.3322676295501878e-15,
+  "family_copies": 3,
+  "evidence_class": "DETERMINISTIC_SU3_NUMERICAL_REPLAY_OF_EXACT_LOCAL_GAUGE_INVARIANCE",
+  "scope": "discrete locally gauge-invariant color-plus-quark action form"
+}

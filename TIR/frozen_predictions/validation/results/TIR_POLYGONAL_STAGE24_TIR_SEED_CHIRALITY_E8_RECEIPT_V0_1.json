@@ -1,0 +1,19 @@
+{
+  "schema": "tir.polygonal.stage24.seed-chirality-e8-intertwiner/v0.1",
+  "status": "PASS",
+  "seed_order": [[3,5],[5,7],[11,13]],
+  "checks": {
+    "seed_triplet_intertwiner": true,
+    "chirality_intertwiner": true,
+    "six_state_intertwiner": true,
+    "cube_is_sheet_flip": true,
+    "sixth_power_identity": true,
+    "minimal_order_six": true,
+    "same_exceptional_operator": true
+  },
+  "intertwiner_residual_exact": 0,
+  "operator_order": 6,
+  "characteristic_polynomial": "lambda^6 - 1",
+  "evidence_class": "EXACT_INTEGER_FINITE_REPRESENTATION_CHECK",
+  "scope": "finite six-state label representation"
+}

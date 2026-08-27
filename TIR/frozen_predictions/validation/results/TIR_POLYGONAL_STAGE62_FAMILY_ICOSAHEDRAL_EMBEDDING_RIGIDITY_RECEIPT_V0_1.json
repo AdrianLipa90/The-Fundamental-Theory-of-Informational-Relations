@@ -1,0 +1,18 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE62_FAMILY_ICOSAHEDRAL_EMBEDDING_RIGIDITY_RECEIPT_V0_1",
+  "status": "STAGE_62_FAMILY_ICOSAHEDRAL_EMBEDDING_RIGIDITY_PASS",
+  "D0_eigenvalues": [-0.37129342090917215, -0.03796008757583882, 0.40925350848501095],
+  "D0_minimum_eigenvalue_gap": 0.3333333333333333,
+  "orientation_preserving_signed_permutations_fixing_cycle_axis": 3,
+  "solution_set": ["I", "P3", "P3^2"],
+  "max_solution_P3_commutator_residual": 0.0,
+  "max_solution_cycle_axis_residual": 0.0,
+  "D0_diagonal_sector_residuals": [0.0, 0.0, 0.0],
+  "Aseed_exact_label_residuals_for_I_P3_P3sq": [0.0, 0.5, 0.5],
+  "exact_Aseed_label_preserver_count": 1,
+  "result": "Preserving P3 and the D0 diagonal sector removes the continuous SO(3) orientation freedom down to C3={I,P3,P3^2}; holding the fixed Stage41 A_seed label removes the residual cyclic relabelling.",
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "pass": true
+}

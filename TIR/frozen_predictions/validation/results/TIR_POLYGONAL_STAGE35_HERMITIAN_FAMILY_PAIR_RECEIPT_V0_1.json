@@ -1,0 +1,40 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE35_HERMITIAN_FAMILY_PAIR_RECEIPT_V0_1",
+  "created_local": "2026-08-25T13:50:00+01:00",
+  "status": "PASS_WITH_INPUT_PROVENANCE_AND_CP_BOUNDARY",
+  "script": "TIR/frozen_predictions/validation/scripts/hermitian_family_pair_stage35_v01.py",
+  "script_sha256": "a7fbbb6818aad00cc27a8158f971db849a00c7db51bed725b764c8bd743eb817",
+  "execution": {
+    "environment": "assistant local Python replay using the exact committed source",
+    "return_code": 0,
+    "source_matrix_blob_sha": "9394ca738bc41ab78b084cd03202016fa0c9bb05",
+    "eigenvalues": [0.9999269945150429, 0.17006359362318538, 0.05536972169341482],
+    "checks": {
+      "H_u_hermitian_residual": 0.0,
+      "H_d_hermitian_residual": 0.0,
+      "commutator_inf_norm": 0.37940977777058743,
+      "shared_spectrum_residual": 6.661338147750939e-16,
+      "relative_diagonalizer_unitarity_residual": 3.3306690738754696e-16,
+      "relative_diagonalizer_det_minus_one_abs": 2.220446049250313e-16,
+      "jarlskog_of_real_relative_diagonalizer": 0.0
+    },
+    "relative_diagonalizer": [
+      [-0.34517220303849655, 0.15698407703206635, 0.9253173238451451],
+      [0.03856568541405932, 0.9874517993866222, -0.1531392562234312],
+      [-0.9377466812301147, -0.017173917622727318, -0.34689511151844316]
+    ]
+  },
+  "source_provenance": {
+    "cross_gram_blob": "9394ca738bc41ab78b084cd03202016fa0c9bb05",
+    "orientation_channels_blob": "838b2606e004049bf58d86a18cf0f345799aaa73",
+    "uses_observed_mass": false,
+    "uses_observed_mixing": false,
+    "heavy_quark_rows": "old_doc_bridge_ansatz_quarantined"
+  },
+  "verdict": {
+    "noncommuting_Hu_Hd_mechanism": "PASS",
+    "unitary_relative_eigenframe": "PASS",
+    "cp_from_real_cross_gram": "ZERO_J",
+    "physical_promotion": "BLOCKED_PENDING_CLEAN_COMPLEX_TIR_NATIVE_SECTOR_OPERATOR"
+  }
+}

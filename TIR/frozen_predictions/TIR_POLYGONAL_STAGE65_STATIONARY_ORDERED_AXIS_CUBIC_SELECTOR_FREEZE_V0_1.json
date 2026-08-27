@@ -1,0 +1,26 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE65_STATIONARY_ORDERED_AXIS_CUBIC_SELECTOR_FREEZE_V0_1",
+  "status": "STAGE_65_STATIONARY_ORDERED_AXIS_SELECTOR_FROZEN_PREVALIDATION",
+  "freeze_date": "2026-08-25",
+  "selector": "F_eta(S)=I_iso(S)+eta*I_A5(S)",
+  "constraint": "tr(S^2)=tr(D0^2)",
+  "stationarity_condition": "grad F_eta(D0)=lambda D0",
+  "projective_normalization": "coefficient(I_iso)=1",
+  "eta_status": "TO_BE_DERIVED_AFTER_FREEZE",
+  "excluded_selector_inputs": [
+    "CKM entries",
+    "CKM phase",
+    "Jarlskog target",
+    "fermion masses",
+    "PMNS data",
+    "PDG comparison values",
+    "A_seed alignment target",
+    "retrospective coefficient tuning"
+  ],
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_Aseed_in_selector_equation": false,
+  "continuous_fitted_parameters": 0,
+  "physical_interpretation_added": false,
+  "frozen": true
+}

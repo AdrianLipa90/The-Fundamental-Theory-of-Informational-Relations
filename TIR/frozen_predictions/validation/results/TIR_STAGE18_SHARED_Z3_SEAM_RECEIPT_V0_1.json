@@ -1,0 +1,17 @@
+{
+  "schema": "TIR-E7-E8-Z3-SEAM/0.1",
+  "stage": 18,
+  "embedding": "exp(i theta) -> diag(exp(i theta), exp(i theta), exp(-2 i theta))",
+  "theta_test": "2*pi/3",
+  "determinant_residual": 1.1102230246251565e-16,
+  "center_match_residual": 7.447602459741819e-16,
+  "center_order3_residual": 6.497413668604471e-16,
+  "CP2_projective_center_residual": 1.1102230246251565e-16,
+  "checks": {
+    "embedding_element_in_SU3": true,
+    "third_turn_hits_SU3_center": true,
+    "center_has_order_3": true,
+    "Z3_trivial_on_CP2_projector": true
+  },
+  "verdict": "PASS"
+}

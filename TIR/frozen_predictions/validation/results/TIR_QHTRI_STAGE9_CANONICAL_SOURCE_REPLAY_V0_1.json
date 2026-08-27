@@ -1,0 +1,23 @@
+{
+  "schema": "TIR-QHTRI-POLYGONAL-CANONICAL-REPLAY/0.1",
+  "stage": "9",
+  "source_file": "htri_hypercrystal_v2.py",
+  "source_library_file_id": "file_00000000d2fc81f4abffbf106ea7f867",
+  "source_sha256": "bd7bcfbd8b49df7bffadc9969e8d79f800787d5a9f54abcb260485c17d2a22c4",
+  "execution_function": "evolve_state",
+  "dimension": 36,
+  "active_sector_dimension": 6,
+  "dt": 1.0,
+  "H36_hermiticity_error_via_canonical_source": 5.157029481029571e-16,
+  "six_step_closure_error_via_canonical_source": 2.3418028867006253e-15,
+  "trajectory": [
+    {"step":0,"basis":0,"j":0,"sheet":0,"norm":1.0},
+    {"step":1,"basis":3,"j":1,"sheet":1,"norm":1.0},
+    {"step":2,"basis":4,"j":2,"sheet":0,"norm":1.0000000000000009},
+    {"step":3,"basis":1,"j":0,"sheet":1,"norm":1.0000000000000018},
+    {"step":4,"basis":2,"j":1,"sheet":0,"norm":1.000000000000003},
+    {"step":5,"basis":5,"j":2,"sheet":1,"norm":1.000000000000004},
+    {"step":6,"basis":0,"j":0,"sheet":0,"norm":1.000000000000004}
+  ],
+  "verdict": "PASS"
+}

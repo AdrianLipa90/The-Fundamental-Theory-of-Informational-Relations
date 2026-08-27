@@ -1,0 +1,23 @@
+{
+  "schema": "tir.polygonal.stage30.preckm-cross-gram/v0.1",
+  "status": "PASS_OPEN",
+  "checks": {
+    "full_rank": true,
+    "nontrivial_sector_misalignment": true,
+    "raw_cross_gram_not_unitary": true,
+    "unique_polar_factor_available": true,
+    "polar_factor_orthogonal": true,
+    "polar_factor_orientation_reversing": true
+  },
+  "singular_values": [0.9999634965912718, 0.41238767394671905, 0.23530771702903164],
+  "rank": 3,
+  "det_raw": -0.09703445986946274,
+  "raw_unitarity_max_abs_residual": 0.795636810647112,
+  "polar_det": -1.0000000000000009,
+  "polar_orthogonality_max_abs_residual": 6.661338147750939e-16,
+  "raw_to_polar_frobenius_distance": 0.9643871290605233,
+  "physical_mixing_promotion": "OPEN",
+  "observed_CKM_used": false,
+  "observed_masses_used": false,
+  "evidence_class": "FROZEN_PREMASS_CROSS_GRAM_NUMERICAL_LINEAR_ALGEBRA_AUDIT"
+}

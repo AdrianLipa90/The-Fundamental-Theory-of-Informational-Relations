@@ -1,0 +1,23 @@
+{
+  "schema": "tir.polygonal.stage31.white-thread-unitarity/v0.1",
+  "status": "PASS_BLOCKED",
+  "checks": {
+    "full_rank_numerically": true,
+    "small_third_singular_direction": true,
+    "raw_open_holonomy_not_unitary": true,
+    "polar_factor_available": true,
+    "polar_factor_orthogonal": true,
+    "polar_factor_orientation_reversing": true
+  },
+  "singular_values": [0.9654226673677502, 0.2144876180850609, 0.003945812544331391],
+  "rank": 3,
+  "det_raw": -0.0008170641715523925,
+  "raw_unitarity_max_abs_residual": 0.7031963776495165,
+  "polar_det": -0.9999999999999991,
+  "polar_orthogonality_max_abs_residual": 6.661338147750939e-16,
+  "raw_to_polar_frobenius_distance": 1.268995365799897,
+  "direct_physical_mixing_promotion": "BLOCKED",
+  "observed_CKM_used": false,
+  "observed_masses_used": false,
+  "evidence_class": "FROZEN_WHITE_THREAD_NUMERICAL_LINEAR_ALGEBRA_AUDIT"
+}

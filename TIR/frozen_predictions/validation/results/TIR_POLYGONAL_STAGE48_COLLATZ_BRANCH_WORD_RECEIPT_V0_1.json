@@ -1,0 +1,38 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE48_COLLATZ_BRANCH_WORD_RECEIPT_V0_1",
+  "status": "PASS_OPERATOR_ASSIGNMENT_OPEN",
+  "alphabet": {
+    "O": "3n+1 on odd n",
+    "E": "n/2 on even n"
+  },
+  "common_target": 35,
+  "words": {
+    "15_to_35": {
+      "word": "OEOE",
+      "length": 4,
+      "odd_count": 2,
+      "even_count": 2,
+      "sha256": "9fafb8ac67e408695ef19432498272883de9114c4e14c5e110bedac85e14a10a"
+    },
+    "35_to_35": {
+      "word": "",
+      "length": 0,
+      "odd_count": 0,
+      "even_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "143_to_35": {
+      "word": "OEOEOEOEEEEOEOEEOEOEOEEOEOEOEOEEOEEEOEOEOEEOEOEEOEOEOEOEOEOEEEOEOEOEOEEEEOEEOEEOEEEEOEEEOE",
+      "length": 90,
+      "odd_count": 34,
+      "even_count": 56,
+      "sha256": "8bfd392b897dab154a9f96868756f51028f105875efd9a8e2b46eb42413a57e4"
+    }
+  },
+  "ordered_propagator_exists_in_foundation": true,
+  "branch_to_family_operator_assignment_found": false,
+  "exact_rhythm_found": false,
+  "CKM_input_used": false,
+  "mass_input_used": false,
+  "verdict": "STAGE_48_BRANCH_WORD_INTERFACE_PASS_OPERATOR_ASSIGNMENT_OPEN"
+}

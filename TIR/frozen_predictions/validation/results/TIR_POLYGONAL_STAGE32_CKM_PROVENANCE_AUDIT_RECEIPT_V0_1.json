@@ -1,0 +1,35 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE32_CKM_PROVENANCE_AUDIT_RECEIPT_V0_1",
+  "created_local": "2026-08-25T13:50:00+01:00",
+  "status": "PASS",
+  "script": "TIR/frozen_predictions/validation/scripts/ckm_provenance_stage32_v01.py",
+  "script_sha256": "699f8ae45aef45a7318b48b89c70172203a7f3507b14e3cee8eae72f87bf8a98",
+  "execution": {
+    "environment": "assistant local Python replay using the exact committed source",
+    "return_code": 0,
+    "base_v7_9": {
+      "lambda": 0.2222222222222222,
+      "delta_from_jarlskog_deg": 75.9638908411511,
+      "unitarity_residual_max_abs": 2.220446049250313e-16,
+      "determinant_minus_one_abs": 2.2204460512448483e-16
+    },
+    "refined_v7_9r1": {
+      "lambda": 0.22484883650975376,
+      "delta_from_jarlskog_deg": 73.61805735281642,
+      "unitarity_residual_max_abs": 2.220446049250313e-16,
+      "determinant_minus_one_abs": 2.2204460507083805e-16
+    }
+  },
+  "provenance_classification": {
+    "unitary_family_matrix_construction": "PASS",
+    "structural_formula_candidate": "RETAIN",
+    "prospective_prediction_status": "POSTDICTIVE"
+  },
+  "source_blobs": {
+    "stage32_document": "1a647d4565126610103841516f4635903ee1f6f8",
+    "archived_v7_9_provenance": "316d2a50764fc1fffa1ebb5679a609e915f84de4",
+    "archived_v7_9r1_script": "0e197bdb145079b7d8785986cf9151e5bd450e47",
+    "current_ckm_cp_chapter": "86679fb0d4e6c4bfe0793d2393cfefea0639ccfd"
+  },
+  "guard": "No PDG values were used in the executable replay. POSTDICTIVE is retained from provenance history."
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE38_C3_CHARACTER_BASIS_CP_V0_1",
+  "status": "STAGE_38_C3_CHARACTER_BASIS_CP_MATH_PASS",
+  "cycle_diagonalization_residual": 4.965068306494546e-16,
+  "hermiticity_residual": 4.922458811629615e-17,
+  "commutator_max_abs": 1.154700538379253,
+  "unitarity_residual_F3": 2.220861168919456e-16,
+  "determinant_modulus_residual_F3": 2.220446049250313e-16,
+  "J_F3": 0.09622504486493769,
+  "J_exact": 0.09622504486493763,
+  "J_exact_residual": 5.551115123125783e-17,
+  "quartet_phase_rad": 2.0943951023931953,
+  "abs_F3": [
+    [0.5773502691896258, 0.5773502691896258, 0.5773502691896258],
+    [0.5773502691896258, 0.5773502691896257, 0.5773502691896257],
+    [0.5773502691896258, 0.5773502691896257, 0.5773502691896257]
+  ],
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "physical_sector_assignment_status": "OPEN",
+  "pass": true,
+  "replay_scope": "pure mathematical C3 character-basis gate"
+}

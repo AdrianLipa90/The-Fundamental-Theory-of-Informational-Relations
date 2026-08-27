@@ -1,0 +1,24 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE45_DISTANCE_AMPLITUDE_PROVENANCE_V0_1",
+  "status": "STAGE_45_CANONICAL_DISTANCE_TO_AMPLITUDE_MAP_NOT_FOUND__PROVENANCE_NOGO_PASS",
+  "checks": {
+    "v50_open_holonomy_phase_present": true,
+    "v50_amplitude_map_undefined": true,
+    "v50_no_go_promotion": true,
+    "v51_quadratic_candidate_present": true,
+    "v51_exponential_gate_present": true,
+    "v51_candidate_after_audit": true,
+    "v51_allpair_fail": true,
+    "v51_canon_denied": true
+  },
+  "canonical_rule_available_for_stage44_distance_matrix": false,
+  "v5_0_result": "phase holonomy available; amplitude map f explicitly underived",
+  "v5_1_result": "quadratic exponential amplitude is a later non-canon candidate and fails the full all-pair diagnostic",
+  "stage44_substitution_into_v5_1_allowed_as_existing_law": false,
+  "inverse_distance_promoted": false,
+  "exponential_distance_promoted": false,
+  "next_methodological_action": "freeze any candidate distance kernels as separate hypotheses before comparison; do not select a kernel by CKM fit",
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "pass": true
+}

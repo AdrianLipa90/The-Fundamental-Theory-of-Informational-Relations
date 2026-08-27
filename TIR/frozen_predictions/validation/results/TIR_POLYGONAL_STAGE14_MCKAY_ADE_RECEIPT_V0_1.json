@@ -1,0 +1,11 @@
+{
+  "schema":"TIR-MCKAY-ADE-CLOSURE/0.1",
+  "mapping":{"3":"2T <-> affine E6","4":"2O <-> affine E7","5":"2I <-> affine E8"},
+  "rows":{
+    "3":{"binary_group":"2T","binary_group_order":24,"dimension_vector":[3,2,2,2,1,1,1],"sum_dimension_squares":24,"max_dimension_equation_residual":0,"affine_cartan_smallest_eigenvalue":-4.440892098500626e-16},
+    "4":{"binary_group":"2O","binary_group_order":48,"dimension_vector":[4,3,2,1,3,2,1,2],"sum_dimension_squares":48,"max_dimension_equation_residual":0,"affine_cartan_smallest_eigenvalue":1.7459480406425582e-16},
+    "5":{"binary_group":"2I","binary_group_order":120,"dimension_vector":[6,5,4,3,2,1,4,2,3],"sum_dimension_squares":120,"max_dimension_equation_residual":0,"affine_cartan_smallest_eigenvalue":-3.2748430666321024e-16}
+  },
+  "checks":{"orders_24_48_120":true,"sum_squares_match_group_orders":true,"dimension_vectors_satisfy_2d_equals_Ad":true,"affine_cartan_has_numerical_zero_mode":true},
+  "verdict":"PASS"
+}

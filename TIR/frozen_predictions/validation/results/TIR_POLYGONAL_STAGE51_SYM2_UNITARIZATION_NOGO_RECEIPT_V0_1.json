@@ -1,0 +1,15 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE51_SYM2_UNITARIZATION_NOGO_RECEIPT_V0_1",
+  "status": "PASS",
+  "R_E_eigenvalues": ["1/2", "1", "2"],
+  "spectral_unitarity_obstruction": true,
+  "common_invariant_form_general": "H=[[0,0,a],[0,b,0],[a,0,0]], b=-2a",
+  "representative_H0": [["0","0","1"],["0","-2","0"],["1","0","0"]],
+  "H0_eigenvalues": ["1", "-1", "-2"],
+  "H0_signature": "indefinite",
+  "positive_definite_common_form_exists": false,
+  "direct_similarity_to_SU3_allowed": false,
+  "CKM_input_used": false,
+  "mass_input_used": false,
+  "verdict": "STAGE_51_POSITIVE_HERMITIAN_UNITARIZATION_NO_GO_PASS"
+}

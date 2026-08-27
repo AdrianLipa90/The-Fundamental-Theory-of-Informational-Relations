@@ -1,0 +1,26 @@
+{
+  "schema": "tir.frozen-hypothesis/v0.1",
+  "hypothesis_id": "TIR_POLYGONAL_EXCITATION_POINCARE_ORBITAL_HYPOTHESIS_V0_1",
+  "author": "Adrian Lipa",
+  "freeze_time_local": "2026-08-25T10:59:00+01:00",
+  "status": "BOLD_HYPOTHESIS_FROZEN_PREVALIDATION",
+  "evidence_status": "NOT_YET_MATHEMATICALLY_VERIFIED",
+  "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+  "base_branch": "main",
+  "base_commit": "df8a6e1321ecf2e2c8819f4e9d5ec7d4f997d170",
+  "freeze_branch": "hypothesis/polygonal-excitation-freeze-20260825",
+  "hypothesis_commit": "84f26d433c56f9779ea7b11be5d612cf847e5526",
+  "core_prediction": [
+    "The three-point tetrahedral base is the lowest member of a broader polygonal excitation hierarchy.",
+    "Excitation may permit base cardinalities N=4,5,6,... with no finite upper level assumed at freeze time.",
+    "Projection of the pole-to-polygon hierarchy onto the Poincare disk may generate discrete orbital-like states.",
+    "The resulting hierarchy may map onto atomic-orbital structure."
+  ],
+  "freeze_policy": {
+    "mathematical_verification_after_freeze": true,
+    "atomic_spectrum_fit_before_freeze": false,
+    "pdg2026_tuning_before_freeze": false,
+    "retain_fail_and_tension": true,
+    "future_modification_requires_new_version": true
+  }
+}

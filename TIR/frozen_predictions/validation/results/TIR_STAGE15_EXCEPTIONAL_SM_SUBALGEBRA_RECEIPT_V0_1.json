@@ -1,0 +1,37 @@
+{
+  "schema": "TIR-EXCEPTIONAL-SM-SUBALGEBRA/0.1",
+  "stage": 15,
+  "scope": "pure Lie-algebra embedding audit",
+  "E7": {
+    "A1_nodes_1based": [1],
+    "A2_nodes_1based": [6, 7],
+    "u1_coroot_coefficients": [4, 6, 8, 12, 9, 6, 3],
+    "simple_root_charges": [0, 0, 0, 1, 0, 0, 0],
+    "checks": {
+      "A1_cartan_exact": true,
+      "A2_cartan_exact": true,
+      "A1_A2_commute": true,
+      "U1_commutes_with_A1_A2": true,
+      "U1_nontrivial": true,
+      "rank_SM_subalgebra": true
+    },
+    "verdict": "PASS"
+  },
+  "E8": {
+    "A1_nodes_1based": [1],
+    "A2_nodes_1based": [7, 8],
+    "u1_coroot_coefficients": [10, 15, 20, 30, 24, 18, 12, 6],
+    "simple_root_charges": [0, 0, 0, 1, 0, 0, 0, 0],
+    "checks": {
+      "A1_cartan_exact": true,
+      "A2_cartan_exact": true,
+      "A1_A2_commute": true,
+      "U1_commutes_with_A1_A2": true,
+      "U1_nontrivial": true,
+      "rank_SM_subalgebra": true
+    },
+    "verdict": "PASS"
+  },
+  "verdict": "PASS",
+  "physical_assignment": "OPEN"
+}

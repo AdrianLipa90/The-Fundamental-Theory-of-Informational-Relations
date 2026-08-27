@@ -1,0 +1,14 @@
+{
+  "schema": "tir.polygonal.stage23.chirality-intertwiner/v0.1",
+  "status": "PASS",
+  "checks": {
+    "tir_involution": true,
+    "exceptional_involution": true,
+    "convention_fixed_intertwiner": true,
+    "swapped_orientation_also_intertwines": true
+  },
+  "intertwiner_residual_exact": 0,
+  "orientation_convention": "TIR left-handed Weyl matter carrier -> 27 label",
+  "evidence_class": "EXACT_INTEGER_LABEL_REPRESENTATION_CHECK",
+  "scope": "Z2 label-representation equivalence"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE42_FAMILY_LIE_CLOSURE_V0_1",
+  "status": "STAGE_42_SU3F_LIE_CLOSURE_PASS",
+  "target_algebra_real_dimension": 8,
+  "subset_results": {
+    "D_Aseed": {
+      "lie_dimension": 4,
+      "skew_hermitian_traceless_residual": 5.551115123125783e-17
+    },
+    "D_C3character": {
+      "lie_dimension": 8,
+      "skew_hermitian_traceless_residual": 5.551115123125783e-17
+    },
+    "Aseed_C3character": {
+      "lie_dimension": 8,
+      "skew_hermitian_traceless_residual": 3.925231146709438e-17
+    },
+    "D_Aseed_C3character": {
+      "lie_dimension": 8,
+      "skew_hermitian_traceless_residual": 5.551115123125783e-17
+    }
+  },
+  "result": "The frozen ordered axis and C3-character axis generate full su(3)_F under commutators.",
+  "seed_incidence_role": "Adds a structurally distinguished 1<->2 channel; algebraic su(3)_F closure already occurs for D and C.",
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "pass": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE50_SYM2_POLYNOMIAL_THREE_CARRIER_RECEIPT_V0_1",
+  "status": "PASS_WITH_SIGNATURE_SEPARATION",
+  "carrier_dimension": 3,
+  "R_E": [["1/2","0","0"],["0","1","0"],["0","0","2"]],
+  "R_O": [["3","2","1/3"],["0","1","1/3"],["0","0","1/3"]],
+  "determinants": {"R_E": "1", "R_O": "1"},
+  "preserved_form": {
+    "Q": "xz-y^2",
+    "J": [["0","0","1/2"],["0","-1","0"],["1/2","0","0"]],
+    "R_E_T_J_R_E_equals_J": true,
+    "R_O_T_J_R_O_equals_J": true,
+    "signature": "indefinite (1,2) up to overall sign"
+  },
+  "representation": "Sym^2(SL(2,R)) -> SL(3,R), SO(1,2)-type image",
+  "SU3_family_identification_claimed": false,
+  "CKM_input_used": false,
+  "mass_input_used": false,
+  "verdict": "STAGE_50_SYM2_POLYNOMIAL_THREE_CARRIER_PASS_WITH_SIGNATURE_SEPARATION"
+}

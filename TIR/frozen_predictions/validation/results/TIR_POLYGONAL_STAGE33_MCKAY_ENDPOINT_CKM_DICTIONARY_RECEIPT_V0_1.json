@@ -1,0 +1,36 @@
+{
+  "schema": "tir.polygonal.stage33.mckay-endpoint-ckm-dictionary/v0.1",
+  "status": "PASS",
+  "endpoint_invariants": {
+    "N_minus": 3,
+    "N_plus": 5,
+    "n_minus": 7,
+    "n_plus": 9,
+    "spinor_dimension": 2
+  },
+  "ratios": {
+    "a": "2/7",
+    "b": "2/9",
+    "c": "2/5"
+  },
+  "checks": {
+    "endpoint_levels_unique": true,
+    "affine_endpoint_node_counts": true,
+    "defining_mckay_dimension_two": true,
+    "a_matches_L4_over_L3": true,
+    "b_matches_L4_over_L3plusL4": true,
+    "c_matches_L4_over_L5": true,
+    "Vcb_identity": true,
+    "Vub_identity": true,
+    "Vub_second_identity": true
+  },
+  "lambda_r1": 0.22484883650975376,
+  "Vcb": 0.04081632653061224,
+  "Vub": 0.0036281179138321997,
+  "J_structural": 3.110115459051604e-05,
+  "delta_direct_deg": 66.42182152179817,
+  "CKM_reference_used_for_reconstruction": false,
+  "mass_reference_used": false,
+  "functional_form_status": "RETROSPECTIVE_EXISTING_TIR_CANDIDATE",
+  "evidence_class": "EXACT_RATIONAL_ENDPOINT_INVARIANT_RECONSTRUCTION"
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "TIR-EXCEPTIONAL-CONJUGATION-Z2/0.1",
+  "stage": 19,
+  "checks": {
+    "E7_conjugation_order_2": true,
+    "E8_conjugation_order_2": true,
+    "E7_27_pair_exchanged": true,
+    "E8_triplet_pair_exchanged": true,
+    "E6_core_adjoint_fixed": true
+  },
+  "verdict": "PASS",
+  "TIR_chiral_intertwiner_status": "OPEN_OPERATOR_GATE"
+}

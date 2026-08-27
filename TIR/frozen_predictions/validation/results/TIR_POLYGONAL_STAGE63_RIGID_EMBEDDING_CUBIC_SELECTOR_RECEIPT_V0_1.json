@@ -1,0 +1,27 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE63_RIGID_EMBEDDING_CUBIC_SELECTOR_RECEIPT_V0_1",
+  "status": "STAGE_63_RIGID_EMBEDDING_CUBIC_SELECTOR_NONUNIQUENESS_PASS",
+  "probe_matrix": [
+    [
+      0.0173044628473248,
+      0.034682769722796616
+    ],
+    [
+      -0.10231337702777075,
+      -0.052036461922219425
+    ]
+  ],
+  "probe_matrix_rank": 2,
+  "AAA_vanishing_residual": 0.0,
+  "ADD_vanishing_residual": 0.0,
+  "exact_probe_formula_residual": 1.3877787807814457e-17,
+  "probe_determinant": 0.002648048272976565,
+  "exact_probe_determinant": "(100*sqrt(5)+259)/182250",
+  "probe_determinant_formula_residual": 0.0,
+  "result": "The rigid frozen A_seed/D0 embedding distinguishes both independent A5 cubic invariant directions; geometry and embedding rigidity alone do not select a unique cubic family action.",
+  "additional_scalar_dynamical_condition_required": true,
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "pass": true
+}

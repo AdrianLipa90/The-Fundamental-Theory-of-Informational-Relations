@@ -1,0 +1,21 @@
+{
+  "schema": "tir.polygonal.stage25.color-family-factorisation/v0.1",
+  "status": "PASS",
+  "checks": {
+    "quark_doublet_dimension_18": true,
+    "color_family_commutator_zero": true,
+    "stage21_multiplicities": true,
+    "total_dimension_48": true
+  },
+  "commutator_max_abs_exact": 0,
+  "multiplicities": {
+    "Q_Y_1_6": 18,
+    "u_c_Y_m2_3": 9,
+    "d_c_Y_1_3": 9,
+    "L_Y_m1_2": 6,
+    "e_c_Y_1": 3,
+    "nu_c_Y_0": 3
+  },
+  "evidence_class": "EXACT_INTEGER_TENSOR_FACTOR_CHECK",
+  "scope": "commuting SU(3)_C and SU(3)_F carrier factors"
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE49_COLLATZ_MOBIUS_POINCARE_RECEIPT_V0_1",
+  "status": "PASS",
+  "branch_generators": {
+    "E": {
+      "map": "x/2",
+      "projective_matrix": "[[1,0],[0,2]]",
+      "normalized_trace": 2.1213203435596424,
+      "classification": "hyperbolic"
+    },
+    "O": {
+      "map": "3x+1",
+      "projective_matrix": "[[3,1],[0,1]]",
+      "normalized_trace": 2.309401076758503,
+      "classification": "hyperbolic"
+    }
+  },
+  "exact_word_composites": {
+    "15_to_35": {
+      "affine_map": "x -> (9/4)x + 5/4",
+      "verified_target": 35
+    },
+    "35_to_35": {
+      "affine_map": "x -> x",
+      "verified_target": 35
+    },
+    "143_to_35": {
+      "slope": "16677181699666569/72057594037927936",
+      "translation": "137178808275158393/72057594037927936",
+      "odd_count": 34,
+      "even_count": 56,
+      "verified_target": 35
+    }
+  },
+  "poincare_disk_sample_max_modulus": {
+    "E": 0.6172222050440606,
+    "O": 0.7942098153317112
+  },
+  "CKM_input_used": false,
+  "mass_input_used": false,
+  "distance_to_amplitude_rule_used": false,
+  "SU3_family_identification_claimed": false,
+  "verdict": "STAGE_49_COLLATZ_MOBIUS_POINCARE_LIFT_PASS"
+}

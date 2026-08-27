@@ -1,0 +1,19 @@
+{
+  "schema": "TIR-E8-SIX-STATE-REALIZATION/0.1",
+  "stage": 20,
+  "orbit_from_0_plus": [[0,0],[1,1],[2,0],[0,1],[1,0],[2,1],[0,0]],
+  "permutation_cycle_length": 6,
+  "characteristic_polynomial": "lambda^6 - 1",
+  "checks": {
+    "P3_order_3": true,
+    "C_order_2": true,
+    "P3_C_commute": true,
+    "G_cubed_equals_C": true,
+    "G_order_6": true,
+    "single_six_cycle": true,
+    "projected_triplet_period_3": true,
+    "characteristic_polynomial_single_cycle": true
+  },
+  "verdict": "PASS",
+  "polygon_N6_relation": "SEPARATE_GEOMETRIC_OBJECT_PER_STAGE7"
+}

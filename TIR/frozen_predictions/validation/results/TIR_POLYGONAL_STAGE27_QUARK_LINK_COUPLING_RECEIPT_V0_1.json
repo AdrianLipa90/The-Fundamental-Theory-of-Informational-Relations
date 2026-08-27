@@ -1,0 +1,16 @@
+{
+  "schema": "tir.polygonal.stage27.quark-link-coupling/v0.1",
+  "status": "PASS",
+  "checks": {
+    "gauge_invariant_bilinear": true,
+    "reverse_link_conjugacy": true,
+    "W_unitary": true,
+    "W_special": true
+  },
+  "gauge_residual": 2.2887833992611187e-16,
+  "reverse_residual": 1.1443916996305594e-16,
+  "unitarity_residual": 2.288105085202532e-16,
+  "determinant_residual": 1.7115916575508467e-18,
+  "evidence_class": "DETERMINISTIC_SU3_NUMERICAL_REPLAY_OF_EXACT_GAUGE_IDENTITY",
+  "scope": "gauge-invariant graph-level quark-link coupling"
+}

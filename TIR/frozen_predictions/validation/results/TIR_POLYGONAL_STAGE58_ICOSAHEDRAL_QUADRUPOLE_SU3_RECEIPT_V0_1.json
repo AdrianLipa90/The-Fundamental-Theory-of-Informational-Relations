@@ -1,0 +1,36 @@
+{
+  "schema": "TIR_POLYGONAL_STAGE58_ICOSAHEDRAL_QUADRUPOLE_SU3_RECEIPT_V0_1",
+  "status": "STAGE_58_ICOSAHEDRAL_QUADRUPOLE_SU3_GENERATION_PASS",
+  "icosahedron_vertex_count": 12,
+  "antipodal_axis_count": 6,
+  "quadrupole_span_dimension": 5,
+  "quadrupole_sum_max_residual": 2.220446049250313e-16,
+  "gram_target_diagonal": 0.6666666666666666,
+  "gram_target_off_diagonal": -0.13333333333333333,
+  "gram_max_residual": 2.220446049250313e-16,
+  "gram_eigenvalues": [
+    -1.1102230246251565e-16,
+    0.7999999999999998,
+    0.7999999999999999,
+    0.8,
+    0.8000000000000002,
+    0.8000000000000004
+  ],
+  "commutator_span_dimension": 3,
+  "lie_closure_dimension": 8,
+  "skew_hermitian_traceless_residual": 1.1102230246251565e-16,
+  "exact_identities": {
+    "tr_Qa_squared": "2/3",
+    "tr_Qa_Qb_a_ne_b": "-2/15",
+    "gram_form": "(4/5) I_6 - (2/15) J_6",
+    "gram_spectrum": "0 x1, 4/5 x5",
+    "sum_Qa": "0",
+    "su3_real_vector_space_split": "so(3) + i Sym^2_0(R^3)"
+  },
+  "result": "The six icosahedral quadrupoles form a regular 5-simplex spanning Sym^2_0(R^3); their commutators span so(3); iQ_a generate full su(3).",
+  "uses_observed_CKM": false,
+  "uses_observed_masses": false,
+  "uses_fitted_coefficients": false,
+  "uses_amplitude_kernel": false,
+  "pass": true
+}
