@@ -1,7 +1,6 @@
 % !TEX root = ../metatime_monograph.tex
-\chapter{Source Code}
+\chapter{Source Code and Reproducibility Layers}
 \label{app:source_code}
-
 
 % CITATION_CONTEXT_V10_9_BEGIN
 \paragraph{Established context.}
@@ -11,73 +10,148 @@ agreement with a formula establishes technical reproducibility, not empirical
 truth of the underlying physical model.
 % CITATION_CONTEXT_V10_9_END
 
-The Metatime audit script computes all SM parameters from the framework
-constants and verifies the zero-free-parameter claim.
+The repository contains several executable layers with different evidential
+roles.  They must not be collapsed into one undifferentiated ``model PASS''.
 
-\section{Audit Script}
+\section{Legacy selected-observable reproducibility runner}
 
-The complete Python audit script is available in the file
-\texttt{metatime\_audit.py}.  Its structure is:
+The legacy audit module is
+\begin{center}
+\path{TIR/metatime_audit.py},
+\end{center}
+while the compatibility runner is
+\begin{center}
+\path{TIR/run_audit.py}.
+\end{center}
+The runner checks nine selected historical quantities against frozen engineering
+tolerances.  Its status is a \emph{technical reproducibility status}; it is not a
+physical validation of the complete TIR programme and is not a global statistical
+accuracy score.
 
+The current machine-readable invocation is
 \begin{verbatim}
-#!/usr/bin/env python3
-"""
-Metatime Framework — Rigorous Free Parameter Audit v2
-Computes every SM parameter from Metatime formulas.
-"""
-
-# Fundamental constants
-kappa = math.log(2) / (24 * math.pi)
-L3, L4, L5 = 7, 2, 5
-q = {'u':3, 'd':5, 's':7, 'c':11, 'b':13, 't':17}
-E_P = 1.22089e22       # MeV (Planck energy)
-E_p = 938.272          # MeV (proton mass)
-
-# Derived fine-structure constant
-alpha_inv = (L3*L4)**2 - L3**2 - L4*L5 + L4**2 * kappa
+python3 TIR/run_audit.py --json
 \end{verbatim}
+and reports the schema
+\path{TIR_SELECTED_LEGACY_REPRODUCIBILITY_V11_1}, the selected check count,
+per-check tolerances and residuals, structural-choice and external-input counts,
+and an explicit claim boundary.
 
-\section{Usage}
+\section{Exact $\kappa$ phase-rate implementation audit}
 
-To verify all predictions:
+The 7 August 2026 review adds
+\begin{center}
+\path{TIR/validation/kappa_phase_rate_identity_v11_1.py}.
+\end{center}
+Its primary certificate is symbolic at the factor-exponent level.  The TIR
+normalization is represented as
+\[
+\frac1{24}(\ln2)\pi^{-1},
+\]
+while angular-frequency conversion is represented as
+\[
+2\pi f.
+\]
+Exact multiplication gives
+\[
+\boxed{
+\frac1{24}(\ln2)\pi^{-1}\times 2\pi f
+=\frac1{12}(\ln2)f
+},
+\]
+so the rational coefficient $1/12$ and cancellation of the powers of $\pi$ are
+certified without a floating-point approximation to either $\pi$ or $\ln2$.
+Representative numerical frequencies are then evaluated only as secondary
+implementation sanity checks.
 
+The same receipt records the rank-three constraint certificate for
+$(\kappa,\omega,f,\Gamma_{\mathcal I})$, corresponding to the one-dimensional
+conditional constraint manifold described in Appendix~\ref{app:kappa}.
+
+\section{Review source contract}
+
+The static source contract
+\begin{center}
+\path{TIR/validation/review_source_contract_v11_1.py}
+\end{center}
+protects the reviewed source topology.  It checks, among other invariants, that
+Appendix~\ref{app:secret-half-cross-relation} remains included exactly once,
+that the phase-rate and constraint-manifold labels remain present exactly once,
+that the corrected Berry-phase normalization has not regressed, and that the
+TIR--Secret-of-a-Half negative self-duality boundary remains explicit.
+
+\section{Publication source generation and post-generation review patches}
+
+The publication-candidate generator is retained for reproducibility of the v11
+source transformation:
+\begin{center}
+\path{TIR/monograph/prepare_publication_candidate_v11_0.py}.
+\end{center}
+Because the generator predates the 7 August review, two idempotent patches are
+applied after generation:
+\begin{center}
+\path{TIR/monograph/apply_kappa_phase_rate_patch.py},\\
+\path{TIR/apply_metatime_paper_review_patch.py}.
+\end{center}
+The first restores the reviewed $\kappa$ phase-rate and constraint-manifold
+sections after generation.  The second synchronizes the short paper with the
+reviewed claim boundaries, including the corrected spin-$1/2$ Berry-phase
+normalization and the single-source $\kappa$ equation label.
+
+This ordering is intentional:
+\[
+\boxed{
+\text{historical generator}
+\to
+\text{review patches}
+\to
+\text{validation receipts}
+\to
+\text{LaTeX build}
+\to
+\text{publication preflight}
+}.
+\]
+The workflow verifies the exact pull-request head rather than a hard-coded
+historical branch.
+
+\section{Interpretation of PASS and FAIL}
+
+A successful execution may establish one of several distinct statements:
+\begin{description}
+\item[Technical PASS:] the declared implementation reproduces its frozen formula,
+receipt or source contract.
+\item[Formal PASS:] an exact or conditional algebraic statement is implemented
+consistently with its assumptions.
+\item[Physical PASS:] a prospective observable satisfies its frozen empirical
+decision rule.
+\item[Physical FAIL:] a frozen observable violates its empirical constraint even
+when the corresponding computation is technically correct.
+\end{description}
+
+The current publication explicitly retains physical failures such as the active
+neutron-EDM constraint.  A technical PASS must therefore never be substituted for
+a physical PASS.
+
+\section{Monograph source organization}
+
+The live publication tree contains
 \begin{verbatim}
-$ python3 metatime_audit.py
-\end{verbatim}
-
-The script prints the full formula ledger, structural choice counts,
-and comparison with PDG values for all 26 SM parameters.
-
-\section{Output Summary}
-
-The audit confirms:
-
-\begin{itemize}
-\item \textbf{0 continuous free parameters} - all M$_0$, M$_0'$, $\alpha$
-now derived.
-\item \textbf{2 external scales}: $E_P$, $E_{\text{proton}}$.
-\item \textbf{3 external inputs}: $N_c=3$, $Y(L)=-1/2$, Crewther factor.
-\item \textbf{$\sim$50 structural choices} across all sectors.
-\end{itemize}
-
-\section{Monograph Files}
-
-The complete monograph source is organized as:
-
-\begin{verbatim}
-monograph/
-  metatime_monograph.tex    (main file)
+TIR/monograph/
+  metatime_monograph.tex
   chapters/
-    ch01_introduction.tex  ...  ch31_open_problems.tex
+    ch01_introduction.tex ... ch31_open_problems.tex
   appendices/
-    appA_kappa_derivation.tex  ...  appI_source_code.tex
-  monograph_status.md       (living status document)
+    appA_kappa_derivation.tex
+    ...
+    appO_publication_protocol.tex
+    appP_secret_half_cross_relation.tex
+  apply_kappa_phase_rate_patch.py
+  prepare_publication_candidate_v11_0.py
 \end{verbatim}
 
-Compile with:
-
-\begin{verbatim}
-$ pdflatex metatime_monograph.tex
-$ pdflatex metatime_monograph.tex
-$ pdflatex metatime_monograph.tex
-\end{verbatim}
+The authoritative executable build sequence is maintained by
+\path{.github/workflows/compile-metatime-monograph.yml}.  That workflow compiles
+both the long monograph and the short Metatime paper, runs the exact phase-rate
+and review-source receipts, performs citation/reference and PDF-integrity
+preflight checks, and uploads the generated publication artifacts.

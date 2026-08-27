@@ -17,78 +17,81 @@ this monograph.
 
 \section{The Information Constant \(\kappa\)}
 
-The fundamental constant of the Metatime framework is the information
-constant \(\kappa = \ln 2 / (24\pi)\).  We derive it from three ingredients:
-the Berry phase of a spin-1/2 system, the Shannon information of a binary
-decision, and the tetrahedral symmetry of three-flavour space.
+The Metatime framework defines the information constant
+\begin{equation}
+\kappa \equiv \frac{\ln 2}{24\pi}.
+\label{eq:kappa_framework_definition}
+\end{equation}
+It is a model postulate with structural motivation, not a first-principles
+consequence of standard quantum mechanics, information geometry, or the
+Standard Model.  Appendix~\ref{app:kappa} records the normalization assumptions,
+the exact phase-rate consequences of the definition, and the corresponding
+parameter-counting statement.
 
-\subsection{Berry Phase on the Poincar\'{e} Disk}
+\claimstatus{B -- model postulate with structural motivation.}
 
-Consider a two-level quantum system (a spin-1/2 particle) whose Hamiltonian
-depends adiabatically on parameters \(\mathbf{R}(t)\).  After the parameters
-complete a closed cycle in parameter space, the system acquires a geometric
-phase---the Berry phase~\cite{berry1984}:
+\subsection{Geometric-phase reference scale}
+
+Consider a two-level quantum system (a spin-$1/2$ particle) whose Hamiltonian
+depends adiabatically on parameters $\mathbf{R}(t)$.  After the parameters
+complete a closed cycle in parameter space, the state may acquire a geometric
+phase~\cite{berry1984}:
 
 \begin{equation}
 \gamma_n = i \oint \langle n(\mathbf{R}) | \nabla_{\mathbf{R}} n(\mathbf{R}) \rangle \cdot d\mathbf{R}.
 \label{eq:berry_general}
 \end{equation}
 
-For a spin-1/2 system, the parameter space is the Bloch sphere.
-A cycle that subtends a solid angle \(\Omega\) yields a Berry phase
-\(\gamma = \Omega/2\).  For a complete cycle \((\Omega = 4\pi)\), the Berry
-phase is:
-
+For a spin-$1/2$ eigenstate on the Bloch sphere, the Berry phase is, up to
+orientation convention,
 \begin{equation}
-\gamma_{\text{spin}} = \frac{4\pi}{2} = \pi.
+\gamma = -\frac{\Omega}{2}\pmod{2\pi},
 \label{eq:berry_spin_half}
 \end{equation}
+where $\Omega$ is the enclosed solid angle.  A loop enclosing a hemisphere
+($|\Omega|=2\pi$) therefore gives a phase of magnitude $\pi$ modulo $2\pi$.
+A full-sphere solid angle $4\pi$ instead gives magnitude $2\pi$, which is
+trivial modulo $2\pi$; it does \emph{not} produce $\pi$.
 
-This is the natural geometric phase unit for a two-state quantum system.
+Accordingly, the factor $\pi$ used in the Metatime normalization is treated as
+a chosen spinorial/geometric reference phase scale.  The standard Berry formula
+motivates the availability of this phase scale but does not uniquely derive the
+coefficient $1/(24\pi)$.
 
-\subsection{Shannon Information}
+\subsection{Binary Shannon information}
 
-The information gained by resolving a binary outcome (e.g.\ a spin
-measurement) is~\cite{shannon1948}:
-
+For a binary equiprobable distribution, Shannon entropy is~\cite{shannon1948}
 \begin{equation}
-I = \ln 2 \quad \text{(nats)}.
+H\!\left(\frac12,\frac12\right)=\ln2
+\quad\text{(nats)}.
 \label{eq:shannon_binary}
 \end{equation}
+This is an exact information-theoretic statement.  Its use as the numerator of
+$\kappa$ is part of the Metatime structural ansatz.
 
-This is the fundamental unit of information for a two-outcome measurement.
+\subsection{Tetrahedral normalization}
 
-\subsection{Tetrahedral Symmetry of Three-Flavour Space}
+The rotational symmetry group of a regular tetrahedron is $A_4$ and has order
+12.  The full tetrahedral symmetry group including reflections is isomorphic to
+$S_4$ and has order 24.  In the present normalization the integer 24 is written
+as
+\begin{equation}
+24 = 2\,|A_4|,
+\qquad |A_4|=12,
+\label{eq:tetrahedral_normalization}
+\end{equation}
+where the additional factor two is an explicit orientation normalization.
+This discrete choice is internal to TIR; it is not identified with the Weyl
+group of $SU(3)$, which is $S_3$ of order 6.
 
-The three-flavour structure of quarks and leptons (the three generations)
-is associated with the tetrahedral symmetry group.  The full tetrahedral
-symmetry group (including reflections) is \(S_4\), the symmetric group of
-four objects, with order 24.  (The rotational subgroup is \(A_4\) of order
-12.)
+\subsection{Structural normalization of \(\kappa\)}
 
-The number 24 emerges as the discrete holonomy constraint: the three-flavour
-space is minimally quantized by the tetrahedral order.  (Note: the Weyl group
-of SU(3) is \(S_3\) of order 6, a different group; the use of \(S_4\) here
-reflects the tetrahedral NOEMA phase-space geometry, not the SU(3) root
-system.)
-
-\subsection{Construction of \(\kappa\)}
-
-The information constant \(\kappa\) combines these three ingredients:
-
-\begin{enumerate}
-\item The Shannon information of a binary resolution: \(\ln 2\) (numerator,
-encoding the information gained from a quantum measurement).
-\item The Berry phase of a spin-1/2 cycle: \(\pi\) (denominator, representing
-the geometric phase accumulated during one adiabatic cycle).
-\item The tetrahedral holonomy: 24 (denominator, normalizing the three-flavour
-discrete phase space).
-\end{enumerate}
-
-Thus:
+Combining the binary information scale, the declared tetrahedral-orientation
+normalization, and the reference phase scale gives the TIR definition
 
 \begin{equation}
-\kappa \equiv \frac{\ln 2}{24\pi}.
+\boxed{\kappa \equiv \frac{\ln 2}{2|A_4|\pi}
+=\frac{\ln 2}{24\pi}}.
 \label{eq:kappa_construction}
 \end{equation}
 
@@ -96,105 +99,124 @@ Thus:
 
 \[
 \kappa = \frac{0.6931471805599453}{24 \times 3.141592653589793}
-       = \frac{0.6931471805599453}{75.39822368615503}
-       = 0.009193150006360484.
+       = 0.009193150006360484\ldots .
 \]
 
-\noindent For most purposes, we use the approximation \(\kappa \approx
-9.19315 \times 10^{-3}\).
+\noindent The numerical value is not continuously fitted, but it does depend on
+the declared discrete normalization choices.  Therefore the correct status is
+``structurally defined and prospectively testable,'' not ``uniquely derived from
+first principles.''
+
+\section{Exact phase-rate consequence}
+
+If $\phi$ is an angular phase coordinate and
+\begin{equation}
+\omega=\frac{d\phi}{dt}=2\pi f,
+\end{equation}
+while the informational phase increment is defined by
+\begin{equation}
+d\mathcal I=\kappa\,d\phi,
+\end{equation}
+then
+\begin{equation}
+\boxed{
+\Gamma_{\mathcal I}
+\equiv\frac{d\mathcal I}{dt}
+=\kappa\omega
+=\frac{\ln2}{12}f
+}.
+\label{eq:metatime_phase_rate_summary}
+\end{equation}
+This algebraic identity introduces no additional continuous coefficient.  The
+full constraint-manifold statement and its one-effective-degree-of-freedom
+count are given in Appendix~\ref{app:kappa-constraint-manifold}.  A physical
+identification of $\Gamma_{\mathcal I}$ with a measurable refresh process
+remains a separate empirical hypothesis.
 
 \section{The Exponential Mass Formula}
 
-The central postulate of the Metatime framework is that every physical mass
-is determined by an action \(S\) on the Poincar\'{e} disk via an exponential
-Boltzmann-like factor:
+A central Metatime ansatz for selected mass relations is
 
 \begin{equation}
 m = E_P \, e^{-S/\kappa}.
 \label{eq:mass_formula}
 \end{equation}
 
-Here \(E_P = \sqrt{\hbar c^5 / G} = 1.22089 \times 10^{22}\)~MeV is the Planck
-energy (the fundamental scale of quantum gravity), and \(S\) is a
-dimensionless action constructed from the L-constants and quark primes.
+Here $E_P = \sqrt{\hbar c^5 / G} = 1.22089 \times 10^{22}$~MeV is the Planck
+energy, and $S$ is a dimensionless action constructed from the declared
+L-constants, arithmetic assignments and sector-specific rules.  Equation
+\eqref{eq:mass_formula} is a model law to be tested against the programme's
+prospective observables; it is not asserted as an established universal law for
+every physical mass.
 
-The exponential form arises from the geometric accumulation of phase on the
-Poincar\'{e} disk.  The action \(S\) is an entropy-like sum over flavour
-states, and the Boltzmann factor \(\exp(-S/\kappa)\) converts this action into
-a physical mass scale.
+\claimstatus{Model ansatz; physical validity determined sector by sector.}
 
 \subsection{Why the Exponential Form?}
 
-Consider a quantum system on the Poincar\'{e} disk with a discrete set of
-accessible states.  The partition function is:
-
+The exponential form is motivated by comparison with statistical weights such
+as
 \[
 Z = \sum_i e^{-E_i / k_B T}.
 \]
-
-In the geometric setting, the information constant \(\kappa\) plays the role
-of \(k_B T\) (the fundamental action quantum), and the mass \(m\) plays the
-role of the energy scale.  The action \(S\) encodes the number of accessible
-states: a larger action (more information) corresponds to a lighter particle,
-and a smaller action corresponds to a heavier particle.
+In the Metatime construction, $\kappa$ sets a dimensionless information-phase
+scale and $S$ is used as an action-like coordinate.  This analogy motivates
+$\exp(-S/\kappa)$ but does not derive it from equilibrium statistical mechanics.
+Consequently, agreement or failure of the resulting mass relations must be
+tracked empirically rather than inferred from the analogy itself.
 
 \section{Action Construction Principles}
 
-Each particle's action \(S\) is built from the following elements:
+The current model builds sector actions $S$ from combinations of the following
+elements:
 
 \begin{enumerate}
-\item \textbf{Spin degeneracy:} A term \(\frac{1}{2}\) for spin-1/2 fermions,
-encoding the two spin states.
-\item \textbf{Generation terms:} Terms proportional to \(\kappa\) for each
-generation, representing the information deficit shared across generations.
-\item \textbf{Flavour terms:} Terms involving quark primes \(q_i\) and
-L-constants \(L_3, L_4, L_5\), encoding the flavour structure.
-\item \textbf{Geometric corrections:} Terms involving ratios of L-constants
-and powers of \(\kappa\), representing higher-order curvature corrections on
-the Poincar\'{e} disk.
+\item \textbf{Spin-labelled terms:} terms involving $1/2$ in fermionic sector
+assignments.
+\item \textbf{Generation terms:} terms proportional to $\kappa$ in the declared
+generation-release constructions.
+\item \textbf{Flavour terms:} terms involving quark-prime assignments and
+L-constants $L_3,L_4,L_5$.
+\item \textbf{Geometric corrections:} ratios or powers of declared geometric
+quantities and $\kappa$ used by specific candidate relations.
 \end{enumerate}
+
+These are model-building rules.  Their presence in a formula does not by itself
+establish a microscopic physical mechanism, and retrospective assignments are
+kept distinct from prospective tests elsewhere in the monograph.
 
 \section{The NOEMA Tetrahedron}
 
-The NOEMA (Neutral Operator Eigenvalue Mapping Algebra) tetrahedron is a
-geometric construction in the three-dimensional operator space spanned by:
+The NOEMA tetrahedron is a model-space construction in the operator coordinates
 
 \[
 \{\hat I,\ \hat M,\ \hat A\},
 \]
 
-where \(\hat I\) is the isospin operator, \(\hat M\) is the mass operator,
-and \(\hat A\) is the axial operator.  The tetrahedron encodes the mixing
-patterns of quarks and leptons:
-
-\begin{itemize}
-\item The edge lengths are determined by \(L_3\) and \(L_4\).
-\item The face areas determine mass splittings.
-\item The dihedral angles determine mixing angles.
-\end{itemize}
-
-The NOEMA tetrahedron provides a unified geometric origin for the CKM and
-PMNS mixing matrices, as we show in Chapters~\ref{ch:ckm_matrix} and
-\ref{ch:pmns_mixing}.
+where $\hat I$, $\hat M$, and $\hat A$ are the isospin-, mass-, and axial-labelled
+coordinates used by the framework.  TIR uses the tetrahedral picture to organize
+candidate relations among flavour and mixing quantities.  Statements that edge
+lengths, face areas, or dihedral angles correspond to physical observables are
+therefore model assignments to be audited against the CKM and PMNS sectors, not
+established consequences of tetrahedral geometry alone.
 
 \section{External Scales and Inputs}
 
-The framework requires two external energy scales and three external numerical
+The current implementation uses the following external scales or numerical
 inputs:
 
 \begin{description}
-\item[\(E_P = 1.22089 \times 10^{22}\)~MeV:] The Planck energy, setting the
-absolute mass scale via the exponential formula.
-\item[\(E_{\text{proton}} = 938.272\)~MeV:] The proton mass, used as the
-reference scale for baryonic and electroweak quantities.
-\item[\(N_c = 3\):] The number of colours in QCD, needed for hypercharge
-assignments and anomaly cancellation.
-\item[\(Y(L) = -1/2\):] The lepton doublet hypercharge, required for anomaly
-cancellation checks.
-\item[\(\text{Crewther factor} = 2.4 \times 10^{-16}\):] The chiral
-perturbation theory factor relating \(\theta_{\text{QCD}}\) to the neutron
-electric dipole moment.
+\item[$E_P = 1.22089 \times 10^{22}$~MeV:] the Planck energy, used as an
+absolute scale in the exponential mass ansatz.
+\item[$E_{\text{proton}} = 938.272$~MeV:] the proton mass, used as a reference
+scale in selected baryonic and electroweak constructions.
+\item[$N_c = 3$:] the number of QCD colours in the anomaly-sector bookkeeping.
+\item[$Y(L) = -1/2$:] the lepton-doublet hypercharge used in the anomaly checks.
+\item[Strong-CP conversion input:] the numerical conversion used to translate
+the model $\theta_{\rm QCD}$ relation into the neutron-EDM observable.
 \end{description}
 
-All other numerical quantities are derived from \(\kappa\), the L-constants,
-and the quark primes, with no continuous parameters fitted to data.
+The remaining numerical relations are generated from the declared TIR
+constants, discrete assignments and sector rules.  This should not be read as a
+claim that all such relations are independent predictions: the publication
+protocol explicitly separates anchors, retrospective assignments, prospective
+predictions, upper-limit tests and physical failures.
