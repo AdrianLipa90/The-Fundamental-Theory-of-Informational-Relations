@@ -158,7 +158,7 @@ def main() -> None:
             "six_plus_one_typing": (
                 "terminal geometric-six boundary plus one independent gauge-matter source degree"
             ),
-            "septahedral_alias_literal_polyhedron_identity": False,
+            "septahedral_alias_semantics": "GEOMETRIC_SIX_BOUNDARY_PLUS_SOURCE_ONE",
         },
         "mass_firewall": {
             "source_schema": mass.get("schema"),
