@@ -1,0 +1,47 @@
+name: TIR Stage 67 Materiality Threshold
+
+on:
+  push:
+    branches:
+      - main
+      - "feat/materiality-threshold-stage67-v0.1"
+    paths:
+      - "TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE67_MATERIALITY_THRESHOLD_V0_1.md"
+      - "TIR/frozen_predictions/validation/scripts/materiality_threshold_stage67_v01.py"
+      - "TIR/frozen_predictions/validation/results/TIR_POLYGONAL_STAGE67_MATERIALITY_THRESHOLD_RECEIPT_V0_1.json"
+      - "TIR/frozen_predictions/validation/results/TIR_POLYGONAL_STAGE27_QUARK_LINK_COUPLING_RECEIPT_V0_1.json"
+      - "TIR/frozen_predictions/validation/results/TIR_POLYGONAL_STAGE28_DISCRETE_GAUGE_MATTER_RECEIPT_V0_1.json"
+      - "TIR/validation/results/collatz_sector_holonomy_mass_audit_v10_2r1.json"
+      - ".github/workflows/tir-stage67-materiality-threshold.yml"
+  pull_request:
+    paths:
+      - "TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE67_MATERIALITY_THRESHOLD_V0_1.md"
+      - "TIR/frozen_predictions/validation/scripts/materiality_threshold_stage67_v01.py"
+      - "TIR/frozen_predictions/validation/results/TIR_POLYGONAL_STAGE67_MATERIALITY_THRESHOLD_RECEIPT_V0_1.json"
+      - "TIR/frozen_predictions/validation/results/TIR_POLYGONAL_STAGE27_QUARK_LINK_COUPLING_RECEIPT_V0_1.json"
+      - "TIR/frozen_predictions/validation/results/TIR_POLYGONAL_STAGE28_DISCRETE_GAUGE_MATTER_RECEIPT_V0_1.json"
+      - "TIR/validation/results/collatz_sector_holonomy_mass_audit_v10_2r1.json"
+      - ".github/workflows/tir-stage67-materiality-threshold.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  stage67:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact head
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Stage 67 gate
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/frozen_predictions/validation/scripts/materiality_threshold_stage67_v01.py
+
+      - name: Verify committed receipt is deterministic
+        run: |
+          git diff --exit-code -- TIR/frozen_predictions/validation/results/TIR_POLYGONAL_STAGE67_MATERIALITY_THRESHOLD_RECEIPT_V0_1.json
