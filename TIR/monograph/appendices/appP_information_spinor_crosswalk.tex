@@ -1,0 +1,150 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{Information-Spinor Crosswalk and Dependency Direction}
+\label{app:information_spinor_crosswalk}
+
+% CITATION_CONTEXT_V10_9_BEGIN
+\paragraph{Established context.}
+Binary information, projective quantum-state geometry, and geometric holonomy
+follow the standard Shannon, Simon, Berry, and differential-geometric context
+\cite{shannon1948,Simon1983,berry1984,BottTu1982}.  The identity-axis,
+cycle-count, sector pairing, and CIEL/PhaseNav dependency assignments below are
+specific to the TIR/Metatime programme.
+% CITATION_CONTEXT_V10_9_END
+
+\claimstatus{Mixed: exact mathematical identities plus explicitly marked Metatime/TIR model assignments.}
+
+\section{Why this crosswalk exists}
+The dedicated critical-axis programme under
+\path{TIR/zeta_information_axis/}
+formalizes the repeated appearance of the balanced coordinate $1/2$ in binary information, complement symmetry, Bloch geometry, Berry holonomy, destructive interference, centred reciprocal geometry, and the anti-linear zeta involution.  The parent Metatime monograph uses some of the same structures in a broader phenomenological programme.  This appendix records the direction of dependence so that a result from one layer is not silently promoted in the other.
+
+The governing rule is:
+\[
+\boxed{
+\text{exact mathematical bridge}
+\;\neq\;
+\text{physical identification}
+\;\neq\;
+\text{empirical validation}.
+}
+\]
+
+\section{The half axis as an identity coordinate}
+The binary complement
+\[
+C(\sigma)=1-\sigma
+\]
+has the unique fixed point
+\[
+\sigma=\frac12.
+\]
+Using the centered coordinate
+\[
+x=\sigma-\frac12,
+\]
+complement becomes the orientation reversal $x\mapsto-x$.  Hence negative, zero, and positive centered values can be read geometrically as the two orientations and the fixed axis of the same one-dimensional chart.  The same centering idea is used by the critical-axis submonograph for $u=s-1/2$.
+
+In the qubit representation,
+\[
+n_z=2\sigma-1,
+\]
+so $\sigma=1/2$ is the Bloch equator.  Phase evolution can remain nontrivial while the identity coordinate remains balanced.  This is the sense in which the half value is an \emph{axis} rather than a frozen dynamical state.
+
+\section{Normalized cycles before radians}
+The critical-axis solver introduces a turn coordinate
+\[
+q\in\mathbb R/\mathbb Z
+\]
+with intrinsic winding frequency
+\[
+f_q=\frac{\Delta N}{\Delta t}.
+\]
+An angular representation is introduced only afterwards by
+\[
+\phi=Cq.
+\]
+For radians, $C=2\pi$.  The sequence
+\[
+\text{recurrence}\to\text{winding}\to\text{angle}
+\]
+is therefore conceptually prior to the conventional equation $\omega=2\pi f$.
+
+This cross-references the phase and Poincar\'e structures of Chapter~\ref{ch:metatime_framework} and Appendix~\ref{app:poincare}, while retaining the publication claim boundary of Appendix~\ref{app:kappa}.
+
+\section{The $24$ cross-factorization}
+The exact integer identity is
+\begin{equation}
+24=8\cdot3=12\cdot2=6\cdot4.
+\label{eq:appP-24}
+\end{equation}
+The equality is arithmetic.  Interpretations of these factors are model-level:
+\begin{itemize}
+\item $8\cdot3$: eight declared mixing sectors times three flavours;
+\item $12\cdot2$: twelve projective cycles times two half-turn units;
+\item $6\cdot4$: six spinor cycles times four half-turn units.
+\end{itemize}
+The three-flavour layer connects structurally to Chapter~\ref{ch:pmns_mixing}.  The projective/spinor interpretation connects to the Berry and holonomy structures reviewed in Chapter~\ref{ch:metatime_framework}.  None of these labels changes the status of $24$ from a discrete model normalization into an independently established physical constant.
+
+\section{Arithmetic--geometry factorization of $\kappa$}
+If the Metatime model assigns one binary information quantum to twelve normalized projective cycles,
+\begin{equation}
+\frac{\dd I}{\dd q}=\frac{\ln2}{12},
+\label{eq:appP-info-turn}
+\end{equation}
+and if the chosen angular representation has closure period $C$, then
+\begin{equation}
+\frac{\dd I}{\dd\phi}=\frac{\ln2}{12C}.
+\end{equation}
+For $C=2\pi$ this reproduces
+\begin{equation}
+\kappa=\frac{\ln2}{24\pi}.
+\label{eq:appP-kappa}
+\end{equation}
+Equation~\eqref{eq:appP-kappa} is exact conditional arithmetic once the cycle assignment and angular closure have been declared.  The independent physical derivation of the cycle assignment remains a model debt, consistently with Appendix~\ref{app:kappa}.
+
+\section{Paired structures and implication directions}
+\begin{longtable}{p{0.26\textwidth}p{0.29\textwidth}p{0.33\textwidth}}
+\toprule
+Source structure & Paired consequence & Status / direction \\
+\midrule
+$\sigma=1/2$ & $C(\sigma)=\sigma$ & Exact both-way characterization in the binary interval.\\
+$\sigma=1/2$ & $H_{\rm bin}=\ln2$ & Exact; entropy maximum uniquely selects the half point.\\
+$\sigma=1/2$ + qubit representation & Bloch equator $n_z=0$ & Exact inside the stated two-level representation.\\
+Bloch equator + one azimuthal loop & Berry holonomy $-1$ & Standard geometric-phase result in the chosen state family.\\
+Symmetric complementary readout + half-turn phase & exact destructive cancellation & Exact; the converse also selects $\sigma=1/2$.\\
+$u=s-1/2$ + $J(s)=1-\bar s$ & fixed axis $\Re s=1/2$ & Exact/classical.\\
+Centered zeta chart + $u\mapsto1/u$ & critical-axis set invariance & Exact; does not imply zero-set invariance.\\
+Projective cycle + spin $1/2$ & double-cover period & Standard representation theory.\\
+$\ln2/12$ per projective turn + $C=2\pi$ & $\kappa=\ln2/(24\pi)$ & Conditional arithmetic; cycle assignment is model-level.\\
+TIR sector-holonomy operator & mass-spectrum candidate & Retrospective model layer; see Appendix~\ref{app:sector_holonomy_release}.\\
+Critical-axis cancellation representation of every zeta zero & RH & Open bridge; not derived by Metatime holonomy alone.\\
+\bottomrule
+\end{longtable}
+
+\section{Holonomy policy}
+A relation edge is not automatically a holonomy edge.  Holonomy is meaningful only when a connection and a closed or composable path are defined.  This distinction matters for the parent programme because ``paired'' structures may be algebraic, geometric, semantic, or empirical without carrying a phase.
+
+The CIEL/PhaseNav runtime therefore stores a normalized holonomy coordinate only on eligible path edges.  Generated PhaseNav geometry remains a candidate until independent TIR provenance supplies the semantic relation.  Conversely, a TIR relation without an executable geometric path does not acquire a synthetic phase merely to complete a diagram.
+
+\section{Runtime dependency direction}
+The companion CIEL/PhaseNav package is organized so that higher-level operators depend on primitive geometry rather than the reverse:
+\[
+\boxed{
+\begin{array}{c}
+\text{identity axis / centered coordinate}\\
+\text{normalized cycle }\mathbb R/\mathbb Z\\
+\text{phase crystal }(\mathbb R/\mathbb Z)^{36}\\
+\text{typed relation edges}
+\end{array}
+\longrightarrow
+\text{tangent/log-map vectorization}
+\longrightarrow
+\text{semantic and holonomic solvers}.
+}
+\]
+On the phase crystal, the shortest oriented tangent displacement naturally lies in $[-1/2,1/2)$ per normalized coordinate.  Its sign is therefore generated by orientation; an identical coordinate produces zero.  This is the concrete computational meaning of the statement that signed vector components emerge from the geometry rather than being attached afterwards as semantic labels.
+
+\section{Claim firewall}
+The dedicated solver uses four statuses: \texttt{EXACT}, \texttt{STANDARD}, \texttt{MODEL}, and \texttt{OPEN}.  Exact closure permits only the first two classes.  Model closure may additionally use model assignments.  Open rules are never automatically promoted.
+
+In particular, the solver can reproduce the mutually consistent half-axis routes and the conditional normalization \eqref{eq:appP-kappa}, while still reporting the canonical zeta zero-state representation as a missing premise.  This preserves the scientific-status policy of this publication candidate: technical consistency and structural unification do not by themselves constitute physical or number-theoretic closure.

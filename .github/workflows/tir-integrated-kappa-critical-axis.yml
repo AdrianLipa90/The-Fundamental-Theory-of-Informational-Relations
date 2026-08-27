@@ -1,0 +1,122 @@
+name: TIR integrated kappa and critical-axis verification
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-integrated-lines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout exact event revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Verify checkout provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXPECTED="${{ github.event.pull_request.head.sha || github.sha }}"
+          test "$(git rev-parse HEAD)" = "$EXPECTED"
+          git rev-parse HEAD | tee checkout_head_sha.txt
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify kappa phase-rate contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/kappa_phase_rate_identity_v11_1.py | tee kappa_phase_rate_receipt.json
+          python3 TIR/validation/review_source_contract_v11_1.py | tee review_source_contract_receipt.json
+          grep -q '"technical_status": "PASS"' kappa_phase_rate_receipt.json
+          grep -q '"technical_status": "PASS"' review_source_contract_receipt.json
+          grep -q '"pi_cancelled_exactly": true' kappa_phase_rate_receipt.json
+
+      - name: Verify critical-axis solver
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install -e "TIR/zeta_information_axis[test]"
+          pytest TIR/zeta_information_axis/tests -q | tee critical-axis-pytest.log
+          python TIR/zeta_information_axis/scripts/run_audit.py
+          python TIR/zeta_information_axis/scripts/solve_axis.py --output TIR/zeta_information_axis/reports/solver_receipt.json > solver-console.json
+          grep -q '"half_axis_consensus": true' TIR/zeta_information_axis/reports/solver_receipt.json
+          grep -q '"rh_derived": false' TIR/zeta_information_axis/reports/solver_receipt.json
+
+      - name: Prepare publication sources and crosswalk audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/monograph/normalize_build_sources.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/prepare_publication_candidate_v11_0.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/apply_kappa_phase_rate_patch.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/apply_metatime_paper_review_patch.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/add_citation_context_v10_9.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/audit_information_spinor_crosswalk.py
+          rm -rf TIR/monograph/__pycache__ TIR/validation/__pycache__ TIR/__pycache__
+          find TIR/zeta_information_axis -type d -name __pycache__ -prune -exec rm -rf {} + || true
+          git diff --check
+
+      - name: Install publication toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends latexmk lmodern texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-science texlive-publishers texlive-xetex poppler-utils qpdf
+
+      - name: Compile parent monograph
+        working-directory: TIR/monograph
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error metatime_monograph.tex
+
+      - name: Compile short Metatime paper
+        working-directory: TIR
+        run: latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error metatime_paper.tex
+
+      - name: Compile critical-axis monograph
+        working-directory: TIR/zeta_information_axis/monograph
+        run: latexmk -xelatex -interaction=nonstopmode -halt-on-error -file-line-error main.tex
+
+      - name: Integrated preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s TIR/monograph/metatime_monograph.pdf
+          test -s TIR/metatime_paper.pdf
+          test -s TIR/zeta_information_axis/monograph/main.pdf
+          test -s TIR/monograph/appendices/appP_secret_half_cross_relation.tex
+          test -s TIR/monograph/appendices/appP_information_spinor_crosswalk.tex
+          test -s TIR/zeta_information_axis/reports/solver_receipt.json
+          qpdf --check TIR/monograph/metatime_monograph.pdf
+          qpdf --check TIR/metatime_paper.pdf
+          qpdf --check TIR/zeta_information_axis/monograph/main.pdf
+          echo "INTEGRATED TIR CLOSURE PREFLIGHT PASS" | tee integrated_preflight.txt
+
+      - name: Upload integrated receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: tir-integrated-verification-${{ github.sha }}
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            kappa_phase_rate_receipt.json
+            review_source_contract_receipt.json
+            critical-axis-pytest.log
+            solver-console.json
+            TIR/zeta_information_axis/reports/solver_receipt.json
+            TIR/zeta_information_axis/reports/numerical_audit.json
+            TIR/monograph/metatime_monograph.pdf
+            TIR/metatime_paper.pdf
+            TIR/zeta_information_axis/monograph/main.pdf
+            integrated_preflight.txt
+            checkout_head_sha.txt

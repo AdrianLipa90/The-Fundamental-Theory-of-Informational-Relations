@@ -10,15 +10,25 @@ from pathlib import Path
 import mpmath as mp
 
 from critical_axis.core import (
+    aharonov_bohm_holonomy,
     berry_holonomy,
     binary_entropy,
     binary_entropy_prime,
     binary_entropy_second,
+    centered_inversion,
+    centered_zeta_involution,
+    compactified_radius,
     completed_xi,
     dirichlet_eta,
     eta_prefactor,
     first_nontrivial_zeros,
+    hubble_length,
+    normalized_hubble_radius,
+    reciprocal_map,
+    strip_probability_coordinate,
     two_channel_amplitude,
+    u1_holonomy,
+    zeta_involution,
 )
 
 mp.mp.dps = 80
@@ -42,6 +52,32 @@ def main() -> None:
     eta_points = [mp.mpc("0.7", "3.2"), mp.mpc("1.2", "5.1"), mp.mpc("2.0", "0.5")]
     eta_residuals = [abs(dirichlet_eta(s) - eta_prefactor(s) * mp.zeta(s)) for s in eta_points]
 
+    u = mp.mpc("0.23", "4.5")
+    reciprocal_twice_residual = abs(reciprocal_map(reciprocal_map(u)) - u)
+    reciprocal_commutation_residual = abs(
+        reciprocal_map(centered_zeta_involution(u))
+        - centered_zeta_involution(reciprocal_map(u))
+    )
+
+    critical_s = mp.mpc("0.5", "14.134725")
+    critical_inverse = centered_inversion(critical_s)
+    critical_axis_residual = abs(mp.re(critical_inverse))
+
+    strip_s = mp.mpc("0.31", "7")
+    strip_p = strip_probability_coordinate(strip_s)
+    strip_jp = strip_probability_coordinate(zeta_involution(strip_s))
+    complement_covariance_residual = abs(strip_jp - (1 - strip_p))
+
+    ab_pi = aharonov_bohm_holonomy(mp.pi)
+    generic_pi = u1_holonomy(mp.pi)
+
+    sample_h = mp.mpf("2.3")
+    sample_c = mp.mpf("7.1")
+    sample_lh = hubble_length(sample_h, sample_c)
+    hubble_unit_residual = abs(
+        normalized_hubble_radius(sample_lh, sample_h, sample_c) - 1
+    )
+
     zeros = first_nontrivial_zeros(20)
     zero_records = [
         {
@@ -59,7 +95,19 @@ def main() -> None:
         "claim_policy": {
             "exact_identities": "PASS means algebraic or standard analytic identities reproduced numerically",
             "riemann_hypothesis": "OPEN; no proof is claimed",
-            "model_identification": "The identification sigma = Re(s) is an explicit modelling postulate",
+            "coordinate_promotion": (
+                "p=Re(s) is theorem-level only under the explicit affine, "
+                "endpoint-preserving strip-to-simplex assumptions"
+            ),
+            "zero_state_population": (
+                "The claim that zeta zero states must use that coordinate as "
+                "branch population remains MODEL POSTULATE / OPEN"
+            ),
+            "ab_hubble_relation": (
+                "U(1) holonomy and Hubble radial normalization are implemented "
+                "separately; their common TIR potential-tension interpretation "
+                "remains MODEL POSTULATE"
+            ),
         },
         "shannon": {
             "H_half": mp.nstr(binary_entropy(p), 50),
@@ -78,6 +126,35 @@ def main() -> None:
             "minus_one_residual": mp.nstr(abs(hol + 1), 50),
             "status": "PASS",
         },
+        "centered_reciprocal_geometry": {
+            "sample_u": as_pair(u),
+            "reciprocal_twice_residual": mp.nstr(reciprocal_twice_residual, 50),
+            "reciprocal_commutation_residual": mp.nstr(reciprocal_commutation_residual, 50),
+            "critical_axis_inverse": as_pair(critical_inverse),
+            "critical_axis_real_residual": mp.nstr(critical_axis_residual, 50),
+            "compactified_radius_1e20": mp.nstr(compactified_radius(mp.mpf("1e20")), 50),
+            "status": "PASS",
+        },
+        "affine_strip_coordinate": {
+            "sample_p": mp.nstr(strip_p, 50),
+            "complement_covariance_residual": mp.nstr(complement_covariance_residual, 50),
+            "status": "PASS_UNDER_STATED_AFFINE_ASSUMPTIONS",
+        },
+        "u1_holonomy": {
+            "generic_pi_holonomy": as_pair(generic_pi),
+            "ab_pi_holonomy": as_pair(ab_pi),
+            "generic_minus_one_residual": mp.nstr(abs(generic_pi + 1), 50),
+            "ab_minus_one_residual": mp.nstr(abs(ab_pi + 1), 50),
+            "status": "PASS",
+        },
+        "hubble_normalization": {
+            "sample_H": mp.nstr(sample_h, 50),
+            "sample_c": mp.nstr(sample_c, 50),
+            "sample_L_H": mp.nstr(sample_lh, 50),
+            "unit_radius_residual": mp.nstr(hubble_unit_residual, 50),
+            "status": "DEFINITIONAL_PASS",
+            "physical_boundary_interpretation": "MODEL_POSTULATE",
+        },
         "xi_functional_equation": {
             "residuals": [mp.nstr(r, 50) for r in xi_residuals],
             "status": "PASS",
@@ -91,6 +168,9 @@ def main() -> None:
         "global_status": {
             "technical_identities": "PASS",
             "numerical_reproduction": "PASS",
+            "coordinate_identification": "PARTIALLY_PROMOTED_CONDITIONAL_THEOREM",
+            "zero_state_representation": "OPEN_GAP",
+            "ab_hubble_potential_tension": "MODEL_POSTULATE",
             "critical_axis_explanation": "CONDITIONAL THEOREM",
             "riemann_hypothesis": "OPEN",
         },
@@ -109,12 +189,23 @@ def main() -> None:
         "| Binary Shannon maximum | PASS |",
         "| Exact two-channel cancellation | PASS |",
         "| Equatorial Berry holonomy | PASS |",
+        "| Centred reciprocal involution / commutation | PASS |",
+        "| Critical-axis set invariance under `1/u` | PASS |",
+        "| Radial centre-to-boundary compactification | PASS |",
+        "| Affine strip-to-simplex coordinate | PASS under stated affine assumptions |",
+        "| Generic U(1) / Aharonov-Bohm `pi` holonomy | PASS |",
+        "| Hubble radial normalization `H L / c = 1` at `L=c/H` | DEFINITIONAL PASS |",
+        "| AB/Hubble common physical potential-tension identification | **MODEL POSTULATE** |",
         "| Completed-xi symmetry | PASS |",
         "| Dirichlet-eta factorization and eta(1)=ln 2 | PASS |",
         "| First 20 tabulated zeros reproduced | PASS |",
+        "| Canonical zero-state representation | **OPEN GAP** |",
         "| Riemann hypothesis proved | **NO - OPEN** |",
         "",
-        "The audit verifies the exact mathematical bridge and the implementation. It does not convert the conditional critical-axis selection principle into an unconditional proof of RH.",
+        "The audit verifies exact mathematical identities and implementation-level "
+        "normalizations. It does not promote the AB/Hubble potential-tension "
+        "correspondence to established physics and does not convert the conditional "
+        "critical-axis selection principle into an unconditional proof of RH.",
     ]
     (REPORTS / "numerical_audit.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     print(json_path)

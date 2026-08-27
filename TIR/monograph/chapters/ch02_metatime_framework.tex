@@ -2,7 +2,6 @@
 \chapter{The Metatime Framework}
 \label{ch:metatime_framework}
 
-
 % CITATION_CONTEXT_V10_9_BEGIN
 \paragraph{Established context.}
 The standard geometric ingredients behind phase holonomy, quantum-state metrics,
@@ -22,41 +21,30 @@ The Metatime framework defines the information constant
 \kappa \equiv \frac{\ln 2}{24\pi}.
 \label{eq:kappa_framework_definition}
 \end{equation}
-It is a model postulate with structural motivation, not a first-principles
-consequence of standard quantum mechanics, information geometry, or the
-Standard Model.  Appendix~\ref{app:kappa} records the normalization assumptions,
-the exact phase-rate consequences of the definition, and the corresponding
-parameter-counting statement.
+Appendix~\ref{app:kappa} records the normalization assumptions, the exact
+phase-rate consequences of the definition, the information-spinor crosswalk,
+and the corresponding parameter-counting statement.
 
 \claimstatus{B -- model postulate with structural motivation.}
 
 \subsection{Geometric-phase reference scale}
 
-Consider a two-level quantum system (a spin-$1/2$ particle) whose Hamiltonian
-depends adiabatically on parameters $\mathbf{R}(t)$.  After the parameters
-complete a closed cycle in parameter space, the state may acquire a geometric
-phase~\cite{berry1984}:
-
+Consider a two-level quantum system whose Hamiltonian depends adiabatically on
+parameters $\mathbf{R}(t)$. After a closed cycle the state may acquire a
+geometric phase~\cite{berry1984}:
 \begin{equation}
 \gamma_n = i \oint \langle n(\mathbf{R}) | \nabla_{\mathbf{R}} n(\mathbf{R}) \rangle \cdot d\mathbf{R}.
 \label{eq:berry_general}
 \end{equation}
-
-For a spin-$1/2$ eigenstate on the Bloch sphere, the Berry phase is, up to
-orientation convention,
+For a spin-$1/2$ eigenstate on the Bloch sphere,
 \begin{equation}
 \gamma = -\frac{\Omega}{2}\pmod{2\pi},
 \label{eq:berry_spin_half}
 \end{equation}
-where $\Omega$ is the enclosed solid angle.  A loop enclosing a hemisphere
-($|\Omega|=2\pi$) therefore gives a phase of magnitude $\pi$ modulo $2\pi$.
-A full-sphere solid angle $4\pi$ instead gives magnitude $2\pi$, which is
-trivial modulo $2\pi$; it does \emph{not} produce $\pi$.
-
-Accordingly, the factor $\pi$ used in the Metatime normalization is treated as
-a chosen spinorial/geometric reference phase scale.  The standard Berry formula
-motivates the availability of this phase scale but does not uniquely derive the
-coefficient $1/(24\pi)$.
+where $\Omega$ is the enclosed solid angle. A loop enclosing a hemisphere
+($|\Omega|=2\pi$) gives a phase of magnitude $\pi$ modulo $2\pi$. The factor
+$\pi$ used in the Metatime normalization is therefore a declared
+spinorial/geometric reference phase scale.
 
 \subsection{Binary Shannon information}
 
@@ -66,46 +54,75 @@ H\!\left(\frac12,\frac12\right)=\ln2
 \quad\text{(nats)}.
 \label{eq:shannon_binary}
 \end{equation}
-This is an exact information-theoretic statement.  Its use as the numerator of
-$\kappa$ is part of the Metatime structural ansatz.
+This exact information-theoretic identity supplies the numerator of the TIR
+normalization.
 
-\subsection{Tetrahedral normalization}
+\subsection{Normalized recurrence before radians}
+
+A cyclic process can first be represented by a normalized turn coordinate
+\begin{equation}
+q\in\mathbb R/\mathbb Z,
+\end{equation}
+so that one recurrence is $q\mapsto q+1$. Its winding rate is $f_q=\Delta
+N/\Delta t$. An angular coordinate is introduced by
+\begin{equation}
+\phi=Cq,
+\end{equation}
+where $C$ is the closure period; in radians $C=2\pi$.
+
+For the two-level state used in the information-spinor subprogramme, the
+balanced equatorial loop carries Berry holonomy $-1$. The dedicated
+information-spinor analysis under \path{TIR/zeta_information_axis/} and
+Appendix~\ref{app:information_spinor_crosswalk} keep this path-dependent
+holonomy explicit.
+
+\subsection{Tetrahedral normalization and discrete cross-factorization}
 
 The rotational symmetry group of a regular tetrahedron is $A_4$ and has order
-12.  The full tetrahedral symmetry group including reflections is isomorphic to
-$S_4$ and has order 24.  In the present normalization the integer 24 is written
-as
+12. The full tetrahedral symmetry group including reflections is isomorphic to
+$S_4$ and has order 24. The declared normalization uses
 \begin{equation}
 24 = 2\,|A_4|,
-\qquad |A_4|=12,
+\qquad |A_4|=12.
 \label{eq:tetrahedral_normalization}
 \end{equation}
-where the additional factor two is an explicit orientation normalization.
-This discrete choice is internal to TIR; it is not identified with the Weyl
-group of $SU(3)$, which is $S_3$ of order 6.
+The exact arithmetic identity
+\begin{equation}
+24=8\cdot3=12\cdot2=6\cdot4
+\label{eq:twentyfour_crossfactor}
+\end{equation}
+is also retained as an internal cross-factorization ledger. Its factors are
+typed separately as declared sector/flavour, projective-cycle, and spinor-cycle
+assignments. The $SU(3)$ Weyl group $S_3$ remains a separate mathematical
+object.
 
-\subsection{Structural normalization of \(\kappa\)}
+\subsection{Structural normalization and cycle reconstruction of \(\kappa\)}
 
-Combining the binary information scale, the declared tetrahedral-orientation
-normalization, and the reference phase scale gives the TIR definition
-
+The TIR definition is
 \begin{equation}
 \boxed{\kappa \equiv \frac{\ln 2}{2|A_4|\pi}
 =\frac{\ln 2}{24\pi}}.
 \label{eq:kappa_construction}
 \end{equation}
-
-\noindent Evaluating numerically:
-
+Numerically,
 \[
-\kappa = \frac{0.6931471805599453}{24 \times 3.141592653589793}
-       = 0.009193150006360484\ldots .
+\kappa = 0.009193150006360484\ldots .
 \]
-
-\noindent The numerical value is not continuously fitted, but it does depend on
-the declared discrete normalization choices.  Therefore the correct status is
-``structurally defined and prospectively testable,'' not ``uniquely derived from
-first principles.''
+Equivalently, if the declared information cycle assigns
+\begin{equation}
+\frac{\dd I}{\dd q}=\frac{\ln2}{12},
+\label{eq:info-per-projective-turn}
+\end{equation}
+then conversion to the angular coordinate gives
+\begin{equation}
+\frac{\dd I}{\dd\phi}=\frac{\ln2}{12C},
+\end{equation}
+and for $C=2\pi$,
+\begin{equation}
+\frac{\dd I}{\dd\phi}=\frac{\ln2}{24\pi}=\kappa.
+\end{equation}
+This representation separates the arithmetic cycle assignment from the angular
+closure convention and exposes both in the validation contract.
 
 \section{Exact phase-rate consequence}
 
@@ -113,7 +130,7 @@ If $\phi$ is an angular phase coordinate and
 \begin{equation}
 \omega=\frac{d\phi}{dt}=2\pi f,
 \end{equation}
-while the informational phase increment is defined by
+while
 \begin{equation}
 d\mathcal I=\kappa\,d\phi,
 \end{equation}
@@ -127,96 +144,68 @@ then
 }.
 \label{eq:metatime_phase_rate_summary}
 \end{equation}
-This algebraic identity introduces no additional continuous coefficient.  The
-full constraint-manifold statement and its one-effective-degree-of-freedom
-count are given in Appendix~\ref{app:kappa-constraint-manifold}.  A physical
-identification of $\Gamma_{\mathcal I}$ with a measurable refresh process
-remains a separate empirical hypothesis.
+The full constraint-manifold statement and its one-effective-degree-of-freedom
+count are given in Appendix~\ref{app:kappa-constraint-manifold}. A physical
+binding of $\Gamma_{\mathcal I}$ is handled by a separate empirical gate.
 
 \section{The Exponential Mass Formula}
 
 A central Metatime ansatz for selected mass relations is
-
 \begin{equation}
 m = E_P \, e^{-S/\kappa}.
 \label{eq:mass_formula}
 \end{equation}
-
 Here $E_P = \sqrt{\hbar c^5 / G} = 1.22089 \times 10^{22}$~MeV is the Planck
-energy, and $S$ is a dimensionless action constructed from the declared
-L-constants, arithmetic assignments and sector-specific rules.  Equation
-\eqref{eq:mass_formula} is a model law to be tested against the programme's
-prospective observables; it is not asserted as an established universal law for
-every physical mass.
+energy, and $S$ is a dimensionless action constructed from declared
+L-constants, arithmetic assignments and sector-specific rules. The model is
+audited sector by sector under the repository claim hierarchy.
 
 \claimstatus{Model ansatz; physical validity determined sector by sector.}
 
 \subsection{Why the Exponential Form?}
 
-The exponential form is motivated by comparison with statistical weights such
-as
+The exponential architecture is motivated by comparison with statistical
+weights such as
 \[
 Z = \sum_i e^{-E_i / k_B T}.
 \]
 In the Metatime construction, $\kappa$ sets a dimensionless information-phase
-scale and $S$ is used as an action-like coordinate.  This analogy motivates
-$\exp(-S/\kappa)$ but does not derive it from equilibrium statistical mechanics.
-Consequently, agreement or failure of the resulting mass relations must be
-tracked empirically rather than inferred from the analogy itself.
+scale and $S$ is used as an action-like coordinate. Agreement or failure of the
+resulting mass relations is tracked empirically in the validation ledgers.
 
 \section{Action Construction Principles}
 
-The current model builds sector actions $S$ from combinations of the following
-elements:
-
+The current model builds sector actions $S$ from combinations of:
 \begin{enumerate}
-\item \textbf{Spin-labelled terms:} terms involving $1/2$ in fermionic sector
-assignments.
-\item \textbf{Generation terms:} terms proportional to $\kappa$ in the declared
-generation-release constructions.
-\item \textbf{Flavour terms:} terms involving quark-prime assignments and
-L-constants $L_3,L_4,L_5$.
-\item \textbf{Geometric corrections:} ratios or powers of declared geometric
-quantities and $\kappa$ used by specific candidate relations.
+\item \textbf{Spin-labelled terms:} terms involving $1/2$ in fermionic sector assignments.
+\item \textbf{Generation terms:} terms proportional to $\kappa$ in declared generation-release constructions.
+\item \textbf{Flavour terms:} terms involving quark-prime assignments and L-constants $L_3,L_4,L_5$.
+\item \textbf{Geometric corrections:} ratios or powers of declared geometric quantities and $\kappa$ used by specific candidate relations.
 \end{enumerate}
-
-These are model-building rules.  Their presence in a formula does not by itself
-establish a microscopic physical mechanism, and retrospective assignments are
-kept distinct from prospective tests elsewhere in the monograph.
+Their evidential status is tracked separately for retrospective assignments and
+prospective tests.
 
 \section{The NOEMA Tetrahedron}
 
 The NOEMA tetrahedron is a model-space construction in the operator coordinates
-
 \[
 \{\hat I,\ \hat M,\ \hat A\},
 \]
-
 where $\hat I$, $\hat M$, and $\hat A$ are the isospin-, mass-, and axial-labelled
-coordinates used by the framework.  TIR uses the tetrahedral picture to organize
-candidate relations among flavour and mixing quantities.  Statements that edge
-lengths, face areas, or dihedral angles correspond to physical observables are
-therefore model assignments to be audited against the CKM and PMNS sectors, not
-established consequences of tetrahedral geometry alone.
+coordinates used by the framework. TIR uses the tetrahedral picture to organize
+candidate relations among flavour and mixing quantities. Their validation is
+reported in the CKM and PMNS sectors.
 
 \section{External Scales and Inputs}
 
-The current implementation uses the following external scales or numerical
-inputs:
-
+The current implementation uses the following external scales or numerical inputs:
 \begin{description}
-\item[$E_P = 1.22089 \times 10^{22}$~MeV:] the Planck energy, used as an
-absolute scale in the exponential mass ansatz.
-\item[$E_{\text{proton}} = 938.272$~MeV:] the proton mass, used as a reference
-scale in selected baryonic and electroweak constructions.
+\item[$E_P = 1.22089 \times 10^{22}$~MeV:] the Planck energy, used as an absolute scale in the exponential mass ansatz.
+\item[$E_{\text{proton}} = 938.272$~MeV:] the proton mass, used as a reference scale in selected baryonic and electroweak constructions.
 \item[$N_c = 3$:] the number of QCD colours in the anomaly-sector bookkeeping.
 \item[$Y(L) = -1/2$:] the lepton-doublet hypercharge used in the anomaly checks.
-\item[Strong-CP conversion input:] the numerical conversion used to translate
-the model $\theta_{\rm QCD}$ relation into the neutron-EDM observable.
+\item[Strong-CP conversion input:] the numerical conversion used to translate the model $\theta_{\rm QCD}$ relation into the neutron-EDM observable.
 \end{description}
-
-The remaining numerical relations are generated from the declared TIR
-constants, discrete assignments and sector rules.  This should not be read as a
-claim that all such relations are independent predictions: the publication
-protocol explicitly separates anchors, retrospective assignments, prospective
-predictions, upper-limit tests and physical failures.
+The remaining numerical relations are generated from the declared TIR constants,
+discrete assignments and sector rules, with their status retained in the
+publication claim hierarchy.

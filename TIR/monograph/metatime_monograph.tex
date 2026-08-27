@@ -4,13 +4,8 @@
 %%
 %% Adrian Lipa, Doncaster, UK
 %% Version 11.0 - Publication Candidate
-%%
-%% Compile: pdflatex metatime_monograph.tex 
-%%          && pdflatex metatime_monograph.tex
-%%          && pdflatex metatime_monograph.tex
 
 \documentclass[11pt,a4paper,twoside]{book}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -19,24 +14,13 @@
 \usepackage{graphicx}
 \usepackage{xurl}
 \usepackage[protrusion=true,expansion=false]{microtype}
-\usepackage[
-  hidelinks,
-  pdfpagelayout=TwoPageRight,
-  pdftitle={Metatime: Publication Candidate of a Low-Parameter Phenomenological Ansatz},
-  pdfauthor={Adrian Lipa},
-  pdfsubject={Geometric-phase information structures and particle, flavor, hadronic, and cosmological observables},
-  pdfkeywords={Metatime, TIR, geometric phase, information geometry, Standard Model phenomenology, Collatz, Ramanujan, falsifiability}
-]{hyperref}
+\usepackage[hidelinks,pdfpagelayout=TwoPageRight,pdftitle={Metatime: Publication Candidate of a Low-Parameter Phenomenological Ansatz},pdfauthor={Adrian Lipa},pdfsubject={Geometric-phase information structures and particle, flavor, hadronic, and cosmological observables},pdfkeywords={Metatime, TIR, geometric phase, information geometry, Standard Model phenomenology, Collatz, Ramanujan, falsifiability}]{hyperref}
 \usepackage{makeidx}
 \usepackage{verbatim}
 \usepackage{longtable}
 \usepackage{booktabs}
-\usepackage[
-  left=2.5cm, right=2.5cm, top=3cm, bottom=3cm,
-  headheight=14pt
-]{geometry}
+\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=3cm,headheight=14pt]{geometry}
 \setlength{\emergencystretch}{3em}
-
 \makeindex
 
 \theoremstyle{definition}
@@ -45,9 +29,9 @@
 \newtheorem{lemma}{Lemma}[chapter]
 \newcommand{\claimstatus}[1]{\par\noindent\textbf{Claim status: #1}\par}
 \newcommand{\datasetstatus}[1]{\par\noindent\textbf{Data status: #1}\par}
-
 \newcommand{\OI}{\kappa}
 \newcommand{\Lam}{\Lambda}
+\newcommand{\dd}{\,\mathrm{d}}
 \newcommand{\mev}{\,\text{MeV}}
 \newcommand{\gev}{\,\text{GeV}}
 \newcommand{\eV}{\,\text{eV}}
@@ -61,45 +45,27 @@
 
 \begin{document}
 \raggedbottom
-
 \frontmatter
-
-\title{Metatime: A Publication Candidate for an Exploratory\\
-       Low-Parameter Phenomenological Ansatz}
+\title{Metatime: A Publication Candidate for an Exploratory\\Low-Parameter Phenomenological Ansatz}
 \author{Adrian Lipa}
 \date{Independent Researcher, Doncaster, UK\\Version 11.0 -- 29 July 2026}
-
 \maketitle
 \input{frontmatter/publication_frontmatter_v11_0}
-
 \tableofcontents
-
 \mainmatter
 
-%% ======================================================================
-%% PART I — FOUNDATIONS
-%% ======================================================================
 \part{Foundations}
-
 \include{chapters/ch01_introduction}
 \include{chapters/ch02_metatime_framework}
 \include{chapters/ch03_l_constants}
 \include{chapters/ch04_quark_primes}
 
-%% ======================================================================
-%% PART II — CHARGED LEPTONS
-%% ======================================================================
 \part{Charged Leptons}
-
 \include{chapters/ch05_electron_action}
 \include{chapters/ch06_generation_release}
 \include{chapters/ch07_lepton_spectrum}
 
-%% ======================================================================
-%% PART III — BARYONS
-%% ======================================================================
 \part{Baryons}
-
 \include{chapters/ch08_gmo_formula}
 \include{chapters/ch09_octet_m0}
 \include{chapters/ch10_octet_coefficients}
@@ -107,77 +73,41 @@
 \include{chapters/ch12_decuplet_m0prime}
 \include{chapters/ch13_decuplet_predictions}
 
-%% ======================================================================
-%% PART IV — MESONS
-%% ======================================================================
 \part{Mesons}
-
 \include{chapters/ch14_pseudoscalar_mesons}
 \include{chapters/ch15_heavy_mesons}
 
-%% ======================================================================
-%% PART V — NEUTRINOS
-%% ======================================================================
 \part{Neutrinos}
-
 \include{chapters/ch16_pmns_mixing}
 \include{chapters/ch17_neutrino_masses}
 
-%% ======================================================================
-%% PART VI — CKM QUARK MIXING
-%% ======================================================================
 \part{CKM Quark Mixing}
-
 \include{chapters/ch18_ckm_matrix}
 \include{chapters/ch19_ckm_cp_violation}
 
-%% ======================================================================
-%% PART VII — ELECTROWEAK SECTOR
-%% ======================================================================
 \part{Electroweak Sector}
-
 \include{chapters/ch20_higgs_vev}
 \include{chapters/ch21_weinberg_angle}
 \include{chapters/ch22_fine_structure}
 \include{chapters/ch23_gauge_bosons}
 \include{chapters/ch24_higgs_mass}
 
-%% ======================================================================
-%% PART VIII — STRONG CP
-%% ======================================================================
 \part{Strong CP Problem}
-
 \include{chapters/ch25_strong_cp_angle}
 \include{chapters/ch26_neutron_edm}
 
-%% ======================================================================
-%% PART IX — ANOMALIES
-%% ======================================================================
 \part{Gauge Anomalies}
-
 \include{chapters/ch27_hypercharge}
 \include{chapters/ch28_anomaly_cancellation}
 
-%% ======================================================================
-%% PART X — COSMOLOGY
-%% ======================================================================
 \part{Cosmology}
-
 \include{chapters/ch29_dark_energy}
 
-%% ======================================================================
-%% PART XI — CONCLUSIONS
-%% ======================================================================
 \part{Conclusions}
-
 \include{chapters/ch30_parameter_summary}
 \include{chapters/ch31_open_problems}
 
-%% ======================================================================
-%% APPENDICES
-%% ======================================================================
 \appendix
-
 \include{appendices/appA_kappa_derivation}
 \include{appendices/appB_collatz_tables}
 \include{appendices/appC_su3_primer}
@@ -194,18 +124,13 @@
 \include{appendices/appN_separable_candidate_family}
 \include{appendices/appO_publication_protocol}
 \include{appendices/appP_secret_half_cross_relation}
+\include{appendices/appP_information_spinor_crosswalk}
 
-%% ======================================================================
-%% BIBLIOGRAPHY
-%% ======================================================================
 \input{references_expanded_v10_8}
-
 \vfill
 \noindent\small\textit{Source code and version history:}
 \url{https://github.com/AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations}
 \par\vspace{2cm}
-
 \backmatter
 \printindex
-
 \end{document}

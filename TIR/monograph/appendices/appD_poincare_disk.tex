@@ -2,7 +2,6 @@
 \chapter{Poincar\'{e} Disk Geometry}
 \label{app:poincare}
 
-
 % CITATION_CONTEXT_V10_9_BEGIN
 \paragraph{Established context.}
 The differential-geometric and topological language used for disk geometry,
@@ -50,19 +49,20 @@ d(z_1, z_2) = \operatorname{artanh}\left|
 
 The boundary $\partial\mathbb{D} = \{z : |z| = 1\}$ corresponds to the
 conformal infinity of the hyperbolic plane.  In the Metatime framework,
-the boundary carries the information degrees of freedom.
+the assignment of information degrees of freedom to this boundary is a model
+interpretation rather than a theorem of hyperbolic geometry.
 
 \section{Kuramoto Model on $\mathbb{D}$}
 
-A system of $N$ coupled oscillators on $\mathbb{D}$ follows the Kuramoto
-dynamics:
+A model system of $N$ coupled oscillators on $\mathbb{D}$ is written here as
 
 \[
 \dot{z}_i = (1 - |z_i|^2)\left(i\omega_i z_i + \sum_{j\neq i} K_{ij} z_j\right),
 \]
 
-where $\omega_i$ are natural frequencies and $K_{ij}$ are coupling
-strengths determined by the quark primes.
+where $\omega_i$ are natural frequencies and $K_{ij}$ are model coupling
+strengths.  Specific assignments of those couplings to quark-prime data belong
+to the Metatime ansatz, not to the standard Kuramoto model itself.
 
 The synchronization order parameter is:
 
@@ -70,23 +70,37 @@ The synchronization order parameter is:
 r e^{i\psi} = \frac{1}{N}\sum_{j=1}^N \frac{z_j}{|z_j|}.
 \]
 
-For mesons, $N=2$ (quark and antiquark), and the coupled Kuramoto
-equations on $\mathbb{D}$ produce the mass gap via the action offset
-$S = \int \mathcal{L}\,dt$.
+For mesonic applications the framework studies $N=2$ sectors and relates the
+resulting trajectories to action coordinates.  Any mass-gap interpretation
+remains part of the model layer and is tested elsewhere in the monograph.
 
-\section{Hyperbolic Volume and $\kappa$}
+\section{Hyperbolic area and the $\kappa$ obligation}
 
-The area of a hyperbolic triangle with angles $\alpha,\beta,\gamma$ is:
+For curvature $K=-1$, the area of a geodesic hyperbolic triangle with interior
+angles $\alpha,\beta,\gamma$ is
 
 \[
 A = \pi - (\alpha + \beta + \gamma).
 \]
 
-For the tetrahedral angles appearing in the neutrino sector:
-
+Earlier drafts stated that a tetrahedral angle involving
 \[
-\alpha = \arccos\frac{L_4}{L_3} = \arccos\frac{2}{7},
+\alpha = \arccos\frac{L_4}{L_3} = \arccos\frac{2}{7}
 \]
+``gives $\kappa/2$''.  That statement is incomplete: a triangle area is not
+determined by one angle, and no theorem follows until the remaining angles,
+geodesic construction, curvature normalization, and equality to $\kappa/2$
+are all specified independently.
 
-the area gives $\kappa/2$, linking the information constant to hyperbolic
-geometry.
+Accordingly, the publication-level statement is now the explicit obligation
+\[
+\boxed{
+\text{derive a complete hyperbolic cell }(\alpha,\beta,\gamma)
+\text{ and prove }A=\kappa/2
+}
+\]
+if such a bridge is intended.  Until that construction is supplied, the
+Poincar\'e geometry and the Metatime value of $\kappa$ are cross-referenced but
+not identified by this area formula.  The current normalization status is
+summarized in Appendix~\ref{app:kappa} and the paired dependency map in
+Appendix~\ref{app:information_spinor_crosswalk}.
