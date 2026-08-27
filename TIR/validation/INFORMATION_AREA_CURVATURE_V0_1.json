@@ -1,0 +1,26 @@
+{
+  "schema": "TIR_INFORMATION_AREA_CURVATURE_V0_1",
+  "status": "EXACT_CP1_AREA_BERRY_TYPING_PASS__PHYSICAL_LENGTH_SCALE_OPEN",
+  "date": "2026-08-27",
+  "source_idt_main": "647f1652edde59d9bfd7e075fb6ed5bf02aab2fc",
+  "local_reference_test": {
+    "file": "TIR/validation/information_area_curvature_v0_1.py",
+    "result": "6 passed",
+    "runtime": "0.04 s"
+  },
+  "exact_identities": [
+    "da_FS = (1/4) sin(theta) dtheta wedge dphi",
+    "F_B = ±2 da_FS",
+    "a_FS(S^2) = pi",
+    "integral F_B over S^2 = ±2 pi",
+    "A_rel = ell_R^2 a_FS",
+    "Xi_I = ln(2) I_pi / A_rel",
+    "Xi_I = 24 pi kappa I_pi / A_rel"
+  ],
+  "open_dependencies": [
+    "physical or derived ell_R calibration",
+    "polyhedral/refinement physical area carrier",
+    "RFC dynamic Lambda0 binding"
+  ],
+  "claim_promotion": false
+}
