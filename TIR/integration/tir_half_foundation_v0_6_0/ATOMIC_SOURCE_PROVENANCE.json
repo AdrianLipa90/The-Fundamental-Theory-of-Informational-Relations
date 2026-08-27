@@ -1,0 +1,28 @@
+{
+  "coefficient_inputs_used": false,
+  "mass_inputs_used": false,
+  "schema": "tir-half/atomic-source-provenance/v1",
+  "sources": [
+    {
+      "archive": "CIEL_OMEGA_COMPLETE_SYSTEM.tar.gz",
+      "archive_sha256": "fc87e9a96d31dae3474190683319fef984b7c712c828df6389947fec1f6ba6b2",
+      "member": "CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/dynamics.py",
+      "member_sha256": "80af049674139b5e2ab4b029232aefd3ddbb3666be4cf4d9ff57b146360ea083",
+      "used_rule": "spin = tanh(-alpha_s * dV_dphi); dV_dphi is a central finite difference of total_relational_potential"
+    },
+    {
+      "archive": "CIEL_OMEGA_COMPLETE_SYSTEM.tar.gz",
+      "archive_sha256": "fc87e9a96d31dae3474190683319fef984b7c712c828df6389947fec1f6ba6b2",
+      "member": "CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/metrics.py",
+      "member_sha256": "5f767c0659ec6eba16977c7d6bb5ba6f393a739013889346002e1a896c80921c",
+      "used_rule": "total_relational_potential; holonomy_defect; local_vorticity; global_chirality"
+    },
+    {
+      "archive": "ciel_geometry.tar.gz",
+      "archive_sha256": "c6c9cc6a728d275b4b25886352f1ffdb3e2bba4d2036739ec9e24b6ca3d49e56",
+      "member": "ciel_geometry/orbital_model.py",
+      "member_sha256": "c9b150516299283f95882f972cbb4c8cd439c171f2a21bf6e286841cbd2f9f31",
+      "used_rule": "orbit direction attractor->satellite; outgoing phase positive, incoming/satellite phase negative in mean_phase"
+    }
+  ]
+}
