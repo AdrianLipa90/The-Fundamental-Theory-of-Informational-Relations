@@ -1,0 +1,47 @@
+{
+  "schema": "TIR_HEXAHEDRAL_BLOCH_DUAL_FRAME_RECEIPT_V0_1",
+  "status": "PASS",
+  "date": "2026-08-27",
+  "branch": "agent/hexahedral-bloch-frame-v0.1",
+  "formalism": "TIR/integration/TIR_HEXAHEDRAL_BLOCH_DUAL_FRAME_V0_1.md",
+  "validation_script": "TIR/validation/hexahedral_bloch_dual_frame_v0_1.py",
+  "local_reference_execution": {
+    "status": "PASS",
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "checks": [
+      "second_moment_isotropy",
+      "rank3_isotropic_metric",
+      "pair_FS_and_transition_fingerprint",
+      "octant_Bargmann_phase_and_gauge",
+      "octant_area_Berry_flux_Chern",
+      "Euler_duality",
+      "phase_clock_physicalization"
+    ]
+  },
+  "exact_results": {
+    "dual_face_normals": "{+ex,-ex,+ey,-ey,+ez,-ez}",
+    "second_moment": "I3/3",
+    "aggregate_FS_metric": "I3/6",
+    "rank": 3,
+    "eigenvalues": ["1/6", "1/6", "1/6"],
+    "determinant": "1/216",
+    "condition_number": 1,
+    "FS_distance_opposite": "pi/2",
+    "FS_distance_orthogonal": "pi/4",
+    "FS_area_octant": "pi/8",
+    "Berry_phase_octant_magnitude": "pi/4",
+    "total_FS_area": "pi",
+    "total_Berry_flux_magnitude": "2pi",
+    "first_Chern_number_magnitude": 1,
+    "Euler_characteristic": 2
+  },
+  "physicalization": {
+    "scale": "ell_phi=c/|omega_t|=hbar*c/E",
+    "metric": "h_phys=(ell_phi^2/6) I3",
+    "rank_preserved_for": "finite ell_phi > 0"
+  },
+  "claim_boundary": "Exact local hexahedral dual-frame/projective metric theorem. Physical spatial-displacement binding, coframe integrability, inter-cell gluing, weak-field Newton closure and global spacetime dynamics remain downstream gates.",
+  "gremlin_authority": "candidate_generation_and_audit_only"
+}
