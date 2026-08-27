@@ -1,0 +1,69 @@
+% !TEX root = ../metatime_monograph.tex
+\chapter{PDG 2026 Validation Addendum}
+\label{ch:pdg2026_addendum}
+
+\claimstatus{External-data validation freeze; no retuning of failed observables.}
+\datasetstatus{Particle Data Group 2026 Review of Particle Physics; audit frozen 15 August 2026.}
+
+\section{Status}
+This chapter records the first TIR/Metatime cross-check against the 2026
+Review of Particle Physics.  It supersedes older numerical validation language
+where the older frozen comparison conflicts with the 2026 audit.  No coefficient
+is changed here to improve agreement.
+
+\section{Validation semantics}
+A small relative percentage error is not equivalent to precision agreement.
+The audit separates numerical compatibility, tension, precision failure,
+provenance-contaminated postdiction, internal formula failure, and quantities
+that are not yet sufficiently defined for precision testing.
+
+\section{Current sector matrix}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Sector & Status & Main conclusion\\
+\midrule
+CKM & strong compatibility & all nine magnitudes within $\sim1.71\sigma$\\
+Neutrinos & mixed & solar quantities compatible; $\theta_{13}$ tension\\
+Charged leptons & precision fail & arithmetic coherent; experiment much more precise\\
+Baryon octet & provenance caveat & coefficients revised after target comparison\\
+Baryon decuplet & test candidate & structured nonzero residuals\\
+Mesons & formula/provenance fail & printed $\pi/K$ equations do not reproduce values\\
+Electroweak & precision fail & scheme/running/radiative structure required\\
+Higgs & precision tension & $126.07$ GeV is not within $2\sigma$\\
+Quark masses & not testable & mass map, scheme and scale are missing\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Principal corrections}
+The previous statement that all displayed PMNS parameters lie within
+$1.6\sigma$ is withdrawn: the frozen $\sin^2\theta_{13}=1/49$ is roughly
+$2.7$--$4.0\sigma$ below the selected 2026 global-fit best values.  The old
+near-match of $\delta_{CP}$ to $244^\circ$ is likewise not a current-best-fit
+validation statement.
+
+The printed pion and kaon expressions are quarantined.  Literal evaluation of
+$E_Pe^{-6/\pi}$ and $E_Pe^{-(\zeta(2)-1)}$ does not produce the printed meson
+masses; an independently derived absolute action baseline is required before
+those equations can be treated as predictions.
+
+The phrase ``essentially perfect match'' for the fine-structure constant is
+withdrawn as a precision claim.  The relative discrepancy is small, but the
+uncertainty of $\alpha^{-1}(0)$ is vastly smaller.
+
+The current $M_W$ and $M_Z$ relations are precision failures.  The Higgs
+relation $M_H=126.07$ GeV is reopened as a precision tension; the earlier claim
+that it was within $2\sigma$ of $125.25\pm0.17$ GeV is arithmetically false.
+
+\section{Formula-freeze rule}
+Any future TIR claim intended as prospective evidence shall publish before
+unblinding: the formula/version hash, external inputs, construction data,
+numerical prediction, and decision rule.  FAIL and TENSION results remain in
+the public validation ledger and may motivate a new version, but may not be
+silently overwritten.
+
+\section{Reference}
+F.~Takahashi \emph{et al.} (Particle Data Group), ``Review of Particle
+Physics,'' \emph{International Journal of Modern Physics A} \textbf{41},
+2630011 (2026), DOI: 10.1142/S0217751X26300115.
