@@ -60,7 +60,7 @@ def build_receipt() -> dict[str, object]:
         exact = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=False)
         model = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=True)
         receipt = {
-            "schema": "tir.critical-axis.solver-receipt/v4",
+            "schema": "tir.critical-axis.solver-receipt/v5",
             "precision_decimal_digits": 80,
             "half_axis_routes": {key: mp.nstr(value, 50) for key, value in routes.items()},
             "half_axis_consensus": all(
@@ -83,6 +83,9 @@ def build_receipt() -> dict[str, object]:
             "open_wiener_laguerre_scalar_routes": _missing(
                 "xi_wiener_laguerre_strict_positivity", set(model.facts)
             ),
+            "open_transverse_convexity_routes": _missing(
+                "xi_global_transverse_convexity", set(model.facts)
+            ),
             "verdict": {
                 "mathematical_half_axis_routes": "PASS",
                 "conditional_kappa_arithmetic": "PASS",
@@ -97,6 +100,9 @@ def build_receipt() -> dict[str, object]:
                 "phi2y_translation_density_condition": "OPEN_RH_EQUIVALENT_CRITERION",
                 "phi2y_bounded_convolution_annihilator_condition": "OPEN_RH_EQUIVALENT_CRITERION",
                 "xi_wiener_laguerre_strict_positivity": "OPEN_RH_EQUIVALENT_CRITERION",
+                "xi_strip_class_s_half": "STANDARD_PASS",
+                "xi_transverse_curvature_equals_twice_laguerre_scalar": "EXACT_PASS",
+                "xi_global_transverse_convexity": "OPEN_RH_EQUIVALENT_CRITERION",
                 "riemann_hypothesis": "OPEN",
             },
         }
