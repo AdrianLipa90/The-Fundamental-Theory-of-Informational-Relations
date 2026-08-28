@@ -78,10 +78,7 @@ def projector_certificate() -> dict[str, object]:
     ps: Matrix = ((0j, 0j), (0j, 1 + 0j))
     ident: Matrix = ((1 + 0j, 0j), (0j, 1 + 0j))
     zero: Matrix = ((0j, 0j), (0j, 0j))
-    add = tuple(
-        tuple(pn[i][j] + ps[i][j] for j in range(2))
-        for i in range(2)
-    )
+    add = tuple(tuple(pn[i][j] + ps[i][j] for j in range(2)) for i in range(2))
     passed = (
         mateq(matmul(pn, pn), pn)
         and mateq(matmul(ps, ps), ps)
@@ -133,7 +130,6 @@ def maximally_mixed_certificate() -> dict[str, object]:
 
 
 def rotation_entry_certificate() -> dict[str, object]:
-    # Exact quarter-turn rotations around x and z axes.
     rx: Matrix = (
         (1 + 0j, 0j, 0j),
         (0j, 0j, -1 + 0j),
@@ -169,7 +165,6 @@ def build_receipt() -> dict[str, object]:
     pauli = pauli_certificate()
     mixed = maximally_mixed_certificate()
     rotations = rotation_entry_certificate()
-
     passed = (
         zero_half["pass_zero"]
         and zero_half["pass_half_fixed_point"]
@@ -179,7 +174,6 @@ def build_receipt() -> dict[str, object]:
         and mixed["pass"]
         and rotations["pass"]
     )
-
     return {
         "schema": "TIR_ZERO_FIRST_DISTINCTION_V0_1",
         "scope": "TIR_STRUCTURAL_CROSSWALK",
