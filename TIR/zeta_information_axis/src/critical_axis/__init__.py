@@ -43,6 +43,15 @@ from .solver import (
     solve_sigma_from_entropy,
     validate_half_axis_routes,
 )
+from .xi_kernel import (
+    XiKernelBranches,
+    completed_xi_on_z_axis,
+    kernel_reconstruction_residual,
+    riemann_phi,
+    xi_kernel_branch,
+    xi_kernel_branches,
+    zeta_s_to_xi_z,
+)
 
 __all__ = [
     "CancellationResult",
@@ -84,4 +93,11 @@ __all__ = [
     "solve_sigma_from_complement",
     "solve_sigma_from_entropy",
     "validate_half_axis_routes",
+    "XiKernelBranches",
+    "completed_xi_on_z_axis",
+    "kernel_reconstruction_residual",
+    "riemann_phi",
+    "xi_kernel_branch",
+    "xi_kernel_branches",
+    "zeta_s_to_xi_z",
 ]
