@@ -9,14 +9,13 @@ from critical_axis.solver import (
     validate_half_axis_routes,
 )
 
-mp.mp.dps = 60
-
 
 def test_four_independent_half_axis_routes_agree() -> None:
-    routes = solve_half_axis_routes()
-    assert set(routes) == {"complement", "entropy", "berry_minus_one", "cancellation"}
-    assert all(abs(value - mp.mpf("0.5")) < mp.mpf("1e-40") for value in routes.values())
-    assert validate_half_axis_routes(mp.mpf("1e-40"))
+    with mp.workdps(60):
+        routes = solve_half_axis_routes()
+        assert set(routes) == {"complement", "entropy", "berry_minus_one", "cancellation"}
+        assert all(abs(value - mp.mpf("0.5")) < mp.mpf("1e-40") for value in routes.values())
+        assert validate_half_axis_routes(mp.mpf("1e-40"))
 
 
 def test_exact_closure_admits_xi_kernel_cancellation_but_keeps_open_bridges_blocked() -> None:
@@ -45,9 +44,13 @@ def test_exact_closure_admits_xi_kernel_cancellation_but_keeps_open_bridges_bloc
     assert result.derives("spinor_double_cover")
     assert result.derives("canonical_xi_two_branch_representation")
     assert result.derives("all_xi_zeros_exact_kernel_branch_cancellation")
+    assert result.derives("dimitrov_xu_nu2_correlation_kernel")
+    assert result.derives("xi_wronskian_nu2_fourier_identity")
     assert not result.derives("global_kernel_branch_nondegeneracy")
     assert not result.derives("kernel_population_equals_strip_coordinate")
     assert not result.derives("all_xi_zero_kernel_population_half")
+    assert not result.derives("phi2y_translation_density_condition")
+    assert not result.derives("phi2y_bounded_convolution_annihilator_condition")
     assert not result.derives("kappa_ln2_over_24pi")
     assert not result.derives("twenty_four_sector_count")
     assert not result.derives("riemann_hypothesis")
@@ -70,8 +73,12 @@ def test_model_closure_can_derive_kappa_but_never_open_rh_bridge() -> None:
     assert result.derives("twenty_four_sector_count")
     assert result.derives("twenty_four_pi_normalization")
     assert result.derives("all_xi_zeros_exact_kernel_branch_cancellation")
+    assert result.derives("dimitrov_xu_nu2_correlation_kernel")
+    assert result.derives("xi_wronskian_nu2_fourier_identity")
     assert not result.derives("global_kernel_branch_nondegeneracy")
     assert not result.derives("kernel_population_equals_strip_coordinate")
+    assert not result.derives("phi2y_translation_density_condition")
+    assert not result.derives("phi2y_bounded_convolution_annihilator_condition")
     assert not result.derives("riemann_hypothesis")
 
 
@@ -98,6 +105,34 @@ def test_explicit_admission_of_both_xf1_open_premises_closes_conditional_chain()
     assert result.derives("riemann_hypothesis")
 
 
+def test_xf3_standard_kernel_and_wronskian_are_admitted_but_density_is_open() -> None:
+    result = DEFAULT_SOLVER.closure({"xi_fourier_kernel"})
+    assert result.derives("dimitrov_xu_nu2_correlation_kernel")
+    assert result.derives("xi_wronskian_nu2_fourier_identity")
+    assert not result.derives("phi2y_translation_density_condition")
+    assert not result.derives("phi2y_bounded_convolution_annihilator_condition")
+    assert not result.derives("riemann_hypothesis")
+
+
+def test_xf3_solver_exposes_two_global_rh_equivalent_routes() -> None:
+    missing = DEFAULT_SOLVER.missing_premises(
+        "riemann_hypothesis", {"xi_fourier_kernel"}, allow_model=True
+    )
+    assert missing
+    absent = {premise for _, premises in missing for premise in premises}
+    assert "phi2y_translation_density_condition" in absent
+    assert "phi2y_bounded_convolution_annihilator_condition" in absent
+
+
+def test_explicit_admission_of_xf3_density_condition_closes_standard_equivalence() -> None:
+    result = DEFAULT_SOLVER.closure(
+        {"xi_fourier_kernel", "phi2y_translation_density_condition"}
+    )
+    assert result.derives("riemann_hypothesis")
+    assert result.derives("phi2y_bounded_convolution_annihilator_condition")
+
+
 def test_kappa_normalization_matches_runtime_value() -> None:
-    expected = mp.log(2) / (24 * mp.pi)
-    assert abs(kappa_from_projective_cycle() - expected) < mp.mpf("1e-50")
+    with mp.workdps(60):
+        expected = mp.log(2) / (24 * mp.pi)
+        assert abs(kappa_from_projective_cycle() - expected) < mp.mpf("1e-50")
