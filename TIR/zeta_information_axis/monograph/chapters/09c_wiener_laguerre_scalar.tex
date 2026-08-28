@@ -1,0 +1,121 @@
+\chapter{Wiener--Laguerre scalar criterion}\label{ch:wiener-laguerre-scalar}
+
+\section{Reduction of the density frontier}
+
+Chapter~\ref{ch:correlation-kernel} expresses the Dimitrov--Xu critical-axis criterion as density of the translates of
+\[
+\Phi_{2,y}(t)=\cosh(ty)\nu_2(t),
+\qquad
+0<|y|<\frac12.
+\]
+Wiener's $L^1$ translation theorem allows this infinite-dimensional statement to be reduced to a pointwise condition on a Fourier transform.  The Wronskian identities of Dimitrov and Xu then identify that transform directly with derivatives of the completed Xi function \cite{DimitrovXu2016}.
+
+For real $x$ and admissible $y$, define
+\begin{equation}\label{eq:q-xi-definition}
+Q_\Xi(x,y)
+:=
+|\Xi'(x+iy)|^2
+-\Ree\!\left(
+\Xi(x+iy)\overline{\Xi''(x+iy)}
+\right).
+\end{equation}
+
+\section{Wronskian identity}
+
+Write
+\[
+\Xi(x+iy)=\phi(x,y)+i\psi(x,y).
+\]
+The Cauchy--Riemann equations give
+\begin{align}
+Q_\Xi(x,y)
+={}&\phi_x(x,y)^2-\phi(x,y)\phi_{xx}(x,y)\\
+&+\psi_x(x,y)^2-\psi(x,y)\psi_{xx}(x,y).
+\end{align}
+With $W_2(f)=ff''-(f')^2$, this becomes
+\begin{equation}\label{eq:q-xi-wronskian}
+Q_\Xi(x,y)
+=-W_2(\phi(\cdot,y);x)-W_2(\psi(\cdot,y);x).
+\end{equation}
+Dimitrov--Xu Theorem~1.3 / Theorem~2.5 and their Section~3 correlation identity yield
+\begin{equation}\label{eq:q-xi-fourier}
+\boxed{
+Q_\Xi(x,y)=\mathcal F[\Phi_{2,y}](x).
+}
+\end{equation}
+The repository records Eq.~\eqref{eq:q-xi-fourier} as \status{STANDARD\_PASS}.
+
+\section{Tauberian equivalence}
+
+For each fixed admissible $y$, Wiener's $L^1$ theorem states
+\begin{equation}\label{eq:wiener-density-nonzero}
+\overline{\operatorname{span}\mathcal T(\Phi_{2,y})}^{L^1(\mathbb R)}
+=L^1(\mathbb R)
+\iff
+\mathcal F[\Phi_{2,y}](x)\neq0
+\quad\forall x\in\mathbb R.
+\end{equation}
+The Dimitrov--Xu proof also gives strict positivity at the origin,
+\begin{equation}\label{eq:q-origin-positive}
+Q_\Xi(0,y)>0
+\qquad
+\left(0<|y|<\frac12\right).
+\end{equation}
+Because $Q_\Xi(\cdot,y)$ is continuous and real-valued on $\mathbb R$, a globally nonvanishing $Q_\Xi$ has the positive sign selected by Eq.~\eqref{eq:q-origin-positive}.  Therefore
+\begin{equation}\label{eq:density-q-positive}
+\boxed{
+\overline{\operatorname{span}\mathcal T(\Phi_{2,y})}^{L^1}=L^1
+\iff
+Q_\Xi(x,y)>0\quad\forall x\in\mathbb R.
+}
+\end{equation}
+Combining Eq.~\eqref{eq:density-q-positive} with Dimitrov--Xu Theorem~1.1 gives
+\begin{theorem}[Wiener--Laguerre scalar RH criterion]\label{thm:wiener-laguerre-rh}
+Under the standard Xi-kernel hypotheses used by Dimitrov and Xu,
+\begin{equation}\label{eq:q-rh-equivalence}
+\boxed{
+\mathrm{RH}
+\iff
+\forall\,0<|y|<\frac12\ \forall x\in\mathbb R:\quad
+Q_\Xi(x,y)>0.
+}
+\end{equation}
+\end{theorem}
+
+The equivalence in Theorem~\ref{thm:wiener-laguerre-rh} has status \status{STANDARD}.  The globally quantified sign condition has status
+\[
+\status{OPEN\_RH\_EQUIVALENT\_CRITERION}.
+\]
+
+\section{Executable diagnostic}
+
+The function
+\begin{center}
+\texttt{xi\_wiener\_laguerre\_scalar(x, y)}
+\end{center}
+implements Eq.~\eqref{eq:q-xi-definition} and enforces the open domain $0<|y|<1/2$.  The tests verify $y\leftrightarrow-y$ symmetry, positive origin reference values, and fail-closed domain handling.
+
+Finite samples retain \status{NUMERICAL\_DIAGNOSTIC} authority.  An analytic closure must carry both universal quantifiers in Eq.~\eqref{eq:q-rh-equivalence}.
+
+\section{Certified falsification surface}
+
+The scalar form provides a direct falsification target.  A certified pair $(x_*,y_*)$ with
+\[
+x_*\in\mathbb R,
+\qquad
+0<|y_*|<\frac12,
+\qquad
+Q_\Xi(x_*,y_*)\le0
+\]
+combined with Eq.~\eqref{eq:q-origin-positive} and continuity would force a real zero of $Q_\Xi(\cdot,y_*)=\mathcal F[\Phi_{2,y_*}]$.  The corresponding Wiener density condition would fail at that $y_*$.
+
+This makes the next research frontier sharply local in representation while globally quantified in domain:
+\begin{equation}\label{eq:xf4-frontier}
+\boxed{
+Q_\Xi(x,y)>0
+\quad
+\text{for every }x\in\mathbb R,
+\quad0<|y|<\frac12.
+}
+\end{equation}
+The next analytic task is to seek a structural representation of $Q_\Xi$ that certifies this sign over the entire strip.
