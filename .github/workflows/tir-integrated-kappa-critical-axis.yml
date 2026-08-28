@@ -44,6 +44,7 @@ jobs:
           python3 TIR/validation/tir_first_distinction_theorem_v0_1.py | tee tir_first_distinction_theorem_receipt.json
           python3 TIR/validation/tir_half_seam_phase_fiber_v0_1.py | tee tir_half_seam_phase_fiber_receipt.json
           python3 TIR/validation/tir_causal_bridge_from_zero_v0_1.py | tee tir_causal_bridge_from_zero_receipt.json
+          python3 TIR/validation/tir_spatial_geometry_core_v0_1.py | tee tir_spatial_geometry_core_receipt.json
           grep -q '"technical_status": "PASS"' kappa_phase_rate_receipt.json
           grep -q '"technical_status": "PASS"' review_source_contract_receipt.json
           grep -q '"technical_status": "PASS"' tir_relational_half_seam_receipt.json
@@ -52,6 +53,7 @@ jobs:
           grep -q '"technical_status": "PASS"' tir_first_distinction_theorem_receipt.json
           grep -q '"technical_status": "PASS"' tir_half_seam_phase_fiber_receipt.json
           grep -q '"technical_status": "PASS"' tir_causal_bridge_from_zero_receipt.json
+          grep -q '"technical_status": "PASS"' tir_spatial_geometry_core_receipt.json
           grep -q '"pi_cancelled_exactly": true' kappa_phase_rate_receipt.json
           grep -q '"seam_is_positive_reciprocal_fixed_point": true' tir_relational_half_seam_receipt.json
           grep -q '"equal_weight_seam": true' tir_relational_half_seam_receipt.json
@@ -62,6 +64,12 @@ jobs:
           grep -q '"next_gate": "HALF_FIBER_PHASE_RATE_SELECTION"' tir_half_seam_phase_fiber_receipt.json
           grep -q '"no_temporal_circularity": true' tir_causal_bridge_from_zero_receipt.json
           grep -q '"sibling_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
+          grep -q '"tir_spatial_ownership_pass": true' tir_causal_bridge_from_zero_receipt.json
+          grep -q '"spacetime_join_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
+          grep -q '"matter_join_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
+          grep -q '"tir_owns_spatial_geometry": true' tir_spatial_geometry_core_receipt.json
+          grep -q '"lorentzian_block_signature": true' tir_spatial_geometry_core_receipt.json
+          grep -q '"sphere_types_separate_until_explicit_identification_map": true' tir_spatial_geometry_core_receipt.json
 
       - name: Verify critical-axis solver
         shell: bash
@@ -126,6 +134,8 @@ jobs:
           test -s TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md
           test -s TIR/foundations/TIR_PRIMITIVE_DEPENDENCY_LATTICE_V0_1.md
           test -s TIR/foundations/TIR_CAUSAL_BRIDGE_FROM_ZERO_V0_1.md
+          test -s TIR/foundations/TIR_SPATIAL_GEOMETRY_CORE_V0_1.md
+          test -s TIR/foundations/TIR_SPATIAL_TEMPORAL_CLOSURE_INTERFACE_V0_1.md
           qpdf --check TIR/monograph/metatime_monograph.pdf
           qpdf --check TIR/metatime_paper.pdf
           qpdf --check TIR/zeta_information_axis/monograph/main.pdf
@@ -146,6 +156,7 @@ jobs:
             tir_first_distinction_theorem_receipt.json
             tir_half_seam_phase_fiber_receipt.json
             tir_causal_bridge_from_zero_receipt.json
+            tir_spatial_geometry_core_receipt.json
             critical-axis-pytest.log
             solver-console.json
             TIR/zeta_information_axis/reports/solver_receipt.json
