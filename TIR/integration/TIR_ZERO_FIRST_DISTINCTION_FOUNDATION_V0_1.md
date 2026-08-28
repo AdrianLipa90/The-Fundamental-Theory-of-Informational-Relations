@@ -175,29 +175,13 @@ A normalized relational amplitude state is
 |\alpha|^2+|\beta|^2=1.
 \]
 
-The pole distinction therefore admits two different levels of description:
-
-\[
-\{p_N,p_S\}
-\quad\text{and}\quad
-\{\alpha,\beta\},
-\]
-
-with
-
-\[
-p_N=|\alpha|^2,
-\qquad
-p_S=|\beta|^2.
-\]
-
 The symmetric half-seam has the equal-modulus condition
 
 \[
-|\alpha|=|\beta|=\frac1{\sqrt2}.
+|\alpha|=|\beta|=\frac1{\sqrt2},
 \]
 
-Its remaining degree of freedom is relative phase:
+leaving relative phase as the internal coordinate:
 
 \[
 |\psi_{1/2}(\varphi)\rangle
@@ -205,31 +189,22 @@ Its remaining degree of freedom is relative phase:
 \left(|N\rangle+e^{i\varphi}|S\rangle\right).
 \]
 
-This is the TIR entry point for coherent two-alternative structure.
-
-## 5. Schrödinger branch: continuous unitary relational flow
+## 5. Schrödinger branch
 
 Add a continuous relational parameter `τ` and a strongly continuous one-parameter unitary flow
 
 \[
 U(\tau_1+\tau_2)=U(\tau_1)U(\tau_2),
-\qquad
-U(0)=I.
+\qquad U(0)=I.
 \]
 
-By the standard unitary-generator theorem there is a self-adjoint generator `G` such that
+Its self-adjoint generator `G` gives
 
 \[
-U(\tau)=e^{-iG\tau/\hbar}.
+U(\tau)=e^{-iG\tau/\hbar},
 \]
 
-For
-
-\[
-|\psi(\tau)\rangle=U(\tau)|\psi(0)\rangle,
-\]
-
-differentiation gives
+and therefore
 
 \[
 \boxed{
@@ -238,101 +213,33 @@ i\hbar\frac{\partial}{\partial\tau}|\psi(\tau)\rangle
 }
 \]
 
-When `τ` is the physical time parameter and `G=H`, this is the Schrödinger evolution law.
+With physical time and Hamiltonian identification this is the Schrödinger evolution law.
 
-The dependency ladder is therefore
+## 6. Heisenberg branch
+
+Multiple binary distinction frames on the same `\mathbb C^2` carrier are represented by Pauli generators satisfying
+
+\[
+\boxed{[\sigma_i,\sigma_j]=2i\varepsilon_{ijk}\sigma_k}.
+\]
+
+For self-adjoint `A,B`,
 
 \[
 \boxed{
-0
-\rightarrow
-\text{first distinction}
-\rightarrow
-\mathbb C^2
-\rightarrow
-\text{continuous unitary flow}
-\rightarrow
-\text{Schrödinger generator equation}.
+\Delta A\Delta B\ge\frac12|\langle[A,B]\rangle|
 }
 \]
 
-Within TIR the first distinction supplies the two-pole carrier; the unitary-flow assumptions supply the dynamical layer.
-
-## 6. Heisenberg branch: more than one distinction axis
-
-One binary distinction defines one pole axis. A second binary distinction frame on the same `\mathbb C^2` carrier introduces another observable decomposition.
-
-The canonical traceless binary observables are the Pauli generators
-
-\[
-\sigma_x=
-\begin{pmatrix}
-0&1\\1&0
-\end{pmatrix},
-\qquad
-\sigma_y=
-\begin{pmatrix}
-0&-i\\i&0
-\end{pmatrix},
-\qquad
-\sigma_z=
-\begin{pmatrix}
-1&0\\0&-1
-\end{pmatrix}.
-\]
-
-They satisfy
-
-\[
-\boxed{
-[\sigma_i,\sigma_j]
-=2i\,\varepsilon_{ijk}\sigma_k.
-}
-\]
-
-For two self-adjoint observables `A,B`, the Robertson relation gives
-
-\[
-\boxed{
-\Delta A\,\Delta B
-\ge
-\frac12\left|\langle[A,B]\rangle\right|.
-}
-\]
-
-For spin operators
-
-\[
-S_i=\frac{\hbar}{2}\sigma_i,
-\]
-
-one obtains
+and for `S_i=\hbar\sigma_i/2`,
 
 \[
 [S_i,S_j]=i\hbar\varepsilon_{ijk}S_k.
 \]
 
-Thus the TIR dependency ladder for the Heisenberg branch is
+Thus incompatible distinction axes supply the operator-theoretic entry point for the Heisenberg/Robertson uncertainty structure.
 
-\[
-\boxed{
-0
-\rightarrow
-\text{first distinction}
-\rightarrow
-\text{two-pole carrier}
-\rightarrow
-\text{multiple distinction axes}
-\rightarrow
-\text{noncommutativity}
-\rightarrow
-\text{uncertainty relation}.
-}
-\]
-
-The uncertainty structure appears when the same binary carrier is interrogated along incompatible relational axes.
-
-## 7. Bloch-sphere closure of the two-pole carrier
+## 7. Bloch-sphere closure
 
 Pure states of `\mathbb C^2` modulo global phase form
 
@@ -340,133 +247,54 @@ Pure states of `\mathbb C^2` modulo global phase form
 \boxed{\mathbb{CP}^1\cong S^2}.
 \]
 
-The poles `N,S` become antipodal points on the Bloch sphere. Every pure two-state distinction frame is represented by an oriented diameter.
-
-A normalized density operator can be written as
-
-\[
-\rho=\frac12\left(I+\mathbf r\cdot\boldsymbol\sigma\right),
-\qquad |\mathbf r|\le1.
-\]
-
 The maximally mixed binary state is
 
 \[
-\boxed{\rho_\star=\frac12I},
+\rho_\star=\frac12I,
 \]
 
-with von Neumann entropy
+with
 
 \[
 \boxed{S(\rho_\star)=\ln2}.
 \]
 
-This gives a second exact appearance of the same binary information value at equal pole weight.
+## 8. Rotation-group branch and Banach–Tarski entry point
 
-## 8. Rotation-group branch and the Banach–Tarski entry point
+The oriented two-pole axis embeds in `S^2`; changing distinction frames is represented by `SO(3)` rotations, with spinorial double cover `SU(2) -> SO(3)`.
 
-Once the two-pole axis is embedded in `S^2`, changing distinction frames is naturally represented by rotations.
-
-The frame group is
-
-\[
-SO(3),
-\]
-
-with the spinorial double cover
-
-\[
-SU(2)\to SO(3).
-\]
-
-Two rotations about suitably chosen different axes can generate a noncommuting subgroup. The Banach–Tarski theorem branch uses a stronger group-theoretic layer: a free non-abelian subgroup
-
-\[
-F_2\subset SO(3),
-\]
-
-its paradoxical group action, extension from the sphere to three-dimensional sets, and a choice principle selecting orbit representatives.
-
-The structural dependency ladder is therefore
+The Banach--Tarski theorem branch uses the stronger group-theoretic chain
 
 \[
 \boxed{
-0
-\rightarrow
-\text{first distinction}
-\rightarrow
-\text{oriented two-pole axis}
-\rightarrow
-\text{multiple rotated axes}
+S^2
 \rightarrow
 SO(3)
 \supset
 F_2
 \rightarrow
-\text{paradoxical decomposition}
+\text{paradoxical group action}
 \xrightarrow{\rm Choice}
 \text{Banach--Tarski}.
 }
 \]
 
-For TIR, the common root is the first relational distinction and the emergence of an oriented axis. The Banach--Tarski theorem itself enters after the explicit `SO(3)`, free-group, orbit and choice layers are present.
+The common TIR root is the first relational distinction and the emergence of an oriented axis; the free-group, orbit and choice layers supply the later theorem requirements.
 
 ## 9. One root, four branches
 
-The shared root can be summarized as
-
-\[
-\boxed{
-\mathfrak Z
-\xrightarrow{\Delta_1}
-\{N,S\}
-\xrightarrow{\rm exchange}
-\frac12
-}
-\]
-
-followed by four typed branches:
-
-\[
-\frac12
-\xrightarrow{\rm Shannon}
-\ln2,
-\]
-
-\[
-\{N,S\}
-\xrightarrow{\rm coherent\ lift}
-\mathbb C^2
-\xrightarrow{\rm unitary\ flow}
-\text{Schrödinger},
-\]
-
-\[
-\mathbb C^2
-\xrightarrow{\rm multiple\ axes}
-[\sigma_i,\sigma_j]\ne0
-\xrightarrow{\rm Robertson}
-\text{Heisenberg uncertainty},
-\]
-
-\[
-\{N,S\}
-\xrightarrow{\rm oriented\ axis}
-S^2
-\xrightarrow{\rm rotations}
-SO(3)
-\supset F_2
-\xrightarrow{\rm paradoxical\ action+Choice}
-\text{Banach--Tarski}.
-\]
-
-The first distinction is therefore the shared TIR root; each branch records its own additional mathematical structure explicitly.
+```text
+ZERO
+  -> FIRST_DISTINCTION {N,S}
+      -> HALF_SEAM 1/2 -> ln2 -> TIR kappa numerator
+      -> C^2 -> unitary flow -> Schrodinger
+      -> C^2 -> incompatible axes -> Heisenberg/Robertson
+      -> oriented axis -> S^2 -> SO(3) -> F2 -> paradoxical action + Choice -> Banach-Tarski
+```
 
 ## 10. Crosslink outputs
 
 ### Secret of a Half
-
-Export
 
 ```text
 first_distinction = {N,S}
@@ -476,11 +304,7 @@ entropy             = ln2
 projective_odds     = 1
 ```
 
-This binds directly to the existing complement/reciprocal half interface.
-
 ### Informational Dynamics of Time
-
-Export
 
 ```text
 binary_relational_carrier = {N,S}
@@ -489,7 +313,7 @@ coherent_half_family      = (|N> + exp(i*phi)|S>)/sqrt(2)
 phase_degree_of_freedom   = phi
 ```
 
-The temporal repository may consume this packet at its `TIR -> Temporal Primitive` boundary and owns every later temporal dynamical promotion.
+The temporal repository may consume this packet at its `TIR -> Temporal Primitive` boundary and owns the later temporal dynamical promotion.
 
 ## 11. Claim classes
 
@@ -502,26 +326,11 @@ The temporal repository may consume this packet at its `TIR -> Temporal Primitiv
 | `Fix(u->1-u)={1/2}` | EXACT |
 | minimal complex Hilbert span of two basis states is `C^2` | EXACT LINEAR-ALGEBRAIC |
 | strongly continuous one-parameter unitary flow has a self-adjoint generator | STANDARD FUNCTIONAL-ANALYTIC THEOREM |
-| Schrödinger equation from the unitary generator with physical time and Hamiltonian identification | EXACT CONDITIONAL |
+| Schrödinger generator equation with physical-time/Hamiltonian identification | EXACT CONDITIONAL |
 | Pauli commutators | EXACT MATRIX IDENTITY |
 | Robertson uncertainty relation | STANDARD OPERATOR THEOREM |
-| `CP^1 ~= S^2` two-state pure-state geometry | STANDARD GEOMETRIC IDENTIFICATION |
+| `CP^1 ~= S^2` | STANDARD GEOMETRIC IDENTIFICATION |
 | `S(I/2)=ln2` | EXACT QUANTUM-INFORMATION IDENTITY |
-| `SO(3)` contains free non-abelian subgroups used in paradoxical decompositions | STANDARD GROUP-THEORETIC INPUT |
+| `SO(3)` free non-abelian subgroup entry | STANDARD GROUP-THEORETIC INPUT |
 | Banach--Tarski branch from free-group action plus choice | STANDARD SET-THEORETIC/GEOMETRIC THEOREM CHAIN |
-| common first-distinction root across these branches | TIR STRUCTURAL CROSSWALK |
-
-## 12. Dependency firewall
-
-The source dependency graph is explicit:
-
-```text
-ZERO
-  -> FIRST_DISTINCTION
-      -> HALF_SEAM -> ln2 -> TIR kappa numerator
-      -> C^2 -> unitary flow -> Schrodinger
-      -> C^2 -> incompatible axes -> Heisenberg/Robertson
-      -> oriented axis -> S^2 -> SO(3) -> F2 -> paradoxical action + Choice -> Banach-Tarski
-```
-
-Every arrow carries only the structure introduced at that layer. This keeps the common root visible while preserving the theorem requirements of each branch.
+| common first-distinction root | TIR STRUCTURAL CROSSWALK |
