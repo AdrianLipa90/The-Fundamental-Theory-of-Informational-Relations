@@ -2,9 +2,18 @@
 
 This module implements numerical representatives of the n=2 correlation
 kernel used by Dimitrov--Xu (arXiv:1606.05011) and the corresponding Jensen /
-Laguerre quantity.  Their theorem-level density criterion is external
+Laguerre quantity. Their theorem-level density criterion is external
 mathematics; finite numerical evaluations here are diagnostics only and carry
 no authority to promote the global L1-density or strict-positivity conditions.
+
+XF-5 also exposes the classical complex Laguerre geometry: for a real entire
+function f and z=x+iy,
+
+    d^2/dy^2 |f(x+iy)|^2
+      = 2 (|f'(z)|^2 - Re(f(z) conjugate(f''(z)))).
+
+For the Riemann Xi function this identifies twice the XF-4 scalar with the
+transverse curvature of |Xi|^2.
 """
 
 from __future__ import annotations
@@ -29,7 +38,7 @@ def correlation_nu2(
 
         nu_2(t) = integral (t-2s)^2 Phi(t-s) Phi(s) ds.
 
-    The analytic integral runs over R.  `cutoff` is an explicit symmetric
+    The analytic integral runs over R. `cutoff` is an explicit symmetric
     numerical truncation used only for reproducible diagnostics.
     """
     tt = mp.mpf(t)
@@ -80,9 +89,10 @@ def phi_2_y(
 def xi_laguerre_quantity(z: complex | mp.mpc) -> mp.mpf:
     r"""Return |Xi'(z)|^2 - Re(Xi(z) conjugate(Xi''(z))).
 
-    Jensen's criterion identifies global nonnegativity of this quantity with
-    Laguerre--Polya membership under the standard real-entire hypotheses.
-    Numerical evaluation at finitely many z is a regression diagnostic only.
+    The complex Laguerre criterion identifies global nonnegativity of this
+    quantity with Laguerre--Polya membership for Xi under the standard
+    real-entire strip-class hypotheses. Numerical evaluation at finitely many
+    z is a regression diagnostic only.
     """
     zz = mp.mpc(z)
     f = completed_xi_on_z_axis
@@ -114,6 +124,25 @@ def xi_wiener_laguerre_scalar(
     if yy == 0 or abs(yy) >= mp.mpf("0.5"):
         raise ValueError("XF-4 y must satisfy 0 < |y| < 1/2")
     return xi_laguerre_quantity(mp.mpc(xx, yy))
+
+
+def xi_transverse_modulus_curvature(
+    x: float | mp.mpf,
+    y: float | mp.mpf,
+) -> mp.mpf:
+    r"""Return d^2/dy^2 |Xi(x+iy)|^2 via the complex Laguerre identity.
+
+    For every real x,y,
+
+        curvature_y |Xi(x+iy)|^2 = 2 Q_Xi(x,y).
+
+    This is an analytic identity. Its pointwise numerical evaluation has only
+    diagnostic authority; the universally quantified nonnegativity condition
+    is the classical complex-Laguerre RH-equivalent criterion.
+    """
+    xx = mp.mpf(x)
+    yy = mp.mpf(y)
+    return 2 * xi_laguerre_quantity(mp.mpc(xx, yy))
 
 
 def xi_wronskian2_real(x: float | mp.mpf) -> mp.mpf:
