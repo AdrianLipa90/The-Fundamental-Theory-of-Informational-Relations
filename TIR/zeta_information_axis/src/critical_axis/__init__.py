@@ -27,6 +27,13 @@ from .core import (
     u1_holonomy,
     zeta_involution,
 )
+from .correlation_kernel import (
+    correlation_nu2,
+    even_riemann_phi,
+    phi_2_y,
+    xi_laguerre_quantity,
+    xi_wronskian2_real,
+)
 from .solver import (
     ClaimSolver,
     ClaimStatus,
@@ -79,6 +86,11 @@ __all__ = [
     "two_channel_amplitude",
     "u1_holonomy",
     "zeta_involution",
+    "correlation_nu2",
+    "even_riemann_phi",
+    "phi_2_y",
+    "xi_laguerre_quantity",
+    "xi_wronskian2_real",
     "ClaimSolver",
     "ClaimStatus",
     "ClosureResult",
