@@ -26,6 +26,7 @@ DEFAULT_FACTS = {
     "radian_closure_tau",
     "eight_mix_sectors",
     "three_flavours",
+    "xi_fourier_kernel",
 }
 
 
@@ -49,7 +50,7 @@ def build_receipt() -> dict[str, object]:
         "all_zeros_on_half_axis", model.facts, allow_model=True
     )
     return {
-        "schema": "tir.critical-axis.solver-receipt/v1",
+        "schema": "tir.critical-axis.solver-receipt/v2",
         "precision_decimal_digits": mp.mp.dps,
         "half_axis_routes": {key: mp.nstr(value, 50) for key, value in routes.items()},
         "half_axis_consensus": all(abs(value - mp.mpf("0.5")) < mp.mpf("1e-50") for value in routes.values()),
@@ -73,7 +74,10 @@ def build_receipt() -> dict[str, object]:
             "mathematical_half_axis_routes": "PASS",
             "conditional_kappa_arithmetic": "PASS",
             "model_semantics": "EXPLICIT",
-            "zero_state_representation": "OPEN",
+            "canonical_xi_two_branch_representation": "PASS",
+            "all_xi_zeros_exact_kernel_branch_cancellation": "PASS",
+            "global_kernel_branch_nondegeneracy": "OPEN",
+            "kernel_population_equals_strip_coordinate": "OPEN_RH_EQUIVALENT_BRIDGE",
             "riemann_hypothesis": "NOT_DERIVED",
         },
     }
