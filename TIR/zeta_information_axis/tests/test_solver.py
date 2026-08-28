@@ -47,12 +47,15 @@ def test_exact_closure_admits_xi_kernel_cancellation_but_keeps_open_bridges_bloc
     assert result.derives("dimitrov_xu_nu2_correlation_kernel")
     assert result.derives("xi_wronskian_nu2_fourier_identity")
     assert result.derives("phi2y_fourier_equals_xi_wiener_laguerre_scalar")
+    assert result.derives("xi_strip_class_s_half")
+    assert result.derives("xi_transverse_curvature_equals_twice_laguerre_scalar")
     assert not result.derives("global_kernel_branch_nondegeneracy")
     assert not result.derives("kernel_population_equals_strip_coordinate")
     assert not result.derives("all_xi_zero_kernel_population_half")
     assert not result.derives("phi2y_translation_density_condition")
     assert not result.derives("phi2y_bounded_convolution_annihilator_condition")
     assert not result.derives("xi_wiener_laguerre_strict_positivity")
+    assert not result.derives("xi_global_transverse_convexity")
     assert not result.derives("kappa_ln2_over_24pi")
     assert not result.derives("twenty_four_sector_count")
     assert not result.derives("riemann_hypothesis")
@@ -78,11 +81,14 @@ def test_model_closure_can_derive_kappa_but_never_open_rh_bridge() -> None:
     assert result.derives("dimitrov_xu_nu2_correlation_kernel")
     assert result.derives("xi_wronskian_nu2_fourier_identity")
     assert result.derives("phi2y_fourier_equals_xi_wiener_laguerre_scalar")
+    assert result.derives("xi_strip_class_s_half")
+    assert result.derives("xi_transverse_curvature_equals_twice_laguerre_scalar")
     assert not result.derives("global_kernel_branch_nondegeneracy")
     assert not result.derives("kernel_population_equals_strip_coordinate")
     assert not result.derives("phi2y_translation_density_condition")
     assert not result.derives("phi2y_bounded_convolution_annihilator_condition")
     assert not result.derives("xi_wiener_laguerre_strict_positivity")
+    assert not result.derives("xi_global_transverse_convexity")
     assert not result.derives("riemann_hypothesis")
 
 
@@ -137,6 +143,7 @@ def test_explicit_admission_of_xf3_density_condition_closes_standard_equivalence
     assert result.derives("xi_wiener_laguerre_strict_positivity")
     assert result.derives("riemann_hypothesis")
     assert result.derives("phi2y_bounded_convolution_annihilator_condition")
+    assert result.derives("xi_global_transverse_convexity")
 
 
 def test_xf4_solver_exposes_global_strict_positivity_as_open() -> None:
@@ -159,6 +166,34 @@ def test_explicit_xf4_strict_positivity_closes_density_and_rh_equivalence() -> N
     assert result.derives("phi2y_translation_density_condition")
     assert result.derives("riemann_hypothesis")
     assert result.derives("phi2y_bounded_convolution_annihilator_condition")
+    assert result.derives("xi_global_transverse_convexity")
+
+
+def test_xf5_standard_geometry_is_admitted_but_global_convexity_is_open() -> None:
+    result = DEFAULT_SOLVER.closure({"xi_fourier_kernel"})
+    assert result.derives("xi_strip_class_s_half")
+    assert result.derives("xi_transverse_curvature_equals_twice_laguerre_scalar")
+    assert not result.derives("xi_global_transverse_convexity")
+    assert not result.derives("riemann_hypothesis")
+
+
+def test_explicit_xf5_global_convexity_closes_rh_equivalence() -> None:
+    result = DEFAULT_SOLVER.closure(
+        {"xi_fourier_kernel", "xi_global_transverse_convexity"}
+    )
+    assert result.derives("xi_strip_class_s_half")
+    assert result.derives("xi_transverse_curvature_equals_twice_laguerre_scalar")
+    assert result.derives("riemann_hypothesis")
+    assert result.derives("phi2y_translation_density_condition")
+    assert result.derives("xi_wiener_laguerre_strict_positivity")
+
+
+def test_xf5_solver_exposes_global_convexity_as_independent_open_route() -> None:
+    missing = DEFAULT_SOLVER.missing_premises(
+        "riemann_hypothesis", {"xi_fourier_kernel"}, allow_model=True
+    )
+    absent = {premise for _, premises in missing for premise in premises}
+    assert "xi_global_transverse_convexity" in absent
 
 
 def test_kappa_normalization_matches_runtime_value() -> None:
