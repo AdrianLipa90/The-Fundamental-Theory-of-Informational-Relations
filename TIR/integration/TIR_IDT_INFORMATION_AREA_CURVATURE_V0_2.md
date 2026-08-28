@@ -4,9 +4,9 @@ Status: `EXACT_DIMENSIONAL_CLOSURE / PHASE_CLOCK_SCALE_BINDING_CANDIDATE / RFC_C
 
 Source pin:
 
-- TIR base `main`: `d21631fe7281b5dbbad70f3a4a5f5b4876cac9f7`
-- IDT branch `feat/phase-clock-length-scale-v0.1`: `f90435edbfbba8211e6c28cc49a7c22f8059021b`
-- IDT gates: `formalism/01K_temporal_information_curvature_interface.md`, `formalism/01L_phase_clock_length_scale.md`
+- TIR integration branch: `feat/main-sync-phase-clock-hexahedral-v0.1`
+- IDT `main`: `3ac1f53af5223d16f8818dba99a63a6af2ba9498`
+- IDT gates: `formalism/01K_temporal_information_curvature_interface.md`, `formalism/05B_phase_clock_length_scale.md`
 
 ## 1. Dimensional closure theorem
 
@@ -22,7 +22,7 @@ a_{FS},\quad
 
 Accordingly, functions built solely from these invariants carry dimension `L^0`. A physical metric or area therefore requires one admitted `L`-typed carrier.
 
-IDT 01L supplies such a carrier directly from the calibrated temporal phase flow,
+IDT 05B supplies such a carrier directly from the calibrated temporal phase flow,
 
 \[
 \boxed{
@@ -225,7 +225,7 @@ The formerly free area scale `ell_R` is therefore replaced, under the phase-cloc
 
 ## 6. Projective and spinorial cycle scales
 
-IDT 01L also gives
+IDT 05B also gives
 
 \[
 L_{2\pi}=2\pi\ell_\varphi,
