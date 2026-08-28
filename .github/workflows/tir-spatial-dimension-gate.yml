@@ -42,10 +42,22 @@ jobs:
           grep -q '"generic_tetrahedral_sample_gram_rank": 3' tir_spatial_dimension_gate_receipt.json
           grep -q '"planar_control_gram_rank": 2' tir_spatial_dimension_gate_receipt.json
 
-      - name: Upload receipt
+      - name: Audit relational generator space
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_relational_generator_space_v0_1.py | tee tir_relational_generator_space_receipt.json
+          grep -q '"technical_status": "PASS"' tir_relational_generator_space_receipt.json
+          grep -q '"herm0_2_real_dimension": 3' tir_relational_generator_space_receipt.json
+          grep -q '"conditional_spatial_dimension": 3' tir_relational_generator_space_receipt.json
+          grep -q '"spatial_promotion_gate_open": true' tir_relational_generator_space_receipt.json
+
+      - name: Upload receipts
         uses: actions/upload-artifact@v4
         with:
           name: tir-spatial-dimension-gate-${{ github.sha }}
           if-no-files-found: error
           retention-days: 30
-          path: tir_spatial_dimension_gate_receipt.json
+          path: |
+            tir_spatial_dimension_gate_receipt.json
+            tir_relational_generator_space_receipt.json
