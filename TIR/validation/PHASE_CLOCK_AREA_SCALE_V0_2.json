@@ -1,8 +1,9 @@
 {
   "schema": "TIR_PHASE_CLOCK_AREA_SCALE_V0_2",
-  "status": "EXACT_DIMENSIONAL_CLOSURE_CANDIDATE__TEST_EXECUTION_PENDING",
-  "date": "2026-08-27",
-  "source_idt_commit": "f90435edbfbba8211e6c28cc49a7c22f8059021b",
+  "status": "EXACT_DIMENSIONAL_CLOSURE_CANDIDATE__FORWARD_PORT_CI_PENDING",
+  "date": "2026-08-28",
+  "source_idt_commit": "3ac1f53af5223d16f8818dba99a63a6af2ba9498",
+  "source_idt_gate": "formalism/05B_phase_clock_length_scale.md",
   "exact_identities": [
     "F_B = ±2 da_FS",
     "ell_phi = c/|omega| = hbar*c/E",
