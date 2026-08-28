@@ -46,6 +46,16 @@ def test_first_known_zero_is_non_degenerate_exact_branch_cancellation_numericall
     assert abs(branches.population_plus() - mp.mpf("0.5")) < mp.mpf("1e-30")
 
 
+def test_naive_minus_branch_is_not_a_global_hermite_biehler_candidate() -> None:
+    # For E=A_- and E#=A_+, the HB inequality in Im(z)>0 would require
+    # |A_-|>|A_+| everywhere.  This reproducible upper-half-plane witness
+    # has the opposite sign, so the raw branch choice is rejected.
+    z = mp.mpc("17", "0.1")
+    branches = xi_kernel_branches(z)
+    margin = abs(branches.minus) ** 2 - abs(branches.plus) ** 2
+    assert margin < mp.mpf("-1e-7")
+
+
 def test_s_to_z_map_exposes_off_axis_displacement() -> None:
     s = mp.mpc("0.4", "14")
     z = zeta_s_to_xi_z(s)
