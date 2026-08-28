@@ -64,3 +64,4 @@ jobs:
             TIR/zeta_information_axis/monograph/information_spinor_critical_axis.pdf
             TIR/zeta_information_axis/reports/numerical_audit.json
             TIR/zeta_information_axis/reports/numerical_audit.md
+            TIR/zeta_information_axis/reports/solver_receipt.json
