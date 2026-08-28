@@ -5,7 +5,10 @@ The solver has two jobs:
    routes (complement, entropy, Berry holonomy, and cancellation), and
 2. compute semantic closure without silently promoting model/open bridges.
 
-No rule in the default graph derives RH.  The zero-state bridge remains open.
+XF-1 adds the standard Xi Fourier-kernel decomposition as a canonical
+zeta-derived two-branch representation.  Exact branch cancellation is then a
+theorem at every Xi zero.  The remaining RH-level debt is split into explicit
+global branch nondegeneracy and kernel-population/strip-coordinate binding.
 """
 from __future__ import annotations
 
@@ -115,8 +118,14 @@ HALF_AXIS_RULES = (
     Rule(("information_per_turn_ln2_over_12", "radian_closure_tau"), "kappa_ln2_over_24pi", ClaimStatus.MODEL, "(ln2/12)/tau"),
     Rule(("eight_mix_sectors", "three_flavours"), "twenty_four_sector_count", ClaimStatus.MODEL, "8*3=24"),
     Rule(("twenty_four_sector_count", "half_turn_phase"), "twenty_four_pi_normalization", ClaimStatus.MODEL, "24 half-turn phase units"),
-    Rule(("zero_state_representation", "exact_cancellation", "sigma_equals_real_part_coordinate"), "all_zeros_on_half_axis", ClaimStatus.OPEN, "open zeta zero-state bridge"),
-    Rule(("all_zeros_on_half_axis",), "riemann_hypothesis", ClaimStatus.OPEN, "definition of RH"),
+    Rule(("xi_fourier_kernel",), "canonical_xi_two_branch_representation", ClaimStatus.STANDARD, "XF-1 exponential resolution of the Riemann Xi cosine kernel"),
+    Rule(("canonical_xi_two_branch_representation",), "all_xi_zeros_exact_kernel_branch_cancellation", ClaimStatus.EXACT, "Xi=A_+ + A_- implies A_+=-A_- at every Xi zero"),
+    Rule(("canonical_xi_two_branch_representation",), "global_kernel_branch_nondegeneracy", ClaimStatus.OPEN, "XF-1 global nonzero-branch obligation"),
+    Rule(("canonical_xi_two_branch_representation",), "kernel_population_equals_strip_coordinate", ClaimStatus.OPEN, "XF-1 RH-equivalent population/affine-coordinate bridge"),
+    Rule(("all_xi_zeros_exact_kernel_branch_cancellation", "global_kernel_branch_nondegeneracy"), "all_xi_zero_kernel_population_half", ClaimStatus.EXACT, "nondegenerate equal-and-opposite branches have equal squared-norm population"),
+    Rule(("all_xi_zero_kernel_population_half", "kernel_population_equals_strip_coordinate", "sigma_equals_real_part_coordinate"), "all_zeros_on_half_axis", ClaimStatus.EXACT, "XF-1 normalized-population route"),
+    Rule(("all_xi_zeros_exact_kernel_branch_cancellation", "global_kernel_branch_nondegeneracy", "kernel_population_equals_strip_coordinate", "sigma_equals_real_part_coordinate"), "all_zeros_on_half_axis", ClaimStatus.EXACT, "XF-1 direct RH firewall"),
+    Rule(("all_zeros_on_half_axis",), "riemann_hypothesis", ClaimStatus.STANDARD, "definition of RH"),
 )
 
 
