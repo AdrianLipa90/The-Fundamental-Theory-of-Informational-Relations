@@ -42,12 +42,14 @@ jobs:
           python3 TIR/validation/tir_zero_first_distinction_v0_1.py | tee tir_zero_first_distinction_receipt.json
           python3 TIR/validation/tir_axiomatic_kernel_v0_1.py | tee tir_axiomatic_kernel_receipt.json
           python3 TIR/validation/tir_first_distinction_theorem_v0_1.py | tee tir_first_distinction_theorem_receipt.json
+          python3 TIR/validation/tir_half_seam_phase_fiber_v0_1.py | tee tir_half_seam_phase_fiber_receipt.json
           grep -q '"technical_status": "PASS"' kappa_phase_rate_receipt.json
           grep -q '"technical_status": "PASS"' review_source_contract_receipt.json
           grep -q '"technical_status": "PASS"' tir_relational_half_seam_receipt.json
           grep -q '"technical_status": "PASS"' tir_zero_first_distinction_receipt.json
           grep -q '"technical_status": "PASS"' tir_axiomatic_kernel_receipt.json
           grep -q '"technical_status": "PASS"' tir_first_distinction_theorem_receipt.json
+          grep -q '"technical_status": "PASS"' tir_half_seam_phase_fiber_receipt.json
           grep -q '"pi_cancelled_exactly": true' kappa_phase_rate_receipt.json
           grep -q '"seam_is_positive_reciprocal_fixed_point": true' tir_relational_half_seam_receipt.json
           grep -q '"equal_weight_seam": true' tir_relational_half_seam_receipt.json
@@ -55,6 +57,7 @@ jobs:
           grep -q '"distinct_axis_rotations_noncommute": true' tir_zero_first_distinction_receipt.json
           grep -q '"axiom_count": 8' tir_axiomatic_kernel_receipt.json
           grep -q '"next_gate": "RELATIVE_PHASE_LAW"' tir_first_distinction_theorem_receipt.json
+          grep -q '"next_gate": "HALF_FIBER_PHASE_RATE_SELECTION"' tir_half_seam_phase_fiber_receipt.json
 
       - name: Verify critical-axis solver
         shell: bash
@@ -115,6 +118,7 @@ jobs:
           test -s TIR/zeta_information_axis/reports/solver_receipt.json
           test -s TIR/foundations/TIR_AXIOMATIC_KERNEL_V0_1.md
           test -s TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_1.md
+          test -s TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md
           qpdf --check TIR/monograph/metatime_monograph.pdf
           qpdf --check TIR/metatime_paper.pdf
           qpdf --check TIR/zeta_information_axis/monograph/main.pdf
@@ -133,6 +137,7 @@ jobs:
             tir_zero_first_distinction_receipt.json
             tir_axiomatic_kernel_receipt.json
             tir_first_distinction_theorem_receipt.json
+            tir_half_seam_phase_fiber_receipt.json
             critical-axis-pytest.log
             solver-console.json
             TIR/zeta_information_axis/reports/solver_receipt.json
