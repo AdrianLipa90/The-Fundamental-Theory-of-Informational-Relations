@@ -6,9 +6,15 @@ The solver has two jobs:
 2. compute semantic closure without silently promoting model/open bridges.
 
 XF-1 adds the standard Xi Fourier-kernel decomposition as a canonical
-zeta-derived two-branch representation.  Exact branch cancellation is then a
-theorem at every Xi zero.  The remaining RH-level debt is split into explicit
-global branch nondegeneracy and kernel-population/strip-coordinate binding.
+zeta-derived two-branch representation. Exact branch cancellation is then a
+theorem at every Xi zero. The remaining XF-1 RH-level debt is split into
+explicit global branch nondegeneracy and kernel-population/strip-coordinate
+binding.
+
+XF-3 adds the Dimitrov--Xu n=2 correlation kernel as a second analytic route.
+The published RH-equivalent translation-density and convolution-annihilator
+criteria are STANDARD implications, while satisfaction of either global
+criterion remains OPEN unless independently supplied as a premise.
 """
 from __future__ import annotations
 
@@ -126,6 +132,14 @@ HALF_AXIS_RULES = (
     Rule(("all_xi_zero_kernel_population_half", "kernel_population_equals_strip_coordinate", "sigma_equals_real_part_coordinate"), "all_zeros_on_half_axis", ClaimStatus.EXACT, "XF-1 normalized-population route"),
     Rule(("all_xi_zeros_exact_kernel_branch_cancellation", "global_kernel_branch_nondegeneracy", "kernel_population_equals_strip_coordinate", "sigma_equals_real_part_coordinate"), "all_zeros_on_half_axis", ClaimStatus.EXACT, "XF-1 direct RH firewall"),
     Rule(("all_zeros_on_half_axis",), "riemann_hypothesis", ClaimStatus.STANDARD, "definition of RH"),
+    Rule(("xi_fourier_kernel",), "dimitrov_xu_nu2_correlation_kernel", ClaimStatus.STANDARD, "XF-3 / Dimitrov-Xu correlation kernel n=2"),
+    Rule(("dimitrov_xu_nu2_correlation_kernel",), "xi_wronskian_nu2_fourier_identity", ClaimStatus.STANDARD, "Dimitrov-Xu Theorem 1.3 / Theorem 2.5 for n=2"),
+    Rule(("dimitrov_xu_nu2_correlation_kernel",), "phi2y_translation_density_condition", ClaimStatus.OPEN, "Dimitrov-Xu Theorem 1.1 global L1-density obligation for every 0<|y|<1/2"),
+    Rule(("phi2y_translation_density_condition",), "riemann_hypothesis", ClaimStatus.STANDARD, "Dimitrov-Xu Theorem 1.1 forward implication"),
+    Rule(("riemann_hypothesis", "dimitrov_xu_nu2_correlation_kernel"), "phi2y_translation_density_condition", ClaimStatus.STANDARD, "Dimitrov-Xu Theorem 1.1 reverse implication"),
+    Rule(("dimitrov_xu_nu2_correlation_kernel",), "phi2y_bounded_convolution_annihilator_condition", ClaimStatus.OPEN, "Dimitrov-Xu Corollary 3.5 global annihilator obligation"),
+    Rule(("phi2y_bounded_convolution_annihilator_condition",), "riemann_hypothesis", ClaimStatus.STANDARD, "Dimitrov-Xu Corollary 3.5 forward implication"),
+    Rule(("riemann_hypothesis", "dimitrov_xu_nu2_correlation_kernel"), "phi2y_bounded_convolution_annihilator_condition", ClaimStatus.STANDARD, "Dimitrov-Xu Corollary 3.5 reverse implication"),
 )
 
 
