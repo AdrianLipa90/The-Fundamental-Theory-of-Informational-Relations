@@ -77,6 +77,26 @@ jobs:
           grep -q '"full_local_rank": 3' tir_discrete_solder_form_receipt.json
           grep -q '"planar_control_rank": 2' tir_discrete_solder_form_receipt.json
 
+      - name: Audit rank-3 isotropy stabilization
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_rank3_isotropy_stabilization_v0_1.py | tee tir_rank3_isotropy_stabilization_receipt.json
+          grep -q '"technical_status": "PASS"' tir_rank3_isotropy_stabilization_receipt.json
+          grep -q '"conditional_result": "NONZERO_FULL_SO3_INVARIANT_LOCAL_EDGE_SPAN_HAS_RANK_3"' tir_rank3_isotropy_stabilization_receipt.json
+          grep -q '"rank3_under_declared_isotropy": true' tir_rank3_isotropy_stabilization_receipt.json
+          grep -q '"unconditional_spatial_rank_derived": false' tir_rank3_isotropy_stabilization_receipt.json
+
+      - name: Audit relational endpoint closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_relational_endpoint_closure_v0_1.py | tee tir_relational_endpoint_closure_receipt.json
+          grep -q '"technical_status": "PASS"' tir_relational_endpoint_closure_receipt.json
+          grep -q '"exact_discrete_result": "ENDPOINT_DEFECT_ZERO_IFF_TRIANGULAR_TORSION_DEFECT_ZERO"' tir_relational_endpoint_closure_receipt.json
+          grep -q '"a8_status": "CLOSURE_LAW_CANDIDATE"' tir_relational_endpoint_closure_receipt.json
+          grep -q '"regular_continuum_limit_derived": false' tir_relational_endpoint_closure_receipt.json
+
       - name: Upload receipts
         uses: actions/upload-artifact@v4
         with:
@@ -88,3 +108,5 @@ jobs:
             tir_relational_generator_space_receipt.json
             tir_spatial_bundle_connection_receipt.json
             tir_discrete_solder_form_receipt.json
+            tir_rank3_isotropy_stabilization_receipt.json
+            tir_relational_endpoint_closure_receipt.json
