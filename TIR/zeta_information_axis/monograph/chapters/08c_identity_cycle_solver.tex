@@ -182,11 +182,13 @@ The default closure engine permits only \status{EXACT} and \status{STANDARD} rul
 
 The critical firewall is therefore explicit.  The chain
 \begin{equation}
-\text{zero-state representation}
+\begin{aligned}
+&\text{zero-state representation}
 +\text{exact cancellation}
-+\sigma=\Ree s
-\Longrightarrow
++\sigma=\Ree s\\
+&\qquad\Longrightarrow
 \text{all nontrivial zeros on }\Ree s=\frac12
+\end{aligned}
 \end{equation}
 is stored as \status{OPEN}.  Consequently neither exact nor model closure can derive the Riemann hypothesis.  Instead the solver reports \texttt{zero\_state\_representation} as the missing premise.
 
