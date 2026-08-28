@@ -2,25 +2,35 @@
 
 Status: `PRIMITIVE_CAUSAL_ARCHITECTURE_CANDIDATE`
 
-Scope: TIR-only architecture. The project studies primitive dependency relations from the zero-distinction boundary outward. Standard Model, Time, and Space are sibling physical branches descending from the same primitive causal core.
+Scope: TIR-owned architecture of primitive dependency relations from the zero-distinction boundary outward. TIR carries the spatial-geometric continuation of the common primitive core and the Standard Model branch. `Informational-Dynamics-of-Time` receives the same common core as the sibling temporal scalar/tensor branch.
 
-## 1. Causality before time
+## 1. Dependency causality before temporal order
 
-Because Time is itself a downstream branch, the word **causal** at the primitive TIR level is defined as dependency causality rather than temporal succession.
+Because Time is itself a downstream research branch, primitive TIR causality is typed as structural dependency.
 
-Introduce a strict dependency relation
+Introduce
 
 \[
-X\prec Y
+\boxed{X\prec_{\rm dep}Y}
 \]
 
-meaning: the structure represented by `Y` requires the admitted structure represented by `X` in the declared derivation.
+meaning that the admitted structure represented by `Y` depends on the admitted structure represented by `X` in the derivation graph.
 
-The primitive causal bridge is therefore a directed acyclic dependency structure. Temporal ordering is introduced only inside the Time branch.
+Temporal order later receives its own scalar coordinate/field in the Time branch. The architecture therefore carries two separately typed notions:
 
-This avoids circular use of time in the derivation of time.
+\[
+\prec_{\rm dep}
+\quad\text{structural dependency},
+\]
 
-## 2. Zero boundary
+and downstream
+
+\[
+\Theta
+\quad\text{temporal order field}.
+\]
+
+## 2. Zero boundary and primitive spine
 
 Define the zero-distinction boundary by
 
@@ -31,140 +41,137 @@ Define the zero-distinction boundary by
 The first admitted non-empty carrier is the A1 point
 
 \[
-\boxed{D_0\prec \mathcal P.}
+D_0\prec_{\rm dep}\mathcal P.
 \]
 
-A1 and A7 then admit the first nontrivial exchange relation
+A1+A7 admit the first nontrivial exchange orbit
 
 \[
-\mathcal P\prec\{N,S\}.
+\mathcal P\prec_{\rm dep}\{N,S\}.
 \]
 
-The exchange-invariant normalized relation gives
+Exchange invariance and normalization give
 
 \[
-\{N,S\}\prec\frac12,
+\{N,S\}\prec_{\rm dep}\frac12,
 \]
 
-and A3 yields
+and A3 gives
 
 \[
-\frac12\prec\ln2.
+\frac12\prec_{\rm dep}\ln2.
 \]
 
-Thus the primitive information spine begins
+Thus the primitive information spine is
 
 \[
 \boxed{
 0
-\prec
+\prec_{\rm dep}
 \text{POINT}
-\prec
+\prec_{\rm dep}
 \text{DISTINCTION}
-\prec
+\prec_{\rm dep}
 \{N,S\}
-\prec
+\prec_{\rm dep}
 \frac12
-\prec
+\prec_{\rm dep}
 \ln2.
 }
 \]
 
-## 3. Quantum and geometric closure of the common core
+## 3. Quantum/geometric common core
 
-A2 lifts the distinguished pair into
-
-\[
-\boxed{\mathcal H_2\cong\mathbb C^2.}
-\]
-
-Projectivization gives
+A2 lifts the pole pair into
 
 \[
-\boxed{\mathbb{CP}^1\cong S^2.}
+\mathcal H_2\cong\mathbb C^2.
 \]
 
-The equal-weight locus is the phase fiber
+Projectivization gives the quantum state sphere
 
 \[
-\boxed{U(1)_{1/2}\cong S^1}
+\mathbb{CP}^1\cong S^2_{\rm Bloch}.
 \]
 
-represented by the Bloch equator.
-
-A4 independently converges on spherical geometry through the declared isoperimetric efficiency criterion. A5/A6 then act on admitted geometric/phase structure to produce arithmetic closure invariants.
-
-The common primitive core is therefore represented schematically as
+The equal-weight family forms the phase fiber
 
 \[
-\boxed{
-0
-\prec P
-\prec \{N,S\}
-\prec \frac12
-\prec \ln2
-\prec \mathbb C^2
-\prec \mathbb{CP}^1\cong S^2
-}
+U(1)_{1/2}\cong S^1.
 \]
 
-with `U(1)` phase structure and arithmetic closure invariants attached at their typed dependency layers.
+A4 supplies the independent spherical spatial-efficiency selector, while A5/A6 act on admitted geometric/phase structure to produce arithmetic closure invariants.
 
-## 4. Three sibling physical branches
+Denote the resulting admitted common primitive packet by
 
-The common primitive core fans out into three sibling research branches.
+\[
+\boxed{\mathcal C_0.}
+\]
 
-### Branch SM — Standard Model
+## 4. TIR owns the spatial-geometric continuation
 
-The Standard Model branch receives the primitive informational, quantum, symmetry, phase, geometric, and arithmetic structures as direct dependency inputs.
-
-Canonical branch marker:
+The spatial branch is now internal to TIR:
 
 \[
 \boxed{
 \mathcal C_0
-\prec
-\mathcal B_{\rm SM}
+\prec_{\rm dep}
+\mathcal G_X^{\rm TIR}.
 }
 \]
 
-where `C_0` denotes the admitted common primitive core.
+Its discrete entry surface is a positive weighted relational graph
 
-This branch owns derivations of particle-sector structure, gauge structure, mass/Yukawa relations, flavor, neutrino, hadronic, Higgs, strong-CP, and related Standard-Model observables.
+\[
+(G,\ell,d_G),
+\]
 
-### Branch T — Time
+and its continuum target is
 
-Time receives the same primitive core as its own sibling branch:
+\[
+\boxed{
+\mathfrak S_X
+=(\Sigma,h_{ij},D_i,{}^{(3)}R^{i}{}_{jkl},dV_h).
+}
+\]
+
+The detailed spatial contract is stored in
+
+`TIR/foundations/TIR_SPATIAL_GEOMETRY_CORE_V0_1.md`.
+
+## 5. TIR Standard Model branch
+
+The Standard Model remains a TIR-owned sibling branch from the same primitive core:
 
 \[
 \boxed{
 \mathcal C_0
-\prec
-\mathcal B_T.
+\prec_{\rm dep}
+\mathcal B_{\rm SM}^{\rm TIR}.
 }
 \]
 
-This branch owns temporal primitive, phase-rate normalization, temporal wave, NOW, bifurcation, transport, memory, retrodiction, and later relativistic temporal closure.
+This branch owns particle-sector, gauge, mass/Yukawa, flavor, neutrino, hadronic, Higgs, strong-CP and related Standard Model derivations according to their individual dependency gates.
 
-### Branch X — Space
+## 6. Time is the sibling scalar/tensor branch
 
-Space receives its own sibling branch:
+The Time programme receives the primitive core through
 
 \[
 \boxed{
 \mathcal C_0
-\prec
-\mathcal B_X.
+\prec_{\rm dep}
+\mathcal B_T^{\rm IDT}.
 }
 \]
 
-This branch owns the later derivation of spatial primitive, dimension, metric/geometric extension, locality, spatial transport, and spacetime joining interfaces.
+Its owned sector includes temporal primitive, temporal scalar/order field, temporal normalization, deformation/transport tensors, temporal wave, NOW, bifurcation, memory and downstream relativistic temporal closure.
 
-The branch is reserved now even where detailed spatial derivation remains future work.
+The TIR-side interface is specified by
 
-## 5. Causal fan-out
+`TIR/foundations/TIR_SPATIAL_TEMPORAL_CLOSURE_INTERFACE_V0_1.md`.
 
-The architecture is
+## 7. Architecture
 
 ```text
 ZERO DISTINCTION
@@ -185,46 +192,89 @@ HALF SEAM
 ln2
       |
       v
-QUANTUM / PHASE / SPHERE / ARITHMETIC CORE
+COMMON QUANTUM / PHASE / GEOMETRY CORE C0
       |
-      +-------------------+-------------------+
-      |                   |                   |
-      v                   v                   v
-STANDARD MODEL           TIME                SPACE
-BRANCH                   BRANCH              BRANCH
+      +---------------------------+----------------------------+
+      |                           |                            |
+      v                           v                            v
+TIR SPATIAL GEOMETRY       TIR STANDARD MODEL         DYNAMICS OF TIME
+G_X^TIR                    B_SM^TIR                   B_T^IDT
+      |                                                    |
+      +----------------------- closure --------------------+
+                              |
+                              v
+                      SPACETIME CARRIER M_XT
+                              |
+                              +---- x STANDARD MODEL ---->
+                              v
+                     MATTER/FIELD SPACETIME
 ```
 
-No branch is used as an ancestor of the common primitive core.
+## 8. Spatial × temporal closure
 
-## 6. Cross-branch joins occur downstream
-
-Sibling branches may later form typed joins after their independent prerequisites are established.
-
-Examples of downstream join surfaces include
+The first major cross-repository join is
 
 \[
-\mathcal B_T\times\mathcal B_X
+\boxed{
+\mathfrak S_X^{\rm TIR}
+\otimes
+\mathfrak T^{\rm IDT}
 \longrightarrow
-\mathcal B_{TX}
+\mathfrak M_{XT}.
+}
 \]
 
-for spacetime structure, and
+For the three-dimensional ADM specialization, the interface uses
 
 \[
-\mathcal B_{\rm SM}\times\mathcal B_{TX}
-\longrightarrow
-\text{matter/field structure on spacetime}
+\mathfrak S_X=(\Sigma,h_{ij},D_i,{}^{(3)}R),
 \]
 
-when the appropriate branch-local derivations have been admitted.
+and a temporal packet of the type
 
-These joins do not change the primitive ancestry of the three branches.
+\[
+\mathfrak T=(\Theta,N_\Theta,\mathcal K_{ij};\beta^i_{\rm match}).
+\]
 
-## 7. A8 as causal consistency gate
+The conditional metric reconstruction is
 
-A8 acts transversely across the bridge. When two admitted branch-local descriptions produce a contextual incompatibility, the paradox operator requests an enlarged closure surface rather than deleting either valid dependency path.
+\[
+\boxed{
+ ds^2
+ =-N_\Theta^2d\Theta^2
+ +h_{ij}(dx^i+\beta^i d\Theta)(dx^j+\beta^j d\Theta).
+}
+\]
 
-Schematically,
+This makes the architecture explicit:
+
+\[
+\boxed{
+\text{TIR = spatial/informational geometry},
+\qquad
+\text{IDT = temporal scalar/tensor dynamics}.
+}
+\]
+
+## 9. Matter/field join
+
+After spacetime closure is admitted, the Standard Model branch can couple through
+
+\[
+\boxed{
+\mathcal B_{\rm SM}^{\rm TIR}
+\otimes
+\mathfrak M_{XT}
+\longrightarrow
+\mathfrak M_{XT+\rm matter}.
+}
+\]
+
+Thus geometry, time and matter retain distinct primitive ancestry and meet through typed downstream closure surfaces.
+
+## 10. A8 as consistency operator
+
+A8 acts transversely wherever admitted projections require a higher-order closure carrier:
 
 \[
 (P,C_1;\neg P,C_2)
@@ -232,23 +282,37 @@ Schematically,
 \widetilde X(C_1,C_2).
 \]
 
-Thus paradoxes act as closure gates within the causal graph.
+Within the architecture, this functions as a consistency/closure gate across geometric, temporal and matter branches.
 
-## 8. Primitive dependency invariant
+## 11. Primitive dependency invariant
 
-The architecture enforces
+The architecture is summarized by
 
 \[
 \boxed{
-\text{primitive core}
-\prec
-\{\text{SM},\text{Time},\text{Space}\}
+\mathcal C_0
+\prec_{\rm dep}
+\left\{
+\mathcal G_X^{\rm TIR},
+\mathcal B_{\rm SM}^{\rm TIR},
+\mathcal B_T^{\rm IDT}
+\right\},
 }
 \]
 
-with no temporal variable required to define `\prec`.
+followed by the downstream joins
 
-The resulting TIR research question is not initially “what evolves in time?” but
+\[
+\mathcal G_X^{\rm TIR}\otimes\mathcal B_T^{\rm IDT}
+\to\mathfrak M_{XT},
+\]
+
+\[
+\mathfrak M_{XT}\otimes\mathcal B_{\rm SM}^{\rm TIR}
+\to\mathfrak M_{XT+\rm matter}.
+\]
+
+The active TIR research question remains
 
 \[
 \boxed{
@@ -256,4 +320,4 @@ The resulting TIR research question is not initially “what evolves in time?”
 }
 \]
 
-That dependency bridge is the TIR primitive-causality programme.
+with spatial geometry now an owned TIR continuation of that causal bridge.
