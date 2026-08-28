@@ -41,46 +41,61 @@ def _proof(result) -> dict[str, dict[str, object]]:
     }
 
 
+def _missing(goal: str, facts: set[str]) -> list[dict[str, object]]:
+    candidates = DEFAULT_SOLVER.missing_premises(goal, facts, allow_model=True)
+    return [
+        {
+            "conclusion": rule.conclusion,
+            "status": rule.status.value,
+            "missing": list(missing),
+            "provenance": rule.provenance,
+        }
+        for rule, missing in candidates
+    ]
+
+
 def build_receipt() -> dict[str, object]:
-    mp.mp.dps = 80
-    routes = solve_half_axis_routes()
-    exact = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=False)
-    model = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=True)
-    missing_rh = DEFAULT_SOLVER.missing_premises(
-        "all_zeros_on_half_axis", model.facts, allow_model=True
-    )
-    return {
-        "schema": "tir.critical-axis.solver-receipt/v2",
-        "precision_decimal_digits": mp.mp.dps,
-        "half_axis_routes": {key: mp.nstr(value, 50) for key, value in routes.items()},
-        "half_axis_consensus": all(abs(value - mp.mpf("0.5")) < mp.mpf("1e-50") for value in routes.values()),
-        "exact_closure": sorted(exact.facts),
-        "exact_proof": _proof(exact),
-        "model_closure": sorted(model.facts),
-        "model_proof": _proof(model),
-        "kappa_conditional": mp.nstr(kappa_from_projective_cycle(), 50),
-        "kappa_reference": mp.nstr(mp.log(2) / (24 * mp.pi), 50),
-        "rh_derived": "riemann_hypothesis" in model.facts,
-        "open_bridge_candidates": [
-            {
-                "conclusion": rule.conclusion,
-                "status": rule.status.value,
-                "missing": list(missing),
-                "provenance": rule.provenance,
-            }
-            for rule, missing in missing_rh
-        ],
-        "verdict": {
-            "mathematical_half_axis_routes": "PASS",
-            "conditional_kappa_arithmetic": "PASS",
-            "model_semantics": "EXPLICIT",
-            "canonical_xi_two_branch_representation": "PASS",
-            "all_xi_zeros_exact_kernel_branch_cancellation": "PASS",
-            "global_kernel_branch_nondegeneracy": "OPEN",
-            "kernel_population_equals_strip_coordinate": "OPEN_RH_EQUIVALENT_BRIDGE",
-            "riemann_hypothesis": "NOT_DERIVED",
-        },
-    }
+    with mp.workdps(80):
+        routes = solve_half_axis_routes()
+        exact = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=False)
+        model = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=True)
+        receipt = {
+            "schema": "tir.critical-axis.solver-receipt/v3",
+            "precision_decimal_digits": 80,
+            "half_axis_routes": {key: mp.nstr(value, 50) for key, value in routes.items()},
+            "half_axis_consensus": all(
+                abs(value - mp.mpf("0.5")) < mp.mpf("1e-50")
+                for value in routes.values()
+            ),
+            "exact_closure": sorted(exact.facts),
+            "exact_proof": _proof(exact),
+            "model_closure": sorted(model.facts),
+            "model_proof": _proof(model),
+            "kappa_conditional": mp.nstr(kappa_from_projective_cycle(), 50),
+            "kappa_reference": mp.nstr(mp.log(2) / (24 * mp.pi), 50),
+            "riemann_hypothesis_in_closure": "riemann_hypothesis" in model.facts,
+            "open_half_axis_bridge_candidates": _missing(
+                "all_zeros_on_half_axis", set(model.facts)
+            ),
+            "open_rh_equivalent_routes": _missing(
+                "riemann_hypothesis", set(model.facts)
+            ),
+            "verdict": {
+                "mathematical_half_axis_routes": "PASS",
+                "conditional_kappa_arithmetic": "PASS",
+                "model_semantics": "EXPLICIT",
+                "canonical_xi_two_branch_representation": "PASS",
+                "all_xi_zeros_exact_kernel_branch_cancellation": "PASS",
+                "global_kernel_branch_nondegeneracy": "OPEN",
+                "kernel_population_equals_strip_coordinate": "OPEN_RH_EQUIVALENT_BRIDGE",
+                "dimitrov_xu_nu2_correlation_kernel": "STANDARD_PASS",
+                "xi_wronskian_nu2_fourier_identity": "STANDARD_PASS",
+                "phi2y_translation_density_condition": "OPEN_RH_EQUIVALENT_CRITERION",
+                "phi2y_bounded_convolution_annihilator_condition": "OPEN_RH_EQUIVALENT_CRITERION",
+                "riemann_hypothesis": "OPEN",
+            },
+        }
+    return receipt
 
 
 def main() -> None:
