@@ -32,15 +32,19 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Verify kappa phase-rate contract
+      - name: Verify TIR structural contracts
         shell: bash
         run: |
           set -euo pipefail
           python3 TIR/validation/kappa_phase_rate_identity_v11_1.py | tee kappa_phase_rate_receipt.json
           python3 TIR/validation/review_source_contract_v11_1.py | tee review_source_contract_receipt.json
+          python3 TIR/validation/tir_relational_half_seam_v0_1.py | tee tir_relational_half_seam_receipt.json
           grep -q '"technical_status": "PASS"' kappa_phase_rate_receipt.json
           grep -q '"technical_status": "PASS"' review_source_contract_receipt.json
+          grep -q '"technical_status": "PASS"' tir_relational_half_seam_receipt.json
           grep -q '"pi_cancelled_exactly": true' kappa_phase_rate_receipt.json
+          grep -q '"seam_is_positive_reciprocal_fixed_point": true' tir_relational_half_seam_receipt.json
+          grep -q '"equal_weight_seam": true' tir_relational_half_seam_receipt.json
 
       - name: Verify critical-axis solver
         shell: bash
@@ -113,6 +117,7 @@ jobs:
           path: |
             kappa_phase_rate_receipt.json
             review_source_contract_receipt.json
+            tir_relational_half_seam_receipt.json
             critical-axis-pytest.log
             solver-console.json
             TIR/zeta_information_axis/reports/solver_receipt.json
