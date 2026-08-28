@@ -13,7 +13,6 @@ from __future__ import annotations
 import json
 import math
 from fractions import Fraction
-from typing import Iterable
 
 Matrix = tuple[tuple[complex, ...], ...]
 
@@ -108,6 +107,7 @@ def pauli_certificate() -> dict[str, object]:
     expected_xz = matscale(-2j, sy)
     comm_zx = matsub(matmul(sz, sx), matmul(sx, sz))
     expected_zx = matscale(2j, sy)
+    zero: Matrix = ((0j, 0j), (0j, 0j))
     return {
         "commutator_xz": matrix_receipt(comm_xz),
         "expected_xz_minus_2i_sigma_y": matrix_receipt(expected_xz),
@@ -115,7 +115,7 @@ def pauli_certificate() -> dict[str, object]:
         "expected_zx_2i_sigma_y": matrix_receipt(expected_zx),
         "pass_xz": mateq(comm_xz, expected_xz),
         "pass_zx": mateq(comm_zx, expected_zx),
-        "noncommuting_distinction_axes": not mateq(comm_xz, ((0j, 0j), (0j, 0j))),
+        "noncommuting_distinction_axes": not mateq(comm_xz, zero),
         "pass": mateq(comm_xz, expected_xz) and mateq(comm_zx, expected_zx),
     }
 
