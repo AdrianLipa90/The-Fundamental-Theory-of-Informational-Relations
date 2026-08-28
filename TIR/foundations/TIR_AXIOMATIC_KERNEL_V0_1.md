@@ -336,6 +336,28 @@ S^2+SO(3)+F_2+\text{paradoxical action}+\mathrm{Choice}
 
 This firewall keeps the common TIR root explicit while preserving the independent theorem assumptions of every downstream branch.
 
+## First exact derivation frontier
+
+The immediate theorem programme is intentionally narrow. Before extending the kernel toward dynamics, TIR should close the following chain in order:
+
+\[
+\boxed{
+A1+A2+A3+A7
+\rightarrow
+\Delta_1
+\rightarrow
+\{N,S\}
+\rightarrow
+J^2=\mathrm{id}
+\rightarrow
+\operatorname{Fix}(J)=\left\{\frac12\right\}
+\rightarrow
+H_2=\ln2.
+}
+\]
+
+The first open derivational question is therefore the status of \(\Delta_1\): the minimal rule that turns the undivided point-carrier into the first non-zero distinction while preserving the parent symmetry. Closing that rule is the next TIR foundation gate.
+
 ## Dependency graph
 
 ```text
