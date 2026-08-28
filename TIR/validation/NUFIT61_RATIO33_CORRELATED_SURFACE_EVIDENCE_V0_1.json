@@ -1,0 +1,44 @@
+{
+  "schema": "TIR_NUFIT61_RATIO33_CORRELATED_SURFACE_EVIDENCE_V0_1",
+  "status": "EXTERNAL_EMPIRICAL_COMPATIBILITY_EVIDENCE__NON_PROMOTING",
+  "date": "2026-08-28",
+  "tir_base_commit": "8f0118845e7497964ac92bf26d34410a539b6063",
+  "source_relation": {
+    "mass_ratio": [1, 2, 10],
+    "exact_identity": "Delta_m31^2 / Delta_m21^2 = (10^2-1^2)/(2^2-1^2) = 33",
+    "tested_line": "Delta_m31^2 = 33 Delta_m21^2"
+  },
+  "external_evidence": {
+    "provider": "NuFIT",
+    "release": "6.1 (2025)",
+    "surface": "DMS/DMA two-dimensional marginalized Delta-chi-square projection",
+    "gremlin_receipt_branch": "feat/gremlin-nufit61-correlated-ratio-line-v2.6",
+    "gremlin_receipt_commit": "b9b20f573b95d63cc069cbd0aedfa01f56a28f89",
+    "gremlin_receipt_path": "provenance/NUFIT61_TIR_RATIO33_CORRELATED_SURFACE_RECEIPT_V2_6.json",
+    "results": {
+      "TBoff-NO": {
+        "delta_chi2_min": 0.9902209322450616,
+        "delta_m21_sq_eV2": 7.60612121212121e-05,
+        "delta_m31_sq_eV2": 0.0025100199999999995
+      },
+      "TByes-NO": {
+        "delta_chi2_min": 0.44097506178386237,
+        "delta_m21_sq_eV2": 7.590621212121212e-05,
+        "delta_m31_sq_eV2": 0.002504905
+      }
+    },
+    "two_dof_one_sigma_reference_delta_chi2": 2.30,
+    "both_surface_minima_below_reference": true,
+    "reproduced_across_independent_github_runners": true
+  },
+  "scope_firewall": {
+    "directly_tests": "the exact TIR mass-splitting ratio 33",
+    "stage67_source_semantics_unchanged": true,
+    "materiality_threshold_unchanged": true,
+    "geometry_phase_clock_chain_unchanged": true,
+    "absolute_mass_scale_promoted": false,
+    "source_mechanism_promoted": false,
+    "claim_promotion": false
+  },
+  "allowed_statement": "The TIR exact ratio-33 neutrino mass-splitting line is compatible with both official NuFIT 6.1 Normal-Ordering DMS/DMA marginalized surfaces tested by GREMLIN v2.6."
+}
