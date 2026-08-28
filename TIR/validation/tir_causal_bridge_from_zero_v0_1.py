@@ -11,10 +11,12 @@ NODES = (
     "TWO_POLES",
     "HALF_SEAM",
     "LN2",
-    "QUANTUM_PHASE_GEOMETRY_CORE",
-    "STANDARD_MODEL_BRANCH",
-    "TIME_BRANCH",
-    "SPACE_BRANCH",
+    "COMMON_PRIMITIVE_CORE",
+    "TIR_SPATIAL_GEOMETRY",
+    "TIR_STANDARD_MODEL_BRANCH",
+    "TIME_SCALAR_TENSOR_BRANCH",
+    "SPACETIME_CLOSURE",
+    "MATTER_FIELD_SPACETIME",
 )
 
 EDGES = (
@@ -23,10 +25,14 @@ EDGES = (
     ("FIRST_DISTINCTION", "TWO_POLES"),
     ("TWO_POLES", "HALF_SEAM"),
     ("HALF_SEAM", "LN2"),
-    ("LN2", "QUANTUM_PHASE_GEOMETRY_CORE"),
-    ("QUANTUM_PHASE_GEOMETRY_CORE", "STANDARD_MODEL_BRANCH"),
-    ("QUANTUM_PHASE_GEOMETRY_CORE", "TIME_BRANCH"),
-    ("QUANTUM_PHASE_GEOMETRY_CORE", "SPACE_BRANCH"),
+    ("LN2", "COMMON_PRIMITIVE_CORE"),
+    ("COMMON_PRIMITIVE_CORE", "TIR_SPATIAL_GEOMETRY"),
+    ("COMMON_PRIMITIVE_CORE", "TIR_STANDARD_MODEL_BRANCH"),
+    ("COMMON_PRIMITIVE_CORE", "TIME_SCALAR_TENSOR_BRANCH"),
+    ("TIR_SPATIAL_GEOMETRY", "SPACETIME_CLOSURE"),
+    ("TIME_SCALAR_TENSOR_BRANCH", "SPACETIME_CLOSURE"),
+    ("SPACETIME_CLOSURE", "MATTER_FIELD_SPACETIME"),
+    ("TIR_STANDARD_MODEL_BRANCH", "MATTER_FIELD_SPACETIME"),
 )
 
 
@@ -43,6 +49,10 @@ def ancestors(target: str) -> set[str]:
         seen.add(node)
         frontier.extend(rev[node] - seen)
     return seen
+
+
+def parents(target: str) -> set[str]:
+    return {src for src, dst in EDGES if dst == target}
 
 
 def topological_pass() -> bool:
@@ -64,14 +74,37 @@ def topological_pass() -> bool:
 
 
 def build_receipt() -> dict[str, object]:
-    core = "QUANTUM_PHASE_GEOMETRY_CORE"
-    branches = ("STANDARD_MODEL_BRANCH", "TIME_BRANCH", "SPACE_BRANCH")
+    core = "COMMON_PRIMITIVE_CORE"
+    branch_children = {
+        "TIR_SPATIAL_GEOMETRY",
+        "TIR_STANDARD_MODEL_BRANCH",
+        "TIME_SCALAR_TENSOR_BRANCH",
+    }
     core_ancestors = ancestors(core)
-    sibling_parent_pass = all((core, branch) in EDGES for branch in branches)
-    branch_not_core_ancestor = all(branch not in core_ancestors for branch in branches)
-    no_temporal_circularity = "TIME_BRANCH" not in core_ancestors
+    sibling_parent_pass = all((core, branch) in EDGES for branch in branch_children)
+    branch_not_core_ancestor = all(branch not in core_ancestors for branch in branch_children)
+    no_temporal_circularity = "TIME_SCALAR_TENSOR_BRANCH" not in core_ancestors
+    tir_spatial_ownership_pass = "TIR_SPATIAL_GEOMETRY" in branch_children
+    spacetime_join_parent_pass = parents("SPACETIME_CLOSURE") == {
+        "TIR_SPATIAL_GEOMETRY",
+        "TIME_SCALAR_TENSOR_BRANCH",
+    }
+    matter_join_parent_pass = parents("MATTER_FIELD_SPACETIME") == {
+        "SPACETIME_CLOSURE",
+        "TIR_STANDARD_MODEL_BRANCH",
+    }
     dag_pass = topological_pass()
-    passed = sibling_parent_pass and branch_not_core_ancestor and no_temporal_circularity and dag_pass
+    passed = all(
+        (
+            sibling_parent_pass,
+            branch_not_core_ancestor,
+            no_temporal_circularity,
+            tir_spatial_ownership_pass,
+            spacetime_join_parent_pass,
+            matter_join_parent_pass,
+            dag_pass,
+        )
+    )
     return {
         "schema": "TIR_CAUSAL_BRIDGE_FROM_ZERO_V0_1",
         "causal_relation": "strict_structural_dependency_precedes_temporal_order",
@@ -82,14 +115,19 @@ def build_receipt() -> dict[str, object]:
             "TWO_POLES",
             "HALF_SEAM",
             "LN2",
-            "QUANTUM_PHASE_GEOMETRY_CORE",
+            "COMMON_PRIMITIVE_CORE",
         ],
-        "sibling_branches": list(branches),
+        "core_children": sorted(branch_children),
+        "spacetime_join_parents": sorted(parents("SPACETIME_CLOSURE")),
+        "matter_join_parents": sorted(parents("MATTER_FIELD_SPACETIME")),
         "core_ancestors": sorted(core_ancestors),
         "dag_pass": dag_pass,
         "sibling_parent_pass": sibling_parent_pass,
         "branch_not_core_ancestor": branch_not_core_ancestor,
         "no_temporal_circularity": no_temporal_circularity,
+        "tir_spatial_ownership_pass": tir_spatial_ownership_pass,
+        "spacetime_join_parent_pass": spacetime_join_parent_pass,
+        "matter_join_parent_pass": matter_join_parent_pass,
         "technical_status": "PASS" if passed else "FAIL",
     }
 
