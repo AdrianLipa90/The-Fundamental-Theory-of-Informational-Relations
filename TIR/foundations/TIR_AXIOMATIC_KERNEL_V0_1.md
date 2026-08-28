@@ -302,6 +302,40 @@ F_2
 
 A8 classifies the paradox as a closure/stability boundary in the TIR crosswalk. The theorem itself retains the standard group-action and choice dependencies.
 
+## Axiom-to-result firewall
+
+The axioms are parents, not substitutes for proofs. The first exact result already available inside this branch is the symmetric binary half-seam:
+
+\[
+A3+A7+\text{binary first distinction}
+\Longrightarrow
+p_N=p_S=\frac12
+\Longrightarrow
+H_2=\ln2.
+\]
+
+The following edges require additional mathematical hypotheses beyond the eight axioms:
+
+\[
+\mathbb C^2+\text{strong continuity and unitarity}
+\Longrightarrow
+\text{Schrödinger generator equation},
+\]
+
+\[
+\mathbb C^2+\text{self-adjoint incompatible observables}
+\Longrightarrow
+\text{Robertson--Heisenberg relation},
+\]
+
+\[
+S^2+SO(3)+F_2+\text{paradoxical action}+\mathrm{Choice}
+\Longrightarrow
+\text{Banach--Tarski}.
+\]
+
+This firewall keeps the common TIR root explicit while preserving the independent theorem assumptions of every downstream branch.
+
 ## Dependency graph
 
 ```text
