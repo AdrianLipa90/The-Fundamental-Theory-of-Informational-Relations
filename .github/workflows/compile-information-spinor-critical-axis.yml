@@ -32,13 +32,31 @@ jobs:
       - name: Generate audit and monograph
         run: make monograph
       - name: Publication preflight
+        shell: bash
         run: |
+          set -euo pipefail
           qpdf --check monograph/information_spinor_critical_axis.pdf
           pdfinfo monograph/information_spinor_critical_axis.pdf | tee reports/pdfinfo.txt
           pdffonts monograph/information_spinor_critical_axis.pdf | tee reports/pdffonts.txt
-          ! grep -q "Type 3" reports/pdffonts.txt
-          ! grep -q "Overfull" monograph/main.log
-          ! grep -Eiq "undefined references|undefined citations|multiply defined" monograph/main.log
+
+          if grep -q "Type 3" reports/pdffonts.txt; then
+            echo "FAIL: Type 3 font detected" >&2
+            exit 1
+          fi
+
+          if grep -q "Overfull" monograph/main.log; then
+            echo "FAIL: Overfull box detected" >&2
+            grep "Overfull" monograph/main.log >&2 || true
+            exit 1
+          fi
+
+          if grep -Eiq "undefined references|undefined citations|multiply defined" monograph/main.log; then
+            echo "FAIL: unresolved or multiply-defined references detected" >&2
+            grep -Ei "undefined references|undefined citations|multiply defined" monograph/main.log >&2 || true
+            exit 1
+          fi
+
+          echo "CRITICAL-AXIS PUBLICATION PREFLIGHT PASS"
       - uses: actions/upload-artifact@v4
         with:
           name: information-spinor-critical-axis
