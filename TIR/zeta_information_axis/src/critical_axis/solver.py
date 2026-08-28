@@ -20,6 +20,14 @@ XF-4 resolves the XF-3 density condition to the pointwise Wiener--Laguerre
 scalar Q_Xi(x,y). The identity Q_Xi=Fourier(Phi_{2,y}) and the equivalence
 between L1 translation density and global strict positivity are STANDARD.
 Actual strict positivity for every real x and every 0<|y|<1/2 remains OPEN.
+
+XF-5 records the classical complex Laguerre criterion independently of the
+Dimitrov--Xu route. For Xi in the standard strip class S(1/2), Csordas--Varga
+and Csordas--Escassut give Laguerre--Polya membership iff
+|Xi'(z)|^2-Re(Xi(z)conj(Xi''(z)))>=0 globally. Elementary complex calculus
+identifies twice this scalar with d^2/dy^2 |Xi(x+iy)|^2. The theorem-level
+equivalence is STANDARD; satisfaction of the globally quantified convexity
+condition remains OPEN.
 """
 from __future__ import annotations
 
@@ -149,6 +157,11 @@ HALF_AXIS_RULES = (
     Rule(("phi2y_fourier_equals_xi_wiener_laguerre_scalar",), "xi_wiener_laguerre_strict_positivity", ClaimStatus.OPEN, "XF-4 global condition Q_Xi(x,y)>0 for all real x and every 0<|y|<1/2"),
     Rule(("phi2y_translation_density_condition", "phi2y_fourier_equals_xi_wiener_laguerre_scalar"), "xi_wiener_laguerre_strict_positivity", ClaimStatus.STANDARD, "Wiener L1 theorem plus Q_Xi(0,y)>0 fixes the nonvanishing transform sign"),
     Rule(("xi_wiener_laguerre_strict_positivity", "phi2y_fourier_equals_xi_wiener_laguerre_scalar"), "phi2y_translation_density_condition", ClaimStatus.STANDARD, "Q_Xi=Fourier(Phi_{2,y}) is everywhere nonzero; Wiener L1 translation theorem"),
+    Rule(("xi_fourier_kernel",), "xi_strip_class_s_half", ClaimStatus.STANDARD, "Xi is real entire of order one and its zeros lie in the standard |Im z|<1/2 strip before RH specialization"),
+    Rule(("xi_strip_class_s_half",), "xi_transverse_curvature_equals_twice_laguerre_scalar", ClaimStatus.EXACT, "d_y^2 |Xi(x+iy)|^2 = 2(|Xi'|^2-Re(Xi conjugate(Xi'')))"),
+    Rule(("xi_strip_class_s_half",), "xi_global_transverse_convexity", ClaimStatus.OPEN, "XF-5 global condition d_y^2 |Xi(x+iy)|^2 >= 0 for every real x,y"),
+    Rule(("xi_global_transverse_convexity", "xi_strip_class_s_half"), "riemann_hypothesis", ClaimStatus.STANDARD, "Csordas-Varga complex Laguerre criterion: Xi in Laguerre-Polya iff global complex Laguerre inequality"),
+    Rule(("riemann_hypothesis", "xi_strip_class_s_half"), "xi_global_transverse_convexity", ClaimStatus.STANDARD, "Csordas-Varga / Csordas-Escassut reverse implication via Laguerre-Polya membership"),
 )
 
 
@@ -168,7 +181,6 @@ def solve_sigma_from_entropy() -> mp.mpf:
 def solve_sigma_from_berry_minus_one() -> mp.mpf:
     """Solve exp[-2*pi*i*(1-sigma)]=-1 for the interior branch sigma in (0,1)."""
     root = mp.findroot(lambda p: mp.im(berry_holonomy(p)), (mp.mpf("0.4"), mp.mpf("0.6")))
-    # Imaginary-part roots also occur at endpoints; retain the root whose real holonomy is -1.
     if not (0 < root < 1) or abs(berry_holonomy(root) + 1) > mp.mpf("1e-30"):
         raise RuntimeError("failed to isolate the interior -1 Berry-holonomy solution")
     return root
