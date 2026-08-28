@@ -3,8 +3,8 @@
 This module implements numerical representatives of the n=2 correlation
 kernel used by Dimitrov--Xu (arXiv:1606.05011) and the corresponding Jensen /
 Laguerre quantity.  Their theorem-level density criterion is external
-mathematics; finite numerical evaluations here are diagnostics only and do
-not promote the L1-density condition.
+mathematics; finite numerical evaluations here are diagnostics only and carry
+no authority to promote the global L1-density or strict-positivity conditions.
 """
 
 from __future__ import annotations
@@ -82,8 +82,7 @@ def xi_laguerre_quantity(z: complex | mp.mpc) -> mp.mpf:
 
     Jensen's criterion identifies global nonnegativity of this quantity with
     Laguerre--Polya membership under the standard real-entire hypotheses.
-    Numerical evaluation at finitely many z is never treated as a proof of
-    that global condition.
+    Numerical evaluation at finitely many z is a regression diagnostic only.
     """
     zz = mp.mpc(z)
     f = completed_xi_on_z_axis
@@ -91,6 +90,30 @@ def xi_laguerre_quantity(z: complex | mp.mpc) -> mp.mpf:
     first = mp.diff(f, zz, 1)
     second = mp.diff(f, zz, 2)
     return abs(first) ** 2 - mp.re(value * mp.conj(second))
+
+
+def xi_wiener_laguerre_scalar(
+    x: float | mp.mpf,
+    y: float | mp.mpf,
+) -> mp.mpf:
+    r"""Evaluate the XF-4 scalar Q_Xi(x,y) on the open critical strip.
+
+    For real x and 0 < |y| < 1/2,
+
+        Q_Xi(x,y) = |Xi'(x+iy)|^2
+                    - Re(Xi(x+iy) conjugate(Xi''(x+iy))).
+
+    Dimitrov--Xu's Fourier--Wronskian identity together with Wiener's L1
+    Tauberian theorem identifies the global condition Q_Xi(x,y)>0 for every
+    real x and every admissible y with their translation-density criterion.
+    This function evaluates a point only; global strict positivity remains a
+    theorem-level proof obligation.
+    """
+    xx = mp.mpf(x)
+    yy = mp.mpf(y)
+    if yy == 0 or abs(yy) >= mp.mpf("0.5"):
+        raise ValueError("XF-4 y must satisfy 0 < |y| < 1/2")
+    return xi_laguerre_quantity(mp.mpc(xx, yy))
 
 
 def xi_wronskian2_real(x: float | mp.mpf) -> mp.mpf:
