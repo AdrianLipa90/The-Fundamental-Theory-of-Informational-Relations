@@ -8,9 +8,11 @@ from critical_axis.correlation_kernel import (
     even_riemann_phi,
     phi_2_y,
     xi_laguerre_quantity,
+    xi_transverse_modulus_curvature,
     xi_wiener_laguerre_scalar,
     xi_wronskian2_real,
 )
+from critical_axis.xi_kernel import completed_xi_on_z_axis
 
 
 def test_even_riemann_kernel_extension_is_symmetric() -> None:
@@ -54,8 +56,6 @@ def test_real_axis_laguerre_and_wronskian_identity_closes() -> None:
 
 
 def test_sampled_laguerre_quantity_is_positive_diagnostic() -> None:
-    # Finite sampled positivity is a regression diagnostic only; the global
-    # Laguerre-Polya/RH condition remains an analytic proof obligation.
     with mp.workdps(45):
         values = [xi_laguerre_quantity(mp.mpf(x)) for x in ("0", "1", "5", "10")]
         assert all(value > 0 for value in values)
@@ -70,11 +70,32 @@ def test_xf4_scalar_is_even_in_y_on_reference_points() -> None:
 
 
 def test_xf4_origin_scalar_is_strictly_positive_diagnostic() -> None:
-    # Dimitrov--Xu prove positivity at x=0 analytically for admissible y.
-    # These finite values are implementation checks for that theorem input.
     with mp.workdps(45):
         for y in ("0.1", "0.2", "0.4"):
             assert xi_wiener_laguerre_scalar(0, mp.mpf(y)) > 0
+
+
+def test_xf5_curvature_equals_twice_laguerre_scalar() -> None:
+    with mp.workdps(45):
+        for x, y in (("0", "0"), ("1", "0.2"), ("5", "-0.3")):
+            z = mp.mpc(mp.mpf(x), mp.mpf(y))
+            lhs = xi_transverse_modulus_curvature(mp.mpf(x), mp.mpf(y))
+            rhs = 2 * xi_laguerre_quantity(z)
+            assert abs(lhs - rhs) < mp.mpf("1e-40")
+
+
+def test_xf5_curvature_matches_independent_y_second_derivative() -> None:
+    with mp.workdps(40):
+        for x, y in (("0", "0.1"), ("2", "0.25")):
+            xx = mp.mpf(x)
+            yy = mp.mpf(y)
+
+            def modulus_squared(v: mp.mpf) -> mp.mpf:
+                return abs(completed_xi_on_z_axis(mp.mpc(xx, v))) ** 2
+
+            direct = mp.diff(modulus_squared, yy, 2)
+            analytic = xi_transverse_modulus_curvature(xx, yy)
+            assert abs(direct - analytic) < mp.mpf("1e-30")
 
 
 def test_xf4_scalar_interface_fails_closed_outside_open_y_domain() -> None:
