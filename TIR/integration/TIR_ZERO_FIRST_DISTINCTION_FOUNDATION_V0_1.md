@@ -139,72 +139,39 @@ u_\star=\frac12.
 Therefore
 
 \[
-\boxed{
-\operatorname{Fix}(J)=\left\{\frac12\right\}
-}
+\boxed{\operatorname{Fix}(J)=\left\{\frac12\right\}}
 \]
 
 and the first distinction carries a canonical exchange seam.
 
-This is the same TIR object registered by
+## 4. Minimal coherent lift
 
-`TIR/integration/TIR_RELATIONAL_HALF_SEAM_CROSSLINK_V0_1.md`.
-
-## 4. Minimal coherent lift: the two-state Hilbert carrier
-
-Represent the two distinguished poles by an orthonormal basis
-
-\[
-|N\rangle=\begin{pmatrix}1\\0\end{pmatrix},
-\qquad
-|S\rangle=\begin{pmatrix}0\\1\end{pmatrix}.
-\]
-
-The minimal complex Hilbert carrier spanning both alternatives is
+Represent the two distinguished poles by an orthonormal basis `|N>` and `|S>`. The minimal complex Hilbert carrier spanning them is
 
 \[
 \boxed{\mathcal H_2\cong\mathbb C^2}.
 \]
 
-A normalized relational amplitude state is
+At equal pole weight,
 
 \[
-|\psi\rangle
-=\alpha|N\rangle+\beta|S\rangle,
-\qquad
-|\alpha|^2+|\beta|^2=1.
-\]
-
-The symmetric half-seam has the equal-modulus condition
-
-\[
-|\alpha|=|\beta|=\frac1{\sqrt2},
-\]
-
-leaving relative phase as the internal coordinate:
-
-\[
+\boxed{
 |\psi_{1/2}(\varphi)\rangle
-=\frac{1}{\sqrt2}
-\left(|N\rangle+e^{i\varphi}|S\rangle\right).
+=\frac{|N\rangle+e^{i\varphi}|S\rangle}{\sqrt2}
+}
 \]
+
+and the remaining internal coordinate is relative phase `φ`.
 
 ## 5. Schrödinger branch
 
-Add a continuous relational parameter `τ` and a strongly continuous one-parameter unitary flow
-
-\[
-U(\tau_1+\tau_2)=U(\tau_1)U(\tau_2),
-\qquad U(0)=I.
-\]
-
-Its self-adjoint generator `G` gives
+A strongly continuous one-parameter unitary relational flow has a self-adjoint generator `G`,
 
 \[
 U(\tau)=e^{-iG\tau/\hbar},
 \]
 
-and therefore
+hence
 
 \[
 \boxed{
@@ -213,57 +180,45 @@ i\hbar\frac{\partial}{\partial\tau}|\psi(\tau)\rangle
 }
 \]
 
-With physical time and Hamiltonian identification this is the Schrödinger evolution law.
+With the physical-time and Hamiltonian identification this is the Schrödinger evolution law.
 
 ## 6. Heisenberg branch
 
-Multiple binary distinction frames on the same `\mathbb C^2` carrier are represented by Pauli generators satisfying
+Multiple distinction axes on `\mathbb C^2` are represented by Pauli generators,
 
 \[
 \boxed{[\sigma_i,\sigma_j]=2i\varepsilon_{ijk}\sigma_k}.
 \]
 
-For self-adjoint `A,B`,
+For self-adjoint observables,
 
 \[
-\boxed{
-\Delta A\Delta B\ge\frac12|\langle[A,B]\rangle|
-}
+\boxed{\Delta A\Delta B\ge\frac12|\langle[A,B]\rangle|}.
 \]
 
-and for `S_i=\hbar\sigma_i/2`,
-
-\[
-[S_i,S_j]=i\hbar\varepsilon_{ijk}S_k.
-\]
-
-Thus incompatible distinction axes supply the operator-theoretic entry point for the Heisenberg/Robertson uncertainty structure.
+Thus incompatible relational axes supply the operator-theoretic entry point for the Heisenberg/Robertson uncertainty structure.
 
 ## 7. Bloch-sphere closure
 
-Pure states of `\mathbb C^2` modulo global phase form
+Pure two-state rays form
 
 \[
 \boxed{\mathbb{CP}^1\cong S^2}.
 \]
 
-The maximally mixed binary state is
+The equal statistical mixture is
 
 \[
 \rho_\star=\frac12I,
-\]
-
-with
-
-\[
+\qquad
 \boxed{S(\rho_\star)=\ln2}.
 \]
 
 ## 8. Rotation-group branch and Banach–Tarski entry point
 
-The oriented two-pole axis embeds in `S^2`; changing distinction frames is represented by `SO(3)` rotations, with spinorial double cover `SU(2) -> SO(3)`.
+The two-pole axis embeds in `S^2`; distinction-frame changes are represented by `SO(3)`, with spinorial double cover `SU(2) -> SO(3)`.
 
-The Banach--Tarski theorem branch uses the stronger group-theoretic chain
+The Banach--Tarski theorem branch uses the stronger chain
 
 \[
 \boxed{
@@ -313,8 +268,6 @@ coherent_half_family      = (|N> + exp(i*phi)|S>)/sqrt(2)
 phase_degree_of_freedom   = phi
 ```
 
-The temporal repository may consume this packet at its `TIR -> Temporal Primitive` boundary and owns the later temporal dynamical promotion.
-
 ## 11. Claim classes
 
 | Statement | TIR class |
@@ -324,13 +277,13 @@ The temporal repository may consume this packet at its `TIR -> Temporal Primitiv
 | exchange-symmetric shares are `(1/2,1/2)` | EXACT |
 | `H_2(1/2)=ln2` | EXACT INFORMATION-THEORETIC |
 | `Fix(u->1-u)={1/2}` | EXACT |
-| minimal complex Hilbert span of two basis states is `C^2` | EXACT LINEAR-ALGEBRAIC |
-| strongly continuous one-parameter unitary flow has a self-adjoint generator | STANDARD FUNCTIONAL-ANALYTIC THEOREM |
+| minimal complex Hilbert span is `C^2` | EXACT LINEAR-ALGEBRAIC |
+| unitary-flow generator theorem | STANDARD FUNCTIONAL-ANALYTIC THEOREM |
 | Schrödinger generator equation with physical-time/Hamiltonian identification | EXACT CONDITIONAL |
 | Pauli commutators | EXACT MATRIX IDENTITY |
 | Robertson uncertainty relation | STANDARD OPERATOR THEOREM |
 | `CP^1 ~= S^2` | STANDARD GEOMETRIC IDENTIFICATION |
 | `S(I/2)=ln2` | EXACT QUANTUM-INFORMATION IDENTITY |
-| `SO(3)` free non-abelian subgroup entry | STANDARD GROUP-THEORETIC INPUT |
+| free non-abelian subgroup entry in `SO(3)` | STANDARD GROUP-THEORETIC INPUT |
 | Banach--Tarski branch from free-group action plus choice | STANDARD SET-THEORETIC/GEOMETRIC THEOREM CHAIN |
 | common first-distinction root | TIR STRUCTURAL CROSSWALK |
