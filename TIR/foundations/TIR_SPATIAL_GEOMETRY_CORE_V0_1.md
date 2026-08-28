@@ -37,7 +37,7 @@ and owns temporal scalar/tensor dynamics.
 
 ## 2. Geometry firewall: state sphere and spatial sphere
 
-Two spherical structures occur in the programme and must remain typed separately.
+Two spherical structures occur in the programme and remain typed separately.
 
 ### 2.1 Quantum state sphere
 
@@ -72,13 +72,13 @@ S2_BLOCH   = projective quantum-state geometry
 S2_SPACE   = boundary of an isotropic spatial enclosure
 ```
 
-Any future identification map
+A future identification map
 
 \[
 \Xi:S^2_{\rm Bloch}\to S^2_X
 \]
 
-must be supplied and audited explicitly. Shared spherical topology alone does not collapse the two geometry types.
+becomes an admitted bridge only after explicit construction and audit. Until that gate, the two sphere types remain separately typed by construction.
 
 ## 3. Primitive relational geometry
 
@@ -253,7 +253,7 @@ This is the active TIR spatial derivation programme.
 
 ## 8. TIR spatial export packet
 
-The future closure interface exports only admitted spatial structure:
+The future closure interface exports the admitted spatial structure:
 
 ```text
 spatial_carrier      = Sigma
@@ -265,7 +265,7 @@ spatial_symmetry     = Isom(Sigma,h)
 geometry_owner       = TIR
 ```
 
-No temporal rate is required to define these objects.
+These spatial objects are defined prior to temporal-rate normalization.
 
 ## 9. Crosslink ownership
 
