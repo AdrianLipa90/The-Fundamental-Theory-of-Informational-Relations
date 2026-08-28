@@ -2,11 +2,11 @@
 
 Status: `TIR_STRUCTURAL_CROSSLINK_CANDIDATE`
 
-Scope: TIR-only formalization of the statement that the two opposite relational
-orientations associated with states `1` and `3` meet at the half-point of the
-intermediate state `2`. This file is the bridge surface for sibling work in
-`secret-of-a-half` and `Informational-Dynamics-of-Time`; source authority for the
-theorem below remains in TIR.
+Scope: TIR-only formalization of the statement that the two opposite relational orientations associated with states `1` and `3` meet at the half-point of the intermediate state `2`. This file is the bridge surface for sibling work in `secret-of-a-half` and `Informational-Dynamics-of-Time`; source authority for the theorem below remains in TIR.
+
+The deeper zero-to-first-distinction source is:
+
+`TIR/integration/TIR_ZERO_FIRST_DISTINCTION_FOUNDATION_V0_1.md`.
 
 ## 1. Relational coordinate inside state 2
 
@@ -50,8 +50,7 @@ w_{3|2}(J_2u)=w_{1|2}(u).
 
 ## 2. Relational Half-Seam Theorem
 
-Define the meeting set of the two opposite relational orientations by equal
-share:
+Define the meeting set of the two opposite relational orientations by equal share:
 
 \[
 \mathcal S_{13|2}
@@ -92,9 +91,7 @@ This is the precise TIR form of
 \boxed{1\;\longrightarrow\;\tfrac12(2)\;\longleftarrow\;3}.
 \]
 
-The half-point therefore enters first as a relational seam: the unique point at
-which the two complementary orientations inside the intermediate domain carry
-equal relational weight.
+The half-point therefore enters first as a relational seam: the unique point at which the two complementary orientations inside the intermediate domain carry equal relational weight.
 
 ## 3. Information-theoretic lift
 
@@ -142,9 +139,7 @@ H_{13|2}=\ln2
 }.
 \]
 
-The seam theorem supplies the exact relational origin of the `ln2` numerator in
-this chain. The factor `24\pi` remains the existing TIR normalization layer and
-keeps its current claim class.
+The seam theorem supplies the exact relational origin of the `ln2` numerator in this chain. The factor `24\pi` remains the existing TIR normalization layer and keeps its current claim class.
 
 ## 4. Projective lift
 
@@ -168,8 +163,7 @@ Therefore the half-seam maps to the positive reciprocal fixed point
 \boxed{u_\star=\frac12\quad\Longleftrightarrow\quad q_\star=1}.
 \]
 
-This is the direct structural crosslink to the complement/reciprocal layer of
-`secret-of-a-half`.
+This is the direct structural crosslink to the complement/reciprocal layer of `secret-of-a-half`.
 
 ## 5. Crosslink contract: Secret of a Half
 
@@ -186,10 +180,7 @@ relational_entropy   = ln2
 kappa                = ln2/(24*pi)
 ```
 
-The sibling `secret-of-a-half` programme may identify this packet with its
-binary complement fixed point, reciprocal fixed point, Fisher--Rao midpoint,
-and entropy maximum. Its own zeta/theorem promotion rules remain the authority
-for downstream claims.
+The sibling `secret-of-a-half` programme may identify this packet with its binary complement fixed point, reciprocal fixed point, Fisher--Rao midpoint, and entropy maximum. Its own zeta/theorem promotion rules remain the authority for downstream claims.
 
 Reference repository:
 
@@ -230,10 +221,7 @@ TIR supplies a candidate structural boundary packet at its outgoing interface:
 }.
 \]
 
-The dashed arrow is a cross-repository interface. The TIR statement carried by
-that arrow is the exact relational half-seam packet above. Temporal evolution,
-wave dynamics and the operational role of `NOW` are adjudicated by
-`Informational-Dynamics-of-Time`.
+The dashed arrow is a cross-repository interface. The TIR statement carried by that arrow is the exact relational half-seam packet above. Temporal evolution, wave dynamics and the operational role of `NOW` are adjudicated by `Informational-Dynamics-of-Time`.
 
 Reference repository:
 
@@ -257,9 +245,7 @@ The geometric statement
 x_\star=\frac{a+b}{2}
 \]
 
-uses the declared affine encoding of relation share across `I_2`. A later
-physical coordinate may use another chart; the crosslink packet therefore
-carries both the invariant relational balance and the explicit affine chart.
+uses the declared affine encoding of relation share across `I_2`. A later physical coordinate may use another chart; the crosslink packet therefore carries both the invariant relational balance and the explicit affine chart.
 
 ## 8. Claim classes
 
@@ -291,12 +277,17 @@ The audit checks:
 - complement/reciprocal conjugacy on exact rational samples;
 - exact typed binding of the seam entropy to the existing TIR `kappa` numerator.
 
+The upstream zero-first-distinction audit is:
+
+`TIR/validation/tir_zero_first_distinction_v0_1.py`.
+
 ## 10. Dependency direction
 
 ```text
-TIR RELATIONAL HALF-SEAM
-  |---> secret-of-a-half       [crosslink consumer]
-  `---> Informational-Dynamics-of-Time [crosslink consumer]
+TIR ZERO-FIRST-DISTINCTION
+  -> TIR RELATIONAL HALF-SEAM
+      |---> secret-of-a-half                 [crosslink consumer]
+      `---> Informational-Dynamics-of-Time   [crosslink consumer]
 ```
 
 All source modifications for v0.1 are confined to the TIR repository.
