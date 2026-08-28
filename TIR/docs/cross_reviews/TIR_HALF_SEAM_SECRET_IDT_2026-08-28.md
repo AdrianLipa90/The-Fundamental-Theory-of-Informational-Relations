@@ -2,8 +2,7 @@
 
 Status: `TIR_ONLY_CROSSLINK_CANDIDATE`
 
-This record registers a TIR-owned structural bridge. The two sibling repositories
-are reference consumers in this pass; source changes are confined to TIR.
+This record registers a TIR-owned structural bridge. The two sibling repositories are reference consumers in this pass; source changes are confined to TIR.
 
 ## TIR source theorem
 
@@ -11,8 +10,7 @@ Canonical candidate source:
 
 `TIR/integration/TIR_RELATIONAL_HALF_SEAM_CROSSLINK_V0_1.md`
 
-For the affine normalized coordinate `u in [0,1]` of the intermediate
-relational domain `2`, define
+For the affine normalized coordinate `u in [0,1]` of the intermediate relational domain `2`, define
 
 \[
 w_{1|2}=1-u,\qquad w_{3|2}=u,\qquad J_2(u)=1-u.
@@ -51,6 +49,48 @@ relational_entropy   = ln2
 projective_odds      = 1
 kappa                = ln2/(24*pi)
 ```
+
+## Zero → first distinction extension
+
+The deeper TIR source is now
+
+`TIR/integration/TIR_ZERO_FIRST_DISTINCTION_FOUNDATION_V0_1.md`.
+
+Its dependency root is
+
+\[
+\boxed{
+\mathfrak Z
+\xrightarrow{\Delta_1}
+\{N,S\}
+\xrightarrow{\rm exchange}
+\frac12.
+}
+\]
+
+Here `mathfrak Z` is the undivided relational carrier with Shannon entropy zero, and `Delta_1` is the first distinction producing two complementary poles.
+
+At equal pole share,
+
+\[
+\boxed{
+(p_N,p_S)=\left(\frac12,\frac12\right),
+\qquad H_2=\ln2.
+}
+\]
+
+This separates a common structural root from four explicit downstream branches:
+
+```text
+ZERO
+  -> FIRST_DISTINCTION
+      -> HALF_SEAM -> ln2 -> TIR kappa numerator
+      -> C^2 -> continuous unitary flow -> Schrodinger generator equation
+      -> C^2 -> incompatible distinction axes -> Pauli noncommutativity -> Robertson/Heisenberg
+      -> oriented axis -> S^2 -> SO(3) -> F2 -> paradoxical action + Choice -> Banach-Tarski
+```
+
+The branch requirements are typed explicitly in the TIR source so that the shared origin remains visible while each theorem retains its own mathematical dependencies.
 
 ## Secret-of-a-Half crosslink
 
@@ -92,7 +132,7 @@ The sibling temporal spine currently begins
 \mathrm{NOW}.
 \]
 
-The new TIR-owned crosslink inserts a typed outgoing packet at the TIR boundary:
+The TIR-owned crosslink inserts a typed outgoing packet at the TIR boundary:
 
 \[
 \boxed{
@@ -108,9 +148,16 @@ The new TIR-owned crosslink inserts a typed outgoing packet at the TIR boundary:
 }
 \]
 
-The dashed edge means cross-repository consumption. TIR owns the relational
-half-seam theorem and its entropy/projective packet. The temporal repository owns
-the subsequent temporal primitive, wave, NOW, bifurcation and transport layers.
+The zero-first-distinction extension also exposes the coherent half-family
+
+\[
+\boxed{
+|\psi_{1/2}(\varphi)\rangle
+=\frac{|N\rangle+e^{i\varphi}|S\rangle}{\sqrt2}
+}
+\]
+
+as a TIR boundary packet carrying equal pole weight plus one relative phase coordinate. The temporal repository owns every subsequent temporal primitive, wave, NOW, bifurcation and transport promotion.
 
 Reference repository:
 
@@ -124,26 +171,32 @@ Reference head observed for this pass:
 
 ```text
 TIR
-  relational opposition 1 <-> 3 across domain 2
-      |
-      v
-  unique equal-share seam u*=1/2
-      |
-      +--> H_rel=ln2 --> kappa numerator
-      |
-      +--> q*=1, reciprocal self-duality --> Secret of a Half
-      |
-      `--> structural seam packet --> Dynamics of Time / NOW chain
+  ZERO
+    |
+    v
+  first distinction {N,S}
+    |
+    +--> equal-share seam u*=1/2 --> H_rel=ln2 --> kappa numerator
+    |
+    +--> C^2 coherent carrier --> Schrodinger / Heisenberg theorem branches
+    |
+    +--> oriented-axis geometry --> SO(3) theorem branch --> Banach-Tarski dependencies
+    |
+    +--> q*=1 reciprocal self-duality --> Secret of a Half
+    |
+    `--> (1/2, ln2, q=1, relative phase) --> Dynamics of Time boundary
 ```
 
 ## Validation
 
-Executable audit:
+Executable audits:
 
-`TIR/validation/tir_relational_half_seam_v0_1.py`
+- `TIR/validation/tir_relational_half_seam_v0_1.py`
+- `TIR/validation/tir_zero_first_distinction_v0_1.py`
 
-Expected receipt schema:
+Expected receipt schemas:
 
-`TIR_RELATIONAL_HALF_SEAM_V0_1`
+- `TIR_RELATIONAL_HALF_SEAM_V0_1`
+- `TIR_ZERO_FIRST_DISTINCTION_V0_1`
 
-Current local deterministic audit result for the candidate source: `PASS`.
+Both audits are wired into the exact-head integrated TIR CI gate on this branch.
