@@ -8,6 +8,7 @@ from critical_axis.correlation_kernel import (
     even_riemann_phi,
     phi_2_y,
     xi_laguerre_quantity,
+    xi_wiener_laguerre_scalar,
     xi_wronskian2_real,
 )
 
@@ -58,6 +59,28 @@ def test_sampled_laguerre_quantity_is_positive_diagnostic() -> None:
     with mp.workdps(45):
         values = [xi_laguerre_quantity(mp.mpf(x)) for x in ("0", "1", "5", "10")]
         assert all(value > 0 for value in values)
+
+
+def test_xf4_scalar_is_even_in_y_on_reference_points() -> None:
+    with mp.workdps(45):
+        for x, y in (("0", "0.1"), ("1", "0.2"), ("5", "0.4")):
+            plus = xi_wiener_laguerre_scalar(mp.mpf(x), mp.mpf(y))
+            minus = xi_wiener_laguerre_scalar(mp.mpf(x), -mp.mpf(y))
+            assert abs(plus - minus) < mp.mpf("1e-35")
+
+
+def test_xf4_origin_scalar_is_strictly_positive_diagnostic() -> None:
+    # Dimitrov--Xu prove positivity at x=0 analytically for admissible y.
+    # These finite values are implementation checks for that theorem input.
+    with mp.workdps(45):
+        for y in ("0.1", "0.2", "0.4"):
+            assert xi_wiener_laguerre_scalar(0, mp.mpf(y)) > 0
+
+
+def test_xf4_scalar_interface_fails_closed_outside_open_y_domain() -> None:
+    for y in ("0", "0.5", "-0.5", "0.75"):
+        with pytest.raises(ValueError):
+            xi_wiener_laguerre_scalar(0, mp.mpf(y))
 
 
 def test_density_criterion_interface_fails_closed() -> None:
