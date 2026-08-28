@@ -44,6 +44,7 @@ jobs:
           python3 TIR/validation/tir_first_distinction_theorem_v0_1.py | tee tir_first_distinction_theorem_receipt.json
           python3 TIR/validation/tir_half_seam_phase_fiber_v0_1.py | tee tir_half_seam_phase_fiber_receipt.json
           python3 TIR/validation/tir_half_fiber_rate_no_go_v0_1.py | tee tir_half_fiber_rate_no_go_receipt.json
+          python3 TIR/validation/tir_relative_phase_rate_ratio_v0_1.py | tee tir_relative_phase_rate_ratio_receipt.json
           grep -q '"technical_status": "PASS"' kappa_phase_rate_receipt.json
           grep -q '"technical_status": "PASS"' review_source_contract_receipt.json
           grep -q '"technical_status": "PASS"' tir_relational_half_seam_receipt.json
@@ -52,6 +53,7 @@ jobs:
           grep -q '"technical_status": "PASS"' tir_first_distinction_theorem_receipt.json
           grep -q '"technical_status": "PASS"' tir_half_seam_phase_fiber_receipt.json
           grep -q '"technical_status": "PASS"' tir_half_fiber_rate_no_go_receipt.json
+          grep -q '"technical_status": "PASS"' tir_relative_phase_rate_ratio_receipt.json
           grep -q '"pi_cancelled_exactly": true' kappa_phase_rate_receipt.json
           grep -q '"seam_is_positive_reciprocal_fixed_point": true' tir_relational_half_seam_receipt.json
           grep -q '"equal_weight_seam": true' tir_relational_half_seam_receipt.json
@@ -61,6 +63,9 @@ jobs:
           grep -q '"next_gate": "RELATIVE_PHASE_LAW"' tir_first_distinction_theorem_receipt.json
           grep -q '"next_gate": "HALF_FIBER_PHASE_RATE_SELECTION"' tir_half_seam_phase_fiber_receipt.json
           grep -q '"result": "STATIC_HALF_FIBER_DOES_NOT_SELECT_UNIQUE_ABSOLUTE_PHASE_RATE"' tir_half_fiber_rate_no_go_receipt.json
+          grep -q '"result": "COMMON_CYCLE_AVERAGE_RELATIVE_PHASE_RATE_RATIO_EQUALS_WINDING_RATIO"' tir_relative_phase_rate_ratio_receipt.json
+          grep -q '"absolute_rate_scale": "FREE"' tir_relative_phase_rate_ratio_receipt.json
+          grep -q '"pointwise_rate_ratio": "OPEN_WITHOUT_SYNCHRONIZATION_LAW"' tir_relative_phase_rate_ratio_receipt.json
 
       - name: Verify critical-axis solver
         shell: bash
@@ -123,6 +128,7 @@ jobs:
           test -s TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_1.md
           test -s TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md
           test -s TIR/foundations/TIR_HALF_FIBER_RATE_NO_GO_V0_1.md
+          test -s TIR/foundations/TIR_RELATIVE_PHASE_RATE_RATIO_V0_1.md
           qpdf --check TIR/monograph/metatime_monograph.pdf
           qpdf --check TIR/metatime_paper.pdf
           qpdf --check TIR/zeta_information_axis/monograph/main.pdf
@@ -143,6 +149,7 @@ jobs:
             tir_first_distinction_theorem_receipt.json
             tir_half_seam_phase_fiber_receipt.json
             tir_half_fiber_rate_no_go_receipt.json
+            tir_relative_phase_rate_ratio_receipt.json
             critical-axis-pytest.log
             solver-console.json
             TIR/zeta_information_axis/reports/solver_receipt.json
