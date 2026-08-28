@@ -1,0 +1,27 @@
+{
+  "schema": "TIR_PHASE_CLOCK_AREA_SCALE_V0_2",
+  "status": "EXACT_DIMENSIONAL_CLOSURE_CANDIDATE__FORWARD_PORT_CI_PENDING",
+  "date": "2026-08-28",
+  "source_idt_commit": "3ac1f53af5223d16f8818dba99a63a6af2ba9498",
+  "source_idt_gate": "formalism/05B_phase_clock_length_scale.md",
+  "exact_identities": [
+    "F_B = ±2 da_FS",
+    "ell_phi = c/|omega| = hbar*c/E",
+    "ds_rel^2 = ell_phi^2 ds_FS^2",
+    "dA_rel = ell_phi^2 da_FS",
+    "A_rel(P) = (c^2/omega_P^2) a_FS(P) for constant-rate cells",
+    "Xi_I(P) = (J_pi/a_FS(P))(omega_P/c)^2",
+    "Xi_I(S^2) = 24 kappa I_pi (omega/c)^2",
+    "L_2pi/L_4pi = 1/2"
+  ],
+  "reference_test": "TIR/validation/phase_clock_area_scale_v0_2.py",
+  "test_execution": "PENDING_FORWARD_PORT_CI",
+  "open_dependencies": [
+    "physical metric promotion of the phase-clock conformal scale",
+    "phase-rate zero handling",
+    "nonuniform refinement convergence",
+    "hexahedral rank-three spatial metric binding",
+    "RFC Lambda0 coupling"
+  ],
+  "claim_promotion": false
+}

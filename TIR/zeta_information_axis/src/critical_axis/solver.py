@@ -161,22 +161,25 @@ def solve_half_axis_routes() -> dict[str, mp.mpf]:
 
 
 def kappa_from_projective_cycle(
-    information_quantum: mp.mpf | float = mp.log(2),
+    information_quantum: mp.mpf | float | None = None,
     projective_cycles: int = 12,
-    closure_period: mp.mpf | float = 2 * mp.pi,
+    closure_period: mp.mpf | float | None = None,
 ) -> mp.mpf:
     """Conditional Metatime normalization kappa=I/(N*C).
 
-    Arithmetic is exact for supplied I,N,C.  The assignment N=12 as one
-    information cycle is a TIR/Metatime model assumption.
+    Arithmetic is evaluated at the caller's active mpmath precision. The
+    assignment N=12 as one information cycle is a TIR/Metatime model
+    assumption. Delaying default ``ln(2)`` and ``2*pi`` evaluation avoids
+    freezing them at import-time precision.
     """
     n = int(projective_cycles)
     if n <= 0:
         raise ValueError("projective_cycles must be positive")
-    c = mp.mpf(closure_period)
+    info = mp.log(2) if information_quantum is None else mp.mpf(information_quantum)
+    c = 2 * mp.pi if closure_period is None else mp.mpf(closure_period)
     if c <= 0:
         raise ValueError("closure_period must be positive")
-    return mp.mpf(information_quantum) / (n * c)
+    return info / (n * c)
 
 
 def validate_half_axis_routes(tol: mp.mpf | float = mp.mpf("1e-30")) -> bool:
