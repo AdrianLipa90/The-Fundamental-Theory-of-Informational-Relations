@@ -11,7 +11,12 @@ from critical_axis.xi_kernel import (
     zeta_s_to_xi_z,
 )
 
-mp.mp.dps = 35
+
+@pytest.fixture(autouse=True)
+def _xf_kernel_precision():
+    """Give XF tests local precision without mutating the pytest session."""
+    with mp.workdps(50):
+        yield
 
 
 def test_riemann_phi_runtime_truncation_is_positive_on_reference_points() -> None:
