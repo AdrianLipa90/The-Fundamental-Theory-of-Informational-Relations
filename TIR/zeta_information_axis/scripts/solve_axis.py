@@ -60,7 +60,7 @@ def build_receipt() -> dict[str, object]:
         exact = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=False)
         model = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=True)
         receipt = {
-            "schema": "tir.critical-axis.solver-receipt/v3",
+            "schema": "tir.critical-axis.solver-receipt/v4",
             "precision_decimal_digits": 80,
             "half_axis_routes": {key: mp.nstr(value, 50) for key, value in routes.items()},
             "half_axis_consensus": all(
@@ -80,6 +80,9 @@ def build_receipt() -> dict[str, object]:
             "open_rh_equivalent_routes": _missing(
                 "riemann_hypothesis", set(model.facts)
             ),
+            "open_wiener_laguerre_scalar_routes": _missing(
+                "xi_wiener_laguerre_strict_positivity", set(model.facts)
+            ),
             "verdict": {
                 "mathematical_half_axis_routes": "PASS",
                 "conditional_kappa_arithmetic": "PASS",
@@ -90,8 +93,10 @@ def build_receipt() -> dict[str, object]:
                 "kernel_population_equals_strip_coordinate": "OPEN_RH_EQUIVALENT_BRIDGE",
                 "dimitrov_xu_nu2_correlation_kernel": "STANDARD_PASS",
                 "xi_wronskian_nu2_fourier_identity": "STANDARD_PASS",
+                "phi2y_fourier_equals_xi_wiener_laguerre_scalar": "STANDARD_PASS",
                 "phi2y_translation_density_condition": "OPEN_RH_EQUIVALENT_CRITERION",
                 "phi2y_bounded_convolution_annihilator_condition": "OPEN_RH_EQUIVALENT_CRITERION",
+                "xi_wiener_laguerre_strict_positivity": "OPEN_RH_EQUIVALENT_CRITERION",
                 "riemann_hypothesis": "OPEN",
             },
         }
