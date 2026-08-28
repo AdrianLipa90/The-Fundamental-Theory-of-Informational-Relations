@@ -78,5 +78,10 @@
   },
   "schema": "TIR_RELATIONAL_HALF_SEAM_V0_1",
   "scope": "TIR_STRUCTURAL_CROSSLINK",
+  "upstream_foundation": {
+    "source": "TIR/integration/TIR_ZERO_FIRST_DISTINCTION_FOUNDATION_V0_1.md",
+    "validator": "TIR/validation/tir_zero_first_distinction_v0_1.py",
+    "root_chain": "ZERO -> FIRST_DISTINCTION_{N,S} -> EXCHANGE_HALF_SEAM -> ln2"
+  },
   "technical_status": "PASS"
 }
