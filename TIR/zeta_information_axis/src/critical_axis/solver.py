@@ -15,6 +15,11 @@ XF-3 adds the Dimitrov--Xu n=2 correlation kernel as a second analytic route.
 The published RH-equivalent translation-density and convolution-annihilator
 criteria are STANDARD implications, while satisfaction of either global
 criterion remains OPEN unless independently supplied as a premise.
+
+XF-4 resolves the XF-3 density condition to the pointwise Wiener--Laguerre
+scalar Q_Xi(x,y). The identity Q_Xi=Fourier(Phi_{2,y}) and the equivalence
+between L1 translation density and global strict positivity are STANDARD.
+Actual strict positivity for every real x and every 0<|y|<1/2 remains OPEN.
 """
 from __future__ import annotations
 
@@ -140,6 +145,10 @@ HALF_AXIS_RULES = (
     Rule(("dimitrov_xu_nu2_correlation_kernel",), "phi2y_bounded_convolution_annihilator_condition", ClaimStatus.OPEN, "Dimitrov-Xu Corollary 3.5 global annihilator obligation"),
     Rule(("phi2y_bounded_convolution_annihilator_condition",), "riemann_hypothesis", ClaimStatus.STANDARD, "Dimitrov-Xu Corollary 3.5 forward implication"),
     Rule(("riemann_hypothesis", "dimitrov_xu_nu2_correlation_kernel"), "phi2y_bounded_convolution_annihilator_condition", ClaimStatus.STANDARD, "Dimitrov-Xu Corollary 3.5 reverse implication"),
+    Rule(("xi_wronskian_nu2_fourier_identity",), "phi2y_fourier_equals_xi_wiener_laguerre_scalar", ClaimStatus.STANDARD, "XF-4 / Dimitrov-Xu Eq. (3.10) plus Jensen derivative identity"),
+    Rule(("phi2y_fourier_equals_xi_wiener_laguerre_scalar",), "xi_wiener_laguerre_strict_positivity", ClaimStatus.OPEN, "XF-4 global condition Q_Xi(x,y)>0 for all real x and every 0<|y|<1/2"),
+    Rule(("phi2y_translation_density_condition", "phi2y_fourier_equals_xi_wiener_laguerre_scalar"), "xi_wiener_laguerre_strict_positivity", ClaimStatus.STANDARD, "Wiener L1 theorem plus Q_Xi(0,y)>0 fixes the nonvanishing transform sign"),
+    Rule(("xi_wiener_laguerre_strict_positivity", "phi2y_fourier_equals_xi_wiener_laguerre_scalar"), "phi2y_translation_density_condition", ClaimStatus.STANDARD, "Q_Xi=Fourier(Phi_{2,y}) is everywhere nonzero; Wiener L1 translation theorem"),
 )
 
 
