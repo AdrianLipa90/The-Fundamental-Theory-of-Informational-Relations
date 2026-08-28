@@ -102,6 +102,19 @@ jobs:
           qpdf --check TIR/monograph/metatime_monograph.pdf
           qpdf --check TIR/metatime_paper.pdf
           qpdf --check TIR/zeta_information_axis/monograph/main.pdf
+
+          if grep -q "Overfull" TIR/zeta_information_axis/monograph/main.log; then
+            echo "FAIL: critical-axis monograph contains Overfull boxes" >&2
+            grep "Overfull" TIR/zeta_information_axis/monograph/main.log >&2 || true
+            exit 1
+          fi
+
+          if grep -Eiq "undefined references|undefined citations|multiply defined" TIR/zeta_information_axis/monograph/main.log; then
+            echo "FAIL: critical-axis monograph contains unresolved or multiply-defined references" >&2
+            grep -Ei "undefined references|undefined citations|multiply defined" TIR/zeta_information_axis/monograph/main.log >&2 || true
+            exit 1
+          fi
+
           echo "INTEGRATED TIR CLOSURE PREFLIGHT PASS" | tee integrated_preflight.txt
 
       - name: Upload integrated receipts
