@@ -32,6 +32,7 @@ from .correlation_kernel import (
     even_riemann_phi,
     phi_2_y,
     xi_laguerre_quantity,
+    xi_transverse_modulus_curvature,
     xi_wiener_laguerre_scalar,
     xi_wronskian2_real,
 )
@@ -91,6 +92,7 @@ __all__ = [
     "even_riemann_phi",
     "phi_2_y",
     "xi_laguerre_quantity",
+    "xi_transverse_modulus_curvature",
     "xi_wiener_laguerre_scalar",
     "xi_wronskian2_real",
     "ClaimSolver",
