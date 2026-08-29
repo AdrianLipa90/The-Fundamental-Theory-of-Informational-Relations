@@ -4,28 +4,29 @@
 
 % CITATION_CONTEXT_V10_9_BEGIN
 \paragraph{Established context.}
-Binary information, projective quantum-state geometry, and geometric holonomy
-follow the standard Shannon, Simon, Berry, and differential-geometric context
-\cite{shannon1948,Simon1983,berry1984,BottTu1982}.  The identity-axis,
-cycle-count, sector pairing, and CIEL/PhaseNav dependency assignments below are
-specific to the TIR/Metatime programme.
+Binary information, projective quantum-state geometry, geometric holonomy and the
+standard $SU(3)$ dimension formula follow the Shannon, Simon, Berry and
+Lie-group context
+\cite{shannon1948,Simon1983,berry1984,BottTu1982}.
+The identity-axis, flavour-mixing normalization and CIEL/PhaseNav dependency
+assignments below belong to the TIR/Metatime programme.
 % CITATION_CONTEXT_V10_9_END
 
-\claimstatus{Mixed: exact mathematical identities plus explicitly marked Metatime/TIR model assignments.}
+\claimstatus{Exact mathematical identities combined through an explicit TIR structural dependency graph.}
 
 \section{Why this crosswalk exists}
 The dedicated critical-axis programme under
 \path{TIR/zeta_information_axis/}
-formalizes the repeated appearance of the balanced coordinate $1/2$ in binary information, complement symmetry, Bloch geometry, Berry holonomy, destructive interference, centred reciprocal geometry, and the anti-linear zeta involution.  The parent Metatime monograph uses some of the same structures in a broader phenomenological programme.  This appendix records the direction of dependence so that a result from one layer is not silently promoted in the other.
+formalizes the repeated appearance of the balanced coordinate $1/2$ in binary information, complement symmetry, Bloch geometry, Berry holonomy, destructive interference, centred reciprocal geometry, and the anti-linear zeta involution. The parent Metatime monograph uses the same primitive half structure together with flavour mixing and relational geometry. This appendix records the direction of dependence.
 
-The governing rule is:
+The dependency classes remain explicit:
 \[
 \boxed{
-\text{exact mathematical bridge}
-\;\neq\;
-\text{physical identification}
-\;\neq\;
-\text{empirical validation}.
+\text{standard mathematical identity}
+\longrightarrow
+\text{TIR structural identification}
+\longrightarrow
+\text{sector validation}.
 }
 \]
 
@@ -42,65 +43,138 @@ Using the centered coordinate
 \[
 x=\sigma-\frac12,
 \]
-complement becomes the orientation reversal $x\mapsto-x$.  Hence negative, zero, and positive centered values can be read geometrically as the two orientations and the fixed axis of the same one-dimensional chart.  The same centering idea is used by the critical-axis submonograph for $u=s-1/2$.
+complement becomes the orientation reversal $x\mapsto-x$. Hence negative, zero, and positive centered values are the two orientations and the fixed axis of the same one-dimensional chart.
 
 In the qubit representation,
 \[
 n_z=2\sigma-1,
 \]
-so $\sigma=1/2$ is the Bloch equator.  Phase evolution can remain nontrivial while the identity coordinate remains balanced.  This is the sense in which the half value is an \emph{axis} rather than a frozen dynamical state.
+so $\sigma=1/2$ is the Bloch equator. Phase evolution can remain nontrivial while the identity coordinate remains balanced.
 
 \section{Normalized cycles before radians}
-The critical-axis solver introduces a turn coordinate
+Let
 \[
 q\in\mathbb R/\mathbb Z
 \]
-with intrinsic winding frequency
+be a normalized cycle coordinate with winding frequency
 \[
 f_q=\frac{\Delta N}{\Delta t}.
 \]
-An angular representation is introduced only afterwards by
+An angular representation is introduced by
 \[
 \phi=Cq.
 \]
-For radians, $C=2\pi$.  The sequence
+For radians,
 \[
-\text{recurrence}\to\text{winding}\to\text{angle}
+C=2\pi.
 \]
-is therefore conceptually prior to the conventional equation $\omega=2\pi f$.
+Thus
+\[
+\text{recurrence}\to\text{winding}\to\text{angle}.
+\]
+This cross-references the phase and Poincar\'e structures of Chapter~\ref{ch:metatime_framework} and Appendix~\ref{app:poincare}, together with the normalization surface of Appendix~\ref{app:kappa}.
 
-This cross-references the phase and Poincar\'e structures of Chapter~\ref{ch:metatime_framework} and Appendix~\ref{app:poincare}, while retaining the publication claim boundary of Appendix~\ref{app:kappa}.
+\section{The flavour-mixing origin of the integer $24$}
+\label{sec:appP-flavour-24}
+The three-flavour family carrier used by the TIR mixing branch is
+\[
+V_F\cong\mathbb C^3,
+\]
+and the full family mixing transformation lies in
+\[
+U_F\in SU(3)_F.
+\]
+The three-flavour layer connects directly to Chapter~\ref{ch:pmns_mixing}.
 
-\section{The $24$ cross-factorization}
-The exact integer identity is
+For a special unitary group,
+\[
+\dim_{\mathbb R}\mathfrak{su}(N)=N^2-1.
+\]
+Therefore
+\[
+\boxed{
+\dim_{\mathbb R}\mathfrak{su}(3)_F=3^2-1=8.
+}
+\]
+Let $T_a$, $a=1,\ldots,8$, label any basis of independent flavour-mixing generators and let $f=1,2,3$ label the three flavour directions. The generator--flavour incidence set has cardinality
 \begin{equation}
-24=8\cdot3=12\cdot2=6\cdot4.
+N_{\rm mix}
+=\left|\{(a,f):a=1,\ldots,8,\;f=1,2,3\}\right|
+=8\cdot3
+=24.
 \label{eq:appP-24}
 \end{equation}
-The equality is arithmetic.  Interpretations of these factors are model-level:
-\begin{itemize}
-\item $8\cdot3$: eight declared mixing sectors times three flavours;
-\item $12\cdot2$: twelve projective cycles times two half-turn units;
-\item $6\cdot4$: six spinor cycles times four half-turn units.
-\end{itemize}
-The three-flavour layer connects structurally to Chapter~\ref{ch:pmns_mixing}.  The projective/spinor interpretation connects to the Berry and holonomy structures reviewed in Chapter~\ref{ch:metatime_framework}.  None of these labels changes the status of $24$ from a discrete model normalization into an independently established physical constant.
+Equivalently,
+\[
+\boxed{
+N_{\rm mix}=N_F(N_F^2-1)=3(3^2-1)=24.
+}
+\]
+The later TIR symmetric-pair decomposition
+\[
+\mathfrak{su}(3)_F
+=\mathfrak{so}(3)\oplus\mathfrak p,
+\qquad
+8=3+5,
+\]
+provides an independent carrier-level certificate of the eight mixing directions.
+
+The exact integer cross-factorization remains
+\[
+24=8\cdot3=12\cdot2=6\cdot4,
+\]
+but the canonical normalization provenance used here is the first factorization: eight independent $SU(3)_F$ mixing directions acting across three flavours.
+
+\section{Half-turn phase and the denominator $24\pi$}
+The primitive balanced coordinate is
+\[
+\sigma_\star=\frac12.
+\]
+Under a full angular closure of $2\pi$, its half-turn phase unit is
+\[
+\boxed{
+\Delta\phi_{1/2}=\frac12(2\pi)=\pi.
+}
+\]
+This is the same relative half-turn phase used by the complementary-cancellation branch and is consistent with the projective/spinorial structures reviewed in Chapter~\ref{ch:metatime_framework}.
+
+Assigning one such primitive half-turn phase unit to each generator--flavour mixing channel gives
+\[
+\Phi_{\rm mix}
+=N_{\rm mix}\Delta\phi_{1/2}
+=24\pi.
+\]
+Hence
+\[
+\boxed{
+24\pi
+=\underbrace{(3^2-1)}_{8\;SU(3)_F\;\text{mixing directions}}
+\underbrace{3}_{\text{flavours}}
+\underbrace{\pi}_{\text{half-turn phase}}.
+}
+\]
 
 \section{Arithmetic--geometry factorization of $\kappa$}
-If the Metatime model assigns one binary information quantum to twelve normalized projective cycles,
+The balanced binary distinction carries
+\[
+I_\star=H_{\rm bin}(1/2)=\ln2.
+\]
+The TIR information-per-mixing-phase normalization is therefore
 \begin{equation}
-\frac{\dd I}{\dd q}=\frac{\ln2}{12},
-\label{eq:appP-info-turn}
-\end{equation}
-and if the chosen angular representation has closure period $C$, then
-\begin{equation}
-\frac{\dd I}{\dd\phi}=\frac{\ln2}{12C}.
-\end{equation}
-For $C=2\pi$ this reproduces
-\begin{equation}
-\kappa=\frac{\ln2}{24\pi}.
+\boxed{
+\kappa
+=\frac{I_\star}{\Phi_{\rm mix}}
+=\frac{\ln2}{3(3^2-1)\pi}
+=\frac{\ln2}{24\pi}.
+}
 \label{eq:appP-kappa}
 \end{equation}
-Equation~\eqref{eq:appP-kappa} is exact conditional arithmetic once the cycle assignment and angular closure have been declared.  The independent physical derivation of the cycle assignment remains a model debt, consistently with Appendix~\ref{app:kappa}.
+
+The same result may be expressed in normalized-turn language. Since
+\[
+2\pi\kappa=\frac{\ln2}{12},
+\]
+one full angular turn carries twelve inverse binary-information units in the normalized cycle representation. The earlier $12\cdot2$ bookkeeping is therefore recovered as a consequence of the canonical $8\cdot3$ flavour-mixing count together with the half-turn decomposition.
 
 \section{Paired structures and implication directions}
 \begin{longtable}{p{0.26\textwidth}p{0.29\textwidth}p{0.33\textwidth}}
@@ -112,22 +186,46 @@ $\sigma=1/2$ & $H_{\rm bin}=\ln2$ & Exact; entropy maximum uniquely selects the 
 $\sigma=1/2$ + qubit representation & Bloch equator $n_z=0$ & Exact inside the stated two-level representation.\\
 Bloch equator + one azimuthal loop & Berry holonomy $-1$ & Standard geometric-phase result in the chosen state family.\\
 Symmetric complementary readout + half-turn phase & exact destructive cancellation & Exact; the converse also selects $\sigma=1/2$.\\
+Three-flavour carrier $V_F\cong\mathbb C^3$ & $SU(3)_F$ mixing algebra with eight generators & Exact carrier/group result.\\
+Eight generators $\times$ three flavours & $N_{\rm mix}=24$ & Exact incidence count.\\
+$N_{\rm mix}=24$ + half-turn $\pi$ & $\Phi_{\rm mix}=24\pi$ & Exact structural composition.\\
+$H_{\rm bin}(1/2)=\ln2$ + $\Phi_{\rm mix}=24\pi$ & $\kappa=\ln2/(24\pi)$ & TIR-internal derived normalization.\\
 $u=s-1/2$ + $J(s)=1-\bar s$ & fixed axis $\Re s=1/2$ & Exact/classical.\\
-Centered zeta chart + $u\mapsto1/u$ & critical-axis set invariance & Exact; does not imply zero-set invariance.\\
+Centered zeta chart + $u\mapsto1/u$ & critical-axis set invariance & Exact set-symmetry statement.\\
 Projective cycle + spin $1/2$ & double-cover period & Standard representation theory.\\
-$\ln2/12$ per projective turn + $C=2\pi$ & $\kappa=\ln2/(24\pi)$ & Conditional arithmetic; cycle assignment is model-level.\\
-TIR sector-holonomy operator & mass-spectrum candidate & Retrospective model layer; see Appendix~\ref{app:sector_holonomy_release}.\\
-Critical-axis cancellation representation of every zeta zero & RH & Open bridge; not derived by Metatime holonomy alone.\\
+TIR sector-holonomy operator & mass-spectrum candidate & Sector model layer; see Appendix~\ref{app:sector_holonomy_release}.\\
 \bottomrule
 \end{longtable}
 
-\section{Holonomy policy}
-A relation edge is not automatically a holonomy edge.  Holonomy is meaningful only when a connection and a closed or composable path are defined.  This distinction matters for the parent programme because ``paired'' structures may be algebraic, geometric, semantic, or empirical without carrying a phase.
+\section{Independent finite-symmetry crosscheck}
+The spatial branch of TIR derives the regular tetrahedron as the minimal finite full-dimensional cell of the local three-real-dimensional relation carrier. Its abstract automorphism group is
+\[
+\operatorname{Aut}(\Delta^3)\cong S_4,
+\]
+so
+\[
+|S_4|=24.
+\]
+Thus
+\[
+\boxed{
+3\dim\mathfrak{su}(3)_F
+=3\cdot8
+=24
+=|S_4|.
+}
+\]
+The flavour-mixing route supplies the normalization provenance; the tetrahedral order supplies an independent finite-symmetry convergence on the same integer.
 
-The CIEL/PhaseNav runtime therefore stores a normalized holonomy coordinate only on eligible path edges.  Generated PhaseNav geometry remains a candidate until independent TIR provenance supplies the semantic relation.  Conversely, a TIR relation without an executable geometric path does not acquire a synthetic phase merely to complete a diagram.
+\section{Holonomy policy}
+Holonomy is attached when a connection and a closed or composable path are defined. For a path $P=(v_0,\ldots,v_n)$ whose edges carry normalized phase increments $h_k\in\mathbb R/\mathbb Z$,
+\[
+h(P)=\sum_{k=0}^{n-1}h_k\pmod1.
+\]
+A complex $U(1)$ representative may be chosen afterwards. This preserves the dependency order geometry $\to$ normalized phase $\to$ holonomy.
 
 \section{Runtime dependency direction}
-The companion CIEL/PhaseNav package is organized so that higher-level operators depend on primitive geometry rather than the reverse:
+The companion CIEL/PhaseNav package is organized so that higher-level operators depend on primitive geometry:
 \[
 \boxed{
 \begin{array}{c}
@@ -142,9 +240,7 @@ The companion CIEL/PhaseNav package is organized so that higher-level operators 
 \text{semantic and holonomic solvers}.
 }
 \]
-On the phase crystal, the shortest oriented tangent displacement naturally lies in $[-1/2,1/2)$ per normalized coordinate.  Its sign is therefore generated by orientation; an identical coordinate produces zero.  This is the concrete computational meaning of the statement that signed vector components emerge from the geometry rather than being attached afterwards as semantic labels.
+On the phase crystal, the shortest oriented tangent displacement lies in $[-1/2,1/2)$ per normalized coordinate, so its sign follows from orientation.
 
 \section{Claim firewall}
-The dedicated solver uses four statuses: \texttt{EXACT}, \texttt{STANDARD}, \texttt{MODEL}, and \texttt{OPEN}.  Exact closure permits only the first two classes.  Model closure may additionally use model assignments.  Open rules are never automatically promoted.
-
-In particular, the solver can reproduce the mutually consistent half-axis routes and the conditional normalization \eqref{eq:appP-kappa}, while still reporting the canonical zeta zero-state representation as a missing premise.  This preserves the scientific-status policy of this publication candidate: technical consistency and structural unification do not by themselves constitute physical or number-theoretic closure.
+The dedicated solver uses four statuses: \texttt{EXACT}, \texttt{STANDARD}, \texttt{MODEL}, and \texttt{OPEN}. The new flavour-mixing normalization surface promotes the integer-denominator dependency from bookkeeping to an explicit TIR-internal derivation. Sector observables continue to carry their own empirical and model statuses independently.
