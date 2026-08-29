@@ -18,19 +18,26 @@ PARENT_SIGNATURES = {
     "c": frozenset({"TETRAHEDRAL_DEPTH", "POINCARE_DISK", "BERRY_CONNECTION"}),
 }
 
+RUNTIME_EPS = 1e-15
 
-def sign3(x: float, eps: float = 1e-15) -> int:
+
+def exact_sign(x: float) -> int:
+    return 1 if x > 0.0 else -1 if x < 0.0 else 0
+
+
+def runtime_sign3(x: float, eps: float = RUNTIME_EPS) -> int:
     return 1 if x > eps else -1 if x < -eps else 0
 
 
-def gradient_sign(dv: float, alpha: float) -> int:
+def exact_spin_sign(dv: float, alpha: float) -> int:
     assert math.isfinite(dv)
     assert math.isfinite(alpha) and alpha > 0.0
-    return sign3(math.tanh(-alpha * dv))
+    return exact_sign(math.tanh(-alpha * dv))
 
 
-def expected_gradient_sign(dv: float) -> int:
-    return sign3(-dv)
+def runtime_gradient_orientation(dv: float) -> int:
+    assert math.isfinite(dv)
+    return runtime_sign3(-dv)
 
 
 def consensus(*values: int) -> int | None:
@@ -57,14 +64,22 @@ def validate_role_bijection() -> None:
     assert all(preserving[0][s] == s for s in slots)
 
 
-def validate_gradient_scale_independence() -> None:
-    values = (-100.0, -3.5, -1e-6, 0.0, 1e-6, 2.0, 100.0)
+def validate_exact_gradient_scale_independence() -> None:
+    values = (-100.0, -3.5, -1e-6, -1e-18, 0.0, 1e-18, 1e-6, 2.0, 100.0)
     alphas = (1e-9, 1e-3, 0.1, 1.0, 10.0, 1e3)
     for dv in values:
-        expected = expected_gradient_sign(dv)
+        expected = exact_sign(-dv)
         for alpha in alphas:
-            got = gradient_sign(dv, alpha)
+            got = exact_spin_sign(dv, alpha)
             assert got == expected, (dv, alpha, got, expected)
+
+
+def validate_runtime_deadband() -> None:
+    assert runtime_gradient_orientation(2.0 * RUNTIME_EPS) == -1
+    assert runtime_gradient_orientation(-2.0 * RUNTIME_EPS) == 1
+    assert runtime_gradient_orientation(RUNTIME_EPS) == 0
+    assert runtime_gradient_orientation(-RUNTIME_EPS) == 0
+    assert runtime_gradient_orientation(0.0) == 0
 
 
 def validate_consensus_uniqueness() -> None:
@@ -79,7 +94,8 @@ def validate_consensus_uniqueness() -> None:
 
 def main() -> None:
     validate_role_bijection()
-    validate_gradient_scale_independence()
+    validate_exact_gradient_scale_independence()
+    validate_runtime_deadband()
     validate_consensus_uniqueness()
 
     print("schema=TIR_COEFFICIENT_ROLE_ORIENTATION_FORCING_V0_1")
@@ -87,7 +103,9 @@ def main() -> None:
     print("slot_role_bijection=true")
     print("role_preserving_permutations=1")
     print("identity_is_only_role_preserving_permutation=true")
-    print("gradient_sign_scale_independent=true")
+    print("exact_gradient_sign_scale_independent=true")
+    print(f"runtime_neutral_deadband_eps={RUNTIME_EPS:.1e}")
+    print("runtime_deadband_validated=true")
     print("consensus_orientation_unique=true")
     print("coefficient_slot_permutation_search_eliminated=true")
     print("next_gate=TYPED_INTEGER_MAGNITUDE_EXTRACTION")
