@@ -103,19 +103,20 @@ jobs:
           grep -Fq '"technical_status": "PASS"' local_euclidean_pythagorean_receipt.json
           grep -Fq '"endpoint": "PYTHAGOREAN_CLOSURE"' local_euclidean_pythagorean_receipt.json
 
-      - name: Audit publication proof dependency DAG v0.2
+      - name: Audit synchronized publication proof DAG v0.3
         shell: bash
         run: |
           set -euo pipefail
-          python3 TIR/subrepos/the-space-of-geometry/validation/publication_proof_dependency_audit_v0_2.py | tee publication_proof_dependency_v0_2_receipt.json
-          grep -Fq '"technical_status": "PASS"' publication_proof_dependency_v0_2_receipt.json
-          grep -Fq '"publication_verdict": "PASS_LOCAL_DEPENDENCY_GRAPH_AND_PHYSICAL_REALIZABILITY"' publication_proof_dependency_v0_2_receipt.json
-          grep -Fq '"acyclic": true' publication_proof_dependency_v0_2_receipt.json
-          grep -Fq '"physical_realizability_chain_complete": true' publication_proof_dependency_v0_2_receipt.json
-          grep -Fq '"tetrahedron_required_for_pythagoras": false' publication_proof_dependency_v0_2_receipt.json
-          grep -Fq '"tetrahedron_required_for_physical_pythagoras": false' publication_proof_dependency_v0_2_receipt.json
-          grep -Fq '"sic_is_premise_of_main_endpoints": false' publication_proof_dependency_v0_2_receipt.json
-          grep -Fq '"all_required_surfaces_present": true' publication_proof_dependency_v0_2_receipt.json
+          python3 TIR/subrepos/the-space-of-geometry/validation/publication_proof_dependency_audit_v0_3.py | tee publication_proof_dependency_v0_3_receipt.json
+          grep -Fq '"technical_status": "PASS"' publication_proof_dependency_v0_3_receipt.json
+          grep -Fq '"publication_verdict": "PASS_V1_1_SYNCHRONIZED_LOCAL_PROOF_GRAPH"' publication_proof_dependency_v0_3_receipt.json
+          grep -Fq '"canonical_manuscript": "THE_SPACE_OF_GEOMETRY_V1_1.tex"' publication_proof_dependency_v0_3_receipt.json
+          grep -Fq '"acyclic": true' publication_proof_dependency_v0_3_receipt.json
+          grep -Fq '"tetrahedron_required_for_carrier_pythagoras": false' publication_proof_dependency_v0_3_receipt.json
+          grep -Fq '"tetrahedron_required_for_physical_pythagoras": false' publication_proof_dependency_v0_3_receipt.json
+          grep -Fq '"sic_is_premise_of_main_endpoints": false' publication_proof_dependency_v0_3_receipt.json
+          grep -Fq '"manuscript_physical_realizability_synchronized": true' publication_proof_dependency_v0_3_receipt.json
+          grep -Fq '"all_required_surfaces_present": true' publication_proof_dependency_v0_3_receipt.json
 
       - name: Verify current subrepo surfaces
         shell: bash
@@ -128,12 +129,11 @@ jobs:
           test -s TIR/subrepos/the-space-of-geometry/foundations/A5_A7_SIMPLEX_EDGE_ORBIT_REGULARITY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/UNLABELED_SIMPLEX_AUTOMORPHISM_REGULARITY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/LOCAL_EUCLIDEAN_PYTHAGOREAN_CLOSURE_V0_1.md
-          test -s TIR/subrepos/the-space-of-geometry/publication/PROOF_DEPENDENCY_AUDIT_V0_2.md
+          test -s TIR/subrepos/the-space-of-geometry/publication/PROOF_DEPENDENCY_AUDIT_V0_3.md
           test -s TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_10.py
           test -s TIR/subrepos/the-space-of-geometry/validation/physical_relation_chord_realizability_v0_1.py
-          test -s TIR/subrepos/the-space-of-geometry/validation/publication_proof_dependency_audit_v0_2.py
-          test -s TIR/subrepos/the-space-of-geometry/paper/MANUSCRIPT_V0_2.md
-          test -s TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_0.tex
+          test -s TIR/subrepos/the-space-of-geometry/validation/publication_proof_dependency_audit_v0_3.py
+          test -s TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_1.tex
 
       - name: Upload receipts
         uses: actions/upload-artifact@v4
@@ -149,4 +149,4 @@ jobs:
             spatial_promotion_uniqueness_receipt.json
             unlabeled_simplex_automorphism_regularity_receipt.json
             local_euclidean_pythagorean_receipt.json
-            publication_proof_dependency_v0_2_receipt.json
+            publication_proof_dependency_v0_3_receipt.json
