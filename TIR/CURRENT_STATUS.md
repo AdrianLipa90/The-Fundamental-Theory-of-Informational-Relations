@@ -1,339 +1,309 @@
-# CURRENT STATUS — Metatime/TIR
+# CURRENT STATUS — TIR
 
-**Review line:** v11.1-review  
-**Review date:** 2026-08-07  
+**Status line:** 2026-08-29 foundational-completion audit  
 **Author:** Adrian Lipa  
-**Branch:** `agent/kappa-phase-refresh-identity-v0.1`  
-**Pull request:** #80 — `Review κ phase-rate closure and Metatime normalization`  
-**Promotion:** review-only; not merged to `main`
+**Active branch:** `feat/tir-relational-half-seam-v0.1`  
+**Pull request:** #96 — `TIR: build primitive causal and spatial geometry foundation`  
+**Promotion:** feature branch; `main` unchanged pending explicit merge order
 
-This file describes the **live reviewed source state**.  Historical v7–v10
-status reports and reviewer-era formula ledgers remain provenance in `archive/`
-and must not be used as the current claim ledger without checking the live v11
-publication sources.
+This file is the current TIR status surface. Historical review states remain available through repository history and archival publication surfaces.
 
-## 1. Current scientific classification
+## 1. Foundational status
 
-Metatime/TIR is an **exploratory low-parameter phenomenological programme**.
-It is not currently claimed as:
-
-- an experimentally established replacement for the Standard Model;
-- a complete first-principles derivation of all Standard Model observables;
-- a zero-complexity theory;
-- a proof that a proposed physical surface-refresh process exists;
-- a proof of the Riemann Hypothesis through the Secret-of-a-Half interface.
-
-The v11 publication architecture separates established results, model
-postulates, retrospective assignments, diagnostics/failures, external anchors,
-and prospectively frozen predictions.
-
-## 2. κ normalization and exact phase-rate closure
-
-TIR defines
-
-\[
-\boxed{\kappa\equiv\frac{\ln2}{24\pi}}.
-\]
-
-Current status of this equation:
-
-- **classification:** model postulate / structural definition;
-- **continuous fit:** none in the numerical coefficient itself;
-- **discrete structural choices:** present and explicit;
-- **standard-physics first-principles derivation:** not claimed.
-
-For angular phase
-
-\[
-\omega\equiv\frac{d\phi}{dt}=2\pi f
-\]
-
-and the TIR definition
-
-\[
-d\mathcal I\equiv\kappa\,d\phi,
-\]
-
-the reviewed exact conditional identity is
+The current primitive dependency spine is
 
 \[
 \boxed{
-\Gamma_{\mathcal I}
-\equiv\frac{d\mathcal I}{dt}
-=\kappa\omega
-=\frac{\ln2}{12}f
-}.
+0
+\to P
+\to \text{FIRST DISTINCTION}
+\to \{N,S\}
+\to \frac12
+\to \ln2
+\to \mathbb C^2.
+}
 \]
 
-One complete phase cycle carries
+The spatial branch now continues through
 
 \[
 \boxed{
-\Delta\mathcal I_{\rm cycle}=2\pi\kappa=\frac{\ln2}{12}
-}.
+\mathbb C^2
+\to \rho_x
+\to \mathcal A_2
+\to \delta(\rho_x,\rho_y)
+\to \operatorname{Herm}_0(2)\cong\mathbb R^3.
+}
 \]
 
-The cancellation of \(\pi\) is an exact consequence of converting angular rate
-to cyclic frequency.  It is not an independent construction of \(\pi\).
+From this common carrier, the local geometry forks into
 
-### Constraint count
+\[
+\boxed{
+\operatorname{Herm}_0(2)
+\to
+\begin{cases}
+\text{Euclidean inner-product branch}\to a^2+b^2=c^2,\\
+\text{minimal finite-cell branch}\to\Delta^3\xrightarrow{A5+A7}\text{regular tetrahedron}.
+\end{cases}}
+\]
+
+The dedicated publication surface is
+
+`TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_0.tex`.
+
+Current classification:
+
+```text
+TIR_FOUNDATIONAL_CORE = CLOSED
+TIR_LOCAL_SPATIAL_GEOMETRY = CLOSED
+TIR_GLOBAL_GEOMETRY_PROGRAMME = DOWNSTREAM
+TIR_STANDARD_MODEL_PROGRAMME = ACTIVE
+TIR_TIME_JOIN = SIBLING_INTERFACE
+```
+
+## 2. κ normalization — flavour-mixing derivation
+
+The denominator in
+
+\[
+\boxed{
+\kappa=\frac{\ln2}{24\pi}
+}
+\]
+
+is now carried by the explicit TIR flavour-mixing derivation in
+
+`TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
+
+The flavour carrier is
+
+\[
+V_F\cong\mathbb C^3,
+\qquad
+U_F\in SU(3)_F.
+\]
+
+Thus
+
+\[
+N_F=3
+\]
+
+and
+
+\[
+\dim_{\mathbb R}\mathfrak{su}(3)_F
+=3^2-1
+=8.
+\]
+
+The generator-flavour incidence count is therefore
+
+\[
+\boxed{
+N_{\rm mix}
+=N_F\dim\mathfrak{su}(3)_F
+=3\cdot8
+=24.
+}
+\]
+
+The primitive half coordinate supplies the half-turn phase unit
+
+\[
+\Delta\phi_{1/2}
+=\frac12(2\pi)
+=\pi.
+\]
+
+Hence the total primitive mixing-phase measure is
+
+\[
+\boxed{
+\Phi_{\rm mix}
+=N_{\rm mix}\Delta\phi_{1/2}
+=24\pi.
+}
+\]
+
+With the balanced binary information quantum
+
+\[
+I_\star=H_2(1/2)=\ln2,
+\]
+
+the TIR information-per-mixing-phase normalization gives
+
+\[
+\boxed{
+\kappa
+=\frac{I_\star}{\Phi_{\rm mix}}
+=\frac{\ln2}{3(3^2-1)\pi}
+=\frac{\ln2}{24\pi}.
+}
+\]
+
+This is classified as a **TIR-internal derived structural normalization**. Its upstream ingredients are the binary-information theorem, the half-turn angular unit, and the three-flavour `SU(3)_F` mixing carrier.
+
+An independent finite-symmetry crosscheck is supplied by the spatial branch:
+
+\[
+\operatorname{Aut}(\Delta^3)\cong S_4,
+\qquad
+|S_4|=24.
+\]
+
+Thus
+
+\[
+\boxed{
+3\dim\mathfrak{su}(3)_F
+=3\cdot8
+=24
+=|S_4|.
+}
+\]
+
+## 3. Exact κ phase-rate closure
 
 For
 
 \[
-\mathbf q=(\kappa,\omega,f,\Gamma_{\mathcal I})
+\omega=2\pi f
 \]
 
-with
+and
 
 \[
-C_1=\kappa-\frac{\ln2}{24\pi},
-\qquad
-C_2=\omega-2\pi f,
-\qquad
-C_3=\Gamma_{\mathcal I}-\kappa\omega,
+d\mathcal I=\kappa\,d\phi,
 \]
 
-the constraint Jacobian has rank three.  Conditional on the definitions, the
-subsystem is therefore one-dimensional:
+the exact consequence remains
 
 \[
 \boxed{
-\mathbf q(f)=
-\left(
-\frac{\ln2}{24\pi},
-2\pi f,
-f,
-\frac{\ln2}{12}f
-\right)}.
+\Gamma_{\mathcal I}
+=\frac{d\mathcal I}{dt}
+=\kappa\omega
+=\frac{\ln2}{12}f.
+}
 \]
 
-A physical identification of \(\Gamma_{\mathcal I}\) with a measurable
-``surface-refresh rate'' remains an **open operational interpretation**.
-
-## 3. Corrected Berry-phase normalization
-
-The reviewed source uses the standard spin-\(1/2\) relation
+One complete angular cycle carries
 
 \[
-\gamma=-\frac{\Omega}{2}\pmod{2\pi}.
+\boxed{
+\Delta\mathcal I_{\rm cycle}
+=2\pi\kappa
+=\frac{\ln2}{12}.
+}
 \]
 
-Therefore:
+The exact implementation checks are
 
-- hemisphere solid angle \(|\Omega|=2\pi\) gives phase magnitude \(\pi\);
-- full-sphere solid angle \(4\pi\) gives phase magnitude \(2\pi\), trivial modulo
-  \(2\pi\).
+- `TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py`;
+- `TIR/validation/kappa_phase_rate_identity_v11_1.py`.
 
-The older statement `4π/2 = π` has been removed from the live reviewed
-Metatime framework.  The factor \(\pi\) in the TIR normalization is treated as
-a chosen spinorial/geometric reference phase scale, not as the Berry phase of a
-full-sphere loop.
+Both are part of the integrated TIR verification workflow.
 
-## 4. TIR ↔ Secret-of-a-Half interface
+## 4. Mixing carrier provenance
 
-The reviewed typed chain is
+The three-flavour carrier and full family mixing transformation are established in the polygonal-excitation validation line:
+
+\[
+V_F\cong\mathbb C^3,
+\qquad
+V_F^{\rm mix}=R_{23}R_{13}(\delta)R_{12}\in SU(3)_F.
+\]
+
+The later symmetric-pair closure gives
+
+\[
+\mathfrak{su}(3)_F
+=\mathfrak{so}(3)\oplus\mathfrak p,
+\qquad
+\dim\mathfrak{so}(3)=3,
+\qquad
+\dim\mathfrak p=5,
+\]
+
+so
+
+\[
+8=3+5
+\]
+
+independently certifies the eight-dimensional mixing algebra.
+
+Canonical provenance surfaces:
+
+- `TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE34_CKM_SU3F_CARRIER_V0_1.md`;
+- `TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE55_SU3_SO3_SYMMETRIC_PAIR_V0_1.md`;
+- `TIR/monograph/appendices/appP_information_spinor_crosswalk.tex`.
+
+## 5. TIR ↔ Secret-of-a-Half interface
+
+The current typed chain is
 
 \[
 \boxed{
 \frac12
-\xrightarrow{\;H_2\;}
+\xrightarrow{H_2}
 \ln2
-\xrightarrow{\;\text{TIR definition}\;}
+\xrightarrow{\text{flavour-mixing normalization}}
 \kappa
-\xrightarrow{\;d\mathcal I=\kappa d\phi\;}
-\Gamma_{\mathcal I}
-}.
-\]
-
-Logical types:
-
-1. \(H_2(1/2)=\ln2\) and uniqueness of the binary entropy maximum are exact
-   information theory;
-2. \(\ln2\mapsto\kappa=\ln2/(24\pi)\) contains the TIR structural
-   normalization postulate;
-3. \(\kappa\mapsto\Gamma_{\mathcal I}=(\ln2/12)f\) is exact conditional on the
-   TIR phase-information definition.
-
-The interface is documented in:
-
-- `TIR/docs/cross_reviews/TIR_SECRET_HALF_2026-08-07.md`;
-- `TIR/monograph/appendices/appP_secret_half_cross_relation.tex`.
-
-It must not be used circularly to prove the TIR normalization.
-
-## 5. Exact negative theorem imported from DHSE-001 Stage M
-
-The sibling `secret-of-a-half` review establishes, on its declared finite
-Möbius universe,
-
-\[
-N_n(q)=N_n(1/q)
-\]
-
-but nevertheless finds off-centre global maximizers for word lengths 1 and 4.
-Consequently,
-
-\[
-\boxed{
-\text{reciprocal self-duality}
-\not\Rightarrow
-\text{dynamical extremum at the self-dual point}
-}.
-\]
-
-TIR may therefore use self-duality as a symmetry constraint, but any claim of
-preference, stability, attractor status, or extremality requires an additional
-condition or theorem such as positivity, convexity, monotonicity, or a
-variational principle.
-
-## 6. Reproducibility layers
-
-### Selected legacy subset
-
-`TIR/run_audit.py --json`
-
-- checks nine selected historical quantities against frozen engineering
-  tolerances;
-- reports schema `TIR_SELECTED_LEGACY_REPRODUCIBILITY_V11_1`;
-- a technical PASS is **not** a full physical PASS or global accuracy score.
-
-### Exact κ phase-rate audit
-
-`TIR/validation/kappa_phase_rate_identity_v11_1.py`
-
-Primary certificate tracks formal factors exactly:
-
-\[
-\frac1{24}(\ln2)\pi^{-1}\times2\pi f
-=\frac1{12}(\ln2)f.
-\]
-
-It then performs secondary numerical implementation checks and records the
-rank-three constraint certificate.
-
-### Reviewed source contract
-
-`TIR/validation/review_source_contract_v11_1.py`
-
-Protects the reviewed κ sections, corrected Berry normalization, source-code
-appendix, Appendix P, cross-review boundary and legacy technical/physical claim
-separation.
-
-## 7. Publication state
-
-The long publication source is
-
-`TIR/monograph/metatime_monograph.tex`
-
-and the short paper source is
-
-`TIR/metatime_paper.tex`.
-
-The 7 August review adds:
-
-- exact κ phase-rate and constraint-manifold sections;
-- corrected Berry-phase normalization;
-- a reviewed source-code/reproducibility appendix;
-- Appendix P for the TIR ↔ Secret-of-a-Half interface;
-- a synchronized short-paper patch;
-- an exact-head CI source contract and publication preflight.
-
-The authoritative workflow is:
-
-`.github/workflows/compile-metatime-monograph.yml`.
-
-**Validation rule:** a PASS belongs only to the exact commit tested.  A prior
-green run must not be transferred to a later modified review head.
-
-## 8. Physical tensions retained
-
-The v11 publication protocol intentionally retains failures and tensions rather
-than hiding them inside an aggregate score.
-
-### Gauge sector
-
-The active gauge-boson mass relations remain at several-percent tension with
-the comparison values used by the monograph.  They are not promoted to precision
-predictions.
-
-### Strong CP / neutron EDM
-
-For the active exponent-14 strong-CP assignment, the reviewed publication
-snapshot gives approximately
-
-\[
-\theta_{\rm QCD}=2.2208\times10^{-10}
-\]
-
-and, with the fixed hadronic conversion coefficient used by the manuscript,
-
-\[
-\boxed{
-d_n=5.3299\times10^{-26}\ e\,\mathrm{cm}
-}.
-\]
-
-Against the manuscript bound
-
-\[
-1.8\times10^{-26}\ e\,\mathrm{cm},
-\]
-
-this is a factor of approximately \(2.96\) high.  The computation may be a
-technical PASS while the empirical constraint is a **physical FAIL**.
-
-### Collatz isolated mass trace
-
-The isolated frozen Collatz quarter-power trace remains an incomplete
-retrospective signal rather than a closed spectrum derivation.  Its known
-multiplicative error is retained by the v11 publication protocol.
-
-## 9. Prospective component
-
-The v10.7 separable candidate family remains the principal frozen prospective
-component.  Candidate formulas, orthogonal observables and no-refit rules must
-remain fixed before the assigned future likelihood is inspected.
-
-Retrospective formula assignments are not counted as independent confirmation
-merely because they reproduce their development-era targets.
-
-## 10. Current open mathematical and physical work
-
-1. Determine whether the discrete denominator \(24\pi\) can acquire a stronger
-   non-circular derivation, or remain explicitly a TIR normalization postulate.
-2. Define an operational observable corresponding to
-   \(\Gamma_{\mathcal I}\) before making a physical refresh-rate claim.
-3. Characterize what additional conditions turn self-duality into extremality
-   in the relevant dynamical sectors.
-4. Continue the Collatz/holonomy and sector-specific derivational audits without
-   hiding negative results.
-5. Keep renormalization scale/scheme conventions explicit for scale-dependent
-   particle quantities.
-6. Evaluate frozen prospective candidates only against their preregistered
-   observables and decision rules.
-7. Maintain the Secret-of-a-Half zeta bridges as open unless their complete
-   proof dependencies are actually closed.
-
-## 11. Historical status
-
-The previous v10.0 / Dr-Milligan-reviewed status document contained useful
-historical review notes but also several now-stale statements, including old
-sector classifications, build state, branch information and reproducibility
-language.  Those historical records are preserved in repository history and
-`archive/`; this file is the live review-state summary.
-
-## Invariant
-
-\[
-\boxed{
-\text{technical PASS}
-\neq
-\text{formal proof of every model assumption}
-\neq
-\text{physical PASS}
+\xrightarrow{d\mathcal I=\kappa d\phi}
+\Gamma_{\mathcal I}.
 }
 \]
 
-Every promotion requires the evidence class appropriate to the claim being
-promoted.
+The exact half theorem supplies the numerator. The flavour-mixing carrier, mixing-algebra dimension, flavour multiplicity and half-turn phase supply the denominator.
+
+## 6. Spatial publication state
+
+`The Space of Geometry: From First Distinction to Pythagoras` is the current local spatial-geometry release candidate.
+
+Its theorem split is:
+
+```text
+Theorem E — local Euclidean/Pythagorean closure
+Theorem T1 — minimal finite full-dimensional support
+Theorem T2 — regular tetrahedron from A5+A7 edge-orbit invariance
+Theorem Q — independent tetrahedral qubit-SIC convergence
+```
+
+The same local carrier therefore supports both
+
+\[
+a^2+b^2=c^2
+\]
+
+and
+
+\[
+n_a\cdot n_b=-\frac13\quad(a\ne b)
+\]
+
+as parallel consequences.
+
+## 7. Active physical frontier
+
+The remaining work is concentrated above the foundational layer:
+
+1. sector-by-sector Standard Model derivation and empirical audit;
+2. operational calibration of information-rate observables;
+3. global spatial refinement, curvature and holonomy;
+4. TIR spatial geometry × Time scalar/tensor closure;
+5. completion of any still-open Secret-of-a-Half / zeta proof dependencies;
+6. preservation of frozen prospective tests and explicit empirical failure receipts.
+
+## 8. Reproducibility invariant
+
+Every PASS belongs to the exact commit tested. Claim promotion follows the evidence class of the specific theorem or observable.
+
+The integrated workflow is
+
+`.github/workflows/tir-integrated-kappa-critical-axis.yml`.
+
+It now audits the flavour-mixing derivation of the κ denominator in addition to the existing phase-rate, primitive-foundation, spatial and critical-axis gates.
