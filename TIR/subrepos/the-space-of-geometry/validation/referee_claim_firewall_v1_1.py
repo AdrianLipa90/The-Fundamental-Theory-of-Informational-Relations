@@ -43,10 +43,10 @@ DEPENDENCY_TOKENS = (
 )
 
 PHYSICAL_TOKENS = (
-    "PHYSICAL_RELATION_CHORD_SET_IS_RADIUS_TWO_BALL",
-    "3/5",
-    "4/5",
-    "a^2+b^2\\le1",
+    "reachable physical relation set is exactly the radius-two ball",
+    r"a^2+b^2\le1",
+    r"a=\frac35",
+    r"b=\frac45",
 )
 
 
