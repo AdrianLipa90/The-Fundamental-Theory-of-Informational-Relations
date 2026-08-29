@@ -10,7 +10,7 @@
 - Certified curvature floor ⇒ Gaussian transverse envelope: **EXACT_CONDITIONAL**
 - Gershon v2 global strict log-concavity of the Xi kernel: **EXTERNAL_PREPRINT_CLAIM**
 - TP∞ / Laguerre–Pólya closure: **OPEN**
-- Global positive-core versus oscillatory-tail domination: **OPEN_RH_EQUIVALENT_ROUTE**
+- Global positive-core versus absolute negative-tail domination: **OPEN_SUFFICIENT_ROUTE**
 - Riemann hypothesis: **OPEN**
 
 ## 1. XF-5 starting surface
@@ -330,7 +330,7 @@ Q_\Xi
 
 The first integral has an **EXACT** positive kernel lower bound. The second is the oscillatory tail. A certified transverse mass envelope supplies a quantitative mechanism for suppressing that tail.
 
-The remaining global obligation can therefore be stated as
+A sufficient global obligation is
 
 \[
 \boxed{
@@ -342,7 +342,15 @@ The remaining global obligation can therefore be stated as
 
 uniformly for every real `x` and every `0<|y|<1/2`.
 
-This global domination statement has status **OPEN_RH_EQUIVALENT_ROUTE**.
+This domination statement has status **OPEN_SUFFICIENT_ROUTE**. It implies the RH-equivalent global sign condition, while no reverse implication is asserted. The distinction is encoded explicitly in the XF-6 solver graph.
+
+There is also an important uniformity warning. For fixed `a`, the certified core radius obeys
+
+\[
+r_+(x,a)=O(|x|^{-1})
+\]
+
+as `|x|→∞`. Therefore a proof that replaces the complete oscillatory tail by a purely absolute-value estimate may lose the cancellations required at large `|x|`. The preferred continuation is a signed, correlation-preserving oscillatory estimate, with the Gaussian mass envelope used as a weight rather than as a substitute for phase cancellation.
 
 ## 8. XF-6 executable surface
 
@@ -364,7 +372,7 @@ Finite-`Phi` derivatives are **NUMERICAL_DIAGNOSTIC**. The positive-corridor ine
 
 ## 9. Frontier
 
-The next proof target is a certified, globally usable bound of the form
+One sufficient target is a certified bound of the form
 
 \[
 \int_{r_+(x,a)}^a
@@ -374,13 +382,13 @@ M(a,b)\,|L^-_{x,y}(a,b)|\,db
 M(a,b)L_{x,y}(a,b)\,db
 \]
 
-after integration in `a`, uniformly over the critical-strip `y` range.
+after integration in `a`, uniformly over the critical-strip `y` range. Because the core shrinks with `|x|`, a more promising global route is to preserve the signed oscillatory structure of the tail instead of taking absolute values too early.
 
 Promising admissible tools are:
 
 1. a rigorous lower-curvature certificate for `-\partial_u^2\log\Phi`;
-2. Gaussian or stronger transverse tail bounds;
+2. Gaussian or stronger transverse tail weights;
 3. exact oscillatory-moment estimates preserving the `M·L` correlation;
-4. interval-certified partition bounds for finite `a,x,y` blocks followed by analytic tails.
+4. interval-certified partition bounds for finite `a,x,y` blocks followed by analytic oscillatory tails.
 
 The global sign frontier and RH retain **OPEN** status.
