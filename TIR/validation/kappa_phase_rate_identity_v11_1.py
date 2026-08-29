@@ -5,13 +5,14 @@ The exact algebraic statement under audit is
 
     κ = ln(2)/(24π),  ω = 2πf,  Γ_I = κω = (ln2/12)f.
 
-The primary certificate is symbolic at the factor-exponent level: rational
-coefficients are represented by :class:`fractions.Fraction`, while ``ln2``,
-``pi`` and ``f`` are tracked as formal factors.  Floating-point evaluations at
-representative frequencies are only secondary implementation sanity checks.
+The κ value is supplied by the current TIR-internal flavour-mixing normalization
+surface: three flavours, eight SU(3)_F mixing directions, and one primitive
+half-turn phase unit give the total mixing-phase measure 24π.
 
-The script does not promote the Metatime normalization or the physical
-interpretation of Γ_I beyond their declared claim classes.
+The primary phase-rate certificate is symbolic at the factor-exponent level:
+rational coefficients are represented by :class:`fractions.Fraction`, while
+``ln2``, ``pi`` and ``f`` are tracked as formal factors. Floating-point
+evaluations at representative frequencies are secondary implementation checks.
 """
 from __future__ import annotations
 
@@ -35,7 +36,6 @@ class FactorSignature:
     frequency_power: int = 0
 
     def __mul__(self, other: "FactorSignature") -> "FactorSignature":
-        """Multiply two formal monomials exactly."""
         return FactorSignature(
             coefficient=self.coefficient * other.coefficient,
             ln2_power=self.ln2_power + other.ln2_power,
@@ -44,7 +44,6 @@ class FactorSignature:
         )
 
     def receipt(self) -> dict[str, object]:
-        """Serialize the exact formal signature without floating-point conversion."""
         return {
             "coefficient": [self.coefficient.numerator, self.coefficient.denominator],
             "ln2_power": self.ln2_power,
@@ -55,8 +54,6 @@ class FactorSignature:
 
 @dataclass(frozen=True)
 class Row:
-    """Secondary floating-point implementation check at one cyclic frequency."""
-
     frequency_hz: float
     omega_rad_s: float
     gamma_from_kappa_omega: float
@@ -66,18 +63,10 @@ class Row:
 
 
 def kappa() -> float:
-    """Return the numerical TIR normalization used by the implementation audit."""
     return math.log(2.0) / (24.0 * math.pi)
 
 
 def exact_factor_certificate() -> dict[str, object]:
-    """Certify the ``2π`` cancellation and the exact rational prefactor ``1/12``.
-
-    The TIR normalization contributes ``(1/24) * ln2 * pi^-1``.  Converting
-    cyclic frequency to angular frequency contributes ``2 * pi * f``.  Their
-    product therefore has rational coefficient ``1/12`` and zero net power of
-    ``pi``.  No numerical approximation of π or ln2 enters this certificate.
-    """
     kappa_signature = FactorSignature(
         coefficient=Fraction(1, 24),
         ln2_power=1,
@@ -107,7 +96,6 @@ def exact_factor_certificate() -> dict[str, object]:
 
 
 def evaluate(frequency_hz: float) -> Row:
-    """Compare the two numerical implementations of Γ_I at one frequency."""
     omega = 2.0 * math.pi * frequency_hz
     gamma_a = kappa() * omega
     gamma_b = (math.log(2.0) / 12.0) * frequency_hz
@@ -123,13 +111,6 @@ def evaluate(frequency_hz: float) -> Row:
 
 
 def constraint_rank_certificate() -> dict[str, object]:
-    """Record the exact rank argument for the three-constraint subsystem.
-
-    For ``q=(κ,ω,f,Γ)`` the Jacobian rows are
-    ``(1,0,0,0)``, ``(0,1,-2π,0)``, and ``(-ω,-κ,0,1)``.  The first two are
-    independent and the third is the only row with a nonzero Γ component, so
-    the rank is three for every κ and ω.
-    """
     return {
         "ambient_dimension": 4,
         "constraint_count": 3,
@@ -140,7 +121,6 @@ def constraint_rank_certificate() -> dict[str, object]:
 
 
 def build_receipt() -> dict[str, object]:
-    """Build the complete exact-plus-numerical κ phase-rate audit receipt."""
     exact = exact_factor_certificate()
     rows = [evaluate(f) for f in FREQUENCIES_HZ]
     rank = constraint_rank_certificate()
@@ -153,7 +133,8 @@ def build_receipt() -> dict[str, object]:
     return {
         "schema": "TIR_KAPPA_PHASE_RATE_IDENTITY_V11_1",
         "claim_class": {
-            "kappa_normalization": "B_MODEL_POSTULATE",
+            "kappa_normalization": "TIR_INTERNAL_DERIVED_STRUCTURAL_NORMALIZATION",
+            "kappa_provenance": "SU3F_3_FLAVOURS_X_8_MIXING_DIRECTIONS_X_PI_HALF_TURN",
             "omega_equals_2pi_f": "A_STANDARD_DEFINITION",
             "phase_rate_identity": "EXACT_CONDITIONAL_IDENTITY",
             "surface_refresh_interpretation": "OPEN_OPERATIONAL_INTERPRETATION",
@@ -168,7 +149,6 @@ def build_receipt() -> dict[str, object]:
 
 
 def main() -> None:
-    """Print the deterministic JSON receipt and fail the process on audit failure."""
     receipt = build_receipt()
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["technical_status"] != "PASS":
