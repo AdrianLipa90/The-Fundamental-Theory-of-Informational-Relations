@@ -93,6 +93,18 @@ jobs:
           grep -Fq '"technical_status": "PASS"' local_euclidean_pythagorean_receipt.json
           grep -Fq '"endpoint": "PYTHAGOREAN_CLOSURE"' local_euclidean_pythagorean_receipt.json
 
+      - name: Audit publication proof dependency DAG
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/publication_proof_dependency_audit_v0_1.py | tee publication_proof_dependency_receipt.json
+          grep -Fq '"technical_status": "PASS"' publication_proof_dependency_receipt.json
+          grep -Fq '"publication_verdict": "PASS_LOCAL_DEPENDENCY_GRAPH"' publication_proof_dependency_receipt.json
+          grep -Fq '"acyclic": true' publication_proof_dependency_receipt.json
+          grep -Fq '"tetrahedron_required_for_pythagoras": false' publication_proof_dependency_receipt.json
+          grep -Fq '"sic_is_premise_of_main_endpoints": false' publication_proof_dependency_receipt.json
+          grep -Fq '"all_required_surfaces_present": true' publication_proof_dependency_receipt.json
+
       - name: Verify current subrepo surfaces
         shell: bash
         run: |
@@ -103,10 +115,13 @@ jobs:
           test -s TIR/subrepos/the-space-of-geometry/foundations/A5_A7_SIMPLEX_EDGE_ORBIT_REGULARITY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/UNLABELED_SIMPLEX_AUTOMORPHISM_REGULARITY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/LOCAL_EUCLIDEAN_PYTHAGOREAN_CLOSURE_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/publication/PROOF_DEPENDENCY_AUDIT_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_9.py
           test -s TIR/subrepos/the-space-of-geometry/validation/canonical_spatial_relation_extraction_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/a5_a7_simplex_edge_orbit_regularity_v0_1.py
+          test -s TIR/subrepos/the-space-of-geometry/validation/publication_proof_dependency_audit_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/paper/MANUSCRIPT_V0_2.md
+          test -s TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_0.tex
 
       - name: Upload receipts
         uses: actions/upload-artifact@v4
@@ -121,3 +136,4 @@ jobs:
             spatial_promotion_uniqueness_receipt.json
             unlabeled_simplex_automorphism_regularity_receipt.json
             local_euclidean_pythagorean_receipt.json
+            publication_proof_dependency_receipt.json
