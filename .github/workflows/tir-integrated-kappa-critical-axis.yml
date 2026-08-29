@@ -96,6 +96,7 @@ jobs:
           set -euo pipefail
           python3 TIR/monograph/normalize_build_sources.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/prepare_publication_candidate_v11_0.py
+          PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/sync_current_tir_publication_surfaces.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/apply_kappa_phase_rate_patch.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/apply_metatime_paper_review_patch.py
           PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/add_citation_context_v10_9.py
