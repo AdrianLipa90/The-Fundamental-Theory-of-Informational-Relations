@@ -1,0 +1,46 @@
+name: TIR coefficient role and orientation forcing
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  coefficient-forcing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate role and orientation forcing
+        run: |
+          python TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py | tee coefficient_forcing_receipt.txt
+          grep -Fx 'status=PASS' coefficient_forcing_receipt.txt
+          grep -Fx 'slot_role_bijection=true' coefficient_forcing_receipt.txt
+          grep -Fx 'identity_is_only_role_preserving_permutation=true' coefficient_forcing_receipt.txt
+          grep -Fx 'gradient_sign_scale_independent=true' coefficient_forcing_receipt.txt
+          grep -Fx 'consensus_orientation_unique=true' coefficient_forcing_receipt.txt
+          grep -Fx 'next_gate=TYPED_INTEGER_MAGNITUDE_EXTRACTION' coefficient_forcing_receipt.txt
+
+      - name: Verify theorem source surfaces
+        run: |
+          test -f TIR/foundations/TIR_COEFFICIENT_ROLE_ORIENTATION_FORCING_V0_1.md
+          test -f TIR/integration/tir_half_foundation_v0_6_0/ATOMIC_ASSIGNMENT_CANONIZATION.md
+          test -f TIR/integration/tir_half_foundation_v0_6_0/ATOMIC_CANONIZATION_RECEIPT.json
+          test -f TIR/integration/tir_half_foundation_v0_6_0/atomic_assignment_operator.py
+
+      - name: Upload deterministic receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: tir-coefficient-forcing-receipt
+          path: coefficient_forcing_receipt.txt
