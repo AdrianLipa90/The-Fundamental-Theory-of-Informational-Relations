@@ -103,7 +103,44 @@ With Pauli normalization,
 
 Thus the same relation object supplies real dimension three, orientation, endpoint composition and an origin-independent local displacement.
 
-## 4. Metric
+## 4. Intrinsic affine naturality
+
+If a primitive vector relation law is required to use only the affine structure already present in the point-state carrier, then it must be natural under affine frame changes
+
+\[
+F(x)=Lx+a,
+\qquad L\in GL(V),
+\]
+
+through
+
+\[
+R(Fx,Fy)=L R(x,y).
+\]
+
+Translation naturality gives
+
+\[
+R(x,y)=f(y-x),
+\]
+
+and `GL(V)` equivariance gives
+
+\[
+f(Lv)=L f(v).
+\]
+
+The stabilizer of a nonzero `v` fixes only `span(v)`, and `GL(V)` is transitive on nonzero vectors. Therefore every continuous intrinsic affine vector relation law has the form
+
+\[
+\boxed{R(x,y)=c(y-x).}
+\]
+
+Distinction preservation requires `c != 0`; scale and orientation remain conventional. The torsor normalization is `c=1`, while the Pauli-coordinate convention is `c=2` relative to density-operator difference.
+
+This reduces the remaining TIR bridge to whether A1 minimality plus A3 relational primacy select intrinsic affine naturality, i.e. a relation law with no auxiliary origin, axis or background object.
+
+## 5. Metric
 
 The canonical invariant quadratic form is
 
@@ -123,7 +160,7 @@ For the Pauli-normalized displacement,
 }
 \]
 
-## 5. Minimal local cell
+## 6. Minimal local cell
 
 The affine carrier has real dimension three. The minimal full-dimensional simplex therefore has four vertices:
 
@@ -143,7 +180,7 @@ so the minimal isotropic cell is the regular tetrahedron.
 
 The same four pure-state directions form a minimal affine frame of the qubit-state hull and the tetrahedral qubit SIC, providing an independent informational convergence check.
 
-## 6. Pythagorean closure
+## 7. Pythagorean closure
 
 Affine endpoint composition gives
 
@@ -172,23 +209,21 @@ and hence
 \boxed{a^2+b^2=c^2.}
 \]
 
-## 7. Remaining foundational typing gate
+## 8. Remaining foundational typing gate
 
-The exact affine mathematics has reduced the promotion problem to one TIR typing question:
+The exact affine mathematics has reduced the promotion problem to one TIR inheritance question:
 
 \[
 \boxed{
-A3:\ \text{primitive physical relation}
-\stackrel{?}{=}
-\text{intrinsic affine displacement between A2 quantum-point states}.
+A1+A3:\ \text{primitive relation uses the minimal intrinsic affine-natural law on the A2 point-state carrier.}
 }
 \]
 
-If this is accepted as the operational mathematical typing of Information Primacy for ordered point relations, then the local route from quantum point to three-dimensional Euclidean relation geometry is closed by standard affine and representation mathematics.
+Under that typing, the local route from quantum point to three-dimensional Euclidean relation geometry is closed by standard affine and representation mathematics.
 
 A5 then measures the geometry through arithmetic invariants of the relation carrier. A8 acts as the consistency/context-lift layer: local affine displacement has exact endpoint closure, while nontrivial loop/context defects are retained for downstream curvature and holonomy.
 
-## 8. Proof-status surface
+## 9. Proof-status surface
 
 | Edge | Status |
 |---|---|
@@ -196,13 +231,15 @@ A5 then measures the geometry through arithmetic invariants of the relation carr
 | affine hull translation space -> `Herm_0(2)` | EXACT |
 | `Herm_0(2)` real dimension -> 3 | EXACT |
 | ordered affine pair -> unique displacement | EXACT AFFINE GEOMETRY |
+| intrinsic affine-natural relation -> `c(y-x)` | EXACT CONDITIONAL NATURALITY THEOREM |
+| distinction preservation -> `c != 0` | EXACT CONDITIONAL |
 | displacement -> endpoint composition | EXACT |
 | displacement -> Hilbert--Schmidt Euclidean metric | EXACT |
 | 3D -> minimal full-dimensional simplex `Delta^3` | EXACT AFFINE GEOMETRY |
 | equal isotropy -> regular tetrahedron | EXACT CONDITIONAL |
 | orthogonality -> Pythagoras | EXACT |
-| A3 physical relation -> intrinsic affine displacement | TIR FOUNDATIONAL TYPING GATE |
+| A1+A3 select intrinsic affine naturality | TIR FOUNDATIONAL INHERITANCE GATE |
 
-## 9. Paper endpoint
+## 10. Paper endpoint
 
 The paper remains deliberately local and terminates at Pythagorean closure. Global tetrahedral refinement, curvature, holonomy, torsion sectors and the TIR x Time spacetime join remain downstream programmes.
