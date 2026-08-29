@@ -35,6 +35,14 @@ from .correlation_kernel import (
     xi_wiener_laguerre_scalar,
     xi_wronskian2_real,
 )
+from .nonlocal_curvature import (
+    theta_curvature_integrand,
+    theta_curvature_kernel,
+    theta_growth_kernel,
+    xi_modulus_squared,
+    xi_transverse_curvature,
+    xi_transverse_curvature_direct,
+)
 from .solver import (
     ClaimSolver,
     ClaimStatus,
@@ -93,6 +101,12 @@ __all__ = [
     "xi_laguerre_quantity",
     "xi_wiener_laguerre_scalar",
     "xi_wronskian2_real",
+    "theta_curvature_integrand",
+    "theta_curvature_kernel",
+    "theta_growth_kernel",
+    "xi_modulus_squared",
+    "xi_transverse_curvature",
+    "xi_transverse_curvature_direct",
     "ClaimSolver",
     "ClaimStatus",
     "ClosureResult",
