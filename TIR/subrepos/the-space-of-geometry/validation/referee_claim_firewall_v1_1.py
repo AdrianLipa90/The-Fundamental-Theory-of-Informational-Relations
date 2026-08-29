@@ -37,8 +37,9 @@ FIREWALL_TOKENS = (
 
 DEPENDENCY_TOKENS = (
     "PASS_V1_1_SYNCHRONIZED_LOCAL_PROOF_GRAPH",
-    "Tetrahedral nodes are absent from the ancestor set of `E3`",
-    "The SIC node is absent from the ancestor sets of the Euclidean, physical, and tetrahedral main endpoints",
+    "tetrahedral nodes are not ancestors of carrier Pythagoras",
+    "tetrahedral nodes are not ancestors of physical-state Pythagoras",
+    "the SIC node is not an ancestor of any main theorem endpoint",
 )
 
 PHYSICAL_TOKENS = (
