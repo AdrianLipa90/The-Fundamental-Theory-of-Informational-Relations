@@ -1,6 +1,6 @@
 # The Space of Geometry
 
-Status: `TIR_SUBREPO_V1_1_PUBLICATION_CANDIDATE_REALIZABILITY_SYNCHRONIZED`
+Status: `TIR_SUBREPO_V1_1_REFEREE_FIREWALL_CANDIDATE`
 
 Working title:
 
@@ -10,10 +10,11 @@ Current manuscript source:
 
 `paper/THE_SPACE_OF_GEOMETRY_V1_1.tex`
 
-Current research spine and publication audit:
+Current research spine and publication controls:
 
 - `RESEARCH_SPINE_V0_10.md`
 - `publication/PROOF_DEPENDENCY_AUDIT_V0_3.md`
+- `publication/REFEREE_CLAIM_FIREWALL_V1_1.md`
 
 The common local carrier is
 
@@ -116,6 +117,15 @@ The synchronized publication dependency graph is acyclic and separates three out
 
 Theorem Q remains an independent tetrahedral SIC convergence crosscheck.
 
+The referee firewall freezes six reviewer-facing boundaries:
+
+- full affine carrier versus physical single-edge chord domain;
+- torsor displacement versus Pauli/Bloch normalization;
+- exact local inner-product identity versus physical-state realization;
+- Euclidean/Pythagorean branch versus finite-cell tetrahedral branch;
+- spatial finite-frame theorem versus SIC convergence crosscheck;
+- local relation geometry versus downstream physical calibration and global carrier gluing.
+
 Physical unit calibration and gluing of distinct local carriers into global spatial extent belong to the downstream geometry programme.
 
 Current release surfaces:
@@ -126,10 +136,13 @@ Current release surfaces:
 - `foundations/PHYSICAL_RELATION_CHORD_REALIZABILITY_V0_1.md`
 - `foundations/A5_A7_SIMPLEX_EDGE_ORBIT_REGULARITY_V0_1.md`
 - `publication/PROOF_DEPENDENCY_AUDIT_V0_3.md`
+- `publication/REFEREE_CLAIM_FIREWALL_V1_1.md`
 - `validation/space_of_geometry_spine_v0_10.py`
 - `validation/physical_relation_chord_realizability_v0_1.py`
 - `validation/publication_proof_dependency_audit_v0_3.py`
+- `validation/referee_claim_firewall_v1_1.py`
+- `.github/workflows/compile-space-of-geometry.yml`
 
-The compile workflow targets v1.1 and performs the synchronized dependency audit, exact physical-state realizability audit, XeLaTeX build, PDF structural preflight, and content-addressed receipt generation.
+The compile workflow targets v1.1 and now performs the synchronized dependency audit, exact physical-state realizability audit, referee claim firewall, XeLaTeX build, PDF structural preflight, and content-addressed receipt generation.
 
 TIR remains the parent Source of Truth for the primitive axioms and first-distinction chain.
