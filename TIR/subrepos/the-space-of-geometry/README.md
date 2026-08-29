@@ -1,14 +1,14 @@
 # The Space of Geometry
 
-Status: `TIR_SUBREPO_RESEARCH_PROGRAM_V0_6`
+Status: `TIR_SUBREPO_LOCAL_DERIVATION_CLOSED_V0_8_CANDIDATE`
 
 Working title:
 
 > **The Space of Geometry: From First Distinction to Pythagoras**
 
-This TIR subrepo develops the shortest local spatial-geometric derivation from the primitive quantum point to Pythagorean closure.
+This TIR subrepo develops the shortest local spatial-geometric construction from the primitive binary quantum point to Pythagorean closure.
 
-The current shortest spine is
+The current spine is
 
 \[
 \boxed{
@@ -17,51 +17,39 @@ The current shortest spine is
 \to \text{DISTINCTION}
 \to \mathbb C^2
 \to \rho_x
-\to \mathcal A_2=\frac12 I+\operatorname{Herm}_0(2)
-\to \text{source-minimal intrinsic relation}
-\to \rho_y-\rho_x
+\to \mathcal A_2=\frac12I+\operatorname{Herm}_0(2)
+\to \delta(\rho_x,\rho_y)=\rho_y-\rho_x
 \to \operatorname{Herm}_0(2)\cong\mathbb R^3
 \to \Delta^3
-\to \operatorname{Aut}^+(\Delta^3)=A_4
-\to \text{regular tetrahedral frame}
+\to \operatorname{Aut}(\Delta^3)=S_4
+\xrightarrow{A5+A7}
+\text{regular tetrahedron}
 \to \text{distance / angle / orthogonality}
 \to a^2+b^2=c^2.
 }
 \]
 
-## Quantum-point affine carrier
+## Canonical spatial relation
 
-The binary quantum carrier gives normalized point states
-
-\[
-\rho_x=\frac12(I+\mathbf r_x\cdot\boldsymbol\sigma)
-\]
-
-whose trace-one Hermitian affine hull is
+The normalized two-level quantum state hull is
 
 \[
-\boxed{
-\mathcal A_2=\frac12I+\operatorname{Herm}_0(2).
-}
+\mathcal A_2=\frac12I+V,
+\qquad
+V=\operatorname{Herm}_0(2).
 \]
 
-Its translation space is
+Every ordered pair has a unique endpoint-carrying affine displacement
 
 \[
 \boxed{
-V=\operatorname{Herm}_0(2)\cong\mathbb R^3.
+\rho_x+\delta_{xy}=\rho_y,
+\qquad
+\delta_{xy}=\rho_y-\rho_x.
 }
 \]
 
-Every ordered pair has the intrinsic torsor displacement
-
-\[
-\boxed{
-\delta(\rho_x,\rho_y)=\rho_y-\rho_x.
-}
-\]
-
-With the established Pauli normalization,
+The spatial branch exports this canonical torsor displacement as its primitive vector relation. In the established generator normalization,
 
 \[
 \boxed{
@@ -70,85 +58,135 @@ With the established Pauli normalization,
 }
 \]
 
-This gives reversal, endpoint composition and triangular closure exactly.
+This immediately gives reversal, endpoint composition and triangular closure.
 
-## Source-minimal relation theorem
-
-If the primitive relation-law signature contains only the ordered endpoints and their admitted affine carrier, with no independent origin, axis, basis or background tensor, the law is natural under affine changes of frame. Every continuous affine-natural vector relation is
-
-\[
-\boxed{R(x,y)=c(y-x).}
-\]
-
-A3 distinction preservation requires
-
-\[
-\boxed{c\ne0.}
-\]
-
-The torsor translation fixes `c=1` intrinsically. The Pauli generator convention displays the same displacement with factor `2` relative to density-operator difference.
-
-The remaining source inheritance gate is
+Because trace normalization removes one real dimension from `Herm(2)`,
 
 \[
 \boxed{
-\texttt{A1\_DEPENDENCY\_MINIMALITY\_APPLIES\_TO\_PRIMITIVE\_LAW\_SIGNATURE}.
+\dim_{\mathbb R}\operatorname{Herm}_0(2)=3,
 }
 \]
 
-## Minimal simplex and intrinsic symmetry
-
-For a three-dimensional affine carrier,
+so the canonical relation carrier is
 
 \[
-\dim\operatorname{Aff}\{x_1,\ldots,x_m\}\le m-1
+\boxed{V\cong\mathbb R^3.}
 \]
 
-forces
+The parent `SU(2)` conjugation induces the standard
+
+\[
+PSU(2)\cong SO(3)
+\]
+
+action on this carrier.
+
+## Metric
+
+The positive invariant quadratic form is unique up to global scale. With Pauli normalization,
+
+\[
+\boxed{
+\langle A,B\rangle=\frac12\operatorname{Tr}(AB).
+}
+\]
+
+Hence
+
+\[
+\boxed{
+\|\mathcal E_{xy}\|^2
+=\frac12\operatorname{Tr}(\mathcal E_{xy}^2)
+=|\mathbf r_y-\mathbf r_x|^2.
+}
+\]
+
+A5 types this arithmetic invariant as geometric measure.
+
+## Minimal cell
+
+For `m` affine points,
+
+\[
+\dim\operatorname{Aff}\{x_1,\ldots,x_m\}\le m-1.
+\]
+
+Three-dimensional full support therefore requires
 
 \[
 \boxed{m\ge4.}
 \]
 
-At the minimum the cell is the 3-simplex
+and the minimum cell is
 
 \[
 \boxed{\Delta^3.}
 \]
 
-The abstract unlabeled simplex has
+Tetrahedrality follows from three-dimensionality plus minimal full-dimensional affine support.
+
+## A5+A7 regularity closure
+
+The abstract unlabeled 3-simplex has
 
 \[
-\boxed{\operatorname{Aut}(\Delta^3)\cong S_4}
+\boxed{\operatorname{Aut}(\Delta^3)\cong S_4.}
 \]
 
-and, after orientation is fixed,
+Its six edges form one `S_4` orbit. For every edge relation define
 
 \[
-\boxed{\operatorname{Aut}^+(\Delta^3)\cong A_4.}
+q_{ij}=\frac12\operatorname{Tr}(\mathcal E_{ij}^2),
+\qquad
+\ell_{ij}=\sqrt{q_{ij}}.
 \]
 
-If this intrinsic oriented automorphism group is faithfully realized by Euclidean isometries, `A_4` acts transitively on all six edges. Hence all six edge lengths are equal and the simplex is regular.
-
-Thus regularity follows from
+A7 law invariance on the intrinsic simplex automorphism action gives
 
 \[
 \boxed{
-\Delta^3
-+
-\text{faithful isometric realization of intrinsic }A_4
+q_{\pi(i)\pi(j)}=q_{ij}
+\qquad
+\forall\pi\in S_4.
+}
+\]
+
+One edge orbit therefore means one edge measure:
+
+\[
+q_{ij}=q_*,
+\qquad
+\ell_{ij}=\ell_*.
+\]
+
+All six tetrahedral edges are equal, so the cell is regular.
+
+Thus the preferred shortest regularity route is
+
+\[
+\boxed{
+\mathbb R^3
 \to
+\Delta^3
+\xrightarrow{A5+A7}
 \text{regular tetrahedron}.
 }
 \]
 
-This replaces equal-weight/moment-isotropy as the preferred primary regularity route. The moment identities become consequences:
+The earlier maximal-symmetry and moment-isotropy derivations remain independent crosschecks.
+
+For centered normalized directions,
 
 \[
+\boxed{
 \sum_{a=1}^{4}n_a=0,
 \qquad
 n_a\cdot n_b=-\frac13\quad(a\ne b),
+}
 \]
+
+and
 
 \[
 \boxed{
@@ -156,18 +194,10 @@ n_a\cdot n_b=-\frac13\quad(a\ne b),
 }
 \]
 
-The remaining symmetry inheritance gate is
+The orientation-preserving rotational subgroup is
 
 \[
-\boxed{
-\texttt{A3+A7\_FAITHFULLY\_REALIZE\_INTRINSIC\_ORIENTED\_SIMPLEX\_AUTOMORPHISMS\_ISOMETRICALLY}.
-}
-\]
-
-The regular tetrahedral rotation group sits inside the parent carrier symmetry as
-
-\[
-A_4\subset SO(3)\cong PSU(2),
+A_4\subset SO(3),
 \]
 
 with binary tetrahedral lift
@@ -176,36 +206,26 @@ with binary tetrahedral lift
 2T\subset SU(2).
 \]
 
-The same tetrahedral directions remain an independent qubit informational-completeness convergence check.
+The same four directions form the tetrahedral qubit SIC frame, giving an independent informational convergence on the same Gram geometry.
 
-## Euclidean endpoint
+## Pythagorean endpoint
 
-The invariant relation metric is
-
-\[
-\boxed{
-\langle A,B\rangle=\frac12\operatorname{Tr}(AB)
-}
-\]
-
-up to global physical scale.
-
-For local relation displacements `A,B`,
+For local relation vectors `A,B`,
 
 \[
 \|A+B\|^2
 =\|A\|^2+\|B\|^2+2\langle A,B\rangle.
 \]
 
-With
+Orthogonality is
 
 \[
 A\perp B
 \iff
-\langle A,B\rangle=0,
+\langle A,B\rangle=0.
 \]
 
-this gives
+Therefore
 
 \[
 \boxed{a^2+b^2=c^2.}
@@ -213,41 +233,20 @@ this gives
 
 This is the endpoint of the fundamental paper.
 
-## Current proof frontier
+## Status boundary
 
-The local mathematics is now theorem-driven after two narrowly isolated TIR inheritance rules:
+The local branch from the imported binary quantum-point carrier to Pythagorean closure is now closed at the TIR axiom/model level through canonical affine construction, standard representation theory, minimal simplex geometry and the A5+A7 intrinsic edge-orbit symmetry rule.
 
-\[
-G_1:\ A1\ \text{minimality propagates to the primitive relation-law signature},
-\]
-
-\[
-G_2:\ A3+A7\ \text{faithfully realize intrinsic oriented simplex automorphisms isometrically}.
-\]
-
-A5 occupies the arithmetic measurement layer through invariants such as `Tr(E^2)/2`. A8 acts as the consistency/context-lift layer when multiple local frames or nontrivial holonomy are compared.
-
-## Global geometry boundary
-
-For a regular tetrahedron
-
-\[
-\theta_T=\arccos(1/3),
-\qquad
-5\theta_T<2\pi<6\theta_T.
-\]
-
-The tetrahedron is used as a minimal local frame rather than as a pure regular-tetrahedral Euclidean honeycomb. Global refinement, curvature, holonomy, torsion sectors and the TIR x Time spacetime join remain downstream.
+The upstream first-distinction construction remains parent TIR provenance. Global triangulation, curvature, holonomy, torsion sectors, physical scale calibration and the TIR x Time spacetime join remain downstream programmes.
 
 ## Current surfaces
 
-- `RESEARCH_SPINE_V0_6.md`
-- `foundations/QUANTUM_POINT_AFFINE_SPATIAL_CARRIER_V0_1.md`
-- `foundations/QUANTUM_RELATION_AFFINE_TORSOR_V0_1.md`
-- `foundations/A1_A3_SOURCE_MINIMALITY_NATURALITY_V0_1.md`
-- `foundations/MINIMAL_SIMPLEX_MAXIMAL_SYMMETRY_V0_1.md`
+- `RESEARCH_SPINE_V0_8.md`
+- `foundations/CANONICAL_SPATIAL_RELATION_EXTRACTION_V0_1.md`
+- `foundations/A5_A7_SIMPLEX_EDGE_ORBIT_REGULARITY_V0_1.md`
 - `foundations/UNLABELED_SIMPLEX_AUTOMORPHISM_REGULARITY_V0_1.md`
 - `foundations/LOCAL_EUCLIDEAN_PYTHAGOREAN_CLOSURE_V0_1.md`
+- `validation/space_of_geometry_spine_v0_8.py`
 - deterministic validation under `validation/`
 
-TIR remains the parent Source of Truth for the primitive axioms, first-distinction theorem, quantum-point carrier and spatial closure crosslinks.
+TIR remains the parent Source of Truth for the primitive axioms, first-distinction theorem and binary quantum carrier.
