@@ -68,6 +68,7 @@ jobs:
         run: |
           set -euo pipefail
           test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_3.md
+          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_4.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_POINT_AFFINE_SPATIAL_CARRIER_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/RELATIONAL_STATE_DIFFERENCE_UNIQUENESS_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_RELATION_AFFINE_TORSOR_V0_1.md
