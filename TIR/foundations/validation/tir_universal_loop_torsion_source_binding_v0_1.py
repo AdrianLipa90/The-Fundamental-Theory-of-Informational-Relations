@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic gate for TIR Universal-Loop translational-holonomy source binding v0.1."""
+"""Deterministic gate for TIR Universal-Loop discrete torsion source binding v0.1."""
 from __future__ import annotations
 
 import json
@@ -94,6 +94,18 @@ def endpoint_defect(rxy, exy, eyz, exz):
     return vs(exz, va(exy, mv(rxy, eyz)))
 
 
+def reverse_edge_vector(r_forward, e_forward):
+    """For forward target<-source edge, return reversed displacement in source frame."""
+    r_reverse = transpose(r_forward)
+    return vn(mv(r_reverse, e_forward))
+
+
+def discrete_solder_torsion_vector(rxy, rxz, exy, eyz, exz):
+    """vec(T_xyz)=e_xy+R_xy e_yz+R_xz e_zx in the x frame."""
+    ezx = reverse_edge_vector(rxz, exz)
+    return va(va(exy, mv(rxy, eyz)), mv(rxz, ezx))
+
+
 def triangle_loop(gxy, gyz, gxz):
     return se3_mul(se3_mul(gxy, gyz), se3_inverse(gxz))
 
@@ -120,14 +132,22 @@ def check_triangle(rxy, ryz, exy, eyz, exz):
     gyz = connection_edge(ryz, eyz)
     gxz = connection_edge(rxz, exz)
     c = endpoint_defect(rxy, exy, eyz, exz)
+    torsion = discrete_solder_torsion_vector(rxy, rxz, exy, eyz, exz)
     loop = triangle_loop(gxy, gyz, gxz)
     return {
         "rxz": rxz,
         "c": c,
+        "torsion": torsion,
         "loop": loop,
         "rotation_error": maxm(loop[0], I3),
         "translation_identity_error": maxv(loop[1], vn(c)),
-        "norm_identity_error": abs(norm(loop[1]) - norm(c)),
+        "torsion_endpoint_error": maxv(torsion, vn(c)),
+        "torsion_loop_error": maxv(torsion, loop[1]),
+        "norm_identity_error": max(
+            abs(norm(loop[1]) - norm(c)),
+            abs(norm(torsion) - norm(c)),
+            abs(norm(torsion) - norm(loop[1])),
+        ),
     }
 
 
@@ -153,19 +173,34 @@ def main():
         "max_error": tri["translation_identity_error"],
     })
     checks.append({
-        "name": "translational_witness_norm_identity",
-        "pass": tri["norm_identity_error"] < TOL and norm(tri["c"]) > 1e-6,
+        "name": "discrete_solder_torsion_equals_negative_endpoint_defect",
+        "pass": tri["torsion_endpoint_error"] < TOL,
+        "max_error": tri["torsion_endpoint_error"],
+    })
+    checks.append({
+        "name": "loop_translation_equals_discrete_solder_torsion",
+        "pass": tri["torsion_loop_error"] < TOL,
+        "max_error": tri["torsion_loop_error"],
+    })
+    checks.append({
+        "name": "torsion_source_norm_identity",
+        "pass": tri["norm_identity_error"] < TOL and norm(tri["torsion"]) > 1e-6,
         "max_error": tri["norm_identity_error"],
         "tau": norm(tri["loop"][1]),
     })
 
-    # Exact zero-defect connection triangle.
+    # Exact zero-defect / zero-torsion connection triangle.
     exz_zero = va(exy, mv(rxy, eyz))
     zero = check_triangle(rxy, ryz, exy, eyz, exz_zero)
+    zero_error = max(
+        loop_identity_error(zero["loop"]),
+        norm(zero["c"]),
+        norm(zero["torsion"]),
+    )
     checks.append({
-        "name": "zero_endpoint_defect_gives_identity_loop",
-        "pass": loop_identity_error(zero["loop"]) < TOL and norm(zero["c"]) < TOL,
-        "max_error": max(loop_identity_error(zero["loop"]), norm(zero["c"])),
+        "name": "zero_endpoint_defect_gives_zero_torsion_identity_loop",
+        "pass": zero_error < TOL,
+        "max_error": zero_error,
     })
 
     # Independent local vector-frame covariance.
@@ -180,13 +215,19 @@ def main():
     gyz_p = frame_transform_edge(gyz, qy, qz)
     gxz_p = frame_transform_edge(gxz, qx, qz)
     c_p = endpoint_defect(gxy_p[0], gxy_p[1], gyz_p[1], gxz_p[1])
+    torsion_p = discrete_solder_torsion_vector(
+        gxy_p[0], gxz_p[0], gxy_p[1], gyz_p[1], gxz_p[1]
+    )
     loop_p = triangle_loop(gxy_p, gyz_p, gxz_p)
     expected_c_p = mv(qx, tri["c"])
-    expected_t_p = mv(qx, tri["loop"][1])
+    expected_torsion_p = mv(qx, tri["torsion"])
+    expected_loop_t_p = mv(qx, tri["loop"][1])
     covariance_error = max(
         maxv(c_p, expected_c_p),
-        maxv(loop_p[1], expected_t_p),
+        maxv(torsion_p, expected_torsion_p),
+        maxv(loop_p[1], expected_loop_t_p),
         abs(norm(c_p) - norm(tri["c"])),
+        abs(norm(torsion_p) - norm(tri["torsion"])),
         abs(norm(loop_p[1]) - norm(tri["loop"][1])),
     )
     checks.append({
@@ -208,18 +249,22 @@ def main():
     g_ac = atlas_edge(q_a, r_a, q_c, r_c)
     atlas_composed = se3_mul(g_ab, g_bc)
     atlas_loop = triangle_loop(g_ab, g_bc, g_ac)
+    atlas_torsion = discrete_solder_torsion_vector(
+        g_ab[0], g_ac[0], g_ab[1], g_bc[1], g_ac[1]
+    )
     atlas_error = max(
         maxm(atlas_composed[0], g_ac[0]),
         maxv(atlas_composed[1], g_ac[1]),
         loop_identity_error(atlas_loop),
+        norm(atlas_torsion),
     )
     checks.append({
-        "name": "pure_atlas_coboundary_baseline",
+        "name": "pure_atlas_coboundary_zero_torsion_baseline",
         "pass": atlas_error < TOL,
         "max_error": atlas_error,
     })
 
-    # Deterministic randomized family: prescribed defect must be the negative loop translation.
+    # Deterministic randomized family: prescribed defect maps to solder torsion and loop translation.
     rng = random.Random(20260829)
     randomized_max = 0.0
     randomized_min_tau = float("inf")
@@ -236,6 +281,8 @@ def main():
             randomized_max,
             sample["rotation_error"],
             sample["translation_identity_error"],
+            sample["torsion_endpoint_error"],
+            sample["torsion_loop_error"],
             sample["norm_identity_error"],
         )
         randomized_min_tau = min(randomized_min_tau, norm(sample["loop"][1]))
@@ -260,12 +307,17 @@ def main():
             "translation": "e_xy = vec(E_xy)",
             "connection_edge": "G_xy = (R_xy,e_xy)",
             "endpoint_defect": "c_xyz = e_xz-(e_xy+R_xy e_yz)",
-            "loop_identity": "t_C = -c_xyz on R_xz=R_xy R_yz",
-            "scalar_witness": "tau_C = ||t_C|| = ||c_xyz||",
+            "discrete_solder_torsion": "vec(T_xyz) = -c_xyz",
+            "loop_identity": "t_C = vec(T_xyz) = -c_xyz on R_xz=R_xy R_yz",
+            "scalar_witness": "tau_C = ||t_C|| = ||vec(T_xyz)|| = ||c_xyz||",
         },
-        "pure_atlas_baseline": "PASS" if next(c for c in checks if c["name"] == "pure_atlas_coboundary_baseline")["pass"] else "FAIL",
-        "discrete_translational_holonomy_source": "PASS" if passed else "FAIL",
-        "continuum_coframe_correspondence": "DOWNSTREAM_GATE",
+        "pure_atlas_baseline": (
+            "PASS"
+            if next(c for c in checks if c["name"] == "pure_atlas_coboundary_zero_torsion_baseline")["pass"]
+            else "FAIL"
+        ),
+        "discrete_torsion_source_binding": "PASS" if passed else "FAIL",
+        "continuum_refining_family_correspondence": "DOWNSTREAM_GATE",
         "checks": checks,
     }
     print(json.dumps(receipt, indent=2, sort_keys=True))
