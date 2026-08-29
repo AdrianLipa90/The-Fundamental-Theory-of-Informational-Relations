@@ -20,6 +20,11 @@ XF-4 resolves the XF-3 density condition to the pointwise Wiener--Laguerre
 scalar Q_Xi(x,y). The identity Q_Xi=Fourier(Phi_{2,y}) and the equivalence
 between L1 translation density and global strict positivity are STANDARD.
 Actual strict positivity for every real x and every 0<|y|<1/2 remains OPEN.
+
+XF-5 identifies 2*Q_Xi with the transverse y-curvature of |Xi|^2 and links
+strict curvature in the critical strip to the classical Xi growth criterion.
+The curvature identity is EXACT; global strict convexity retains the same OPEN
+RH-equivalent status as the XF-4 positivity condition.
 """
 from __future__ import annotations
 
@@ -149,6 +154,13 @@ HALF_AXIS_RULES = (
     Rule(("phi2y_fourier_equals_xi_wiener_laguerre_scalar",), "xi_wiener_laguerre_strict_positivity", ClaimStatus.OPEN, "XF-4 global condition Q_Xi(x,y)>0 for all real x and every 0<|y|<1/2"),
     Rule(("phi2y_translation_density_condition", "phi2y_fourier_equals_xi_wiener_laguerre_scalar"), "xi_wiener_laguerre_strict_positivity", ClaimStatus.STANDARD, "Wiener L1 theorem plus Q_Xi(0,y)>0 fixes the nonvanishing transform sign"),
     Rule(("xi_wiener_laguerre_strict_positivity", "phi2y_fourier_equals_xi_wiener_laguerre_scalar"), "phi2y_translation_density_condition", ClaimStatus.STANDARD, "Q_Xi=Fourier(Phi_{2,y}) is everywhere nonzero; Wiener L1 translation theorem"),
+    Rule(("xi_fourier_kernel",), "xi_transverse_curvature_identity", ClaimStatus.EXACT, "XF-5: d_y^2 |Xi(x+i y)|^2 = 2 Q_Xi(x,y)"),
+    Rule(("xi_wiener_laguerre_strict_positivity", "xi_transverse_curvature_identity"), "xi_strict_transverse_convexity_critical_strip", ClaimStatus.STANDARD, "XF-5: Q_Xi>0 iff transverse curvature is strictly positive"),
+    Rule(("xi_strict_transverse_convexity_critical_strip", "xi_transverse_curvature_identity"), "xi_wiener_laguerre_strict_positivity", ClaimStatus.STANDARD, "XF-5 reverse curvature/scalar equivalence"),
+    Rule(("xi_strict_transverse_convexity_critical_strip",), "xi_vertical_growth_critical_strip", ClaimStatus.STANDARD, "evenness in y gives d_y |Xi(x+i y)|^2=0 at y=0; strict convexity gives positive growth for y>0"),
+    Rule(("xi_fourier_kernel",), "xi_vertical_growth_outer_halfplane", ClaimStatus.STANDARD, "symmetric Hadamard product closes sigma>=1 (y>=1/2)"),
+    Rule(("xi_vertical_growth_critical_strip", "xi_vertical_growth_outer_halfplane"), "xi_vertical_growth_halfplane", ClaimStatus.STANDARD, "critical-strip and outer-halfplane growth closure"),
+    Rule(("xi_vertical_growth_halfplane",), "riemann_hypothesis", ClaimStatus.STANDARD, "Hinkkanen-Lagarias / Xi growth criterion"),
 )
 
 
@@ -168,7 +180,6 @@ def solve_sigma_from_entropy() -> mp.mpf:
 def solve_sigma_from_berry_minus_one() -> mp.mpf:
     """Solve exp[-2*pi*i*(1-sigma)]=-1 for the interior branch sigma in (0,1)."""
     root = mp.findroot(lambda p: mp.im(berry_holonomy(p)), (mp.mpf("0.4"), mp.mpf("0.6")))
-    # Imaginary-part roots also occur at endpoints; retain the root whose real holonomy is -1.
     if not (0 < root < 1) or abs(berry_holonomy(root) + 1) > mp.mpf("1e-30"):
         raise RuntimeError("failed to isolate the interior -1 Berry-holonomy solution")
     return root
@@ -197,13 +208,7 @@ def kappa_from_projective_cycle(
     projective_cycles: int = 12,
     closure_period: mp.mpf | float | None = None,
 ) -> mp.mpf:
-    """Conditional Metatime normalization kappa=I/(N*C).
-
-    Arithmetic is evaluated at the caller's active mpmath precision. The
-    assignment N=12 as one information cycle is a TIR/Metatime model
-    assumption. Delaying default ``ln(2)`` and ``2*pi`` evaluation avoids
-    freezing them at import-time precision.
-    """
+    """Conditional Metatime normalization kappa=I/(N*C)."""
     n = int(projective_cycles)
     if n <= 0:
         raise ValueError("projective_cycles must be positive")
