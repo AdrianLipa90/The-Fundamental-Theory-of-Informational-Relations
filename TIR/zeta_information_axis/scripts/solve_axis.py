@@ -118,7 +118,7 @@ def build_receipt() -> dict[str, object]:
                 "xf6_transverse_mass_center_dominance": "CONDITIONAL_EXACT",
                 "xf6_transverse_mass_strict_abs_b_decay": "CONDITIONAL_EXACT",
                 "xf6_slice_gaussian_mass_envelope": "CONDITIONAL_STANDARD",
-                "xf6_global_core_tail_domination": "OPEN_RH_EQUIVALENT_ROUTE",
+                "xf6_global_core_tail_domination": "OPEN_SUFFICIENT_ROUTE",
                 "tp_infinity_laguerre_polya": "OPEN",
                 "phi2y_translation_density_condition": "OPEN_RH_EQUIVALENT_CRITERION",
                 "phi2y_bounded_convolution_annihilator_condition": "OPEN_RH_EQUIVALENT_CRITERION",
