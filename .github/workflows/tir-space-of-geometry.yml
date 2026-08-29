@@ -30,16 +30,35 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Audit Space of Geometry spine
+      - name: Audit Space of Geometry v0.2 spine
         shell: bash
         run: |
           set -euo pipefail
-          python3 TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_1.py | tee space_of_geometry_spine_receipt.json
-          grep -q '"technical_status": "PASS"' space_of_geometry_spine_receipt.json
-          grep -q '"endpoint": "PYTHAGOREAN_CLOSURE"' space_of_geometry_spine_receipt.json
-          grep -q '"spatial_promotion_derived": false' space_of_geometry_spine_receipt.json
-          grep -q '"continuum_refinement_derived": false' space_of_geometry_spine_receipt.json
-          grep -q '"tetrahedral_information_space_identification_derived": false' space_of_geometry_spine_receipt.json
+          python3 TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_2.py | tee space_of_geometry_spine_v0_2_receipt.json
+          grep -q '"technical_status": "PASS"' space_of_geometry_spine_v0_2_receipt.json
+          grep -q '"endpoint": "PYTHAGOREAN_CLOSURE"' space_of_geometry_spine_v0_2_receipt.json
+          grep -q '"core_open_gate": "DERIVE_SPATIAL_REALIZATION_CRITERION_FROM_TIR_AXIOMS"' space_of_geometry_spine_v0_2_receipt.json
+          grep -q '"global_refinement": "DOWNSTREAM_GEOMETRY_PROGRAMME"' space_of_geometry_spine_v0_2_receipt.json
+
+      - name: Audit spatial promotion uniqueness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/spatial_promotion_uniqueness_v0_1.py | tee spatial_promotion_uniqueness_receipt.json
+          grep -q '"technical_status": "PASS"' spatial_promotion_uniqueness_receipt.json
+          grep -q '"minimal_faithful_real_dimension": 3' spatial_promotion_uniqueness_receipt.json
+          grep -q '"promotion_status": "CONDITIONAL_UNIQUENESS_UP_TO_ORTHOGONAL_EQUIVALENCE_AND_SCALE"' spatial_promotion_uniqueness_receipt.json
+          grep -q '"remaining_gate": "DERIVE_SPATIAL_REALIZATION_CRITERION_FROM_TIR_AXIOMS"' spatial_promotion_uniqueness_receipt.json
+
+      - name: Audit local Euclidean and Pythagorean closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/local_euclidean_pythagorean_closure_v0_1.py | tee local_euclidean_pythagorean_receipt.json
+          grep -q '"technical_status": "PASS"' local_euclidean_pythagorean_receipt.json
+          grep -q '"endpoint": "PYTHAGOREAN_CLOSURE"' local_euclidean_pythagorean_receipt.json
+          grep -q '"regular_tetrahedron_role": "MINIMAL_LOCAL_ISOTROPIC_CELL"' local_euclidean_pythagorean_receipt.json
+          grep -q '"status": "DEFICIT_AT_5_EXCESS_AT_6"' local_euclidean_pythagorean_receipt.json
 
       - name: Verify subrepo surfaces
         shell: bash
@@ -47,13 +66,22 @@ jobs:
           set -euo pipefail
           test -s TIR/subrepos/the-space-of-geometry/README.md
           test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_2.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/SPATIAL_PROMOTION_UNIQUENESS_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/LOCAL_EUCLIDEAN_PYTHAGOREAN_CLOSURE_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/paper/PAPER_OUTLINE_V0_1.md
-          test -s TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_1.py
+          test -s TIR/subrepos/the-space-of-geometry/paper/PAPER_OUTLINE_V0_2.md
+          test -s TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_2.py
+          test -s TIR/subrepos/the-space-of-geometry/validation/spatial_promotion_uniqueness_v0_1.py
+          test -s TIR/subrepos/the-space-of-geometry/validation/local_euclidean_pythagorean_closure_v0_1.py
 
-      - name: Upload receipt
+      - name: Upload receipts
         uses: actions/upload-artifact@v4
         with:
           name: tir-space-of-geometry-${{ github.sha }}
           if-no-files-found: error
           retention-days: 30
-          path: space_of_geometry_spine_receipt.json
+          path: |
+            space_of_geometry_spine_v0_2_receipt.json
+            spatial_promotion_uniqueness_receipt.json
+            local_euclidean_pythagorean_receipt.json
