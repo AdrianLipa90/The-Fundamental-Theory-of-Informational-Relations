@@ -41,18 +41,33 @@ jobs:
           grep -q '"endpoint_closure_automatic_under_bridge": true' quantum_point_affine_spatial_carrier_receipt.json
           grep -q '"remaining_gate": "RELATION_AS_CANONICAL_QUANTUM_STATE_DIFFERENCE"' quantum_point_affine_spatial_carrier_receipt.json
 
+      - name: Audit relational state-difference uniqueness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/relational_state_difference_uniqueness_v0_1.py | tee relational_state_difference_uniqueness_receipt.json
+          grep -q '"technical_status": "PASS"' relational_state_difference_uniqueness_receipt.json
+          grep -q '"exact_result": "D(rho_x,rho_y)=lambda*(rho_y-rho_x)"' relational_state_difference_uniqueness_receipt.json
+          grep -q '"uniqueness": "UP_TO_NONZERO_GLOBAL_SCALE_AND_ORIENTATION"' relational_state_difference_uniqueness_receipt.json
+          grep -q '"commutant_dimension": 1' relational_state_difference_uniqueness_receipt.json
+          grep -q '"canonical_bloch_pauli_normalization": "lambda=2"' relational_state_difference_uniqueness_receipt.json
+
       - name: Verify v0.3 surfaces
         shell: bash
         run: |
           set -euo pipefail
           test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_3.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_POINT_AFFINE_SPATIAL_CARRIER_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/RELATIONAL_STATE_DIFFERENCE_UNIQUENESS_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/validation/quantum_point_affine_spatial_carrier_v0_1.py
+          test -s TIR/subrepos/the-space-of-geometry/validation/relational_state_difference_uniqueness_v0_1.py
 
-      - name: Upload receipt
+      - name: Upload receipts
         uses: actions/upload-artifact@v4
         with:
           name: tir-space-of-geometry-affine-${{ github.sha }}
           if-no-files-found: error
           retention-days: 30
-          path: quantum_point_affine_spatial_carrier_receipt.json
+          path: |
+            quantum_point_affine_spatial_carrier_receipt.json
+            relational_state_difference_uniqueness_receipt.json
