@@ -37,7 +37,7 @@ MANUSCRIPT_TOKENS = (
     r"\mathcal R_{\rm phys}",
     r"\frac9{25}+\frac{16}{25}=1",
     "Theorem T1: minimal finite full-dimensional support",
-    "Theorem Q: independent tetrahedral informational convergence",
+    "Theorem Q: tetrahedral informational convergence",
 )
 
 
