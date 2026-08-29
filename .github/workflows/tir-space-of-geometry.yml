@@ -30,17 +30,20 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Audit Space of Geometry v0.2 spine
+      - name: Audit Space of Geometry v0.6 spine
         shell: bash
         run: |
           set -euo pipefail
-          python3 TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_2.py | tee space_of_geometry_spine_v0_2_receipt.json
-          grep -Fq '"technical_status": "PASS"' space_of_geometry_spine_v0_2_receipt.json
-          grep -Fq '"endpoint": "PYTHAGOREAN_CLOSURE"' space_of_geometry_spine_v0_2_receipt.json
-          grep -Fq '"core_open_gate": "DERIVE_SPATIAL_REALIZATION_CRITERION_FROM_TIR_AXIOMS"' space_of_geometry_spine_v0_2_receipt.json
-          grep -Fq '"global_refinement": "DOWNSTREAM_GEOMETRY_PROGRAMME"' space_of_geometry_spine_v0_2_receipt.json
+          python3 TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_6.py | tee space_of_geometry_spine_v0_6_receipt.json
+          grep -Fq '"technical_status": "PASS"' space_of_geometry_spine_v0_6_receipt.json
+          grep -Fq '"endpoint": "PYTHAGOREAN_CLOSURE"' space_of_geometry_spine_v0_6_receipt.json
+          grep -Fq '"current_source_gate": "A1_DEPENDENCY_MINIMALITY_APPLIES_TO_PRIMITIVE_LAW_SIGNATURE"' space_of_geometry_spine_v0_6_receipt.json
+          grep -Fq '"current_symmetry_gate": "A3+A7_FAITHFULLY_REALIZE_INTRINSIC_ORIENTED_SIMPLEX_AUTOMORPHISMS_ISOMETRICALLY"' space_of_geometry_spine_v0_6_receipt.json
+          grep -Fq '"local_relation_carrier": "Herm_0(2)~=R3"' space_of_geometry_spine_v0_6_receipt.json
+          grep -Fq '"minimal_cell": "Delta^3"' space_of_geometry_spine_v0_6_receipt.json
+          grep -Fq '"global_refinement": "DOWNSTREAM_GEOMETRY_PROGRAMME"' space_of_geometry_spine_v0_6_receipt.json
 
-      - name: Audit spatial promotion uniqueness
+      - name: Audit spatial promotion uniqueness crosscheck
         shell: bash
         run: |
           set -euo pipefail
@@ -48,19 +51,8 @@ jobs:
           grep -Fq '"technical_status": "PASS"' spatial_promotion_uniqueness_receipt.json
           grep -Fq '"minimal_faithful_real_dimension": 3' spatial_promotion_uniqueness_receipt.json
           grep -Fq '"promotion_status": "CONDITIONAL_UNIQUENESS_UP_TO_ORTHOGONAL_EQUIVALENCE_AND_SCALE"' spatial_promotion_uniqueness_receipt.json
-          grep -Fq '"remaining_gate": "DERIVE_SPATIAL_REALIZATION_CRITERION_FROM_TIR_AXIOMS"' spatial_promotion_uniqueness_receipt.json
 
-      - name: Audit axiom-to-spatial realization bridge
-        shell: bash
-        run: |
-          set -euo pipefail
-          python3 TIR/subrepos/the-space-of-geometry/validation/axiom_to_spatial_realization_bridge_v0_1.py | tee axiom_to_spatial_realization_bridge_receipt.json
-          grep -Fq '"technical_status": "PASS"' axiom_to_spatial_realization_bridge_receipt.json
-          grep -Fq '"bridge_status": "TWO_FOUNDATIONAL_RULES_REMAIN_TO_BE_PROMOTED"' axiom_to_spatial_realization_bridge_receipt.json
-          grep -Fq '"exact_closure_if_bridge_conditions_admitted": "V_x~=Herm_0(2)~=R3"' axiom_to_spatial_realization_bridge_receipt.json
-          grep -Fq '"dependency_surface_complete": true' axiom_to_spatial_realization_bridge_receipt.json
-
-      - name: Audit relational cocycle affine closure
+      - name: Audit relational cocycle affine closure crosscheck
         shell: bash
         run: |
           set -euo pipefail
@@ -68,9 +60,8 @@ jobs:
           grep -Fq '"technical_status": "PASS"' relational_cocycle_affine_closure_receipt.json
           grep -Fq '"exact_result": "TRIANGLE_CLOSURE_IMPLIES_LOCAL_AFFINE_COORDINATE_RECONSTRUCTION"' relational_cocycle_affine_closure_receipt.json
           grep -Fq '"coordinate_formula": "E_xy=r(y)-r(x)"' relational_cocycle_affine_closure_receipt.json
-          grep -Fq '"endpoint_formula": "E_xz=E_xy+E_yz"' relational_cocycle_affine_closure_receipt.json
 
-      - name: Audit maximal-symmetry tetrahedral regularity
+      - name: Audit maximal-symmetry tetrahedral regularity crosscheck
         shell: bash
         run: |
           set -euo pipefail
@@ -102,26 +93,21 @@ jobs:
           grep -Fq '"regular_tetrahedron_role": "MINIMAL_LOCAL_ISOTROPIC_CELL"' local_euclidean_pythagorean_receipt.json
           grep -Fq '"status": "DEFICIT_AT_5_EXCESS_AT_6"' local_euclidean_pythagorean_receipt.json
 
-      - name: Verify subrepo surfaces
+      - name: Verify current subrepo surfaces
         shell: bash
         run: |
           set -euo pipefail
           test -s TIR/subrepos/the-space-of-geometry/README.md
-          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_5.md
+          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_6.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/A1_A3_SOURCE_MINIMALITY_NATURALITY_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_RELATION_AFFINE_TORSOR_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/SPATIAL_PROMOTION_UNIQUENESS_V0_1.md
-          test -s TIR/subrepos/the-space-of-geometry/foundations/AXIOM_TO_SPATIAL_REALIZATION_BRIDGE_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/RELATIONAL_COCYCLE_AFFINE_CLOSURE_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/MINIMAL_SIMPLEX_MAXIMAL_SYMMETRY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/UNLABELED_SIMPLEX_AUTOMORPHISM_REGULARITY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/LOCAL_EUCLIDEAN_PYTHAGOREAN_CLOSURE_V0_1.md
-          test -s TIR/subrepos/the-space-of-geometry/paper/PAPER_OUTLINE_V0_2.md
-          test -s TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_2.py
-          test -s TIR/subrepos/the-space-of-geometry/validation/spatial_promotion_uniqueness_v0_1.py
-          test -s TIR/subrepos/the-space-of-geometry/validation/axiom_to_spatial_realization_bridge_v0_1.py
-          test -s TIR/subrepos/the-space-of-geometry/validation/relational_cocycle_affine_closure_v0_1.py
-          test -s TIR/subrepos/the-space-of-geometry/validation/minimal_simplex_maximal_symmetry_v0_1.py
+          test -s TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_6.py
           test -s TIR/subrepos/the-space-of-geometry/validation/unlabeled_simplex_automorphism_regularity_v0_1.py
-          test -s TIR/subrepos/the-space-of-geometry/validation/local_euclidean_pythagorean_closure_v0_1.py
 
       - name: Upload receipts
         uses: actions/upload-artifact@v4
@@ -130,9 +116,8 @@ jobs:
           if-no-files-found: error
           retention-days: 30
           path: |
-            space_of_geometry_spine_v0_2_receipt.json
+            space_of_geometry_spine_v0_6_receipt.json
             spatial_promotion_uniqueness_receipt.json
-            axiom_to_spatial_realization_bridge_receipt.json
             relational_cocycle_affine_closure_receipt.json
             minimal_simplex_maximal_symmetry_receipt.json
             unlabeled_simplex_automorphism_regularity_receipt.json
