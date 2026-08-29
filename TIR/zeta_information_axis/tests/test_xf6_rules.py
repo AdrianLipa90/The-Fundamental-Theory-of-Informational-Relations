@@ -3,7 +3,7 @@ from __future__ import annotations
 from critical_axis.xf6_rules import XF6_SOLVER
 
 
-def test_xf6_does_not_promote_external_log_concavity_claim() -> None:
+def test_xf6_external_log_concavity_claim_remains_open() -> None:
     closure = XF6_SOLVER.closure({"xi_fourier_kernel"})
     assert "xf6_exact_positive_curvature_corridor" in closure.facts
     assert "xi_kernel_strict_log_concavity_tp2" not in closure.facts
@@ -12,7 +12,7 @@ def test_xf6_does_not_promote_external_log_concavity_claim() -> None:
     assert "riemann_hypothesis" not in closure.facts
 
 
-def test_supplied_tp2_premise_derives_only_conditional_mass_geometry() -> None:
+def test_supplied_tp2_premise_derives_conditional_mass_geometry() -> None:
     closure = XF6_SOLVER.closure(
         {"xi_fourier_kernel", "xi_kernel_strict_log_concavity_tp2"}
     )
