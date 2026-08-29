@@ -1,125 +1,219 @@
 % !TEX root = ../metatime_monograph.tex
-\chapter{Open Problems and Falsification Ledger}
+\chapter{Completion Gates and Falsification Ledger}
 \label{ch:open_problems}
 
 % CITATION_CONTEXT_V10_9_BEGIN
 \paragraph{Established context.}
 The ledger follows falsifiability, preregistration, and reproducible
-computational practice \cite{Popper1959,Lakatos1978,Sandve2013,Wilson2014,Munafo2017,Nosek2018,Stark2018}.
+computational practice
+\cite{Popper1959,Lakatos1978,Sandve2013,Wilson2014,Munafo2017,Nosek2018,Stark2018}.
 Prospective Higgs-coupling gates are anchored to direct experimental searches
-and reference data \cite{ATLAS2022Charm,PDG2024}.  A failed frozen test is
-retained rather than repaired post hoc.
+and reference data \cite{ATLAS2022Charm,PDG2024}.  Frozen failures remain in the
+version history and in the active evidence ledger.
 % CITATION_CONTEXT_V10_9_END
 
-\section{Current physical status}
-\begin{description}
-  \item[Gauge bosons -- OPEN TENSION.] The frozen relations overshoot the quoted
-  $W$ and $Z$ masses by approximately $4.5\%$ and $5.0\%$.  No
-  renormalization-group derivation is presently supplied.
+\section{Closed foundational layers}
 
-  \item[Higgs mass -- RETROSPECTIVE REVISION.] The earlier $6.3$~TeV formula
-  failed.  The replacement $M_H=v\kappa(L_3^2+L_4+L_5)$ was adopted after the
-  target value was known.  Its small percentage offset is not prospective
-  evidence, and the statement ``within $2\sigma$'' has been withdrawn.
-
-  \item[Neutron EDM -- PHYSICAL FAIL.] Correct arithmetic gives
-  $\theta_{\rm QCD}=2.2208\times10^{-10}$ and
-  $d_n=5.3299\times10^{-26}\,e\,\mathrm{cm}$, a factor $2.96$ above the bound
-  used in the manuscript.  The former value $1.82\times10^{-26}$ is superseded.
-
-  \item[Collatz quarter-power bridge -- OPEN.] The $3/4$ exponent beats the
-  declared fixed comparators but leaves a geometric-mean multiplicative error
-  $9.967$ and is not a closed charged-fermion spectrum.
-
-  \item[Common up-sector baseline -- RESTRICTED NO-GO.] A common additive shift
-  cannot repair the frozen v10.2 up-sector residuals; the unavoidable worst
-  multiplicative error is at least $4.7207104$.
-
-  \item[Separable candidate family -- PROSPECTIVE.] Exactly three candidates and
-  the orthogonal ratios $y_c/y_\mu$ and $y_c/y_t$ remain frozen for the first
-  qualifying direct post-29-July-2026 likelihoods.  No fourth candidate, refit,
-  or observable substitution is allowed.
-\end{description}
-
-\section{Methodological debts}
-\begin{enumerate}
-  \item construct a common likelihood with uncertainties and covariance rather
-  than a table of heterogeneous percentage errors;
-  \item define an effective complexity penalty for the approximately fifty
-  discrete structural choices;
-  \item specify mass, coupling, and weak-mixing-angle renormalization schemes and
-  scales before precision comparison;
-  \item derive, rather than retrospectively select, the functional forms used in
-  the Higgs, electroweak, and flavor sectors;
-  \item preserve all failed formulae and superseded arithmetic in the version
-  history.
-\end{enumerate}
-
-\section{PhaseNav--NOEMA dependency boundary}
-\label{sec:phasenav_noema_dependency_boundary}
-The v0.7 integration separates a software/structural closure from the remaining
-physical derivation debt.  The canonical PhaseNav dependency layer is bound to
-commit
-\texttt{54f65f2ca7d35cdd98f0ab8984cc1a8d74444a96}, while the NOEMA
-provenance contract is bound to commit
-\texttt{42a0a8916e81ca27f2213bf0f28538f046c2e89a}.
-These commit identities are provenance anchors, not empirical evidence.
-
-The intrinsic coefficient state remains
+The primitive information normalization is closed internally through
 \[
-  (h,a,b,c)\in\mathbb{Z}^4,
+\kappa=\frac{\ln2}{24\pi},
+\qquad
+24=3\dim_{\mathbb R}\mathfrak{su}(3)_F=3\times8.
 \]
-whereas PhaseNav transports a separate routing envelope on $T^{36}$.
-The four-dimensional coefficient lattice is therefore not identified with the
-36-dimensional phase representation.
 
-The present typed status is:
+The local spatial branch is closed through
+\[
+\mathbb C^2
+\longrightarrow
+\operatorname{Herm}_0(2)\cong\mathbb R^3
+\longrightarrow
+\text{inner-product geometry}
+\longrightarrow
+a^2+b^2=c^2.
+\]
+
+The minimal finite-cell branch gives $\Delta^3$ and, under the A5+A7 edge-orbit
+law, the regular tetrahedral frame.
+
+\section{Holonomy transport and global gluing}
+
+The connection transport family is source-bound in
+\texttt{TIR/foundations/TIR\_WIJ\_HOLONOMY\_CROSSWALK\_V0\_1.md}:
+\[
+W_{ij}^{WT}\in U(1),
+\qquad
+W_{ij}^{X}\in SU(2),
+\qquad
+W_{ij}^{c}\in SU(3).
+\]
+
+The shared structural law is path transport with reversal, composition and
+local-frame covariance.  The global cell-gluing search is assigned to GREMLIN
+as a relational-isomorphism candidate generator over
+\[
+\Delta^3
+\to\mathcal E_{ij}
+\to W_{ij}
+\to W_\gamma
+\to\text{closure defect}
+\to\text{curvature/torsion candidate}.
+\]
+
+Promotion of a gluing candidate requires a deterministic theorem or validator.
+The torsion seam is reserved for the exact Universal-Loop source binding:
+\[
+W_{ij}\text{ transport}
+\to\text{loop closure}
+\to\text{endpoint defect}
+\to\text{torsion closure}.
+\]
+
+\section{Standard-Model reconciliation}
+
+The current sector matrix is maintained in
+\texttt{TIR/standard\_model/TIR\_SM\_RECONCILIATION\_LEDGER\_V0\_1.md}.
+
 \begin{description}
-  \item[Slot-role routing -- STRUCTURAL PASS.]
-  The structural roles of the four generator slots are explicitly represented
-  and regression-gated.
+  \item[CKM -- STRONG POSTDICTION COMPATIBILITY.]
+  The PDG-2026 audit retains the CKM matrix and geometric phase as the strongest
+  current compatibility surface.  Independent evidential promotion remains tied
+  to the frozen prospective programme.
 
-  \item[Directed orbital sign -- IMPLEMENTED PROJECT RULE.]
-  The project runtime contains an executable directed-orbit convention.  This
-  is a project rule, not an externally established physical law.
+  \item[PMNS -- MIXED / REACTOR-ANGLE TENSION.]
+  The solar sector remains close to the selected reference region while the
+  structural reactor value $\sin^2\theta_{13}=1/49$ is the principal current
+  tension.
 
-  \item[Relational-gradient orientation -- IMPLEMENTED SOURCE OPERATOR / CANDIDATE TIR BINDING.]
-  The source operator exists and is executable, but its use as the physical
-  assignment rule for each TIR coefficient slot remains conditional.
+  \item[Weak angle -- STRUCTURAL RELATION / SCHEME-SCALE GATE.]
+  The frozen relation
+  \[
+  \sin^2\theta_W^{(0)}=\frac29+\kappa
+  \]
+  now carries an explicit transport target
+  \[
+  \sin^2\theta_W^{(0)}
+  \xrightarrow{\mathcal R_W(\mu,\mathrm{scheme})}
+  \sin^2\theta_W(\mu,\mathrm{scheme}).
+  \]
 
-  \item[TIR coefficient-slot binding -- OPEN.]
-  Promotion requires a prospective map from coefficient-free atomic/orbital
-  state to sign, orientation, and the recovered coefficient tuple.  Measured
-  masses, measured Yukawa couplings, and coefficient-enriched PhaseNav vectors
-  are forbidden as derivation parents.
+  \item[Gauge bosons -- TREE-LEVEL STRUCTURAL MAP / PRECISION FAIL.]
+  The active repair path is
+  \[
+  (g_0,\theta_W^{(0)},v_0)
+  \xrightarrow{\mathcal R_{EW}(\mu,\mathrm{scheme})}
+  (g(\mu),\theta_W(\mu),v(\mu))
+  \to(M_W^{\rm pole},M_Z^{\rm pole}).
+  \]
+
+  \item[Higgs -- RETROSPECTIVE STRUCTURAL RELATION.]
+  The next promotion step is a scalar-sector derivation of the active discrete
+  combination rather than a numerical correction to the mass value.
+
+  \item[Pseudoscalar mesons -- ABSOLUTE-ACTION BASELINE GATE.]
+  The printed pion and kaon exponential equations remain quarantined until the
+  missing absolute action baseline is derived from the same action/holonomy
+  framework.
+
+  \item[Strong CP / neutron EDM -- FROZEN PHYSICAL FAIL RECEIPT.]
+  The v11 relation retains its measured-bound failure.  A replacement must arise
+  upstream from the non-Abelian holonomy/topological phase branch before a new
+  numerical comparison is admitted.
 \end{description}
 
-Consequently the previous coarse statement that the whole role/orientation
-problem was open is refined: the operator vocabulary and routing structure are
-implemented, while the physical binding theorem remains open.  A PhaseNav
-vector, holonomy receipt, NOEMA memory record, or successful software regression
-cannot by itself promote an open, retrospective, or failed scientific claim.
-In particular, the Collatz stopping-orientation pattern remains a retrospective
-candidate requiring prospective validation, and the physical statuses listed
-above are unchanged.
+\section{Coefficient-forcing gate}
+\label{sec:phasenav_noema_dependency_boundary}
 
-\section{Prospective program}
+The intrinsic coefficient state is
+\[
+(h,a,b,c)\in\mathbb Z^4.
+\]
+
+The project already carries structural slot routing and executable directed and
+relational orientation operators.  The completion target is therefore the
+forcing theorem
+\[
+\boxed{
+\text{coefficient-free state + canonical framework grammar}
+\Longrightarrow
+(h,a,b,c)\text{ fixed up to a finite declared degeneracy}.
+}
+\]
+
+The parent side of this theorem is mass-free and Yukawa-free.  The
+$T^{36}$ PhaseNav carrier remains the routing/holonomy envelope rather than an
+additional source of coefficient values.
+
+\section{Negative-inverse zeta closure}
+
+The current TIR--Secret-of-a-Half interface uses
+\[
+\Omega(s)=\frac{s}{1-s},
+\qquad
+z_L(s)=1-\frac1s=-\frac1{\Omega(s)}.
+\]
+
+The local critical-axis identity is
+\[
+\Re s=\frac12
+\iff |z_L(s)|=1.
+\]
+
+The global-domination theorem candidate in
+\texttt{TIR/interfaces/TIR\_SOH\_GLOBAL\_LI\_DOMINATION\_BRIDGE\_V0\_1.md}
+uses the radial variable
+\[
+r_\rho=\max\{|z_L(\rho)|,|z_L(\rho)|^{-1}\}.
+\]
+
+Since
+\[
+|z_L(\beta+i\gamma)|^2
+=1+\frac{1-2\beta}{\beta^2+\gamma^2},
+\]
+one has $r_\rho\to1$ as $|\gamma|\to\infty$.  An off-axis zero therefore
+creates a finite extremal radial shell.  Simultaneous recurrence of its finite
+set of phases and the strict radial gap to the remainder give, under the
+standard symmetric Li representation and classical zero-counting estimate,
+\[
+\boxed{
+\exists\rho:\Re\rho\ne\frac12
+\Longrightarrow
+\lambda_n<0\quad\text{for infinitely many }n.
+}
+\]
+
+The remaining promotion gate is the framework-side positivity/native-closure
+statement
+\[
+\boxed{
+\text{complete arithmetic/native closure}
+\Longrightarrow
+\lambda_n\ge0\quad\forall n.
+}
+\]
+
+This is now the principal analytic theorem target of the half-axis programme.
+
+\section{Remaining completion order}
+
+The current order is:
 \begin{enumerate}
-  \item evaluate the three frozen v10.7 candidates on the named direct
-  charm--muon and charm--top Higgs-coupling likelihoods using a
-  multiplicity-aware rule;
-  \item derive receiver-independent or externally reproducible tests for any
-  additional TIR/NOEMA claims before using them as physical evidence;
-  \item produce an RG-consistent electroweak comparison with matched schemes;
-  \item preregister any new mass formula before comparing it with the target
-  spectrum;
-  \item treat the current neutron-EDM formula as failed unless a new version
-  supplies an independently motivated uncertainty model or replacement before
-  inspecting a new result;
-  \item validate prospectively the coefficient-free PhaseNav assignment map
-  before interpreting the implemented role/orientation operators as a physical
-  TIR binding.
+  \item bind the exact Universal-Loop torsion source to the typed $W_{ij}$ seam;
+  \item promote any valid GREMLIN gluing candidate through deterministic proof
+  and validation;
+  \item extract the coefficient-forcing theorem;
+  \item derive the Standard-Model running/action maps listed above and rerun the
+  frozen 2026 sector matrix;
+  \item close the complete Li/Weil positivity--native-closure theorem;
+  \item maintain dimensional-unit and statistical ledgers in parallel.
 \end{enumerate}
+
+\section{Reproducibility and falsification invariant}
+
+Every PASS belongs to the exact source state tested.  Physical failures and
+superseded arithmetic remain addressable through version history.  A corrected
+structural derivation enters as a new typed source and receives a fresh
+validator receipt before its empirical status changes.
 
 \vfill
 \noindent\small\textit{Repository:}
