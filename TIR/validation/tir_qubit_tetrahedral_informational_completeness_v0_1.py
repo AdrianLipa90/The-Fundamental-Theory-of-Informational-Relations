@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from fractions import Fraction
 
 Vector = tuple[int, int, int]
 TETRA: tuple[Vector, ...] = (
@@ -59,23 +60,20 @@ def tetra_geometry_certificate() -> dict[str, object]:
 
 
 def sic_overlap_certificate() -> dict[str, object]:
-    # For normalized tetrahedral Bloch vectors, Tr(P_a P_b)=(1+n_a.n_b)/2=(1-1/3)/2=1/3.
-    numerator = 1
-    denominator = 3
-    passed = (1 + (-1 / 3)) / 2 == numerator / denominator
+    # Exact rational form: Tr(P_a P_b)=(1+n_a.n_b)/2=(1-1/3)/2=1/3.
+    overlap = (Fraction(1, 1) + Fraction(-1, 3)) / 2
+    target = Fraction(1, 3)
     return {
-        "distinct_projector_overlap": "1/3",
+        "distinct_projector_overlap": str(overlap),
         "derivation": "(1 + (-1/3))/2",
-        "pass": passed,
+        "pass": overlap == target,
     }
 
 
 def reconstruction_certificate() -> dict[str, object]:
-    # Use rational Bloch sample r=(1/3,-1/6,1/2).
-    # For unnormalized tetra vectors v=sqrt(3)n, the normalized formula is
-    # p_a = (1 + r.n_a)/4. To keep exact arithmetic without radicals, encode q=sqrt(3) r
-    # and verify 3 sum p_a n_a = r through the equivalent integer second-moment identity.
-    # The algebraic identity reduces to sum n_a n_a^T = (4/3)I and sum n_a=0.
+    # The reconstruction identity reduces exactly to sum n_a=0 and
+    # sum n_a n_a^T=(4/3)I. The integer tetrahedral realization certifies
+    # these after the common normalization n_a=v_a/sqrt(3).
     zero_sum = vecsum(TETRA) == (0, 0, 0)
     moment = second_moment(TETRA)
     isotropic = moment == ((4, 0, 0), (0, 4, 0), (0, 0, 4))
