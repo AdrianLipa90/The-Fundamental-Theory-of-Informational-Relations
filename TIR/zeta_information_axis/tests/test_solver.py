@@ -47,12 +47,17 @@ def test_exact_closure_admits_xi_kernel_cancellation_but_keeps_open_bridges_bloc
     assert result.derives("dimitrov_xu_nu2_correlation_kernel")
     assert result.derives("xi_wronskian_nu2_fourier_identity")
     assert result.derives("phi2y_fourier_equals_xi_wiener_laguerre_scalar")
+    assert result.derives("xi_transverse_curvature_identity")
+    assert result.derives("xi_vertical_growth_outer_halfplane")
     assert not result.derives("global_kernel_branch_nondegeneracy")
     assert not result.derives("kernel_population_equals_strip_coordinate")
     assert not result.derives("all_xi_zero_kernel_population_half")
     assert not result.derives("phi2y_translation_density_condition")
     assert not result.derives("phi2y_bounded_convolution_annihilator_condition")
     assert not result.derives("xi_wiener_laguerre_strict_positivity")
+    assert not result.derives("xi_strict_transverse_convexity_critical_strip")
+    assert not result.derives("xi_vertical_growth_critical_strip")
+    assert not result.derives("xi_vertical_growth_halfplane")
     assert not result.derives("kappa_ln2_over_24pi")
     assert not result.derives("twenty_four_sector_count")
     assert not result.derives("riemann_hypothesis")
@@ -78,11 +83,13 @@ def test_model_closure_can_derive_kappa_but_never_open_rh_bridge() -> None:
     assert result.derives("dimitrov_xu_nu2_correlation_kernel")
     assert result.derives("xi_wronskian_nu2_fourier_identity")
     assert result.derives("phi2y_fourier_equals_xi_wiener_laguerre_scalar")
+    assert result.derives("xi_transverse_curvature_identity")
     assert not result.derives("global_kernel_branch_nondegeneracy")
     assert not result.derives("kernel_population_equals_strip_coordinate")
     assert not result.derives("phi2y_translation_density_condition")
     assert not result.derives("phi2y_bounded_convolution_annihilator_condition")
     assert not result.derives("xi_wiener_laguerre_strict_positivity")
+    assert not result.derives("xi_strict_transverse_convexity_critical_strip")
     assert not result.derives("riemann_hypothesis")
 
 
@@ -135,6 +142,9 @@ def test_explicit_admission_of_xf3_density_condition_closes_standard_equivalence
         {"xi_fourier_kernel", "phi2y_translation_density_condition"}
     )
     assert result.derives("xi_wiener_laguerre_strict_positivity")
+    assert result.derives("xi_strict_transverse_convexity_critical_strip")
+    assert result.derives("xi_vertical_growth_critical_strip")
+    assert result.derives("xi_vertical_growth_halfplane")
     assert result.derives("riemann_hypothesis")
     assert result.derives("phi2y_bounded_convolution_annihilator_condition")
 
@@ -156,9 +166,33 @@ def test_explicit_xf4_strict_positivity_closes_density_and_rh_equivalence() -> N
         {"xi_fourier_kernel", "xi_wiener_laguerre_strict_positivity"}
     )
     assert result.derives("phi2y_fourier_equals_xi_wiener_laguerre_scalar")
+    assert result.derives("xi_strict_transverse_convexity_critical_strip")
+    assert result.derives("xi_vertical_growth_critical_strip")
+    assert result.derives("xi_vertical_growth_halfplane")
     assert result.derives("phi2y_translation_density_condition")
     assert result.derives("riemann_hypothesis")
     assert result.derives("phi2y_bounded_convolution_annihilator_condition")
+
+
+def test_xf5_curvature_identity_is_exact_while_global_convexity_stays_open() -> None:
+    result = DEFAULT_SOLVER.closure({"xi_fourier_kernel"})
+    assert result.derives("xi_transverse_curvature_identity")
+    assert result.derives("xi_vertical_growth_outer_halfplane")
+    assert not result.derives("xi_strict_transverse_convexity_critical_strip")
+    assert not result.derives("xi_vertical_growth_critical_strip")
+    assert not result.derives("xi_vertical_growth_halfplane")
+    assert not result.derives("riemann_hypothesis")
+
+
+def test_explicit_xf5_convexity_closes_growth_route() -> None:
+    result = DEFAULT_SOLVER.closure(
+        {"xi_fourier_kernel", "xi_strict_transverse_convexity_critical_strip"}
+    )
+    assert result.derives("xi_wiener_laguerre_strict_positivity")
+    assert result.derives("xi_vertical_growth_critical_strip")
+    assert result.derives("xi_vertical_growth_outer_halfplane")
+    assert result.derives("xi_vertical_growth_halfplane")
+    assert result.derives("riemann_hypothesis")
 
 
 def test_kappa_normalization_matches_runtime_value() -> None:
