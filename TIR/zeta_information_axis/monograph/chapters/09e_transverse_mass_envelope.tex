@@ -100,7 +100,7 @@ Q_\Xi(x,y)
 =
 8\int_0^\infty\int_0^a M(a,b)L_{x,y}(a,b)\,\dd b\,\dd a.
 \]
-For $x\neq0$, split the inner integral at $r_+(x,a)$.  The core interval $0\le b\le r_+$ has the exact positive lower bound in Eq.~\eqref{eq:xf6-positive-lower}.  The complementary interval carries the oscillatory tail.  The next sufficient bound is therefore
+For $x\neq0$, split the inner integral at $r_+(x,a)$.  The core interval $0\le b\le r_+$ has the exact positive lower bound in Eq.~\eqref{eq:xf6-positive-lower}.  The complementary interval carries the oscillatory tail.  One sufficient bound is therefore
 \begin{equation}\label{eq:xf6-core-tail-frontier}
 \boxed{
 \text{positive-core lower bound}
@@ -110,7 +110,9 @@ For $x\neq0$, split the inner integral at $r_+(x,a)$.  The core interval $0\le b
 \end{equation}
 uniformly for all real $x$ and $0<|y|<1/2$ after integration in $a$.
 
-The solver records this global domination as \status{OPEN\_RH\_EQUIVALENT\_ROUTE}.  TP$_\infty$ and RH retain \status{OPEN}.
+The solver records this global domination as \status{OPEN\_SUFFICIENT\_ROUTE}.  It implies the RH-equivalent sign criterion, while the reverse implication is not part of the rule graph. TP$_\infty$ and RH retain \status{OPEN}.
+
+For fixed $a$, the certified core radius satisfies $r_+(x,a)=O(|x|^{-1})$ as $|x|\to\infty$.  Thus a global proof should preserve signed oscillatory cancellation in the tail rather than replace the entire tail by absolute values too early.  The Gaussian mass envelope is best used as a correlation-preserving weight inside such an oscillatory estimate.
 
 \section{Executable audit}
 
