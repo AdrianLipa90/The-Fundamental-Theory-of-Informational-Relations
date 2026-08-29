@@ -9,7 +9,7 @@ from pathlib import Path
 import mpmath as mp
 
 from critical_axis.solver import kappa_from_projective_cycle, solve_half_axis_routes
-from critical_axis.xf6_rules import XF6_SOLVER
+from critical_axis.xf7_rules import XF7_SOLVER
 
 
 DEFAULT_FACTS = {
@@ -30,6 +30,10 @@ DEFAULT_FACTS = {
     "xi_fourier_kernel",
 }
 
+XF7_PREPRINT_SCENARIO_FACTS = DEFAULT_FACTS | {
+    "planat_sole_second_level_concavity",
+}
+
 
 def _proof(result) -> dict[str, dict[str, object]]:
     return {
@@ -43,7 +47,7 @@ def _proof(result) -> dict[str, dict[str, object]]:
 
 
 def _missing(goal: str, facts: set[str]) -> list[dict[str, object]]:
-    candidates = XF6_SOLVER.missing_premises(goal, facts, allow_model=True)
+    candidates = XF7_SOLVER.missing_premises(goal, facts, allow_model=True)
     return [
         {
             "conclusion": rule.conclusion,
@@ -58,10 +62,14 @@ def _missing(goal: str, facts: set[str]) -> list[dict[str, object]]:
 def build_receipt() -> dict[str, object]:
     with mp.workdps(80):
         routes = solve_half_axis_routes()
-        exact = XF6_SOLVER.closure(DEFAULT_FACTS, allow_model=False)
-        model = XF6_SOLVER.closure(DEFAULT_FACTS, allow_model=True)
+        exact = XF7_SOLVER.closure(DEFAULT_FACTS, allow_model=False)
+        model = XF7_SOLVER.closure(DEFAULT_FACTS, allow_model=True)
+        xf7_conditional = XF7_SOLVER.closure(
+            XF7_PREPRINT_SCENARIO_FACTS,
+            allow_model=True,
+        )
         receipt = {
-            "schema": "tir.critical-axis.solver-receipt/v6",
+            "schema": "tir.critical-axis.solver-receipt/v7",
             "precision_decimal_digits": 80,
             "half_axis_routes": {key: mp.nstr(value, 50) for key, value in routes.items()},
             "half_axis_consensus": all(
@@ -72,6 +80,17 @@ def build_receipt() -> dict[str, object]:
             "exact_proof": _proof(exact),
             "model_closure": sorted(model.facts),
             "model_proof": _proof(model),
+            "xf7_preprint_scenario": {
+                "supplied_external_claim": "planat_sole_second_level_concavity",
+                "closure": sorted(xf7_conditional.facts),
+                "proof": _proof(xf7_conditional),
+                "riemann_hypothesis_in_closure": (
+                    "riemann_hypothesis" in xf7_conditional.facts
+                ),
+                "global_signed_core_tail_in_closure": (
+                    "xf7_global_signed_core_tail_domination" in xf7_conditional.facts
+                ),
+            },
             "kappa_conditional": mp.nstr(kappa_from_projective_cycle(), 50),
             "kappa_reference": mp.nstr(mp.log(2) / (24 * mp.pi), 50),
             "riemann_hypothesis_in_closure": "riemann_hypothesis" in model.facts,
@@ -93,11 +112,18 @@ def build_receipt() -> dict[str, object]:
             "open_xf6_core_tail_routes": _missing(
                 "xf6_global_core_tail_domination", set(model.facts)
             ),
+            "open_xf7_signed_core_tail_routes": _missing(
+                "xf7_global_signed_core_tail_domination",
+                set(xf7_conditional.facts),
+            ),
             "literature_firewall": {
                 "phase_aligned_blockwise_positivity": "EXTERNAL_NO_GO_RECORDED",
                 "phase_aligned_scope": "Planat 2026 theta-kernel decomposition; global correlated positivity remains the active route",
-                "xi_kernel_strict_log_concavity_tp2": "EXTERNAL_PREPRINT_CLAIM",
-                "xi_kernel_log_concavity_source": "Gershon v2, 29 June 2026; TP2 claim tracked as external preprint input",
+                "gershon_v2_xi_kernel_log_concavity": "EXTERNAL_PREPRINT_CLAIM",
+                "gershon_v2_scope": "direct strict log-concavity / TP2 of Phi",
+                "planat_sole_second_level_concavity": "EXTERNAL_PREPRINT_CLAIM",
+                "planat_sole_scope": "strict log-concavity of F=s'^2-s s'' for s(t)=Phi(sqrt(t)); double Turan hierarchy",
+                "xi_kernel_positive_strict_decrease": "STANDARD_EXTERNAL_THEOREM",
                 "tp_infinity_laguerre_polya": "OPEN",
             },
             "verdict": {
@@ -119,6 +145,15 @@ def build_receipt() -> dict[str, object]:
                 "xf6_transverse_mass_strict_abs_b_decay": "CONDITIONAL_EXACT",
                 "xf6_slice_gaussian_mass_envelope": "CONDITIONAL_STANDARD",
                 "xf6_global_core_tail_domination": "OPEN_SUFFICIENT_ROUTE",
+                "xi_kernel_positive_strict_decrease": "STANDARD_PASS",
+                "planat_sole_second_level_concavity": "EXTERNAL_PREPRINT_CLAIM",
+                "xf7_first_laguerre_positive_s_sqrt": "CONDITIONAL_ON_PREPRINT",
+                "xf7_b0_positive": "CONDITIONAL_EXACT",
+                "xf7_radial_log_slope_ratio_increasing": "CONDITIONAL_EXACT",
+                "xf7_tp2_crosswalk": "CONDITIONAL_EXACT",
+                "xf7_adaptive_transverse_mass_envelope": "CONDITIONAL_EXACT",
+                "xf7_signed_cosine_tail_ibp_bound": "CONDITIONAL_EXACT",
+                "xf7_global_signed_core_tail_domination": "OPEN_SUFFICIENT_ROUTE",
                 "tp_infinity_laguerre_polya": "OPEN",
                 "phi2y_translation_density_condition": "OPEN_RH_EQUIVALENT_CRITERION",
                 "phi2y_bounded_convolution_annihilator_condition": "OPEN_RH_EQUIVALENT_CRITERION",
