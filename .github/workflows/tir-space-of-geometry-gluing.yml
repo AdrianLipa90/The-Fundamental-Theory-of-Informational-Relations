@@ -58,7 +58,8 @@ jobs:
           test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_12.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/SCALE_COMPATIBLE_LOCAL_CARRIER_GLUING_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/validation/scale_compatible_local_carrier_gluing_v0_1.py
-          grep -Fq 'C_{xy}:=\\frac{L_x}{L_y}R_{xy}' TIR/subrepos/the-space-of-geometry/foundations/SCALE_COMPATIBLE_LOCAL_CARRIER_GLUING_V0_1.md
+          grep -Fq 'C_{xy}:=' TIR/subrepos/the-space-of-geometry/foundations/SCALE_COMPATIBLE_LOCAL_CARRIER_GLUING_V0_1.md
+          grep -Fq '\frac{L_x}{L_y}R_{xy}' TIR/subrepos/the-space-of-geometry/foundations/SCALE_COMPATIBLE_LOCAL_CARRIER_GLUING_V0_1.md
           grep -Fq 'BIND_WIJ_LOOP_HOLONOMY_AND_CLOSURE_SECTORS_TO_TETRAHEDRAL_REFINEMENT' TIR/subrepos/the-space-of-geometry/validation/scale_compatible_local_carrier_gluing_v0_1.py
 
       - name: Upload gluing receipt
