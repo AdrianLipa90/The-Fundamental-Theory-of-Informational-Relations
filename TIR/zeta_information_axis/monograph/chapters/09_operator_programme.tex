@@ -1,82 +1,36 @@
-\chapter{Operator, Kernel, and Spectral Realization Programme}
-\label{ch:operator}
+\chapter{Operator programme and Hilbert--Polya route}\label{ch:operator}
 
-\section{Hilbert--Pólya criterion}
-A standard sufficient route to the Riemann hypothesis is to construct a self-adjoint operator $\widehat H$ whose spectrum consists of the ordinates of the nontrivial zeros. In its cleanest form, one seeks a relation such as
-\begin{equation}
-D(E)=C(E)\,\xi\!\left(\frac12+iE\right),
-\label{eq:spectral-det}
-\end{equation}
-where $D(E)$ is a spectral determinant of $\widehat H$ and $C(E)$ is nonzero in the relevant domain. If $\widehat H$ is self-adjoint, its eigenvalues $E$ are real. The corresponding zeros then have real part $1/2$.
+The previous chapters isolate a rigid geometric structure. This chapter explains what would be required to convert that structure into a genuine spectral theorem. The target is the Hilbert--Polya programme: construct a self-adjoint operator whose spectrum corresponds to the imaginary parts of nontrivial zeta zeros.
 
-The principal difficulty is not writing an operator with a spectrum fitted to a pre-existing list of zeros. It is constructing a natural operator whose domain, boundary conditions, self-adjointness, and determinant are derived independently from arithmetic or geometry. Berry and Keating related the smooth zero-counting function to the semiclassical Hamiltonian $H=xp$, while Connes developed an absorption-spectrum interpretation through noncommutative geometry \cite{BerryKeating1999,Connes1999}. These are structural precedents rather than completed proofs.
+\section{Spectral target}
+A spectral realization would take the form
+\begin{equation}\label{eq:spectral-det}
+\det(E-\widehat H)=C(E)\,\Xi(E),
+\end{equation}
+where $C(E)$ is explicitly nonzero on the relevant domain. If $\widehat H$ is self-adjoint, its spectrum is real. Equation~\eqref{eq:spectral-det} would then force the zeros represented by the determinant to lie on the real $E$ axis, corresponding to the critical line in the conventional zeta variable.
 
-\section{Information-spinor operator ansatz}
-The present framework suggests a tensor-product Hilbert space
-\begin{equation}
-\mathcal H=\mathcal H_{\mathrm{arith}}\otimes\mathbb C^2,
-\end{equation}
-where the two-dimensional factor carries the complement degree of freedom. Let $\tau_x,\tau_y,\tau_z$ denote Pauli matrices acting on the complement factor. A schematic operator may be written
-\begin{equation}
-\widehat{\mathcal D}
-=\widehat H_{\mathrm{arith}}\otimes I
-+\widehat V\otimes\tau_x
-+\widehat W\otimes\tau_y
-+\widehat M\otimes\tau_z.
-\label{eq:dirac-ansatz}
-\end{equation}
-The exchange involution acts as $\tau_x$ combined with complex conjugation. The balance axis corresponds to vanishing expectation of $\tau_z$:
-\begin{equation}
-\langle\tau_z\rangle=2\sigma-1=0.
-\end{equation}
-A chiral or particle-hole type symmetry could force eigenstates at a zero to have equal complement populations.
+The central difficulty is not writing a formal differential expression. It is proving:
+\begin{enumerate}
+\item a natural Hilbert space;
+\item a dense domain;
+\item symmetry on that domain;
+\item self-adjointness or a canonical self-adjoint extension;
+\item boundary conditions with arithmetic content;
+\item a determinant or scattering relation reproducing $\Xi$ without circular input.
+\end{enumerate}
 
-This is only an architecture. To become useful, the arithmetic operators must be specified and the determinant or scattering matrix must be shown to reproduce $\xi$.
+\section{Spinor-dilation candidate}
+The information-spinor geometry suggests the schematic first-order operator
+\begin{equation}
+\widehat H_{\mathrm{trial}}
+=-i\sigma_2\left(x\frac{\dd}{\dd x}+\frac12\right)+V(x),
+\end{equation}
+where the half-density term is required by the unitary dilation representation and $V$ must encode arithmetic boundary data.
 
-\section{Positive balance penalty}
-The Shannon deficit defines a nonnegative scalar potential
-\begin{equation}
-V_S(\sigma)=\ln2-\Hbin(\sigma).
-\end{equation}
-Likewise, the phase-$\pi$ cancellation residual is
-\begin{equation}
-V_I(\sigma)=\left(\sqrt\sigma-\sqrt{1-\sigma}\right)^2.
-\end{equation}
-Both vanish uniquely at $1/2$ and agree to quadratic order. An effective transverse Hamiltonian could contain
-\begin{equation}
-\widehat H_\perp
-=-\alpha\frac{\dd^2}{\dd\sigma^2}
-+\beta V_S(\sigma)
-+\gamma V_I(\sigma),
-\end{equation}
-with suitable boundary conditions on $(0,1)$. Its ground state would be centered at $1/2$, but this alone would not prove that all zeta spectral states have zero transverse displacement. Excited transverse states generally exist. A supersymmetry, projection, topological index, or constraint would be needed to restrict the physical sector to the balanced mode.
+The algebraic operator can be motivated from the Bloch spinor structure of Chapter~\ref{ch:bloch}. The unresolved problem is to derive $V$ and the operator domain from zeta data without inserting the zeros themselves.
 
-\section{Holonomy as a boundary condition}
-The Berry connection of Chapter \ref{ch:bloch} suggests imposing a monodromy condition
-\begin{equation}
-\Psi(\phi+2\pi)=-\Psi(\phi).
-\label{eq:antiperiodic}
-\end{equation}
-Antiperiodic boundary conditions yield half-integer Fourier modes
-\begin{equation}
-\Psi_m(\phi)=e^{i(m+1/2)\phi},
-\qquad m\in\mathbb Z.
-\end{equation}
-This is a precise mechanism by which a half shift appears spectrally. The challenge is to derive the zeta real part from this half-shift rather than merely reproducing a familiar spin structure.
-
-One possible target is a transfer operator or Dirac-type operator whose Mellin exponent is shifted by the spin structure:
-\begin{equation}
-s=\frac12+iE.
-\end{equation}
-If the $1/2$ is a fixed spin-connection contribution and $E$ is the real spectrum of a self-adjoint generator, RH follows. The unresolved tasks are to identify the arithmetic evolution and prove the determinant identity \eqref{eq:spectral-det}.
-
-\section{Mellin generator and dilation}
-The classical generator of dilations is $xp$. Quantum mechanically, a symmetric realization is
-\begin{equation}
-\widehat D=\frac12(\widehat x\widehat p+\widehat p\widehat x)
-=-i\left(x\frac{\dd}{\dd x}+\frac12\right)
-\end{equation}
-on an appropriate domain. The appearance of $1/2$ here is forced by symmetric ordering and by unitarity of dilations in $L^2(\mathbb R_+,\dd x)$. Indeed, the unitary dilation group acts as
+\section{Dilation generator}
+On $L^2(\mathbb R_+,\dd x)$ define the unitary dilation group
 \begin{equation}
 (U_a f)(x)=e^{a/2}f(e^a x),
 \end{equation}
@@ -130,3 +84,4 @@ Without these items, an operator analogy remains heuristic.
 \input{chapters/09b_correlation_kernel_density}
 \input{chapters/09c_wiener_laguerre_scalar}
 \input{chapters/09d_nonlocal_transverse_curvature}
+\input{chapters/09e_transverse_mass_envelope}
