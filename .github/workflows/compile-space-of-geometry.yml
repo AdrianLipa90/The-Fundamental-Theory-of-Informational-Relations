@@ -63,6 +63,18 @@ jobs:
           grep -Fq '"exact_theorem": "PHYSICAL_RELATION_CHORD_SET_IS_RADIUS_TWO_BALL"' physical_relation_chord_realizability_receipt.json
           grep -Fq '"normalized_certificate": "3/5,4/5,1"' physical_relation_chord_realizability_receipt.json
 
+      - name: Run referee claim firewall
+        working-directory: .
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/referee_claim_firewall_v1_1.py | tee referee_claim_firewall_v1_1_receipt.json
+          grep -Fq '"technical_status": "PASS"' referee_claim_firewall_v1_1_receipt.json
+          grep -Fq '"verdict": "PASS_V1_1_REFEREE_CLAIM_FIREWALL"' referee_claim_firewall_v1_1_receipt.json
+          grep -Fq '"manuscript_scope_synchronized": true' referee_claim_firewall_v1_1_receipt.json
+          grep -Fq '"tetrahedron_dependency_into_pythagoras": false' referee_claim_firewall_v1_1_receipt.json
+          grep -Fq '"sic_dependency_into_main_endpoints": false' referee_claim_firewall_v1_1_receipt.json
+
       - name: Compile publication candidate v1.1
         shell: bash
         run: |
@@ -88,7 +100,7 @@ jobs:
           PAGES="$(pdfinfo THE_SPACE_OF_GEOMETRY_V1_1.pdf | awk '/^Pages:/ {print $2}')"
           BYTES="$(stat -c '%s' THE_SPACE_OF_GEOMETRY_V1_1.pdf)"
           SHA256="$(sha256sum THE_SPACE_OF_GEOMETRY_V1_1.pdf | awk '{print $1}')"
-          printf '{\n  "schema": "TIR_SPACE_OF_GEOMETRY_PUBLICATION_V1_1",\n  "technical_status": "PASS",\n  "source": "THE_SPACE_OF_GEOMETRY_V1_1.tex",\n  "pdf": "THE_SPACE_OF_GEOMETRY_V1_1.pdf",\n  "pages": %s,\n  "bytes": %s,\n  "sha256": "%s",\n  "dependency_verdict": "PASS_V1_1_SYNCHRONIZED_LOCAL_PROOF_GRAPH",\n  "physical_relation_domain": "RADIUS_TWO_BALL",\n  "physical_certificate": "3/5,4/5,1",\n  "endpoint": "PYTHAGOREAN_CLOSURE"\n}\n' "$PAGES" "$BYTES" "$SHA256" | tee THE_SPACE_OF_GEOMETRY_V1_1.receipt.json
+          printf '{\n  "schema": "TIR_SPACE_OF_GEOMETRY_PUBLICATION_V1_1",\n  "technical_status": "PASS",\n  "source": "THE_SPACE_OF_GEOMETRY_V1_1.tex",\n  "pdf": "THE_SPACE_OF_GEOMETRY_V1_1.pdf",\n  "pages": %s,\n  "bytes": %s,\n  "sha256": "%s",\n  "dependency_verdict": "PASS_V1_1_SYNCHRONIZED_LOCAL_PROOF_GRAPH",\n  "referee_firewall_verdict": "PASS_V1_1_REFEREE_CLAIM_FIREWALL",\n  "physical_relation_domain": "RADIUS_TWO_BALL",\n  "physical_certificate": "3/5,4/5,1",\n  "endpoint": "PYTHAGOREAN_CLOSURE"\n}\n' "$PAGES" "$BYTES" "$SHA256" | tee THE_SPACE_OF_GEOMETRY_V1_1.receipt.json
 
       - name: Upload publication artifact
         uses: actions/upload-artifact@v4
@@ -103,3 +115,4 @@ jobs:
             TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_1.pdffonts.txt
             space_of_geometry_publication_dependency_v0_3_receipt.json
             physical_relation_chord_realizability_receipt.json
+            referee_claim_firewall_v1_1_receipt.json
