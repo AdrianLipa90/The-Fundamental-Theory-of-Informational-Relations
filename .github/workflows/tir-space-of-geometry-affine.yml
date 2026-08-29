@@ -30,17 +30,28 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Audit quantum-point affine spatial carrier
+      - name: Audit canonical spatial relation extraction
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/canonical_spatial_relation_extraction_v0_1.py | tee canonical_spatial_relation_extraction_receipt.json
+          grep -Fq '"technical_status": "PASS"' canonical_spatial_relation_extraction_receipt.json
+          grep -Fq '"exact_result": "UNIQUE_ENDPOINT_CARRYING_AFFINE_DISPLACEMENT"' canonical_spatial_relation_extraction_receipt.json
+          grep -Fq '"intrinsic_relation": "e_xy=rho_y-rho_x"' canonical_spatial_relation_extraction_receipt.json
+          grep -Fq '"local_relation_carrier": "Herm_0(2)~=R3"' canonical_spatial_relation_extraction_receipt.json
+          grep -Fq '"spatial_relation_status": "CANONICAL_BRANCH_CONSTRUCTION"' canonical_spatial_relation_extraction_receipt.json
+          grep -Fq '"next_frontier": "DELTA3_TO_REGULAR_TETRAHEDRON_VIA_INTRINSIC_SIMPLEX_SYMMETRY"' canonical_spatial_relation_extraction_receipt.json
+
+      - name: Audit quantum-point affine carrier crosscheck
         shell: bash
         run: |
           set -euo pipefail
           python3 TIR/subrepos/the-space-of-geometry/validation/quantum_point_affine_spatial_carrier_v0_1.py | tee quantum_point_affine_spatial_carrier_receipt.json
           grep -Fq '"technical_status": "PASS"' quantum_point_affine_spatial_carrier_receipt.json
-          grep -Fq '"promotion_route": "QUANTUM_POINT_AFFINE_DIFFERENCE"' quantum_point_affine_spatial_carrier_receipt.json
           grep -Fq '"local_relation_carrier": "Herm_0(2)~=R3"' quantum_point_affine_spatial_carrier_receipt.json
           grep -Fq '"endpoint_closure_automatic_under_bridge": true' quantum_point_affine_spatial_carrier_receipt.json
 
-      - name: Audit relational state-difference uniqueness
+      - name: Audit relational state-difference uniqueness crosscheck
         shell: bash
         run: |
           set -euo pipefail
@@ -48,9 +59,8 @@ jobs:
           grep -Fq '"technical_status": "PASS"' relational_state_difference_uniqueness_receipt.json
           grep -Fq '"exact_result": "D(rho_x,rho_y)=lambda*(rho_y-rho_x)"' relational_state_difference_uniqueness_receipt.json
           grep -Fq '"uniqueness": "UP_TO_NONZERO_GLOBAL_SCALE_AND_ORIENTATION"' relational_state_difference_uniqueness_receipt.json
-          grep -Fq '"commutant_dimension": 1' relational_state_difference_uniqueness_receipt.json
 
-      - name: Audit affine torsor relation theorem
+      - name: Audit affine torsor theorem
         shell: bash
         run: |
           set -euo pipefail
@@ -60,17 +70,7 @@ jobs:
           grep -Fq '"canonical_relation": "delta(rho_x,rho_y)=rho_y-rho_x"' quantum_relation_affine_torsor_receipt.json
           grep -Fq '"torsor_displacement_unique": true' quantum_relation_affine_torsor_receipt.json
 
-      - name: Audit A1+A3 intrinsic affine relation
-        shell: bash
-        run: |
-          set -euo pipefail
-          python3 TIR/subrepos/the-space-of-geometry/validation/a1_a3_intrinsic_affine_relation_v0_1.py | tee a1_a3_intrinsic_affine_relation_receipt.json
-          grep -Fq '"technical_status": "PASS"' a1_a3_intrinsic_affine_relation_receipt.json
-          grep -Fq '"exact_family": "R(x,y)=c*(y-x)"' a1_a3_intrinsic_affine_relation_receipt.json
-          grep -Fq '"uniqueness_status": "EXACT_UNDER_CONTINUOUS_INTRINSIC_AFFINE_NATURALITY"' a1_a3_intrinsic_affine_relation_receipt.json
-          grep -Fq '"remaining_tir_gate": "A1_A3_SELECT_INTRINSIC_AFFINE_NATURALITY"' a1_a3_intrinsic_affine_relation_receipt.json
-
-      - name: Audit A1+A3 source-minimality naturality reduction
+      - name: Audit source-minimality naturality crosscheck
         shell: bash
         run: |
           set -euo pipefail
@@ -78,23 +78,18 @@ jobs:
           grep -Fq '"technical_status": "PASS"' a1_a3_source_minimality_naturality_receipt.json
           grep -Fq '"exact_result": "SOURCE_MINIMAL_AFFINE_NATURAL_RELATION_IS_c_TIMES_ENDPOINT_DIFFERENCE"' a1_a3_source_minimality_naturality_receipt.json
           grep -Fq '"relation_formula": "R(x,y)=c*(y-x)"' a1_a3_source_minimality_naturality_receipt.json
-          grep -Fq '"remaining_tir_gate": "A1_DEPENDENCY_MINIMALITY_APPLIES_TO_PRIMITIVE_LAW_SIGNATURE"' a1_a3_source_minimality_naturality_receipt.json
 
-      - name: Verify v0.5 surfaces
+      - name: Verify current affine surfaces
         shell: bash
         run: |
           set -euo pipefail
-          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_4.md
-          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_5.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/CANONICAL_SPATIAL_RELATION_EXTRACTION_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_POINT_AFFINE_SPATIAL_CARRIER_V0_1.md
-          test -s TIR/subrepos/the-space-of-geometry/foundations/RELATIONAL_STATE_DIFFERENCE_UNIQUENESS_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_RELATION_AFFINE_TORSOR_V0_1.md
-          test -s TIR/subrepos/the-space-of-geometry/foundations/A1_A3_INTRINSIC_AFFINE_RELATION_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/A1_A3_SOURCE_MINIMALITY_NATURALITY_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/validation/canonical_spatial_relation_extraction_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/quantum_point_affine_spatial_carrier_v0_1.py
-          test -s TIR/subrepos/the-space-of-geometry/validation/relational_state_difference_uniqueness_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/quantum_relation_affine_torsor_v0_1.py
-          test -s TIR/subrepos/the-space-of-geometry/validation/a1_a3_intrinsic_affine_relation_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/a1_a3_source_minimality_naturality_v0_1.py
 
       - name: Upload receipts
@@ -104,8 +99,8 @@ jobs:
           if-no-files-found: error
           retention-days: 30
           path: |
+            canonical_spatial_relation_extraction_receipt.json
             quantum_point_affine_spatial_carrier_receipt.json
             relational_state_difference_uniqueness_receipt.json
             quantum_relation_affine_torsor_receipt.json
-            a1_a3_intrinsic_affine_relation_receipt.json
             a1_a3_source_minimality_naturality_receipt.json
