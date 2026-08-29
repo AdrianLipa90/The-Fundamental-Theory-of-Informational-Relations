@@ -8,121 +8,184 @@ The standard geometric ingredients behind phase holonomy, quantum-state metrics,
 and cyclic evolution are described by Pancharatnam, Simon, Berry,
 Aharonov--Anandan, and Provost--Vall\'ee
 \cite{Pancharatnam1956,Simon1983,berry1984,AharonovAnandan1987,ProvostVallee1980}.
-Connections to information geometry are conventional in the sense of Fisher,
-Rao, and Amari--Nagaoka \cite{Fisher1925,Rao1945,AmariNagaoka2000}; the specific
-Metatime synthesis and its operator assignments are the construction tested in
-this monograph.
+Connections to information geometry use the conventional Fisher--Rao and
+Amari--Nagaoka setting \cite{Fisher1925,Rao1945,AmariNagaoka2000}. The
+three-flavour mixing carrier is developed inside the TIR family branch.
 % CITATION_CONTEXT_V10_9_END
 
 \section{The Information Constant \(\kappa\)}
 
-The Metatime framework defines the information constant
+The current TIR dependency graph derives
 \begin{equation}
-\kappa \equiv \frac{\ln 2}{24\pi}.
+\boxed{\kappa=\frac{\ln2}{24\pi}}.
 \label{eq:kappa_framework_definition}
 \end{equation}
-Appendix~\ref{app:kappa} records the normalization assumptions, the exact
-phase-rate consequences of the definition, the information-spinor crosswalk,
-and the corresponding parameter-counting statement.
+Appendix~\ref{app:kappa} records the complete flavour-mixing normalization,
+while Appendix~\ref{app:information_spinor_crosswalk} records its relation to
+the half-axis, normalized-cycle and holonomy layers.
 
-\claimstatus{B -- model postulate with structural motivation.}
+\claimstatus{TIR-internal derived structural normalization.}
 
-\subsection{Geometric-phase reference scale}
+\subsection{Binary Shannon numerator}
 
-Consider a two-level quantum system whose Hamiltonian depends adiabatically on
-parameters $\mathbf{R}(t)$. After a closed cycle the state may acquire a
-geometric phase~\cite{berry1984}:
-\begin{equation}
-\gamma_n = i \oint \langle n(\mathbf{R}) | \nabla_{\mathbf{R}} n(\mathbf{R}) \rangle \cdot d\mathbf{R}.
-\label{eq:berry_general}
-\end{equation}
-For a spin-$1/2$ eigenstate on the Bloch sphere,
-\begin{equation}
-\gamma = -\frac{\Omega}{2}\pmod{2\pi},
-\label{eq:berry_spin_half}
-\end{equation}
-where $\Omega$ is the enclosed solid angle. A loop enclosing a hemisphere
-($|\Omega|=2\pi$) gives a phase of magnitude $\pi$ modulo $2\pi$. A full-sphere solid angle $4\pi$ instead gives magnitude $2\pi$.
-The factor $\pi$ used in the Metatime normalization is therefore a declared
-spinorial/geometric reference phase scale.
-
-\subsection{Binary Shannon information}
-
-For a binary equiprobable distribution, Shannon entropy is~\cite{shannon1948}
+For the balanced binary distinction, Shannon entropy is \cite{shannon1948}
 \begin{equation}
 H\!\left(\frac12,\frac12\right)=\ln2
 \quad\text{(nats)}.
 \label{eq:shannon_binary}
 \end{equation}
-This exact information-theoretic identity supplies the numerator of the TIR
-normalization.
+Thus
+\[
+\boxed{I_\star=\ln2}
+\]
+is the informational numerator of the normalization.
 
-\subsection{Normalized recurrence before radians}
+\subsection{Three-flavour mixing multiplicity}
 
-A cyclic process can first be represented by a normalized turn coordinate
+The TIR family branch supplies the three-flavour carrier
+\[
+V_F\cong\mathbb C^3
+\]
+with full family mixing in
+\[
+U_F\in SU(3)_F.
+\]
+For a special unitary group,
+\[
+\dim_{\mathbb R}\mathfrak{su}(N)=N^2-1,
+\]
+so the three-flavour mixing algebra has
 \begin{equation}
-q\in\mathbb R/\mathbb Z,
+\boxed{\dim_{\mathbb R}\mathfrak{su}(3)_F=3^2-1=8.}
+\label{eq:su3f-eight-directions}
 \end{equation}
-so that one recurrence is $q\mapsto q+1$. Its winding rate is $f_q=\Delta
-N/\Delta t$. An angular coordinate is introduced by
+Combining the eight independent generator directions with the three flavour
+labels gives the generator--flavour incidence count
 \begin{equation}
-\phi=Cq,
+\boxed{
+N_{\rm mix}
+=3\,\dim\mathfrak{su}(3)_F
+=3\cdot8
+=24.
+}
+\label{eq:mixing-channel-count}
 \end{equation}
-where $C$ is the closure period; in radians $C=2\pi$.
+The later symmetric-pair decomposition
+\[
+\mathfrak{su}(3)_F=\mathfrak{so}(3)\oplus\mathfrak p,
+\qquad
+8=3+5,
+\]
+provides an independent carrier-level certificate of the same eight-dimensional
+mixing algebra.
 
-For the two-level state used in the information-spinor subprogramme, the
-balanced equatorial loop carries Berry holonomy $-1$. The dedicated
-information-spinor analysis under \path{TIR/zeta_information_axis/} and
-Appendix~\ref{app:information_spinor_crosswalk} keep this path-dependent
-holonomy explicit.
+\subsection{Geometric-phase half-turn unit}
 
-\subsection{Tetrahedral normalization and discrete cross-factorization}
-
-The rotational symmetry group of a regular tetrahedron is $A_4$ and has order
-12. The full tetrahedral symmetry group including reflections is isomorphic to
-$S_4$ and has order 24. The declared normalization uses
+For a spin-$1/2$ eigenstate on the Bloch sphere, the standard geometric phase is
 \begin{equation}
-24 = 2\,|A_4|,
-\qquad |A_4|=12.
-\label{eq:tetrahedral_normalization}
+\gamma=-\frac{\Omega}{2}\pmod{2\pi},
+\label{eq:berry_spin_half}
 \end{equation}
-The exact arithmetic identity
+where $\Omega$ is the enclosed solid angle \cite{berry1984}. A loop enclosing a
+hemisphere ($|\Omega|=2\pi$) gives a phase of magnitude $\pi$ modulo $2\pi$.
+A full-sphere solid angle $4\pi$ instead gives magnitude $2\pi$.
+
+Independently, the primitive balanced coordinate supplies a half-turn of the
+standard angular closure:
 \begin{equation}
+\boxed{
+\Delta\phi_{1/2}=\frac12(2\pi)=\pi.
+}
+\label{eq:primitive-half-turn-phase}
+\end{equation}
+This is the phase unit assigned to each primitive generator--flavour incidence
+channel in the normalization surface.
+
+\subsection{The \(24\pi\) mixing-phase measure}
+
+Equations~\eqref{eq:mixing-channel-count} and
+\eqref{eq:primitive-half-turn-phase} give
+\begin{equation}
+\boxed{
+\Phi_{\rm mix}
+=N_{\rm mix}\Delta\phi_{1/2}
+=24\pi.
+}
+\label{eq:mixing-phase-measure}
+\end{equation}
+Equivalently,
+\begin{equation}
+\boxed{
+24\pi
+=\underbrace{(3^2-1)}_{8\;SU(3)_F\;\mathrm{mixing\ directions}}
+\underbrace{3}_{\mathrm{flavours}}
+\underbrace{\pi}_{\mathrm{half\!\!-turn\ phase}}.
+}
+\label{eq:twentyfour-crossfactor}
+\end{equation}
+The exact integer identity
+\[
 24=8\cdot3=12\cdot2=6\cdot4
-\label{eq:twentyfour_crossfactor}
-\end{equation}
-is also retained as an internal cross-factorization ledger. Its factors are
-typed separately as declared sector/flavour, projective-cycle, and spinor-cycle
-assignments. The $SU(3)$ Weyl group $S_3$ remains a separate mathematical
-object.
+\]
+is retained as a cross-factorization. Its canonical normalization provenance in
+this chapter is the $8\cdot3$ flavour-mixing route.
 
-\subsection{Structural normalization and cycle reconstruction of \(\kappa\)}
+\subsection{Structural derivation of \(\kappa\)}
 
-The TIR definition is
+Dividing the balanced binary information quantum by the primitive mixing-phase
+measure gives
 \begin{equation}
-\boxed{\kappa \equiv \frac{\ln 2}{2|A_4|\pi}
-=\frac{\ln 2}{24\pi}}.
+\boxed{
+\kappa
+=\frac{I_\star}{\Phi_{\rm mix}}
+=\frac{\ln2}{3(3^2-1)\pi}
+=\frac{\ln2}{24\pi}.
+}
 \label{eq:kappa_construction}
 \end{equation}
 Numerically,
 \[
-\kappa = 0.009193150006360484\ldots .
+\kappa=0.009193150006360484\ldots .
 \]
-Equivalently, if the declared information cycle assigns
+
+The local spatial branch supplies an independent finite-symmetry crosscheck:
+for the regular tetrahedral cell,
+\[
+\operatorname{Aut}(\Delta^3)\cong S_4,
+\qquad |S_4|=24,
+\]
+so
+\[
+\boxed{
+3\dim\mathfrak{su}(3)_F
+=24
+=|S_4|.
+}
+\]
+The flavour-mixing route supplies the normalization dependency; the tetrahedral
+automorphism order supplies a separate convergence on the same integer.
+
+\subsection{Normalized recurrence before radians}
+
+A cyclic process may be represented first by a normalized turn coordinate
 \begin{equation}
-\frac{\dd I}{\dd q}=\frac{\ln2}{12},
+q\in\mathbb R/\mathbb Z,
+\end{equation}
+so that one recurrence is $q\mapsto q+1$. Its winding rate is
+$f_q=\Delta N/\Delta t$. An angular coordinate is then introduced by
+\begin{equation}
+\phi=Cq,
+\end{equation}
+with standard radian closure $C=2\pi$.
+
+The derived normalization implies
+\begin{equation}
+2\pi\kappa=\frac{\ln2}{12},
 \label{eq:info-per-projective-turn}
 \end{equation}
-then conversion to the angular coordinate gives
-\begin{equation}
-\frac{\dd I}{\dd\phi}=\frac{\ln2}{12C},
-\end{equation}
-and for $C=2\pi$,
-\begin{equation}
-\frac{\dd I}{\dd\phi}=\frac{\ln2}{24\pi}=\kappa.
-\end{equation}
-This representation separates the arithmetic cycle assignment from the angular
-closure convention and exposes both in the validation contract.
+so the normalized-turn representation recovers the earlier twelve-cycle
+factorization as a consequence of the $3\times8$ mixing normalization and the
+half-turn decomposition.
 
 \section{Exact phase-rate consequence}
 
@@ -140,13 +203,13 @@ then
 \Gamma_{\mathcal I}
 \equiv\frac{d\mathcal I}{dt}
 =\kappa\omega
-=\frac{\ln2}{12}f
-}.
+=\frac{\ln2}{12}f.
+}
 \label{eq:metatime_phase_rate_summary}
 \end{equation}
 The full constraint-manifold statement and its one-effective-degree-of-freedom
-count are given in Appendix~\ref{app:kappa-constraint-manifold}. A physical
-binding of $\Gamma_{\mathcal I}$ is handled by a separate empirical gate.
+count are given in Appendix~\ref{app:kappa-constraint-manifold}. Operational
+calibration of $\Gamma_{\mathcal I}$ is tracked by the empirical layer.
 
 \section{The Exponential Mass Formula}
 
@@ -178,34 +241,7 @@ resulting mass relations is tracked empirically in the validation ledgers.
 The current model builds sector actions $S$ from combinations of:
 \begin{enumerate}
 \item \textbf{Spin-labelled terms:} terms involving $1/2$ in fermionic sector assignments.
-\item \textbf{Generation terms:} terms proportional to $\kappa$ in declared generation-release constructions.
-\item \textbf{Flavour terms:} terms involving quark-prime assignments and L-constants $L_3,L_4,L_5$.
-\item \textbf{Geometric corrections:} ratios or powers of declared geometric quantities and $\kappa$ used by specific candidate relations.
+\item \textbf{Discrete structural terms:} contributions generated from the declared $L_i$ and flavour-label rules.
+\item \textbf{Geometric/holonomic terms:} terms whose provenance is supplied by the corresponding relation and path geometry.
+\item \textbf{Sector-specific release rules:} mappings whose empirical status is audited in their dedicated validation surfaces.
 \end{enumerate}
-Their evidential status is tracked separately for retrospective assignments and
-prospective tests.
-
-\section{The NOEMA Tetrahedron}
-
-The NOEMA tetrahedron is a model-space construction in the operator coordinates
-\[
-\{\hat I,\ \hat M,\ \hat A\},
-\]
-where $\hat I$, $\hat M$, and $\hat A$ are the isospin-, mass-, and axial-labelled
-coordinates used by the framework. TIR uses the tetrahedral picture to organize
-candidate relations among flavour and mixing quantities. Their validation is
-reported in the CKM and PMNS sectors.
-
-\section{External Scales and Inputs}
-
-The current implementation uses the following external scales or numerical inputs:
-\begin{description}
-\item[$E_P = 1.22089 \times 10^{22}$~MeV:] the Planck energy, used as an absolute scale in the exponential mass ansatz.
-\item[$E_{\text{proton}} = 938.272$~MeV:] the proton mass, used as a reference scale in selected baryonic and electroweak constructions.
-\item[$N_c = 3$:] the number of QCD colours in the anomaly-sector bookkeeping.
-\item[$Y(L) = -1/2$:] the lepton-doublet hypercharge used in the anomaly checks.
-\item[Strong-CP conversion input:] the numerical conversion used to translate the model $\theta_{\rm QCD}$ relation into the neutron-EDM observable.
-\end{description}
-The remaining numerical relations are generated from the declared TIR constants,
-discrete assignments and sector rules, with their status retained in the
-publication claim hierarchy.
