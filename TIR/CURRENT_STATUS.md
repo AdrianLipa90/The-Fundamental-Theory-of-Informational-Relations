@@ -1,10 +1,11 @@
 # CURRENT STATUS — TIR
 
-**Status line:** 2026-08-29 completion-correction batch 1  
+**Status line:** 2026-08-29 global-geometry Gate A validation batch  
 **Author:** Adrian Lipa  
-**Active branch:** `feat/tir-relational-half-seam-v0.1`  
-**Pull request:** #96 — `TIR: build primitive causal and spatial geometry foundation`  
-**Promotion:** feature branch; `main` awaits explicit merge order
+**Main baseline:** `ccc89fc06bdf42c1937c0a2303d3e477db487e0f`  
+**Active branch:** `feat/tir-universal-loop-torsion-source-binding-v0.1`  
+**Pull request:** #106 — `TIR: bind Universal-Loop translational holonomy to endpoint defect`  
+**Promotion:** feature branch under hosted validation; main changes only by explicit merge order
 
 This is the current TIR status surface.
 
@@ -48,21 +49,27 @@ From the common carrier,
 \end{cases}}
 \]
 
+The tetrahedral SIC branch independently reaches the same exact regular-tetrahedral Gram/congruence class.
+
 The publication surface is
 
-`TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_0.tex`.
+`TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_1.tex`.
 
 Current classification:
 
 ```text
 TIR_FOUNDATIONAL_CORE = CLOSED
 TIR_LOCAL_SPATIAL_GEOMETRY = CLOSED
+TIR_TETRAHEDRAL_CONGRUENCE_CLASS = CLOSED_EXACT
 TIR_KAPPA_NORMALIZATION = CLOSED_INTERNAL_DERIVATION
 TIR_WIJ_HOLONOMY_FAMILY = SOURCE_BOUND_CROSSWALK
-TIR_GLOBAL_GLUING = GREMLIN_CANDIDATE_SEARCH
-TIR_TORSION = UNIVERSAL_LOOP_SOURCE_BINDING
+TIR_SE3_ATLAS_SOURCE = CLOSED_EXACT
+TIR_DISCRETE_SOLDER_OBJECT = TYPED
+TIR_UNIVERSAL_LOOP_TORSION_SOURCE = SOURCE_BOUND_PR106_VALIDATION
+TIR_CONTINUUM_CARTAN_REFINEMENT = NEXT_GR_GEOMETRY_GATE
+TIR_COEFFICIENT_MAGNITUDES = ACTIVE_TYPED_EXTRACTION
 TIR_STANDARD_MODEL = ACTIVE_RECONCILIATION
-TIR_SOH_NEGATIVE_INVERSE = LOCAL_CLOSED_GLOBAL_DOMINATION_CANDIDATE
+TIR_SOH_NEGATIVE_INVERSE = GLOBAL_DOMINATION_CANDIDATE
 TIR_TIME_JOIN = SIBLING_INTERFACE
 ```
 
@@ -155,7 +162,7 @@ One angular cycle carries
 }
 \]
 
-The nat/bit/Planck dimensional layer is classified as a downstream certification corollary.
+The nat/bit/Planck dimensional layer remains a downstream certification corollary.
 
 ## 4. Unified W_ij transport family
 
@@ -175,53 +182,129 @@ W_{ij}^{c}\in SU(3).
 }
 \]
 
-All three use the same connection-holonomy pattern
-
-\[
-W_{ij}^{(G,R)}
-=\mathcal P\exp\!\left(\int_{\gamma_{ij}}A_R\right),
-\]
-
-with reversal and local-frame covariance in the active representation.
-
-GREMLIN receives tetrahedral/global gluing as a relational-isomorphism search over
-
-```text
-Delta^3 -> E_ij -> W_ij -> W_loop -> closure defect -> curvature/torsion candidate
-```
-
-and promotion is tied to deterministic theorem/validator receipts.
-
-## 5. Torsion / Universal Loop
-
-The target seam is
+The spatial connection shadow is
 
 \[
 \boxed{
-W_{ij}\text{ transport}
-\to\text{loop closure}
-\to\text{endpoint defect}
-\to\text{torsion closure}.
+R_{ij}=\operatorname{Ad}(W_{ij}^{X})\in SO(3).
 }
 \]
 
-The library search currently resolves Universal-Loop energy-framework documents and the White-Thread holonomy document. The exact Universal-Loop torsion source remains the source-binding item required for this seam.
+Together with the intrinsic affine endpoint displacement
+
+\[
+\boxed{
+\mathcal E_{ij}=2(\rho_j-\rho_i),
+}
+\]
+
+this supplies the connection-lifted affine edge
+
+\[
+\boxed{
+G_{ij}^{\nabla}
+=\left(\operatorname{Ad}(W_{ij}^{X}),\operatorname{vec}(\mathcal E_{ij})\right)
+\in SE(3).
+}
+\]
+
+GREMLIN receives this sharpened source graph as a candidate-generation surface; promotion remains attached to deterministic theorem and validator receipts.
+
+## 5. Torsion / Universal Loop Gate A
+
+The covariant endpoint defect is
+
+\[
+\boxed{
+\mathcal C_{xyz}
+=\mathcal E_{xz}
+-\left(
+\mathcal E_{xy}
++W_{xy}^{X}\mathcal E_{yz}(W_{xy}^{X})^\dagger
+\right).
+}
+\]
+
+The discrete solder theorem defines
+
+\[
+\boxed{
+\mathcal T_{xyz}
+=\mathcal E_{xy}
++W_{xy}^{X}\mathcal E_{yz}(W_{xy}^{X})^\dagger
++W_{xz}^{X}\mathcal E_{zx}(W_{xz}^{X})^\dagger.
+}
+\]
+
+Using the admitted reverse-edge transport rule,
+
+\[
+\boxed{
+\mathcal T_{xyz}=-\mathcal C_{xyz}.
+}
+\]
+
+For a rotationally consistent triangle,
+
+\[
+R_{xz}=R_{xy}R_{yz},
+\]
+
+the closed connection-lifted SE(3) loop gives
+
+\[
+\boxed{
+R_C=I,
+\qquad
+\mathbf t_C
+=\operatorname{vec}(\mathcal T_{xyz})
+=-\operatorname{vec}(\mathcal C_{xyz}).
+}
+\]
+
+The invariant scalar witness is
+
+\[
+\boxed{
+\tau_C
+=\|\mathbf t_C\|
+=\sqrt{\frac12\operatorname{Tr}(\mathcal T_{xyz}^{2})}.
+}
+\]
+
+Canonical Gate-A theorem:
+
+`TIR/foundations/TIR_UNIVERSAL_LOOP_TORSION_SOURCE_BINDING_V0_1.md`.
+
+The dedicated hosted gate is
+
+`.github/workflows/tir-universal-loop-torsion-source-binding.yml`.
+
+The continuation target is the controlled refining-family limit
+
+\[
+\mathcal T_{\triangle}/\Sigma_{\triangle}
+\to
+T^a
+=de^a+\omega^a{}_b\wedge e^b,
+\]
+
+together with the rotational-holonomy curvature limit.
 
 ## 6. Standard-Model correction state
 
-The PDG-2026 addendum is present in the active branch and included by `metatime_monograph.tex`.
+The PDG-2026 addendum is included by `metatime_monograph.tex`.
 
-Already synchronized correction surfaces include:
+Synchronized correction surfaces include:
 
-- `ch16_pmns_mixing.tex` — explicit PDG-2026 reactor-angle correction;
+- `ch16_pmns_mixing.tex` — PDG-2026 reactor-angle correction;
 - `ch22_fine_structure.tex` — precision-status correction;
 - `ch24_higgs_mass.tex` — retrospective/precision correction;
-- `ch32_pdg2026_validation_addendum.tex` — sector-level validation addendum.
+- `ch32_pdg2026_validation_addendum.tex` — sector-level validation addendum;
+- `ch21_weinberg_angle.tex` — renormalization scheme/scale gate;
+- `ch23_gauge_bosons.tex` — electroweak transport target.
 
-Correction batch 1 additionally updated:
-
-- `ch21_weinberg_angle.tex` — explicit renormalization scheme/scale gate;
-- `ch23_gauge_bosons.tex` — frozen tree-level classification, removal of the ad-hoc `g(1-kappa)` repair path, and explicit electroweak transport target
+The active electroweak line is
 
 \[
 (g_0,\theta_W^{(0)},v_0)
@@ -231,7 +314,7 @@ Correction batch 1 additionally updated:
 (M_W^{\rm pole},M_Z^{\rm pole}).
 \]
 
-The current task is to reconcile the remaining newer Standard-Model modules with the monograph sector by sector before publishing a final sector matrix.
+The current task remains dynamical normalization/action closure followed by a refreshed sector matrix.
 
 ## 7. Coefficient forcing
 
@@ -241,21 +324,23 @@ The intrinsic coefficient state is
 (h,a,b,c)\in\mathbb Z^4.
 \]
 
-The project already carries structural slot routing plus directed and relational orientation operators. The active target is therefore
-
-```text
-EXTRACT_FRAMEWORK_FORCING_THEOREM
-```
-
-with theorem form
+Role assignment and orientation are already extracted. The active magnitude coordinates are
 
 \[
-\boxed{
-\text{canonical framework state + slot grammar}
-\Longrightarrow
-\text{fixed assignment or finite residual degeneracy}.
-}
+|h|\leftarrow\text{spin/projective invariant},
+\quad
+|a|\leftarrow\text{generation/release invariant},
 \]
+
+\[
+|b|\leftarrow\text{return invariant},
+\quad
+|c|\leftarrow\text{curvature/holonomy invariant}.
+\]
+
+Status:
+
+`FOUR_TYPED_INTEGER_INVARIANTS_TO_EXTRACT`.
 
 ## 8. Secret-of-a-Half negative-inverse bridge
 
@@ -275,11 +360,11 @@ and
 |z_L(s)|=1.
 \]
 
-The new TIR interface theorem candidate is
+The current TIR interface theorem is
 
 `TIR/interfaces/TIR_SOH_GLOBAL_LI_DOMINATION_BRIDGE_V0_1.md`.
 
-It proves conditionally on the standard symmetric Li representation and classical zeta zero-counting estimate that an off-circle zero creates a finite extremal radial shell, simultaneous phase recurrence, and exponential domination over the regularized remainder:
+Under the standard symmetric Li representation and the classical zeta zero-counting estimate, the current global-domination theorem candidate gives
 
 \[
 \boxed{
@@ -289,32 +374,40 @@ It proves conditionally on the standard symmetric Li representation and classica
 }
 \]
 
-The proof uses
+The framework-side completion target is
 
 \[
-r_\rho=\max(|z_L(\rho)|,|z_L(\rho)|^{-1})\to1
-\quad(|\Im\rho|\to\infty),
+\boxed{
+\lambda_n\ge0\qquad\forall n
+}
 \]
 
-which forces any off-circle maximal radial defect into a finite-height extremal shell.
-
-The remaining Secret-of-a-Half promotion target is the framework-side complete positivity/native-closure theorem supplying
-
-\[
-\lambda_n\ge0\qquad\forall n.
-\]
+from native arithmetic closure.
 
 ## 9. Completion frontier
 
-The active order is now
+Canonical frontier:
+
+`TIR/TIR_COMPLETION_FRONTIER_V0_4.md`.
+
+GR/global-geometry line:
 
 ```text
-A. resolve and bind the exact Universal Loop torsion source
-B. run GREMLIN gluing search over the unified W_ij family
-C. finish Standard-Model module/monograph reconciliation
-D. extract the coefficient-forcing theorem
-E. close the framework-side Li/Weil positivity-native-closure theorem
-F. maintain dimensional/unit and statistical ledgers in parallel
+Universal-Loop discrete torsion source binding
+ -> discrete-solder / rotational-holonomy continuum refinement
+ -> T^a=0 spatial GR sector
+ -> TIR x IDT ADM join
+ -> Einstein constraint/evolution derivation from joined action
+```
+
+Parallel TIR completion line:
+
+```text
+four coefficient magnitudes
+ -> deterministic GREMLIN gluing promotion
+ -> Standard-Model dynamical maps
+ -> native-closure / Li-Weil positivity
+ -> dimensional, unit and statistical certification
 ```
 
 ## 10. Reproducibility invariant
