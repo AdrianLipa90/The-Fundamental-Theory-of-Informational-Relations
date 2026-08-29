@@ -40,7 +40,18 @@ jobs:
           grep -Fq '"intrinsic_relation": "e_xy=rho_y-rho_x"' canonical_spatial_relation_extraction_receipt.json
           grep -Fq '"local_relation_carrier": "Herm_0(2)~=R3"' canonical_spatial_relation_extraction_receipt.json
           grep -Fq '"spatial_relation_status": "CANONICAL_BRANCH_CONSTRUCTION"' canonical_spatial_relation_extraction_receipt.json
-          grep -Fq '"next_frontier": "DELTA3_TO_REGULAR_TETRAHEDRON_VIA_INTRINSIC_SIMPLEX_SYMMETRY"' canonical_spatial_relation_extraction_receipt.json
+
+      - name: Audit physical relation chord realizability
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/physical_relation_chord_realizability_v0_1.py | tee physical_relation_chord_realizability_receipt.json
+          grep -Fq '"technical_status": "PASS"' physical_relation_chord_realizability_receipt.json
+          grep -Fq '"exact_theorem": "PHYSICAL_RELATION_CHORD_SET_IS_RADIUS_TWO_BALL"' physical_relation_chord_realizability_receipt.json
+          grep -Fq '"reachable_coefficient_domain": "|d|<=2"' physical_relation_chord_realizability_receipt.json
+          grep -Fq '"normalized_certificate": "3/5,4/5,1"' physical_relation_chord_realizability_receipt.json
+          grep -Fq '"carrier_span": "Herm_0(2)~=R3"' physical_relation_chord_realizability_receipt.json
+          grep -Fq '"global_extent_status": "DOWNSTREAM_LOCAL_CARRIER_GLUING"' physical_relation_chord_realizability_receipt.json
 
       - name: Audit quantum-point affine carrier crosscheck
         shell: bash
@@ -83,11 +94,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_10.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/CANONICAL_SPATIAL_RELATION_EXTRACTION_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/PHYSICAL_RELATION_CHORD_REALIZABILITY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_POINT_AFFINE_SPATIAL_CARRIER_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_RELATION_AFFINE_TORSOR_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/A1_A3_SOURCE_MINIMALITY_NATURALITY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/validation/canonical_spatial_relation_extraction_v0_1.py
+          test -s TIR/subrepos/the-space-of-geometry/validation/physical_relation_chord_realizability_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/quantum_point_affine_spatial_carrier_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/quantum_relation_affine_torsor_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/a1_a3_source_minimality_naturality_v0_1.py
@@ -100,6 +114,7 @@ jobs:
           retention-days: 30
           path: |
             canonical_spatial_relation_extraction_receipt.json
+            physical_relation_chord_realizability_receipt.json
             quantum_point_affine_spatial_carrier_receipt.json
             relational_state_difference_uniqueness_receipt.json
             quantum_relation_affine_torsor_receipt.json
