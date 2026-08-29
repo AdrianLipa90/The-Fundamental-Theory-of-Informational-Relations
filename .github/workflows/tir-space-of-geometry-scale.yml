@@ -1,0 +1,67 @@
+name: TIR Space of Geometry physical scale gate
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_11.md'
+      - 'TIR/subrepos/the-space-of-geometry/foundations/PHYSICAL_LENGTH_SCALE_CALIBRATION_V0_1.md'
+      - 'TIR/subrepos/the-space-of-geometry/validation/physical_length_scale_calibration_v0_1.py'
+      - 'TIR/subrepos/the-space-of-geometry/README.md'
+      - '.github/workflows/tir-space-of-geometry-scale.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-physical-scale-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact event revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Verify checkout provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXPECTED="${{ github.event.pull_request.head.sha || github.sha }}"
+          test "$(git rev-parse HEAD)" = "$EXPECTED"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Audit one-parameter physical length calibration
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/physical_length_scale_calibration_v0_1.py | tee physical_length_scale_calibration_receipt.json
+          grep -Fq '"technical_status": "PASS"' physical_length_scale_calibration_receipt.json
+          grep -Fq '"exact_result": "EUCLIDEAN_PHYSICAL_LENGTH_IS_ONE_PARAMETER_POSITIVE_SCALE_FAMILY"' physical_length_scale_calibration_receipt.json
+          grep -Fq '"metric_family": "g_phys=L_*^2*g_0"' physical_length_scale_calibration_receipt.json
+          grep -Fq '"single_edge_physical_radius": "2*L_*"' physical_length_scale_calibration_receipt.json
+          grep -Fq '"dimension_source_gate": "REQUIRES_TYPED_LENGTH_DIMENSION_DATUM"' physical_length_scale_calibration_receipt.json
+          grep -Fq '"next_frontier": "DERIVE_OR_BIND_L_STAR_SOURCE"' physical_length_scale_calibration_receipt.json
+
+      - name: Verify scale theorem surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_11.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/PHYSICAL_LENGTH_SCALE_CALIBRATION_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/validation/physical_length_scale_calibration_v0_1.py
+          grep -Fq 'DERIVE_OR_BIND_L_STAR_SOURCE' TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_11.md
+          grep -Fq 'g_{\\rm phys}=L_*^2 g_0' TIR/subrepos/the-space-of-geometry/foundations/PHYSICAL_LENGTH_SCALE_CALIBRATION_V0_1.md
+
+      - name: Upload scale receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: tir-space-of-geometry-scale-${{ github.sha }}
+          if-no-files-found: error
+          retention-days: 30
+          path: physical_length_scale_calibration_receipt.json
