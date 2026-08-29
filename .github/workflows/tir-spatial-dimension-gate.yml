@@ -97,6 +97,18 @@ jobs:
           grep -q '"a8_status": "CLOSURE_LAW_CANDIDATE"' tir_relational_endpoint_closure_receipt.json
           grep -q '"regular_continuum_limit_derived": false' tir_relational_endpoint_closure_receipt.json
 
+      - name: Audit minimal isotropic tetrahedral cell
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_minimal_isotropic_tetrahedral_cell_v0_1.py | tee tir_minimal_isotropic_tetrahedral_cell_receipt.json
+          grep -q '"technical_status": "PASS"' tir_minimal_isotropic_tetrahedral_cell_receipt.json
+          grep -q '"conditional_result": "MINIMAL_ZERO_MEAN_FULL_SECOND_MOMENT_ISOTROPY_CELL_IS_TETRAHEDRAL"' tir_minimal_isotropic_tetrahedral_cell_receipt.json
+          grep -q '"minimal_valence": 4' tir_minimal_isotropic_tetrahedral_cell_receipt.json
+          grep -q '"local_rank": 3' tir_minimal_isotropic_tetrahedral_cell_receipt.json
+          grep -q '"normalized_pairwise_dot": "-1/3"' tir_minimal_isotropic_tetrahedral_cell_receipt.json
+          grep -q '"continuum_gluing_derived": false' tir_minimal_isotropic_tetrahedral_cell_receipt.json
+
       - name: Upload receipts
         uses: actions/upload-artifact@v4
         with:
@@ -110,3 +122,4 @@ jobs:
             tir_discrete_solder_form_receipt.json
             tir_rank3_isotropy_stabilization_receipt.json
             tir_relational_endpoint_closure_receipt.json
+            tir_minimal_isotropic_tetrahedral_cell_receipt.json
