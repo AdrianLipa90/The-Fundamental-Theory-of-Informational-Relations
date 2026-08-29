@@ -28,7 +28,8 @@ jobs:
           grep -Fx 'status=PASS' coefficient_forcing_receipt.txt
           grep -Fx 'slot_role_bijection=true' coefficient_forcing_receipt.txt
           grep -Fx 'identity_is_only_role_preserving_permutation=true' coefficient_forcing_receipt.txt
-          grep -Fx 'gradient_sign_scale_independent=true' coefficient_forcing_receipt.txt
+          grep -Fx 'exact_gradient_sign_scale_independent=true' coefficient_forcing_receipt.txt
+          grep -Fx 'runtime_deadband_validated=true' coefficient_forcing_receipt.txt
           grep -Fx 'consensus_orientation_unique=true' coefficient_forcing_receipt.txt
           grep -Fx 'next_gate=TYPED_INTEGER_MAGNITUDE_EXTRACTION' coefficient_forcing_receipt.txt
 
