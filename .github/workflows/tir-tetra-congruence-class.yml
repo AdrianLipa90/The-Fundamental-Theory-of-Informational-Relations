@@ -1,0 +1,26 @@
+name: TIR tetrahedral congruence-class gate
+
+on:
+  pull_request:
+    paths:
+      - 'TIR/integration/TIR_TETRAHEDRAL_CONGRUENCE_CLASS_CLOSURE_V0_1.md'
+      - 'TIR/validation/tir_tetrahedral_congruence_class_closure_v0_1.py'
+      - '.github/workflows/tir-tetra-congruence-class.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'TIR/integration/TIR_TETRAHEDRAL_CONGRUENCE_CLASS_CLOSURE_V0_1.md'
+      - 'TIR/validation/tir_tetrahedral_congruence_class_closure_v0_1.py'
+      - '.github/workflows/tir-tetra-congruence-class.yml'
+
+jobs:
+  tetra-congruence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run exact tetrahedral congruence-class validator
+        run: python TIR/validation/tir_tetrahedral_congruence_class_closure_v0_1.py
