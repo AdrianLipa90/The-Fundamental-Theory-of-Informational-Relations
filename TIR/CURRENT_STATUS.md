@@ -1,16 +1,16 @@
 # CURRENT STATUS — TIR
 
-**Status line:** 2026-08-29 foundational-completion audit  
+**Status line:** 2026-08-29 completion-correction batch 1  
 **Author:** Adrian Lipa  
 **Active branch:** `feat/tir-relational-half-seam-v0.1`  
 **Pull request:** #96 — `TIR: build primitive causal and spatial geometry foundation`  
-**Promotion:** feature branch; `main` unchanged pending explicit merge order
+**Promotion:** feature branch; `main` awaits explicit merge order
 
-This file is the current TIR status surface. Historical review states remain available through repository history and archival publication surfaces.
+This is the current TIR status surface.
 
-## 1. Foundational status
+## 1. Foundational closure
 
-The current primitive dependency spine is
+The primitive dependency spine is
 
 \[
 \boxed{
@@ -24,7 +24,7 @@ The current primitive dependency spine is
 }
 \]
 
-The spatial branch now continues through
+The local spatial branch continues through
 
 \[
 \boxed{
@@ -36,7 +36,7 @@ The spatial branch now continues through
 }
 \]
 
-From this common carrier, the local geometry forks into
+From the common carrier,
 
 \[
 \boxed{
@@ -48,7 +48,7 @@ From this common carrier, the local geometry forks into
 \end{cases}}
 \]
 
-The dedicated publication surface is
+The publication surface is
 
 `TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_0.tex`.
 
@@ -57,253 +57,270 @@ Current classification:
 ```text
 TIR_FOUNDATIONAL_CORE = CLOSED
 TIR_LOCAL_SPATIAL_GEOMETRY = CLOSED
-TIR_GLOBAL_GEOMETRY_PROGRAMME = DOWNSTREAM
-TIR_STANDARD_MODEL_PROGRAMME = ACTIVE
+TIR_KAPPA_NORMALIZATION = CLOSED_INTERNAL_DERIVATION
+TIR_WIJ_HOLONOMY_FAMILY = SOURCE_BOUND_CROSSWALK
+TIR_GLOBAL_GLUING = GREMLIN_CANDIDATE_SEARCH
+TIR_TORSION = UNIVERSAL_LOOP_SOURCE_BINDING
+TIR_STANDARD_MODEL = ACTIVE_RECONCILIATION
+TIR_SOH_NEGATIVE_INVERSE = LOCAL_CLOSED_GLOBAL_DOMINATION_CANDIDATE
 TIR_TIME_JOIN = SIBLING_INTERFACE
 ```
 
-## 2. κ normalization — flavour-mixing derivation
-
-The denominator in
-
-\[
-\boxed{
-\kappa=\frac{\ln2}{24\pi}
-}
-\]
-
-is now carried by the explicit TIR flavour-mixing derivation in
-
-`TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
+## 2. κ normalization
 
 The flavour carrier is
 
 \[
 V_F\cong\mathbb C^3,
 \qquad
-U_F\in SU(3)_F.
+U_F\in SU(3)_F,
+\]
+
+with
+
+\[
+\dim_{\mathbb R}\mathfrak{su}(3)_F=3^2-1=8.
 \]
 
 Thus
 
 \[
-N_F=3
+N_{\rm mix}=3\cdot8=24.
 \]
 
-and
+The primitive half supplies
 
 \[
-\dim_{\mathbb R}\mathfrak{su}(3)_F
-=3^2-1
-=8.
-\]
-
-The generator-flavour incidence count is therefore
-
-\[
-\boxed{
-N_{\rm mix}
-=N_F\dim\mathfrak{su}(3)_F
-=3\cdot8
-=24.
-}
-\]
-
-The primitive half coordinate supplies the half-turn phase unit
-
-\[
-\Delta\phi_{1/2}
-=\frac12(2\pi)
-=\pi.
-\]
-
-Hence the total primitive mixing-phase measure is
-
-\[
-\boxed{
-\Phi_{\rm mix}
-=N_{\rm mix}\Delta\phi_{1/2}
-=24\pi.
-}
-\]
-
-With the balanced binary information quantum
-
-\[
-I_\star=H_2(1/2)=\ln2,
-\]
-
-the TIR information-per-mixing-phase normalization gives
-
-\[
-\boxed{
-\kappa
-=\frac{I_\star}{\Phi_{\rm mix}}
-=\frac{\ln2}{3(3^2-1)\pi}
-=\frac{\ln2}{24\pi}.
-}
-\]
-
-This is classified as a **TIR-internal derived structural normalization**. Its upstream ingredients are the binary-information theorem, the half-turn angular unit, and the three-flavour `SU(3)_F` mixing carrier.
-
-An independent finite-symmetry crosscheck is supplied by the spatial branch:
-
-\[
-\operatorname{Aut}(\Delta^3)\cong S_4,
-\qquad
-|S_4|=24.
-\]
-
-Thus
-
-\[
-\boxed{
-3\dim\mathfrak{su}(3)_F
-=3\cdot8
-=24
-=|S_4|.
-}
-\]
-
-## 3. Exact κ phase-rate closure
-
-For
-
-\[
-\omega=2\pi f
-\]
-
-and
-
-\[
-d\mathcal I=\kappa\,d\phi,
-\]
-
-the exact consequence remains
-
-\[
-\boxed{
-\Gamma_{\mathcal I}
-=\frac{d\mathcal I}{dt}
-=\kappa\omega
-=\frac{\ln2}{12}f.
-}
-\]
-
-One complete angular cycle carries
-
-\[
-\boxed{
-\Delta\mathcal I_{\rm cycle}
-=2\pi\kappa
-=\frac{\ln2}{12}.
-}
-\]
-
-The exact implementation checks are
-
-- `TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py`;
-- `TIR/validation/kappa_phase_rate_identity_v11_1.py`.
-
-Both are part of the integrated TIR verification workflow.
-
-## 4. Mixing carrier provenance
-
-The three-flavour carrier and full family mixing transformation are established in the polygonal-excitation validation line:
-
-\[
-V_F\cong\mathbb C^3,
-\qquad
-V_F^{\rm mix}=R_{23}R_{13}(\delta)R_{12}\in SU(3)_F.
-\]
-
-The later symmetric-pair closure gives
-
-\[
-\mathfrak{su}(3)_F
-=\mathfrak{so}(3)\oplus\mathfrak p,
-\qquad
-\dim\mathfrak{so}(3)=3,
-\qquad
-\dim\mathfrak p=5,
+\Delta\phi_{1/2}=\frac12(2\pi)=\pi,
 \]
 
 so
 
 \[
-8=3+5
+\Phi_{\rm mix}=24\pi.
 \]
 
-independently certifies the eight-dimensional mixing algebra.
+With
 
-Canonical provenance surfaces:
+\[
+I_\star=H_2(1/2)=\ln2,
+\]
 
-- `TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE34_CKM_SU3F_CARRIER_V0_1.md`;
-- `TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE55_SU3_SO3_SYMMETRIC_PAIR_V0_1.md`;
-- `TIR/monograph/appendices/appP_information_spinor_crosswalk.tex`.
-
-## 5. TIR ↔ Secret-of-a-Half interface
-
-The current typed chain is
+TIR obtains
 
 \[
 \boxed{
-\frac12
-\xrightarrow{H_2}
-\ln2
-\xrightarrow{\text{flavour-mixing normalization}}
 \kappa
-\xrightarrow{d\mathcal I=\kappa d\phi}
-\Gamma_{\mathcal I}.
+=\frac{I_\star}{\Phi_{\rm mix}}
+=\frac{\ln2}{24\pi}.
 }
 \]
 
-The exact half theorem supplies the numerator. The flavour-mixing carrier, mixing-algebra dimension, flavour multiplicity and half-turn phase supply the denominator.
+Canonical source:
 
-## 6. Spatial publication state
+`TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
 
-`The Space of Geometry: From First Distinction to Pythagoras` is the current local spatial-geometry release candidate.
-
-Its theorem split is:
-
-```text
-Theorem E — local Euclidean/Pythagorean closure
-Theorem T1 — minimal finite full-dimensional support
-Theorem T2 — regular tetrahedron from A5+A7 edge-orbit invariance
-Theorem Q — independent tetrahedral qubit-SIC convergence
-```
-
-The same local carrier therefore supports both
+The spatial finite-symmetry crosscheck is
 
 \[
-a^2+b^2=c^2
+|\operatorname{Aut}(\Delta^3)|=|S_4|=24.
+\]
+
+## 3. Information-phase rate
+
+With
+
+\[
+d\mathcal I=\kappa\,d\phi,
+\qquad
+\omega=2\pi f,
+\]
+
+one has
+
+\[
+\boxed{
+\Gamma_{\mathcal I}
+=\kappa\omega
+=\frac{\ln2}{12}f.
+}
+\]
+
+One angular cycle carries
+
+\[
+\boxed{
+\Delta\mathcal I_{\rm cycle}
+=\frac{\ln2}{12}.
+}
+\]
+
+The nat/bit/Planck dimensional layer is classified as a downstream certification corollary.
+
+## 4. Unified W_ij transport family
+
+The source-bound crosswalk is
+
+`TIR/foundations/TIR_WIJ_HOLONOMY_CROSSWALK_V0_1.md`.
+
+The typed family is
+
+\[
+\boxed{
+W_{ij}^{WT}\in U(1),
+\qquad
+W_{ij}^{X}\in SU(2),
+\qquad
+W_{ij}^{c}\in SU(3).
+}
+\]
+
+All three use the same connection-holonomy pattern
+
+\[
+W_{ij}^{(G,R)}
+=\mathcal P\exp\!\left(\int_{\gamma_{ij}}A_R\right),
+\]
+
+with reversal and local-frame covariance in the active representation.
+
+GREMLIN receives tetrahedral/global gluing as a relational-isomorphism search over
+
+```text
+Delta^3 -> E_ij -> W_ij -> W_loop -> closure defect -> curvature/torsion candidate
+```
+
+and promotion is tied to deterministic theorem/validator receipts.
+
+## 5. Torsion / Universal Loop
+
+The target seam is
+
+\[
+\boxed{
+W_{ij}\text{ transport}
+\to\text{loop closure}
+\to\text{endpoint defect}
+\to\text{torsion closure}.
+}
+\]
+
+The library search currently resolves Universal-Loop energy-framework documents and the White-Thread holonomy document. The exact Universal-Loop torsion source remains the source-binding item required for this seam.
+
+## 6. Standard-Model correction state
+
+The PDG-2026 addendum is present in the active branch and included by `metatime_monograph.tex`.
+
+Already synchronized correction surfaces include:
+
+- `ch16_pmns_mixing.tex` — explicit PDG-2026 reactor-angle correction;
+- `ch22_fine_structure.tex` — precision-status correction;
+- `ch24_higgs_mass.tex` — retrospective/precision correction;
+- `ch32_pdg2026_validation_addendum.tex` — sector-level validation addendum.
+
+Correction batch 1 additionally updated:
+
+- `ch21_weinberg_angle.tex` — explicit renormalization scheme/scale gate;
+- `ch23_gauge_bosons.tex` — frozen tree-level classification, removal of the ad-hoc `g(1-kappa)` repair path, and explicit electroweak transport target
+
+\[
+(g_0,\theta_W^{(0)},v_0)
+\xrightarrow{\mathcal R_{EW}(\mu,\mathrm{scheme})}
+(g(\mu),\theta_W(\mu),v(\mu))
+\to
+(M_W^{\rm pole},M_Z^{\rm pole}).
+\]
+
+The current task is to reconcile the remaining newer Standard-Model modules with the monograph sector by sector before publishing a final sector matrix.
+
+## 7. Coefficient forcing
+
+The intrinsic coefficient state is
+
+\[
+(h,a,b,c)\in\mathbb Z^4.
+\]
+
+The project already carries structural slot routing plus directed and relational orientation operators. The active target is therefore
+
+```text
+EXTRACT_FRAMEWORK_FORCING_THEOREM
+```
+
+with theorem form
+
+\[
+\boxed{
+\text{canonical framework state + slot grammar}
+\Longrightarrow
+\text{fixed assignment or finite residual degeneracy}.
+}
+\]
+
+## 8. Secret-of-a-Half negative-inverse bridge
+
+The local coordinate identities are
+
+\[
+\Omega(s)=\frac{s}{1-s},
+\qquad
+z_L(s)=1-\frac1s=-\frac1{\Omega(s)},
 \]
 
 and
 
 \[
-n_a\cdot n_b=-\frac13\quad(a\ne b)
+\Re s=\frac12
+\iff
+|z_L(s)|=1.
 \]
 
-as parallel consequences.
+The new TIR interface theorem candidate is
 
-## 7. Active physical frontier
+`TIR/interfaces/TIR_SOH_GLOBAL_LI_DOMINATION_BRIDGE_V0_1.md`.
 
-The remaining work is concentrated above the foundational layer:
+It proves conditionally on the standard symmetric Li representation and classical zeta zero-counting estimate that an off-circle zero creates a finite extremal radial shell, simultaneous phase recurrence, and exponential domination over the regularized remainder:
 
-1. sector-by-sector Standard Model derivation and empirical audit;
-2. operational calibration of information-rate observables;
-3. global spatial refinement, curvature and holonomy;
-4. TIR spatial geometry × Time scalar/tensor closure;
-5. completion of any still-open Secret-of-a-Half / zeta proof dependencies;
-6. preservation of frozen prospective tests and explicit empirical failure receipts.
+\[
+\boxed{
+\exists\rho:\Re\rho\ne\frac12
+\Longrightarrow
+\exists\text{ infinitely many }n:\lambda_n<0.
+}
+\]
 
-## 8. Reproducibility invariant
+The proof uses
 
-Every PASS belongs to the exact commit tested. Claim promotion follows the evidence class of the specific theorem or observable.
+\[
+r_\rho=\max(|z_L(\rho)|,|z_L(\rho)|^{-1})\to1
+\quad(|\Im\rho|\to\infty),
+\]
 
-The integrated workflow is
+which forces any off-circle maximal radial defect into a finite-height extremal shell.
+
+The remaining Secret-of-a-Half promotion target is the framework-side complete positivity/native-closure theorem supplying
+
+\[
+\lambda_n\ge0\qquad\forall n.
+\]
+
+## 9. Completion frontier
+
+The active order is now
+
+```text
+A. resolve and bind the exact Universal Loop torsion source
+B. run GREMLIN gluing search over the unified W_ij family
+C. finish Standard-Model module/monograph reconciliation
+D. extract the coefficient-forcing theorem
+E. close the framework-side Li/Weil positivity-native-closure theorem
+F. maintain dimensional/unit and statistical ledgers in parallel
+```
+
+## 10. Reproducibility invariant
+
+Every PASS belongs to the exact commit tested. Claim promotion follows the evidence class of the specific theorem, validator or observable.
+
+The integrated workflow remains
 
 `.github/workflows/tir-integrated-kappa-critical-axis.yml`.
-
-It now audits the flavour-mixing derivation of the κ denominator in addition to the existing phase-rate, primitive-foundation, spatial and critical-axis gates.
