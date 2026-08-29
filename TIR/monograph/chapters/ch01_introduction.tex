@@ -7,96 +7,123 @@
 Conventional particle-physics reference values are taken principally from the
 Particle Data Group, while the information-theoretic and geometric-phase
 background begins with Shannon, Simon, Berry, and the geometry of quantum states
-\cite{PDG2024,shannon1948,Simon1983,berry1984,ProvostVallee1980}.  Criteria used
+\cite{PDG2024,shannon1948,Simon1983,berry1984,ProvostVallee1980}. Criteria used
 to distinguish exploratory assignments from established results follow the
 falsifiability and reproducibility literature \cite{Popper1959,Munafo2017}.
 % CITATION_CONTEXT_V10_9_END
 
 \section{Motivation}
 The Standard Model contains measured masses, couplings, and mixing quantities
-whose numerical values are not fixed by the minimal Lagrangian.  The exact count
-depends on convention and on whether neutrino masses and phases are included;
-counts near 19 for the minimal model and near 26 with neutrino parameters are
-commonly quoted.  This motivates attempts to identify lower-dimensional
-structures behind the observed hierarchy.
+whose numerical values motivate a search for lower-dimensional relational
+structure behind the observed hierarchy. TIR develops such a programme from
+binary information, projective quantum geometry, relational carriers, and
+flavour mixing.
 
 \section{Aim and scope}
-This monograph investigates whether a compact set of discrete
-information-geometric assignments can organize a broad collection of particle,
-flavor, hadronic, and cosmological observables.  It does not claim an accepted
-microscopic derivation of the Standard Model.  The appropriate status is an
-exploratory phenomenological ansatz with explicit internal audits and named
-prospective tests.
+This monograph investigates whether a compact set of information-geometric and
+relational structures can organize particle, flavour, hadronic, cosmological,
+and geometric observables. The publication architecture separates exact
+mathematical identities, TIR structural derivations, sector assignments,
+diagnostics, empirical tests, and prospectively frozen predictions.
 
 The standard geometric background is the projective space of quantum rays,
 equipped with the Fubini--Study metric and Berry curvature
-\cite{ProvostVallee1980,Simon1983,berry1984}.  For a normalized state $|\psi\rangle$,
-the line element may be written
+\cite{ProvostVallee1980,Simon1983,berry1984}. For a normalized state
+$|\psi\rangle$, the line element may be written
 \begin{equation}
   ds_{\rm FS}^2=\langle d\psi|d\psi\rangle
   -|\langle\psi|d\psi\rangle|^2.
   \label{eq:fubini_study}
 \end{equation}
-Metatime uses this established language as motivation; its discrete particle
-assignments are additional hypotheses.
 
-\section{Defining structural choices}
-The core model choices are
+\section{Primitive information and the $\kappa$ normalization}
+The balanced binary relation supplies
+\[
+\sigma_\star=\frac12,
+\qquad
+H_{\rm bin}(1/2)=\ln2.
+\]
+The current TIR flavour branch supplies a three-dimensional complex family
+carrier
+\[
+V_F\cong\mathbb C^3
+\]
+with full mixing transformation in
+\[
+SU(3)_F.
+\]
+Therefore
+\[
+\dim\mathfrak{su}(3)_F=3^2-1=8.
+\]
+Eight independent mixing directions across three flavours give
+\[
+\boxed{N_{\rm mix}=8\cdot3=24.}
+\]
+The primitive half coordinate supplies the half-turn phase
+\[
+\Delta\phi_{1/2}=\frac12(2\pi)=\pi,
+\]
+so the primitive mixing-phase measure is
+\[
+\boxed{\Phi_{\rm mix}=24\pi.}
+\]
+The information normalization is consequently
 \begin{equation}
-  \kappa\equiv\frac{\ln2}{24\pi},
-  \qquad (L_3,L_4,L_5)=(7,2,5),
+  \boxed{
+  \kappa
+  =\frac{H_{\rm bin}(1/2)}{\Phi_{\rm mix}}
+  =\frac{\ln2}{3(3^2-1)\pi}
+  =\frac{\ln2}{24\pi}.}
   \label{eq:kappa_def}
 \end{equation}
-and the prime labels
+Appendix~\ref{app:kappa} records the complete derivation and its provenance.
+
+The remaining discrete TIR integers are
+\[
+(L_3,L_4,L_5)=(7,2,5),
+\]
+and the current quark-prime labels are
 \begin{equation}
   (u,d,s,c,b,t)=(3,5,7,11,13,17).
   \label{eq:quark_primes_def}
 \end{equation}
-These are model postulates.  The factor $24\pi$ is a discrete normalization
-ansatz, not the standard symplectic volume of $\mathbb{C}P^3$; Appendix
-\ref{app:kappa} states the precise and limited claim.
+Their sector-specific provenance is audited separately from the $\kappa$
+normalization theorem.
 
-The construction also uses external physical anchors, including the Planck
-scale, the proton mass in hadronic sectors, $N_c=3$, assigned hypercharge data,
-and a hadronic coefficient in the neutron-EDM mapping.  The electron is the sole
-dimensional anchor in the Collatz charged-fermion audit.  Such anchored results
-are not independent predictions of the anchor itself.
+\section{External scales and sector inputs}
+Selected sectors use explicit physical scales, measured reference values,
+renormalization conventions, and conversion coefficients. These inputs are
+listed at the point where they enter so that dimensional anchoring and derived
+relations remain separately traceable.
 
 \section{Claim hierarchy}
-Every substantive result is to be read using the following hierarchy:
+Every substantive result is read using the repository claim hierarchy:
 \[
 \begin{array}{ll}
   \text{[A]} & \text{established mathematical or experimental result},\\
-  \text{[B]} & \text{Metatime/TIR model postulate},\\
+  \text{[B]} & \text{TIR structural law or internally derived structural quantity},\\
   \text{[C]} & \text{retrospective phenomenological assignment},\\
   \text{[D]} & \text{diagnostic, failure, or restricted no-go result},\\
   \text{[E]} & \text{prospectively frozen prediction},\\
   \text{[F]} & \text{external anchor or input}.
 \end{array}
 \]
-A numerical match in class [C] is descriptive and hypothesis-generating.  Only a
-class [E] result evaluated under its frozen rule can provide prospective support.
+Each theorem and observable carries its own dependency and evidence class.
 
 \section{Current evidence balance}
-Several retrospective assignments reproduce their reference snapshot closely,
-but the manuscript deliberately retains material failures.  The quoted $W$ and
-$Z$ masses remain high by approximately $4.5\%$ and $5.0\%$.  The fixed
-strong-CP assignment maps to a neutron EDM above the current bound.  The isolated
-Collatz quarter-power mass trace is not a closed derivation, and a proposed
-common up-sector baseline is ruled out for the frozen trace.  Conversely, the
-v10.7 separable candidate family supplies two orthogonal prospective observables
-and an explicit no-refit rule.
+The repository retains close numerical matches, residual tensions, physical
+failures, no-go results, and frozen prospective candidates as separate evidence
+surfaces. This keeps the formal dependency graph distinct from empirical sector
+performance.
 
 \section{Model complexity}
-The framework uses no continuously fitted coefficient in several defining
-relations, but it contains approximately fifty discrete structural choices.
-``Zero continuous free parameters'' must therefore not be interpreted as zero
-effective model complexity.  Appendix \ref{app:publication_protocol} fixes the
-statistical and publication conventions.
+Several defining relations contain no continuously fitted coefficient. Discrete
+structural selections, sector mappings and external anchors are tracked explicitly
+through the structural-choice ledger and publication protocol.
 
 \section{Organization}
-Parts II--X develop the sector assignments; Part XI separates retrospective
-comparisons, failures, and future work.  Appendices J--N contain the Collatz
-audit, retrospective release, no-go theorem, identifiability result, and frozen
-candidate family.  Appendix \ref{app:publication_protocol} records data
-provenance, renormalization limitations, and the prospective evaluation rule.
+The monograph develops primitive information and geometry, flavour and mixing,
+particle-sector constructions, diagnostics and prospective tests. The appendices
+record the $\kappa$ derivation, geometric crosswalks, source contracts,
+reproducibility ledgers, and publication protocol.
