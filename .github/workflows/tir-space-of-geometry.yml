@@ -50,6 +50,16 @@ jobs:
           grep -q '"promotion_status": "CONDITIONAL_UNIQUENESS_UP_TO_ORTHOGONAL_EQUIVALENCE_AND_SCALE"' spatial_promotion_uniqueness_receipt.json
           grep -q '"remaining_gate": "DERIVE_SPATIAL_REALIZATION_CRITERION_FROM_TIR_AXIOMS"' spatial_promotion_uniqueness_receipt.json
 
+      - name: Audit axiom-to-spatial realization bridge
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/axiom_to_spatial_realization_bridge_v0_1.py | tee axiom_to_spatial_realization_bridge_receipt.json
+          grep -q '"technical_status": "PASS"' axiom_to_spatial_realization_bridge_receipt.json
+          grep -q '"bridge_status": "TWO_FOUNDATIONAL_RULES_REMAIN_TO_BE_PROMOTED"' axiom_to_spatial_realization_bridge_receipt.json
+          grep -q '"exact_closure_if_bridge_conditions_admitted": "V_x~=Herm_0(2)~=R3"' axiom_to_spatial_realization_bridge_receipt.json
+          grep -q '"dependency_surface_complete": true' axiom_to_spatial_realization_bridge_receipt.json
+
       - name: Audit local Euclidean and Pythagorean closure
         shell: bash
         run: |
@@ -68,11 +78,13 @@ jobs:
           test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_2.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/SPATIAL_PROMOTION_UNIQUENESS_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/AXIOM_TO_SPATIAL_REALIZATION_BRIDGE_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/LOCAL_EUCLIDEAN_PYTHAGOREAN_CLOSURE_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/paper/PAPER_OUTLINE_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/paper/PAPER_OUTLINE_V0_2.md
           test -s TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_2.py
           test -s TIR/subrepos/the-space-of-geometry/validation/spatial_promotion_uniqueness_v0_1.py
+          test -s TIR/subrepos/the-space-of-geometry/validation/axiom_to_spatial_realization_bridge_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/local_euclidean_pythagorean_closure_v0_1.py
 
       - name: Upload receipts
@@ -84,4 +96,5 @@ jobs:
           path: |
             space_of_geometry_spine_v0_2_receipt.json
             spatial_promotion_uniqueness_receipt.json
+            axiom_to_spatial_realization_bridge_receipt.json
             local_euclidean_pythagorean_receipt.json
