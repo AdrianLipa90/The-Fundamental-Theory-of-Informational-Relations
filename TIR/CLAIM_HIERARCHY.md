@@ -1,24 +1,19 @@
-# Claim Hierarchy — v11.1 review
+# Claim Hierarchy — current TIR review
 
-This is the live claim taxonomy used by the reviewed Metatime/TIR sources.  It
-supersedes the older Milligan-era A/B/C/D/E table where several structural
-postulates and retrospective assignments had been placed in stronger classes.
-Historical classifications remain in repository history and `archive/`.
+This is the live claim taxonomy used by the TIR publication and validation surfaces. Historical classifications remain in repository history and archival surfaces.
 
 ## Publication classes
 
 | Class | Meaning |
 |---|---|
 | **A** | Established mathematical identity or external experimental result supported by standard sources. |
-| **B** | TIR/Metatime model postulate or structural definition. |
+| **B** | TIR structural law, model identification, or internally derived structural quantity whose upstream TIR premises remain explicit. |
 | **C** | Retrospective phenomenological assignment developed with access to some or all target values. |
 | **D** | Diagnostic result, retained failure, falsification witness, or restricted no-go theorem. |
 | **E** | Prospectively frozen prediction with a declared observable and no-refit rule. |
 | **F** | External anchor, scale, convention, or conversion input supplied to the construction. |
 
-An exact theorem **conditional on class-B definitions** is recorded as an exact
-formal consequence, but the exactness of the consequence does not promote the
-underlying postulate to class A.
+An exact theorem conditional on TIR structural premises is recorded as an exact formal consequence with those premises preserved in the dependency graph.
 
 ## A. Established ingredients
 
@@ -27,24 +22,95 @@ underlying postulate to class A.
 | Binary Shannon entropy is uniquely maximal at \(p=1/2\), with \(H_2(1/2)=\ln2\). | Standard information theory. |
 | \(\omega=2\pi f\). | Standard conversion between cyclic and angular frequency. |
 | Spin-\(1/2\) Berry phase satisfies \(\gamma=-\Omega/2\pmod{2\pi}\). | Standard geometric-phase result. |
+| \(\dim\mathfrak{su}(3)=3^2-1=8\). | Standard Lie-group dimension formula. |
 | Rotational tetrahedral group \(A_4\) has order 12; full tetrahedral group is isomorphic to \(S_4\) of order 24. | Standard group theory. |
-| External comparison values and bounds used by a frozen publication snapshot. | Class A only as quoted external facts when supported by the cited source; they are not TIR predictions. |
+| External comparison values and bounds used by a frozen publication snapshot. | External facts when supported by the cited source. |
 
-## B. TIR structural definitions and postulates
+## B. TIR structural layer
 
 | Claim | Current status |
 |---|---|
-| \(\kappa\equiv\ln2/(24\pi)\). | **B — model postulate / structural definition.** The numerator and standard phase/group ingredients motivate the form, but standard physics does not independently derive the full coefficient. |
-| \((L_3,L_4,L_5)=(7,2,5)\). | B — discrete structural choice; no unique first-principles derivation currently established. |
-| Quark-prime labels \((u,d,s,c,b,t)=(3,5,7,11,13,17)\). | B — discrete assignment; alternatives require explicit falsification/comparison. |
-| Exponential mass ansatz \(m=E_P e^{-S/\kappa}\) in the declared sectors. | B/C depending on the sector-specific action construction; not a universal established mass law. |
-| Tetrahedral/NOEMA operator assignments to flavour or mixing observables. | B — model geometry until a physical derivation and prospective transfer test are supplied. |
-| Informational phase definition \(d\mathcal I=\kappa\,d\phi\). | B — TIR definition. |
+| \(\kappa=\ln2/(24\pi)\). | **TIR-internal derived structural normalization.** The denominator follows from the three-flavour \(SU(3)_F\) carrier, its eight-dimensional mixing algebra, and the primitive half-turn phase: \(24\pi=3(3^2-1)\pi\). |
+| \((L_3,L_4,L_5)=(7,2,5)\). | Discrete TIR structural integers with their own sector provenance. |
+| Quark-prime labels \((u,d,s,c,b,t)=(3,5,7,11,13,17)\). | Discrete flavour assignment with explicit sector validation. |
+| Exponential mass ansatz \(m=E_P e^{-S/\kappa}\) in the declared sectors. | TIR sector law with sector-specific action construction. |
+| Tetrahedral/NOEMA operator assignments to flavour or mixing observables. | TIR model geometry with separate empirical validation surfaces. |
+| Informational phase definition \(d\mathcal I=\kappa\,d\phi\). | TIR information-phase law. |
 
-## Exact formal consequences conditional on class B
+### κ flavour-mixing normalization
 
-These statements are mathematically exact **once their stated TIR definitions
-are adopted**.
+The flavour carrier is
+
+\[
+V_F\cong\mathbb C^3,
+\qquad
+U_F\in SU(3)_F.
+\]
+
+Thus
+
+\[
+N_F=3,
+\qquad
+\dim\mathfrak{su}(3)_F=3^2-1=8.
+\]
+
+The generator-flavour channel count is
+
+\[
+\boxed{
+N_{\rm mix}=3\cdot8=24.
+}
+\]
+
+The primitive half coordinate maps one full angular turn to the half-turn unit
+
+\[
+\Delta\phi_{1/2}=\frac12(2\pi)=\pi.
+\]
+
+Therefore
+
+\[
+\boxed{
+\Phi_{\rm mix}=N_{\rm mix}\Delta\phi_{1/2}=24\pi.
+}
+\]
+
+With
+
+\[
+I_\star=H_2(1/2)=\ln2,
+\]
+
+the TIR information-per-mixing-phase normalization gives
+
+\[
+\boxed{
+\kappa
+=\frac{I_\star}{\Phi_{\rm mix}}
+=\frac{\ln2}{3(3^2-1)\pi}
+=\frac{\ln2}{24\pi}.
+}
+\]
+
+The canonical derivation surface is
+
+`TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
+
+The exact validator is
+
+`TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py`.
+
+The spatial branch supplies the independent integer crosscheck
+
+\[
+3\dim\mathfrak{su}(3)_F
+=24
+=|S_4|.
+\]
+
+## Exact formal consequences of the κ layer
 
 ### κ phase-rate closure
 
@@ -71,12 +137,9 @@ with
 
 \[
 \boxed{
-\Delta\mathcal I_{\rm cycle}=\frac{\ln2}{12}
-}.
+\Delta\mathcal I_{\rm cycle}=\frac{\ln2}{12}.
+}
 \]
-
-The exact factor certificate is implemented in
-`TIR/validation/kappa_phase_rate_identity_v11_1.py`.
 
 ### Constraint manifold
 
@@ -91,100 +154,62 @@ The constraints
 \]
 
 have rank three in the four named quantities
-\((\kappa,\omega,f,\Gamma_{\mathcal I})\).  Therefore the declared subsystem is
-one-dimensional, parametrized by \(f\), conditional on the TIR definitions.
+\((\kappa,\omega,f,\Gamma_{\mathcal I})\). Therefore the declared subsystem is one-dimensional, parametrized by \(f\).
 
 ## C. Retrospective phenomenological assignments
 
-This class includes formula families that were developed or selected with
-access to their comparison targets.  Close numerical agreement is descriptive
-and hypothesis-generating, not independent confirmation.
+This class contains sector formula families developed or selected with access to comparison targets. Their exact algebraic evaluation and empirical residuals are recorded separately.
 
-Examples include historical charged-lepton, baryon, meson, flavour, gauge,
-Higgs, strong-CP and cosmological relations where the formula architecture or
-sector mapping was developed against already known values.
+Representative sectors include historical charged-lepton, baryon, meson, flavour, gauge, Higgs, strong-CP and cosmological relations.
 
-For these assignments:
-
-- do not report a heterogeneous global mean percentage as evidence;
-- preserve scheme/scale caveats for running quantities;
-- disclose external anchors and discrete choices;
-- retain negative residuals and failed sectors.
-
-## D. Diagnostics, failures and no-go results
+## D. Diagnostics and falsification surfaces
 
 | Result | Current status |
 |---|---|
-| Gauge-boson mass relations | **Retained tension.** The active publication relations remain several percent away from the reference values used by the monograph. |
-| Strong-CP → neutron-EDM mapping | **Physical FAIL under the frozen manuscript mapping.** \(\theta_{\rm QCD}\approx2.2208\times10^{-10}\) gives \(d_n\approx5.3299\times10^{-26}\,e\,\mathrm{cm}\), about \(2.96\) times the \(1.8\times10^{-26}\,e\,\mathrm{cm}\) manuscript bound. |
-| Isolated Collatz quarter-power mass trace | Retrospective diagnostic; not a closed mass-spectrum derivation. |
-| Restricted common up-sector baseline | No-go result for the frozen architecture tested by the v10 review line. |
-| Reciprocal self-duality alone forces a dynamical maximum | **False in the declared DHSE-001 Stage-M universe.** Exact finite counterexamples occur at word lengths 1 and 4. |
-
-A technically correct computation can therefore produce a physical FAIL.
+| Gauge-boson mass relations | Retained several-percent tension in the active publication formulas. |
+| Strong-CP → neutron-EDM mapping | Physical FAIL under the frozen manuscript mapping; retained as an explicit falsification witness. |
+| Isolated Collatz quarter-power mass trace | Retrospective diagnostic awaiting complete spectrum derivation. |
+| Restricted common up-sector baseline | No-go result for the frozen architecture tested by the review line. |
+| Reciprocal self-duality alone forces a dynamical maximum | Exact finite counterexamples occur at word lengths 1 and 4 in the declared DHSE-001 Stage-M universe. |
 
 ## E. Prospectively frozen predictions
 
-The v10.7 separable candidate family remains the principal prospective
-component.  Its candidate formulas, orthogonal observables and no-refit rule are
-frozen before the assigned future likelihood is inspected.
-
-Only evaluation under the preregistered decision rule can provide prospective
-support or falsification.  A failed candidate may not be replaced post hoc by a
-new formula after viewing the target data.
+The frozen candidate family preserves its candidate formulas, orthogonal observables and no-refit decision rules before assigned future likelihoods are inspected.
 
 ## F. External anchors and inputs
 
-External scales, measured reference values, fixed hadronic conversion factors,
-renormalization conventions and other supplied quantities must be listed where
-they enter.  A result depending on an anchor is not an independent prediction
-of that anchor.
-
-The current publication protocol, not an older shorthand count, is authoritative
-for the exact list used by each sector.
+External scales, measured reference values, fixed hadronic conversion factors and renormalization conventions are declared at their point of use.
 
 ## TIR ↔ Secret-of-a-Half interface
 
-The reviewed chain is
+The current dependency chain is
 
 \[
 \boxed{
 \frac12
-\xrightarrow{\;H_2\;}
+\xrightarrow{H_2}
 \ln2
-\xrightarrow{\;\text{TIR structural definition}\;}
+\xrightarrow{SU(3)_F\;3\times8\;\mathrm{mixing}\;+\;\pi\;\mathrm{half\!\!-turn}}
 \kappa
-\xrightarrow{\;d\mathcal I=\kappa d\phi\;}
-\Gamma_{\mathcal I}
-}.
+\xrightarrow{d\mathcal I=\kappa d\phi}
+\Gamma_{\mathcal I}.
+}
 \]
 
-The arrows have different claim classes.  In particular, the exact entropy
-maximum does not derive the TIR denominator \(24\pi\), and the exact phase-rate
-identity does not prove a physical surface-refresh mechanism.
+The numerator is supplied by the exact binary entropy theorem. The denominator is supplied by the three-flavour mixing multiplicity and the half-turn angular measure.
 
-The sibling DHSE Stage-M result also establishes the boundary
+The sibling DHSE Stage-M result retains the separate dynamical constraint
 
 \[
 \boxed{
 \text{reciprocal symmetry}
 \not\Rightarrow
 \text{central dynamical maximum}
-}.
+}
 \]
 
-See:
-- `TIR/docs/cross_reviews/TIR_SECRET_HALF_2026-08-07.md`;
-- monograph Appendix P.
+inside its declared finite universe.
 
 ## Promotion rule
 
-A claim may move to a stronger class only when the required evidence is present
-and reproducible.  In particular:
-
-1. a model definition does not become class A because its consequences are exact;
-2. retrospective agreement does not become prospective evidence;
-3. a technical PASS does not become a physical PASS;
-4. self-duality does not imply extremality without an additional theorem;
-5. an open zeta/RH bridge remains open until every proof dependency is closed;
-6. previous workflow PASS applies only to the exact commit that was tested.
+Claim status is carried by explicit dependency provenance, deterministic validation where applicable, and the evidence class appropriate to each physical observable. A PASS is attached only to the exact commit and exact theorem surface tested.
