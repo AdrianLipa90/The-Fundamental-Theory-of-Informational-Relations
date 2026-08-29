@@ -30,19 +30,21 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Audit Space of Geometry v0.8 spine
+      - name: Audit Space of Geometry v0.9 dependency fork
         shell: bash
         run: |
           set -euo pipefail
-          python3 TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_8.py | tee space_of_geometry_spine_v0_8_receipt.json
-          grep -Fq '"technical_status": "PASS"' space_of_geometry_spine_v0_8_receipt.json
-          grep -Fq '"local_derivation_status": "CLOSED_AT_TIR_AXIOM_MODEL_LEVEL"' space_of_geometry_spine_v0_8_receipt.json
-          grep -Fq '"endpoint": "PYTHAGOREAN_CLOSURE"' space_of_geometry_spine_v0_8_receipt.json
-          grep -Fq '"spatial_relation": "CANONICAL_ENDPOINT_CARRYING_AFFINE_DISPLACEMENT"' space_of_geometry_spine_v0_8_receipt.json
-          grep -Fq '"local_relation_carrier": "Herm_0(2)~=R3"' space_of_geometry_spine_v0_8_receipt.json
-          grep -Fq '"minimal_cell": "Delta^3"' space_of_geometry_spine_v0_8_receipt.json
-          grep -Fq '"regularity_gate_status": "CLOSED_BY_EXISTING_A5_A7_CROSSWALK"' space_of_geometry_spine_v0_8_receipt.json
-          grep -Fq '"global_refinement": "DOWNSTREAM_GEOMETRY_PROGRAMME"' space_of_geometry_spine_v0_8_receipt.json
+          python3 TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_9.py | tee space_of_geometry_spine_v0_9_receipt.json
+          grep -Fq '"technical_status": "PASS"' space_of_geometry_spine_v0_9_receipt.json
+          grep -Fq '"dependency_shape": "COMMON_CARRIER_THEN_PARALLEL_EUCLIDEAN_AND_FINITE_CELL_BRANCHES"' space_of_geometry_spine_v0_9_receipt.json
+          grep -Fq '"common_carrier_status": "CLOSED_AT_TIR_AXIOM_MODEL_LEVEL"' space_of_geometry_spine_v0_9_receipt.json
+          grep -Fq '"euclidean_branch_status": "CLOSED_AT_TIR_AXIOM_MODEL_LEVEL"' space_of_geometry_spine_v0_9_receipt.json
+          grep -Fq '"finite_cell_branch_status": "CLOSED_AT_TIR_AXIOM_MODEL_LEVEL"' space_of_geometry_spine_v0_9_receipt.json
+          grep -Fq '"pythagorean_endpoint": "DIRECT_INNER_PRODUCT_BRANCH"' space_of_geometry_spine_v0_9_receipt.json
+          grep -Fq '"tetrahedron_required_for_pythagoras": false' space_of_geometry_spine_v0_9_receipt.json
+          grep -Fq '"tetrahedron_role": "MINIMAL_FINITE_FULL_DIMENSIONAL_CELL"' space_of_geometry_spine_v0_9_receipt.json
+          grep -Fq '"sic_role": "INDEPENDENT_CONVERGENCE_CROSSCHECK"' space_of_geometry_spine_v0_9_receipt.json
+          grep -Fq '"global_refinement": "DOWNSTREAM_GEOMETRY_PROGRAMME"' space_of_geometry_spine_v0_9_receipt.json
 
       - name: Audit canonical spatial relation extraction
         shell: bash
@@ -90,21 +92,21 @@ jobs:
           python3 TIR/subrepos/the-space-of-geometry/validation/local_euclidean_pythagorean_closure_v0_1.py | tee local_euclidean_pythagorean_receipt.json
           grep -Fq '"technical_status": "PASS"' local_euclidean_pythagorean_receipt.json
           grep -Fq '"endpoint": "PYTHAGOREAN_CLOSURE"' local_euclidean_pythagorean_receipt.json
-          grep -Fq '"regular_tetrahedron_role": "MINIMAL_LOCAL_ISOTROPIC_CELL"' local_euclidean_pythagorean_receipt.json
 
       - name: Verify current subrepo surfaces
         shell: bash
         run: |
           set -euo pipefail
           test -s TIR/subrepos/the-space-of-geometry/README.md
-          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_8.md
+          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_9.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/CANONICAL_SPATIAL_RELATION_EXTRACTION_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/A5_A7_SIMPLEX_EDGE_ORBIT_REGULARITY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/UNLABELED_SIMPLEX_AUTOMORPHISM_REGULARITY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/LOCAL_EUCLIDEAN_PYTHAGOREAN_CLOSURE_V0_1.md
-          test -s TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_8.py
+          test -s TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_9.py
           test -s TIR/subrepos/the-space-of-geometry/validation/canonical_spatial_relation_extraction_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/a5_a7_simplex_edge_orbit_regularity_v0_1.py
+          test -s TIR/subrepos/the-space-of-geometry/paper/MANUSCRIPT_V0_2.md
 
       - name: Upload receipts
         uses: actions/upload-artifact@v4
@@ -113,7 +115,7 @@ jobs:
           if-no-files-found: error
           retention-days: 30
           path: |
-            space_of_geometry_spine_v0_8_receipt.json
+            space_of_geometry_spine_v0_9_receipt.json
             canonical_spatial_relation_extraction_receipt.json
             a5_a7_simplex_edge_orbit_regularity_receipt.json
             spatial_promotion_uniqueness_receipt.json
