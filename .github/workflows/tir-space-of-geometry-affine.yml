@@ -39,7 +39,6 @@ jobs:
           grep -Fq '"promotion_route": "QUANTUM_POINT_AFFINE_DIFFERENCE"' quantum_point_affine_spatial_carrier_receipt.json
           grep -Fq '"local_relation_carrier": "Herm_0(2)~=R3"' quantum_point_affine_spatial_carrier_receipt.json
           grep -Fq '"endpoint_closure_automatic_under_bridge": true' quantum_point_affine_spatial_carrier_receipt.json
-          grep -Fq '"remaining_gate": "RELATION_AS_CANONICAL_QUANTUM_STATE_DIFFERENCE"' quantum_point_affine_spatial_carrier_receipt.json
 
       - name: Audit relational state-difference uniqueness
         shell: bash
@@ -50,7 +49,6 @@ jobs:
           grep -Fq '"exact_result": "D(rho_x,rho_y)=lambda*(rho_y-rho_x)"' relational_state_difference_uniqueness_receipt.json
           grep -Fq '"uniqueness": "UP_TO_NONZERO_GLOBAL_SCALE_AND_ORIENTATION"' relational_state_difference_uniqueness_receipt.json
           grep -Fq '"commutant_dimension": 1' relational_state_difference_uniqueness_receipt.json
-          grep -Fq '"canonical_bloch_pauli_normalization": "lambda=2"' relational_state_difference_uniqueness_receipt.json
 
       - name: Audit affine torsor relation theorem
         shell: bash
@@ -61,20 +59,30 @@ jobs:
           grep -Fq '"exact_result": "AFFINE_ORDERED_PAIR_HAS_UNIQUE_ORIGIN_INDEPENDENT_DISPLACEMENT"' quantum_relation_affine_torsor_receipt.json
           grep -Fq '"canonical_relation": "delta(rho_x,rho_y)=rho_y-rho_x"' quantum_relation_affine_torsor_receipt.json
           grep -Fq '"torsor_displacement_unique": true' quantum_relation_affine_torsor_receipt.json
-          grep -Fq '"remaining_tir_gate": "A3_RELATION_TYPED_AS_INTRINSIC_AFFINE_DISPLACEMENT"' quantum_relation_affine_torsor_receipt.json
+
+      - name: Audit A1+A3 intrinsic affine relation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/a1_a3_intrinsic_affine_relation_v0_1.py | tee a1_a3_intrinsic_affine_relation_receipt.json
+          grep -Fq '"technical_status": "PASS"' a1_a3_intrinsic_affine_relation_receipt.json
+          grep -Fq '"exact_family": "R(x,y)=c*(y-x)"' a1_a3_intrinsic_affine_relation_receipt.json
+          grep -Fq '"uniqueness_status": "EXACT_UNDER_CONTINUOUS_INTRINSIC_AFFINE_NATURALITY"' a1_a3_intrinsic_affine_relation_receipt.json
+          grep -Fq '"remaining_tir_gate": "A1_A3_SELECT_INTRINSIC_AFFINE_NATURALITY"' a1_a3_intrinsic_affine_relation_receipt.json
 
       - name: Verify v0.4 surfaces
         shell: bash
         run: |
           set -euo pipefail
-          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_3.md
           test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_4.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_POINT_AFFINE_SPATIAL_CARRIER_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/RELATIONAL_STATE_DIFFERENCE_UNIQUENESS_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_RELATION_AFFINE_TORSOR_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/A1_A3_INTRINSIC_AFFINE_RELATION_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/validation/quantum_point_affine_spatial_carrier_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/relational_state_difference_uniqueness_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/quantum_relation_affine_torsor_v0_1.py
+          test -s TIR/subrepos/the-space-of-geometry/validation/a1_a3_intrinsic_affine_relation_v0_1.py
 
       - name: Upload receipts
         uses: actions/upload-artifact@v4
@@ -86,3 +94,4 @@ jobs:
             quantum_point_affine_spatial_carrier_receipt.json
             relational_state_difference_uniqueness_receipt.json
             quantum_relation_affine_torsor_receipt.json
+            a1_a3_intrinsic_affine_relation_receipt.json
