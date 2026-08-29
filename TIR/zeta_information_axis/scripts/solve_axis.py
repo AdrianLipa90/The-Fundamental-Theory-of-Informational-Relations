@@ -60,7 +60,7 @@ def build_receipt() -> dict[str, object]:
         exact = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=False)
         model = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=True)
         receipt = {
-            "schema": "tir.critical-axis.solver-receipt/v4",
+            "schema": "tir.critical-axis.solver-receipt/v5",
             "precision_decimal_digits": 80,
             "half_axis_routes": {key: mp.nstr(value, 50) for key, value in routes.items()},
             "half_axis_consensus": all(
@@ -83,6 +83,13 @@ def build_receipt() -> dict[str, object]:
             "open_wiener_laguerre_scalar_routes": _missing(
                 "xi_wiener_laguerre_strict_positivity", set(model.facts)
             ),
+            "open_nonlocal_curvature_routes": _missing(
+                "xi_strict_transverse_convexity_critical_strip", set(model.facts)
+            ),
+            "literature_firewall": {
+                "phase_aligned_blockwise_positivity": "EXTERNAL_NO_GO_RECORDED",
+                "scope": "Planat 2026 theta-kernel decomposition; global correlated positivity remains the active route",
+            },
             "verdict": {
                 "mathematical_half_axis_routes": "PASS",
                 "conditional_kappa_arithmetic": "PASS",
@@ -94,9 +101,13 @@ def build_receipt() -> dict[str, object]:
                 "dimitrov_xu_nu2_correlation_kernel": "STANDARD_PASS",
                 "xi_wronskian_nu2_fourier_identity": "STANDARD_PASS",
                 "phi2y_fourier_equals_xi_wiener_laguerre_scalar": "STANDARD_PASS",
+                "xi_transverse_curvature_identity": "EXACT_PASS",
+                "theta_curvature_kernel_bridge": "EXACT_PASS",
                 "phi2y_translation_density_condition": "OPEN_RH_EQUIVALENT_CRITERION",
                 "phi2y_bounded_convolution_annihilator_condition": "OPEN_RH_EQUIVALENT_CRITERION",
                 "xi_wiener_laguerre_strict_positivity": "OPEN_RH_EQUIVALENT_CRITERION",
+                "xi_strict_transverse_convexity_critical_strip": "OPEN_RH_EQUIVALENT_CRITERION",
+                "xi_vertical_growth_critical_strip": "OPEN_RH_EQUIVALENT_CRITERION",
                 "riemann_hypothesis": "OPEN",
             },
         }
