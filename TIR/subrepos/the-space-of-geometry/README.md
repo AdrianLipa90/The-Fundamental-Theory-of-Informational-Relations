@@ -56,7 +56,13 @@ V_x\simeq\operatorname{Herm}_0(2)\simeq\mathbb R^3
 
 under the declared spatial-realization criterion, with invariant positive metric unique up to scale.
 
-The central active gate is now to derive that realization criterion from the primitive TIR axioms.
+The current proof bottleneck is now singular and explicit:
+
+\[
+\boxed{
+\text{derive the minimal faithful real orthogonal realization criterion from the primitive TIR axioms.}
+}
+\]
 
 ## Minimal spatial cell
 
