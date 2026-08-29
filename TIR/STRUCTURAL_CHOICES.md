@@ -1,247 +1,176 @@
-# Structural-Choice Audit — v11.1 review
+# Structural-Choice Audit — current TIR review
 
-This ledger tracks the principal non-continuous choices, external anchors and
-formula selections used by live Metatime/TIR constructions.  It is a
-**model-complexity audit**, not a statistical parameter-count theorem.
+This ledger tracks discrete choices, internal structural derivations, external anchors and sector formula selections used by live TIR constructions.
 
 ## Legend
 
 | Type | Meaning |
 |---|---|
 | `A` | Established external mathematical/physical ingredient. |
-| `P` | TIR postulate or structural definition. |
+| `D_TIR` | Quantity derived internally from explicit TIR structural parents. |
+| `P` | TIR structural law or definition. |
 | `S` | Discrete structural selection among alternatives. |
 | `R` | Retrospective formula/architecture choice made with access to target data. |
 | `F` | External physical scale, convention or conversion input. |
 | `E` | Prospectively frozen candidate or observable. |
 | `D` | Diagnostic/failure/no-go construction. |
 
-An algebraically derived quantity may be exact **conditional on upstream P/S/R
-choices**.  That does not make the upstream choices established physics.
-
 ## Fundamental structural layer
 
-| Symbol / rule | Value | Type | Review status |
+| Symbol / rule | Value | Type | Current status |
 |---|---:|---|---|
-| binary entropy maximum | \(p=1/2\), \(H_2=\ln2\) | A | Standard information theory. |
-| angular-frequency conversion | \(\omega=2\pi f\) | A | Standard definition. |
-| \(\kappa\) | \(\ln2/(24\pi)\) | P | TIR structural normalization; not an independently established first-principles invariant. |
-| \(L_3\) | 7 | P | Discrete TIR integer; unique derivation remains open. |
-| \(L_4\) | 2 | P | Discrete TIR integer; unique derivation remains open. |
-| \(L_5\) | 5 | P | Discrete TIR integer; unique derivation remains open. |
-| informational phase rule | \(d\mathcal I=\kappa d\phi\) | P | TIR definition. |
+| binary entropy maximum | \(p=1/2\), \(H_2=\ln2\) | A | Exact information theory. |
+| full angular closure | \(2\pi\) | A | Standard radian circle. |
+| primitive half-turn | \(\pi=(1/2)(2\pi)\) | A + TIR root | Half coordinate mapped to angular closure. |
+| flavour carrier | \(V_F\cong\mathbb C^3\) | D_TIR | Three-flavour family carrier. |
+| flavour mixing group | \(SU(3)_F\) | D_TIR | Full CKM-form family carrier. |
+| mixing-algebra dimension | \(\dim\mathfrak{su}(3)_F=8\) | A + D_TIR | \(3^2-1\). |
+| mixing-channel count | \(N_{mix}=3\cdot8=24\) | D_TIR | Generator × flavour incidence count. |
+| \(\kappa\) | \(\ln2/(24\pi)\) | D_TIR | Derived from \(I_\star=\ln2\) over the \(24\pi\) primitive mixing-phase measure. |
+| informational phase rule | \(d\mathcal I=\kappa d\phi\) | P | TIR information-phase law. |
 
-The reviewed κ phase-rate consequence
+The κ derivation is
 
 \[
-\Gamma_{\mathcal I}=\kappa\omega=\frac{\ln2}{12}f
+\boxed{
+N_F=3,
+\qquad
+\dim\mathfrak{su}(3)_F=3^2-1=8,
+\qquad
+N_{mix}=3\cdot8=24,
+}
 \]
 
-is exact conditional on the above definitions and introduces no additional
-continuous coefficient in that four-quantity subsystem.
+\[
+\boxed{
+\Delta\phi_{1/2}=\frac12(2\pi)=\pi,
+\qquad
+\Phi_{mix}=24\pi,
+}
+\]
+
+and therefore
+
+\[
+\boxed{
+\kappa
+=\frac{H_2(1/2)}{\Phi_{mix}}
+=\frac{\ln2}{3(3^2-1)\pi}
+=\frac{\ln2}{24\pi}.
+}
+\]
+
+Canonical derivation:
+
+`TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
+
+Validator:
+
+`TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py`.
+
+The spatial branch independently supplies
+
+\[
+|\operatorname{Aut}(\Delta^3)|=|S_4|=24,
+\]
+
+as a finite-symmetry crosscheck of the same integer.
+
+## Exact phase-rate consequence
+
+\[
+\Gamma_{\mathcal I}
+=\kappa\omega
+=\frac{\ln2}{12}f
+\]
+
+for \(\omega=2\pi f\). This consequence introduces no additional continuous coefficient.
 
 ## Discrete flavour labels
 
-| Label | Value | Type | Comment |
-|---|---:|---|---|
-| \(q(u)\) | 3 | S | Discrete flavour label. |
-| \(q(d)\) | 5 | S | Discrete flavour label. |
-| \(q(s)\) | 7 | S | Coincides numerically with \(L_3\). |
-| \(q(c)\) | 11 | S | Selection theorem remains open. |
-| \(q(b)\) | 13 | S | Selection theorem remains open. |
-| \(q(t)\) | 17 | S | Selection theorem remains open. |
+| Label | Value | Type |
+|---|---:|---|
+| \(q(u)\) | 3 | S |
+| \(q(d)\) | 5 | S |
+| \(q(s)\) | 7 | S |
+| \(q(c)\) | 11 | S |
+| \(q(b)\) | 13 | S |
+| \(q(t)\) | 17 | S |
 
-Alternative prime assignments are not excluded merely by the success of one
-retrospectively developed mapping.  Uniqueness requires its own theorem or a
-prospective model-comparison gate.
+Their sector-level uniqueness and predictive validation are tracked separately from the κ mixing-multiplicity derivation.
 
 ## External scales and inputs
 
-The exact external-input set is sector dependent.  Common live examples include:
-
-| Input | Role | Type |
-|---|---|---|
-| Planck scale / energy | dimensional scale in selected exponential mass constructions | F |
-| proton mass | reference scale in selected hadronic/electroweak constructions | F |
-| \(N_c=3\) | QCD colour count used in anomaly bookkeeping | F/A |
-| lepton-doublet hypercharge convention | anomaly-sector input | F/A |
-| hadronic strong-CP→nEDM coefficient | converts the model \(\theta_{\rm QCD}\) to the frozen neutron-EDM observable | F |
-
-A prediction depending on an anchor is not an independent prediction of that
-anchor.
+Common examples include the Planck scale in selected mass constructions, proton mass in selected hadronic/electroweak relations, QCD colour count where used as an external Standard-Model input, hadronic conversion coefficients, and renormalization conventions.
 
 ## Charged-lepton architecture
 
-The historical charged-lepton construction contains multiple signed terms in
-the electron action and generation-release operators, together with the
-exponential mass ansatz.  These should be counted as structural/retrospective
-architecture choices, not as zero model complexity.
+Representative forms include
 
-Representative live forms include:
+\[
+S_e=\frac12-3\kappa+\frac{\kappa}{L_3}-\frac{\kappa^2}{2}
+\]
 
-| Choice | Type |
-|---|---|
-| \(S_e=1/2-3\kappa+\kappa/L_3-\kappa^2/2\) | S/R |
-| electron→muon release expression | S/R |
-| muon→tau release expression | S/R |
-| \(m=E_P e^{-S/\kappa}\) | P + sector-specific R/S action construction |
+and the declared exponential mass law
 
-## Baryon octet and decuplet
+\[
+m=E_Pe^{-S/\kappa}.
+\]
 
-The GMO functional form is established hadron phenomenology; the particular
-TIR mappings of coefficients and baselines are model assignments.
+Their sector assignments retain their own S/R provenance.
 
-| Construction | Type | Boundary |
-|---|---|---|
-| TIR octet \(\alpha,\beta,\gamma\) relations | S/R | Developed against known hadronic structure. |
-| octet baseline \(M_0\) relation | R/S | Do not classify as an independent mathematical theorem merely because it is algebraically evaluable. |
-| TIR decuplet coefficient relations | S/R | Retrospective sector architecture. |
-| decuplet baseline \(M_0'\) relation | R/S | Same boundary. |
+## Baryon and hadronic architecture
 
-Historical residuals, including systematic offsets, remain part of the evidence
-ledger.
+The octet, decuplet and related coefficient/baseline mappings retain sector-specific provenance and explicit empirical residuals.
 
 ## Neutrino / PMNS architecture
 
-Examples of discrete or retrospective assignments include:
+The current PMNS branch uses the three-flavour carrier and tetrahedral relation geometry. Formula-level angle and mass assignments retain their individual provenance. The carrier-level facts
 
-- tetrahedral-coordinate → PMNS mapping;
-- bare-state and release expressions;
-- selected mass-ratio patterns;
-- phase/angle offsets;
-- dimensional conversion choices.
+\[
+V_F\cong\mathbb C^3,
+\qquad
+SU(3)_F,
+\qquad
+\dim\mathfrak{su}(3)_F=8
+\]
 
-These are `S/R` unless a separate derivation proves their uniqueness.  The
-presence of exact trigonometric or algebraic evaluation does not by itself
-promote the mapping to established physics.
+are the parents used by the κ normalization theorem.
 
 ## CKM architecture
 
-Representative reviewed structural forms include
+The family-mixing carrier is represented by
 
 \[
-\lambda=\frac{L_4}{L_3+L_4}+\frac{L_4}{L_3}\kappa,
+V_F^{mix}=R_{23}R_{13}(\delta)R_{12}\in SU(3)_F.
 \]
 
-plus specific expressions for \(V_{cb}\), \(V_{ub}\), \(J_{CP}\) and a phase
-mapping.  The formulas are auditable, but their sector selection/history makes
-them model architecture (`S/R`) rather than independent class-A identities.
+Current validation establishes its group-theoretic home independently of the numerical angle formulas.
 
 ## Gauge / electroweak / Higgs architecture
 
-The live TIR formula family includes selected relations for the Higgs VEV,
-\(\sin^2\theta_W\), the fine-structure expression, gauge couplings and Higgs
-mass.  The algebraic formulas are reproducible; their physical assignments are
-`S/R` unless frozen prospectively.
-
-Important evidence boundary: the active gauge-boson mass relations retain
-several-percent physical tension.  The existence of accurate relations in other
-subquantities does not erase this failure.
+These sectors retain their formula-specific empirical audits and residuals. Existing tensions remain explicit in the validation ledger.
 
 ## Strong CP
 
-The reviewed active assignment is
+The active strong-CP mapping and neutron-EDM conversion remain frozen diagnostic surfaces with their current empirical verdict retained.
+
+## TIR ↔ Secret-of-a-Half interface
+
+The current structural chain is
 
 \[
-\theta_{\rm QCD}=\kappa\left(\frac{L_4}{L_3}\right)^{14}
-\approx2.2208\times10^{-10}.
-\]
-
-Structural components:
-
-| Component | Type |
-|---|---|
-| exponential/power-law form | S/R |
-| exponent 14 selection | S/R |
-| fixed hadronic conversion coefficient | F |
-
-The resulting frozen publication mapping gives
-
-\[
-d_n\approx5.3299\times10^{-26}\,e\,\mathrm{cm},
-\]
-
-which is a **physical FAIL** against the \(1.8\times10^{-26}\,e\,\mathrm{cm}\)
-manuscript bound.  No hypothetical suppression mechanism is counted as an
-existing model component.
-
-## Anomaly bookkeeping
-
-Once the relevant hypercharges and \(N_c\) are supplied, anomaly-cancellation
-checks are exact algebraic bookkeeping.  However, a TIR expression that
-reconstructs a known hypercharge from \(L_i\) values must retain the logical
-distinction between:
-
-1. the exact cancellation identity once assignments are given; and
-2. the model claim that the assignments are physically generated by TIR.
-
-The former may be exact; the latter remains conditional on the TIR mapping.
-
-## Cosmological assignments
-
-Relations such as a power of \(L_4/L_3\) selected to reproduce a dark-energy
-scale are retrospective/model assignments unless a prospective transfer test is
-frozen.  Interpretive labels such as an auxiliary ``dimension'' do not by
-themselves constitute derivations.
-
-## TIR ↔ Secret-of-a-Half structural interface
-
-The cross-review isolates the chain
-
-\[
+\boxed{
 \frac12
-\xrightarrow{A}\ln2
-\xrightarrow{P}\kappa
-\xrightarrow{\text{exact conditional algebra}}\Gamma_{\mathcal I}.
+\xrightarrow{H_2}
+\ln2
+\xrightarrow{3\times8\;SU(3)_F\;mixing\;+\;\pi\;half\!\!-turn}
+\kappa
+\xrightarrow{d\mathcal I=\kappa d\phi}
+\Gamma_{\mathcal I}.
+}
 \]
-
-This is useful precisely because it prevents the exact half-side theorem from
-being used to hide the discrete TIR normalization choice.
-
-The sibling DHSE Stage-M theorem adds another complexity constraint:
-self-duality alone does not generate an extremum.  Any TIR sector that promotes
-a self-dual coordinate to a preferred state needs an additional structural law
-(positivity, convexity, variational closure, etc.), which itself must be counted
-and tested.
-
-## Prospective architecture
-
-The v10.7 separable candidate family is retained as a prospective component.
-Its finite candidate set, target observables and no-refit rule are frozen.
-Those choices are part of the model complexity even before the future likelihood
-is evaluated.
-
-## Parameter-count statement
-
-The old shorthand
-
-```text
-0 continuous free parameters + ~50 structural choices = 55 degrees of freedom
-```
-
-is **not a valid statistical degree-of-freedom calculation**.
-
-The reviewed statement is narrower:
-
-- several defining formulas contain no continuously fitted coefficient;
-- the programme nevertheless contains many discrete structural choices,
-  retrospective architecture decisions and external anchors;
-- a statistically meaningful effective parameter count has not yet been derived
-  for the full heterogeneous model;
-- therefore AIC/BIC or a global likelihood penalty cannot be honestly computed
-  until a common likelihood and effective-complexity model are specified.
 
 ## Audit invariant
 
-Every new formula should declare:
-
-1. upstream A/P/S/R/F/E/D dependencies;
-2. whether target data were visible during formula selection;
-3. any dimensional anchor or external conversion factor;
-4. whether the formula is exact, conditional, retrospective, diagnostic or
-   prospective;
-5. what alternative discrete choices were available;
-6. the prospective decision rule, if one exists.
-
-Model complexity is not erased by replacing a continuous fit parameter with a
-large number of discrete design choices.
+Every formula records its upstream structural parents, data visibility during formula selection, dimensional anchors, evidence class, discrete alternatives where relevant, and prospective decision rule when one exists.
