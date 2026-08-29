@@ -1,0 +1,22 @@
+name: TIR tetra FS spatial shape crosswalk
+
+on:
+  pull_request:
+    paths:
+      - 'TIR/integration/TIR_TETRA_FS_SPATIAL_SHAPE_CROSSWALK_V0_1.md'
+      - 'TIR/validation/tir_tetra_fs_spatial_shape_crosswalk_v0_1.py'
+      - '.github/workflows/tir-tetra-fs-spatial-shape-crosswalk.yml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validation dependency
+        run: python -m pip install numpy
+      - name: Run tetra FS/spatial shape crosswalk gate
+        run: python TIR/validation/tir_tetra_fs_spatial_shape_crosswalk_v0_1.py
