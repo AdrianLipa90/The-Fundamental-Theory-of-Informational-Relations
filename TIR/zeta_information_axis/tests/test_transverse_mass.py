@@ -3,8 +3,12 @@ from __future__ import annotations
 import mpmath as mp
 import pytest
 
+from critical_axis.nonlocal_curvature import theta_curvature_kernel
 from critical_axis.transverse_mass import (
+    curvature_positive_corridor_radius,
     gaussian_mass_envelope,
+    theta_curvature_corridor_lower_bound,
+    theta_curvature_corridor_margin,
     transverse_log_gap,
     transverse_log_mass_hessian,
     transverse_log_mass_slope_b,
@@ -56,6 +60,31 @@ def test_reference_hessian_has_negative_log_concavity_eigenvalues() -> None:
         assert hessian.aa == hessian.bb
 
 
+def test_exact_positive_corridor_lower_bound() -> None:
+    with mp.workdps(50):
+        x = mp.mpf("2.0")
+        y = mp.mpf("0.2")
+        a = mp.mpf("0.8")
+        radius = curvature_positive_corridor_radius(x, a)
+        b = radius / 2
+        lower = theta_curvature_corridor_lower_bound(x, y, a, b)
+        actual = theta_curvature_kernel(x, y, a, b)
+        margin = theta_curvature_corridor_margin(x, y, a, b)
+        assert lower > 0
+        assert actual >= lower
+        assert margin >= 0
+
+
+def test_x_zero_corridor_covers_full_interior() -> None:
+    with mp.workdps(50):
+        a = mp.mpf("0.8")
+        b = mp.mpf("0.79")
+        assert curvature_positive_corridor_radius(0, a) == a
+        lower = theta_curvature_corridor_lower_bound(0, mp.mpf("0.2"), a, b)
+        assert lower > 0
+        assert theta_curvature_kernel(0, mp.mpf("0.2"), a, b) >= lower
+
+
 def test_gaussian_envelope_and_coordinates_fail_closed() -> None:
     with mp.workdps(40):
         envelope = gaussian_mass_envelope(
@@ -70,3 +99,5 @@ def test_gaussian_envelope_and_coordinates_fail_closed() -> None:
         transverse_mass(-0.5, 0.1)
     with pytest.raises(ValueError):
         gaussian_mass_envelope(0.8, 0.2, 0)
+    with pytest.raises(ValueError):
+        theta_curvature_corridor_lower_bound(10, 0.2, 0.8, 0.2)
