@@ -1,12 +1,12 @@
 # TIR W_ij Holonomy Crosswalk v0.1
 
-Status: `SOURCE_BOUND_EXACT_CROSSWALK_CANDIDATE`
+Status: `SOURCE_BOUND_EXACT_CROSSWALK_CANDIDATE / SPATIAL_SE3_TORSION_SOURCE_CROSSWALK_ADDED`
 
 Date: 2026-08-29
 
 ## 1. Purpose
 
-This note unifies the already-existing `W_ij` objects used in the White-Thread, spatial-transport and Standard-Model branches into one typed holonomy family. The purpose is source binding and type normalization before GREMLIN performs any tetrahedral/global gluing search.
+This note unifies the existing `W_ij` objects used in the White-Thread, spatial-transport and Standard-Model branches into one typed holonomy family. The purpose is source binding and type normalization before GREMLIN performs tetrahedral/global gluing search.
 
 ## 2. Generic transport object
 
@@ -28,8 +28,6 @@ For a one-dimensional Abelian phase representation this reduces, after the conve
 W_{ij}=\exp\!\left(i\int_{\gamma_{ij}}A\right).
 }
 \]
-
-This is the White-Thread open-path holonomy form.
 
 For unitary transport,
 
@@ -71,7 +69,7 @@ The local spatial carrier is
 \operatorname{Herm}_0(2)\cong\mathbb R^3.
 \]
 
-A spin-frame link may therefore be represented by
+A spin-frame link is represented by
 
 \[
 W_{ij}^{X}\in SU(2),
@@ -80,7 +78,9 @@ W_{ij}^{X}\in SU(2),
 with induced vector-frame action
 
 \[
+\boxed{
 R_{ij}=\operatorname{Ad}_{W_{ij}^{X}}\in SO(3).
+}
 \]
 
 The transported relation vector is
@@ -95,7 +95,7 @@ W_{ij}^{X}\mathcal E(W_{ij}^{X})^{\dagger}.
 The Standard-Model holonomic gluon module uses
 
 \[
-\boxed{W_{ij}^{c}\in SU(3)},
+\boxed{W_{ij}^{c}\in SU(3),}
 \]
 
 with
@@ -153,34 +153,96 @@ W_{xy}^{X}\mathcal E_{yz}(W_{xy}^{X})^{\dagger}
 }
 \]
 
-This is the typed seam between endpoint composition and loop transport. The exact Universal-Loop torsion source will bind to this seam when the matching source artifact is resolved.
+The spatial affine-torsor parent supplies
+
+\[
+\boxed{
+\mathbf e_{xy}=\operatorname{vec}(\mathcal E_{xy})
+}
+\]
+
+and the spatial connection supplies
+
+\[
+\boxed{
+R_{xy}=\operatorname{Ad}(W_{xy}^{X}).
+}
+\]
+
+The Gate-A source theorem packages them as
+
+\[
+\boxed{
+G_{xy}^{\nabla}=(R_{xy},\mathbf e_{xy})\in SE(3).
+}
+\]
+
+On a rotationally consistent triangle,
+
+\[
+R_{xz}=R_{xy}R_{yz},
+\]
+
+the closed affine loop obeys
+
+\[
+\boxed{
+R_C=I,
+\qquad
+\mathbf t_C=-\operatorname{vec}(\mathcal C_{xyz}).
+}
+\]
+
+The discrete relational solder form gives the exact companion identity
+
+\[
+\boxed{
+\mathcal T_{xyz}=-\mathcal C_{xyz},
+}
+\]
+
+so
+
+\[
+\boxed{
+\mathbf t_C=\operatorname{vec}(\mathcal T_{xyz}).
+}
+\]
+
+Canonical source-resolution theorem:
+
+`TIR/foundations/TIR_UNIVERSAL_LOOP_TORSION_SOURCE_BINDING_V0_1.md`.
 
 ## 6. GREMLIN input contract
 
-GREMLIN receives the following typed graph only as a candidate-generation surface:
+GREMLIN receives the following typed graph as a candidate-generation surface:
 
 ```text
 local tetrahedral cell
   -> oriented relation edges E_ij
-  -> sector-typed W_ij transport
-  -> loop product W_gamma
-  -> endpoint defect C_xyz
-  -> curvature / torsion closure candidates
+  -> W_ij^X spatial connection transport
+  -> G_ij^nabla=(Ad(W_ij^X),vec(E_ij))
+  -> loop rotational holonomy
+  -> loop translation = vec(T_triangle)
+  -> continuum curvature/torsion refinement candidates
 ```
 
 Candidate promotion requires a deterministic theorem or validator receipt.
 
 ## 7. Source provenance
 
-Primary source surfaces already present in the project/library:
+Primary source surfaces in the project/library include:
 
 - `White_threads(1).pdf`: open-path holonomy `W_ij = exp(i integral_gamma A)` and White-Thread coupling dependence on holonomy amplitude/phase;
 - `METATIME_SM_HOLONOMIC_GLUON_WIJ_v4_0.md`: `SU(3)`-valued `W_ij`, dagger reversal, local gauge covariance, loop holonomy and `su(3)` curvature projection;
-- TIR spatial relation/endpoint-closure branch: `Herm_0(2)` relation carrier and transported endpoint defect.
+- TIR affine relation/endpoint branch: `Herm_0(2)` intrinsic relation displacement;
+- `TIR_DISCRETE_SOLDER_FORM_V0_1.md`: discrete solder/torsion object;
+- `TIR_SE3_GLOBAL_GLUE_HOLONOMY_V0_1.md`: affine loop holonomy;
+- `TIR_UNIVERSAL_LOOP_TORSION_SOURCE_BINDING_V0_1.md`: exact endpoint-defect / discrete-solder / SE(3) loop-translation crosswalk.
 
 ## 8. Current result
 
-The `W_ij` symbol is now treated as a typed family of connection holonomies rather than three unrelated constructions:
+The `W_ij` symbol is a typed family of connection holonomies:
 
 \[
 \boxed{
@@ -192,4 +254,20 @@ W_{ij}^{c}\in SU(3).
 }
 \]
 
-All three obey the same path-composition, reversal and local-frame covariance pattern in their respective representations.
+All three obey the common path-composition, reversal and local-frame covariance pattern in their respective representations.
+
+For the spatial branch, the additional affine lift is now typed by
+
+\[
+\boxed{
+W_{ij}^{X},\mathcal E_{ij}
+\longmapsto
+G_{ij}^{\nabla}
+=\left(
+\operatorname{Ad}(W_{ij}^{X}),
+\operatorname{vec}(\mathcal E_{ij})
+\right)\in SE(3).
+}
+\]
+
+The corresponding triangular translational loop source is the existing discrete solder torsion object.
