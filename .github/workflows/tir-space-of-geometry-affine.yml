@@ -70,19 +70,32 @@ jobs:
           grep -Fq '"uniqueness_status": "EXACT_UNDER_CONTINUOUS_INTRINSIC_AFFINE_NATURALITY"' a1_a3_intrinsic_affine_relation_receipt.json
           grep -Fq '"remaining_tir_gate": "A1_A3_SELECT_INTRINSIC_AFFINE_NATURALITY"' a1_a3_intrinsic_affine_relation_receipt.json
 
-      - name: Verify v0.4 surfaces
+      - name: Audit A1+A3 source-minimality naturality reduction
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/a1_a3_source_minimality_naturality_v0_1.py | tee a1_a3_source_minimality_naturality_receipt.json
+          grep -Fq '"technical_status": "PASS"' a1_a3_source_minimality_naturality_receipt.json
+          grep -Fq '"exact_result": "SOURCE_MINIMAL_AFFINE_NATURAL_RELATION_IS_c_TIMES_ENDPOINT_DIFFERENCE"' a1_a3_source_minimality_naturality_receipt.json
+          grep -Fq '"relation_formula": "R(x,y)=c*(y-x)"' a1_a3_source_minimality_naturality_receipt.json
+          grep -Fq '"remaining_tir_gate": "A1_DEPENDENCY_MINIMALITY_APPLIES_TO_PRIMITIVE_LAW_SIGNATURE"' a1_a3_source_minimality_naturality_receipt.json
+
+      - name: Verify v0.5 surfaces
         shell: bash
         run: |
           set -euo pipefail
           test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_4.md
+          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_5.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_POINT_AFFINE_SPATIAL_CARRIER_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/RELATIONAL_STATE_DIFFERENCE_UNIQUENESS_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_RELATION_AFFINE_TORSOR_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/A1_A3_INTRINSIC_AFFINE_RELATION_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/A1_A3_SOURCE_MINIMALITY_NATURALITY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/validation/quantum_point_affine_spatial_carrier_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/relational_state_difference_uniqueness_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/quantum_relation_affine_torsor_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/a1_a3_intrinsic_affine_relation_v0_1.py
+          test -s TIR/subrepos/the-space-of-geometry/validation/a1_a3_source_minimality_naturality_v0_1.py
 
       - name: Upload receipts
         uses: actions/upload-artifact@v4
@@ -95,3 +108,4 @@ jobs:
             relational_state_difference_uniqueness_receipt.json
             quantum_relation_affine_torsor_receipt.json
             a1_a3_intrinsic_affine_relation_receipt.json
+            a1_a3_source_minimality_naturality_receipt.json
