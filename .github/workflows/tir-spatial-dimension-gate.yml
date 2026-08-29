@@ -109,6 +109,17 @@ jobs:
           grep -q '"normalized_pairwise_dot": "-1/3"' tir_minimal_isotropic_tetrahedral_cell_receipt.json
           grep -q '"continuum_gluing_derived": false' tir_minimal_isotropic_tetrahedral_cell_receipt.json
 
+      - name: Audit tetrahedral qubit informational completeness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_qubit_tetrahedral_informational_completeness_v0_1.py | tee tir_qubit_tetrahedral_informational_completeness_receipt.json
+          grep -q '"technical_status": "PASS"' tir_qubit_tetrahedral_informational_completeness_receipt.json
+          grep -q '"minimal_ic_outcomes": 4' tir_qubit_tetrahedral_informational_completeness_receipt.json
+          grep -q '"symmetric_geometry": "REGULAR_TETRAHEDRON_ON_BLOCH_S2"' tir_qubit_tetrahedral_informational_completeness_receipt.json
+          grep -q '"pairwise_projector_overlap": "1/3"' tir_qubit_tetrahedral_informational_completeness_receipt.json
+          grep -q '"spatial_identification_derived": false' tir_qubit_tetrahedral_informational_completeness_receipt.json
+
       - name: Upload receipts
         uses: actions/upload-artifact@v4
         with:
@@ -123,3 +134,4 @@ jobs:
             tir_rank3_isotropy_stabilization_receipt.json
             tir_relational_endpoint_closure_receipt.json
             tir_minimal_isotropic_tetrahedral_cell_receipt.json
+            tir_qubit_tetrahedral_informational_completeness_receipt.json
