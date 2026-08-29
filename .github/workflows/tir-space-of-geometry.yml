@@ -35,68 +35,79 @@ jobs:
         run: |
           set -euo pipefail
           python3 TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_2.py | tee space_of_geometry_spine_v0_2_receipt.json
-          grep -q '"technical_status": "PASS"' space_of_geometry_spine_v0_2_receipt.json
-          grep -q '"endpoint": "PYTHAGOREAN_CLOSURE"' space_of_geometry_spine_v0_2_receipt.json
-          grep -q '"core_open_gate": "DERIVE_SPATIAL_REALIZATION_CRITERION_FROM_TIR_AXIOMS"' space_of_geometry_spine_v0_2_receipt.json
-          grep -q '"global_refinement": "DOWNSTREAM_GEOMETRY_PROGRAMME"' space_of_geometry_spine_v0_2_receipt.json
+          grep -Fq '"technical_status": "PASS"' space_of_geometry_spine_v0_2_receipt.json
+          grep -Fq '"endpoint": "PYTHAGOREAN_CLOSURE"' space_of_geometry_spine_v0_2_receipt.json
+          grep -Fq '"core_open_gate": "DERIVE_SPATIAL_REALIZATION_CRITERION_FROM_TIR_AXIOMS"' space_of_geometry_spine_v0_2_receipt.json
+          grep -Fq '"global_refinement": "DOWNSTREAM_GEOMETRY_PROGRAMME"' space_of_geometry_spine_v0_2_receipt.json
 
       - name: Audit spatial promotion uniqueness
         shell: bash
         run: |
           set -euo pipefail
           python3 TIR/subrepos/the-space-of-geometry/validation/spatial_promotion_uniqueness_v0_1.py | tee spatial_promotion_uniqueness_receipt.json
-          grep -q '"technical_status": "PASS"' spatial_promotion_uniqueness_receipt.json
-          grep -q '"minimal_faithful_real_dimension": 3' spatial_promotion_uniqueness_receipt.json
-          grep -q '"promotion_status": "CONDITIONAL_UNIQUENESS_UP_TO_ORTHOGONAL_EQUIVALENCE_AND_SCALE"' spatial_promotion_uniqueness_receipt.json
-          grep -q '"remaining_gate": "DERIVE_SPATIAL_REALIZATION_CRITERION_FROM_TIR_AXIOMS"' spatial_promotion_uniqueness_receipt.json
+          grep -Fq '"technical_status": "PASS"' spatial_promotion_uniqueness_receipt.json
+          grep -Fq '"minimal_faithful_real_dimension": 3' spatial_promotion_uniqueness_receipt.json
+          grep -Fq '"promotion_status": "CONDITIONAL_UNIQUENESS_UP_TO_ORTHOGONAL_EQUIVALENCE_AND_SCALE"' spatial_promotion_uniqueness_receipt.json
+          grep -Fq '"remaining_gate": "DERIVE_SPATIAL_REALIZATION_CRITERION_FROM_TIR_AXIOMS"' spatial_promotion_uniqueness_receipt.json
 
       - name: Audit axiom-to-spatial realization bridge
         shell: bash
         run: |
           set -euo pipefail
           python3 TIR/subrepos/the-space-of-geometry/validation/axiom_to_spatial_realization_bridge_v0_1.py | tee axiom_to_spatial_realization_bridge_receipt.json
-          grep -q '"technical_status": "PASS"' axiom_to_spatial_realization_bridge_receipt.json
-          grep -q '"bridge_status": "TWO_FOUNDATIONAL_RULES_REMAIN_TO_BE_PROMOTED"' axiom_to_spatial_realization_bridge_receipt.json
-          grep -q '"exact_closure_if_bridge_conditions_admitted": "V_x~=Herm_0(2)~=R3"' axiom_to_spatial_realization_bridge_receipt.json
-          grep -q '"dependency_surface_complete": true' axiom_to_spatial_realization_bridge_receipt.json
+          grep -Fq '"technical_status": "PASS"' axiom_to_spatial_realization_bridge_receipt.json
+          grep -Fq '"bridge_status": "TWO_FOUNDATIONAL_RULES_REMAIN_TO_BE_PROMOTED"' axiom_to_spatial_realization_bridge_receipt.json
+          grep -Fq '"exact_closure_if_bridge_conditions_admitted": "V_x~=Herm_0(2)~=R3"' axiom_to_spatial_realization_bridge_receipt.json
+          grep -Fq '"dependency_surface_complete": true' axiom_to_spatial_realization_bridge_receipt.json
 
       - name: Audit relational cocycle affine closure
         shell: bash
         run: |
           set -euo pipefail
           python3 TIR/subrepos/the-space-of-geometry/validation/relational_cocycle_affine_closure_v0_1.py | tee relational_cocycle_affine_closure_receipt.json
-          grep -q '"technical_status": "PASS"' relational_cocycle_affine_closure_receipt.json
-          grep -q '"exact_result": "TRIANGLE_CLOSURE_IMPLIES_LOCAL_AFFINE_COORDINATE_RECONSTRUCTION"' relational_cocycle_affine_closure_receipt.json
-          grep -q '"coordinate_formula": "E_xy=r(y)-r(x)"' relational_cocycle_affine_closure_receipt.json
-          grep -q '"endpoint_formula": "E_xz=E_xy+E_yz"' relational_cocycle_affine_closure_receipt.json
+          grep -Fq '"technical_status": "PASS"' relational_cocycle_affine_closure_receipt.json
+          grep -Fq '"exact_result": "TRIANGLE_CLOSURE_IMPLIES_LOCAL_AFFINE_COORDINATE_RECONSTRUCTION"' relational_cocycle_affine_closure_receipt.json
+          grep -Fq '"coordinate_formula": "E_xy=r(y)-r(x)"' relational_cocycle_affine_closure_receipt.json
+          grep -Fq '"endpoint_formula": "E_xz=E_xy+E_yz"' relational_cocycle_affine_closure_receipt.json
+
+      - name: Audit maximal-symmetry tetrahedral regularity
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/minimal_simplex_maximal_symmetry_v0_1.py | tee minimal_simplex_maximal_symmetry_receipt.json
+          grep -Fq '"technical_status": "PASS"' minimal_simplex_maximal_symmetry_receipt.json
+          grep -Fq '"minimal_full_dimensional_vertex_count": 4' minimal_simplex_maximal_symmetry_receipt.json
+          grep -Fq '"max_symmetry_group": "A4"' minimal_simplex_maximal_symmetry_receipt.json
+          grep -Fq '"normalized_pairwise_dot": "-1/3"' minimal_simplex_maximal_symmetry_receipt.json
+          grep -Fq '"remaining_tir_gate": "A7_PRIMITIVE_MINIMAL_CELL_SELECTS_MAXIMAL_AVAILABLE_ORIENTATION_PRESERVING_SYMMETRY"' minimal_simplex_maximal_symmetry_receipt.json
 
       - name: Audit local Euclidean and Pythagorean closure
         shell: bash
         run: |
           set -euo pipefail
           python3 TIR/subrepos/the-space-of-geometry/validation/local_euclidean_pythagorean_closure_v0_1.py | tee local_euclidean_pythagorean_receipt.json
-          grep -q '"technical_status": "PASS"' local_euclidean_pythagorean_receipt.json
-          grep -q '"endpoint": "PYTHAGOREAN_CLOSURE"' local_euclidean_pythagorean_receipt.json
-          grep -q '"regular_tetrahedron_role": "MINIMAL_LOCAL_ISOTROPIC_CELL"' local_euclidean_pythagorean_receipt.json
-          grep -q '"status": "DEFICIT_AT_5_EXCESS_AT_6"' local_euclidean_pythagorean_receipt.json
+          grep -Fq '"technical_status": "PASS"' local_euclidean_pythagorean_receipt.json
+          grep -Fq '"endpoint": "PYTHAGOREAN_CLOSURE"' local_euclidean_pythagorean_receipt.json
+          grep -Fq '"regular_tetrahedron_role": "MINIMAL_LOCAL_ISOTROPIC_CELL"' local_euclidean_pythagorean_receipt.json
+          grep -Fq '"status": "DEFICIT_AT_5_EXCESS_AT_6"' local_euclidean_pythagorean_receipt.json
 
       - name: Verify subrepo surfaces
         shell: bash
         run: |
           set -euo pipefail
           test -s TIR/subrepos/the-space-of-geometry/README.md
-          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_1.md
-          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_2.md
+          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_5.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/SPATIAL_PROMOTION_UNIQUENESS_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/AXIOM_TO_SPATIAL_REALIZATION_BRIDGE_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/RELATIONAL_COCYCLE_AFFINE_CLOSURE_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/MINIMAL_SIMPLEX_MAXIMAL_SYMMETRY_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/foundations/LOCAL_EUCLIDEAN_PYTHAGOREAN_CLOSURE_V0_1.md
-          test -s TIR/subrepos/the-space-of-geometry/paper/PAPER_OUTLINE_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/paper/PAPER_OUTLINE_V0_2.md
           test -s TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_2.py
           test -s TIR/subrepos/the-space-of-geometry/validation/spatial_promotion_uniqueness_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/axiom_to_spatial_realization_bridge_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/relational_cocycle_affine_closure_v0_1.py
+          test -s TIR/subrepos/the-space-of-geometry/validation/minimal_simplex_maximal_symmetry_v0_1.py
           test -s TIR/subrepos/the-space-of-geometry/validation/local_euclidean_pythagorean_closure_v0_1.py
 
       - name: Upload receipts
@@ -110,4 +121,5 @@ jobs:
             spatial_promotion_uniqueness_receipt.json
             axiom_to_spatial_realization_bridge_receipt.json
             relational_cocycle_affine_closure_receipt.json
+            minimal_simplex_maximal_symmetry_receipt.json
             local_euclidean_pythagorean_receipt.json
