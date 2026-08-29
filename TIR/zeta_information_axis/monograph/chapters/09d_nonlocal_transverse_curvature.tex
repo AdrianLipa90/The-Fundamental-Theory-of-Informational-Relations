@@ -57,17 +57,14 @@ F_x'(y)>0,
 \end{equation}
 The outer region $y\ge 1/2$, corresponding to $\Ree s\ge1$, is controlled by the standard symmetric Hadamard/logarithmic-derivative argument.  Combining the inner and outer regions recovers the classical positivity/growth route associated with Hinkkanen and Lagarias \cite{Lagarias1999,Planat2026Theta}.
 
-The solver records the chain
-\begin{center}
-\texttt{Q\_Xi strict positivity}
-$\Longleftrightarrow$
-\texttt{strict transverse convexity}
-$\Longrightarrow$
-\texttt{vertical growth}
-$\Longrightarrow$
-\texttt{RH},
-\end{center}
-while retaining the first globally quantified condition as \status{OPEN}.  Thus XF-5 changes the representation of the proof obligation and preserves its evidential status.
+The solver records the same implication chain in four breakable stages:
+\begin{enumerate}
+\item \path{Q_Xi strict positivity};
+\item equivalently, strict transverse convexity;
+\item consequently, positive vertical growth;
+\item with the outer-halfplane closure, the classical RH-equivalent growth criterion.
+\end{enumerate}
+The first globally quantified condition retains \status{OPEN}.  Thus XF-5 changes the representation of the proof obligation and preserves its evidential status.
 
 \section{Differentiated theta-kernel representation}
 
@@ -145,13 +142,13 @@ The no-go result is representation-specific.  It narrows the admissible strategy
 
 \section{Executable audit surface}
 
-The module \texttt{critical\_axis.nonlocal\_curvature} exposes
+The module \path{critical_axis.nonlocal_curvature} exposes
 \begin{itemize}
-\item \texttt{xi\_transverse\_curvature(x,y)}, implementing Eq.~\eqref{eq:xf5-curvature-identity};
-\item \texttt{xi\_transverse\_curvature\_direct(x,y)}, independently differentiating $|\Xi|^2$ for regression;
-\item \texttt{theta\_growth\_kernel(x,y,a,b)};
-\item \texttt{theta\_curvature\_kernel(x,y,a,b)}, implementing Eq.~\eqref{eq:xf5-curvature-kernel};
-\item \texttt{theta\_curvature\_integrand}, evaluating one local contribution with fail-closed diagonal coordinates.
+\item \path{xi_transverse_curvature(x,y)}, implementing Eq.~\eqref{eq:xf5-curvature-identity};
+\item \path{xi_transverse_curvature_direct(x,y)}, independently differentiating $|\Xi|^2$ for regression;
+\item \path{theta_growth_kernel(x,y,a,b)};
+\item \path{theta_curvature_kernel(x,y,a,b)}, implementing Eq.~\eqref{eq:xf5-curvature-kernel};
+\item \path{theta_curvature_integrand}, evaluating one local contribution with fail-closed diagonal coordinates.
 \end{itemize}
 
 The corresponding tests lock the factor of two in Eq.~\eqref{eq:xf5-curvature-identity}, compare analytic and direct second derivatives, differentiate Eq.~\eqref{eq:xf5-growth-kernel} independently, verify the $x=0$ positive anchor, and reject invalid $a,b$ domains.
