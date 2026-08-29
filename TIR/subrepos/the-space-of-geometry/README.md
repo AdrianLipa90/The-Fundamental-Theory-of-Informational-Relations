@@ -6,9 +6,14 @@ Working title:
 
 > **The Space of Geometry: From First Distinction to Pythagoras**
 
-Final publication source:
+Current manuscript source:
 
 `paper/THE_SPACE_OF_GEOMETRY_V1_0.tex`
+
+Latest research spine and publication audit:
+
+- `RESEARCH_SPINE_V0_10.md`
+- `publication/PROOF_DEPENDENCY_AUDIT_V0_2.md`
 
 The common local carrier is
 
@@ -49,7 +54,7 @@ Every vector in this radius-two coefficient ball is realized by the physical end
 \mathbf r_y=+\frac12\mathbf d.
 \]
 
-The Pythagorean endpoint is physically realizable inside the Bloch ball. For orthogonal unit directions and
+The Pythagorean endpoint has an explicit physical-state realization. For orthogonal unit directions and
 
 \[
 a^2+b^2\le1,
@@ -97,15 +102,32 @@ while the qubit-SIC branch independently converges on the same tetrahedral Gram 
 n_a\cdot n_b=-\frac13\qquad(a\ne b).
 \]
 
-The fundamental paper terminates at local Pythagorean closure. Physical unit calibration and gluing of distinct local carriers into global spatial extent belong to the downstream geometry programme.
+The hardened publication dependency graph is acyclic and separates three outputs from the common carrier:
 
-Current publication surfaces:
+\[
+\operatorname{Herm}_0(2)
+\to
+\begin{cases}
+\text{Euclidean identity}\to\text{Pythagoras},\\
+\text{physical-state chord realization}\to\text{physical Pythagoras},\\
+\text{minimal finite support}\to\text{regular tetrahedron}.
+\end{cases}
+\]
+
+Physical unit calibration and gluing of distinct local carriers into global spatial extent belong to the downstream geometry programme.
+
+Current release surfaces:
 
 - `paper/THE_SPACE_OF_GEOMETRY_V1_0.tex`
 - `RESEARCH_SPINE_V0_10.md`
 - `foundations/CANONICAL_SPATIAL_RELATION_EXTRACTION_V0_1.md`
 - `foundations/PHYSICAL_RELATION_CHORD_REALIZABILITY_V0_1.md`
 - `foundations/A5_A7_SIMPLEX_EDGE_ORBIT_REGULARITY_V0_1.md`
+- `publication/PROOF_DEPENDENCY_AUDIT_V0_2.md`
+- `validation/space_of_geometry_spine_v0_10.py`
 - `validation/physical_relation_chord_realizability_v0_1.py`
+- `validation/publication_proof_dependency_audit_v0_2.py`
+
+Next manuscript revision task: fold the v0.10 physical-realizability theorem and v0.2 dependency audit into the publication source while preserving the current theorem fork.
 
 TIR remains the parent Source of Truth for the primitive axioms and first-distinction chain.
