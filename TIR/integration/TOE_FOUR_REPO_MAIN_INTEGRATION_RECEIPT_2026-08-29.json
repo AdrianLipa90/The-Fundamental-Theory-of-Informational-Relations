@@ -1,0 +1,72 @@
+{
+  "schema": "TIR_TOE_FOUR_REPO_MAIN_INTEGRATION_RECEIPT_V0_1",
+  "date": "2026-08-29",
+  "status": "PASS_MAIN_INTEGRATED_WITH_GREMLIN_CANDIDATE_OVERLAYS",
+  "repos": {
+    "TIR": {
+      "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+      "promoted_theory_head": "c9683be7550d79f6b8f8fe789d603135017afe40",
+      "main_with_overlay": "af767c2bea2f7b5a65c0fb4036a880c8032e5774",
+      "merge_pr": 96,
+      "merge_status": "MERGED",
+      "validation": "7_OF_7_EXACT_HEAD_WORKFLOWS_SUCCESS",
+      "overlay": "TIR/integration/GREMLIN_CROSS_REPO_DEPENDENCY_OVERLAY_V0_1.md"
+    },
+    "IDT": {
+      "repository": "AdrianLipa90/Informational-Dynamics-of-Time",
+      "promoted_theory_head": "170cd05016db1eb01f0a3d67d8eba19ae1d139b4",
+      "main_with_overlay": "2cb3efbef4a10da5a76280c52df306c58bbfa5c4",
+      "merge_pr": 60,
+      "merge_status": "MERGED_FAST_FORWARD",
+      "validation": "REFERENCE_SUITE_RUN_861_SUCCESS_754_OF_754",
+      "overlay": "formalism/GREMLIN_CROSS_REPO_DEPENDENCY_OVERLAY_V0_1.md",
+      "next_pr": 62
+    },
+    "RFC": {
+      "repository": "AdrianLipa90/Relational-Field-Closure",
+      "promoted_theory_head": "ceac4269a9944e1a17d3a9321ab5d7975a4ce15d",
+      "main_with_overlay_and_graph_sync": "3544060d5fcf42c248769042c400c542ae61952c",
+      "integration_mode": "NON_FORCE_FAST_FORWARD",
+      "validation": "RFC_REFERENCE_SUITE_RUN_207_SUCCESS",
+      "overlay": "formalism/GREMLIN_CROSS_REPO_DEPENDENCY_OVERLAY_V0_1.md",
+      "canonical_graph": "formalism/DEPENDENCY_GRAPH.md",
+      "canonical_graph_status": "PROMOTED_THROUGH_RF_L5",
+      "next_pr": 23
+    },
+    "SOH": {
+      "repository": "AdrianLipa90/secret-of-a-half",
+      "main": "19b9820165cb46f441d006e0ff6e94f8c08f37b8",
+      "merge_pr": 68,
+      "merge_status": "MERGED_FAST_FORWARD",
+      "overlay": "research/SOH_GREMLIN_CROSS_REPO_DEPENDENCY_OVERLAY_V0_1.md",
+      "manifest": "research/GREMLIN_DEPENDENCY_PROMOTION_MANIFEST_V0_1.json"
+    }
+  },
+  "gremlin": {
+    "authority": {
+      "runtime_execution_authority": false,
+      "canon_write_authority": false,
+      "promotion_state": "CANDIDATE_ONLY",
+      "epistemic": "CHYBA"
+    },
+    "round27_bank": {
+      "repository": "AdrianLipa90/PhaseNav-Natural-Coding-System",
+      "branch": "feat/gremlin-cross-formalism-isomorphism-bank-v0.2",
+      "path": "spec/PNCS_GREMLIN_CROSS_FORMALISM_ISOMORPHISM_BANK_V0_2.md",
+      "blob_sha": "264c3032a9dfc49169ae03de811a65e2d604b877"
+    },
+    "round28_head": "abef7a0675c9f5668c834ba438284a5f48a90847",
+    "compiled_candidate_path": "RelationalIsomorphism -> KAKU -> RADICAL -> OPERATORS -> READ_ONLY_PNV"
+  },
+  "frontier": [
+    "TIR_GLOBAL_GLUING_CURVATURE_TORSION",
+    "TIR_TYPED_COEFFICIENT_MAGNITUDES",
+    "IDT_MATERIAL_TEMPORAL_OFFSET_BINDING",
+    "RFC_RF_L5A_PREMETRIC_DIMENSIONAL_CALIBRATION",
+    "ADM_HAMILTONIAN_AND_MOMENTUM_CONSTRAINT_DERIVATION",
+    "EINSTEIN_CONSTRAINT_PROPAGATION",
+    "STANDARD_MODEL_DYNAMICAL_ACTION_NORMALIZATION_AND_RG",
+    "QFT_CLOSURE",
+    "SOH_NATIVE_CLOSURE_TO_COMPLETE_LI_WEIL_POSITIVITY"
+  ]
+}
