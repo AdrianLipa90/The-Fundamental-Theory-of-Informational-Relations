@@ -8,7 +8,8 @@ from pathlib import Path
 
 import mpmath as mp
 
-from critical_axis.solver import DEFAULT_SOLVER, kappa_from_projective_cycle, solve_half_axis_routes
+from critical_axis.solver import kappa_from_projective_cycle, solve_half_axis_routes
+from critical_axis.xf6_rules import XF6_SOLVER
 
 
 DEFAULT_FACTS = {
@@ -42,7 +43,7 @@ def _proof(result) -> dict[str, dict[str, object]]:
 
 
 def _missing(goal: str, facts: set[str]) -> list[dict[str, object]]:
-    candidates = DEFAULT_SOLVER.missing_premises(goal, facts, allow_model=True)
+    candidates = XF6_SOLVER.missing_premises(goal, facts, allow_model=True)
     return [
         {
             "conclusion": rule.conclusion,
@@ -57,10 +58,10 @@ def _missing(goal: str, facts: set[str]) -> list[dict[str, object]]:
 def build_receipt() -> dict[str, object]:
     with mp.workdps(80):
         routes = solve_half_axis_routes()
-        exact = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=False)
-        model = DEFAULT_SOLVER.closure(DEFAULT_FACTS, allow_model=True)
+        exact = XF6_SOLVER.closure(DEFAULT_FACTS, allow_model=False)
+        model = XF6_SOLVER.closure(DEFAULT_FACTS, allow_model=True)
         receipt = {
-            "schema": "tir.critical-axis.solver-receipt/v5",
+            "schema": "tir.critical-axis.solver-receipt/v6",
             "precision_decimal_digits": 80,
             "half_axis_routes": {key: mp.nstr(value, 50) for key, value in routes.items()},
             "half_axis_consensus": all(
@@ -86,9 +87,18 @@ def build_receipt() -> dict[str, object]:
             "open_nonlocal_curvature_routes": _missing(
                 "xi_strict_transverse_convexity_critical_strip", set(model.facts)
             ),
+            "open_xf6_mass_envelope_routes": _missing(
+                "xf6_slice_gaussian_mass_envelope_exists", set(model.facts)
+            ),
+            "open_xf6_core_tail_routes": _missing(
+                "xf6_global_core_tail_domination", set(model.facts)
+            ),
             "literature_firewall": {
                 "phase_aligned_blockwise_positivity": "EXTERNAL_NO_GO_RECORDED",
-                "scope": "Planat 2026 theta-kernel decomposition; global correlated positivity remains the active route",
+                "phase_aligned_scope": "Planat 2026 theta-kernel decomposition; global correlated positivity remains the active route",
+                "xi_kernel_strict_log_concavity_tp2": "EXTERNAL_PREPRINT_CLAIM",
+                "xi_kernel_log_concavity_source": "Gershon v2, 29 June 2026; TP2 claim tracked as external preprint input",
+                "tp_infinity_laguerre_polya": "OPEN",
             },
             "verdict": {
                 "mathematical_half_axis_routes": "PASS",
@@ -103,6 +113,13 @@ def build_receipt() -> dict[str, object]:
                 "phi2y_fourier_equals_xi_wiener_laguerre_scalar": "STANDARD_PASS",
                 "xi_transverse_curvature_identity": "EXACT_PASS",
                 "theta_curvature_kernel_bridge": "EXACT_PASS",
+                "xf6_exact_positive_curvature_corridor": "EXACT_PASS",
+                "gershon_v2_xi_kernel_log_concavity": "EXTERNAL_PREPRINT_CLAIM",
+                "xf6_transverse_mass_center_dominance": "CONDITIONAL_EXACT",
+                "xf6_transverse_mass_strict_abs_b_decay": "CONDITIONAL_EXACT",
+                "xf6_slice_gaussian_mass_envelope": "CONDITIONAL_STANDARD",
+                "xf6_global_core_tail_domination": "OPEN_RH_EQUIVALENT_ROUTE",
+                "tp_infinity_laguerre_polya": "OPEN",
                 "phi2y_translation_density_condition": "OPEN_RH_EQUIVALENT_CRITERION",
                 "phi2y_bounded_convolution_annihilator_condition": "OPEN_RH_EQUIVALENT_CRITERION",
                 "xi_wiener_laguerre_strict_positivity": "OPEN_RH_EQUIVALENT_CRITERION",
