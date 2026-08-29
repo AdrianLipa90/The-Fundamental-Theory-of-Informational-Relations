@@ -34,7 +34,7 @@ REQUIRED = (
 MANUSCRIPT_TOKENS = (
     "Physical relation chord domain",
     "Theorem R: physical-state Pythagorean realization",
-    r"\mathcal R_{\rm phys}",
+    r"\Rphys",
     r"\frac9{25}+\frac{16}{25}=1",
     "Theorem T1: minimal finite full-dimensional support",
     "Theorem Q: tetrahedral informational convergence",
