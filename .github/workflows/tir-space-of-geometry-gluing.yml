@@ -1,0 +1,70 @@
+name: TIR Space of Geometry calibrated gluing gate
+
+on:
+  pull_request:
+    branches:
+      - main
+      - feat/tir-space-geometry-scale-v0.1
+    paths:
+      - 'TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_12.md'
+      - 'TIR/subrepos/the-space-of-geometry/foundations/SCALE_COMPATIBLE_LOCAL_CARRIER_GLUING_V0_1.md'
+      - 'TIR/subrepos/the-space-of-geometry/validation/scale_compatible_local_carrier_gluing_v0_1.py'
+      - 'TIR/subrepos/the-space-of-geometry/README.md'
+      - '.github/workflows/tir-space-of-geometry-gluing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-calibrated-gluing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact event revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Verify checkout provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXPECTED="${{ github.event.pull_request.head.sha || github.sha }}"
+          test "$(git rev-parse HEAD)" = "$EXPECTED"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Audit scale-compatible local carrier gluing
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/scale_compatible_local_carrier_gluing_v0_1.py | tee scale_compatible_local_carrier_gluing_receipt.json
+          grep -Fq '"technical_status": "PASS"' scale_compatible_local_carrier_gluing_receipt.json
+          grep -Fq '"exact_result": "PURE_SO3_METRIC_COMPATIBILITY_PROPAGATES_COMMON_SCALE_OR_CONFORMAL_FACTOR_LX_OVER_LY"' scale_compatible_local_carrier_gluing_receipt.json
+          grep -Fq '"pure_rotation_common_scale_rule": "L_x=L_y"' scale_compatible_local_carrier_gluing_receipt.json
+          grep -Fq '"varying_scale_transport": "C_xy=(L_x/L_y)*R_xy"' scale_compatible_local_carrier_gluing_receipt.json
+          grep -Fq '"node_induced_scale_loop_closure": true' scale_compatible_local_carrier_gluing_receipt.json
+          grep -Fq '"endpoint_transport_composition_exact": true' scale_compatible_local_carrier_gluing_receipt.json
+          grep -Fq '"next_frontier": "BIND_WIJ_LOOP_HOLONOMY_AND_CLOSURE_SECTORS_TO_TETRAHEDRAL_REFINEMENT"' scale_compatible_local_carrier_gluing_receipt.json
+
+      - name: Verify calibrated gluing surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_12.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/SCALE_COMPATIBLE_LOCAL_CARRIER_GLUING_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/validation/scale_compatible_local_carrier_gluing_v0_1.py
+          grep -Fq 'C_{xy}:=\\frac{L_x}{L_y}R_{xy}' TIR/subrepos/the-space-of-geometry/foundations/SCALE_COMPATIBLE_LOCAL_CARRIER_GLUING_V0_1.md
+          grep -Fq 'BIND_WIJ_LOOP_HOLONOMY_AND_CLOSURE_SECTORS_TO_TETRAHEDRAL_REFINEMENT' TIR/subrepos/the-space-of-geometry/validation/scale_compatible_local_carrier_gluing_v0_1.py
+
+      - name: Upload gluing receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: tir-space-of-geometry-gluing-${{ github.sha }}
+          if-no-files-found: error
+          retention-days: 30
+          path: scale_compatible_local_carrier_gluing_receipt.json
