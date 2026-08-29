@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
-"""Audit the files introduced/refactored by the information-spinor crosswalk.
-
-The legacy v11.0 citation audit intentionally retains its frozen 46-file map.
-This additive audit verifies the new crosswalk and the three parent files whose
-claim boundaries were refactored, without rewriting the historical coverage
-ledger.
-"""
+"""Audit the current information-spinor and flavour-mixing publication crosswalk."""
 from __future__ import annotations
 
 import json
@@ -31,7 +25,9 @@ REQUIRED_LABELS = {
     "chapters/ch02_metatime_framework.tex": (
         "ch:metatime_framework",
         "eq:kappa_construction",
-        "eq:twentyfour_crossfactor",
+        "eq:twentyfour-crossfactor",
+        "eq:mixing-channel-count",
+        "eq:mixing-phase-measure",
     ),
 }
 REQUIRED_CROSSREFS = (
@@ -88,8 +84,9 @@ def main() -> None:
         raise SystemExit(f"Crosswalk missing required parent references: {missing_refs}")
 
     payload = {
-        "schema": "tir.information-spinor-crosswalk-audit/v1",
+        "schema": "tir.information-spinor-crosswalk-audit/v2",
         "status": "PASS",
+        "kappa_provenance": "SU3F_3x8_MIXING_PLUS_HALF_TURN",
         "bibliography_entries": len(bibliography),
         "audited_files": len(rows),
         "unique_cited_keys": len(all_cited),
@@ -105,11 +102,10 @@ def main() -> None:
         "`PASS`",
         "",
         f"- Bibliography entries available: **{len(bibliography)}**",
-        f"- New/refactored files audited: **{len(rows)}**",
+        f"- Current files audited: **{len(rows)}**",
         f"- Unique bibliography keys used: **{len(all_cited)}**",
         "- Required TIR cross-references: **PASS**",
-        "",
-        "This is additive to the frozen v11.0 46-file citation ledger.",
+        "- κ provenance: **SU(3)_F, 3 flavours × 8 mixing directions × π half-turn**",
     ]
     (ROOT / "INFORMATION_SPINOR_CROSSWALK_AUDIT.md").write_text(
         "\n".join(lines) + "\n", encoding="utf-8"
