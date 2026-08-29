@@ -1,0 +1,29 @@
+name: TIR SE3 global gluing gate
+
+on:
+  pull_request:
+    paths:
+      - 'TIR/foundations/TIR_SE3_GLOBAL_GLUE_HOLONOMY_V0_1.md'
+      - 'TIR/foundations/validation/tir_se3_global_gluing_v0_1.py'
+      - '.github/workflows/tir-se3-global-gluing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-se3-affine-holonomy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact event revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run SE3 affine holonomy algebraic gate
+        run: python TIR/foundations/validation/tir_se3_global_gluing_v0_1.py
