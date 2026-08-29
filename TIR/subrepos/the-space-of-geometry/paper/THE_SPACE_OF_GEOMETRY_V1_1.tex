@@ -1,0 +1,740 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue,
+  pdftitle={The Space of Geometry: From First Distinction to Pythagoras},
+  pdfauthor={Adrian Lipa},
+  pdfsubject={Theory of Informational Relations; affine quantum-state geometry; physical chord realizability; Euclidean closure; tetrahedral simplex},
+  pdfkeywords={TIR, geometry, qubit, affine space, Hermitian operators, Bloch ball, tetrahedron, Pythagoras, SIC-POVM}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{The Space of Geometry}
+\rhead{Adrian Lipa}
+\cfoot{\thepage\ / \pageref{LastPage}}
+\setlength{\headheight}{15pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Herm}{\operatorname{Herm}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Erel}{\mathcal{E}}
+\newcommand{\Rphys}{\mathcal{R}_{\mathrm{phys}}}
+\newcommand{\Astate}{\mathcal{A}_2}
+\newcommand{\sigmavec}{\bm{\sigma}}
+\newcommand{\rvec}{\bm{r}}
+\newcommand{\dvec}{\bm{d}}
+\newcommand{\nvec}{\bm{n}}
+\newcommand{\uvec}{\bm{u}}
+\newcommand{\vvec}{\bm{v}}
+
+\title{\textbf{The Space of Geometry}\\[0.4em]\large From First Distinction to Pythagoras}
+\author{Adrian Lipa\\\small CIEL/0 Project -- Intention Lab}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We construct a local relation geometry from the binary quantum-point carrier of the Theory of Informational Relations (TIR) and distinguish explicitly between its full affine translation carrier and the subset realized by pairs of physical density states. The affine hull of normalized two-level Hermitian states is
+\[
+\Astate=\frac12 I+\Herm_0(2),
+\]
+whose translation space has real dimension three. Every ordered pair has the unique affine displacement
+\[
+\delta(\rho_x,\rho_y)=\rho_y-\rho_x,
+\]
+and in Pauli normalization
+\[
+\Erel_{xy}=2(\rho_y-\rho_x)\in\Herm_0(2)\cong\R^3.
+\]
+The $SU(2)$ conjugation action induces the standard $SO(3)$ action and preserves the inner product $\langle A,B\rangle=\Tr(AB)/2$. For physical qubit endpoints, whose Bloch vectors obey $|\rvec|\le1$, the set of realizable single-edge relation coefficients is exactly the radius-two ball $|\dvec|\le2$. In particular, orthogonal relation pairs have explicit physical realizations; the normalized choice $a=3/5$, $b=4/5$, $c=1$ gives a physical-state $3$--$4$--$5$ certificate of the Pythagorean identity. In parallel, the smallest finite full-dimensional affine support of the same three-dimensional carrier is a $3$-simplex. Its unlabeled automorphism group is $S_4$, transitive on its six edges; applying TIR axioms A5 and A7 to the scalar edge-measure law gives equal edge lengths and hence a regular tetrahedron. Its centered unit frame obeys $\nvec_a\cdot\nvec_b=-1/3$ for $a\ne b$. Independently, the minimal symmetric qubit informationally complete rank-one measurement has the same tetrahedral Gram geometry. The local Euclidean identity, its physical-state realization, and the finite tetrahedral cell are therefore controlled outputs of one canonical three-real-dimensional relation carrier.
+\end{abstract}
+
+\section{Question and scope}
+
+The question is deliberately narrow:
+\begin{center}
+\fbox{\parbox{0.86\linewidth}{\centering\small How little primitive relational structure is required for local Euclidean geometry to appear?}}
+\end{center}
+The principal endpoint is
+\[
+\boxed{a^2+b^2=c^2.}
+\]
+The strengthened publication asks a second question: does this endpoint occur only in the unrestricted affine hull, or can it be realized by triples of physical binary density states? We answer the latter constructively.
+
+The dependency structure is
+\[
+\boxed{
+\C^2
+\longrightarrow
+\rho_x
+\longrightarrow
+\Astate
+\longrightarrow
+\delta(\rho_x,\rho_y)
+\longrightarrow
+V=\Herm_0(2)\cong\R^3
+}
+\]
+followed by three controlled outputs:
+\[
+\boxed{
+V\longrightarrow
+\begin{cases}
+\text{inner-product geometry}\longrightarrow\text{Pythagoras},\\[1mm]
+\text{physical chord domain}\longrightarrow\text{physical Pythagoras},\\[1mm]
+\text{minimal finite support}\longrightarrow\Delta^3\xrightarrow{A5+A7}\text{regular tetrahedron}.
+\end{cases}}
+\]
+A fourth, information-theoretic branch reaches the same tetrahedral Gram frame through symmetric informational completeness.
+
+\section{Imported TIR root}
+
+The parent TIR programme supplies the primitive relational chain
+\[
+0\longrightarrow P\longrightarrow\text{first distinction}\longrightarrow\{N,S\}
+\longrightarrow\frac12\longrightarrow\ln 2\longrightarrow\C^2.
+\]
+The present derivation begins its new geometric work at the binary quantum carrier. The first distinction provides two quantum alternatives, and their coherent span is the minimal two-level Hilbert carrier $\mathcal H_2\cong\C^2$.
+
+A normalized two-level quantum state is represented by a density operator
+\[
+\rho_x=\rho_x^\dagger,\qquad \Tr\rho_x=1,\qquad \rho_x\ge0.
+\]
+Every such state has Bloch form \cite{NielsenChuang}
+\[
+\boxed{
+\rho_x=\frac12\left(I+\rvec_x\cdot\sigmavec\right),\qquad |\rvec_x|\le1,
+}
+\]
+where $\sigmavec=(\sigma_x,\sigma_y,\sigma_z)$ is the Pauli triple. Physical density operators fill the Bloch ball, while their affine hull is the full trace-one Hermitian hyperplane.
+
+\section{The common three-real-dimensional carrier}
+
+\begin{theorem}[Affine carrier theorem]\label{thm:carrier}
+The affine hull of normalized Hermitian $2\times2$ states is
+\[
+\Astate=\frac12 I+\Herm_0(2),
+\]
+and its translation space has real dimension three:
+\[
+V=\Herm_0(2)=\operatorname{span}_{\R}\{\sigma_x,\sigma_y,\sigma_z\}\cong\R^3.
+\]
+\end{theorem}
+
+\begin{proof}
+Every Hermitian $2\times2$ matrix has the unique expansion
+\[
+A=a_0I+a_x\sigma_x+a_y\sigma_y+a_z\sigma_z,
+\qquad a_\mu\in\R.
+\]
+Thus $\dim_{\R}\Herm(2)=4$. Since $\Tr I=2$ and $\Tr\sigma_i=0$, the trace-one condition fixes $a_0=1/2$. Differences of trace-one Hermitian operators are traceless Hermitian, so the translation space is $\Herm_0(2)$. The three Pauli matrices form a real basis.
+\end{proof}
+
+The number three therefore enters as the real dimension of the translation carrier of the normalized binary quantum-state hull.
+
+\section{Canonical endpoint-carrying relation}
+
+An affine space is a torsor for its translation space: for every ordered pair there is a unique translation carrying one endpoint to the other.
+
+\begin{definition}[Canonical affine displacement]
+For $\rho_x,\rho_y\in\Astate$, define
+\[
+\boxed{
+\delta_{xy}=\delta(\rho_x,\rho_y):=\rho_y-\rho_x.
+}
+\]
+The TIR spatial branch exports this endpoint-carrying torsor displacement as its primitive vector relation. In Pauli generator normalization,
+\[
+\boxed{
+\Erel_{xy}:=2\delta_{xy}=2(\rho_y-\rho_x)
+=(\rvec_y-\rvec_x)\cdot\sigmavec.
+}
+\]
+\end{definition}
+
+\begin{proposition}[Endpoint identities]\label{prop:endpoint}
+The canonical relation satisfies
+\[
+\boxed{
+\Erel_{yx}=-\Erel_{xy},
+\qquad
+\Erel_{xz}=\Erel_{xy}+\Erel_{yz},
+\qquad
+\Erel_{xy}+\Erel_{yz}+\Erel_{zx}=0.
+}
+\]
+\end{proposition}
+
+\begin{proof}
+All identities follow by telescoping endpoint differences. For example,
+\[
+2(\rho_y-\rho_x)+2(\rho_z-\rho_y)=2(\rho_z-\rho_x).
+\]
+\end{proof}
+
+The construction uses the ordered endpoints and the affine structure already present in the state carrier. The source-minimality/naturality analysis in the TIR repository supplies an independent uniqueness crosscheck: an affine-natural vector relation built only from the ordered endpoints is fixed up to one nonzero global scale and orientation.
+
+\section{Rotational covariance and invariant metric}
+
+For $U\in SU(2)$, a common quantum-frame transformation acts by conjugation,
+\[
+\rho\mapsto U\rho U^\dagger,
+\]
+so
+\[
+\boxed{
+\Erel_{xy}\mapsto U\Erel_{xy}U^\dagger.
+}
+\]
+The induced action on the three real Pauli coefficients factors through
+\[
+\boxed{SU(2)/\{\pm I\}\cong SO(3).}
+\]
+
+The positive invariant bilinear form on $\Herm_0(2)$ is
+\[
+\boxed{
+\langle A,B\rangle:=\frac12\Tr(AB).
+}
+\]
+Since
+\[
+\frac12\Tr(\sigma_i\sigma_j)=\delta_{ij},
+\]
+the Pauli basis is orthonormal. Conjugation preserves the form by cyclicity of trace. The defining real $SO(3)$ representation is irreducible, so an invariant positive inner product is unique up to one positive scale; the Pauli convention fixes that scale.
+
+For the canonical relation,
+\[
+\boxed{
+\|\Erel_{xy}\|^2
+=\frac12\Tr(\Erel_{xy}^2)
+=|\rvec_y-\rvec_x|^2.
+}
+\]
+This is the arithmetic-geometric quantity used by A5 as the squared local relation length.
+
+\section{Physical relation chord domain}
+
+The full translation carrier $V\cong\R^3$ and the relation subset generated by physical density-state endpoints are distinct objects. This section determines the latter exactly.
+
+\begin{theorem}[Physical chord realizability]\label{thm:chord}
+Let $\rho_x$ and $\rho_y$ be physical qubit states with Bloch vectors $|\rvec_x|\le1$ and $|\rvec_y|\le1$. The set of all generator-normalized relation vectors is
+\[
+\boxed{
+\Rphys
+=\left\{\dvec\cdot\sigmavec:\ \dvec\in\R^3,\ |\dvec|\le2\right\}.
+}
+\]
+Hence the reachable coefficient-vector domain is exactly the closed radius-two ball in the three-real-dimensional translation carrier.
+\end{theorem}
+
+\begin{proof}
+For physical endpoints,
+\[
+\dvec=\rvec_y-\rvec_x
+\]
+obeys
+\[
+|\dvec|\le|\rvec_y|+|\rvec_x|\le2.
+\]
+Conversely, let any $\dvec\in\R^3$ with $|\dvec|\le2$ be given and choose
+\[
+\rvec_x=-\frac12\dvec,
+\qquad
+\rvec_y=+\frac12\dvec.
+\]
+Then $|\rvec_x|=|\rvec_y|=|\dvec|/2\le1$, so both endpoints are physical and $\rvec_y-\rvec_x=\dvec$.
+\end{proof}
+
+\begin{corollary}[Local directional completeness]\label{cor:span}
+The physical chord set contains an open neighborhood of the zero relation and spans $V\cong\R^3$.
+\end{corollary}
+
+\begin{proof}
+The radius-two ball contains a neighborhood of the origin. In particular, nonzero scalar multiples of the three Pauli coefficient basis directions occur as physical chord vectors.
+\end{proof}
+
+The radius-two bound concerns one local binary state fiber. It therefore constrains the physically reachable single-edge subset while leaving the affine carrier dimension and local inner-product geometry unchanged.
+
+\section{Theorem E: local Euclidean and Pythagorean closure}
+
+\begin{theorem}[Theorem E]\label{thm:pyth}
+Let
+\[
+A=\Erel_{xy},\qquad B=\Erel_{yz}
+\]
+be consecutive local relations in one affine comparison frame. Endpoint composition gives $\Erel_{xz}=A+B$. With the invariant inner product,
+\[
+\|A+B\|^2=\|A\|^2+\|B\|^2+2\langle A,B\rangle.
+\]
+For orthogonal relations, $\langle A,B\rangle=0$, and therefore
+\[
+\boxed{a^2+b^2=c^2},
+\]
+where $a=\|A\|$, $b=\|B\|$, and $c=\|A+B\|$.
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:endpoint}, $\Erel_{xz}=A+B$. Bilinearity and symmetry give
+\begin{align*}
+\|A+B\|^2
+&=\langle A+B,A+B\rangle\\
+&=\langle A,A\rangle+\langle B,B\rangle+2\langle A,B\rangle.
+\end{align*}
+The cross term vanishes for orthogonal relations.
+\end{proof}
+
+For nonzero relations,
+\[
+\boxed{
+\cos\theta=\frac{\langle A,B\rangle}{\|A\|\,\|B\|},
+\qquad
+A\perp B\iff\langle A,B\rangle=0.
+}
+\]
+Theorem E is the carrier-level Euclidean endpoint.
+
+\section{Theorem R: physical-state Pythagorean realization}
+
+Theorem~\ref{thm:pyth} is an identity on the inner-product carrier. We now exhibit a nonempty family of triples whose endpoints remain physical density states.
+
+\begin{theorem}[Theorem R]\label{thm:physical-pyth}
+Let $\uvec,\vvec\in\R^3$ be unit and orthogonal,
+\[
+|\uvec|=|\vvec|=1,
+\qquad
+\uvec\cdot\vvec=0,
+\]
+and choose $a,b\ge0$ such that
+\[
+\boxed{a^2+b^2\le1.}
+\]
+Define
+\[
+\rvec_x=0,
+\qquad
+\rvec_y=a\uvec,
+\qquad
+\rvec_z=a\uvec+b\vvec.
+\]
+Then all three endpoints are physical qubit states and their consecutive relation vectors satisfy
+\[
+\boxed{
+\|\Erel_{xz}\|^2
+=\|\Erel_{xy}\|^2+\|\Erel_{yz}\|^2
+=a^2+b^2.
+}
+\]
+\end{theorem}
+
+\begin{proof}
+The endpoint norms are
+\[
+|\rvec_x|=0,
+\qquad
+|\rvec_y|=a\le1,
+\qquad
+|\rvec_z|^2=a^2+b^2\le1,
+\]
+so all lie in the Bloch ball. The relation vectors are
+\[
+\Erel_{xy}=a\uvec\cdot\sigmavec,
+\qquad
+\Erel_{yz}=b\vvec\cdot\sigmavec,
+\qquad
+\Erel_{xz}=(a\uvec+b\vvec)\cdot\sigmavec.
+\]
+Because $\uvec\cdot\vvec=0$, the Hilbert--Schmidt cross term vanishes and the Pythagorean identity follows.
+\end{proof}
+
+\begin{corollary}[Normalized $3$--$4$--$5$ certificate]\label{cor:345}
+Take
+\[
+a=\frac35,
+\qquad
+b=\frac45,
+\qquad
+\uvec=(1,0,0),
+\qquad
+\vvec=(0,1,0).
+\]
+Then
+\[
+\rvec_x=(0,0,0),
+\quad
+\rvec_y=\left(\frac35,0,0\right),
+\quad
+\rvec_z=\left(\frac35,\frac45,0\right),
+\]
+with $|\rvec_z|=1$, and
+\[
+\boxed{
+\frac9{25}+\frac{16}{25}=1.
+}
+\]
+\end{corollary}
+
+This certificate makes the publication endpoint constructive inside the physical state domain.
+
+\section{Theorem T1: minimal finite full-dimensional support}
+
+The same common carrier answers a parallel question: what is the smallest finite affine cell supporting all three local relation dimensions?
+
+\begin{theorem}[Theorem T1]\label{thm:simplex}
+A finite full-dimensional affine cell in a three-dimensional carrier requires at least four affinely independent vertices. At the minimum it is a $3$-simplex,
+\[
+\boxed{\Delta^3.}
+\]
+\end{theorem}
+
+\begin{proof}
+For points $x_1,\ldots,x_m$ in an affine space,
+\[
+\dim\Aff\{x_1,\ldots,x_m\}\le m-1.
+\]
+Full support of a three-dimensional affine carrier requires $3\le m-1$, hence $m\ge4$. Equality gives four affinely independent points and precisely the $3$-simplex.
+\end{proof}
+
+Thus the tetrahedron appears as the minimal finite full-dimensional affine cell of the carrier. It is not a premise of Theorems~\ref{thm:pyth} or \ref{thm:physical-pyth}.
+
+\section{Theorem T2: regularity from A5+A7 edge-orbit invariance}
+
+The abstract unlabeled $3$-simplex has
+\[
+\boxed{\Aut(\Delta^3)\cong S_4.}
+\]
+Its six edges are the unordered vertex pairs $\{i,j\}$, and the natural $S_4$ action is transitive on this six-element set.
+
+For every realized edge define the A5 arithmetic-geometric measure
+\[
+\boxed{
+q_{ij}:=\frac12\Tr(\Erel_{ij}^2),
+\qquad
+\ell_{ij}:=\sqrt{q_{ij}}.
+}
+\]
+
+\begin{theorem}[Theorem T2]\label{thm:regular}
+Apply A7 law symmetry to the intrinsic unlabeled-simplex automorphism action,
+\[
+q_{\pi(i)\pi(j)}=q_{ij}
+\qquad
+\forall\pi\in S_4.
+\]
+Then every edge has the same measure and length. The minimal nondegenerate $3$-simplex is therefore regular.
+\end{theorem}
+
+\begin{proof}
+For any two edges $e,e'$ there is a permutation $\pi\in S_4$ with $\pi(e)=e'$. A7 invariance gives $q_{e'}=q_e$. Thus one value $q_*>0$ occurs on all six edges, hence one common length $\ell_*$. A nondegenerate Euclidean tetrahedron with six equal edges is regular.
+\end{proof}
+
+The finite-cell branch is
+\[
+\boxed{
+\Herm_0(2)\cong\R^3
+\longrightarrow
+\Delta^3
+\xrightarrow{A5+A7}
+\text{regular tetrahedron}.
+}
+\]
+
+\section{Tetrahedral Gram geometry and the appearance of \texorpdfstring{$-1/3$}{-1/3}}
+
+Place the barycenter of a regular tetrahedron at the origin and normalize the four center-to-vertex directions $\nvec_a$ so that $|\nvec_a|=1$. Then
+\[
+\boxed{\sum_{a=1}^{4}\nvec_a=0.}
+\]
+Regularity makes every off-diagonal inner product equal to a common value $q$. Therefore
+\[
+0=\left|\sum_{a=1}^{4}\nvec_a\right|^2=4+12q,
+\]
+so
+\[
+\boxed{
+\nvec_a\cdot\nvec_b=-\frac13\qquad(a\ne b).
+}
+\]
+Equivalently,
+\[
+\boxed{
+G=\frac43I_4-\frac13\mathbf1\mathbf1^T,
+\qquad
+\sum_{a=1}^{4}\nvec_a\nvec_a^T=\frac43I_3.
+}
+\]
+The orientation-preserving rotational symmetry group is $A_4\subset SO(3)$, whose inverse image under the $SU(2)$ double cover is the binary tetrahedral group $2T\subset SU(2)$ \cite{Coxeter}.
+
+The fractions $1/2$ and $-1/3$ occur at different structural levels:
+\[
+\boxed{
+\frac12\longrightarrow\C^2\longrightarrow\R^3\longrightarrow-\frac13.
+}
+\]
+The first belongs to the normalized binary distinction; the second is the off-diagonal Gram invariant of the regular tetrahedral frame.
+
+\section{Theorem Q: independent tetrahedral informational convergence}
+
+A general qubit density operator carries three independent real Bloch coordinates. A normalized probability vector with $m$ outcomes carries at most $m-1$ independent real entries. Hence informational completeness requires
+\[
+m-1\ge3,
+\qquad
+\boxed{m\ge4.}
+\]
+For the symmetric rank-one minimal case, the qubit SIC-POVM is tetrahedral \cite{RenesEtAl}. Let $\nvec_a$ be a regular tetrahedral unit frame and define
+\[
+\boxed{
+F_a=\frac14\left(I+\nvec_a\cdot\sigmavec\right),
+\qquad a=1,\ldots,4.
+}
+\]
+Since $\sum_a\nvec_a=0$,
+\[
+\sum_aF_a=I.
+\]
+For
+\[
+\rho=\frac12\left(I+\rvec\cdot\sigmavec\right),
+\]
+the probabilities are
+\[
+\boxed{
+p_a=\Tr(\rho F_a)=\frac14\left(1+\rvec\cdot\nvec_a\right).}
+\]
+Using $\sum_a\nvec_a\nvec_a^T=(4/3)I_3$,
+\[
+\boxed{\rvec=3\sum_{a=1}^{4}p_a\nvec_a.}
+\]
+
+\begin{theorem}[Theorem Q]
+The minimal symmetric rank-one informationally complete measurement for a qubit has four outcomes and a tetrahedral Bloch frame with pairwise Gram value $-1/3$. It therefore converges on the same finite frame geometry as the regular minimal spatial simplex derived in Theorems~\ref{thm:simplex}--\ref{thm:regular}.
+\end{theorem}
+
+The spatial edge relation and informational measurement outcome retain distinct physical typing; the exact equality is the finite Gram-frame convergence.
+
+\section{Proof-status and dependency audit}
+
+Table~\ref{tab:status} separates standard mathematics, physical-state realization, TIR axiom crosswalks, and independent convergence.
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.42\textwidth} >{\raggedright\arraybackslash}p{0.48\textwidth}}
+\toprule
+\textbf{Result} & \textbf{Status / dependency}\\
+\midrule
+Binary quantum carrier $\C^2$ & Imported TIR root from the first distinction and A2 quantum-point postulate\\
+$\Astate=I/2+\Herm_0(2)$ & Exact linear algebra / standard two-level quantum representation\\
+$\dim_{\R}\Herm_0(2)=3$ & Exact linear algebra\\
+$\delta_{xy}=\rho_y-\rho_x$ & Exact affine-torsor displacement; exported as the TIR spatial vector relation\\
+Endpoint composition and triangular closure & Exact affine identities\\
+$SU(2)/\{\pm I\}\cong SO(3)$ and trace metric & Exact representation theory / matrix algebra\\
+$\Rphys=\{\dvec\cdot\sigmavec:|\dvec|\le2\}$ & Exact physical-state chord theorem\\
+Theorem E: carrier Pythagorean closure & Exact inner-product consequence\\
+Theorem R: physical Pythagorean realization & Exact construction inside the Bloch ball; includes the normalized $3$--$4$--$5$ certificate\\
+Theorem T1: $m\ge4$ and $\Delta^3$ & Exact affine-dimension theorem\\
+Theorem T2: regular tetrahedron & Exact consequence once A5 measure and A7 invariance are applied to the intrinsic $S_4$ edge orbit\\
+Tetrahedral Gram value $-1/3$ & Exact consequence of regularity and barycentric normalization\\
+Theorem Q: tetrahedral qubit SIC convergence & Standard quantum-information construction; independent convergence crosscheck\\
+Global triangulation, curvature, holonomy, torsion, scale calibration, TIR $\times$ Time closure & Downstream geometry programme\\
+\bottomrule
+\end{tabular}
+\caption{Dependency and proof-status surface for the hardened local construction.}
+\label{tab:status}
+\end{table}
+
+The publication dependency graph is acyclic. Neither the tetrahedral branch nor the SIC branch is a premise of Theorem E or Theorem R. The carrier-domain firewall is
+\[
+\boxed{
+V=\Herm_0(2)\cong\R^3
+\supset
+\Rphys\cong\mathbb B^3_2.
+}
+\]
+The first object is the full affine translation carrier; the second is the bounded single-edge subset realized by physical endpoints in one local binary state fiber.
+
+\section{Global geometry boundary}
+
+For a regular tetrahedron, the dihedral angle is
+\[
+\boxed{\theta_T=\arccos\left(\frac13\right),}
+\]
+and
+\[
+\boxed{5\theta_T<2\pi<6\theta_T.}
+\]
+Thus the regular local tetrahedral frame opens a distinct global refinement problem. Piecewise-flat tetrahedral complexes can encode curvature through angular deficits, while transport and nontrivial holonomy enter at the gluing level. The radius-two physical chord bound is likewise local to one binary state fiber. Physical unit calibration, gluing of distinct local carriers, and the TIR $\times$ Time spacetime join belong to the downstream programme.
+
+\section{Conclusion}
+
+The local construction begins with a binary quantum carrier and uses the affine geometry already present in its normalized state hull. Trace normalization leaves the translation space
+\[
+\Herm_0(2)\cong\R^3,
+\]
+and the unique endpoint-carrying torsor displacement provides an origin-independent relation vector. The $SU(2)$ conjugation action induces the standard $SO(3)$ rotational action, while the trace bilinear form supplies the invariant Euclidean inner product.
+
+The physical density-state subset sharpens this structure: single-edge relation coefficients fill exactly the radius-two ball in the carrier, and every carrier direction occurs physically in a neighborhood of the zero relation. Orthogonal relation pairs admit explicit physical triples. In particular,
+\[
+\boxed{
+a=\frac35,\qquad b=\frac45,\qquad c=1}
+\]
+gives an exact physical-state Pythagorean certificate.
+
+The finite-cell branch remains parallel. Three real affine dimensions require four vertices, giving $\Delta^3$; A5 measurement and A7 symmetry on the intrinsic $S_4$ edge orbit give equal edge lengths and therefore the regular tetrahedron. Its centered unit frame has Gram value $-1/3$. The minimal symmetric qubit SIC reaches the same finite frame independently.
+
+The final local structure is
+\[
+\boxed{
+\begin{aligned}
+\text{binary quantum point}
+&\longrightarrow \text{canonical 3D relation carrier}\\
+&\longrightarrow
+\begin{cases}
+\text{Euclidean branch}\longrightarrow\text{Pythagoras},\\
+\text{physical chord branch}\longrightarrow\text{physical Pythagoras},\\
+\text{finite cell}\longrightarrow\text{regular tetrahedron}\longleftarrow\text{SIC}.
+\end{cases}
+\end{aligned}}
+\]
+This is the intended local endpoint of \emph{The Space of Geometry}. The subsequent programme begins from a geometry already equipped with displacement, norm, angle, orthogonality, an explicit physical-state realization class, a minimal finite frame, and a controlled symmetry structure.
+
+\appendix
+\section{Pauli identities used in the construction}
+
+The Pauli matrices satisfy
+\[
+\sigma_i\sigma_j=\delta_{ij}I+i\epsilon_{ijk}\sigma_k,
+\qquad
+\Tr(\sigma_i)=0,
+\qquad
+\Tr(\sigma_i\sigma_j)=2\delta_{ij}.
+\]
+For $A=\bm a\cdot\sigmavec$ and $B=\bm b\cdot\sigmavec$,
+\[
+\frac12\Tr(AB)=\bm a\cdot\bm b,
+\]
+so the Hilbert--Schmidt form restricted to $\Herm_0(2)$ is exactly the Euclidean dot product on Pauli coefficients.
+
+\section{Exact physical $3$--$4$--$5$ realization}
+
+Choose
+\[
+\rvec_x=(0,0,0),
+\qquad
+\rvec_y=\left(\frac35,0,0\right),
+\qquad
+\rvec_z=\left(\frac35,\frac45,0\right).
+\]
+Then
+\[
+|\rvec_x|=0,
+\qquad
+|\rvec_y|=\frac35,
+\qquad
+|\rvec_z|=1,
+\]
+so each defines a physical density state. The coefficient differences are
+\[
+\dvec_{xy}=\left(\frac35,0,0\right),
+\qquad
+\dvec_{yz}=\left(0,\frac45,0\right),
+\qquad
+\dvec_{xz}=\left(\frac35,\frac45,0\right),
+\]
+and therefore
+\[
+\boxed{
+|\dvec_{xy}|^2+|\dvec_{yz}|^2
+=\frac9{25}+\frac{16}{25}
+=1
+=|\dvec_{xz}|^2.
+}
+\]
+
+\section{Exact regular tetrahedral realization}
+
+An integer-coordinate realization useful for deterministic validation is
+\[
+\vvec_1=(1,1,1),\quad
+\vvec_2=(1,-1,-1),\quad
+\vvec_3=(-1,1,-1),\quad
+\vvec_4=(-1,-1,1).
+\]
+It obeys
+\[
+\sum_{a=1}^{4}\vvec_a=0,
+\qquad
+\vvec_a\cdot\vvec_a=3,
+\qquad
+\vvec_a\cdot\vvec_b=-1\quad(a\ne b).
+\]
+After normalization $\nvec_a=\vvec_a/\sqrt3$,
+\[
+\nvec_a\cdot\nvec_b=-\frac13\quad(a\ne b),
+\qquad
+\sum_{a=1}^{4}\nvec_a\nvec_a^T=\frac43I_3.
+\]
+
+\begin{thebibliography}{9}
+
+\bibitem{LipaTIR}
+A. Lipa,
+\emph{The Fundamental Theory of Informational Relations},
+research repository, 2026.
+\newblock \href{https://github.com/AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations}{GitHub repository}.
+
+\bibitem{NielsenChuang}
+M. A. Nielsen and I. L. Chuang,
+\emph{Quantum Computation and Quantum Information},
+10th Anniversary ed., Cambridge University Press, Cambridge, 2010.
+
+\bibitem{RenesEtAl}
+J. M. Renes, R. Blume-Kohout, A. J. Scott, and C. M. Caves,
+``Symmetric informationally complete quantum measurements,''
+\emph{Journal of Mathematical Physics} \textbf{45} (2004), 2171--2180.
+\newblock doi: \href{https://doi.org/10.1063/1.1737053}{10.1063/1.1737053}.
+
+\bibitem{Coxeter}
+H. S. M. Coxeter,
+\emph{Regular Polytopes}, 3rd ed.,
+Dover Publications, New York, 1973.
+
+\bibitem{Bloch}
+F. Bloch,
+``Nuclear induction,''
+\emph{Physical Review} \textbf{70} (1946), 460--474.
+
+\end{thebibliography}
+
+\end{document}
