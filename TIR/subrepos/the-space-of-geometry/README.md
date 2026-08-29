@@ -1,14 +1,14 @@
 # The Space of Geometry
 
-Status: `TIR_SUBREPO_RESEARCH_PROGRAM_V0_1`
+Status: `TIR_SUBREPO_RESEARCH_PROGRAM_V0_2`
 
 Working title:
 
 > **The Space of Geometry: From First Distinction to Pythagoras**
 
-This TIR subrepo develops the minimal spatial-geometric line of the theory. Its purpose is to start from the primitive relational carrier already established in TIR and continue only until the Euclidean geometric structure is strong enough for Pythagorean closure.
+This TIR subrepo develops the shortest local spatial-geometric derivation from the primitive relational carrier to Pythagorean closure.
 
-The intended research spine is
+The current spine is
 
 \[
 \boxed{
@@ -17,6 +17,7 @@ The intended research spine is
 \to \text{DISTINCTION}
 \to \mathbb C^2
 \to \operatorname{Herm}_0(2)
+\to \text{minimal faithful }SO(3)\text{ carrier}
 \to \mathbb R^3
 \to \Delta^3
 \to \text{distance / angle / orthogonality}
@@ -24,69 +25,106 @@ The intended research spine is
 }
 \]
 
-## Scope
+## Core result structure
 
-The subrepo owns the derivation chain from primitive relational distinction to a minimal three-dimensional Euclidean spatial carrier and Pythagorean closure.
+The binary quantum carrier supplies
 
-Primary gates:
+\[
+\mathfrak g_{\rm rel}=\operatorname{Herm}_0(2)
+\cong\mathbb R^3
+\]
 
-1. first distinction and binary quantum carrier;
-2. real relational generator space `Herm_0(2) ~= R^3`;
-3. promotion of the generator carrier to local spatial directions;
-4. minimal full-dimensional simplex `Delta^3`;
-5. regular tetrahedral isotropy;
-6. relational edge length and inner product;
-7. orthogonality;
-8. norm decomposition and Pythagorean closure.
+with canonical inner product
 
-The existing TIR spatial bundle, solder-form, endpoint-closure, isotropy, tetrahedral-cell and qubit-information results are upstream inputs and cross-checks.
+\[
+\langle A,B\rangle=\frac12\operatorname{Tr}(AB)
+\]
 
-## Central geometric principle
+and adjoint rotational symmetry
 
-For an `n`-dimensional affine carrier, the minimal full-dimensional simplex has `n+1` affinely independent vertices. Therefore in the admitted three-dimensional relational generator carrier,
+\[
+SU(2)/\{\pm I\}\cong SO(3).
+\]
+
+`SPATIAL_PROMOTION_UNIQUENESS_V0_1.md` proves the following conditional uniqueness statement: a minimal nonzero finite-dimensional real carrier that faithfully and orthogonally realizes the full primitive `SO(3)` symmetry has dimension three and is equivalent, up to orthogonal frame change, to the defining rotation representation. Therefore
 
 \[
 \boxed{
-\dim \mathfrak g_{\rm rel}=3
-\quad\Longrightarrow\quad
-\text{minimal full-dimensional simplex}=\Delta^3.
+V_x\simeq\operatorname{Herm}_0(2)\simeq\mathbb R^3
 }
 \]
 
-`Delta^3` is the tetrahedron. Under equal local weighting and full isotropy, its Gram matrix is the regular tetrahedral one,
+under the declared spatial-realization criterion, with invariant positive metric unique up to scale.
+
+The central active gate is now to derive that realization criterion from the primitive TIR axioms.
+
+## Minimal spatial cell
+
+For a three-dimensional affine carrier, the minimal full-dimensional simplex has four vertices:
 
 \[
-\boxed{
-\mathbf n_a\cdot\mathbf n_b=-\frac13
-\qquad(a\neq b).
-}
+\boxed{\Delta^3.}
 \]
 
-This makes the tetrahedron the minimal spatial cell once the three-dimensional carrier and the declared minimality/isotropy conditions are admitted.
-
-## Endpoint criterion
-
-The paper terminates at the first classical Euclidean closure that follows from the constructed inner-product geometry. For orthogonal vectors `u,v`,
+Under equal norm and full local isotropy,
 
 \[
-\langle u,v\rangle=0,
+\sum_{a=1}^{4}n_a=0,
+\qquad
+n_a\cdot n_b=-\frac13\quad(a\ne b),
 \]
 
-so
+so the minimal isotropic full-dimensional cell is the regular tetrahedron.
+
+The tetrahedral qubit SIC remains an independent information-theoretic convergence check on the same finite structure.
+
+## Euclidean endpoint
+
+For local displacements `A,B`,
 
 \[
-\|u+v\|^2
-=\|u\|^2+\|v\|^2.
+\|A+B\|^2
+=\|A\|^2+\|B\|^2+2\langle A,B\rangle.
 \]
 
-In triangle notation this is
+With
+
+\[
+A\perp B
+\iff
+\langle A,B\rangle=0,
+\]
+
+this gives
 
 \[
 \boxed{a^2+b^2=c^2.}
 \]
 
-This is the intended endpoint of the fundamental derivation line.
+This is the endpoint of the fundamental paper.
 
-## Repository role
+## Global geometry boundary
 
-`The Space of Geometry` is a TIR subrepo. TIR remains the parent Source of Truth for the primitive axioms, first-distinction theorem, relational generator construction, spatial bundle/connection precursor, discrete solder form, endpoint closure and tetrahedral isotropy results.
+For a regular tetrahedron
+
+\[
+\theta_T=\arccos(1/3)
+\]
+
+and
+
+\[
+5\theta_T<2\pi<6\theta_T.
+\]
+
+Thus the regular tetrahedron is used as the minimal local isotropic cell. Global flat/curved continuum construction is treated as a downstream refinement problem rather than a prerequisite for Pythagorean closure.
+
+## Current surfaces
+
+- `RESEARCH_SPINE_V0_2.md`
+- `foundations/SPATIAL_PROMOTION_UNIQUENESS_V0_1.md`
+- `foundations/LOCAL_EUCLIDEAN_PYTHAGOREAN_CLOSURE_V0_1.md`
+- `paper/PAPER_OUTLINE_V0_2.md`
+- deterministic validation under `validation/`
+
+TIR remains the parent Source of Truth for the primitive axioms, first-distinction theorem, generator construction, tetrahedral isotropy and endpoint-closure results.
