@@ -37,6 +37,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 TIR/validation/kappa_phase_rate_identity_v11_1.py | tee kappa_phase_rate_receipt.json
+          python3 TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py | tee kappa_flavour_mixing_normalization_receipt.json
           python3 TIR/validation/review_source_contract_v11_1.py | tee review_source_contract_receipt.json
           python3 TIR/validation/tir_relational_half_seam_v0_1.py | tee tir_relational_half_seam_receipt.json
           python3 TIR/validation/tir_zero_first_distinction_v0_1.py | tee tir_zero_first_distinction_receipt.json
@@ -45,31 +46,37 @@ jobs:
           python3 TIR/validation/tir_half_seam_phase_fiber_v0_1.py | tee tir_half_seam_phase_fiber_receipt.json
           python3 TIR/validation/tir_causal_bridge_from_zero_v0_1.py | tee tir_causal_bridge_from_zero_receipt.json
           python3 TIR/validation/tir_spatial_geometry_core_v0_1.py | tee tir_spatial_geometry_core_receipt.json
-          grep -q '"technical_status": "PASS"' kappa_phase_rate_receipt.json
-          grep -q '"technical_status": "PASS"' review_source_contract_receipt.json
-          grep -q '"technical_status": "PASS"' tir_relational_half_seam_receipt.json
-          grep -q '"technical_status": "PASS"' tir_zero_first_distinction_receipt.json
-          grep -q '"technical_status": "PASS"' tir_axiomatic_kernel_receipt.json
-          grep -q '"technical_status": "PASS"' tir_first_distinction_theorem_receipt.json
-          grep -q '"technical_status": "PASS"' tir_half_seam_phase_fiber_receipt.json
-          grep -q '"technical_status": "PASS"' tir_causal_bridge_from_zero_receipt.json
-          grep -q '"technical_status": "PASS"' tir_spatial_geometry_core_receipt.json
-          grep -q '"pi_cancelled_exactly": true' kappa_phase_rate_receipt.json
-          grep -q '"seam_is_positive_reciprocal_fixed_point": true' tir_relational_half_seam_receipt.json
-          grep -q '"equal_weight_seam": true' tir_relational_half_seam_receipt.json
-          grep -q '"noncommuting_distinction_axes": true' tir_zero_first_distinction_receipt.json
-          grep -q '"distinct_axis_rotations_noncommute": true' tir_zero_first_distinction_receipt.json
-          grep -q '"axiom_count": 8' tir_axiomatic_kernel_receipt.json
-          grep -q '"next_gate": "RELATIVE_PHASE_LAW"' tir_first_distinction_theorem_receipt.json
-          grep -q '"next_gate": "HALF_FIBER_PHASE_RATE_SELECTION"' tir_half_seam_phase_fiber_receipt.json
-          grep -q '"no_temporal_circularity": true' tir_causal_bridge_from_zero_receipt.json
-          grep -q '"sibling_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
-          grep -q '"tir_spatial_ownership_pass": true' tir_causal_bridge_from_zero_receipt.json
-          grep -q '"spacetime_join_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
-          grep -q '"matter_join_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
-          grep -q '"tir_owns_spatial_geometry": true' tir_spatial_geometry_core_receipt.json
-          grep -q '"lorentzian_block_signature": true' tir_spatial_geometry_core_receipt.json
-          grep -q '"sphere_types_separate_until_explicit_identification_map": true' tir_spatial_geometry_core_receipt.json
+          grep -Fq '"technical_status": "PASS"' kappa_phase_rate_receipt.json
+          grep -Fq '"technical_status": "PASS"' kappa_flavour_mixing_normalization_receipt.json
+          grep -Fq '"mixing_algebra_dimension": 8' kappa_flavour_mixing_normalization_receipt.json
+          grep -Fq '"flavour_multiplicity": 3' kappa_flavour_mixing_normalization_receipt.json
+          grep -Fq '"mixing_channel_count": 24' kappa_flavour_mixing_normalization_receipt.json
+          grep -Fq '"total_mixing_phase_measure": "24*pi"' kappa_flavour_mixing_normalization_receipt.json
+          grep -Fq '"kappa": "ln2/(24*pi)"' kappa_flavour_mixing_normalization_receipt.json
+          grep -Fq '"technical_status": "PASS"' review_source_contract_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_relational_half_seam_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_zero_first_distinction_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_axiomatic_kernel_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_first_distinction_theorem_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_half_seam_phase_fiber_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_causal_bridge_from_zero_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_spatial_geometry_core_receipt.json
+          grep -Fq '"pi_cancelled_exactly": true' kappa_phase_rate_receipt.json
+          grep -Fq '"seam_is_positive_reciprocal_fixed_point": true' tir_relational_half_seam_receipt.json
+          grep -Fq '"equal_weight_seam": true' tir_relational_half_seam_receipt.json
+          grep -Fq '"noncommuting_distinction_axes": true' tir_zero_first_distinction_receipt.json
+          grep -Fq '"distinct_axis_rotations_noncommute": true' tir_zero_first_distinction_receipt.json
+          grep -Fq '"axiom_count": 8' tir_axiomatic_kernel_receipt.json
+          grep -Fq '"next_gate": "RELATIVE_PHASE_LAW"' tir_first_distinction_theorem_receipt.json
+          grep -Fq '"next_gate": "HALF_FIBER_PHASE_RATE_SELECTION"' tir_half_seam_phase_fiber_receipt.json
+          grep -Fq '"no_temporal_circularity": true' tir_causal_bridge_from_zero_receipt.json
+          grep -Fq '"sibling_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
+          grep -Fq '"tir_spatial_ownership_pass": true' tir_causal_bridge_from_zero_receipt.json
+          grep -Fq '"spacetime_join_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
+          grep -Fq '"matter_join_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
+          grep -Fq '"tir_owns_spatial_geometry": true' tir_spatial_geometry_core_receipt.json
+          grep -Fq '"lorentzian_block_signature": true' tir_spatial_geometry_core_receipt.json
+          grep -Fq '"sphere_types_separate_until_explicit_identification_map": true' tir_spatial_geometry_core_receipt.json
 
       - name: Verify critical-axis solver
         shell: bash
@@ -80,8 +87,8 @@ jobs:
           pytest TIR/zeta_information_axis/tests -q | tee critical-axis-pytest.log
           python TIR/zeta_information_axis/scripts/run_audit.py
           python TIR/zeta_information_axis/scripts/solve_axis.py --output TIR/zeta_information_axis/reports/solver_receipt.json > solver-console.json
-          grep -q '"half_axis_consensus": true' TIR/zeta_information_axis/reports/solver_receipt.json
-          grep -q '"rh_derived": false' TIR/zeta_information_axis/reports/solver_receipt.json
+          grep -Fq '"half_axis_consensus": true' TIR/zeta_information_axis/reports/solver_receipt.json
+          grep -Fq '"rh_derived": false' TIR/zeta_information_axis/reports/solver_receipt.json
 
       - name: Prepare publication sources and crosswalk audit
         shell: bash
@@ -128,6 +135,7 @@ jobs:
           test -s TIR/monograph/appendices/appP_secret_half_cross_relation.tex
           test -s TIR/monograph/appendices/appP_information_spinor_crosswalk.tex
           test -s TIR/zeta_information_axis/reports/solver_receipt.json
+          test -s TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md
           test -s TIR/foundations/TIR_AXIOMATIC_KERNEL_V0_1.md
           test -s TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_1.md
           test -s TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md
@@ -149,6 +157,7 @@ jobs:
           retention-days: 30
           path: |
             kappa_phase_rate_receipt.json
+            kappa_flavour_mixing_normalization_receipt.json
             review_source_contract_receipt.json
             tir_relational_half_seam_receipt.json
             tir_zero_first_distinction_receipt.json
