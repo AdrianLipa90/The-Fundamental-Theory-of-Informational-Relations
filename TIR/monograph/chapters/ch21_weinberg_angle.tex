@@ -2,56 +2,80 @@
 \chapter{Weinberg Angle}
 \label{ch:weinberg_angle}
 
-
 % CITATION_CONTEXT_V10_9_BEGIN
 \paragraph{Established context.}
 The weak mixing angle belongs to the Glashow--Weinberg--Salam electroweak theory
-\cite{Glashow1961,Weinberg1967,Salam1968}.  Experimental conventions and values
+\cite{Glashow1961,Weinberg1967,Salam1968}. Experimental conventions and values
 are taken from the Particle Data Group \cite{PDG2024}; the discrete geometric
-formula proposed here is evaluated against, rather than derived from, that
-standard reference.
+formula proposed here is evaluated against that reference.
 % CITATION_CONTEXT_V10_9_END
 
-\section{Derivation}
+\claimstatus{Frozen structural weak-angle relation; precision promotion requires an explicit renormalization scheme and scale.}
 
-The weak mixing angle (Weinberg angle) is:
+\section{Structural relation}
+
+The current TIR weak-angle relation is
 
 \begin{equation}
-\sin^2\theta_W = \frac{L_4}{L_3 + L_4} + \kappa
-              = \frac{2}{9} + \kappa.
+\sin^2\theta_W^{(0)}
+= \frac{L_4}{L_3+L_4}+\kappa
+= \frac29+\kappa.
 \label{eq:weinberg}
 \end{equation}
 
-\subsection{Term-by-Term Breakdown}
+The first term $L_4/(L_3+L_4)=2/9$ is the tetrahedral edge ratio shared with
+the corresponding mixing geometry, and $\kappa$ supplies the information-phase
+correction.
 
-The first term \(L_4/(L_3+L_4) = 2/9\) is the geometric tetrahedron edge
-ratio \(e_2\) (the same ratio that appears in the Cabibbo angle and the
-Higgs leakage fraction).  The second term \(\kappa\) is the information
-constant, representing the curvature correction on the Poincar\'{e} disk.
-
-\subsection{Numerical Evaluation}
+Numerically,
 
 \[
-\sin^2\theta_W = \frac{2}{9} + 0.00919315
-              = 0.22222 + 0.00919315
-              = 0.23142.
+\sin^2\theta_W^{(0)}
+=\frac29+0.00919315000636
+=0.23141537\ldots.
 \]
 
-\section{Comparison with PDG}
-
-The PDG value is \(\sin^2\theta_W^{\text{PDG}} = 0.23122\).
+The associated structural sine and cosine are
 
 \[
-\frac{0.23142 - 0.23122}{0.23122} = +0.08\%.
+\sin\theta_W^{(0)}=\sqrt{\sin^2\theta_W^{(0)}},
+\qquad
+\cos\theta_W^{(0)}=\sqrt{1-\sin^2\theta_W^{(0)}}.
 \]
 
-\section{Derived Quantities}
+These quantities feed the frozen tree-level gauge-boson map in
+Chapter~\ref{ch:gauge_bosons}.
+
+\section{Precision comparison gate}
+
+A weak mixing angle is scheme- and scale-dependent once precision electroweak
+comparison is requested.  The active TIR comparison therefore uses the typed
+map
 
 \[
-\begin{aligned}
-\sin\theta_W &= \sqrt{0.23142} = 0.48106, \\
-\cos\theta_W &= \sqrt{1 - 0.23142} = \sqrt{0.76858} = 0.87669.
-\end{aligned}
+\boxed{
+\sin^2\theta_W^{(0)}
+\xrightarrow{\;\mathcal R_W(\mu,\text{scheme})\;}
+\sin^2\theta_W(\mu,\text{scheme}).
+}
 \]
 
-These enter the gauge boson mass calculations (Chapter~\ref{ch:gauge_bosons}).
+The structural value may be compared numerically at coarse level, while a
+precision claim is admitted only after the target observable, renormalization
+scheme and scale are frozen together with the transport map $\mathcal R_W$.
+
+This gate prevents the same dimensionless number from being silently compared
+across on-shell, effective-angle and running definitions.
+
+\section{Current structural crosscheck}
+
+Against the historical reference number $0.23122$ used in the earlier
+snapshot, the raw relative difference is
+
+\[
+\frac{0.23141537-0.23122}{0.23122}\approx8.45\times10^{-4}.
+\]
+
+This remains a useful structural crosscheck.  The PDG-2026 validation layer
+carries the precision classification jointly with the declared scheme/scale
+requirements used by the electroweak sector.
