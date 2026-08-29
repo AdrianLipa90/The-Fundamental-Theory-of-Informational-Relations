@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+"""Synchronize generated publication surfaces with the current TIR dependency graph."""
+from __future__ import annotations
+
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+
+FRONTMATTER = r"""\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+This monograph presents Metatime/TIR as an exploratory relational and
+information-geometric research programme connecting primitive binary information,
+quantum-state geometry, flavour mixing, particle-sector constructions, and
+prospectively testable observables. The current foundational line derives the
+information normalization
+\[
+\kappa=\frac{\ln2}{24\pi}
+\]
+from the balanced binary information quantum $H_2(1/2)=\ln2$, the derived
+three-flavour carrier $V_F\cong\mathbb C^3$, the eight-dimensional mixing algebra
+$\mathfrak{su}(3)_F$, and the primitive half-turn phase $\pi$. Thus
+$24\pi=3(3^2-1)\pi$ is an explicit TIR structural dependency. The same integer
+$24$ is independently recovered as the order of the full automorphism group
+$S_4$ of the regular tetrahedral minimal spatial cell.
+
+The publication architecture separates exact mathematical identities,
+TIR-internal structural derivations, sector assignments, diagnostics and retained
+empirical failures, external inputs, and prospectively frozen tests. The
+retrospective ledger contains close numerical matches in several sectors and
+retains its residual tensions explicitly. The frozen prospective surfaces keep
+their declared observables and no-refit rules.
+
+The complete source, theorem surfaces, validation receipts, and reproducible
+LaTeX build are maintained in the accompanying repository.
+
+\section*{Keywords}
+Theory of Informational Relations; geometric phase; information geometry;
+flavour mixing; $SU(3)$; tetrahedral geometry; Standard Model observables;
+preregistration; reproducibility.
+
+\section*{Claim and evidence taxonomy}
+\begin{description}
+  \item[A -- established result:] a standard mathematical identity or external
+  experimental result supported by the cited literature.
+  \item[B -- TIR structural layer:] a TIR structural law or internally derived
+  structural quantity with explicit upstream dependencies.
+  \item[C -- retrospective assignment:] a sector formula assessed after some or
+  all of the comparison data were known.
+  \item[D -- diagnostic or no-go:] an internal audit, retained failure, or
+  restricted impossibility result.
+  \item[E -- prospective prediction:] a frozen formula, observable, and decision
+  rule specified before the named future dataset is inspected.
+  \item[F -- external anchor:] a measured scale, convention, or conversion input
+  supplied to the relevant sector construction.
+\end{description}
+
+\section*{Availability and version status}
+This publication candidate reports the current reviewed TIR dependency graph,
+sector evidence ledger, and prospective tests. Source code, version history,
+machine-readable validation outputs, and the build workflow are maintained at
+\url{https://github.com/AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations}.
+
+\section*{Declarations}
+This manuscript is an independent research work. The repository records its
+source provenance, validation history, and publication dependencies.
+
+\cleardoublepage
+"""
+
+
+def patch_intro() -> None:
+    path = ROOT / "chapters" / "ch01_introduction.tex"
+    text = path.read_text(encoding="utf-8")
+    old = (
+        "These are model postulates.  The factor $24\\pi$ is a discrete normalization\n"
+        "ansatz, not the standard symplectic volume of $\\mathbb{C}P^3$; Appendix\n"
+        "\\ref{app:kappa} states the precise and limited claim."
+    )
+    new = (
+        "The $\\kappa$ coefficient is carried by the TIR-internal flavour-mixing\n"
+        "normalization of Appendix~\\ref{app:kappa}: the three-flavour carrier has\n"
+        "$\\dim\\mathfrak{su}(3)_F=8$, giving $3\\times8=24$ generator--flavour\n"
+        "channels, while the primitive half-turn contributes the phase unit $\\pi$.\n"
+        "The remaining discrete integers and flavour labels retain their own\n"
+        "sector-specific provenance."
+    )
+    if old in text:
+        text = text.replace(old, new, 1)
+    path.write_text(text, encoding="utf-8")
+
+
+def main() -> None:
+    (ROOT / "frontmatter" / "publication_frontmatter_v11_0.tex").write_text(
+        FRONTMATTER, encoding="utf-8"
+    )
+    patch_intro()
+    print("CURRENT TIR PUBLICATION SURFACES SYNCHRONIZED")
+
+
+if __name__ == "__main__":
+    main()
