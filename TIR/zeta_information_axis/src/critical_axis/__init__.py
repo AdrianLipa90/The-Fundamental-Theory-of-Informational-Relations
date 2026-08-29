@@ -59,6 +59,17 @@ from .solver import (
     solve_sigma_from_entropy,
     validate_half_axis_routes,
 )
+from .transverse_mass import (
+    TransverseMassHessian,
+    gaussian_mass_envelope,
+    log_phi_curvature,
+    log_phi_slope,
+    transverse_log_gap,
+    transverse_log_mass_hessian,
+    transverse_log_mass_slope_b,
+    transverse_mass,
+    transverse_mass_ratio,
+)
 from .xi_kernel import (
     XiKernelBranches,
     completed_xi_on_z_axis,
@@ -121,6 +132,15 @@ __all__ = [
     "solve_sigma_from_complement",
     "solve_sigma_from_entropy",
     "validate_half_axis_routes",
+    "TransverseMassHessian",
+    "gaussian_mass_envelope",
+    "log_phi_curvature",
+    "log_phi_slope",
+    "transverse_log_gap",
+    "transverse_log_mass_hessian",
+    "transverse_log_mass_slope_b",
+    "transverse_mass",
+    "transverse_mass_ratio",
     "XiKernelBranches",
     "completed_xi_on_z_axis",
     "kernel_reconstruction_residual",
