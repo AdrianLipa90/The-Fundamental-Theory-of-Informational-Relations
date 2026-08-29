@@ -1,0 +1,59 @@
+name: TIR The Space of Geometry
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-space-of-geometry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact event revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Verify checkout provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXPECTED="${{ github.event.pull_request.head.sha || github.sha }}"
+          test "$(git rev-parse HEAD)" = "$EXPECTED"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Audit Space of Geometry spine
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_1.py | tee space_of_geometry_spine_receipt.json
+          grep -q '"technical_status": "PASS"' space_of_geometry_spine_receipt.json
+          grep -q '"endpoint": "PYTHAGOREAN_CLOSURE"' space_of_geometry_spine_receipt.json
+          grep -q '"spatial_promotion_derived": false' space_of_geometry_spine_receipt.json
+          grep -q '"continuum_refinement_derived": false' space_of_geometry_spine_receipt.json
+          grep -q '"tetrahedral_information_space_identification_derived": false' space_of_geometry_spine_receipt.json
+
+      - name: Verify subrepo surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s TIR/subrepos/the-space-of-geometry/README.md
+          test -s TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/paper/PAPER_OUTLINE_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/validation/space_of_geometry_spine_v0_1.py
+
+      - name: Upload receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: tir-space-of-geometry-${{ github.sha }}
+          if-no-files-found: error
+          retention-days: 30
+          path: space_of_geometry_spine_receipt.json
