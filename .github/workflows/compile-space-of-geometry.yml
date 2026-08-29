@@ -42,51 +42,64 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y latexmk texlive-xetex texlive-latex-extra texlive-science poppler-utils qpdf
 
-      - name: Run publication dependency audit
+      - name: Run synchronized publication dependency audit
         working-directory: .
         shell: bash
         run: |
           set -euo pipefail
-          python3 TIR/subrepos/the-space-of-geometry/validation/publication_proof_dependency_audit_v0_1.py | tee space_of_geometry_publication_dependency_receipt.json
-          grep -Fq '"technical_status": "PASS"' space_of_geometry_publication_dependency_receipt.json
-          grep -Fq '"publication_verdict": "PASS_LOCAL_DEPENDENCY_GRAPH"' space_of_geometry_publication_dependency_receipt.json
+          python3 TIR/subrepos/the-space-of-geometry/validation/publication_proof_dependency_audit_v0_3.py | tee space_of_geometry_publication_dependency_v0_3_receipt.json
+          grep -Fq '"technical_status": "PASS"' space_of_geometry_publication_dependency_v0_3_receipt.json
+          grep -Fq '"publication_verdict": "PASS_V1_1_SYNCHRONIZED_LOCAL_PROOF_GRAPH"' space_of_geometry_publication_dependency_v0_3_receipt.json
+          grep -Fq '"canonical_manuscript": "THE_SPACE_OF_GEOMETRY_V1_1.tex"' space_of_geometry_publication_dependency_v0_3_receipt.json
+          grep -Fq '"manuscript_physical_realizability_synchronized": true' space_of_geometry_publication_dependency_v0_3_receipt.json
 
-      - name: Compile publication candidate
+      - name: Run exact physical realizability audit
+        working-directory: .
         shell: bash
         run: |
           set -euo pipefail
-          latexmk -xelatex -interaction=nonstopmode -halt-on-error THE_SPACE_OF_GEOMETRY_V1_0.tex
-          test -s THE_SPACE_OF_GEOMETRY_V1_0.pdf
+          python3 TIR/subrepos/the-space-of-geometry/validation/physical_relation_chord_realizability_v0_1.py | tee physical_relation_chord_realizability_receipt.json
+          grep -Fq '"technical_status": "PASS"' physical_relation_chord_realizability_receipt.json
+          grep -Fq '"exact_theorem": "PHYSICAL_RELATION_CHORD_SET_IS_RADIUS_TWO_BALL"' physical_relation_chord_realizability_receipt.json
+          grep -Fq '"normalized_certificate": "3/5,4/5,1"' physical_relation_chord_realizability_receipt.json
+
+      - name: Compile publication candidate v1.1
+        shell: bash
+        run: |
+          set -euo pipefail
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error THE_SPACE_OF_GEOMETRY_V1_1.tex
+          test -s THE_SPACE_OF_GEOMETRY_V1_1.pdf
 
       - name: PDF structural preflight
         shell: bash
         run: |
           set -euo pipefail
-          qpdf --check THE_SPACE_OF_GEOMETRY_V1_0.pdf
-          pdfinfo THE_SPACE_OF_GEOMETRY_V1_0.pdf | tee THE_SPACE_OF_GEOMETRY_V1_0.pdfinfo.txt
-          pdffonts THE_SPACE_OF_GEOMETRY_V1_0.pdf | tee THE_SPACE_OF_GEOMETRY_V1_0.pdffonts.txt
-          ! grep -q 'Type 3' THE_SPACE_OF_GEOMETRY_V1_0.pdffonts.txt
-          ! grep -Eiq 'undefined references|undefined citations|multiply defined' THE_SPACE_OF_GEOMETRY_V1_0.log
-          ! grep -q 'Overfull \\hbox' THE_SPACE_OF_GEOMETRY_V1_0.log
+          qpdf --check THE_SPACE_OF_GEOMETRY_V1_1.pdf
+          pdfinfo THE_SPACE_OF_GEOMETRY_V1_1.pdf | tee THE_SPACE_OF_GEOMETRY_V1_1.pdfinfo.txt
+          pdffonts THE_SPACE_OF_GEOMETRY_V1_1.pdf | tee THE_SPACE_OF_GEOMETRY_V1_1.pdffonts.txt
+          ! grep -q 'Type 3' THE_SPACE_OF_GEOMETRY_V1_1.pdffonts.txt
+          ! grep -Eiq 'undefined references|undefined citations|multiply defined' THE_SPACE_OF_GEOMETRY_V1_1.log
+          ! grep -q 'Overfull \\hbox' THE_SPACE_OF_GEOMETRY_V1_1.log
 
       - name: Publication receipt
         shell: bash
         run: |
           set -euo pipefail
-          PAGES="$(pdfinfo THE_SPACE_OF_GEOMETRY_V1_0.pdf | awk '/^Pages:/ {print $2}')"
-          BYTES="$(stat -c '%s' THE_SPACE_OF_GEOMETRY_V1_0.pdf)"
-          SHA256="$(sha256sum THE_SPACE_OF_GEOMETRY_V1_0.pdf | awk '{print $1}')"
-          printf '{\n  "schema": "TIR_SPACE_OF_GEOMETRY_PUBLICATION_V1_0",\n  "technical_status": "PASS",\n  "source": "THE_SPACE_OF_GEOMETRY_V1_0.tex",\n  "pdf": "THE_SPACE_OF_GEOMETRY_V1_0.pdf",\n  "pages": %s,\n  "bytes": %s,\n  "sha256": "%s",\n  "dependency_verdict": "PASS_LOCAL_DEPENDENCY_GRAPH",\n  "endpoint": "PYTHAGOREAN_CLOSURE"\n}\n' "$PAGES" "$BYTES" "$SHA256" | tee THE_SPACE_OF_GEOMETRY_V1_0.receipt.json
+          PAGES="$(pdfinfo THE_SPACE_OF_GEOMETRY_V1_1.pdf | awk '/^Pages:/ {print $2}')"
+          BYTES="$(stat -c '%s' THE_SPACE_OF_GEOMETRY_V1_1.pdf)"
+          SHA256="$(sha256sum THE_SPACE_OF_GEOMETRY_V1_1.pdf | awk '{print $1}')"
+          printf '{\n  "schema": "TIR_SPACE_OF_GEOMETRY_PUBLICATION_V1_1",\n  "technical_status": "PASS",\n  "source": "THE_SPACE_OF_GEOMETRY_V1_1.tex",\n  "pdf": "THE_SPACE_OF_GEOMETRY_V1_1.pdf",\n  "pages": %s,\n  "bytes": %s,\n  "sha256": "%s",\n  "dependency_verdict": "PASS_V1_1_SYNCHRONIZED_LOCAL_PROOF_GRAPH",\n  "physical_relation_domain": "RADIUS_TWO_BALL",\n  "physical_certificate": "3/5,4/5,1",\n  "endpoint": "PYTHAGOREAN_CLOSURE"\n}\n' "$PAGES" "$BYTES" "$SHA256" | tee THE_SPACE_OF_GEOMETRY_V1_1.receipt.json
 
       - name: Upload publication artifact
         uses: actions/upload-artifact@v4
         with:
-          name: the-space-of-geometry-v1-${{ github.sha }}
+          name: the-space-of-geometry-v1-1-${{ github.sha }}
           if-no-files-found: error
           retention-days: 30
           path: |
-            TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_0.pdf
-            TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_0.receipt.json
-            TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_0.pdfinfo.txt
-            TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_0.pdffonts.txt
-            space_of_geometry_publication_dependency_receipt.json
+            TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_1.pdf
+            TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_1.receipt.json
+            TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_1.pdfinfo.txt
+            TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_1.pdffonts.txt
+            space_of_geometry_publication_dependency_v0_3_receipt.json
+            physical_relation_chord_realizability_receipt.json
