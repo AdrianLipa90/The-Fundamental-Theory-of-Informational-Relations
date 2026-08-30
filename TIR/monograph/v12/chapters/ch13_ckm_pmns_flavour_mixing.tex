@@ -1,13 +1,173 @@
 % !TEX root = ../../tir_monograph_v12.tex
+% V12_SOURCE_MAP:
+% - TIR/monograph/chapters/ch16_pmns_mixing.tex
+% - TIR/monograph/chapters/ch18_ckm_matrix.tex
+% - TIR/monograph/chapters/ch19_ckm_cp_violation.tex
+% - TIR/validation/pdg2026/TIR_PDG2026_VALIDATION_MATRIX_V2.md
+% Validator: TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py
 \chapter{CKM/PMNS and Flavour Mixing}
 \label{ch:v12_ckm_pmns}
 
-\section*{v12 source integration map}
-\begin{itemize}
-\item \path{TIR/monograph/chapters/ch16_pmns_mixing.tex}
-\item \path{TIR/monograph/chapters/ch18_ckm_matrix.tex}
-\item \path{TIR/monograph/chapters/ch19_ckm_cp_violation.tex}
-\end{itemize}
+\paragraph{Established context.}
+Lepton mixing is conventionally described by the PMNS framework and quark
+mixing by the CKM framework.  This chapter collects the TIR arithmetic/geometric
+assignments only after the common three-flavour carrier and its $SU(3)_F$
+structure have been established in Chapter~\ref{ch:v12_three_flavour_su3}.
+External-data comparison is owned by Chapter~\ref{ch:v12_evidence_matrix}.
 
-\section*{Migration invariant}
-PMNS and CKM constructions share the already-established three-flavour carrier while retaining separate observable, data-timing and residual provenance.
+\section{PMNS structural assignments}
+The historical TIR PMNS map uses the discrete labels of
+Chapter~\ref{ch:v12_discrete_labels}.  The retained formula family is
+\begin{align}
+\sin\theta_{13}
+&=\frac1{L_3}=\frac17,
+\label{eq:v12-pmns-theta13}\\
+\sin^2\theta_{12}
+&=\frac{L_4}{L_3+L_4}
++\left(\frac{L_4}{L_3}\right)^2,
+\label{eq:v12-pmns-theta12}\\
+\sin^2\theta_{23}
+&=\frac12+\frac{L_4}{L_3^2},
+\label{eq:v12-pmns-theta23}\\
+\delta_{\rm CP}^{\rm PMNS}
+&=\pi\left(
+1+\frac{L_4}{L_3}
++\left(\frac{L_4}{L_3}\right)^2
+\right).
+\label{eq:v12-pmns-delta}
+\end{align}
+For $(L_3,L_4)=(7,2)$ these evaluate to
+\begin{align}
+\sin^2\theta_{12}&=0.3038548753\ldots,\\
+\sin^2\theta_{23}&=0.5408163265\ldots,\\
+\sin^2\theta_{13}&=\frac1{49}=0.0204081633\ldots,\\
+\delta_{\rm CP}^{\rm PMNS}&=246.122449^\circ\ldots .
+\end{align}
+
+\subsection{Current PMNS verdicts}
+The PDG-2026 validation matrix assigns different evidential states to the four
+observables; v12 therefore does not compress them into one sector-wide claim.
+
+\begin{longtable}{p{0.35\textwidth}p{0.18\textwidth}p{0.20\textwidth}p{0.18\textwidth}}
+\toprule
+Observable & Claim Class & Timing & Verdict\\
+\midrule
+$\sin^2\theta_{12}$ & C & RETROSPECTIVE & COMPATIBLE\\
+$\sin^2\theta_{23}$ & C & RETROSPECTIVE & OPEN\\
+$\sin^2\theta_{13}=1/49$ & C & RETROSPECTIVE & TENSION\\
+$\delta_{\rm CP}^{\rm PMNS}$ & C & RETROSPECTIVE & OPEN\\
+\bottomrule
+\end{longtable}
+The reactor-angle tension is retained without retuning the formula.
+
+\section{CKM primary assignments}
+The TIR Cabibbo parameter is
+\begin{equation}
+\boxed{
+\lambda
+=\frac{L_4}{L_3+L_4}
++\frac{L_4}{L_3}\kappa
+=0.2248488365\ldots .
+}
+\label{eq:v12-ckm-lambda}
+\end{equation}
+The two small primary magnitudes used downstream are
+\begin{align}
+|V_{cb}|
+&=\frac{(L_4/L_3)^2}{2}
+=\frac2{49}
+=0.0408163265\ldots,
+\label{eq:v12-ckm-vcb}\\
+|V_{ub}|
+&=\frac{(L_4/L_3)^2L_4}{(L_3+L_4)L_5}
+=\frac8{2205}
+=0.0036281179\ldots .
+\label{eq:v12-ckm-vub}
+\end{align}
+The corresponding Wolfenstein coefficient is
+\begin{equation}
+A=\frac{|V_{cb}|}{\lambda^2}
+=0.8073328542\ldots .
+\label{eq:v12-ckm-A}
+\end{equation}
+
+The displayed historical CKM magnitude matrix is
+\begin{equation}
+|V_{\rm CKM}|_{\rm hist}
+=\begin{pmatrix}
+0.97439 & 0.22485 & 0.00363\\
+0.22470 & 0.97357 & 0.04082\\
+0.00886 & 0.04001 & 0.99916
+\end{pmatrix}.
+\label{eq:v12-ckm-magnitude-matrix}
+\end{equation}
+At the printed precision its row- and column-norm residuals are below
+$7\times10^{-6}$.  Full complex unitarity and phase-convention statements are
+kept distinct from this rounded magnitude check.
+
+\vTwelveStatus{C}{RETROSPECTIVE}{COMPATIBLE}
+The 2026 validation matrix reports all nine displayed magnitudes within roughly
+$1.71\sigma$ of its selected reference snapshot, while retaining postdiction
+provenance.
+
+\section{CKM CP phase}
+The direct TIR phase assignment is
+\begin{equation}
+\boxed{
+\delta_{\rm CKM}
+=\arccos\frac{L_4}{L_5}
+=\arccos\frac25
+=66.4218215^\circ\ldots .
+}
+\label{eq:v12-ckm-delta}
+\end{equation}
+The separate structural Jarlskog assignment is
+\begin{equation}
+\boxed{
+J_{\rm CP}^{\rm TIR}
+=\kappa^2\frac{L_4}{L_5}
+\left(1-\frac{(L_4/L_5)^2}{2}\right)
+=3.11011546\times10^{-5}.
+}
+\label{eq:v12-ckm-jarlskog}
+\end{equation}
+
+\vTwelveStatus{C}{RETROSPECTIVE}{COMPATIBLE}
+Both quantities are strong compatibility postdictions in the frozen PDG-2026
+validation matrix.
+
+\section{Historical Jarlskog proxy diagnostic}
+The v11 CP chapter also evaluates the proxy
+\begin{equation}
+J_{\rm proxy}
+=|V_{us}||V_{cb}||V_{ub}||V_{cs}|\sin\delta_{\rm CKM}.
+\label{eq:v12-ckm-j-proxy}
+\end{equation}
+Using the displayed magnitudes gives
+\[
+J_{\rm proxy}=2.97106928\times10^{-5},
+\]
+which differs from Eq.~\eqref{eq:v12-ckm-jarlskog} by
+\begin{equation}
+\boxed{
+\frac{|J_{\rm CP}^{\rm TIR}-J_{\rm proxy}|}
+{J_{\rm CP}^{\rm TIR}}
+=4.4708\%.
+}
+\label{eq:v12-ckm-j-proxy-gap}
+\end{equation}
+The exact Jarlskog invariant is associated with the imaginary part of a
+rephasing-invariant CKM quartet; Eq.~\eqref{eq:v12-ckm-j-proxy} is therefore
+retained as a historical magnitude proxy rather than promoted as an exact
+identity for the standard CKM phase.
+
+\vTwelveStatus{D}{RETROSPECTIVE}{TENSION}
+The internal gap is retained as a diagnostic.  The independent TIR assignments
+\eqref{eq:v12-ckm-delta} and \eqref{eq:v12-ckm-jarlskog} keep separate
+provenance.
+
+\section{Reproducibility}
+The deterministic arithmetic/internal-consistency audit is
+\path{TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py}.
+Current external comparison is read from the unified evidence layer rather than
+from the historical tables embedded in the v11 sector chapters.
