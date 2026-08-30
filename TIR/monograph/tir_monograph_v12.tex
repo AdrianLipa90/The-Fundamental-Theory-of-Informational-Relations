@@ -13,6 +13,11 @@
 \usepackage{xurl}
 \usepackage[protrusion=true,expansion=false]{microtype}
 \usepackage[hidelinks,pdfpagelayout=TwoPageRight,pdftitle={Theory of Informational Relations: Foundations, Emergent Geometry, and Phenomenological Tests},pdfauthor={Adrian Lipa},pdfsubject={Primitive informational relations, emergent geometry, flavour structure, particle and gauge sectors, and falsification tests},pdfkeywords={Theory of Informational Relations, TIR, information geometry, emergent geometry, geometric phase, flavour mixing, Standard Model phenomenology, falsification}]{hyperref}
+\pdfstringdefDisableCommands{%
+  \def\({}%
+  \def\){}%
+  \def\pi{pi}%
+}
 \usepackage{makeidx}
 \usepackage{verbatim}
 \usepackage{longtable}
@@ -34,7 +39,8 @@
 \newcommand{\gev}{\,\text{GeV}}
 \newcommand{\eV}{\,\text{eV}}
 \newcommand{\PDG}[1]{\ensuremath{#1^{\text{PDG}}}}
-\newcommand{\pdgsup}{\ensuremath{^{\text{PDG}}}}
+\newcommand{\pdgsup}{\ensuremath{^{\text{PDG}}}
+}
 \newcommand{\Eproton}{E_{\text{proton}}}
 \newcommand{\Eplanck}{E_{P}}
 \newcommand{\keV}{\,\text{keV}}
@@ -87,7 +93,10 @@
 \include{v12/appendices/appA_formal_proofs_long_algebra}
 \include{v12/appendices/appB_numerical_tables_reproducibility}
 \include{v12/appendices/appC_publication_protocol_prospective_gates}
+\pagestyle{plain}
 \include{v12/appendices/appD_cross_framework_interfaces}
+\markboth{References}{References}
+\pagestyle{headings}
 
 \input{references_expanded_v10_8}
 \vfill
