@@ -2,11 +2,228 @@
 \chapter[C2 to Herm0(2) and R3]{From $\mathbb C^2$ to $\operatorname{Herm}_0(2)\cong\mathbb R^3$}
 \label{ch:v12_c2_herm0_r3}
 
-\section*{v12 source integration map}
-\begin{itemize}
-\item \path{TIR/foundations/TIR_RELATIONAL_GENERATOR_SPACE_V0_1.md}
-\item \path{TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_POINT_AFFINE_SPATIAL_CARRIER_V0_1.md}
-\end{itemize}
+\section{Traceless relational generator space}
 
-\section*{Migration invariant}
-This wrapper owns the exact carrier-to-generator-space step and its affine spatial carrier crosswalk. Physical/spatial promotion status remains attached to the cited theorem surfaces.
+Every Hermitian operator on the binary carrier has the Pauli decomposition
+\begin{equation}
+A=a_0I+\mathbf a\cdot\boldsymbol\sigma,
+\qquad
+\mathbf a=(a_x,a_y,a_z)\in\mathbb R^3.
+\end{equation}
+The uniform component $a_0I$ acts equally on the two primitive alternatives. The distinction-generating translation space is therefore
+\begin{equation}
+\boxed{
+\mathfrak g_{\rm rel}
+:=\operatorname{Herm}_0(2)
+=\{A=A^\dagger:\operatorname{Tr}A=0\}
+=\operatorname{span}_{\mathbb R}\{\sigma_x,\sigma_y,\sigma_z\}.
+}
+\label{eq:v12_herm0_def}
+\end{equation}
+Hence
+\begin{equation}
+\boxed{
+\dim_{\mathbb R}\mathfrak g_{\rm rel}=3,
+\qquad
+\operatorname{Herm}_0(2)\cong\mathbb R^3.
+}
+\label{eq:v12_herm0_r3}
+\end{equation}
+\vTwelveStatus{A}{--}{PASS}
+This is an exact linear-algebraic property of the admitted two-state complex carrier.
+
+\section{Canonical metric}
+
+Define the Hilbert--Schmidt pairing on traceless Hermitian generators by
+\begin{equation}
+\boxed{
+\langle A,B\rangle_{\rm HS}
+=\frac12\operatorname{Tr}(AB).
+}
+\label{eq:v12_hs_metric}
+\end{equation}
+The Pauli basis obeys
+\begin{equation}
+\frac12\operatorname{Tr}(\sigma_i\sigma_j)=\delta_{ij}.
+\end{equation}
+Thus, for
+\[
+A=\mathbf a\cdot\boldsymbol\sigma,
+\qquad
+B=\mathbf b\cdot\boldsymbol\sigma,
+\]
+one obtains
+\begin{equation}
+\boxed{
+\langle A,B\rangle_{\rm HS}=\mathbf a\cdot\mathbf b,
+\qquad
+\|A\|^2=\frac12\operatorname{Tr}(A^2)=|\mathbf a|^2.
+}
+\label{eq:v12_hs_euclidean}
+\end{equation}
+The generator space therefore carries a positive-definite Euclidean quadratic form canonically inherited from the operator algebra.
+\vTwelveStatus{A}{--}{PASS}
+
+\section{Unit relational directions}
+
+For
+\begin{equation}
+A=\mathbf n\cdot\boldsymbol\sigma,
+\qquad
+|\mathbf n|=1,
+\end{equation}
+the Pauli algebra gives
+\begin{equation}
+A^2=I.
+\end{equation}
+Conversely, a traceless Hermitian $2\times2$ operator with $A^2=I$ has unit coefficient vector. Hence
+\begin{equation}
+\boxed{
+\{A\in\mathfrak g_{\rm rel}:\|A\|=1\}
+\cong S^2.
+}
+\label{eq:v12_generator_sphere}
+\end{equation}
+The Bloch pure-state sphere and the unit generator sphere therefore live in the same coefficient carrier.
+
+\section{$SU(2)$ covariance}
+
+Conjugation by $U\in SU(2)$ acts as
+\begin{equation}
+A\mapsto UAU^\dagger.
+\end{equation}
+It preserves tracelessness, Eq.~\eqref{eq:v12_hs_metric}, and the norm. On coefficient vectors this is the adjoint rotation
+\begin{equation}
+\boxed{
+\operatorname{Ad}:SU(2)\to SO(3),
+\qquad
+\ker\operatorname{Ad}=\{\pm I\}.
+}
+\end{equation}
+Thus the same algebra supplies the three-real-dimensional carrier, its Euclidean metric and its rotation group.
+
+\section{Trace-one affine state space}
+
+Let a primitive locus $x$ carry a normalized two-level state
+\begin{equation}
+\rho_x=\rho_x^\dagger,
+\qquad
+\operatorname{Tr}\rho_x=1.
+\end{equation}
+The affine hull of normalized states is
+\begin{equation}
+\boxed{
+\mathcal A_2
+=\frac12I+\operatorname{Herm}_0(2),
+\qquad
+\dim_{\mathbb R}\mathcal A_2=3.
+}
+\label{eq:v12_affine_state_space}
+\end{equation}
+Its translation space is exactly $\operatorname{Herm}_0(2)$.
+
+\section{Canonical affine relation}
+
+For two primitive loci $x,y$, define
+\begin{equation}
+\boxed{
+\mathcal E_{xy}:=2(\rho_y-\rho_x).
+}
+\label{eq:v12_affine_relation}
+\end{equation}
+If
+\[
+\rho_x=\frac12(I+\mathbf r_x\cdot\boldsymbol\sigma),
+\qquad
+\rho_y=\frac12(I+\mathbf r_y\cdot\boldsymbol\sigma),
+\]
+then
+\begin{equation}
+\boxed{
+\mathcal E_{xy}
+=(\mathbf r_y-\mathbf r_x)\cdot\boldsymbol\sigma
+\in\operatorname{Herm}_0(2).
+}
+\end{equation}
+The normalization factor $2$ removes the Bloch $1/2$ convention and gives the direct coefficient displacement.
+
+The affine relation satisfies the exact endpoint laws
+\begin{align}
+\mathcal E_{xx}&=0,\\
+\mathcal E_{yx}&=-\mathcal E_{xy},\\
+\boxed{\mathcal E_{xz}}&=\boxed{\mathcal E_{xy}+\mathcal E_{yz}}.
+\label{eq:v12_endpoint_composition}
+\end{align}
+Equivalently,
+\begin{equation}
+\mathcal E_{xy}+\mathcal E_{yz}+\mathcal E_{zx}=0.
+\end{equation}
+The local endpoint-composition rule is therefore inherited directly from affine state differences.
+\vTwelveStatus{A}{--}{PASS}
+
+\section{Metric of relational displacement}
+
+Using Eq.~\eqref{eq:v12_hs_metric},
+\begin{equation}
+\boxed{
+\|\mathcal E_{xy}\|^2
+=\frac12\operatorname{Tr}(\mathcal E_{xy}^2)
+=|\mathbf r_y-\mathbf r_x|^2.
+}
+\label{eq:v12_affine_relation_metric}
+\end{equation}
+A common local unitary frame transformation
+\begin{equation}
+\rho_x\mapsto U\rho_xU^\dagger
+\end{equation}
+gives
+\begin{equation}
+\mathcal E_{xy}\mapsto U\mathcal E_{xy}U^\dagger,
+\end{equation}
+so the relation, metric and composition law are all $SU(2)$-covariant with effective $SO(3)$ action on coefficient vectors.
+
+\section{Spatial promotion gate}
+
+The TIR spatial bridge is now sharply typed:
+\begin{equation}
+\boxed{
+\texttt{RELATION\_AS\_CANONICAL\_QUANTUM\_STATE\_DIFFERENCE}:
+\qquad
+x\to y
+\ \widehat{=}\ 
+\mathcal E_{xy}=2(\rho_y-\rho_x).
+}
+\label{eq:v12_relation_promotion_rule}
+\end{equation}
+Under this identification, the local physical relation carrier is
+\begin{equation}
+\boxed{
+T_x\Sigma\;\widehat{=}\;\operatorname{Herm}_0(2)\cong\mathbb R^3
+}
+\label{eq:v12_spatial_promotion}
+\end{equation}
+with metric inherited from Eq.~\eqref{eq:v12_hs_metric} and additive local displacement inherited from Eq.~\eqref{eq:v12_endpoint_composition}.
+\vTwelveStatus{B}{--}{OPEN}
+The exact algebraic consequences of the rule are established above; the foundational promotion of physical spatial relation to the canonical quantum-state difference remains the named bridge whose uniqueness is addressed by the next chapter.
+
+\section{Tetrahedral affine frame preview}
+
+Four affinely independent pure qubit states span the full trace-one affine hull. The regular tetrahedral set
+\begin{equation}
+\sum_{a=1}^4\mathbf n_a=0,
+\qquad
+\mathbf n_a\cdot\mathbf n_b=-\frac13\quad(a\neq b)
+\end{equation}
+provides a minimal four-point affine frame in this three-dimensional carrier. It later appears simultaneously as the regular spatial cell and the qubit informationally complete tetrahedral frame.
+
+The output of Part I is therefore
+\begin{equation}
+\boxed{
+\mathbb C^2
+\to
+\mathcal A_2=\frac12I+\operatorname{Herm}_0(2)
+\to
+\mathcal E_{xy}\in\operatorname{Herm}_0(2)\cong\mathbb R^3
+}
+\end{equation}
+with exact affine composition, Euclidean metric and rotation covariance. Part II now asks when this carrier is uniquely promoted to local physical space and how its minimal finite cell closes.
