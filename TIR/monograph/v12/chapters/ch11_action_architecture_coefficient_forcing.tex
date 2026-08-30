@@ -1,14 +1,198 @@
 % !TEX root = ../../tir_monograph_v12.tex
+% V12_SOURCE_MAP:
+% - TIR/monograph/chapters/ch05_electron_action.tex
+% - TIR/monograph/chapters/ch06_generation_release.tex
+% - TIR/foundations/TIR_COEFFICIENT_ROLE_ORIENTATION_FORCING_V0_1.md
+% - TIR/TIR_COMPLETION_FRONTIER_V0_4.md
+% Validator: TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
 \chapter[Action Architecture and Coefficient Forcing]{Action Architecture and the Coefficient-Forcing Problem}
 \label{ch:v12_action_coefficients}
 
-\section*{v12 source integration map}
-\begin{itemize}
-\item \path{TIR/monograph/chapters/ch05_electron_action.tex}
-\item \path{TIR/monograph/chapters/ch06_generation_release.tex}
-\item \path{TIR/foundations/TIR_COEFFICIENT_ROLE_ORIENTATION_FORCING_V0_1.md}
-\item \path{TIR/TIR_COMPLETION_FRONTIER_V0_4.md}
-\end{itemize}
+\section{Intrinsic coefficient generator}
+The current TIR coefficient architecture is organized by the integer state
+\begin{equation}
+\boxed{(h,a,b,c)\in\mathbb Z^4}
+\label{eq:v12-coefficient-state}
+\end{equation}
+and generator
+\begin{equation}
+\boxed{
+G(h,a,b,c)
+=\frac h2
++a\kappa
++b\frac{\kappa}{L_3}
++c\frac{\kappa^2}{2}.
+}
+\label{eq:v12-coefficient-generator}
+\end{equation}
+The normalization $\kappa$ is the canonical quantity derived in
+Chapter~\ref{ch:v12_kappa_normalization}; the discrete label $L_3$ is fixed in
+Chapter~\ref{ch:v12_discrete_labels}.
 
-\section*{Migration invariant}
-Action construction, structural slot routing and the remaining coefficient-magnitude frontier are separated from downstream numerical sector comparisons.
+\section{Typed role routing}
+Four source roles are distinguished:
+\[
+\mathcal R
+=\{R_h,R_a,R_b,R_c\},
+\]
+with
+\begin{align}
+R_h&=\text{projective-half-spin},\\
+R_a&=\text{generation-release},\\
+R_b&=\text{return-axis},\\
+R_c&=\text{curvature-holonomy}.
+\end{align}
+The corresponding generator basis is
+\begin{equation}
+\mathcal B
+=\left\{
+\frac12,
+\kappa,
+\frac{\kappa}{L_3},
+\frac{\kappa^2}{2}
+\right\}.
+\label{eq:v12-generator-basis}
+\end{equation}
+The canonical role router gives
+\begin{equation}
+\boxed{
+R_h\leftrightarrow h,
+\qquad
+R_a\leftrightarrow a,
+\qquad
+R_b\leftrightarrow b,
+\qquad
+R_c\leftrightarrow c.
+}
+\label{eq:v12-role-slot-map}
+\end{equation}
+The four parent signatures are pairwise distinct.  Exhaustive permutation of the
+four coefficient slots therefore leaves exactly one role-preserving
+permutation: the identity.
+
+\vTwelveStatus{B}{--}{PASS}
+The deterministic validator is
+\path{TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py}.
+
+\section{Gradient orientation}
+For the runtime source operator
+\begin{equation}
+s(\alpha_s,x)=\tanh(-\alpha_s x),
+\qquad
+x=\frac{\partial V}{\partial\phi},
+\qquad
+\alpha_s>0,
+\label{eq:v12-gradient-source}
+\end{equation}
+monotonicity and oddness of $\tanh$ imply
+\begin{equation}
+\boxed{
+\operatorname{sgn}s(\alpha_s,x)
+=\operatorname{sgn}(-x)
+}
+\label{eq:v12-gradient-sign}
+\end{equation}
+for every finite $x$ and positive $\alpha_s$.  The orientation class can
+therefore be represented by
+\begin{equation}
+\boxed{
+\chi_{\nabla}
+:=\operatorname{sgn}\!\left(-\frac{\partial V}{\partial\phi}\right)
+\in\{-1,0,+1\}.
+}
+\label{eq:v12-gradient-orientation}
+\end{equation}
+
+\vTwelveStatus{B}{--}{PASS}
+
+\section{Directed-orbit and chiral orientation}
+The directed-orbit source is
+\begin{equation}
+\chi_O=
+\begin{cases}
++1,&\text{attractor}\to\text{satellite},\\
+-1,&\text{satellite}\to\text{attractor},\\
+0,&\text{neutral},
+\end{cases}
+\label{eq:v12-orbit-orientation}
+\end{equation}
+while the chiral-path source is
+\begin{equation}
+\chi_H=
+\begin{cases}
++1,&H_+,\\
+-1,&H_-,\\
+0,&\text{neutral}.
+\end{cases}
+\label{eq:v12-chiral-orientation}
+\end{equation}
+For an atomic/orbital state define the active source-sign set
+\[
+S=\{\chi_\nabla,\chi_O,\chi_H\}\setminus\{0\}.
+\]
+If $S$ is nonempty and contains a single sign value, the compatible orientation
+is unique:
+\begin{equation}
+\boxed{
+\chi_{\rm TIR}=\chi_\nabla=\chi_O=\chi_H
+}
+\label{eq:v12-consensus-orientation}
+\end{equation}
+for every nonzero participating source.  States with disagreeing active source
+signs are routed to the conflict surface.
+
+\vTwelveStatus{B}{--}{PASS}
+
+\section{What has been forced}
+Combining role routing and orientation gives
+\begin{equation}
+\boxed{
+\text{pre-coefficient state}
+\longrightarrow
+\begin{cases}
+R_h\to h,\\
+R_a\to a,\\
+R_b\to b,\\
+R_c\to c,
+\end{cases}
+\qquad
+(\chi_\nabla,\chi_O,\chi_H)
+\longrightarrow\chi_{\rm TIR}.
+}
+\label{eq:v12-coefficient-forcing-chain}
+\end{equation}
+Thus slot identity and orientation/sign are fixed whenever the declared source
+operators are mutually consistent.
+
+\section{Magnitude frontier}
+After role and sign forcing, the remaining coefficient information is
+\begin{equation}
+\boxed{|h|,|a|,|b|,|c|.}
+\label{eq:v12-coefficient-magnitudes}
+\end{equation}
+The source ownership narrows the extraction problem to four typed integer
+invariants:
+\begin{align}
+|h|&\leftarrow\text{projective/spin closure count},\\
+|a|&\leftarrow\text{generation seed/release count},\\
+|b|&\leftarrow\text{return invariant},\\
+|c|&\leftarrow\text{curvature/holonomy invariant}.
+\end{align}
+\vTwelveStatus{B}{--}{OPEN}
+This is the active coefficient-forcing frontier recorded in
+\path{TIR/TIR_COMPLETION_FRONTIER_V0_4.md}.
+
+\section{Circularity firewall}
+The coefficient-forcing map admits coefficient-free geometric and routing
+parents.  Its declared input surface excludes observed particle masses,
+observed Yukawa couplings, an already recovered coefficient tuple, a runtime
+envelope generated from that tuple, and residual-to-target information.  This
+keeps role/sign forcing upstream of the numerical sector comparisons.
+
+\section{Interface to particle sectors}
+Historical formulas such as the electron action and the charged-lepton release
+operators are migrated to Chapter~\ref{ch:v12_leptons_neutrinos}.  There they
+are treated as sector constructions over the basis
+\eqref{eq:v12-generator-basis}, with their own empirical timing and verdict.
+The present chapter owns the upstream generator, typed slot routing, orientation
+forcing and the explicit magnitude frontier.
