@@ -15,8 +15,9 @@ The principal frozen external-validation source for particle-sector rows is
 
 \section{Current matrix}
 
-\small
-\begin{longtable}{p{0.20\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.27\textwidth}}
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{p{0.17\textwidth}p{0.10\textwidth}p{0.19\textwidth}p{0.18\textwidth}p{0.25\textwidth}}
 \toprule
 Observable / sector & Claim Class & Timing & Verdict & Current evidence note \\
 \midrule
@@ -63,22 +64,37 @@ Standard local anomaly sums + Witten count & A & -- & PASS & v12 Chapter~15 repr
 Legacy A5 baryon-current row & D & RETROSPECTIVE & QUARANTINED & The historical expression uses hypercharges; the corrected $SU(2)^2B$ coefficient is $1/2$ in the declared $T(\mathbf2)=1/2$ normalization. \\
 Cosmological density formula & D & RETROSPECTIVE & QUARANTINED & v12 HOUND arithmetic audit finds $(2/7)^{224}=1.345\ldots\times10^{-122}$, inconsistent with the legacy printed $10^{-119.5}$ intermediate value; Chapter~18 owns the repair audit. \\
 \bottomrule
-\end{longtable}
-\normalsize
+\end{longtable}}
 
 \section{Status normalization rules}
 
 The v12 map preserves source meaning while removing competing vocabularies:
 \begin{align*}
-\texttt{PASS\_COMPATIBILITY},\ \texttt{PASS\_STRONG\_COMPATIBILITY}
+\texttt{PASS\_COMPATIBILITY}
 &\longrightarrow \texttt{COMPATIBLE},\\
-\texttt{TENSION},\ \texttt{SCHEME\_UNDEFINED\_TENSION}
+\texttt{PASS\_STRONG\_COMPATIBILITY}
+&\longrightarrow \texttt{COMPATIBLE},\\
+\texttt{TENSION}
 &\longrightarrow \texttt{TENSION},\\
-\texttt{FAIL\_PRECISION},\ \texttt{FORMULA\_BROKEN},\ \texttt{FAIL\_PRECISION\_TENSION}
+\texttt{SCHEME\_UNDEFINED\_TENSION}
+&\longrightarrow \texttt{TENSION},\\
+\texttt{FAIL\_PRECISION}
 &\longrightarrow \texttt{FAIL},\\
-\texttt{AMBIGUOUS\_COMPATIBILITY},\ \texttt{INCONCLUSIVE},\ \texttt{NOT\_TESTABLE\_CURRENTLY}
+\texttt{FORMULA\_BROKEN}
+&\longrightarrow \texttt{FAIL},\\
+\texttt{FAIL\_PRECISION\_TENSION}
+&\longrightarrow \texttt{FAIL},\\
+\texttt{AMBIGUOUS\_COMPATIBILITY}
 &\longrightarrow \texttt{OPEN},\\
-\texttt{PROVENANCE\_CONTAMINATED},\ \texttt{PROVENANCE\_INCOMPLETE},\ \texttt{REPRODUCTION\_NOT\_VALIDATION}
+\texttt{INCONCLUSIVE}
+&\longrightarrow \texttt{OPEN},\\
+\texttt{NOT\_TESTABLE\_CURRENTLY}
+&\longrightarrow \texttt{OPEN},\\
+\texttt{PROVENANCE\_CONTAMINATED}
+&\longrightarrow \texttt{QUARANTINED},\\
+\texttt{PROVENANCE\_INCOMPLETE}
+&\longrightarrow \texttt{QUARANTINED},\\
+\texttt{REPRODUCTION\_NOT\_VALIDATION}
 &\longrightarrow \texttt{QUARANTINED}.
 \end{align*}
 
