@@ -1,0 +1,20 @@
+{
+  "schema": "TIR_V12_COSMOLOGY_FORMULA_AUDIT_V0_1",
+  "status": "PASS_WITH_COSMOLOGY_QUARANTINE",
+  "exponent": 224,
+  "dimensionless_suppression": 1.345110818116154e-122,
+  "log10_dimensionless_suppression": -121.87124193446175,
+  "unit_reconstructions_GeV4": {
+    "using_unreduced_Planck_mass_1_22089e19_GeV": 2.9885753618036086e-46,
+    "using_reduced_Planck_mass_2_435e18_GeV": 4.728832462979522e-49,
+    "legacy_printed_value": 3.3e-47,
+    "mass_scale_required_to_reproduce_legacy_printed_value_GeV": 7.037833182982962e18
+  },
+  "verdicts": {
+    "dimensionless_power_arithmetic": "PASS",
+    "legacy_intermediate_10^-119.5": "FAIL",
+    "legacy_GeV4_conversion": "QUARANTINED_UNIT_CONVENTION",
+    "Omega_Lambda_0_685": "QUARANTINED_RHO_CRIT_DERIVATION_REQUIRED",
+    "label_L3_as_SU3_colour_dimension": "QUARANTINED_TYPE_LABEL"
+  }
+}
