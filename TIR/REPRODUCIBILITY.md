@@ -1,127 +1,134 @@
-# Reproducibility Guide — reviewed 2026-08-07 state
+# Reproducibility Guide — v12 synchronization
 
-This repository has several reproducibility layers.  They answer different
-questions and their PASS states must not be conflated.
+TIR uses separate reproducibility layers for structural derivations, numerical implementations, historical formula snapshots, empirical comparison, and publication assembly. A `PASS` is scoped to the exact layer and revision named by its receipt.
 
-## 1. Selected legacy formula reproducibility
-
-Run:
+## 1. Legacy formula reproducibility
 
 ```text
 python3 TIR/run_audit.py --json
 ```
 
-This checks nine selected legacy observables against their frozen engineering
-tolerances and reports schema
-`TIR_SELECTED_LEGACY_REPRODUCIBILITY_V11_1`.
+This retains the selected historical implementation subset under schema `TIR_SELECTED_LEGACY_REPRODUCIBILITY_V11_1`. Its result certifies reproducibility of that frozen subset.
 
-A PASS here means only that the selected historical implementation remains
-reproducible.  It is **not** a physical PASS for TIR, not a proof that every
-observable is derived, and not a statistically meaningful global accuracy
-score.
+## 2. Canonical κ structural derivation
 
-The underlying historical ledger remains in `TIR/metatime_audit.py`.
+Canonical theorem surface:
 
-## 2. Exact κ phase-rate audit
+```text
+TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md
+```
 
-Run:
+Validator:
+
+```text
+python3 TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py
+```
+
+The structural chain is
+
+\[
+V_F\cong\mathbb C^3,
+\qquad
+\dim\mathfrak{su}(3)_F=8,
+\qquad
+N_{\rm mix}=3\times8=24,
+\]
+
+\[
+\Delta\phi_{1/2}=\pi,
+\qquad
+\Phi_{\rm mix}=24\pi,
+\qquad
+H_2(1/2)=\ln2,
+\]
+
+hence
+
+\[
+\boxed{\kappa=\frac{\ln2}{24\pi}}.
+\]
+
+The validator checks the three-flavour multiplicity, Lie-algebra dimension, 24-channel incidence count, half-turn phase, total \(24\pi\) measure, and the independent tetrahedral-order crosscheck. Its classification is `TIR_INTERNAL_DERIVED_NORMALIZATION_FROM_FLAVOUR_MIXING_GEOMETRY`.
+
+## 3. κ phase-rate audit
 
 ```text
 python3 TIR/validation/kappa_phase_rate_identity_v11_1.py
 ```
 
-The primary certificate is symbolic at the factor/exponent level:
+Conditional on the canonical normalization and the declared information-phase relation,
 
 \[
 \frac1{24}(\ln2)\pi^{-1}\times2\pi f
-=\frac1{12}(\ln2)f.
+=\frac1{12}(\ln2)f,
 \]
 
-It checks exact cancellation of the powers of \(\pi\), the rational prefactor
-\(1/12\), representative numerical implementations, and the rank-three
-constraint certificate for
-\((\kappa,\omega,f,\Gamma_{\mathcal I})\).
+so
 
-Claim boundary:
-- `κ = ln2/(24π)` is a TIR structural definition/model postulate;
-- `ω = 2πf` is a standard definition;
-- `Γ_I = κω = (ln2/12)f` is exact conditional on the stated definitions;
-- physical identification of `Γ_I` as a surface-refresh observable remains open.
+\[
+\boxed{\Gamma_{\mathcal I}=\kappa\omega=\frac{\ln2}{12}f}.
+\]
 
-## 3. Reviewed source contract
+This audit checks exact \(\pi\)-factor cancellation, the rational prefactor \(1/12\), representative numerical implementations, and the rank-three constraint certificate for \((\kappa,\omega,f,\Gamma_{\mathcal I})\). Operational calibration of a physical \(\Gamma_{\mathcal I}\) observable remains an `OPEN` evidence gate.
 
-Run:
+## 4. v12 discrete-label audit
+
+The v12 migration validates the finite Collatz orbit used for \(L_3\) and exhaustively checks all \(6!=720\) quark-prime permutations. The arithmetic constraints leave two candidates related by \(b\leftrightarrow t\); the typed monotone flavour-order rule selects the canonical assignment uniquely.
+
+Use the v12 discrete-label validator and its receipt under `TIR/validation/` when reviewing Chapter 10.
+
+## 5. v12 coefficient-forcing audit
+
+```text
+python3 TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
+```
+
+The validator certifies the role-slot bijection, identity as the unique role-preserving slot permutation, gradient-sign scale independence, runtime deadband behaviour, and consensus-orientation uniqueness. The active completion gate is extraction of the four typed integer magnitudes \(|h|,|a|,|b|,|c|\).
+
+## 6. v12 flavour-sector diagnostics
+
+Chapter 12 carries a dedicated diagnostic receipt for the legacy neutrino absolute-action formula/value mismatch. Chapter 13 carries a flavour-mixing audit that preserves the PMNS reactor-angle tension and the historical CKM \(J\)-proxy residual as diagnostics.
+
+These diagnostics are evidence inputs to Chapter 19 rather than independent current-status owners.
+
+## 7. Unified Evidence Matrix audit
+
+```text
+python3 TIR/validation/tir_v12_evidence_matrix_consistency_v0_1.py
+```
+
+The current publication owner for observable verdicts is
+
+```text
+TIR/monograph/v12/chapters/ch19_unified_evidence_matrix.tex
+```
+
+The audit checks the allowed Claim Class, Timing and Verdict vocabularies, unique row identities, retention of the charged-lepton precision failures, PMNS \(\theta_{13}\) tension, neutron-EDM failure, and v12 formula quarantines.
+
+Receipt:
+
+```text
+TIR/validation/TIR_V12_EVIDENCE_MATRIX_CONSISTENCY_V0_1.json
+```
+
+## 8. Historical source contract
 
 ```text
 python3 TIR/validation/review_source_contract_v11_1.py
 ```
 
-The contract checks that the live sources still contain:
-- exactly one κ phase-rate section and one constraint-manifold section;
-- the corrected spin-1/2 Berry-phase normalization;
-- Appendix P and the TIR ↔ Secret-of-a-Half interface;
-- the negative theorem that reciprocal self-duality alone does not imply a
-  dynamical extremum;
-- the reviewed source-code/reproducibility appendix;
-- the explicit technical-vs-physical boundary of the legacy runner.
+This remains the source-contract audit for the reviewed v11 publication topology. Version 12 preserves those sources as provenance while compiling through `TIR/monograph/tir_monograph_v12.tex`.
 
-## 4. Publication source preparation
+## 9. Publication validation
 
-The reviewed source order is:
-
-```text
-normalize_build_sources.py
-→ prepare_publication_candidate_v11_0.py
-→ apply_kappa_phase_rate_patch.py
-→ apply_metatime_paper_review_patch.py
-→ exact validators
-→ citation audit
-→ LaTeX compilation
-→ publication preflight
-```
-
-The post-generation patches are intentional.  The v11.0 generator is retained
-as a historical deterministic transform, while the 7 August review is applied
-idempotently afterwards.
-
-## 5. Full publication validation
-
-The authoritative sequence is maintained by:
-
-`.github/workflows/compile-metatime-monograph.yml`
-
-It validates the exact pull-request head, compiles both:
-- `TIR/monograph/metatime_monograph.pdf`;
-- `TIR/metatime_paper.pdf`;
-
-and checks citation/reference integrity, metadata, embedded fonts, `qpdf`
-integrity, retained physical failures, exact κ receipts and source-contract
-receipts.
-
-Do not infer PASS for a new commit from an older successful workflow run.  The
-workflow result must correspond to the exact reviewed head.
-
-## Requirements
-
-For the legacy selected audit, Python's standard library is sufficient for the
-runner itself and the historical `metatime_audit.py` path it imports.
-
-The publication and wider validation environment additionally requires the
-Python and LaTeX dependencies declared by the corresponding scripts/workflow.
-The GitHub workflow is the source of truth for the publication toolchain.
+The v11 authoritative sequence remains maintained by `.github/workflows/compile-metatime-monograph.yml`. Version 12 requires an exact-head build and its own source/claim audits before publication promotion. Workflow evidence attaches only to the commit it tested.
 
 ## Reviewer checklist
 
-1. Run `TIR/run_audit.py --json` and inspect the **claim boundary**, not only the
-   PASS/FAIL field.
-2. Run `TIR/validation/kappa_phase_rate_identity_v11_1.py` and verify the exact
-   factor certificate reports `pi_cancelled_exactly: true` and prefactor
-   `[1,12]`.
-3. Run `TIR/validation/review_source_contract_v11_1.py`.
-4. Read `TIR/STRUCTURAL_CHOICES.md` and the v11 publication protocol before
-   interpreting parameter-count statements.
-5. Inspect the retained physical failures, especially the active neutron-EDM
-   result and gauge-boson tension.
-6. Read `TIR/docs/cross_reviews/TIR_SECRET_HALF_2026-08-07.md` before using the
-   half formalism in a TIR derivation; the arrows in the cross-relation have
-   different logical types.
+1. Run the canonical κ flavour-mixing validator.
+2. Run the κ phase-rate validator.
+3. Run the discrete-label and coefficient-forcing validators.
+4. Run the v12 neutrino/flavour diagnostics.
+5. Run `tir_v12_evidence_matrix_consistency_v0_1.py` and inspect the full status triples.
+6. Inspect retained `FAIL`, `TENSION`, `OPEN`, and `QUARANTINED` rows in Chapter 19.
+7. Compile `TIR/monograph/tir_monograph_v12.tex` twice and run the exact-head publication preflight before promotion.
