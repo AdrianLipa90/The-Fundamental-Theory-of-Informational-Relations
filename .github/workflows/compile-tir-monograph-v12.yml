@@ -56,6 +56,7 @@ jobs:
             TIR/validation/tir_v12_prospective_contract_audit_v0_1.py
             TIR/validation/tir_v12_completion_frontier_dag_v0_1.py
             TIR/validation/tir_v12_source_contract_v0_2.py
+            TIR/validation/tir_v12_appendix_integration_audit_v0_1.py
           )
           mkdir -p tir-v12-validation-logs
           for validator in "${validators[@]}"; do

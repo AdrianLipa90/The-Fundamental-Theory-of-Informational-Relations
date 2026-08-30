@@ -1,14 +1,258 @@
 % !TEX root = ../../tir_monograph_v12.tex
-\chapter{Numerical Tables and Reproducibility}
+\chapter{Numerical Tables, Receipts and Reproducibility}
 \label{app:v12_numerics_reproducibility}
 
-\section*{v12 source integration map}
-\begin{itemize}
-\item \path{TIR/monograph/appendices/appF_baryon_calculations.tex}
-\item \path{TIR/monograph/appendices/appG_meson_calculations.tex}
-\item \path{TIR/monograph/appendices/appH_pdg_tables.tex}
-\item \path{TIR/monograph/appendices/appI_source_code.tex}
-\item \path{TIR/REPRODUCIBILITY.md}
-\end{itemize}
+\paragraph{Purpose.}
+This appendix is the numerical companion to Chapter~\ref{ch:v12_evidence_matrix}.
+Sector chapters own formulas; Chapter~19 owns current evidence verdicts; this
+appendix owns reproducible arithmetic, validator locations and frozen receipts.
+Historical calculation tables remain available under
+\path{TIR/monograph/appendices/}, while v12 records their audited numerical
+status rather than reproducing target-matched tables as fresh evidence.
 
-Numerical tables, code pointers, data snapshots and reproducibility receipts are consolidated here after their result-level status triples are reconciled with Chapter 19.
+\section{Canonical numerical constants}
+
+The v12 constant surface used by the migrated particle-sector calculations is
+\[
+L_3=7,\qquad L_4=2,\qquad L_5=5,
+\]
+and
+\[
+\boxed{
+\kappa=\frac{\ln2}{24\pi}
+=0.009193\ldots .
+}
+\]
+The exact ownership chain is
+\[
+\mathbb C^3
+\to SU(3)_F
+\to \dim\mathfrak{su}(3)=8
+\to N_{\rm mix}=24
+\to\Phi_{\rm mix}=24\pi
+\to\kappa.
+\]
+The deterministic source is
+\path{TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py}.
+
+\section{Active validator index}
+
+The current publication build executes the following v12-specific numerical and
+source validators in addition to the foundational geometry suite:
+\begin{description}
+\item[Discrete labels:]
+\path{TIR/validation/tir_v12_discrete_labels_audit_v0_1.py}.
+\item[Coefficient forcing:]
+\path{TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py}.
+\item[Neutrino action consistency:]
+\path{TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py}.
+\item[CKM/PMNS internal consistency:]
+\path{TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py}.
+\item[Hadron formula audit:]
+\path{TIR/validation/tir_v12_hadron_formula_audit_v0_2.py}.
+\item[Hypercharge/anomaly audit:]
+\path{TIR/validation/tir_v12_hypercharge_anomaly_audit_v0_1.py}.
+\item[Electroweak/Higgs audit:]
+\path{TIR/validation/tir_v12_electroweak_higgs_audit_v0_1.py}.
+\item[Strong-CP/neutron-EDM audit:]
+\path{TIR/validation/tir_v12_strong_cp_nedm_audit_v0_1.py}.
+\item[Cosmology formula audit:]
+\path{TIR/validation/tir_v12_cosmology_formula_audit_v0_1.py}.
+\item[Evidence matrix consistency:]
+\path{TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py}.
+\item[Prospective contract:]
+\path{TIR/validation/tir_v12_prospective_contract_audit_v0_1.py}.
+\item[Completion DAG:]
+\path{TIR/validation/tir_v12_completion_frontier_dag_v0_1.py}.
+\item[Source contract:]
+\path{TIR/validation/tir_v12_source_contract_v0_2.py}.
+\item[Appendix integration:]
+\path{TIR/validation/tir_v12_appendix_integration_audit_v0_1.py}.
+\end{description}
+
+A technical validator PASS certifies its declared arithmetic/source contract.
+Observable-level empirical interpretation remains in
+Chapter~\ref{ch:v12_evidence_matrix}.
+
+\section{Charged-lepton arithmetic snapshot}
+
+For the historical action coordinates
+\[
+\begin{aligned}
+S_e&=\frac12-3\kappa+\frac{\kappa}{L_3}-\frac{\kappa^2}{2},\\
+R_{e\mu}&=5\kappa+\frac{2\kappa}{L_3}
++\frac{L_3+1}{2}\kappa^2,\\
+R_{\mu\tau}&=3\kappa-\frac{\kappa}{L_3}
+-\frac{L_3}{2}\kappa^2,
+\end{aligned}
+\]
+v12 reproduces
+\[
+S_e=0.473691600121\ldots,\quad
+S_\mu=0.424761179774\ldots,\quad
+S_\tau=0.398790835923\ldots .
+\]
+Under the archived exponential mass map, the corresponding values are
+\[
+m_e=0.511641997\ldots\ {\rm MeV},
+\quad
+m_\mu=104.831758\ldots\ {\rm MeV},
+\quad
+m_\tau=1767.503884\ldots\ {\rm MeV}.
+\]
+The frozen 2026 evidence audit assigns precision FAIL to all three rows.  The
+numbers remain useful as a reproducible historical trace, not as a replacement
+for the current evidence verdict.
+
+\section{Neutrino formula/value reconciliation}
+
+The legacy neutrino source defines
+\[
+S_{\rm bare}=\frac{1+L_4/L_3}{2}=\frac9{14},
+\qquad
+A_{\rm face}=\frac12\left(\frac{L_4}{L_3}\right)^2=\frac2{49},
+\]
+and
+\[
+\delta S=\kappa A_{\rm face}(1-\kappa).
+\]
+The printed source line uses
+\[
+S_1^{\rm literal}=S_{\rm bare}+\kappa\,\delta S,
+\]
+whereas the published mass triplet is reproduced by
+\[
+\boxed{
+S_1^{\rm rec}=S_{\rm bare}+\delta S.
+}
+\]
+The literal rule yields approximately
+\[
+(0.00521482,\ 0.0104296,\ 0.0521482)\ {\rm eV},
+\]
+while the reconciled rule yields
+\[
+(0.00500999,\ 0.01001999,\ 0.05009994)\ {\rm eV}.
+\]
+The deterministic receipt classifies this as a formula/value mismatch with a
+unique single-offset reconstruction.  The reconstruction is a diagnostic
+repair surface; upstream promotion requires the absolute-action derivation
+listed in Chapter~21.
+
+\section{Flavour-mixing snapshot}
+
+The migrated PMNS formulas give
+\[
+\sin^2\theta_{13}=\frac1{49}=0.02040816\ldots,
+\]
+\[
+\sin^2\theta_{12}
+=\frac{L_4}{L_3+L_4}
++\left(\frac{L_4}{L_3}\right)^2
+=0.30385488\ldots,
+\]
+\[
+\sin^2\theta_{23}
+=\frac12+\frac{L_4}{L_3^2}
+=0.54081633\ldots,
+\]
+and
+\[
+\delta_{\rm PMNS}
+=\pi\left[
+1+\frac{L_4}{L_3}
++\left(\frac{L_4}{L_3}\right)^2
+\right]
+=246.122449^\circ\ldots .
+\]
+The corresponding frozen verdicts are COMPATIBLE, OPEN, TENSION and OPEN in the
+order \(\theta_{12},\theta_{23},\theta_{13},\delta_{\rm PMNS}\).
+
+For CKM,
+\[
+\lambda
+=\frac{L_4}{L_3+L_4}
++\frac{L_4}{L_3}\kappa
+=0.2248488365\ldots,
+\]
+\[
+|V_{cb}|=\frac2{49}=0.0408163265\ldots,
+\qquad
+|V_{ub}|=\frac8{2205}=0.0036281179\ldots,
+\]
+and
+\[
+\delta_{\rm CKM}=\arccos\frac25=66.4218215^\circ\ldots .
+\]
+The structural CP quantity
+\[
+J_{\rm TIR}
+=\kappa^2\frac{L_4}{L_5}
+\left(1-\frac12\left(\frac{L_4}{L_5}\right)^2\right)
+=3.110115459\times10^{-5}
+\]
+has separate provenance from the historical magnitude-product proxy.  Their
+relative gap is about \(4.47\%\), which is retained as the diagnostic
+proxy-versus-invariant tension.
+
+\section{Hadron and meson reproduction firewall}
+
+The baryon octet calculation is retained with provenance quarantine because
+the historical coefficient construction was refined against target masses.
+The decuplet trace remains a compatible anchor-linked candidate.  Their
+current result status is defined in Chapter~19 rather than by the old appendix
+summary percentages.
+
+The legacy pion and kaon exponentials contain an immediate dimensional/arithmetic
+witness.  With the displayed Planck-energy scale \(E_P\),
+\[
+E_Pe^{-6/\pi}
+\]
+remains of order \(10^{21}\) MeV rather than \(139.57\) MeV.  Likewise,
+\[
+E_Pe^{-(\pi^2/6-1)}
+\]
+remains of Planck order rather than \(493.68\) MeV.  The target-valued numbers
+printed beside those expressions therefore carry formula FAIL in v12.
+
+The historical heavy/vector meson tables list measured values as model outputs
+without a complete executable derivation chain.  v12 keeps those rows
+QUARANTINED as reproduction/provenance surfaces pending the meson absolute-action
+baseline theorem.
+
+\section{External-data ownership}
+
+The historical
+\path{TIR/monograph/appendices/appH_pdg_tables.tex}
+is a dated reference snapshot.  The current particle-sector publication
+comparison is owned by
+\path{TIR/validation/pdg2026/TIR_PDG2026_VALIDATION_MATRIX_V2.md},
+frozen 15 August 2026.  Values with renormalization-scheme or scale dependence
+retain that typing in the current matrix.
+
+This separation prevents an old numerical table from silently becoming the
+current validation source after the theory layer changes.
+
+\section{Exact-head publication reproducibility}
+
+The authoritative v12 workflow is
+\path{.github/workflows/compile-tir-monograph-v12.yml}.
+For a pull request it checks out the exact PR-head SHA, verifies that checkout,
+runs the deterministic validator suite, compiles the PDF and then applies a
+publication preflight.
+
+The hardened preflight requires:
+\begin{enumerate}
+\item zero unresolved references or citations and zero multiply-defined labels;
+\item zero Hyperref PDF-string token warnings;
+\item zero overfull boxes;
+\item a successful \texttt{qpdf --check};
+\item embedded fonts with zero Type-3 fonts;
+\item correct title and author metadata;
+\item an exact-head artifact carrying the actual PR-head SHA.
+\end{enumerate}
+
+The appendix integration receipt is
+\path{TIR/validation/TIR_V12_APPENDIX_INTEGRATION_AUDIT_V0_1.json}.
+Together with the per-sector receipts, it distinguishes formal arithmetic
+reproducibility from the empirical verdict layer.

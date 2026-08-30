@@ -2,11 +2,223 @@
 \chapter{Publication Protocol and Prospective Gates}
 \label{app:v12_publication_protocol}
 
-\section*{v12 source integration map}
+\paragraph{Purpose and source ownership.}
+This appendix gives the operational detail behind
+Chapter~\ref{ch:v12_predictions_falsification}.  It consolidates the frozen
+v10.7 separable candidate family and the publication protocol into one
+preregistration-style contract.  Historical source lineage is retained in
+\path{TIR/monograph/appendices/appM_prospective_observable_identifiability.tex},
+\path{TIR/monograph/appendices/appN_separable_candidate_family.tex}, and
+\path{TIR/monograph/appendices/appO_publication_protocol.tex}.
+
+\section{Prospective contract object}
+
+A prospective test is represented by
+\[
+\boxed{
+\mathcal P=(F,\mathcal O,\mathcal D,\mathcal R,\mathcal V),
+}
+\]
+where \(F\) is the frozen formula/version identity, \(\mathcal O\) the assigned
+observable, \(\mathcal D\) the post-freeze data gate, \(\mathcal R\) the decision
+rule and \(\mathcal V\) the version/no-refit policy.
+
+The active v12 family was frozen on 29 July 2026.  Its executable source is
+\path{TIR/validation/separable_universal_candidate_family_v10_7.py}.
+All three candidates carry
+\vTwelveStatus{E}{PROSPECTIVE}{OPEN}
+until the assigned qualifying post-freeze likelihood is evaluated.
+
+\section{Shared separable architecture}
+
+Every candidate has the same typed architecture
+\[
+\boxed{
+\ln y_{f,g}=F(S_f)+D(G_g,R_g).
+}
+\]
+The sector coordinates are
+\[
+S_\ell=4.5,\qquad
+S_d=3.0876164691516155,\qquad
+S_u=2.920949802484949,
+\]
+the generation coordinates are
+\[
+G_1=0.8471633855025916,\quad
+G_2=0.6088811663290957,\quad
+G_3=0.23926393244694075,
+\]
+and the Ramanujan release coordinates are
+\[
+R_1=0.4754443238393299,\quad
+R_2=1.0262897039931138,\quad
+R_3=2.442442115365772.
+\]
+The same functions \(F\) and \(D\) act across charged leptons, down-type quarks
+and up-type quarks.
+
+\section{Exactly three frozen candidates}
+
+\paragraph{C1: linear separable action.}
+\[
+F_1(S)=-S,
+\qquad
+D_1(G,R)=-G+R.
+\]
+
+\paragraph{C2: Collatz quarter-power action.}
+\[
+F_2(S)=-S^{3/4},
+\qquad
+D_2(G,R)=-G^{3/4}+R.
+\]
+
+\paragraph{C3: inverse quarter-power information potential.}
+\[
+F_3(S)=\frac{S^{-3/4}}{L_3\kappa},
+\qquad
+D_3(G,R)=\frac{G^{-3/4}}{L_3\kappa}+R.
+\]
+
+The family size is itself frozen:
+\[
+\boxed{N_{\rm candidate}=3.}
+\]
+A later functional form receives a new version identity and a new prospective
+contract.
+
+\section{Orthogonal observable pair}
+
+Charm and the muon share the second-generation coordinate.  Therefore
+\[
+\begin{aligned}
+\ln y_c&=F(S_u)+D(G_2,R_2),\\
+\ln y_\mu&=F(S_\ell)+D(G_2,R_2),
+\end{aligned}
+\]
+so
+\[
+\boxed{
+\ln\frac{y_c}{y_\mu}=F(S_u)-F(S_\ell).
+}
+\]
+This observable isolates the sector contribution.
+
+Charm and top share the up-type sector coordinate:
+\[
+\begin{aligned}
+\ln y_c&=F(S_u)+D(G_2,R_2),\\
+\ln y_t&=F(S_u)+D(G_3,R_3),
+\end{aligned}
+\]
+hence
+\[
+\boxed{
+\ln\frac{y_c}{y_t}
+=D(G_2,R_2)-D(G_3,R_3).
+}
+\]
+This observable isolates the generation/release contribution.
+
+The active class-A mapping is therefore \(y_c/y_\mu\), while \(y_c/y_t\) is the
+generation/release test.  The earlier \(y_c/y_\tau\) mapping remains historical
+provenance from the pre-orthogonalization stage.
+
+\section{Frozen numerical predictions}
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Candidate & \(y_c/y_\mu\) & \(y_c/y_t\)\\
+\midrule
+C1 & 4.850346751338371 & 0.16766796647328305\\
+C2 & 2.3521800134268784 & 0.17147213462587316\\
+C3 & 6.858021228826228 & \(2.8101955040512466\times10^{-11}\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The deterministic v12 prospective validator reconstructs all six values from
+the frozen coordinates and candidate definitions.
+
+\section{Dataset admission gate}
+
+For each observable, the admissible dataset is the first qualifying
+post-29-July-2026 joint ATLAS/CMS direct likelihood that reports the relevant
+coupling ratio or sufficient likelihood information to construct it on a common
+scheme/scale surface.
+
+Dataset admission is decided before reading the numerical location of the
+likelihood maximum relative to the three predictions.  If a release lacks the
+required joint information, the contract remains OPEN for that release.
+
+\section{Decision rule}
+
+For candidate \(C_i\) and assigned observable \(O\),
+\[
+\boxed{
+\operatorname{PASS}(C_i,O)
+\iff
+r_i(O)\in{\rm CR}_{95\%}(O),
+}
+\]
+where \(r_i(O)\) is the frozen predicted ratio and
+\({\rm CR}_{95\%}(O)\) is the published 95\% confidence region of the admitted
+likelihood.
+
+A candidate outside the admitted confidence region receives FAIL for that
+frozen test.  The formula identity remains fixed in the corresponding receipt.
+
+\section{Multiplicity-aware interpretation}
+
+There are three simultaneously frozen candidates and two orthogonal observables.
+The publication report therefore presents the full \(3\times2\) result surface,
+rather than selecting only the most favourable surviving candidate after the
+data are visible.
+
+Candidate ranking, if performed, must use the same admitted likelihood surface
+for all candidates and must preserve the original three-member family in the
+reported ledger.
+
+\section{No-refit and versioning rule}
+
+After freeze:
+\begin{enumerate}
+\item \(F_i\), \(D_i\), \(S_f\), \(G_g\), \(R_g\), \(L_3\) and \(\kappa\) remain fixed for this contract;
+\item the observable identities \(y_c/y_\mu\) and \(y_c/y_t\) remain fixed;
+\item an empirical FAIL is recorded without coefficient tuning;
+\item a new formula, coordinate or observable receives a new version identity;
+\item already inspected retrospective mass tables remain outside the prospective score.
+\end{enumerate}
+
+This creates an append-only evidence history: a failed frozen candidate can
+coexist with a later new candidate version without rewriting the earlier test.
+
+\section{External-input and scheme discipline}
+
+Yukawa couplings and quark quantities are scheme- and scale-sensitive.
+The qualifying experimental surface must therefore provide a common likelihood
+or a declared translation to a common scheme before a precision decision is
+made.  Ratios constructed from incompatible conventions remain outside the
+frozen decision gate.
+
+Upper limits, circular phases and dimensionful anchor quantities retain their
+own statistical typing and are not pooled into one global percentage score.
+
+\section{Machine-readable gate}
+
+The prospective contract is checked by
+\path{TIR/validation/tir_v12_prospective_contract_audit_v0_1.py}.
+The appendix integration audit additionally checks that:
 \begin{itemize}
-\item \path{TIR/monograph/appendices/appM_prospective_observable_identifiability.tex}
-\item \path{TIR/monograph/appendices/appN_separable_candidate_family.tex}
-\item \path{TIR/monograph/appendices/appO_publication_protocol.tex}
+\item exactly three candidate definitions are present;
+\item the 29 July 2026 freeze date is present;
+\item both orthogonal observables are present;
+\item all six frozen ratios are present;
+\item the active sector observable is \(y_c/y_\mu\);
+\item the no-refit/version rule is explicit.
 \end{itemize}
 
-This appendix holds preregistration-style operational detail supporting Chapter 20: frozen observables, no-refit rules, dataset gates and publication controls.
+The appendix-level receipt is
+\path{TIR/validation/TIR_V12_APPENDIX_INTEGRATION_AUDIT_V0_1.json}.
