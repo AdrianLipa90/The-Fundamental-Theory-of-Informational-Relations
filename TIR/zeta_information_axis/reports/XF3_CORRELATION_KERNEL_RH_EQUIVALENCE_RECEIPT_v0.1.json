@@ -1,0 +1,67 @@
+{
+  "schema": "tir.critical-axis.xf3-receipt/v0.1",
+  "scope": "XF-3 Dimitrov-Xu correlation-kernel RH-equivalence audit",
+  "source": {
+    "authors": ["Dimitar K. Dimitrov", "Yuan Xu"],
+    "title": "Wronskians of Fourier and Laplace Transforms",
+    "arxiv": "1606.05011",
+    "authority": "STANDARD_EXTERNAL_THEOREM"
+  },
+  "stack": {
+    "pull_request": 95,
+    "base_pull_request": 94,
+    "base_head_sha": "d02135b45af36e069a263c55fcbc795f17e4ccab",
+    "branch": "feat/critical-axis-correlation-kernel-wronskian-v0.1"
+  },
+  "historical_fail": {
+    "head_sha": "a3ae511804ed2374510d6907ab888e1c7facd55e",
+    "push_run_id": 33217115224,
+    "job_id": 99003117033,
+    "tests": "47 passed in 10.87s",
+    "monograph": "PASS",
+    "publication_preflight": "FAIL",
+    "cause": "single Overfull hbox of 9.25127pt from the long inline NUMERICAL_DIAGNOSTIC status in the XF-3 monograph chapter",
+    "semantic_effect": "NONE",
+    "resolution": "move the unchanged diagnostic status into a breakable display block"
+  },
+  "corrected_checkpoint": {
+    "head_sha": "3243cd62aa9efad53d28b6f70490f916cc297a8f",
+    "push_validation": {
+      "run_id": 33217413584,
+      "job_id": 99004025585,
+      "tests": "47 passed in 10.77s",
+      "monograph": "PASS",
+      "publication_preflight": "PASS",
+      "pdf_pages": 68,
+      "artifact_id": 9703920693,
+      "artifact_sha256": "e5071a31ff84fcd50294abda780e4a24da56ed709bb6742535944533ccd393fe"
+    },
+    "pull_request_merge_ref_validation": {
+      "run_id": 33217415950,
+      "job_id": 99004032745,
+      "merge_ref_sha": "ef84ffbb7c977043f2b61a165318ef9f3cd9b8ac",
+      "tests": "47 passed in 16.53s",
+      "monograph": "PASS",
+      "publication_preflight": "PASS",
+      "pdf_pages": 68,
+      "artifact_id": 9703934576,
+      "artifact_sha256": "d66cd5e7f55a75c934d1f00a5fba9710c60f6c5bcf0257c2a7e6071c45b783b4"
+    }
+  },
+  "formal_status": {
+    "dimitrov_xu_nu2_correlation_kernel": "STANDARD_PASS",
+    "xi_wronskian_nu2_fourier_identity": "STANDARD_PASS",
+    "finite_cutoff_kernel_evaluation": "NUMERICAL_DIAGNOSTIC_PASS",
+    "phi2y_translation_density_condition": "OPEN_RH_EQUIVALENT_CRITERION",
+    "phi2y_bounded_convolution_annihilator_condition": "OPEN_RH_EQUIVALENT_CRITERION",
+    "global_kernel_branch_nondegeneracy": "OPEN",
+    "kernel_population_equals_strip_coordinate": "OPEN_RH_EQUIVALENT_BRIDGE",
+    "riemann_hypothesis": "OPEN"
+  },
+  "solver_firewall": {
+    "riemann_hypothesis_in_exact_closure": false,
+    "riemann_hypothesis_in_model_closure": false,
+    "open_conditions_are_never_auto_promoted": true
+  },
+  "verdict": "PASS_WITH_RH_OPEN"
+}

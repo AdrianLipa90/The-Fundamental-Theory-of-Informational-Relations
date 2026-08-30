@@ -5,7 +5,26 @@ The solver has two jobs:
    routes (complement, entropy, Berry holonomy, and cancellation), and
 2. compute semantic closure without silently promoting model/open bridges.
 
-No rule in the default graph derives RH.  The zero-state bridge remains open.
+XF-1 adds the standard Xi Fourier-kernel decomposition as a canonical
+zeta-derived two-branch representation. Exact branch cancellation is then a
+theorem at every Xi zero. The remaining XF-1 RH-level debt is split into
+explicit global branch nondegeneracy and kernel-population/strip-coordinate
+binding.
+
+XF-3 adds the Dimitrov--Xu n=2 correlation kernel as a second analytic route.
+The published RH-equivalent translation-density and convolution-annihilator
+criteria are STANDARD implications, while satisfaction of either global
+criterion remains OPEN unless independently supplied as a premise.
+
+XF-4 resolves the XF-3 density condition to the pointwise Wiener--Laguerre
+scalar Q_Xi(x,y). The identity Q_Xi=Fourier(Phi_{2,y}) and the equivalence
+between L1 translation density and global strict positivity are STANDARD.
+Actual strict positivity for every real x and every 0<|y|<1/2 remains OPEN.
+
+XF-5 identifies 2*Q_Xi with the transverse y-curvature of |Xi|^2 and links
+strict curvature in the critical strip to the classical Xi growth criterion.
+The curvature identity is EXACT; global strict convexity retains the same OPEN
+RH-equivalent status as the XF-4 positivity condition.
 """
 from __future__ import annotations
 
@@ -115,8 +134,33 @@ HALF_AXIS_RULES = (
     Rule(("information_per_turn_ln2_over_12", "radian_closure_tau"), "kappa_ln2_over_24pi", ClaimStatus.MODEL, "(ln2/12)/tau"),
     Rule(("eight_mix_sectors", "three_flavours"), "twenty_four_sector_count", ClaimStatus.MODEL, "8*3=24"),
     Rule(("twenty_four_sector_count", "half_turn_phase"), "twenty_four_pi_normalization", ClaimStatus.MODEL, "24 half-turn phase units"),
-    Rule(("zero_state_representation", "exact_cancellation", "sigma_equals_real_part_coordinate"), "all_zeros_on_half_axis", ClaimStatus.OPEN, "open zeta zero-state bridge"),
-    Rule(("all_zeros_on_half_axis",), "riemann_hypothesis", ClaimStatus.OPEN, "definition of RH"),
+    Rule(("xi_fourier_kernel",), "canonical_xi_two_branch_representation", ClaimStatus.STANDARD, "XF-1 exponential resolution of the Riemann Xi cosine kernel"),
+    Rule(("canonical_xi_two_branch_representation",), "all_xi_zeros_exact_kernel_branch_cancellation", ClaimStatus.EXACT, "Xi=A_+ + A_- implies A_+=-A_- at every Xi zero"),
+    Rule(("canonical_xi_two_branch_representation",), "global_kernel_branch_nondegeneracy", ClaimStatus.OPEN, "XF-1 global nonzero-branch obligation"),
+    Rule(("canonical_xi_two_branch_representation",), "kernel_population_equals_strip_coordinate", ClaimStatus.OPEN, "XF-1 RH-equivalent population/affine-coordinate bridge"),
+    Rule(("all_xi_zeros_exact_kernel_branch_cancellation", "global_kernel_branch_nondegeneracy"), "all_xi_zero_kernel_population_half", ClaimStatus.EXACT, "nondegenerate equal-and-opposite branches have equal squared-norm population"),
+    Rule(("all_xi_zero_kernel_population_half", "kernel_population_equals_strip_coordinate", "sigma_equals_real_part_coordinate"), "all_zeros_on_half_axis", ClaimStatus.EXACT, "XF-1 normalized-population route"),
+    Rule(("all_xi_zeros_exact_kernel_branch_cancellation", "global_kernel_branch_nondegeneracy", "kernel_population_equals_strip_coordinate", "sigma_equals_real_part_coordinate"), "all_zeros_on_half_axis", ClaimStatus.EXACT, "XF-1 direct RH firewall"),
+    Rule(("all_zeros_on_half_axis",), "riemann_hypothesis", ClaimStatus.STANDARD, "definition of RH"),
+    Rule(("xi_fourier_kernel",), "dimitrov_xu_nu2_correlation_kernel", ClaimStatus.STANDARD, "XF-3 / Dimitrov-Xu correlation kernel n=2"),
+    Rule(("dimitrov_xu_nu2_correlation_kernel",), "xi_wronskian_nu2_fourier_identity", ClaimStatus.STANDARD, "Dimitrov-Xu Theorem 1.3 / Theorem 2.5 for n=2"),
+    Rule(("dimitrov_xu_nu2_correlation_kernel",), "phi2y_translation_density_condition", ClaimStatus.OPEN, "Dimitrov-Xu Theorem 1.1 global L1-density obligation for every 0<|y|<1/2"),
+    Rule(("phi2y_translation_density_condition",), "riemann_hypothesis", ClaimStatus.STANDARD, "Dimitrov-Xu Theorem 1.1 forward implication"),
+    Rule(("riemann_hypothesis", "dimitrov_xu_nu2_correlation_kernel"), "phi2y_translation_density_condition", ClaimStatus.STANDARD, "Dimitrov-Xu Theorem 1.1 reverse implication"),
+    Rule(("dimitrov_xu_nu2_correlation_kernel",), "phi2y_bounded_convolution_annihilator_condition", ClaimStatus.OPEN, "Dimitrov-Xu Corollary 3.5 global annihilator obligation"),
+    Rule(("phi2y_bounded_convolution_annihilator_condition",), "riemann_hypothesis", ClaimStatus.STANDARD, "Dimitrov-Xu Corollary 3.5 forward implication"),
+    Rule(("riemann_hypothesis", "dimitrov_xu_nu2_correlation_kernel"), "phi2y_bounded_convolution_annihilator_condition", ClaimStatus.STANDARD, "Dimitrov-Xu Corollary 3.5 reverse implication"),
+    Rule(("xi_wronskian_nu2_fourier_identity",), "phi2y_fourier_equals_xi_wiener_laguerre_scalar", ClaimStatus.STANDARD, "XF-4 / Dimitrov-Xu Eq. (3.10) plus Jensen derivative identity"),
+    Rule(("phi2y_fourier_equals_xi_wiener_laguerre_scalar",), "xi_wiener_laguerre_strict_positivity", ClaimStatus.OPEN, "XF-4 global condition Q_Xi(x,y)>0 for all real x and every 0<|y|<1/2"),
+    Rule(("phi2y_translation_density_condition", "phi2y_fourier_equals_xi_wiener_laguerre_scalar"), "xi_wiener_laguerre_strict_positivity", ClaimStatus.STANDARD, "Wiener L1 theorem plus Q_Xi(0,y)>0 fixes the nonvanishing transform sign"),
+    Rule(("xi_wiener_laguerre_strict_positivity", "phi2y_fourier_equals_xi_wiener_laguerre_scalar"), "phi2y_translation_density_condition", ClaimStatus.STANDARD, "Q_Xi=Fourier(Phi_{2,y}) is everywhere nonzero; Wiener L1 translation theorem"),
+    Rule(("xi_fourier_kernel",), "xi_transverse_curvature_identity", ClaimStatus.EXACT, "XF-5: d_y^2 |Xi(x+i y)|^2 = 2 Q_Xi(x,y)"),
+    Rule(("xi_wiener_laguerre_strict_positivity", "xi_transverse_curvature_identity"), "xi_strict_transverse_convexity_critical_strip", ClaimStatus.STANDARD, "XF-5: Q_Xi>0 iff transverse curvature is strictly positive"),
+    Rule(("xi_strict_transverse_convexity_critical_strip", "xi_transverse_curvature_identity"), "xi_wiener_laguerre_strict_positivity", ClaimStatus.STANDARD, "XF-5 reverse curvature/scalar equivalence"),
+    Rule(("xi_strict_transverse_convexity_critical_strip",), "xi_vertical_growth_critical_strip", ClaimStatus.STANDARD, "evenness in y gives d_y |Xi(x+i y)|^2=0 at y=0; strict convexity gives positive growth for y>0"),
+    Rule(("xi_fourier_kernel",), "xi_vertical_growth_outer_halfplane", ClaimStatus.STANDARD, "symmetric Hadamard product closes sigma>=1 (y>=1/2)"),
+    Rule(("xi_vertical_growth_critical_strip", "xi_vertical_growth_outer_halfplane"), "xi_vertical_growth_halfplane", ClaimStatus.STANDARD, "critical-strip and outer-halfplane growth closure"),
+    Rule(("xi_vertical_growth_halfplane",), "riemann_hypothesis", ClaimStatus.STANDARD, "Hinkkanen-Lagarias / Xi growth criterion"),
 )
 
 
@@ -136,7 +180,6 @@ def solve_sigma_from_entropy() -> mp.mpf:
 def solve_sigma_from_berry_minus_one() -> mp.mpf:
     """Solve exp[-2*pi*i*(1-sigma)]=-1 for the interior branch sigma in (0,1)."""
     root = mp.findroot(lambda p: mp.im(berry_holonomy(p)), (mp.mpf("0.4"), mp.mpf("0.6")))
-    # Imaginary-part roots also occur at endpoints; retain the root whose real holonomy is -1.
     if not (0 < root < 1) or abs(berry_holonomy(root) + 1) > mp.mpf("1e-30"):
         raise RuntimeError("failed to isolate the interior -1 Berry-holonomy solution")
     return root
@@ -165,13 +208,7 @@ def kappa_from_projective_cycle(
     projective_cycles: int = 12,
     closure_period: mp.mpf | float | None = None,
 ) -> mp.mpf:
-    """Conditional Metatime normalization kappa=I/(N*C).
-
-    Arithmetic is evaluated at the caller's active mpmath precision. The
-    assignment N=12 as one information cycle is a TIR/Metatime model
-    assumption. Delaying default ``ln(2)`` and ``2*pi`` evaluation avoids
-    freezing them at import-time precision.
-    """
+    """Conditional Metatime normalization kappa=I/(N*C)."""
     n = int(projective_cycles)
     if n <= 0:
         raise ValueError("projective_cycles must be positive")

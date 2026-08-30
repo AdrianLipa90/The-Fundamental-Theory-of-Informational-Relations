@@ -10,6 +10,7 @@ figures:
 
 audit:
 	PYTHONPATH=src $(PYTHON) scripts/run_audit.py
+	PYTHONPATH=src $(PYTHON) scripts/solve_axis.py --output reports/solver_receipt.json
 
 test:
 	PYTHONPATH=src pytest -q

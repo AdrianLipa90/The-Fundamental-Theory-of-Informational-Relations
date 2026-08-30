@@ -1,0 +1,111 @@
+\chapter{Correlation-kernel density criterion}\label{ch:correlation-kernel}
+
+\section{A second analytic route from the Xi kernel}
+
+The canonical Fourier-kernel representation introduced in the operator programme admits a second route that is independent of the Hermite--Biehler candidate audited in XF-2.  For the even Riemann kernel $\Phi$ and
+\[
+\Xi(z)=\int_{\mathbb R}\Phi(t)e^{izt}\,\dd t,
+\]
+define the second correlation function
+\begin{equation}\label{eq:nu2-correlation}
+\nu_2(t)
+=
+\int_{-\infty}^{\infty}
+(t-2s)^2\Phi(t-s)\Phi(s)\,\dd s.
+\end{equation}
+For $0<|y|<1/2$, set
+\begin{equation}\label{eq:phi2y-correlation}
+\Phi_{2,y}(t)=\cosh(ty)\,\nu_2(t).
+\end{equation}
+These are the $n=2$ correlation objects used by Dimitrov and Xu in their Fourier--Wronskian criteria \cite{DimitrovXu2016}.
+
+\section{Published RH-equivalent density criterion}
+
+Dimitrov--Xu Theorem~1.1 supplies a standard external equivalence.  In the present notation,
+\begin{equation}\label{eq:dx-density-rh}
+\boxed{
+\mathrm{RH}
+\iff
+\forall\,y\in\left(-\frac12,\frac12\right)\setminus\{0\},\quad
+\overline{\operatorname{span}\mathcal T(\Phi_{2,y})}^{\,L^1(\mathbb R)}
+=L^1(\mathbb R),
+}
+\end{equation}
+where $\mathcal T(f)$ denotes the family of all translates of $f$.
+
+The same work supplies an equivalent convolution-annihilator formulation: for every admissible $y$, the condition
+\begin{equation}\label{eq:dx-annihilator}
+\Phi_{2,y}*g=0,\qquad g\in L^\infty(\mathbb R),
+\end{equation}
+forces $g=0$ exactly on the RH surface \cite{DimitrovXu2016}.
+
+Within the typed implication graph, the theorem itself has status \status{STANDARD}.  The global density condition and the equivalent annihilator condition have status \status{OPEN}; they are the mathematical premises that must be independently established before the standard equivalence can close the RH node.
+
+\section{Wronskian bridge}
+
+For $n=2$, the Fourier--Wronskian identity gives
+\begin{equation}\label{eq:dx-wronskian}
+W_2(\Xi;x)
+=
+\Xi(x)\Xi''(x)-\Xi'(x)^2
+=
+-\mathcal F[\nu_2](x),
+\end{equation}
+with the Fourier convention of \cite{DimitrovXu2016}.  Since $\Xi$ is real on the real $z$ axis, its first Laguerre quantity obeys
+\begin{equation}\label{eq:laguerre-wronskian}
+\boxed{
+L_1[\Xi](x)
+=
+\Xi'(x)^2-\Xi(x)\Xi''(x)
+=
+-W_2(\Xi;x)
+=
+\mathcal F[\nu_2](x).
+}
+\end{equation}
+This gives an exact consistency bridge between the correlation-kernel and derivative representations.
+
+\section{Executable diagnostic layer}
+
+The implementation in \texttt{src/critical\_axis/correlation\_kernel.py} evaluates $\nu_2$, $\Phi_{2,y}$, the Wronskian, and the Laguerre quantity with explicit finite truncation controls.  The validation suite checks:
+\begin{enumerate}[label=(\roman*)]
+\item evenness and positive reference values of the implemented kernel;
+\item numerical evenness of $\nu_2$;
+\item the exact $y\leftrightarrow-y$ symmetry of $\Phi_{2,y}$;
+\item real-axis closure of Eq.~\eqref{eq:laguerre-wronskian};
+\item fail-closed enforcement of $0<|y|<1/2$;
+\item sampled Laguerre positivity as a \status{NUMERICAL\_DIAGNOSTIC} quantity.
+\end{enumerate}
+
+Finite samples and finite translate families carry diagnostic authority only.  The repository records this layer as
+\[
+\status{NUMERICAL\_DIAGNOSTIC}.
+\]
+The theorem-level target retains its full quantifiers over every admissible $y$, all translates, and the complete space $L^1(\mathbb R)$.
+
+\section{Relation to the branch-cancellation programme}
+
+The two active routes now share the same canonical Xi kernel but expose different closure obligations:
+\begin{align}
+\Phi
+&\longrightarrow A_\pm
+\longrightarrow \text{exact zero cancellation}
+\longrightarrow \text{population/coordinate bridge},\\
+\Phi
+&\longrightarrow \nu_2
+\longrightarrow \Phi_{2,y}
+\longrightarrow \text{$L^1$ translation density or annihilator closure}.
+\end{align}
+The first route isolates a local zero-state representation problem.  The second route converts RH into a global harmonic-analysis completeness problem.  Their coexistence supplies a useful cross-audit: a future mechanism that closes the critical axis should be checked against both the local branch structure and the global correlation-kernel criterion.
+
+\section{Current frontier}
+
+The immediate XF-3 proof obligation is therefore
+\begin{equation}\label{eq:xf3-frontier}
+\boxed{
+\forall\,0<|y|<\frac12:\quad
+\overline{\operatorname{span}\mathcal T(\Phi_{2,y})}^{\,L^1(\mathbb R)}
+=L^1(\mathbb R),
+}
+\end{equation}
+or equivalently the global bounded-annihilator condition of Eq.~\eqref{eq:dx-annihilator}.  The solver records both as \status{OPEN\_RH\_EQUIVALENT\_CRITERION}; the Riemann-hypothesis node therefore retains status \status{OPEN}.

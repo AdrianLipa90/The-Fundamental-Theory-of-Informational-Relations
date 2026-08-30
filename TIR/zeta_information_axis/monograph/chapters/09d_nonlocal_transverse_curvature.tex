@@ -1,0 +1,165 @@
+\chapter{Nonlocal transverse curvature}\label{ch:nonlocal-curvature}
+
+\section{From the Wiener--Laguerre scalar to geometry}
+
+Chapter~\ref{ch:wiener-laguerre-scalar} isolates the RH-equivalent scalar condition
+\begin{equation}\label{eq:xf5-q-frontier}
+Q_\Xi(x,y)>0,
+\qquad
+x\in\mathbb R,
+\qquad
+0<|y|<\frac12.
+\end{equation}
+The next step is an exact geometric reformulation of the same scalar.  Set
+\[
+F_x(y):=|\Xi(x+iy)|^2.
+\]
+Since $\Xi$ is real-entire,
+\[
+\overline{\Xi(x+iy)}=\Xi(x-iy),
+\]
+and direct differentiation yields
+\begin{equation}\label{eq:xf5-curvature-identity}
+\boxed{
+\frac12 F_x''(y)
+=
+|\Xi'(x+iy)|^2
+-\Ree\!\left(
+\Xi(x+iy)\overline{\Xi''(x+iy)}
+\right)
+=Q_\Xi(x,y).
+}
+\end{equation}
+Equation~\eqref{eq:xf5-curvature-identity} has status \status{EXACT}.  Therefore the XF-4 global sign frontier is equivalent to strict transverse convexity,
+\begin{equation}\label{eq:xf5-convexity-frontier}
+\boxed{
+F_x''(y)>0
+\quad
+\text{for every }x\in\mathbb R,
+\quad0<|y|<\frac12.
+}
+\end{equation}
+The universal statement in Eq.~\eqref{eq:xf5-convexity-frontier} retains
+\[
+\status{OPEN\_RH\_EQUIVALENT\_CRITERION}.
+\]
+
+\section{Connection with the classical growth criterion}
+
+The function $F_x$ is even in $y$, hence
+\[
+F_x'(0)=0.
+\]
+Strict convexity on $0<y<1/2$ therefore implies
+\begin{equation}\label{eq:xf5-inner-growth}
+F_x'(y)>0,
+\qquad 0<y<\frac12.
+\end{equation}
+The outer region $y\ge 1/2$, corresponding to $\Ree s\ge1$, is controlled by the standard symmetric Hadamard/logarithmic-derivative argument.  Combining the inner and outer regions recovers the classical positivity/growth route associated with Hinkkanen and Lagarias \cite{Lagarias1999,Planat2026Theta}.
+
+The solver records the same implication chain in four breakable stages:
+\begin{enumerate}
+\item \path{Q_Xi strict positivity};
+\item equivalently, strict transverse convexity;
+\item consequently, positive vertical growth;
+\item with the outer-halfplane closure, the classical RH-equivalent growth criterion.
+\end{enumerate}
+The first globally quantified condition retains \status{OPEN}.  Thus XF-5 changes the representation of the proof obligation and preserves its evidential status.
+
+\section{Differentiated theta-kernel representation}
+
+The repository normalization is
+\begin{equation}\label{eq:xf5-repo-fourier}
+\Xi(z)=2\int_0^\infty\Phi(u)\cos(zu)\,\dd u.
+\end{equation}
+Define
+\[
+D(z)=\int_0^\infty\Phi(u)\cos(zu)\,\dd u=\frac12\Xi(z).
+\]
+In diagonal coordinates
+\[
+u=a+b,
+\qquad
+v=a-b,
+\qquad
+a>|b|,
+\]
+write
+\[
+M(a,b)=\Phi(a+b)\Phi(a-b).
+\]
+The symmetrized first-growth kernel can be represented as
+\begin{equation}\label{eq:xf5-growth-kernel}
+K_{x,y}(a,b)
+=
+\frac a2\cos(2xb)\sinh(2ya)
++
+\frac b2\cos(2xa)\sinh(2yb).
+\end{equation}
+Differentiation gives the local curvature kernel
+\begin{equation}\label{eq:xf5-curvature-kernel}
+\boxed{
+L_{x,y}(a,b)
+:=\partial_y K_{x,y}(a,b)
+=
+a^2\cos(2xb)\cosh(2ya)
++
+b^2\cos(2xa)\cosh(2yb).
+}
+\end{equation}
+Under Eq.~\eqref{eq:xf5-repo-fourier}, the XF-4 scalar becomes
+\begin{equation}\label{eq:xf5-nonlocal-q}
+\boxed{
+Q_\Xi(x,y)
+=4\iint_{a>|b|}
+M(a,b)L_{x,y}(a,b)\,\dd a\,\dd b.
+}
+\end{equation}
+The differentiated-kernel identity and normalization bookkeeping have status \status{EXACT}.  The sign of the complete integral over the full admissible domain remains the active global obligation.
+
+\section{Exact positive anchor at the central slice}
+
+For $x=0$,
+\begin{equation}\label{eq:xf5-xzero-kernel}
+L_{0,y}(a,b)
+=a^2\cosh(2ya)+b^2\cosh(2yb)>0
+\end{equation}
+throughout the interior domain $a>|b|$, $a>0$.  Together with the positive theta mass $M(a,b)$, this gives pointwise positivity of the XF-5 curvature integrand at the central slice.  It supplies a kernel-level version of the positive-sign anchor used in the Wiener argument of Chapter~\ref{ch:wiener-laguerre-scalar}.
+
+\section{Nonlocality firewall}
+
+Planat's 2026 theta-kernel analysis derives an exact longitudinal--transverse decomposition of the Xi growth derivative \cite{Planat2026Theta}.  The companion August 2026 preprint proves, for that phase-aligned decomposition, that the two sectors cancel to all algebraic orders and that universal independent block positivity fails: sufficiently far in the oscillatory regime at least one aligned block is negative \cite{Planat2026Nonlocal}.
+
+The repository therefore records the following research firewall:
+\begin{itemize}
+\item Global correlated sign control --- \status{ACTIVE}.
+\item Exact resummation preserving sector correlation --- \status{ACTIVE}.
+\item Positive representation of the fully coupled integral --- \status{ACTIVE}.
+\item Universal independent phase-aligned block positivity.\par\noindent Status: \status{LITERATURE\_NO\_GO}.
+\item Finite block sampling --- \status{NUMERICAL\_DIAGNOSTIC}.
+\end{itemize}
+The no-go result is representation-specific.  It narrows the admissible strategy to globally correlated control of Eq.~\eqref{eq:xf5-nonlocal-q} or to a different exact representation that preserves the sign-carrying remainder.
+
+\section{Executable audit surface}
+
+The module \path{critical_axis.nonlocal_curvature} exposes
+\begin{itemize}
+\item \path{xi_transverse_curvature(x,y)}, implementing Eq.~\eqref{eq:xf5-curvature-identity};
+\item \path{xi_transverse_curvature_direct(x,y)}, independently differentiating $|\Xi|^2$ for regression;
+\item \path{theta_growth_kernel(x,y,a,b)};
+\item \path{theta_curvature_kernel(x,y,a,b)}, implementing Eq.~\eqref{eq:xf5-curvature-kernel};
+\item \path{theta_curvature_integrand}, evaluating one local contribution with fail-closed diagonal coordinates.
+\end{itemize}
+
+The corresponding tests lock the factor of two in Eq.~\eqref{eq:xf5-curvature-identity}, compare analytic and direct second derivatives, differentiate Eq.~\eqref{eq:xf5-growth-kernel} independently, verify the $x=0$ positive anchor, and reject invalid $a,b$ domains.
+
+\section{XF-5 frontier}
+
+The new proof surface is therefore the complete correlated curvature integral
+\begin{equation}\label{eq:xf5-final-frontier}
+\boxed{
+\iint_{a>|b|}
+M(a,b)L_{x,y}(a,b)\,\dd a\,\dd b>0
+}
+\end{equation}
+for every real $x$ and every $0<|y|<1/2$.  Viable next steps are an analytic global lower bound, an exact correlation-preserving resummation, a positive-definite representation of the fully coupled integral, or a certified counterexample on the admissible domain.  The universal sign statement retains \status{OPEN\_RH\_EQUIVALENT\_CRITERION}.

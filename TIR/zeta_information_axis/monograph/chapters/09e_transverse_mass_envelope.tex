@@ -1,0 +1,119 @@
+\chapter{Transverse mass envelope}\label{ch:transverse-mass-envelope}
+
+\section{Positive core inside the correlated curvature surface}
+
+Chapter~\ref{ch:nonlocal-curvature} reduces the active sign frontier to
+\begin{equation}\label{eq:xf6-q-surface}
+Q_\Xi(x,y)
+=
+4\iint_{a>|b|}M(a,b)L_{x,y}(a,b)\,\dd a\,\dd b,
+\end{equation}
+where
+\[
+M(a,b)=\Phi(a+b)\Phi(a-b)
+\]
+and
+\[
+L_{x,y}(a,b)
+=
+a^2\cos(2xb)\cosh(2ya)
++b^2\cos(2xa)\cosh(2yb).
+\]
+
+For $x\neq0$, define
+\begin{equation}\label{eq:xf6-positive-radius}
+r_+(x,a)
+:=
+\min\!\left(\frac a2,\frac{\pi}{8|x|}\right).
+\end{equation}
+If $|b|\le r_+(x,a)$, then $\cos(2xb)\ge1/\sqrt2$.  Using $\cos(2xa)\ge-1$ and the monotonicity of $\cosh$ on nonnegative arguments gives
+\begin{equation}\label{eq:xf6-positive-lower}
+\boxed{
+L_{x,y}(a,b)
+\ge
+\left(\frac{a^2}{\sqrt2}-b^2\right)
+\cosh(2|y|a)>0.
+}
+\end{equation}
+At $x=0$ the complete interior cone $a>|b|$ is pointwise positive.  Equation~\eqref{eq:xf6-positive-lower} has status \status{EXACT}.
+
+\section{Transverse concentration of the mass}
+
+Set
+\[
+f(u):=\log\Phi(u).
+\]
+Then
+\begin{equation}\label{eq:xf6-log-mass}
+\log M(a,b)=f(a+b)+f(a-b).
+\end{equation}
+Under the strict log-concavity premise $f''<0$, midpoint concavity yields
+\begin{equation}\label{eq:xf6-center-dominance}
+\boxed{
+M(a,b)<M(a,0)=\Phi(a)^2,
+\qquad b\neq0,
+}
+\end{equation}
+and
+\begin{equation}\label{eq:xf6-mass-slope}
+\partial_b\log M(a,b)
+=f'(a+b)-f'(a-b)<0,
+\qquad b>0.
+\end{equation}
+These implications have status \status{EXACT\_CONDITIONAL}.
+
+A recent v2 preprint by Gershon reports strict global log-concavity of the Riemann Xi kernel and explicitly records the TP$_2$/TP$_\infty$ separation \cite{Gershon2026LogConcavity}.  The repository records that source-level input as \status{EXTERNAL\_PREPRINT\_CLAIM}.  Its kernel differs from the TIR kernel by a positive constant factor, so logarithmic derivatives and the normalized ratio $M(a,b)/M(a,0)$ are unchanged.
+
+\section{Gaussian envelope from a curvature certificate}
+
+Suppose an independently certified number $\lambda>0$ satisfies
+\[
+-f''(u)\ge\lambda
+\]
+throughout $[a-|b|,a+|b|]$.  Define
+\[
+G(a,b):=2f(a)-f(a+b)-f(a-b).
+\]
+Then
+\begin{equation}\label{eq:xf6-gap-integral}
+G(a,b)
+=
+\int_0^{|b|}(|b|-t)
+\left[-f''(a+t)-f''(a-t)\right]\dd t
+\ge\lambda b^2.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:xf6-gaussian-envelope}
+\boxed{
+M(a,b)
+\le
+M(a,0)e^{-\lambda b^2}.
+}
+\end{equation}
+The implication from the certified curvature floor to Eq.~\eqref{eq:xf6-gaussian-envelope} has status \status{EXACT\_CONDITIONAL}.
+
+\section{Core--tail frontier}
+
+Both $M$ and $L$ are even in $b$, so Eq.~\eqref{eq:xf6-q-surface} becomes
+\[
+Q_\Xi(x,y)
+=
+8\int_0^\infty\int_0^a M(a,b)L_{x,y}(a,b)\,\dd b\,\dd a.
+\]
+For $x\neq0$, split the inner integral at $r_+(x,a)$.  The core interval $0\le b\le r_+$ has the exact positive lower bound in Eq.~\eqref{eq:xf6-positive-lower}.  The complementary interval carries the oscillatory tail.  One sufficient bound is therefore
+\begin{equation}\label{eq:xf6-core-tail-frontier}
+\boxed{
+\text{positive-core lower bound}
+>
+\text{absolute negative-tail bound}
+}
+\end{equation}
+uniformly for all real $x$ and $0<|y|<1/2$ after integration in $a$.
+
+The solver records this global domination as \status{OPEN\_SUFFICIENT\_ROUTE}.  It implies the RH-equivalent sign criterion, while the reverse implication is not part of the rule graph. TP$_\infty$ and RH retain \status{OPEN}.
+
+For fixed $a$, the certified core radius satisfies $r_+(x,a)=O(|x|^{-1})$ as $|x|\to\infty$.  Thus a global proof should preserve signed oscillatory cancellation in the tail rather than replace the entire tail by absolute values too early.  The Gaussian mass envelope is best used as a correlation-preserving weight inside such an oscillatory estimate.
+
+\section{Executable audit}
+
+The module \path{critical_axis.transverse_mass} exposes the correlated mass, normalized mass ratio, logarithmic slope and curvature diagnostics, Hessian eigenvalues, the conditional Gaussian envelope, and the exact positive-corridor lower bound.  The isolated \path{critical_axis.xf6_rules} solver layer keeps the external TP$_2$ premise open and admits the RH chain only after the explicit global core--tail domination gate is supplied.

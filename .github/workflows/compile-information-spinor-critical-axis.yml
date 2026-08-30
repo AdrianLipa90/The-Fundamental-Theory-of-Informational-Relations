@@ -31,14 +31,41 @@ jobs:
         run: pytest -q
       - name: Generate audit and monograph
         run: make monograph
-      - name: Publication preflight
+      - name: Check PDF syntax and metadata
+        shell: bash
         run: |
+          set -euo pipefail
           qpdf --check monograph/information_spinor_critical_axis.pdf
           pdfinfo monograph/information_spinor_critical_axis.pdf | tee reports/pdfinfo.txt
           pdffonts monograph/information_spinor_critical_axis.pdf | tee reports/pdffonts.txt
-          ! grep -q "Type 3" reports/pdffonts.txt
-          ! grep -q "Overfull" monograph/main.log
-          ! grep -Eiq "undefined references|undefined citations|multiply defined" monograph/main.log
+      - name: Check Type 3 fonts
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -q "Type 3" reports/pdffonts.txt; then
+            echo "FAIL: Type 3 font detected" >&2
+            exit 1
+          fi
+      - name: Check overfull boxes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -q "Overfull" monograph/main.log; then
+            echo "FAIL: Overfull box detected" >&2
+            grep "Overfull" monograph/main.log >&2 || true
+            exit 1
+          fi
+      - name: Check unresolved references
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -Eiq "undefined references|undefined citations|multiply defined" monograph/main.log; then
+            echo "FAIL: unresolved or multiply-defined references detected" >&2
+            grep -Ei "undefined references|undefined citations|multiply defined" monograph/main.log >&2 || true
+            exit 1
+          fi
+      - name: Publication preflight verdict
+        run: echo "CRITICAL-AXIS PUBLICATION PREFLIGHT PASS"
       - uses: actions/upload-artifact@v4
         with:
           name: information-spinor-critical-axis
@@ -46,3 +73,4 @@ jobs:
             TIR/zeta_information_axis/monograph/information_spinor_critical_axis.pdf
             TIR/zeta_information_axis/reports/numerical_audit.json
             TIR/zeta_information_axis/reports/numerical_audit.md
+            TIR/zeta_information_axis/reports/solver_receipt.json
