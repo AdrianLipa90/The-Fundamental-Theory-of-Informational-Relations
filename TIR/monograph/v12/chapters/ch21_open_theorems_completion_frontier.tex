@@ -50,12 +50,12 @@ Its parents are the discrete solder/torsion surface and typed connection transpo
 
 The spatial GR line then proceeds in strict order:
 \begin{equation}
-\boxed{
+\boxed{\begin{aligned}
 \text{Cartan refinement}
-\to T^a=0\text{ spatial sector}
-\to\text{TIR--IDT ADM join}
-\to\text{Einstein constraint/evolution closure}.
-}
+&\to T^a=0\text{ spatial sector}\\
+&\to\text{TIR--IDT ADM join}\\
+&\to\text{Einstein constraint/evolution closure}.
+\end{aligned}}
 \label{eq:v12_gr_frontier}
 \end{equation}
 The DAG validator enforces this order explicitly.
@@ -114,7 +114,7 @@ W_{ij}^{c}
 \to\theta_{\rm QCD}.
 }
 \end{equation}
-The frozen v11 numerical relation and nEDM `FAIL` remain evidence history while this upstream source theorem is developed.
+The frozen v11 numerical relation and nEDM \texttt{FAIL} remain evidence history while this upstream source theorem is developed.
 \vTwelveStatus{B}{--}{OPEN}
 
 For mesons, the open theorem is the absolute action baseline that connects the common action/holonomy architecture to the pion, kaon, $\eta$ and heavy/vector sectors before any renewed mass comparison.
@@ -201,17 +201,14 @@ The completion graph is checked by
 \path{TIR/validation/tir_v12_completion_frontier_dag_v0_1.py}.
 Its receipt
 \path{TIR/validation/TIR_V12_COMPLETION_FRONTIER_DAG_V0_1.json}
-reports `PASS`: 23 resolved nodes, eight closed roots, fifteen open gates, zero missing parents and an acyclic topological order.
+reports \texttt{PASS}: 23 resolved nodes, eight closed roots, fifteen open gates, zero missing parents and an acyclic topological order.
 
 The final v12 dependency picture is therefore
 \[
-\boxed{
+\boxed{\begin{aligned}
 \text{foundational roots}
-\to
-\text{typed theorem gates}
-\to
-\text{frozen observable maps}
-\to
-\text{Chapter 19 evidence rerun}.
-}
+&\to\text{typed theorem gates}\\
+&\to\text{frozen observable maps}\\
+&\to\text{Chapter 19 evidence rerun}.
+\end{aligned}}
 \]
