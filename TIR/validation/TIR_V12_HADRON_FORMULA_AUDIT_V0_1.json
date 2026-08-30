@@ -1,0 +1,19 @@
+{
+  "gmo_identity_residual_MeV": 0.0,
+  "kappa": 0.009193150006360484,
+  "octet_m0": {
+    "legacy_declared_S0_over_kappa": 1.4285714285714286,
+    "literal_planck_exponential_MeV": 2.9258755388139965e+21,
+    "printed_proton_anchored_linear_map_MeV": 925.9496067960459,
+    "proton_anchored_exact_exponential_MeV": 926.0301691683912,
+    "v12_status": "QUARANTINED_DERIVATION"
+  },
+  "pseudoscalar_literal_MeV": {
+    "kaon": 6.405974862514391e+21,
+    "pion": 1.8081529902143355e+21
+  },
+  "pseudoscalar_v12_status": "FAIL_LEGACY_PRINTED_FORMULAS",
+  "heavy_vector_table_status": "QUARANTINED_PROVENANCE_INCOMPLETE",
+  "schema": "TIR_V12_HADRON_FORMULA_AUDIT_V0_1",
+  "status": "PASS_WITH_QUARANTINES"
+}
