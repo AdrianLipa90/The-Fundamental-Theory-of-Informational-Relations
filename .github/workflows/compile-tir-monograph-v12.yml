@@ -1,0 +1,134 @@
+name: Compile TIR monograph v12
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-build-v12:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - name: Checkout exact event head revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Verify exact pull-request head
+        if: github.event_name == 'pull_request'
+        run: test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+
+      - name: Record source provenance
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD | tee tir-v12-checkout-head-sha.txt
+          git status --short --branch | tee tir-v12-checkout-status.txt
+          git diff --check
+
+      - name: Run TIR v12 deterministic validation suite
+        run: |
+          set -euo pipefail
+          validators=(
+            TIR/validation/tir_zero_first_distinction_v0_1.py
+            TIR/validation/tir_half_seam_phase_fiber_v0_1.py
+            TIR/validation/tir_relational_generator_space_v0_1.py
+            TIR/validation/tir_v12_ch05_euclidean_spatial_gate_v0_1.py
+            TIR/validation/tir_v12_ch06_tetrahedral_closure_v0_1.py
+            TIR/validation/tir_v12_ch07_holonomy_se3_torsion_v0_1.py
+            TIR/validation/tir_v12_discrete_labels_audit_v0_1.py
+            TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py
+            TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
+            TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py
+            TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py
+            TIR/validation/tir_v12_hadron_formula_audit_v0_1.py
+            TIR/validation/tir_v12_hypercharge_anomaly_audit_v0_1.py
+            TIR/validation/tir_v12_electroweak_higgs_audit_v0_1.py
+            TIR/validation/tir_v12_strong_cp_nedm_audit_v0_1.py
+            TIR/validation/tir_v12_cosmology_formula_audit_v0_1.py
+            TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py
+            TIR/validation/tir_v12_prospective_contract_audit_v0_1.py
+            TIR/validation/tir_v12_completion_frontier_dag_v0_1.py
+            TIR/validation/tir_v12_source_contract_v0_1.py
+          )
+          mkdir -p tir-v12-validation-logs
+          for validator in "${validators[@]}"; do
+            echo "=== ${validator} ==="
+            python3 "$validator" | tee "tir-v12-validation-logs/$(basename "$validator" .py).json"
+          done
+
+      - name: Install publication toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            latexmk lmodern texlive-latex-base texlive-latex-recommended \
+            texlive-latex-extra texlive-fonts-recommended texlive-science \
+            poppler-utils qpdf
+
+      - name: Compile TIR monograph v12
+        working-directory: TIR/monograph
+        run: |
+          set -o pipefail
+          latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error \
+            tir_monograph_v12.tex 2>&1 | tee tir-monograph-v12-compile-console.log
+
+      - name: TIR v12 publication preflight
+        run: |
+          set -euo pipefail
+          PDF=TIR/monograph/tir_monograph_v12.pdf
+          LOG=TIR/monograph/tir_monograph_v12.log
+          test -s "$PDF"
+          test -s "$LOG"
+
+          if grep -E "LaTeX Warning: (Reference|Citation).*undefined|There were undefined references|multiply-defined labels|multiply defined" "$LOG"; then
+            echo "Unresolved reference/citation/label warning detected"
+            exit 1
+          fi
+
+          qpdf --check "$PDF"
+          pdfinfo "$PDF" | tee tir-v12-pdfinfo.txt
+          pdffonts "$PDF" | tee tir-v12-pdffonts.txt
+          if awk 'NR>2 && $5 == "Type 3" {bad=1} END {exit bad ? 0 : 1}' tir-v12-pdffonts.txt; then
+            echo "Type 3 font detected"
+            exit 1
+          fi
+
+          grep -F "Theory of Informational Relations" tir-v12-pdfinfo.txt
+          grep -F "Adrian Lipa" tir-v12-pdfinfo.txt
+          git diff --check
+
+      - name: Record warning ledger
+        if: always()
+        run: |
+          {
+            echo "# TIR v12 LaTeX warning ledger"
+            echo
+            if test -f TIR/monograph/tir_monograph_v12.log; then
+              grep -E "Warning|Overfull|Underfull" TIR/monograph/tir_monograph_v12.log || true
+            else
+              echo "Compilation log unavailable."
+            fi
+          } > tir-v12-warning-ledger.txt
+
+      - name: Upload exact-head v12 publication artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tir-monograph-v12-${{ github.sha }}
+          if-no-files-found: warn
+          path: |
+            TIR/monograph/tir_monograph_v12.pdf
+            TIR/monograph/tir_monograph_v12.log
+            TIR/monograph/tir-monograph-v12-compile-console.log
+            tir-v12-validation-logs/
+            tir-v12-checkout-head-sha.txt
+            tir-v12-checkout-status.txt
+            tir-v12-pdfinfo.txt
+            tir-v12-pdffonts.txt
+            tir-v12-warning-ledger.txt
