@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "all_classes_valid": true,
+    "all_timing_valid": true,
+    "all_verdicts_valid": true,
+    "charged_lepton_precision_fail_retained": true,
+    "cosmology_formula_diagnostic_quarantined": true,
+    "legacy_map_targets_valid": true,
+    "neutrino_formula_diagnostic_quarantined": true,
+    "neutron_edm_fail_retained": true,
+    "row_ids_unique": true,
+    "theta13_tension_retained": true
+  },
+  "current_evidence_owner": "TIR/monograph/v12/chapters/ch19_unified_evidence_matrix.tex",
+  "row_count": 30,
+  "schema": "TIR_V12_EVIDENCE_MATRIX_CONSISTENCY_V0_1",
+  "sha256": "da03aa15c086011b0de603cbdeee5a01142b3c9526dbb148f6bcae681a9033cd",
+  "status": "PASS"
+}
