@@ -1,0 +1,211 @@
+version: "12.0-structural-skeleton"
+baseline_commit: "3f5a08ef04ec53c1a155263d23e8b10a96404370"
+branch: "feat/tir-monograph-v12-structural-skeleton"
+policy:
+  equation_rewrite: false
+  preserve_v11_sources: true
+  canonical_status_taxonomy: "TIR/monograph/v12/STATUS_TAXONOMY.md"
+  canonical_kappa_source: "TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md"
+
+parts:
+  - id: I
+    title: "Primitive Informational Relations"
+    chapters:
+      - id: 1
+        slug: first_distinction_relational_kernel
+        title: "First Distinction and the Relational Kernel"
+        sources:
+          - "TIR/foundations/TIR_AXIOMATIC_KERNEL_V0_1.md"
+          - "TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md"
+          - "TIR/foundations/TIR_CAUSAL_BRIDGE_FROM_ZERO_V0_1.md"
+          - "TIR/monograph/chapters/ch01_introduction.tex"
+      - id: 2
+        slug: half_binary_information_ln2
+        title: "The Half Coordinate, Binary Information and ln2"
+        sources:
+          - "TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md"
+          - "TIR/foundations/TIR_PRIMITIVE_DEPENDENCY_LATTICE_V0_1.md"
+          - "TIR/monograph/chapters/ch02_metatime_framework.tex"
+      - id: 3
+        slug: complex_carrier_information_geometry
+        title: "Complex Relational Carrier and Information Geometry"
+        sources:
+          - "TIR/foundations/TIR_RELATIONAL_GENERATOR_SPACE_V0_1.md"
+          - "TIR/integration/TIR_TETRA_FS_SPATIAL_SHAPE_CROSSWALK_V0_1.md"
+          - "TIR/monograph/chapters/ch01_introduction.tex"
+
+  - id: II
+    title: "Emergence of Geometry"
+    chapters:
+      - id: 4
+        slug: c2_to_herm0_r3
+        title: "From C2 to Herm_0(2) and R3"
+        sources:
+          - "TIR/foundations/TIR_RELATIONAL_GENERATOR_SPACE_V0_1.md"
+          - "TIR/subrepos/the-space-of-geometry/foundations/QUANTUM_POINT_AFFINE_SPATIAL_CARRIER_V0_1.md"
+      - id: 5
+        slug: euclidean_geometry_dimension_gate
+        title: "Euclidean Geometry and the Spatial Dimension Gate"
+        sources:
+          - "TIR/foundations/TIR_RANK3_ISOTROPY_STABILIZATION_V0_1.md"
+          - "TIR/subrepos/the-space-of-geometry/foundations/SPATIAL_PROMOTION_UNIQUENESS_V0_1.md"
+          - "TIR/subrepos/the-space-of-geometry/foundations/CANONICAL_SPATIAL_RELATION_EXTRACTION_V0_1.md"
+      - id: 6
+        slug: tetrahedral_closure
+        title: "Minimal Finite Cell and Tetrahedral Closure"
+        sources:
+          - "TIR/foundations/TIR_MINIMAL_ISOTROPIC_TETRAHEDRAL_CELL_V0_1.md"
+          - "TIR/foundations/TIR_QUBIT_TETRAHEDRAL_INFORMATIONAL_COMPLETENESS_V0_1.md"
+          - "TIR/integration/TIR_TETRAHEDRAL_CONGRUENCE_CLASS_CLOSURE_V0_1.md"
+          - "TIR/monograph/appendices/appE_tetrahedron_algebra.tex"
+      - id: 7
+        slug: connections_holonomy_se3_solder_torsion
+        title: "Connections, W_ij, Holonomy, SE(3), Solder and Torsion"
+        sources:
+          - "TIR/foundations/TIR_WIJ_HOLONOMY_CROSSWALK_V0_1.md"
+          - "TIR/foundations/TIR_SE3_ANCHOR_SOURCE_BINDING_V0_1.md"
+          - "TIR/foundations/TIR_DISCRETE_SOLDER_FORM_V0_1.md"
+          - "TIR/foundations/TIR_UNIVERSAL_LOOP_TORSION_SOURCE_BINDING_V0_1.md"
+
+  - id: III
+    title: "Information, Phase and Flavour"
+    chapters:
+      - id: 8
+        slug: three_flavour_carrier_su3
+        title: "Three-Flavour Carrier and SU(3)_F"
+        sources:
+          - "TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md"
+          - "TIR/monograph/appendices/appC_su3_primer.tex"
+          - "TIR/monograph/chapters/ch16_pmns_mixing.tex"
+          - "TIR/monograph/chapters/ch18_ckm_matrix.tex"
+      - id: 9
+        slug: kappa_normalization
+        title: "The kappa = ln2/(24 pi) Normalization"
+        sources:
+          - "TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md"
+          - "TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py"
+          - "TIR/monograph/appendices/appA_kappa_derivation.tex"
+        canonicalization:
+          owner: "TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md"
+          legacy_occurrences_become_cross_references: true
+      - id: 10
+        slug: discrete_structural_labels
+        title: "Discrete Structural Labels — L_i, Primes and Provenance"
+        sources:
+          - "TIR/monograph/chapters/ch03_l_constants.tex"
+          - "TIR/monograph/chapters/ch04_quark_primes.tex"
+          - "TIR/STRUCTURAL_CHOICES.md"
+      - id: 11
+        slug: action_architecture_coefficient_forcing
+        title: "Action Architecture and the Coefficient-Forcing Problem"
+        sources:
+          - "TIR/monograph/chapters/ch05_electron_action.tex"
+          - "TIR/monograph/chapters/ch06_generation_release.tex"
+          - "TIR/foundations/TIR_COEFFICIENT_ROLE_ORIENTATION_FORCING_V0_1.md"
+          - "TIR/TIR_COMPLETION_FRONTIER_V0_4.md"
+
+  - id: IV
+    title: "Particle and Gauge Sectors"
+    chapters:
+      - id: 12
+        slug: charged_leptons_neutrinos
+        title: "Charged Leptons and Neutrinos"
+        sources:
+          - "TIR/monograph/chapters/ch05_electron_action.tex"
+          - "TIR/monograph/chapters/ch06_generation_release.tex"
+          - "TIR/monograph/chapters/ch07_lepton_spectrum.tex"
+          - "TIR/monograph/chapters/ch17_neutrino_masses.tex"
+      - id: 13
+        slug: ckm_pmns_flavour_mixing
+        title: "CKM/PMNS and Flavour Mixing"
+        sources:
+          - "TIR/monograph/chapters/ch16_pmns_mixing.tex"
+          - "TIR/monograph/chapters/ch18_ckm_matrix.tex"
+          - "TIR/monograph/chapters/ch19_ckm_cp_violation.tex"
+      - id: 14
+        slug: hadrons_baryons_mesons
+        title: "Hadrons — Baryons and Mesons"
+        sources:
+          - "TIR/monograph/chapters/ch08_gmo_formula.tex"
+          - "TIR/monograph/chapters/ch09_octet_m0.tex"
+          - "TIR/monograph/chapters/ch10_octet_coefficients.tex"
+          - "TIR/monograph/chapters/ch11_octet_predictions.tex"
+          - "TIR/monograph/chapters/ch12_decuplet_m0prime.tex"
+          - "TIR/monograph/chapters/ch13_decuplet_predictions.tex"
+          - "TIR/monograph/chapters/ch14_pseudoscalar_mesons.tex"
+          - "TIR/monograph/chapters/ch15_heavy_mesons.tex"
+      - id: 15
+        slug: gauge_hypercharge_anomalies
+        title: "Gauge Structure, Hypercharge and Anomaly Cancellation"
+        sources:
+          - "TIR/monograph/chapters/ch27_hypercharge.tex"
+          - "TIR/monograph/chapters/ch28_anomaly_cancellation.tex"
+          - "TIR/foundations/TIR_WIJ_HOLONOMY_CROSSWALK_V0_1.md"
+      - id: 16
+        slug: electroweak_higgs
+        title: "Electroweak and Higgs Sector"
+        sources:
+          - "TIR/monograph/chapters/ch20_higgs_vev.tex"
+          - "TIR/monograph/chapters/ch21_weinberg_angle.tex"
+          - "TIR/monograph/chapters/ch22_fine_structure.tex"
+          - "TIR/monograph/chapters/ch23_gauge_bosons.tex"
+          - "TIR/monograph/chapters/ch24_higgs_mass.tex"
+      - id: 17
+        slug: strong_cp_neutron_edm
+        title: "Strong CP and Neutron EDM"
+        sources:
+          - "TIR/monograph/chapters/ch25_strong_cp_angle.tex"
+          - "TIR/monograph/chapters/ch26_neutron_edm.tex"
+
+  - id: V
+    title: "Extensions and Tests"
+    chapters:
+      - id: 18
+        slug: cosmological_extension
+        title: "Cosmological Extension"
+        sources:
+          - "TIR/monograph/chapters/ch29_dark_energy.tex"
+      - id: 19
+        slug: unified_evidence_matrix
+        title: "Unified Evidence Matrix"
+        sources:
+          - "TIR/monograph/chapters/ch30_parameter_summary.tex"
+          - "TIR/monograph/chapters/ch32_pdg2026_validation_addendum.tex"
+      - id: 20
+        slug: prospective_predictions_falsification
+        title: "Prospective Predictions and Falsification"
+        sources:
+          - "TIR/monograph/chapters/ch31_open_problems.tex"
+          - "TIR/monograph/appendices/appM_prospective_observable_identifiability.tex"
+          - "TIR/monograph/appendices/appN_separable_candidate_family.tex"
+          - "TIR/monograph/appendices/appO_publication_protocol.tex"
+      - id: 21
+        slug: open_theorems_completion_frontier
+        title: "Open Theorems and Completion Frontier"
+        sources:
+          - "TIR/TIR_COMPLETION_FRONTIER_V0_4.md"
+          - "TIR/CURRENT_STATUS.md"
+          - "TIR/monograph/chapters/ch31_open_problems.tex"
+          - "TIR/monograph/appendices/appP_secret_half_cross_relation.tex"
+          - "TIR/monograph/appendices/appP_information_spinor_crosswalk.tex"
+
+appendix_groups:
+  - title: "Formal proofs and long algebra"
+    sources:
+      - "TIR/monograph/appendices/appB_collatz_tables.tex"
+      - "TIR/monograph/appendices/appC_su3_primer.tex"
+      - "TIR/monograph/appendices/appD_poincare_disk.tex"
+      - "TIR/monograph/appendices/appE_tetrahedron_algebra.tex"
+  - title: "Numerical tables and calculations"
+    sources:
+      - "TIR/monograph/appendices/appF_baryon_calculations.tex"
+      - "TIR/monograph/appendices/appG_meson_calculations.tex"
+      - "TIR/monograph/appendices/appH_pdg_tables.tex"
+  - title: "Reproducibility and publication protocol"
+    sources:
+      - "TIR/monograph/appendices/appI_source_code.tex"
+      - "TIR/monograph/appendices/appO_publication_protocol.tex"
+  - title: "Cross-framework interfaces"
+    sources:
+      - "TIR/monograph/appendices/appP_secret_half_cross_relation.tex"
+      - "TIR/monograph/appendices/appP_information_spinor_crosswalk.tex"
