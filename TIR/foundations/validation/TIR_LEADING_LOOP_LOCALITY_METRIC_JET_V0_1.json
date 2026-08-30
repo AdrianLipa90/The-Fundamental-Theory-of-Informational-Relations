@@ -1,0 +1,24 @@
+{
+  "schema": "TIR_LEADING_LOOP_LOCALITY_METRIC_JET_VALIDATION_V0_1",
+  "technical_status": "PASS_LOCAL_REFERENCE",
+  "verdict_target": "PASS_TIR_LEADING_LOOP_LOCALITY_METRIC_JET_SELECTION",
+  "reference_model": {
+    "rotation_angle": "theta(epsilon)=0.73 epsilon^2 - 0.41 epsilon^3",
+    "area": "epsilon^2",
+    "expected_raw_holonomy_order": 2,
+    "expected_area_normalized_higher_jet_order": 1
+  },
+  "local_reference_measurements": {
+    "raw_holonomy_loglog_slope": 2.000002,
+    "area_normalized_leading_remainder_loglog_slope": 1.001991,
+    "area_normalized_first_higher_jet_loglog_slope": 1.0
+  },
+  "selection_ledger": {
+    "leading_refinement_rule": "TIR_STRUCTURAL_SELECTION_RULE",
+    "selected_primitive_rotational_carrier": "Omega",
+    "levi_civita_metric_jet_bound": 2,
+    "higher_curvature_jets": "RETAINED_EXTENDED_SECTOR",
+    "global_smooth_refinement": "OPEN"
+  },
+  "hosted_validation": "PENDING_EXACT_HEAD_WORKFLOW"
+}

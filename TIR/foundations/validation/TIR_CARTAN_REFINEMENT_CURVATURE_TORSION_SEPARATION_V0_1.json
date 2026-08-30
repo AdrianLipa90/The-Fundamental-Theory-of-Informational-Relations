@@ -1,0 +1,25 @@
+{
+  "schema": "TIR_CARTAN_REFINEMENT_CURVATURE_TORSION_SEPARATION_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_TIR_CARTAN_REFINEMENT_CURVATURE_TORSION_SEPARATION",
+  "exact_identity": "t_C = vec(T_triangle) + (I - R_C) e_xz",
+  "small_loop_scaling": {
+    "edge": "O(epsilon)",
+    "rotation_defect": "O(epsilon^2)",
+    "curvature_correction_to_translation": "O(epsilon^3)",
+    "discrete_torsion": "O(epsilon^2)",
+    "area_normalized_translation_limit": "same as discrete torsion limit"
+  },
+  "zero_torsion_selection": "DOWNSTREAM_GATE",
+  "checks": [
+    {"name": "general_loop_translation_decomposition", "pass": true, "max_error": 3.885780586188048e-16},
+    {"name": "gate_a_rotational_closure_roundtrip", "pass": true, "max_error": 2.220446049250313e-16},
+    {"name": "discrete_torsion_area_coefficient_frozen", "pass": true, "max_error": 2.7755575615628914e-16},
+    {"name": "curvature_correction_exact_on_refining_family", "pass": true, "max_error": 6.986327748953469e-18},
+    {"name": "curvature_contamination_is_third_order", "pass": true, "observed_loglog_slope": 2.9549696910285514},
+    {"name": "rotational_holonomy_is_second_order", "pass": true, "observed_loglog_slope": 1.9999902810748706},
+    {"name": "translation_area_limit_matches_cartan_torsion_coefficient", "pass": true, "coarse_error": 0.03127453559729232, "fine_error": 0.0017646009931646667, "fine_to_coarse_ratio": 0.05642293193052056},
+    {"name": "zero_torsion_does_not_force_zero_curvature", "pass": true, "torsion_norm": 0.0, "rotation_defect": 0.0006187184286037884, "finite_loop_translation_from_curvature_order3": 3.0412635289788125e-06},
+    {"name": "pure_atlas_exact_zero_baseline", "pass": true, "max_error": 4.440892098500626e-16}
+  ]
+}
