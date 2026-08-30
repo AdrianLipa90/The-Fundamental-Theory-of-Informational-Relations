@@ -1,6 +1,7 @@
-version: "12.0-structural-skeleton"
+version: "12.0-content-migration"
 baseline_commit: "3f5a08ef04ec53c1a155263d23e8b10a96404370"
 branch: "feat/tir-monograph-v12-structural-skeleton"
+migration_state: "all-21-main-chapters-substantive; validation-active"
 policy:
   equation_rewrite: false
   preserve_v11_sources: true
