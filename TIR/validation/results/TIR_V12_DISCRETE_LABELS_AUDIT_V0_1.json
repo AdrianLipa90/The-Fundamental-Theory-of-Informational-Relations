@@ -1,0 +1,48 @@
+{
+  "L3": 7,
+  "arithmetic_survivor_count": 2,
+  "arithmetic_survivors": [
+    {
+      "b": 13,
+      "c": 11,
+      "d": 5,
+      "s": 7,
+      "t": 17,
+      "u": 3
+    },
+    {
+      "b": 17,
+      "c": 11,
+      "d": 5,
+      "s": 7,
+      "t": 13,
+      "u": 3
+    }
+  ],
+  "checks": {
+    "L3_depth_is_7": true,
+    "arithmetic_constraints_leave_two": true,
+    "candidate_space_is_6_factorial": true,
+    "finite_orbit_3_exact": true,
+    "heavy_pair_swap_is_only_residual": true,
+    "typed_order_rule_is_unique": true
+  },
+  "collatz_orbit_3": [3, 10, 5, 16, 8, 4, 2, 1],
+  "global_collatz_conjecture_used": false,
+  "permutations_checked": 720,
+  "prime_candidate_set": [3, 5, 7, 11, 13, 17],
+  "quark_prime_uniqueness_status": "UNIQUE_ONLY_AFTER_EXPLICIT_TYPED_ORDER_RULE",
+  "schema": "TIR_V12_DISCRETE_LABELS_AUDIT_V0_1",
+  "status": "PASS",
+  "typed_order_survivor_count": 1,
+  "typed_order_survivors": [
+    {
+      "b": 13,
+      "c": 11,
+      "d": 5,
+      "s": 7,
+      "t": 17,
+      "u": 3
+    }
+  ]
+}
