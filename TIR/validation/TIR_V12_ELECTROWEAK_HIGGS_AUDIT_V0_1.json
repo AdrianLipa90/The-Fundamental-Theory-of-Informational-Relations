@@ -1,0 +1,30 @@
+{
+  "schema": "TIR_V12_ELECTROWEAK_HIGGS_AUDIT_V0_1",
+  "status": "PASS_WITH_EW_CLOSURE_GATE",
+  "structural_values": {
+    "kappa": 0.009193150006360484,
+    "v0_GeV": 244.888992,
+    "sin2_thetaW0": 0.2314153722285827,
+    "g0": 0.6857142857142857,
+    "MW0_GeV": 83.96194011428571,
+    "MZ0_GeV": 95.77157250158572,
+    "alpha_inverse_TIR": 137.03677260002544,
+    "MH_retrospective_GeV": 126.07286934829511
+  },
+  "tree_level_charge_closure": {
+    "e_from_g0_thetaW0": 0.32986732571508093,
+    "alpha_inverse_implied_by_g0_thetaW0": 115.48651204019822,
+    "e_from_TIR_alpha": 0.3028212662175987,
+    "g_required_by_TIR_alpha_and_thetaW0": 0.6294920778023664,
+    "closure_status": "OPEN_INCONSISTENT_RAW_STRUCTURAL_TRIPLE",
+    "required_map": "R_EW(mu,scheme) binding g, thetaW, alpha, v to one declared observable scheme"
+  },
+  "verdicts": {
+    "v0": "OPEN",
+    "sin2_thetaW0": "TENSION",
+    "alpha_inverse_zero_momentum_interpretation": "FAIL",
+    "MW0": "FAIL",
+    "MZ0": "FAIL",
+    "MH_retrospective": "FAIL"
+  }
+}
