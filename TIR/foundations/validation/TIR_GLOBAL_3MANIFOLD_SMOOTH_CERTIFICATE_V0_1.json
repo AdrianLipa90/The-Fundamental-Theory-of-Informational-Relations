@@ -1,0 +1,27 @@
+{
+  "schema": "TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_VALIDATION_V0_1",
+  "technical_status": "PASS_LOCAL_REFERENCE",
+  "verdict_target": "PASS_TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFIER",
+  "certificate_scope": "finite closed tetrahedral complexes",
+  "positive_control": {
+    "complex": "boundary_of_4_simplex",
+    "tetrahedra": 5,
+    "vertices": 5,
+    "expected_topology": "S3",
+    "vertex_links": "5 x S2"
+  },
+  "negative_controls": {
+    "open_face": "REJECT",
+    "duplicate_tetrahedron": "REJECT",
+    "disconnected_two_component_complex": "REJECT"
+  },
+  "theorem_bridge": {
+    "combinatorial_3manifold_to_PL": "STANDARD_PL_TOPOLOGY",
+    "PL_3manifold_to_smooth": "STANDARD_MOISE_BRIDGE",
+    "SO3_coframe_overlap_to_global_metric": "EXACT",
+    "global_metric_to_unique_Levi_Civita": "STANDARD_EXACT"
+  },
+  "actual_tir_global_relational_complex": "OPEN_INPUT",
+  "global_idt_temporal_foliation": "CROSS_REPOSITORY_GATE",
+  "hosted_validation": "PENDING_EXACT_HEAD_WORKFLOW"
+}
