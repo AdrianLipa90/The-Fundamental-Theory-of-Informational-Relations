@@ -1,29 +1,26 @@
-# Falsifiability and Decision Criteria — v11.1 review
+# Falsifiability and Decision Criteria — v12 synchronization
 
-A TIR result is falsifiable only when the formula, observable, comparison
-convention and decision rule are fixed before the relevant evidence is used for
-model selection or repair.  This file therefore separates **current retained
-failures**, **prospectively frozen tests**, and **open hypotheses that do not yet
-have a valid falsification gate**.
+A TIR falsification gate is defined by a frozen formula, an operational observable, a comparison convention, a decision rule, and an explicit no-refit policy. Version 12 records result state with the independent triple
 
-## 1. Current retained physical failures and tensions
+`(Claim Class, Timing, Verdict)`
 
-The current publication snapshot deliberately keeps these results visible.
+from `TIR/monograph/v12/STATUS_TAXONOMY.md`.
 
-| Observable | Active TIR value / relation | Comparison used by publication | Status |
+## 1. Current retained failures and tensions
+
+| Observable | Active TIR value / relation | Comparison used by publication | v12 verdict |
 |---|---:|---:|---|
-| neutron EDM | \(d_n=5.3299\times10^{-26}\,e\,\mathrm{cm}\) | \(|d_n|<1.8\times10^{-26}\,e\,\mathrm{cm}\) (90% CL manuscript bound) | **PHYSICAL FAIL** — factor \(\approx2.96\) high |
-| \(M_W\) relation | several-percent residual in active publication formula | reference mass used by frozen v11 table | **TENSION** |
-| \(M_Z\) relation | several-percent residual in active publication formula | reference mass used by frozen v11 table | **TENSION** |
-| isolated Collatz quarter-power mass trace | geometric-mean multiplicative error \(\approx9.967\) | frozen v10.1 comparison | **NOT A CLOSED DERIVATION** |
+| neutron EDM | \(d_n=5.3299\times10^{-26}\,e\,\mathrm{cm}\) | \(|d_n|<1.8\times10^{-26}\,e\,\mathrm{cm}\) manuscript bound | **FAIL** — factor \(\approx2.96\) high |
+| \(M_W\) relation | \(83.96\,\mathrm{GeV}\) in frozen 2026 matrix | \(80.3625\pm0.0077\,\mathrm{GeV}\) | **FAIL** at precision level |
+| \(M_Z\) relation | \(95.77\,\mathrm{GeV}\) in frozen 2026 matrix | \(91.1879\pm0.0020\,\mathrm{GeV}\) | **FAIL** at precision level |
+| PMNS \(\sin^2\theta_{13}=1/49\) | \(0.02041\) | selected 2026 global fits \(\sim0.02195\)--\(0.02230\) | **TENSION** |
+| isolated Collatz quarter-power mass trace | frozen v10.1 trace | geometric-mean multiplicative error \(\approx9.967\) | **OPEN diagnostic** |
 
-A technically correct computation can therefore be a physical FAIL.  No hidden
-suppression factor, exponent change or candidate substitution is inserted after
-the result to erase a failed gate.
+Technical reproducibility and physical verdict are independent axes. A technically exact calculation can therefore carry an empirical `FAIL` verdict.
 
 ## 2. Strong-CP / neutron-EDM gate
 
-The active reviewed assignment is
+The frozen reviewed assignment is
 
 \[
 \theta_{\rm QCD}
@@ -32,7 +29,6 @@ The active reviewed assignment is
 \]
 
 With the fixed hadronic conversion coefficient used by the publication snapshot,
-this maps to
 
 \[
 \boxed{
@@ -46,113 +42,118 @@ Against the manuscript bound
 1.8\times10^{-26}\,e\,\mathrm{cm},
 \]
 
-the frozen mapping fails.  The correct current statement is therefore:
+the frozen physical gate has verdict `FAIL`. A revised exponent, conversion, cancellation mechanism, or source map constitutes a new version and receives a new evidence record.
 
-- arithmetic / implementation may PASS;
-- the frozen physical constraint **FAILS**;
-- no unimplemented cancellation or suppression mechanism is counted as a rescue;
-- changing the exponent or conversion after observing the bound would create a
-  new hypothesis and must not retroactively convert the frozen result to PASS.
+## 3. Canonical κ provenance and phase-rate gate
 
-## 3. κ phase-rate: formal falsifiability versus physical testability
-
-The reviewed identity
+The current structural parent chain is
 
 \[
+\frac12
+\longrightarrow
+\ln2,
+\qquad
+V_F\cong\mathbb C^3,
+\qquad
+\dim\mathfrak{su}(3)_F=8,
+\]
+
+\[
+N_{\rm mix}=3\times8=24,
+\qquad
+\Delta\phi_{1/2}=\pi,
+\qquad
+\Phi_{\rm mix}=24\pi,
+\]
+
+and therefore
+
+\[
+\boxed{
+\kappa=\frac{\ln2}{24\pi}
+}.
+\]
+
+Canonical theorem surface:
+
+`TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`
+
+Canonical validator:
+
+`TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py`
+
+The normalization is classified as a **TIR-internal derived structural normalization** with explicit flavour-mixing and half-turn parents.
+
+With
+
+\[
+\omega=2\pi f,
+\qquad
+d\mathcal I=\kappa\,d\phi,
+\]
+
+the downstream identity is
+
+\[
+\boxed{
 \Gamma_{\mathcal I}
 =\kappa\omega
 =\frac{\ln2}{12}f
+}.
 \]
-
-is an exact algebraic consequence of the TIR definitions, so it is not itself an
-empirical prediction until \(\Gamma_{\mathcal I}\) is tied to an operationally
-measurable quantity.
 
 Current classification:
 
-| Component | Status |
+| Component | v12 status |
 |---|---|
-| \(\kappa=\ln2/(24\pi)\) | TIR model postulate / structural definition |
-| \(\omega=2\pi f\) | standard definition |
-| \(d\mathcal I=\kappa d\phi\) | TIR definition |
+| \(\kappa=\ln2/(24\pi)\) | Class B / `--` / structural validator `PASS` |
+| \(\omega=2\pi f\) | Class A / standard definition |
+| \(d\mathcal I=\kappa d\phi\) | Class B / TIR information-phase relation |
 | \(\Gamma_{\mathcal I}=(\ln2/12)f\) | exact conditional identity |
-| physical surface-refresh observable | **OPEN — no empirical gate yet** |
+| operational surface-refresh observable | Class B / `--` / `OPEN` |
 
-To make the physical interpretation falsifiable, a future protocol must freeze:
-
-1. the instrument-level observable corresponding to \(\Gamma_{\mathcal I}\);
-2. the independent measurement of \(f\);
-3. units and calibration;
-4. uncertainty propagation;
-5. the acceptance/rejection rule;
-6. the no-refit policy.
-
-Until then, the algebra can be validated technically but the physical
-interpretation cannot receive an empirical PASS.
+Empirical promotion of the final row requires a frozen instrument-level observable, independent frequency measurement, units/calibration, uncertainty propagation, acceptance rule, and no-refit protocol.
 
 ## 4. TIR ↔ Secret-of-a-Half boundary
 
-The cross-review contains an exact negative result relevant to falsification
-logic.  In the declared DHSE-001 Stage-M finite universe,
-
-\[
-N_n(q)=N_n(1/q)
-\]
-
-does **not** force \(q=1\) to maximize \(N_n\).  Word lengths 1 and 4 are exact
-counterexamples.
-
-Therefore a TIR claim of dynamical preference at a self-dual point must freeze
-and test the **additional mechanism** that creates extremality.  Reciprocal
-symmetry alone is insufficient.
+The DHSE-001 Stage-M finite counterexample fixes a useful theorem boundary:
+reciprocal self-duality by itself supplies set symmetry, while dynamical extremality requires an additional positive/variational mechanism. TIR promotion of a self-dual extremum therefore names that additional parent explicitly.
 
 ## 5. Prospectively frozen component
 
-The v10.7 separable candidate family remains the principal explicitly
-prospective TIR component.  It has:
+The v10.7 separable candidate family remains a prospectively frozen TIR component. Its evidence contract contains:
 
 - a finite frozen candidate set;
 - two orthogonal target observables;
 - a post-freeze data gate;
 - a no-refit/no-substitution rule.
 
-Those candidates must be evaluated using their preregistered likelihood and
-comparison conventions.  A candidate that fails may be rejected, but a new
-formula introduced after viewing the target data is a new experiment, not a
-repair of the old prediction.
+A failed candidate remains in the evidence history; a newly introduced formula receives a new experiment/version identity.
 
-## 6. Statements that are not currently valid frozen predictions
+## 6. Framework-level falsification conditions
 
-Older documents used broad statements such as:
+A submodel is revised or rejected when a frozen gate establishes one of the following:
 
-- exact future values for dark-energy equation of state;
-- absolute exclusion of a fourth neutrino/sterile state;
-- infinite proton lifetime;
-- postulated future gauge-boson values after an unspecified coupling repair;
-- a hypothetical neutron-EDM value after an unspecified suppression factor.
-
-Unless a live review document supplies a frozen derivation, observable,
-uncertainty model and decision rule, these are **not counted as active
-prospective TIR predictions** in the v11.1 review state.
-
-## 7. Framework-level failure modes
-
-The programme should lose support, require revision, or reject a submodel when
-one of the following occurs under a properly frozen test:
-
-1. a claimed exact derivation contains a mathematical error or hidden assumption;
-2. an implementation receipt fails to reproduce its declared exact/formal result;
+1. a claimed exact derivation contains a mathematical error or an untyped assumption;
+2. an implementation receipt fails to reproduce its declared formal result;
 3. a prospective physical observable violates its frozen acceptance rule;
-4. a claimed independent prediction is shown to depend on an undisclosed target
-   value or external anchor;
-5. a proposed universal relation fails in a new sector under the same frozen
-   operator and conventions;
-6. a supposedly unique structural choice is shown to belong to a large equally
-   successful alternative family without a selection theorem;
-7. a self-duality-based extremality claim lacks the additional condition required
-   by the exact DHSE counterexample;
-8. a simpler model with equal or better prospective likelihood and lower effective
-   complexity dominates under an agreed comparison protocol.
+4. an independence claim is contradicted by target-value or external-anchor provenance;
+5. a universal relation fails in a new sector under the same frozen operator and conventions;
+6. a claimed unique structural choice has multiple surviving alternatives and lacks a selection theorem;
+7. a self-duality extremality claim lacks the additional mechanism required by the finite counterexample;
+8. an agreed comparison protocol selects a simpler model with superior prospective likelihood and lower effective complexity.
+
+## 7. v12 evidence owner
+
+Current observable verdicts are owned by
+
+`TIR/monograph/v12/chapters/ch19_unified_evidence_matrix.tex`
+
+with machine-checkable consistency in
+
+`TIR/validation/tir_v12_evidence_matrix_consistency_v0_1.py`.
+
+Historical sector tables remain provenance snapshots.
 
 ## 8. Invariant
 
@@ -166,9 +167,6 @@ one of the following occurs under a properly frozen test:
 +
 \text{decision rule}
 +
-\text{no post-hoc repair}
+\text{versioned no-refit policy}
 }
 \]
-
-A failed prediction is retained as evidence about the model rather than removed
-from the record.

@@ -1,0 +1,204 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Euclidean Geometry and the Spatial Dimension Gate}
+\label{ch:v12_euclidean_dimension}
+
+\section{Canonical affine relation carrier}
+
+The normalized two-level state carrier has affine hull
+\[
+\mathcal A_2
+=
+\{\rho=\rho^\dagger:\operatorname{Tr}\rho=1\}
+=
+\frac12I+\operatorname{Herm}_0(2).
+\]
+Write
+\[
+V:=\operatorname{Herm}_0(2)
+=
+\operatorname{span}_{\mathbb R}\{\sigma_x,\sigma_y,\sigma_z\}.
+\]
+Since \(\dim_{\mathbb R}\operatorname{Herm}(2)=4\) and the trace-one condition removes one
+real affine degree of freedom,
+\[
+\boxed{\dim_{\mathbb R}V=3.}
+\]
+
+For an ordered pair of admitted point states \((\rho_x,\rho_y)\), the affine torsor
+has a unique endpoint-carrying displacement
+\[
+\boxed{\mathfrak e_{xy}:=\rho_y-\rho_x\in V},
+\qquad
+\rho_x+\mathfrak e_{xy}=\rho_y.
+\]
+The generator-normalized relation used below is
+\[
+\boxed{\mathcal E_{xy}:=2\mathfrak e_{xy}.}
+\]
+It satisfies the exact endpoint identities
+\[
+\mathcal E_{yx}=-\mathcal E_{xy},
+\qquad
+\boxed{\mathcal E_{xz}=\mathcal E_{xy}+\mathcal E_{yz}},
+\]
+and therefore
+\[
+\mathcal E_{xy}+\mathcal E_{yz}+\mathcal E_{zx}=0.
+\]
+This endpoint-carrying universal property is the canonical local relation exported
+by the v12 spatial branch.
+
+\section{Invariant Euclidean metric}
+
+On \(V\), define
+\[
+\boxed{
+\langle A,B\rangle
+=
+\frac12\operatorname{Tr}(AB).
+}
+\]
+The Pauli basis obeys
+\[
+\frac12\operatorname{Tr}(\sigma_i\sigma_j)=\delta_{ij}.
+\]
+Hence, for
+\[
+A=\mathbf a\cdot\boldsymbol\sigma,
+\qquad
+B=\mathbf b\cdot\boldsymbol\sigma,
+\]
+one has
+\[
+\boxed{
+\langle A,B\rangle=\mathbf a\cdot\mathbf b,
+\qquad
+\|A\|^2=\frac12\operatorname{Tr}(A^2)=|\mathbf a|^2.
+}
+\]
+The positive quadratic form is therefore Euclidean in Pauli coefficients.
+
+The Pythagorean relation follows immediately. If
+\[
+\langle A,B\rangle=0,
+\]
+then
+\[
+\begin{aligned}
+\|A+B\|^2
+&=\langle A+B,A+B\rangle\\
+&=\|A\|^2+2\langle A,B\rangle+\|B\|^2,
+\end{aligned}
+\]
+so
+\[
+\boxed{\|A+B\|^2=\|A\|^2+\|B\|^2.}
+\]
+Thus the local affine relation carrier already contains the Euclidean norm,
+orthogonality and Pythagorean closure used by the later spatial construction.
+
+\section{Rotational covariance}
+
+For \(U\in SU(2)\),
+\[
+A\mapsto UAU^\dagger
+\]
+preserves trace and the Hilbert--Schmidt metric.  The induced action on coefficient
+vectors is
+\[
+\boxed{
+\operatorname{Ad}:SU(2)\longrightarrow SO(3),
+\qquad
+SU(2)/\{\pm I\}\cong SO(3).
+}
+\]
+The unit relation directions therefore form
+\[
+\boxed{
+\{A\in V:\|A\|=1\}\cong S^2.
+}
+\]
+
+\section{Rank-three stabilization}
+
+At a relational locus \(x\), define the outgoing relation span
+\[
+W_x
+:=
+\operatorname{span}_{\mathbb R}
+\{\mathcal E_{xy}:y\sim x\}
+\subseteq V.
+\]
+Assume a populated primitive patch,
+\[
+W_x\neq\{0\},
+\]
+and full local relational isotropy,
+\[
+R(W_x)=W_x
+\qquad
+\text{for every }R\in SO(3)
+\]
+from the adjoint action above.
+
+The defining real representation of \(SO(3)\) on \(\mathbb R^3\) is irreducible.
+Its invariant linear subspaces are therefore \(\{0\}\) and the full carrier.
+Consequently
+\[
+\boxed{
+W_x\neq0,\quad SO(3)W_x=W_x
+\Longrightarrow
+W_x=V
+\Longrightarrow
+\dim W_x=3.
+}
+\]
+Rank one selects an axis and rank two selects a plane; the full primitive isotropy
+stabilizes the three-dimensional carrier.
+
+\section{Minimal faithful realization crosscheck}
+
+The same dimension is independently fixed by the minimal faithful real orthogonal
+realization of the primitive rotation group. A continuous \(SO(3)\) action on a
+one-dimensional real orthogonal carrier has trivial connected image.  A
+two-dimensional orthogonal image lies in \(SO(2)\), while \(SO(3)\) is non-Abelian
+and perfect.  The defining three-dimensional representation is faithful.
+
+Therefore the minimal faithful real orthogonal carrier has
+\[
+\boxed{\dim_{\mathbb R}V_x=3}
+\]
+and is unique up to orthogonal equivalence.  Its invariant positive metric is
+unique up to an overall positive scale.  The canonical dimensionless
+normalization used here is exactly
+\[
+h(A,B)=\frac12\operatorname{Tr}(AB).
+\]
+
+\section{Continuum interface}
+
+The discrete spatial branch is now source-bound by
+\[
+\boxed{
+(\rho_x,\rho_y)
+\longmapsto
+\mathcal E_{xy}=2(\rho_y-\rho_x)
+\in\operatorname{Herm}_0(2)\cong\mathbb R^3.
+}
+\]
+The remaining geometric completion gate is the regular gluing/refinement step
+that turns neighboring local copies of \(V\) into a smooth coframe/tangent-bundle
+carrier.  Chapter~\ref{ch:v12_connections_holonomy} supplies the discrete
+connection, solder and torsion objects required for that refinement.
+
+\section{Source and validation receipt}
+
+The canonical theorem surfaces are
+\begin{itemize}
+\item \path{TIR/subrepos/the-space-of-geometry/foundations/CANONICAL_SPATIAL_RELATION_EXTRACTION_V0_1.md};
+\item \path{TIR/foundations/TIR_RANK3_ISOTROPY_STABILIZATION_V0_1.md};
+\item \path{TIR/subrepos/the-space-of-geometry/foundations/SPATIAL_PROMOTION_UNIQUENESS_V0_1.md}.
+\end{itemize}
+
+The deterministic v12 receipt is generated by
+\path{TIR/validation/tir_v12_ch05_euclidean_spatial_gate_v0_1.py}.

@@ -1,0 +1,113 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Unified Evidence Matrix}
+\label{ch:v12_evidence_matrix}
+
+\section{Evidence ownership}
+
+Version 12 assigns one publication owner to the current result status of each observable: this chapter. Sector chapters own their equations, derivations and source provenance; historical comparison tables remain versioned evidence snapshots. Current status is normalized here as
+\[
+\boxed{(\text{Claim Class},\ \text{Timing},\ \text{Verdict})}
+\]
+using the taxonomy in \path{TIR/monograph/v12/STATUS_TAXONOMY.md}.
+
+The principal frozen external-validation source for particle-sector rows is
+\path{TIR/validation/pdg2026/TIR_PDG2026_VALIDATION_MATRIX_V2.md}, frozen 15 August 2026. The retained strong-CP/neutron-EDM failure is sourced from \path{TIR/FALSIFIABILITY.md}. Formula-level diagnostics discovered during the v12 migration are sourced from their dedicated validation receipts.
+
+\section{Current matrix}
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{p{0.17\textwidth}p{0.10\textwidth}p{0.19\textwidth}p{0.18\textwidth}p{0.25\textwidth}}
+\toprule
+Observable / sector & Claim Class & Timing & Verdict & Current evidence note \\
+\midrule
+\endfirsthead
+\toprule
+Observable / sector & Claim Class & Timing & Verdict & Current evidence note \\
+\midrule
+\endhead
+CKM nine magnitudes & C & RETROSPECTIVE & COMPATIBLE & PDG-2026 V2: all nine displayed magnitudes within the cited compatibility range; largest listed pull about $1.71\sigma$. \\
+$\delta_{\rm CKM}$ & C & RETROSPECTIVE & COMPATIBLE & PDG-2026 V2 strong compatibility; the historical magnitude-product $J$ check is retained separately as a diagnostic proxy. \\
+$J_{\rm CP}$ structural formula & C & RETROSPECTIVE & COMPATIBLE & PDG-2026 V2 strong compatibility. \\
+\midrule
+$\sin^2\theta_{12}$ & C & RETROSPECTIVE & COMPATIBLE & Solar-angle comparison remains compatible in the frozen 2026 matrix. \\
+$\Delta m^2_{21}$ & C & RETROSPECTIVE & COMPATIBLE & Solar mass splitting remains compatible in the frozen 2026 matrix. \\
+$\sin^2\theta_{23}$ & C & RETROSPECTIVE & OPEN & Octant-sensitive comparison; frozen matrix records ambiguous compatibility. \\
+$\sin^2\theta_{13}=1/49$ & C & RETROSPECTIVE & TENSION & Frozen 2026 comparison gives approximately $-3.98$ to $-2.66\sigma$. \\
+$\delta_{\rm CP}^{\rm PMNS}$ & C & RETROSPECTIVE & OPEN & Frozen 2026 matrix records the comparison as inconclusive. \\
+Absolute neutrino masses & C & RETROSPECTIVE & OPEN & Model output; oscillation data in the frozen matrix do not independently determine the displayed absolute spectrum. \\
+Neutrino absolute-action equation & D & RETROSPECTIVE & QUARANTINED & v12 HOUND audit found a printed formula/value mismatch in legacy Ch.~17; the diagnostic reconstruction is retained in the dedicated v12 receipt. \\
+\midrule
+Electron mass relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+Muon mass relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+Tau mass relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+\midrule
+Baryon octet pattern & C & RETROSPECTIVE & QUARANTINED & PDG-2026 V2 records retrospective refinement against target masses; independent-evidence promotion is blocked pending provenance closure. \\
+Baryon decuplet pattern & C & RETROSPECTIVE & COMPATIBLE & Candidate compatibility with explicit proton-linked anchor provenance. \\
+Pion printed exponential & D & RETROSPECTIVE & FAIL & PDG-2026 V2 records an internal arithmetic/formula failure. \\
+Kaon printed exponential & D & RETROSPECTIVE & FAIL & PDG-2026 V2 records an internal arithmetic/formula failure. \\
+$\eta,\eta'$ mapping & C & RETROSPECTIVE & QUARANTINED & Provenance/derivation closure pending. \\
+Heavy/vector meson table & C & RETROSPECTIVE & QUARANTINED & Frozen audit classifies the near-equality table as reproduction rather than independent validation. \\
+\midrule
+Electroweak scale $v$ & B & RETROSPECTIVE & OPEN & Close relative comparison uses a derived reference; structural transport to a precision observable remains open. \\
+$\sin^2\theta_W$ & B & RETROSPECTIVE & TENSION & Renormalization scheme and scale are required for a precision comparison. \\
+$\alpha^{-1}(0)$ relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+$M_W$ relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+$M_Z$ relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+$M_H$ relation & C & RETROSPECTIVE & FAIL & Frozen 2026 audit gives a precision-level failure/tension. \\
+Quark mass map & B & -- & OPEN & Prime labels exist; a scheme- and scale-defined mass map remains a completion gate. \\
+\midrule
+Strong-CP $\theta_{\rm QCD}$ assignment & C & RETROSPECTIVE & OPEN & The frozen v11 assignment is retained as the parent of the neutron-EDM gate. \\
+Strong-CP $\to$ neutron EDM & D & RETROSPECTIVE & FAIL & $d_n\simeq5.3299\times10^{-26}\,e\,\mathrm{cm}$ against the manuscript bound $1.8\times10^{-26}\,e\,\mathrm{cm}$; retained physical failure. \\
+Hypercharge source map & B & -- & OPEN & The arithmetic reproduces the conventional one-generation assignments; derivation/uniqueness remains open because $Y_L$ is an external parent in the legacy source. \\
+Standard local anomaly sums + Witten count & A & -- & PASS & v12 Chapter~15 reproduces $\mathcal A_{33Y}=\mathcal A_{22Y}=\mathcal A_{YYY}=\mathcal A_{\mathrm{grav}\,Y}=0$ and the even doublet count $N_{\rm doublet}=4$. \\
+Legacy A5 baryon-current row & D & RETROSPECTIVE & QUARANTINED & The historical expression uses hypercharges; the corrected $SU(2)^2B$ coefficient is $1/2$ in the declared $T(\mathbf2)=1/2$ normalization. \\
+Cosmological density formula & D & RETROSPECTIVE & QUARANTINED & v12 HOUND arithmetic audit finds $(2/7)^{224}=1.345\ldots\times10^{-122}$, inconsistent with the legacy printed $10^{-119.5}$ intermediate value; Chapter~18 owns the repair audit. \\
+\bottomrule
+\end{longtable}}
+
+\section{Status normalization rules}
+
+The v12 map preserves source meaning while removing competing vocabularies:
+\begin{align*}
+\texttt{PASS\_COMPATIBILITY}
+&\longrightarrow \texttt{COMPATIBLE},\\
+\texttt{PASS\_STRONG\_COMPATIBILITY}
+&\longrightarrow \texttt{COMPATIBLE},\\
+\texttt{TENSION}
+&\longrightarrow \texttt{TENSION},\\
+\texttt{SCHEME\_UNDEFINED\_TENSION}
+&\longrightarrow \texttt{TENSION},\\
+\texttt{FAIL\_PRECISION}
+&\longrightarrow \texttt{FAIL},\\
+\texttt{FORMULA\_BROKEN}
+&\longrightarrow \texttt{FAIL},\\
+\texttt{FAIL\_PRECISION\_TENSION}
+&\longrightarrow \texttt{FAIL},\\
+\texttt{AMBIGUOUS\_COMPATIBILITY}
+&\longrightarrow \texttt{OPEN},\\
+\texttt{INCONCLUSIVE}
+&\longrightarrow \texttt{OPEN},\\
+\texttt{NOT\_TESTABLE\_CURRENTLY}
+&\longrightarrow \texttt{OPEN},\\
+\texttt{PROVENANCE\_CONTAMINATED}
+&\longrightarrow \texttt{QUARANTINED},\\
+\texttt{PROVENANCE\_INCOMPLETE}
+&\longrightarrow \texttt{QUARANTINED},\\
+\texttt{REPRODUCTION\_NOT\_VALIDATION}
+&\longrightarrow \texttt{QUARANTINED}.
+\end{align*}
+
+The Claim Class axis remains independent of the verdict. Thus an exact implementation can coexist with an empirical FAIL, and a retrospective numerical match can be COMPATIBLE while remaining Class C.
+
+\section{Single-owner invariant}
+
+For v12 publication purposes:
+\[
+\boxed{
+\text{sector chapter}\to\text{formula/provenance},
+\qquad
+\text{Chapter 19}\to\text{current evidence verdict}.
+}
+\]
+A changed external dataset, corrected formula or new validator updates this matrix and its machine-readable receipt first. Historical Ch.~30, Ch.~32 and earlier sector tables remain provenance snapshots.

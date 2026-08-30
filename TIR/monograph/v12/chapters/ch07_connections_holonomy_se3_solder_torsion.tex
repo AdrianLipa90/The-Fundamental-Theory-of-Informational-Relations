@@ -1,0 +1,343 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter[Connections, Holonomy, SE(3), Solder and Torsion]{Connections, $W_{ij}$, Holonomy, $SE(3)$, Solder and Torsion}
+\label{ch:v12_connections_holonomy}
+
+\section{Typed connection transport}
+
+Let \(G\) be the structure group of an active sector and \(A_R\) its connection
+in a representation \(R\).  The common transport object is
+\[
+\boxed{
+W_{ij}^{(G,R)}
+=
+\mathcal P\exp\!\left(\int_{\gamma_{ij}}A_R\right).
+}
+\]
+For unitary transport,
+\[
+\boxed{
+W_{ji}=W_{ij}^{-1}=W_{ij}^{\dagger},
+}
+\]
+and under local frame changes
+\[
+\boxed{
+W_{ij}\mapsto G_iW_{ij}G_j^{-1}.
+}
+\]
+
+The v12 typing is
+\[
+\boxed{
+W_{ij}^{WT}\in U(1),
+\qquad
+W_{ij}^{X}\in SU(2),
+\qquad
+W_{ij}^{c}\in SU(3).
+}
+\]
+For the spatial branch,
+\[
+\boxed{
+R_{ij}:=\operatorname{Ad}_{W_{ij}^{X}}\in SO(3).
+}
+\]
+A composable closed path carries
+\[
+\boxed{
+W_\gamma=W_{i_0i_1}W_{i_1i_2}\cdots W_{i_{m-1}i_0}.
+}
+\]
+Its conjugacy class is the gauge-covariant finite loop datum.
+
+\section{Atlas transitions and the holonomy firewall}
+
+Let a local affine chart \(a\) have anchor \(\mathbf r_a\) and orthonormal
+frame \(Q_a\in SO(3)\), with
+\[
+x_a=Q_a^T(\mathbf r-\mathbf r_a).
+\]
+For overlapping charts,
+\[
+\boxed{
+x_b
+=
+Q_b^TQ_a\,x_a
++
+Q_b^T(\mathbf r_a-\mathbf r_b).
+}
+\]
+Therefore
+\[
+\boxed{
+G_{ba}^{atlas}
+=
+(R_{ba},t_{ba})
+=
+\left(
+Q_b^TQ_a,\,
+Q_b^T(\mathbf r_a-\mathbf r_b)
+\right)
+\in SE(3).
+}
+\]
+For three charts,
+\[
+\boxed{
+G_{cb}^{atlas}G_{ba}^{atlas}=G_{ca}^{atlas},
+}
+\]
+and
+\[
+G_{ab}^{atlas}=(G_{ba}^{atlas})^{-1}.
+\]
+A closed sequence of pure atlas transitions therefore gives
+\[
+\boxed{G_C^{atlas}=e_{SE(3)}.}
+\]
+This exact cocycle is the zero-holonomy baseline.  Path-dependent connection
+transport is carried by the separately typed \(W_{ij}\) layer.
+
+\section{Discrete solder object}
+
+For every oriented spatial edge define
+\[
+\mathcal E_{xy}=E^a_{xy}\sigma_a
+\in\operatorname{Herm}_0(2),
+\qquad
+\ell_{xy}^2
+=
+\frac12\operatorname{Tr}(\mathcal E_{xy}^2).
+\]
+Under spatial frame transport,
+\[
+A_y^{(x)}
+=
+W_{xy}^{X}A_y(W_{xy}^{X})^\dagger.
+\]
+The reversed edge obeys the covariant orientation rule
+\[
+\boxed{
+\mathcal E_{yx}
+=
+-W_{yx}^{X}\mathcal E_{xy}(W_{yx}^{X})^\dagger.
+}
+\]
+
+For the triangle \(x\to y\to z\to x\), define the discrete solder/torsion
+object
+\[
+\boxed{
+\mathcal T_{xyz}
+=
+\mathcal E_{xy}
++
+W_{xy}^{X}\mathcal E_{yz}(W_{xy}^{X})^\dagger
++
+W_{xz}^{X}\mathcal E_{zx}(W_{xz}^{X})^\dagger.
+}
+\]
+
+\section{Endpoint defect and affine connection lift}
+
+Write
+\[
+\mathcal E_{xy}
+=
+\mathbf e_{xy}\cdot\boldsymbol\sigma,
+\qquad
+\mathbf e_{xy}=\operatorname{vec}(\mathcal E_{xy}).
+\]
+The transported endpoint defect is
+\[
+\boxed{
+\mathcal C_{xyz}
+=
+\mathcal E_{xz}
+-
+\left(
+\mathcal E_{xy}
++
+W_{xy}^{X}\mathcal E_{yz}(W_{xy}^{X})^\dagger
+\right).
+}
+\]
+In Pauli coefficients,
+\[
+\boxed{
+\mathbf c_{xyz}
+=
+\mathbf e_{xz}
+-
+(\mathbf e_{xy}+R_{xy}\mathbf e_{yz}).
+}
+\]
+
+The connection-lifted affine edge is
+\[
+\boxed{
+G_{xy}^{\nabla}
+=
+(R_{xy},\mathbf e_{xy})
+\in SE(3).
+}
+\]
+Semidirect composition gives
+\[
+G_{xy}^{\nabla}G_{yz}^{\nabla}
+=
+\left(
+R_{xy}R_{yz},
+\mathbf e_{xy}+R_{xy}\mathbf e_{yz}
+\right).
+\]
+On the rotationally consistent triangle sector
+\[
+\boxed{R_{xz}=R_{xy}R_{yz}},
+\]
+the direct/composed translational defect is exactly
+\[
+\boxed{\Delta\mathbf t_{xyz}=\mathbf c_{xyz}.}
+\]
+
+\section{Universal-loop torsion identity}
+
+Use the inverse direct edge
+\[
+G_{zx}^{\nabla}
+=
+(G_{xz}^{\nabla})^{-1}
+=
+\left(
+R_{xz}^{-1},
+-R_{xz}^{-1}\mathbf e_{xz}
+\right)
+\]
+and form
+\[
+G_C
+=
+G_{xy}^{\nabla}G_{yz}^{\nabla}G_{zx}^{\nabla}
+=
+(R_C,\mathbf t_C).
+\]
+Rotational consistency gives
+\[
+\boxed{R_C=I},
+\]
+while the translation is
+\[
+\boxed{
+\mathbf t_C
+=
+\mathbf e_{xy}
++
+R_{xy}\mathbf e_{yz}
+-
+\mathbf e_{xz}
+=
+-\mathbf c_{xyz}.
+}
+\]
+
+The reversed-edge rule in the discrete solder object gives
+\[
+\boxed{
+\mathcal T_{xyz}=-\mathcal C_{xyz}.
+}
+\]
+Therefore
+\[
+\boxed{
+\mathbf t_C
+=
+\operatorname{vec}(\mathcal T_{xyz}),
+}
+\]
+and the scalar loop witness is
+\[
+\boxed{
+\tau_C
+:=
+\|\mathbf t_C\|
+=
+\sqrt{\frac12\operatorname{Tr}(\mathcal T_{xyz}^2)}
+=
+\|\mathbf c_{xyz}\|.
+}
+\]
+
+Under independent local frame changes \(Q_x,Q_y,Q_z\in SO(3)\),
+\[
+\mathbf c_{xyz}\mapsto Q_x\mathbf c_{xyz},
+\qquad
+\operatorname{vec}(\mathcal T_{xyz})
+\mapsto
+Q_x\operatorname{vec}(\mathcal T_{xyz}),
+\]
+so \(\tau_C\) is frame invariant.
+
+\section{Continuum refinement target}
+
+For a refining family of relational graphs, the discrete edge is required to
+admit
+\[
+\boxed{
+\mathcal E_{xy}
+=
+e^a{}_i(x)\Delta x^i\,\sigma_a
++
+O(|\Delta x|^2).
+}
+\]
+The coefficients define the coframe
+\[
+e^a=e^a{}_i\,dx^i
+\]
+and metric
+\[
+\boxed{
+h_{ij}
+=
+\delta_{ab}e^a{}_i e^b{}_j.
+}
+\]
+Connection transport targets the Cartan variables
+\[
+\boxed{
+T^a
+=
+de^a+\omega^a{}_b\wedge e^b,
+}
+\]
+\[
+\boxed{
+\Omega^a{}_b
+=
+d\omega^a{}_b
++
+\omega^a{}_c\wedge\omega^c{}_b.
+}
+\]
+The exact discrete source entering the torsion refinement is
+\[
+\operatorname{vec}(\mathcal T_{xyz})=\mathbf t_C.
+\]
+The next global-geometry gate is a controlled refining-family theorem from
+\((\mathcal T_{xyz},W_\gamma)\) to the continuum torsion and curvature
+two-forms.  The distinguished zero-torsion sector is then
+\[
+T^a=0.
+\]
+
+\section{Source and validation receipt}
+
+The canonical source chain is
+\begin{itemize}
+\item \path{TIR/foundations/TIR_WIJ_HOLONOMY_CROSSWALK_V0_1.md};
+\item \path{TIR/foundations/TIR_SE3_ANCHOR_SOURCE_BINDING_V0_1.md};
+\item \path{TIR/foundations/TIR_DISCRETE_SOLDER_FORM_V0_1.md};
+\item \path{TIR/foundations/TIR_UNIVERSAL_LOOP_TORSION_SOURCE_BINDING_V0_1.md}.
+\end{itemize}
+The deterministic v12 receipt is generated by
+\path{TIR/validation/tir_v12_ch07_holonomy_se3_torsion_v0_1.py}.

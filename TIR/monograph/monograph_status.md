@@ -1,170 +1,161 @@
-# Metatime Monograph Status — v11.1 review
+# Theory of Informational Relations Monograph — v12 migration status
 
-**Review date:** 7 August 2026  
-**Live review branch:** `agent/kappa-phase-refresh-identity-v0.1`  
-**Pull request:** #80  
-**Promotion:** review-only; not merged to `main`
+**Migration date:** 30 August 2026  
+**Working branch:** `feat/tir-monograph-v12-structural-skeleton`  
+**Baseline:** `main@3f5a08ef04ec53c1a155263d23e8b10a96404370`  
+**Promotion state:** feature-branch validation in progress
 
-This file describes the current reviewed monograph sources. Historical v9/v10
-page counts, ZIP names and aggregate accuracy claims remain repository
-provenance; they are not the current publication status.
+## Publication architecture
 
-## Live publication sources
+The v12 master is
 
-The review compiles two documents:
+`TIR/monograph/tir_monograph_v12.tex`.
 
-- `TIR/monograph/metatime_monograph.tex` — long publication candidate;
-- `TIR/metatime_paper.tex` — short Metatime paper.
+The v11 master and its chapter/appendix tree remain historical provenance. Version 12 reorganizes publication order around the current dependency graph:
 
-The authoritative build, preflight and artifact generation are defined in
-`.github/workflows/compile-metatime-monograph.yml`.  Page count and artifact
-hashes are build outputs and are not hard-coded here; a validation PASS applies
-only to the exact commit tested by that workflow.
+```text
+primitive informational relations
+-> emergent geometry
+-> information / phase / flavour
+-> particle and gauge sectors
+-> extensions / tests / completion frontier
+```
 
-## 7 August review additions
+The structural skeleton compiles as a 21-chapter, five-part monograph plus four appendix groups.
 
-### Exact conditional κ phase-rate closure
+## Canonical κ status
 
-TIR defines
+The canonical parent surface is
+
+`TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
+
+It derives
 
 \[
-\kappa=\frac{\ln2}{24\pi},
+V_F\cong\mathbb C^3,
 \qquad
-d\mathcal I=\kappa\,d\phi,
+\dim\mathfrak{su}(3)_F=8,
+\qquad
+N_{\rm mix}=3\times8=24,
 \]
-
-and standard angular-frequency notation gives
 
 \[
-\omega=\frac{d\phi}{dt}=2\pi f.
+\Delta\phi_{1/2}=\pi,
+\qquad
+\Phi_{\rm mix}=24\pi,
+\qquad
+H_2(1/2)=\ln2,
 \]
 
-Therefore
+hence
+
+\[
+\boxed{\kappa=\frac{\ln2}{24\pi}}.
+\]
+
+Publication ownership of the full derivation belongs to v12 Chapter 9. Other v12 occurrences are cross-references or downstream consequences. The structural validator is
+
+`TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py`.
+
+The phase-rate consequence remains
 
 \[
 \boxed{
 \Gamma_{\mathcal I}
-=\frac{d\mathcal I}{dt}
 =\kappa\omega
 =\frac{\ln2}{12}f
 },
 \qquad
-\boxed{
-\Delta\mathcal I_{\rm cycle}=\frac{\ln2}{12}
-}.
+\omega=2\pi f,
 \]
 
-This identity is algebraically exact conditional on the TIR definitions.  The
-normalization \(\kappa=\ln2/(24\pi)\) remains a TIR structural definition/model
-postulate, and a physical surface-refresh interpretation remains operationally
-open.
+with operational measurement tracked as a separate `OPEN` gate.
 
-### Constraint manifold
+## Completed v12 migration surfaces
 
-The four named quantities
-\((\kappa,\omega,f,\Gamma_{\mathcal I})\) satisfy three independent
-constraints.  The corresponding Jacobian has rank three, so the declared
-subsystem has one continuous degree of freedom and may be parametrized by \(f\):
+### Chapters 8–10 — flavour carrier, κ, discrete labels
 
-\[
-\mathbf q(f)=
-\left(
-\frac{\ln2}{24\pi},
-2\pi f,
-f,
-\frac{\ln2}{12}f
-\right).
-\]
+- three-flavour carrier is established before κ;
+- κ has one publication owner;
+- \(L_3\) uses only the finite orbit \(3\to10\to5\to16\to8\to4\to2\to1\);
+- the quark-prime assignment has an exhaustive \(6!=720\) permutation audit;
+- arithmetic constraints leave two assignments related by \(b\leftrightarrow t\); the typed monotone flavour-order rule selects the canonical assignment.
 
-### Corrected Berry normalization
+### Chapter 11 — coefficient forcing
 
-The live reviewed text uses
+The role/sign layer is validator-backed:
 
-\[
-\gamma=-\frac{\Omega}{2}\pmod{2\pi}.
-\]
+- role-slot bijection: `PASS`;
+- identity is the unique role-preserving slot permutation;
+- gradient orientation is scale-independent for positive source gain;
+- consensus sign is unique when active source orientations agree.
 
-A hemisphere solid angle gives phase magnitude \(\pi\); a full-sphere solid
-angle \(4\pi\) gives magnitude \(2\pi\), trivial modulo \(2\pi\).  The older
-`4π/2 = π` statement is not part of the reviewed source.
+The active frontier is extraction of \(|h|,|a|,|b|,|c|\) from four typed integer invariants.
 
-### TIR ↔ Secret-of-a-Half interface
+### Chapter 12 — charged leptons and neutrinos
 
-Appendix P and the cross-review record separate the logical types in
+Charged-lepton formulas remain sector provenance while their current empirical verdicts are owned by Chapter 19.
 
-\[
-\frac12
-\xrightarrow{\;H_2\;}
-\ln2
-\xrightarrow{\;\text{TIR definition}\;}
-\kappa
-\xrightarrow{\;d\mathcal I=\kappa d\phi\;}
-\Gamma_{\mathcal I}.
-\]
+A v12 diagnostic audit found a legacy neutrino formula/value mismatch: the printed absolute masses follow the reconstruction \(S_1=S_{\rm bare}+dS\), whereas the legacy text prints \(S_1=S_{\rm bare}+\kappa dS\). The legacy equation is therefore quarantined pending derivational repair.
 
-The exact half-side entropy theorem does not derive the TIR denominator
-\(24\pi\).  The exact downstream phase-rate identity does not establish its
-physical interpretation.
+### Chapter 13 — CKM/PMNS
 
-The sibling DHSE-001 Stage-M theorem also supplies the exact finite boundary
+The migration preserves the common three-flavour carrier and separates formula provenance from empirical verdicts. The PMNS reactor-angle tension is retained. The historical CKM magnitude-product \(J\) check is retained as a diagnostic proxy with its residual visible.
 
-\[
-\boxed{
-\text{reciprocal self-duality}
-\not\Rightarrow
-\text{dynamical maximum at the self-dual point}
-}.
-\]
+### Chapter 19 — Unified Evidence Matrix
 
-Any TIR use of self-duality as a stability or attractor argument therefore needs
-an additional theorem or condition.
+Chapter 19 is the single v12 owner of current observable verdicts. It normalizes PDG-2026 V2, retained physical failures, and v12 migration diagnostics into
 
-## Evidence architecture
+`(Claim Class, Timing, Verdict)`.
 
-The current monograph distinguishes:
+Consistency validator:
 
-- established mathematics and external data;
-- TIR model definitions/postulates;
-- exact consequences conditional on those definitions;
-- retrospective phenomenological assignments;
-- diagnostics, no-go results and retained failures;
-- prospectively frozen predictions;
-- external anchors and conversion inputs.
+`TIR/validation/tir_v12_evidence_matrix_consistency_v0_1.py`
 
-The old statement “mean error across all 26 SM parameters” is withdrawn.  The
-publication does not combine heterogeneous observables, anchors, upper limits,
-running quantities and retrospective assignments into one global percentage.
+Receipt:
 
-## Retained physical tensions
+`TIR/validation/TIR_V12_EVIDENCE_MATRIX_CONSISTENCY_V0_1.json`
 
-The publication record keeps failures visible, including:
+Current local receipt status: `PASS`, 30 typed rows.
 
-- active gauge-boson relations at several-percent tension;
-- the frozen strong-CP→neutron-EDM mapping
-  \[
-  d_n\approx5.3299\times10^{-26}\,e\,\mathrm{cm},
-  \]
-  approximately \(2.96\) times the
-  \(1.8\times10^{-26}\,e\,\mathrm{cm}\) manuscript bound;
-- the isolated Collatz quarter-power mass trace as an incomplete retrospective
-  diagnostic rather than a closed spectrum derivation.
+## GREMLIN-assisted audit
 
-A technically correct calculation may therefore be a physical FAIL.
+GREMLIN is used as a constrained candidate/audit layer:
 
-## Reproducibility layers
+```text
+OWL      provenance / evidence
+SPIDER   dependency graph / relation mapping
+MOLE     local derivation checks
+HOUND    contradictions / counterexamples
+ANT      exhaustive finite search
+MANTIS   redundancy / duplicate ownership
+BELZEBUB adversarial synthesis
+```
 
-- `TIR/run_audit.py --json` — selected legacy reproducibility subset; not a
-  global physical validation.
-- `TIR/validation/kappa_phase_rate_identity_v11_1.py` — exact symbolic factor
-  certificate plus numerical implementation checks and rank certificate.
-- `TIR/validation/review_source_contract_v11_1.py` — protects the reviewed live
-  source topology and claim boundaries.
-- `TIR/monograph/apply_kappa_phase_rate_patch.py` — restores reviewed κ material
-  after the retained v11.0 source generator.
-- `TIR/apply_metatime_paper_review_patch.py` — synchronizes the short paper.
+Candidate promotion remains theorem/validator/evidence gated.
 
-## Current gate
+Findings already incorporated into v12 include:
 
-A review commit is publication-ready only when the exact-head workflow completes
-successfully after that commit.  No older PDF hash, page count or workflow PASS
-is inherited automatically by a later head.
+- duplicate κ ownership;
+- global-Collatz overreach around the finite \(L_3\) calculation;
+- two-fold prime-label ambiguity before the typed ordering rule;
+- charged-lepton current-table drift;
+- neutrino formula/value mismatch;
+- CKM historical proxy residual;
+- stale κ provenance in live-facing ledgers;
+- a cosmological arithmetic mismatch now routed to Chapter 18 audit.
+
+## Active migration frontier
+
+1. Chapter 14 — baryon/meson consolidation and provenance quarantine cleanup.
+2. Chapter 15 — fresh hypercharge/anomaly chirality and sign-convention audit.
+3. Chapter 16 — electroweak/Higgs structural-vs-precision separation.
+4. Chapter 17 — strong-CP equation plus retained neutron-EDM failure.
+5. Chapter 18 — cosmological arithmetic/unit reconstruction.
+6. Chapters 20–21 — prospective programme and formal completion frontier.
+7. Full GREMLIN MANTIS/HOUND redundancy and contradiction sweep.
+8. Exact-head v12 LaTeX build, citation audit and publication preflight.
+
+## Publication gate
+
+A v12 publication candidate is promoted only after the exact feature head passes its structural validators, evidence-matrix audit, citation/reference checks, LaTeX build and PDF-integrity preflight. Historical workflow receipts remain attached to their original commits.

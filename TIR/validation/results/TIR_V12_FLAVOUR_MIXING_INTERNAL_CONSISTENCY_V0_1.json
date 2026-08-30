@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "ckm_primary_formula_arithmetic_finite": true,
+    "displayed_ckm_row_column_norms_close_at_printed_precision": true,
+    "historical_j_proxy_has_visible_internal_gap": true,
+    "pmns_formula_arithmetic_finite": true
+  },
+  "ckm": {
+    "A": 0.8073328542449405,
+    "J_structural": 3.110115459051604e-05,
+    "Vcb": 0.04081632653061224,
+    "Vub": 0.0036281179138321993,
+    "delta_CKM_deg": 66.42182152179817,
+    "displayed_matrix_column_norms": [1.0000044617, 0.9999968675, 1.0000001549000002],
+    "displayed_matrix_row_norms": [1.0000065715, 0.9999949073000001, 1.0000000053],
+    "historical_J_product_proxy": 2.9710692833691516e-05,
+    "historical_J_product_proxy_relative_gap": 0.044707721469881716,
+    "historical_J_product_proxy_status": "DIAGNOSTIC_PROXY_NOT_EXACT_IDENTITY",
+    "lambda": 0.22484883650975376,
+    "max_displayed_norm_residual": 6.5714999999411106e-06
+  },
+  "pmns": {
+    "delta_deg": 246.12244897959184,
+    "sin2_theta12": 0.3038548752834467,
+    "sin2_theta13": 0.02040816326530612,
+    "sin2_theta23": 0.5408163265306123,
+    "sin_theta13": 0.14285714285714285
+  },
+  "promotion_authority": false,
+  "schema": "TIR_V12_FLAVOUR_MIXING_INTERNAL_CONSISTENCY_V0_1",
+  "status": "PASS_WITH_RETAINED_TENSION"
+}

@@ -1,0 +1,310 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Formal Proofs, Algebraic Firewalls and Legacy Repairs}
+\label{app:v12_formal_proofs}
+
+\paragraph{Purpose and provenance.}
+This appendix consolidates long algebra that supports Chapters~4--10 and the
+diagnostic no-go surfaces used later in the monograph.  Historical appendix
+material is preserved through explicit source pointers rather than copied
+verbatim.  GREMLIN/HOUND is used here as a bounded adversarial audit layer:
+candidate inconsistencies are promoted into this appendix only after an exact
+algebraic or deterministic check.
+
+The principal legacy sources are
+\path{TIR/monograph/appendices/appB_collatz_tables.tex},
+\path{TIR/monograph/appendices/appC_su3_primer.tex},
+\path{TIR/monograph/appendices/appD_poincare_disk.tex},
+\path{TIR/monograph/appendices/appE_tetrahedron_algebra.tex},
+\path{TIR/monograph/appendices/appJ_collatz_quarter_power_scaling.tex},
+\path{TIR/monograph/appendices/appK_sector_holonomy_release.tex}, and
+\path{TIR/monograph/appendices/appL_up_sector_common_baseline_no_go.tex}.
+
+\section{Finite Collatz statements and the structural labels}
+
+For positive integers define
+\[
+C(n)=
+\begin{cases}
+3n+1,&n\ \hbox{odd},\\
+n/2,&n\ \hbox{even}.
+\end{cases}
+\]
+The seed required by the canonical v12 label is finite and directly checkable:
+\[
+3\to10\to5\to16\to8\to4\to2\to1.
+\]
+There are seven steps before the first occurrence of \(1\), giving the typed
+structural label
+\[
+\boxed{L_3=7.}
+\]
+The twin-prime source gives
+\[
+\boxed{L_4=5-3=2,\qquad L_5=5.}
+\]
+These finite statements are the complete arithmetic input required by the
+v12 label layer.  Their publication status is inherited from
+Chapter~\ref{ch:v12_discrete_labels}.
+
+A second finite trajectory, historically used to motivate the quark-prime
+candidate set, is
+\[
+7\to22\to11\to34\to17\to52\to26\to13\to40\to20\to10\to5
+\to16\to8\to4\to2\to1.
+\]
+The primes encountered are
+\[
+7,11,17,13,5,3,
+\]
+whose sorted set is
+\[
+\mathcal P_Q=\{3,5,7,11,13,17\}.
+\]
+This is retained as a finite set-generation observation.  The assignment to
+ordered quark slots is owned by the explicit typed map of
+Chapter~\ref{ch:v12_discrete_labels}; the exhaustive \(6!=720\) permutation
+audit leaves two arithmetic survivors before that ordering rule and one after
+it.
+
+\section{Corrected \(SU(3)\) representation algebra}
+
+The three-flavour carrier is \(V_F\cong\mathbb C^3\), with mixing algebra
+\(\mathfrak{su}(3)\).  Its real dimension is
+\[
+\dim_{\mathbb R}\mathfrak{su}(3)=3^2-1=8.
+\]
+For an \(SU(3)\) irreducible representation with Dynkin labels \((p,q)\),
+\[
+\boxed{
+\dim(p,q)=\frac{(p+1)(q+1)(p+q+2)}{2}.
+}
+\]
+Consequently,
+\[
+\dim(1,0)=3,\qquad
+\dim(0,1)=3,\qquad
+\dim(1,1)=8,\qquad
+\dim(3,0)=10,\qquad
+\dim(2,2)=27.
+\]
+The mesonic flavour nonet belongs to the reducible decomposition
+\[
+\boxed{
+3\otimes\bar3=8\oplus1,
+}
+\]
+rather than to the \((2,2)\) irrep.  The historical primer row that paired
+\((2,2)\) with ``meson nonet'' is therefore retained as a repaired
+representation-label mismatch.
+\vTwelveStatus{D}{RETROSPECTIVE}{PASS}
+
+For the canonical \(\kappa\) normalization, only the exact carrier facts
+\[
+N_F=3,\qquad \dim\mathfrak{su}(3)=8,\qquad N_{\rm mix}=3\times8=24
+\]
+are required.  The full normalization derivation remains owned by
+Chapter~\ref{ch:v12_kappa_normalization} and
+\path{TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md}.
+
+\section{Poincar\'e disk normalization repair}
+
+For the unit disk \(\mathbb D=\{z\in\mathbb C:|z|<1\}\) with metric
+\[
+ds^2=\frac{4\,|dz|^2}{(1-|z|^2)^2},
+\]
+the curvature is \(K=-1\).  Define the disk cross-ratio modulus
+\[
+\chi(z_1,z_2)=
+\left|
+\frac{z_1-z_2}{1-\bar z_1z_2}
+\right|.
+\]
+The geodesic distance compatible with the displayed metric is
+\[
+\boxed{
+d_{\mathbb D}(z_1,z_2)
+=2\,\operatorname{artanh}\chi(z_1,z_2).
+}
+\]
+For \(z_1=0\) this reduces to
+\[
+d_{\mathbb D}(0,r)=\int_0^r\frac{2\,du}{1-u^2}
+=2\,\operatorname{artanh}r,
+\]
+which fixes the normalization directly.  The historical appendix printed the
+same expression without the factor \(2\); v12 records that line as a metric
+normalization repair.
+\vTwelveStatus{D}{RETROSPECTIVE}{PASS}
+
+For a geodesic triangle with angles \(\alpha,\beta,\gamma\),
+\[
+A_{\mathbb D}=\pi-(\alpha+\beta+\gamma).
+\]
+A one-angle identification therefore supplies only partial cell data.  v12
+assigns any proposed information-area equality to an explicit bridge theorem
+with the complete triangle, curvature convention and area normalization stated
+before comparison.
+
+\section{Regular tetrahedral Gram algebra}
+
+Let \(\mathbf n_a\in\mathbb R^3\), \(a=1,\ldots,4\), be unit vectors satisfying
+\[
+\mathbf n_a\cdot\mathbf n_b=-\frac13\qquad(a\ne b).
+\]
+Their Gram matrix is
+\[
+G_{ab}=
+\begin{cases}
+1,&a=b,\\
+-1/3,&a\ne b.
+\end{cases}
+\]
+Equivalently,
+\[
+G=\frac43I_4-\frac13J_4,
+\]
+where \(J_4\) is the all-ones matrix.  Since \(J_4\) has eigenvalues \(4,0,0,0\),
+\[
+\operatorname{spec}(G)=\left\{0,\frac43,\frac43,\frac43\right\},
+\qquad
+\operatorname{rank}G=3.
+\]
+The null eigenvector is \((1,1,1,1)^T\), hence
+\[
+\sum_{a=1}^4\mathbf n_a=0.
+\]
+Every squared edge length is
+\[
+|\mathbf n_a-\mathbf n_b|^2
+=2-2\mathbf n_a\cdot\mathbf n_b
+=\frac83,
+\]
+so the four points form a regular tetrahedron in the three-real-dimensional
+carrier.  Permuting the four vertices preserves the Gram matrix, giving
+\[
+\operatorname{Aut}(\Delta^3)\cong S_4,
+\qquad |S_4|=24.
+\]
+This is the finite-symmetry crosscheck used after the independent
+flavour-mixing count \(3\times8=24\).
+
+\section{Legacy operator-tetrahedron firewall}
+
+The historical operator-labelled tetrahedron introduced six sector-specific
+edge numbers and then wrote
+\[
+\cos\theta_{ij}
+=
+\frac{e_{ik}^2+e_{jk}^2-e_{ij}^2}{2e_{ik}e_{jk}}.
+\]
+That expression is the planar law of cosines for the angle of a triangle built
+from three edge lengths.  A tetrahedral dihedral angle instead requires the
+normals of two faces, or an equivalent Cayley--Menger/Gram construction using
+the full tetrahedral metric data.  v12 therefore assigns the historical
+``dihedral'' line to the diagnostic ledger rather than to the regular
+tetrahedral closure theorem.
+\vTwelveStatus{D}{RETROSPECTIVE}{QUARANTINED}
+
+The same historical appendix states a volume proportionality to \(\kappa^3\)
+without an independently derived Gram determinant and scale map.  v12 assigns
+volume/PMNS coupling to the sector-model provenance of Chapters~12--13, while
+the geometric tetrahedron theorem is owned by Chapter~6.
+
+\section{Accelerated Collatz quarter-power arithmetic}
+
+For odd \(n\), define the accelerated map
+\[
+T(n)=\frac{3n+1}{2^{a(n)}},
+\qquad
+a(n)=\nu_2(3n+1).
+\]
+Under the standard uniform odd-residue calculation,
+\[
+\Pr(a=k)=2^{-k},\qquad k\ge1,
+\]
+so
+\[
+\mathbb E[a]=\sum_{k\ge1}k2^{-k}=2.
+\]
+The associated asymptotic geometric-mean multiplier is then
+\[
+\boxed{
+\rho_C
+=\exp\!\left(\ln3-\mathbb E[a]\ln2\right)
+=\frac34.
+}
+\]
+This arithmetic result is distinct from the particle-model bridge that uses
+\(3/4\) as an exponent.  The archived one-anchor charged-fermion trace keeps its
+retrospective physical-spectrum failure, while the arithmetic multiplier
+remains a technical result.
+
+\section{Common-baseline translation no-go}
+
+Let \(r_g\) be logarithmic residuals for a fixed three-channel up-sector trace,
+and apply one common additive baseline \(B\):
+\[
+r'_g=r_g+B.
+\]
+For every pair \(g,h\),
+\[
+r'_g-r'_h=r_g-r_h,
+\]
+so the residual spread is translation invariant.
+
+\paragraph{Proposition.}
+There exists a common \(B\) satisfying
+\[
+|r_g+B|\le\varepsilon
+\quad\text{for every }g
+\]
+exactly when
+\[
+\max_g r_g-\min_g r_g\le2\varepsilon.
+\]
+The smallest achievable uniform error is
+\[
+\boxed{
+\varepsilon_{\min}
+=\frac{\max r-\min r}{2}.
+}
+\]
+
+\paragraph{Proof.}
+Each channel requires
+\[
+B\in[-r_g-\varepsilon,-r_g+\varepsilon].
+\]
+All intervals intersect exactly when the largest lower endpoint is no greater
+than the smallest upper endpoint, which is equivalent to the stated spread
+condition.  Centering the two extreme residuals around zero attains half the
+spread.
+
+For the archived v10.2 residual vector
+\[
+(r_u,r_c,r_t)
+=(3.1857238256,\,0.0818052322,\,0.2293790515),
+\]
+the spread is
+\[
+\Delta r=3.1039185934
+\]
+and therefore
+\[
+\varepsilon_{\min}=1.5519592967,
+\qquad
+e^{\varepsilon_{\min}}=4.7207104\ldots .
+\]
+The common-baseline architecture is thus excluded for the fixed relative trace
+at any target envelope narrower than this minimax bound.
+\vTwelveStatus{D}{RETROSPECTIVE}{PASS}
+
+\section{Appendix-A audit ownership}
+
+The deterministic appendix integration gate is
+\path{TIR/validation/tir_v12_appendix_integration_audit_v0_1.py}.
+Its machine-readable receipt is
+\path{TIR/validation/TIR_V12_APPENDIX_INTEGRATION_AUDIT_V0_1.json}.
+The gate checks the corrected \(SU(3)\) representation identity, the factor-two
+Poincar\'e distance normalization, the regular tetrahedral Gram spectrum, the
+legacy dihedral quarantine marker and the common-baseline minimax identity.

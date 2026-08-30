@@ -1,0 +1,19 @@
+{
+  "schema": "TIR_V12_COMPLETION_FRONTIER_DAG_V0_1",
+  "status": "PASS",
+  "closed_root_count": 8,
+  "open_gate_count": 15,
+  "node_count": 23,
+  "blockers": [],
+  "checks": {
+    "all_parent_nodes_resolve": true,
+    "dag_is_acyclic": true,
+    "evidence_rerun_is_downstream": true,
+    "cartan_precedes_gr_sector": true,
+    "gr_sector_precedes_adm": true,
+    "adm_precedes_einstein_closure": true,
+    "role_sign_precedes_magnitude": true,
+    "gauge_normalization_precedes_ew_closure": true
+  },
+  "gremlin_role": "CANDIDATE_GRAPH_SEARCH_ONLY_PROMOTION_THEOREM_VALIDATOR_GATED"
+}

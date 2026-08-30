@@ -1,0 +1,122 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Cosmological Extension}
+\label{ch:v12_cosmology}
+
+\section{Legacy suppression law}
+
+The cosmological branch proposes the dimensionless suppression
+\begin{equation}
+\boxed{
+r_\Lambda
+=\left(\frac{L_4}{L_3}\right)^D,
+\qquad
+D=L_3L_4^{L_5}.
+}
+\label{eq:v12_cosmo_suppression}
+\end{equation}
+For $(L_3,L_4,L_5)=(7,2,5)$,
+\begin{equation}
+D=7\times2^5=224.
+\end{equation}
+The discrete exponent is therefore reproduced exactly from the declared structural labels.
+\vTwelveStatus{B}{--}{PASS}
+Here \texttt{PASS} refers to evaluation of the declared discrete expression.
+
+\section{Exact power audit}
+
+Literal evaluation of Eq.~\eqref{eq:v12_cosmo_suppression} gives
+\begin{equation}
+\boxed{
+\left(\frac27\right)^{224}
+=1.345110818116154\times10^{-122},
+}
+\label{eq:v12_cosmo_power}
+\end{equation}
+with
+\begin{equation}
+\log_{10}r_\Lambda=-121.87124193446175.
+\end{equation}
+The historical intermediate $10^{-119.5}$ belongs to a superseded arithmetic snapshot and receives the formula-audit verdict
+\vTwelveStatus{D}{RETROSPECTIVE}{FAIL}
+
+\section{Dimensionful reconstruction gate}
+
+A physical vacuum-energy density requires a declared dimensionful reference scale $M_\star$:
+\begin{equation}
+\boxed{
+\rho_\Lambda^{\rm TIR}
+=r_\Lambda M_\star^4.
+}
+\label{eq:v12_cosmo_dimensional}
+\end{equation}
+The v12 audit evaluates two standard Planck-scale conventions as explicit diagnostic reconstructions.
+
+Using the unreduced Planck mass appearing elsewhere in the monograph,
+\begin{equation}
+M_P=1.22089\times10^{19}\ \mathrm{GeV},
+\end{equation}
+Eq.~\eqref{eq:v12_cosmo_dimensional} gives
+\begin{equation}
+\rho_\Lambda^{(M_P)}
+=2.9885753618\times10^{-46}\ \mathrm{GeV}^4.
+\end{equation}
+Using the reduced Planck mass
+\begin{equation}
+\bar M_P=2.435\times10^{18}\ \mathrm{GeV}
+\end{equation}
+gives
+\begin{equation}
+\rho_\Lambda^{(\bar M_P)}
+=4.7288324630\times10^{-49}\ \mathrm{GeV}^4.
+\end{equation}
+
+The historical displayed value $3.3\times10^{-47}\ \mathrm{GeV}^4$ would correspond, under the same fourth-power conversion, to
+\begin{equation}
+M_\star\simeq7.037833183\times10^{18}\ \mathrm{GeV}.
+\end{equation}
+Version 12 therefore promotes the scale convention to an explicit parent variable rather than carrying forward an implicit conversion.
+\vTwelveStatus{D}{RETROSPECTIVE}{QUARANTINED}
+
+\section{Density parameter gate}
+
+The dimensionless density parameter is defined by
+\begin{equation}
+\Omega_\Lambda=\frac{\rho_\Lambda}{\rho_{\rm crit}}.
+\label{eq:v12_omega_lambda}
+\end{equation}
+The legacy chapter prints $\Omega_\Lambda=0.685$. Version 12 requires the corresponding $\rho_{\rm crit}$ input or its derivation, unit convention, epoch and uncertainty model to be frozen alongside Eq.~\eqref{eq:v12_cosmo_dimensional} before the displayed number is promoted as an output of the cosmological branch.
+\vTwelveStatus{C}{RETROSPECTIVE}{QUARANTINED}
+
+\section{Typed interpretation of the exponent}
+
+The exponent
+\begin{equation}
+D=L_3L_4^{L_5}=224
+\end{equation}
+is retained as the declared TIR composite label. Its factors are kept typed by their own upstream definitions. In particular, standard $SU(3)$ dimensions are carried by the representation or Lie-algebra object to which they refer, while $L_3=7$ retains its v12 finite-orbit provenance from Chapter~10. This removes the legacy type collision between the integer label $L_3$ and a group dimension.
+\vTwelveStatus{D}{RETROSPECTIVE}{QUARANTINED}
+
+\section{Cosmological completion surface}
+
+The v12 dependency chain is
+\[
+\boxed{
+(L_3,L_4,L_5)
+\to D
+\to r_\Lambda=(L_4/L_3)^D
+\to M_\star^4
+\to\rho_\Lambda
+\to\rho_{\rm crit}
+\to\Omega_\Lambda
+\to\text{Chapter 19 verdict}.
+}
+\]
+This chain makes the dimensionless suppression, dimensionful scale, cosmological reference density and empirical comparison separately auditable.
+
+\section{Audit receipt}
+
+The arithmetic and scale diagnostics are reproduced by
+\path{TIR/validation/tir_v12_cosmology_formula_audit_v0_1.py}.
+The receipt
+\path{TIR/validation/TIR_V12_COSMOLOGY_FORMULA_AUDIT_V0_1.json}
+reports \texttt{PASS\_WITH\_COSMOLOGY\_QUARANTINE}: the exact discrete power is reproduced, while the historical intermediate, dimensionful conversion and density-parameter path are routed to their explicit v12 repair gates.

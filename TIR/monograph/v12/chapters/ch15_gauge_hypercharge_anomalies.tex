@@ -1,0 +1,124 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter[Gauge Structure and Anomalies]{Gauge Structure, Hypercharge and Anomaly Cancellation}
+\label{ch:v12_gauge_hypercharge}
+
+\section{Typed gauge transport parent}
+
+The current TIR transport layer uses the common connection-holonomy family
+\[
+W_{ij}^{(G,R)}
+=\mathcal P\exp\!\left(\int_{\gamma_{ij}}A_R\right),
+\]
+with sector-typed instances including
+\[
+W_{ij}^{WT}\in U(1),
+\qquad
+W_{ij}^{X}\in SU(2),
+\qquad
+W_{ij}^{c}\in SU(3).
+\]
+The source binding and transformation laws are recorded in
+\path{TIR/foundations/TIR_WIJ_HOLONOMY_CROSSWALK_V0_1.md}.
+
+This chapter audits the separate representation/hypercharge layer used by the Standard Model branch.
+
+\section{Hypercharge assignment map}
+
+The legacy TIR formulas are
+\begin{align}
+Y_Q&=\frac{q_s}{L_3L_4N_c}=\frac16,\\
+Y_{uR}&=\frac{L_4}{N_c}=\frac23,\\
+Y_{dR}&=-\frac{L_4}{N_cL_4}=-\frac13,\\
+Y_{eR}&=-\frac{L_3-L_4}{L_5}=-1,\\
+Y_L&=-\frac12\qquad\text{(external input in the legacy surface)}.
+\end{align}
+For
+\[
+(q_s,L_3,L_4,L_5,N_c)=(7,7,2,5,3)
+\]
+the arithmetic map reproduces the conventional one-generation Standard Model hypercharges exactly.
+
+\vTwelveStatus{B}{--}{OPEN}
+The arithmetic map is reproducible. Version 12 keeps the derivation/uniqueness gate explicit because $Y_L$ enters as an external parent and several formulas simplify by cancellation of the same structural labels appearing in numerator and denominator.
+
+\section{Anomaly convention}
+
+For anomaly sums, all fermions are represented as left-handed Weyl fields. A right-handed field of hypercharge $Y_R$ is therefore represented by its left-handed charge conjugate with hypercharge $-Y_R$. With this convention the four local one-generation anomaly coefficients are
+\begin{align}
+\mathcal A_{33Y}
+&=2Y_Q-Y_{uR}-Y_{dR},\\
+\mathcal A_{22Y}
+&=N_cY_Q+Y_L,\\
+\mathcal A_{YYY}
+&=N_c\left(2Y_Q^3-Y_{uR}^3-Y_{dR}^3\right)
+ +\left(2Y_L^3-Y_{eR}^3\right),\\
+\mathcal A_{\mathrm{grav}\,Y}
+&=N_c\left(2Y_Q-Y_{uR}-Y_{dR}\right)
+ +\left(2Y_L-Y_{eR}\right).
+\end{align}
+
+Substituting
+\[
+Y_Q=\frac16,\quad
+Y_{uR}=\frac23,\quad
+Y_{dR}=-\frac13,\quad
+Y_L=-\frac12,\quad
+Y_{eR}=-1
+\]
+gives
+\begin{align}
+\mathcal A_{33Y}&=0,\\
+\mathcal A_{22Y}&=0,\\
+\mathcal A_{YYY}&=0,\\
+\mathcal A_{\mathrm{grav}\,Y}&=0.
+\end{align}
+
+\vTwelveStatus{A}{--}{PASS}
+These cancellations are the standard anomaly consistency of the displayed Standard Model representation content. Their exact rational audit is reproduced by
+\path{TIR/validation/tir_v12_hypercharge_anomaly_audit_v0_1.py}.
+
+\section[Global SU(2) consistency]{Global $SU(2)$ consistency}
+
+For one generation, the left-handed $SU(2)$ doublets consist of three colour copies of $Q_L$ plus one lepton doublet $L_L$:
+\[
+N_{\rm doublet}=N_c+1=4.
+\]
+The count is even, satisfying the Witten global $SU(2)$ consistency condition.
+\vTwelveStatus{A}{--}{PASS}
+
+\section{Baryon-current anomaly and legacy A5 repair}
+
+The legacy Chapter 28 labels
+\begin{equation}
+3Y_Q-Y_{uR}-Y_{dR}=\frac16
+\label{eq:v12_legacy_a5}
+\end{equation}
+as a fifth condition $[SU(2)]^2U(1)_B$. Equation~\eqref{eq:v12_legacy_a5} is built from hypercharges. The baryon-current coefficient instead uses baryon charge $B=1/3$ for each coloured quark doublet. In the conventional $T(\mathbf2)=1/2$ normalization,
+\begin{equation}
+\boxed{
+\mathcal A_{SU(2)^2B}
+=N_c\left(\frac13\right)T(\mathbf2)
+=3\left(\frac13\right)\left(\frac12\right)
+=\frac12.
+}
+\end{equation}
+
+The nonzero baryon-current anomaly is the expected electroweak anomalous current structure; the v12 repair is the charge/type correction of the legacy A5 expression.
+\vTwelveStatus{D}{RETROSPECTIVE}{QUARANTINED}
+
+\section{Result hierarchy}
+
+The v12 gauge/anomaly dependency is
+\[
+\boxed{\begin{aligned}
+\text{typed }W_{ij}\text{ transport}
+&\to \text{representation + hypercharge assignment}\\
+&\to \text{left-Weyl anomaly sums}\\
+&\to \text{current evidence/status layer}.
+\end{aligned}}
+\]
+
+The exact standard anomaly cancellations and Witten count receive formal \texttt{PASS}. The TIR hypercharge source map remains a structural \texttt{OPEN} gate for derivation/uniqueness, and the legacy A5 label is quarantined with an explicit corrected baryon-current coefficient.
+
+Audit receipt:
+\path{TIR/validation/TIR_V12_HYPERCHARGE_ANOMALY_AUDIT_V0_1.json}.

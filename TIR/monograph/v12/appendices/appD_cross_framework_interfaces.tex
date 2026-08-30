@@ -1,0 +1,297 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Cross-Framework Interfaces and Dependency Direction}
+\label{app:v12_cross_framework}
+
+\paragraph{Purpose.}
+This appendix records typed interfaces between TIR and sibling analytic or
+dynamical frameworks.  Each interface preserves source direction: exact
+mathematical identities remain exact, TIR structural identifications retain
+their TIR ownership, and downstream physical bindings keep their own validation
+gate.  GREMLIN may propose cross-domain isomorphisms on this surface; theorem or
+validator receipts remain the promotion gate.
+
+\section{Half coordinate and binary information}
+
+For binary entropy
+\[
+H_2(p)=-p\ln p-(1-p)\ln(1-p),
+\]
+\[
+H_2'(p)=\ln\frac{1-p}{p},
+\qquad
+H_2''(p)=-\frac1p-\frac1{1-p}<0.
+\]
+Therefore
+\[
+\boxed{
+\operatorname*{arg\,max}_{0<p<1}H_2(p)=\frac12,
+\qquad
+H_2(1/2)=\ln2.
+}
+\]
+The same midpoint is the unique fixed point of complement \(p\mapsto1-p\).
+In the odds coordinate
+\[
+q=\frac{p}{1-p},
+\]
+it maps to \(q=1\), the positive fixed point of reciprocal inversion.
+
+TIR uses this exact half/information pair as the numerator side of the canonical
+flavour-mixing normalization.
+
+\section{TIR ownership of the \(24\pi\) denominator}
+
+The flavour carrier is
+\[
+V_F\cong\mathbb C^3,
+\qquad
+U_F\in SU(3)_F.
+\]
+Hence
+\[
+N_F=3,\qquad
+\dim_{\mathbb R}\mathfrak{su}(3)_F=8.
+\]
+The generator--flavour incidence count is
+\[
+N_{\rm mix}=3\times8=24.
+\]
+The half coordinate on a full \(2\pi\) angular closure supplies the primitive
+half-turn
+\[
+\Delta\phi_{1/2}=\pi,
+\]
+so
+\[
+\Phi_{\rm mix}=24\pi.
+\]
+Combining the balanced binary information with the mixing-phase measure gives
+\[
+\boxed{
+\kappa
+=\frac{H_2(1/2)}{\Phi_{\rm mix}}
+=\frac{\ln2}{24\pi}.
+}
+\]
+This is the canonical TIR-internal normalization theorem.  The regular
+tetrahedral symmetry \(|S_4|=24\) supplies an independent finite-symmetry
+crosscheck of the same integer while Chapter~9 retains sole publication
+ownership of the complete derivation.
+
+\section{Secret-of-a-Half negative-inverse interface}
+
+Define
+\[
+\Omega(s)=\frac{s}{1-s},
+\qquad
+z_L(s)=1-\frac1s=-\frac1{\Omega(s)}.
+\]
+Writing \(s=\sigma+it\),
+\[
+|z_L(s)|^2
+=
+\frac{(\sigma-1)^2+t^2}{\sigma^2+t^2}.
+\]
+Therefore
+\[
+|z_L(s)|=1
+\iff
+(\sigma-1)^2=\sigma^2
+\iff
+\boxed{\sigma=\frac12}.
+\]
+Thus the critical axis is exactly the unit-circle locus of the
+negative-inverse coordinate:
+\[
+\boxed{
+\Re s=\frac12
+\iff
+|z_L(s)|=1.
+}
+\]
+
+The current cross-framework source is
+\path{TIR/interfaces/TIR_SOH_GLOBAL_LI_DOMINATION_BRIDGE_V0_1.md}.
+For one reciprocal-conjugate zero quartet with
+\[
+z_\rho=Re^{i\phi},
+\]
+its local Li contribution is
+\[
+L_n(Q_\rho)
+=4-2(R^n+R^{-n})\cos(n\phi).
+\]
+The interface document gives a conditional global-domination theorem candidate:
+under the standard symmetric Li representation and classical zero-counting
+estimate, an off-axis zero creates an extremal radial shell whose recurrent
+phase subsequence dominates the subextremal remainder and yields negative Li
+coefficients along a subsequence.
+
+The remaining analytic promotion target in that branch is the independently
+derived native positivity implication
+\[
+\boxed{
+\text{native arithmetic closure}
+\Longrightarrow
+\lambda_n\ge0\quad\forall n.
+}
+\]
+This target remains OPEN in Chapter~21.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Self-dual fixed point versus extremality}
+
+The half-axis interface also carries a useful diagnostic boundary.  Reciprocal
+symmetry by itself fixes a self-dual locus, while dynamical preference requires
+an additional variational or positivity condition.
+
+In a finite reciprocal family \(N_n(q)=N_n(1/q)\), the fixed point \(q=1\) may
+coexist with off-centre reciprocal extrema.  v12 therefore treats
+\[
+\boxed{
+\text{reciprocal symmetry}
++\text{explicit extremality condition}
+\to
+\text{extremum claim}
+}
+\]
+as the admissible dependency order.  This prevents symmetry from silently
+serving as an unproved stability theorem.
+
+\section{TIR--IDT phase-clock scale interface}
+
+The projective quantities
+\[
+a_{FS},\qquad
+\int\mathcal F_B,\qquad
+|\langle\psi_a|\psi_b\rangle|^2,\qquad
+\kappa
+\]
+are dimensionless.  The IDT phase-clock interface supplies the length carrier
+\[
+\boxed{
+\ell_\varphi
+=\frac{c}{|\omega_t|}
+=c\left|\frac{dt}{d\varphi}\right|
+=\frac{\hbar c}{E}.
+}
+\]
+The exact dimensional typing therefore permits the physicalization candidate
+\[
+\boxed{
+ds_{\rm rel}^2
+=\ell_\varphi^2\,ds_{FS}^2.
+}
+\]
+For
+\[
+ds_{FS}^2
+=\frac14(d\theta^2+\sin^2\theta\,d\varphi^2),
+\]
+the associated area candidate is
+\[
+d\mathcal A_{\rm rel}
+=\ell_\varphi^2\,da_{FS}.
+\]
+With spin-\(1/2\) Berry curvature
+\[
+\mathcal F_B=\pm2\,da_{FS},
+\]
+one obtains
+\[
+d\mathcal A_{\rm rel}
+=\pm\frac{\ell_\varphi^2}{2}\mathcal F_B.
+\]
+
+The source contract is
+\path{TIR/integration/TIR_IDT_INFORMATION_AREA_CURVATURE_V0_2.md},
+whose status separates exact dimensional closure from the physical
+phase-clock scale-binding candidate.
+
+\section{Polyhedral refinement export}
+
+For a CP1 polyhedral cell complex \(P\) with facewise phase-clock scale,
+\[
+\mathcal A_{\rm rel}^{(P)}
+=
+\sum_{f\in P}\ell_{\varphi,f}^2\,a_{FS}(f).
+\]
+For a uniform cell rate,
+\[
+\mathcal A_{\rm rel}^{(P)}
+=
+\frac{c^2}{\omega_P^2}a_{FS}^{(P)}.
+\]
+The refinement target is
+\[
+\boxed{
+\mathcal A_{\rm rel}^{(P_n)}
+\longrightarrow
+\mathcal A_{\rm rel}
+}
+\]
+under a controlled refinement sequence.  This target is the dimensional bridge
+feeding the TIR--IDT spatial/temporal join.
+
+\section{GR/RFC dependency export}
+
+The v12 completion DAG keeps the relativistic line ordered as
+\[
+\boxed{
+\begin{aligned}
+\text{discrete solder/torsion}
+&\to\text{Cartan refinement}\\
+&\to T^a=0\text{ spatial sector}\\
+&\to\text{TIR--IDT ADM join}\\
+&\to\text{Einstein constraint/evolution closure}.
+\end{aligned}
+}
+\]
+The cross-framework appendix therefore exports typed parent surfaces rather
+than importing downstream gravitational equations as foundational premises.
+
+The information-area curvature candidate
+\[
+\Xi_I^{(P)}
+=
+\frac{\mathcal J_\pi}{a_{FS}^{(P)}}
+\left(\frac{\omega_P}{c}\right)^2
+\]
+is available as a dimensionally closed interface.  RFC owns the downstream
+binding of this quantity to its dynamical curvature/action surface.
+
+\section{Software and GREMLIN boundary}
+
+The runtime/solver layer may consume the normalized cycle, phase and relation
+surfaces exported by TIR.  Runtime behavior is not a proof parent for the
+mathematical theorem graph; instrument or runtime tests enter through explicit
+evidence receipts.
+
+GREMLIN is used as a bounded candidate-generation and adversarial-audit layer:
+SPIDER may propose dependency isomorphisms, HOUND may search for contradictions,
+MOLE may propose derivation routes and MANTIS may detect duplicate ownership.
+A GREMLIN candidate enters the v12 theorem graph only after an independent
+deterministic proof/validator gate.
+
+\section{Interface status table}
+
+\begin{center}
+\begin{tabular}{p{0.32\textwidth}p{0.23\textwidth}p{0.32\textwidth}}
+\toprule
+Interface & Status & Owner\\
+\midrule
+\(1/2\leftrightarrow\ln2\) & exact & binary information layer\\
+\(3\times8\times\pi\to24\pi\) & TIR structural PASS & Chapter~9\\
+\(\Re s=1/2\leftrightarrow|z_L|=1\) & exact & SOH interface\\
+off-axis \(\to\) negative Li subsequence & conditional theorem candidate & SOH bridge\\
+native closure \(\to\lambda_n\ge0\) & OPEN & SOH completion frontier\\
+\(\ell_\varphi=c/|\omega_t|\) typing & exact dimensional closure & IDT interface\\
+\(ds_{\rm rel}^2=\ell_\varphi^2ds_{FS}^2\) & scale-binding candidate & TIR--IDT interface\\
+Cartan/ADM/Einstein closure & OPEN & Chapter~21 / RFC join\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The deterministic appendix integration validator checks the exact half-axis
+identity, canonical \(\kappa\) ownership markers, the IDT length-scale equation,
+the Li-positivity frontier marker and the bounded GREMLIN promotion rule.

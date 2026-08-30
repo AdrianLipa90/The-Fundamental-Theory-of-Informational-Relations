@@ -1,0 +1,36 @@
+{
+  "checks": {
+    "literal_printed_formula_does_not_reproduce_published_masses": true,
+    "published_ratio_pattern_is_1_2_10": true,
+    "single_offset_rule_reproduces_published_masses": true
+  },
+  "diagnostic_class": "FORMULA_VALUE_MISMATCH_WITH_UNIQUE_SINGLE_OFFSET_RECONSTRUCTION",
+  "literal_max_relative_mass_error_vs_printed_values": 0.04088165524357555,
+  "literal_printed_rule": "S1 = S_bare + kappa*dS",
+  "literal_result": {
+    "A_face": 0.04081632653061224,
+    "S1": 0.6428605606962079,
+    "S_bare": 0.6428571428571428,
+    "actions": [0.6428605606962079, 0.6364883546888345, 0.6216925505339042],
+    "dS": 0.00037178106119677704,
+    "kappa": 0.009193150006360484,
+    "masses_eV": [0.005214817092770304, 0.010429634185540626, 0.052148170927702533],
+    "splittings_eV2": [8.158295193314838e-05, 0.0026922374137938305]
+  },
+  "promotion_authority": false,
+  "published_masses_eV": [0.00501, 0.01002, 0.0501],
+  "reconciled_max_relative_mass_error_vs_printed_values": 1.2154095835226396e-06,
+  "reconciled_result": {
+    "A_face": 0.04081632653061224,
+    "S1": 0.6432289239183395,
+    "S_bare": 0.6428571428571428,
+    "actions": [0.6432289239183395, 0.6368567179109661, 0.6220609137560358],
+    "dS": 0.00037178106119677704,
+    "kappa": 0.009193150006360484,
+    "masses_eV": [0.005009993910798034, 0.010019987821596087, 0.050099939107979864],
+    "splittings_eV2": [7.530011695870052e-05, 0.002484903859637057]
+  },
+  "reconciled_rule": "S1 = S_bare + dS",
+  "schema": "TIR_V12_NEUTRINO_ACTION_CONSISTENCY_V0_1",
+  "status": "PASS"
+}

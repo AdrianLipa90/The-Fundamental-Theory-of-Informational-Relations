@@ -1,0 +1,15 @@
+{
+  "legacy_A5_expression_value": "1/6",
+  "legacy_A5_status": "QUARANTINED_LABEL_AND_CHARGE_MISMATCH",
+  "left_weyl_anomaly_coefficients": {
+    "SU2^2_U1Y": "0",
+    "SU3^2_U1Y": "0",
+    "U1Y^3": "0",
+    "grav^2_U1Y": "0"
+  },
+  "schema": "TIR_V12_HYPERCHARGE_ANOMALY_AUDIT_V0_1",
+  "status": "PASS_WITH_LEGACY_A5_QUARANTINE",
+  "SU2^2_U1B_global_current_coefficient_Tfund_half": "1/2",
+  "tir_hypercharge_source_status": "ARITHMETIC_MAP_PASS_UNIQUENESS_OPEN",
+  "witten_SU2_doublet_count_per_generation": 4
+}

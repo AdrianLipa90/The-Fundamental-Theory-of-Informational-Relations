@@ -1,0 +1,235 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Minimal Finite Cell and Tetrahedral Closure}
+\label{ch:v12_tetrahedral_closure}
+
+\section{Minimal finite isotropy}
+
+Let
+\[
+\mathbf n_1,\ldots,\mathbf n_m\in\mathbb R^3,
+\qquad
+|\mathbf n_a|=1,
+\]
+be equal-weight local relation directions in the carrier constructed in
+Chapter~\ref{ch:v12_euclidean_dimension}.  Define
+\[
+\mathbf M:=\sum_{a=1}^{m}\mathbf n_a,
+\qquad
+Q:=\sum_{a=1}^{m}\mathbf n_a\mathbf n_a^T.
+\]
+The finite isotropy conditions are
+\[
+\boxed{\mathbf M=0},
+\qquad
+\boxed{Q=\frac m3 I_3}.
+\]
+The second condition has rank three.  For \(m\le2\) the relation span is
+rank-deficient.  If \(m=3\), the zero-moment equation places the third vector in
+the span of the first two, so the rank is at most two.  Hence
+\[
+\boxed{m\ge4.}
+\]
+
+For \(m=4\), place the four vectors into
+\[
+N=(\mathbf n_1\ \mathbf n_2\ \mathbf n_3\ \mathbf n_4).
+\]
+Then
+\[
+NN^T=\frac43I_3,
+\qquad
+N\mathbf1=0.
+\]
+The Gram matrix \(G=N^TN\) is therefore
+\[
+\boxed{
+G
+=
+\frac43I_4-\frac13\mathbf1\mathbf1^T,
+}
+\]
+so
+\[
+\boxed{
+\mathbf n_a\cdot\mathbf n_b
+=
+-\frac13
+\quad(a\neq b).
+}
+\]
+The minimal equal-weight finite full-isotropy cell is consequently the regular
+tetrahedral frame.
+
+A convenient exact representative is
+\[
+\mathbf n_1=\frac1{\sqrt3}(1,1,1),\quad
+\mathbf n_2=\frac1{\sqrt3}(1,-1,-1),
+\]
+\[
+\mathbf n_3=\frac1{\sqrt3}(-1,1,-1),\quad
+\mathbf n_4=\frac1{\sqrt3}(-1,-1,1).
+\]
+
+\section{Exact shape data}
+
+For distinct vertices,
+\[
+\|\mathbf n_a-\mathbf n_b\|^2
+=
+2-2\left(-\frac13\right)
+=
+\frac83,
+\]
+hence the normalized edge length is
+\[
+\boxed{\hat a=\sqrt{\frac83}}.
+\]
+The Euclidean volume of the regular tetrahedron is
+\[
+\boxed{
+\hat V_{\Delta^3}
+=
+\frac{\hat a^3}{6\sqrt2}
+=
+\frac{8}{9\sqrt3}.
+}
+\]
+
+\section{Independent qubit informational-completeness route}
+
+A generic qubit density operator has three independent real Bloch coordinates.
+An \(m\)-outcome normalized probability vector has at most \(m-1\) independent
+real entries.  Informational completeness therefore requires
+\[
+m-1\ge3,
+\qquad
+\boxed{m\ge4}.
+\]
+
+Using the same tetrahedral directions, define
+\[
+P_a=\frac12(I+\mathbf n_a\cdot\boldsymbol\sigma),
+\qquad
+E_a=\frac12P_a
+=\frac14(I+\mathbf n_a\cdot\boldsymbol\sigma).
+\]
+Since \(\sum_a\mathbf n_a=0\),
+\[
+\boxed{\sum_{a=1}^{4}E_a=I}.
+\]
+For \(a\neq b\),
+\[
+\boxed{\operatorname{Tr}(P_aP_b)=\frac13}.
+\]
+For
+\[
+\rho=\frac12(I+\mathbf r\cdot\boldsymbol\sigma)
+\]
+the outcome probabilities are
+\[
+p_a=\operatorname{Tr}(\rho E_a)
+=\frac14(1+\mathbf r\cdot\mathbf n_a).
+\]
+Using
+\[
+\sum_a\mathbf n_a\mathbf n_a^T=\frac43I_3
+\]
+gives the exact reconstruction
+\[
+\boxed{
+\mathbf r
+=
+3\sum_{a=1}^{4}p_a\mathbf n_a.
+}
+\]
+Thus the minimal symmetric informationally complete qubit frame and the minimal
+finite isotropic relation frame carry the same regular tetrahedral Gram data.
+
+\section{Congruence-class closure}
+
+Let \(N\) be an ordered spatial tetrahedral frame and \(M\) an ordered SIC
+tetrahedral frame, with
+\[
+N^TN=M^TM=G,
+\qquad
+NN^T=MM^T=\frac43I_3.
+\]
+Define
+\[
+\boxed{Q_{\Delta}:=\frac34MN^T.}
+\]
+Then
+\[
+Q_{\Delta}N=M,
+\qquad
+Q_{\Delta}Q_{\Delta}^T=I_3,
+\]
+so
+\[
+\boxed{Q_{\Delta}\in O(3).}
+\]
+After compatible orientation of the ordered frames the representative may be
+chosen in \(SO(3)\).  The two routes therefore occupy one exact tetrahedral
+orthogonal-congruence class in
+\(\operatorname{Herm}_0(2)\cong\mathbb R^3\).
+
+The common promoted object at this stage is this Gram/congruence class and its
+orthogonal shape invariants.  Semantic role binding between an informational
+outcome label and a spatial adjacency label remains a separate downstream
+binding.
+
+\section{Fubini--Study shape crosswalk}
+
+The Bloch central angle between tetrahedral directions obeys
+\[
+\cos\chi=-\frac13.
+\]
+For one spherical tetrahedral face the spherical cosine law gives the interior
+angle
+\[
+\alpha=\frac{2\pi}{3}.
+\]
+The spherical excess on the unit Bloch sphere is \(\pi\).  Since the qubit
+Fubini--Study metric satisfies
+\[
+ds_{FS}^2=\frac14ds_{S^2}^2,
+\]
+one face has
+\[
+\boxed{a_{FS}^{face}=\frac\pi4},
+\]
+and all four faces carry
+\[
+\boxed{a_{FS}^{tet}=\pi}.
+\]
+Therefore the dimensionless dual-shape coefficient is
+\[
+\boxed{
+C_{\Delta/FS}
+=
+\frac{\hat V_{\Delta^3}}{a_{FS}^{tet}}
+=
+\frac{8}{9\sqrt3\,\pi}.
+}
+\]
+
+\section{Legacy tetrahedral semantics}
+
+The historical v11 tetrahedron appendix carries the sector-specific
+operator labels
+\(\{\hat I,\hat M,\hat A_\mu,\hat A_\tau\}\) and its own six edge assignments.
+In v12 that object remains sector-level provenance.  The canonical geometric
+tetrahedron of this chapter is the regular Gram class derived above; any
+role-binding map between the two tetrahedral descriptions must preserve their
+typed edge data and receives its own source receipt.
+
+\section{Source and validation receipt}
+
+The canonical theorem surfaces are
+\begin{itemize}
+\item \path{TIR/foundations/TIR_MINIMAL_ISOTROPIC_TETRAHEDRAL_CELL_V0_1.md};
+\item \path{TIR/foundations/TIR_QUBIT_TETRAHEDRAL_INFORMATIONAL_COMPLETENESS_V0_1.md};
+\item \path{TIR/integration/TIR_TETRAHEDRAL_CONGRUENCE_CLASS_CLOSURE_V0_1.md}.
+\end{itemize}
+The deterministic v12 receipt is generated by
+\path{TIR/validation/tir_v12_ch06_tetrahedral_closure_v0_1.py}.

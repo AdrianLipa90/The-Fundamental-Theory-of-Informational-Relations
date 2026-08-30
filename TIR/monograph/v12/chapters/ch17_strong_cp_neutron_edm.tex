@@ -1,0 +1,118 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Strong CP and Neutron EDM}
+\label{ch:v12_strong_cp_edm}
+
+\section{Frozen strong-CP map}
+
+The reviewed v11 branch supplies the assignment
+\begin{equation}
+\boxed{
+\theta_{\rm QCD}
+=\kappa\left(\frac{L_4}{L_3}\right)^{L_3+L_4+L_5}
+=\kappa\left(\frac27\right)^{14}.
+}
+\label{eq:v12_theta_qcd}
+\end{equation}
+The exponent $14=L_3+L_4+L_5$ and the suppression operator define the frozen retrospective strong-CP version.
+\vTwelveStatus{C}{RETROSPECTIVE}{OPEN}
+
+The current source-completion target is supplied by the non-Abelian colour-holonomy branch:
+\begin{equation}
+\boxed{
+W_{ij}^{c}
+\longrightarrow
+U_\gamma
+\longrightarrow
+\text{topological CP phase / sector invariant}
+\longrightarrow
+\theta_{\rm QCD}.
+}
+\label{eq:v12_strongcp_source_axis}
+\end{equation}
+This gives the existing numerical assignment a precise upstream theorem target.
+
+\section{Corrected arithmetic}
+
+The exact numerical suppression in Eq.~\eqref{eq:v12_theta_qcd} is
+\begin{equation}
+\left(\frac27\right)^{14}
+=2.4157243620710218\times10^{-8}.
+\end{equation}
+With
+\[
+\kappa=\frac{\ln2}{24\pi}=0.009193150006360484\ldots,
+\]
+the frozen phase is
+\begin{equation}
+\boxed{
+\theta_{\rm QCD}
+=2.220811643453839\times10^{-10}.
+}
+\label{eq:v12_theta_qcd_numeric}
+\end{equation}
+The v12 validator reproduces this value independently from the published decimal.
+\vTwelveStatus{C}{RETROSPECTIVE}{PASS}
+Here \texttt{PASS} is the arithmetic/formula evaluation of the frozen assignment; its physical consequence is tested separately below.
+
+\section{Fixed hadronic conversion}
+
+The publication snapshot uses the conversion coefficient
+\begin{equation}
+C_n=2.4\times10^{-16}\ e\,\mathrm{cm},
+\end{equation}
+with
+\begin{equation}
+\boxed{
+d_n=C_n\theta_{\rm QCD}.
+}
+\label{eq:v12_nedm_map}
+\end{equation}
+Therefore
+\begin{equation}
+\boxed{
+d_n^{\rm frozen}
+=5.329947944289213\times10^{-26}\ e\,\mathrm{cm}.
+}
+\label{eq:v12_nedm_value}
+\end{equation}
+The coefficient is an explicit external/hadronic matching input to this version.
+
+\section{Physical gate}
+
+Against the manuscript bound
+\begin{equation}
+|d_n|<1.8\times10^{-26}\ e\,\mathrm{cm}
+\qquad(90\%\ \mathrm{CL}),
+\label{eq:v12_nedm_bound}
+\end{equation}
+the ratio is
+\begin{equation}
+\boxed{
+\frac{d_n^{\rm frozen}}{d_n^{\rm bound}}
+=2.96108219127\ldots .
+}
+\end{equation}
+The frozen physical gate therefore has verdict
+\vTwelveStatus{D}{RETROSPECTIVE}{FAIL}
+The failure remains attached to the exact exponent, normalization and hadronic conversion that generated it.
+
+\section{Versioned replacement rule}
+
+A future strong-CP relation is promoted as a new version only after its upstream source map is frozen. The preferred structural route is Eq.~\eqref{eq:v12_strongcp_source_axis}, followed by a declared hadronic conversion and the same observable-level nEDM gate. This produces an append-only chain
+\[
+\boxed{
+\text{colour holonomy source}
+\to\theta_{\rm QCD}
+\to\text{hadronic matching}
+\to d_n
+\to\text{experimental verdict}.
+}
+\]
+
+\section{Audit receipt}
+
+The arithmetic and empirical gate are reproduced by
+\path{TIR/validation/tir_v12_strong_cp_nedm_audit_v0_1.py}.
+Its receipt
+\path{TIR/validation/TIR_V12_STRONG_CP_NEDM_AUDIT_V0_1.json}
+reports \texttt{PASS\_ARITHMETIC\_PHYSICAL\_FAIL\_RETAINED}: the frozen calculation is reproducible and the physical \texttt{FAIL} remains visible in Chapter~\ref{ch:v12_evidence_matrix}.

@@ -3,154 +3,316 @@
 https://www.researchgate.net/publication/408131825_Metatime_A_Low-Parameter_Ansatz_for_Standard_Model_Parameters_from_Geometric_Phase_Information_Theory
 
 **Author:** Adrian Lipa — Independent Researcher, Doncaster, United Kingdom  
-**Current monograph:** Metatime v11.0 Publication Candidate + 2026-08-07 κ/½ review branch  
-**Research status:** exploratory phenomenological programme; not a peer-reviewed confirmation of a final physical theory
+**Current monograph:** TIR v12 content-migration candidate  
+**Working branch:** `feat/tir-monograph-v12-structural-skeleton`  
+**Publication status:** dependency-ordered content migration with exact/conditional/empirical gates tracked separately
 
 ## Overview
 
-The **Fundamental Theory of Informational Relations (TIR)** is an exploratory research programme investigating whether geometric phase, information geometry, discrete arithmetic structure, holonomy, synchronization, and low-parameter relations can organize selected particle-physics, flavor, hadronic, and cosmological observables.
+The **Fundamental Theory of Informational Relations (TIR)** is a research programme that develops a dependency-ordered relation between primitive informational structure, quantum/projective geometry, spatial transport, flavour structure, particle-sector relations and falsifiable empirical tests.
 
-The current monograph develops the **Metatime** formulation around the informational preference quantum
+The current v12 monograph uses the causal spine
+
+```text
+0
+-> POINT
+-> FIRST DISTINCTION
+-> {N,S}
+-> 1/2
+-> ln2
+-> C^2
+-> Herm_0(2) ~= R^3
+-> Euclidean relational geometry
+-> tetrahedral closure
+-> connection / holonomy / SE(3) / solder / torsion
+-> flavour carrier
+-> kappa normalization
+-> particle and gauge sectors
+-> evidence and prospective tests
+```
+
+Historical v11 sources remain versioned provenance.
+
+## Canonical kappa normalization
+
+The current internal TIR normalization surface derives
 
 \[
-\kappa = \frac{\ln 2}{24\pi},
+\boxed{
+\kappa=\frac{\ln2}{24\pi}
+}
 \]
 
-which is treated in this repository as a **model postulate with structural motivation**, not as an established theorem of quantum field theory or differential geometry.
-
-For angular phase rate
+from the already established three-flavour mixing carrier:
 
 \[
-\omega=\frac{d\phi}{dt}=2\pi f
+V_F\cong\mathbb C^3,
+\qquad
+U_F\in SU(3)_F,
+\qquad
+\dim_{\mathbb R}\mathfrak{su}(3)_F=8.
 \]
 
-and the TIR definition
+The mixing-channel count is
+
+\[
+N_{\rm mix}
+=
+N_F(N_F^2-1)
+=
+3(3^2-1)
+=
+24.
+\]
+
+The primitive half coordinate supplies the half-turn phase
+
+\[
+\Delta\phi_{1/2}=\pi,
+\]
+
+so
+
+\[
+\Phi_{\rm mix}=24\pi,
+\qquad
+H_2(1/2)=\ln2,
+\]
+
+and therefore
+
+\[
+\boxed{
+\kappa
+=
+\frac{H_2(1/2)}{\Phi_{\rm mix}}
+=
+\frac{\ln2}{24\pi}.
+}
+\]
+
+Canonical source:
+
+`TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`
+
+Deterministic audit:
+
+`TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py`
+
+The independent tetrahedral symmetry crosscheck is
+
+\[
+3\,\dim\mathfrak{su}(3)_F
+=
+24
+=
+|S_4|.
+\]
+
+## Exact phase-rate consequence
+
+For
 
 \[
 d\mathcal I=\kappa\,d\phi,
+\qquad
+\omega=\frac{d\phi}{dt}=2\pi f,
 \]
 
-the 2026-08-07 review records the exact conditional identity
+the exact conditional identity is
 
 \[
 \boxed{
 \Gamma_{\mathcal I}
-=\frac{d\mathcal I}{dt}
-=\kappa\omega
-=\frac{\ln2}{12}f
+=
+\frac{d\mathcal I}{dt}
+=
+\kappa\omega
+=
+\frac{\ln2}{12}f
 },
 \qquad
-\Delta\mathcal I_{\rm cycle}=\frac{\ln2}{12}.
+\boxed{
+\Delta\mathcal I_{\rm cycle}
+=
+\frac{\ln2}{12}.
+}
 \]
 
-The cancellation of \(\pi\) is an exact consequence of converting angular phase rate to cyclic frequency; it is not an independent evaluation of \(\pi\).  The four quantities \((\kappa,\omega,f,\Gamma_{\mathcal I})\) obey three independent constraints and therefore form a one-dimensional regular constraint manifold conditional on the stated TIR definitions.
+The four quantities
+\((\kappa,\omega,f,\Gamma_{\mathcal I})\)
+obey three independent constraints and form a one-dimensional regular constraint manifold under the declared definitions. The physical observable binding of \(\Gamma_{\mathcal I}\) remains an `OPEN` operational gate.
 
-The programme includes:
+## Emergent geometry
 
-- geometric-phase and information-geometric constructions;
-- Bloch, Berry, Fubini–Study, holonomy, and spin-related structures;
-- discrete prime, Ramanujan, and Collatz layers;
-- charged-fermion mass and Yukawa audits;
-- flavor, neutrino, hadronic, gauge, Higgs, strong-CP, and cosmological relations;
-- an explicit TIR ↔ Secret-of-a-Half formal interface;
-- exact/conditional/open claim separation;
-- explicit retrospective/prospective separation;
-- reproducible numerical and publication-readiness audits;
-- retained negative results and falsification gates.
-
-## Scientific status
-
-This repository deliberately separates technical correctness from physical success.
-
-| Component | Current status | Interpretation |
-|---|---|---|
-| v11.0 baseline publication build | **PASS** | The baseline v11.0 monograph passed citation, reference, layout, metadata, font, and PDF-integrity gates. Review-branch changes require their own fresh CI before promotion. |
-| \(\kappa=\ln 2/(24\pi)\) | **MODEL POSTULATE** | Structurally motivated within TIR; not claimed as an established first-principles theorem. |
-| \(\omega=2\pi f\) | **STANDARD DEFINITION** | Conversion between cyclic and angular frequency. |
-| \(\Gamma_{\mathcal I}=\kappa\omega=(\ln2/12)f\) | **EXACT CONDITIONAL IDENTITY** | Algebraically exact once the TIR normalization and \(d\mathcal I=\kappa d\phi\) are adopted. |
-| \((\kappa,\omega,f,\Gamma_{\mathcal I})\) constraint manifold | **EXACT CONDITIONAL** | Three independent constraints in four named quantities; one continuous degree of freedom. |
-| Physical “surface-refresh” interpretation | **OPEN** | Requires an operational observable; not established by the algebraic identity alone. |
-| Secret-of-a-Half cross-relation | **FORMAL INTERFACE** | Exact binary midpoint/entropy results feed a TIR definition; the normalization denominator and physical interpretation remain separate claims. |
-| Reciprocal self-duality ⇒ dynamical maximum | **FALSE IN DECLARED DHSE STAGE-M UNIVERSE** | Exact finite counterexamples occur at word lengths 1 and 4; an additional extremality condition is required. |
-| Accelerated Collatz quarter-power layer | **TECHNICAL PASS** | The specified residue-class audit yields the expected multiplier \(\rho_C=3/4\). |
-| Isolated Collatz mass bridge | **OPEN / PHYSICAL FAIL** | The frozen v10.1 trace retains a geometric-mean multiplicative error of approximately \(9.967\times\). |
-| Retrospective sector-holonomy trace | **RETROSPECTIVE** | Useful as a diagnostic construction, but not independent confirmation. |
-| Common up-sector baseline | **RESTRICTED NO-GO** | A common additive baseline cannot remove the frozen residual spread for the tested architecture. |
-| v10.7 candidate family | **PROSPECTIVE FROZEN** | Three candidates and their future observables are fixed in advance under a no-refit rule. |
-| Gauge-boson relations | **OPEN TENSION** | The active relations remain approximately 4.5% and 5.0% high. |
-| Higgs relation | **RETROSPECTIVE REVISION** | The former precision claim has been withdrawn. |
-| Neutron electric dipole moment | **PHYSICAL FAIL** | The active prediction is \(5.3299\times10^{-26}\,e\,\mathrm{cm}\), about \(2.96\times\) above the manuscript bound. |
-| Full physical closure | **NOT CLAIMED** | Open derivational debts and empirical tensions remain. |
-| Canonical promotion | **DENIED PENDING EVIDENCE** | The framework is not presented as an experimentally established replacement for the Standard Model. |
-
-## TIR ↔ Secret-of-a-Half review interface
-
-The exact information-theoretic input is
+The binary quantum carrier gives the normalized state affine hull
 
 \[
-\operatorname*{arg\,max}_{0<p<1}H_2(p)=\frac12,
+\mathcal A_2
+=
+\frac12I+\operatorname{Herm}_0(2),
 \qquad
-H_2\!\left(\frac12\right)=\ln2.
+\operatorname{Herm}_0(2)\cong\mathbb R^3.
 \]
 
-The typed cross-framework chain is
+The canonical ordered endpoint relation is
 
 \[
 \boxed{
-\frac12
-\xrightarrow{\;H_2\;}
-\ln2
-\xrightarrow{\;\text{TIR definition}\;}
-\frac{\ln2}{24\pi}
-\xrightarrow{\;\omega=2\pi f\;}
-\frac{\ln2}{12}f
-}.
+\mathcal E_{xy}
+=
+2(\rho_y-\rho_x)
+\in\operatorname{Herm}_0(2).
+}
 \]
 
-The arrows do not all have the same epistemic type: the first is exact information theory, the second contains the TIR structural normalization, and the last is an exact algebraic consequence conditional on that normalization and the informational phase definition.
-
-The review also imports a necessary negative theorem from DHSE-001 Stage M:
+It obeys
 
 \[
-N_n(q)=N_n(1/q)
-\;\not\Rightarrow\;
-q=1\text{ is a global maximum}.
+\mathcal E_{yx}=-\mathcal E_{xy},
+\qquad
+\mathcal E_{xz}=\mathcal E_{xy}+\mathcal E_{yz}.
 \]
 
-Thus self-duality alone cannot be used in TIR as a shortcut to stability, preference, or attractor status.  Any such inference requires an additional theorem or condition such as positivity, convexity, monotonicity, or a variational principle.
-
-The canonical review record is:
-
-`TIR/docs/cross_reviews/TIR_SECRET_HALF_2026-08-07.md`
-
-and the monograph interface is Appendix P:
-
-`TIR/monograph/appendices/appP_secret_half_cross_relation.tex`.
-
-## Frozen prospective candidate family
-
-The v10.7 family uses
+The invariant local metric is
 
 \[
-\ln y_{f,g}=F(S_f)+D(G_g,R_g),
+\boxed{
+\langle A,B\rangle
+=
+\frac12\operatorname{Tr}(AB),
+}
 \]
 
-with the same functions acting across the charged-lepton, down-quark, and up-quark sectors.
+which becomes the Euclidean dot product in Pauli coefficients. Full local adjoint \(SO(3)\) isotropy stabilizes rank three.
 
-Exactly three candidates are retained:
+Minimal finite full isotropy then forces the regular tetrahedral Gram class,
+
+\[
+\mathbf n_a\cdot\mathbf n_b=-\frac13
+\qquad(a\neq b),
+\]
+
+with
+
+\[
+\hat a=\sqrt{\frac83},
+\qquad
+\hat V_{\Delta^3}=\frac{8}{9\sqrt3}.
+\]
+
+The minimal symmetric informationally complete qubit frame independently reaches the same tetrahedral congruence class.
+
+## Connection, holonomy and torsion
+
+The typed connection family is
+
+\[
+W_{ij}^{WT}\in U(1),
+\qquad
+W_{ij}^{X}\in SU(2),
+\qquad
+W_{ij}^{c}\in SU(3).
+\]
+
+For the spatial branch,
+
+\[
+R_{ij}
+=
+\operatorname{Ad}_{W_{ij}^{X}}
+\in SO(3),
+\]
+
+and the affine connection lift is
+
+\[
+\boxed{
+G_{ij}^{\nabla}
+=
+(R_{ij},\mathbf e_{ij})
+\in SE(3).
+}
+\]
+
+Pure affine-atlas transitions satisfy an exact \(SE(3)\) cocycle and give the zero-holonomy baseline. On a rotationally consistent connection triangle,
+
+\[
+R_C=I,
+\]
+
+and the translational loop source satisfies
+
+\[
+\boxed{
+\mathbf t_C
+=
+-\mathbf c_{xyz}
+=
+\operatorname{vec}(\mathcal T_{xyz}).
+}
+\]
+
+The next geometry theorem is controlled refinement of the discrete solder/torsion and rotational-holonomy data to Cartan torsion and curvature.
+
+## Evidence architecture
+
+Version 12 represents publication status by the ordered triple
 
 ```text
-C1: F(S) = -S
-    D(G,R) = -G + R
-
-C2: F(S) = -S^(3/4)
-    D(G,R) = -G^(3/4) + R
-
-C3: F(S) = S^(-3/4)/(L3*kappa)
-    D(G,R) = G^(-3/4)/(L3*kappa) + R
+(Claim Class, Timing, Verdict)
 ```
 
-The orthogonal prospective observables are:
+defined in
+
+`TIR/monograph/v12/STATUS_TAXONOMY.md`.
+
+Sector chapters own formulas and provenance. Chapter 19, **Unified Evidence Matrix**, owns current observable-level verdicts.
+
+Current retained evidence includes:
+
+- CKM retrospective compatibility in the frozen PDG-2026 matrix;
+- PMNS reactor-angle tension;
+- charged-lepton precision failures;
+- baryon and meson provenance/formula quarantines;
+- electroweak precision failures plus the common scheme/scale closure gate;
+- the retained neutron-EDM physical failure;
+- exact Standard Model local anomaly cancellations and the even Witten doublet count;
+- cosmological arithmetic and dimensionful-conversion quarantine.
+
+A technical calculation and an empirical verdict remain separate axes throughout the repository.
+
+## Electroweak closure gate
+
+The current structural values
+
+\[
+g_0=\frac{24}{35},
+\qquad
+\sin^2\theta_W^{(0)}=\frac29+\kappa
+\]
+
+combined through \(e_0=g_0\sin\theta_W^{(0)}\) imply an electromagnetic coupling different from the separate TIR \(\alpha^{-1}\) relation. Version 12 therefore promotes the common binding target
+
+\[
+\boxed{
+(g_0,\theta_W^{(0)},\alpha_0,v_0)
+\xrightarrow{\mathcal R_{EW}(\mu,\mathrm{scheme})}
+(g,e,\theta_W,\alpha,v)_{\mu,\mathrm{scheme}}.
+}
+\]
+
+This common transport is upstream of renewed \(W\), \(Z\), Higgs and precision-electroweak evidence evaluation.
+
+## Prospective programme
+
+The active prospective family is the frozen v10.7 separable architecture
+
+\[
+\ln y_{f,g}=F(S_f)+D(G_g,R_g).
+\]
+
+Exactly three candidates are frozen. The two orthogonal primary observables are
 
 - `y_c / y_mu`, isolating the sector functional;
 - `y_c / y_t`, isolating the generation-release operator.
@@ -163,157 +325,97 @@ Frozen predictions:
 | C2 | 2.3521800134268784 | 0.17147213462587316 |
 | C3 | 6.858021228826222 | 2.8101955040512466e-11 |
 
-No fourth candidate may be introduced, and no candidate, observable, or formula may be replaced after inspecting the assigned future likelihood.
+The no-refit rule and assigned likelihood gates are preserved in Chapter 20.
 
-## Publication candidate v11.0 and κ/½ review
+## Completion frontier
 
-The v11.0 revision added a publication-level claim hierarchy and corrected several earlier overstatements.  The 2026-08-07 review adds the κ phase-rate closure and cross-framework boundary work without promoting the physical interpretation.
+Chapter 21 maintains the remaining theorem programme as a directed acyclic dependency graph. The current receipt records 23 resolved nodes: eight closed root surfaces and fifteen open gates.
 
-Principal changes now include:
+Principal open gates include:
 
-- replacement of the inaccurate “26 Standard Model parameters” label with a 36-observable scope statement;
-- withdrawal of a single heterogeneous global percentage-error claim;
-- explicit separation of anchors, retrospective assignments, upper-limit tests, scheme-dependent quantities, and prospective predictions;
-- renormalization-scale and scheme caveats for quark masses, Yukawa couplings, gauge couplings, and \(\sin^2\theta_W\);
-- corrected strong-CP and neutron-EDM arithmetic;
-- explicit retention of physical failures;
-- a data-provenance and statistical-interpretation protocol;
-- corrected spin-\(1/2\) Berry-phase normalization language;
-- exact symbolic certification of the \(2\pi\) cancellation in \(\kappa\omega\);
-- explicit constraint-manifold parameter counting;
-- a TIR ↔ Secret-of-a-Half cross-relation appendix with non-circularity rules;
-- expanded bibliography and local citation context;
-- PDF metadata, embedded publication fonts, hidden links, and automated preflight checks.
+1. discrete-to-continuum Cartan refinement;
+2. zero-torsion spatial sector;
+3. TIR–IDT ADM join and Einstein closure;
+4. coefficient magnitude forcing;
+5. continuum gauge normalization/running;
+6. common electroweak scheme/scale transport;
+7. Higgs scalar-action binding;
+8. holonomic strong-CP source;
+9. meson absolute-action baseline;
+10. neutrino absolute-action repair;
+11. cosmological dimensionful scale binding;
+12. native Li/Weil positivity closure.
 
-The numerical tables should be read as a **frozen audit snapshot dated 29 July 2026**, not as a continuously updated global-fit database.
-
-## Repository structure
+## Repository map
 
 ```text
-.
-├── README.md
-├── .github/
-│   └── workflows/
-│       └── compile-metatime-monograph.yml
-├── TIR/
-│   ├── metatime_paper.tex
-│   ├── apply_metatime_paper_review_patch.py
-│   ├── docs/
-│   │   └── cross_reviews/
-│   │       └── TIR_SECRET_HALF_2026-08-07.md
-│   ├── validation/
-│   │   └── kappa_phase_rate_identity_v11_1.py
-│   └── monograph/
-│       ├── metatime_monograph.tex
-│       ├── apply_kappa_phase_rate_patch.py
-│       ├── frontmatter/
-│       │   └── publication_frontmatter_v11_0.tex
-│       ├── chapters/
-│       ├── appendices/
-│       │   ├── appO_publication_protocol.tex
-│       │   └── appP_secret_half_cross_relation.tex
-│       ├── references_expanded_v10_8.tex
-│       ├── PUBLICATION_READINESS_v11_0.md
-│       ├── publication_readiness_v11_0.json
-│       ├── CITATION_COVERAGE_v11_0.md
-│       ├── citation_coverage_v11_0.json
-│       ├── normalize_build_sources.py
-│       ├── prepare_publication_candidate_v11_0.py
-│       ├── prepare_publication_candidate_v11_0_impl.py
-│       └── add_citation_context_v10_9.py
-└── archive/
-    └── historical releases and audit material
+TIR/
+├── foundations/
+├── integration/
+├── interfaces/
+├── standard_model/
+├── validation/
+├── subrepos/
+│   └── the-space-of-geometry/
+└── monograph/
+    ├── tir_monograph_v12.tex
+    ├── v12/
+    │   ├── STATUS_TAXONOMY.md
+    │   ├── MIGRATION_MANIFEST.yaml
+    │   ├── chapters/
+    │   └── appendices/
+    └── metatime_monograph.tex
 ```
 
-## Build the reviewed publications
+The v12 master is
 
-### Dependencies
+`TIR/monograph/tir_monograph_v12.tex`.
 
-The GitHub Actions build uses:
+The v11 master remains the historical publication line at
 
-- `latexmk`;
-- `lmodern`;
-- `texlive-latex-base`;
-- `texlive-latex-recommended`;
-- `texlive-latex-extra`;
-- `texlive-fonts-recommended`;
-- `texlive-science`;
-- `texlive-publishers`;
-- `poppler-utils`;
-- `qpdf`.
+`TIR/monograph/metatime_monograph.tex`.
 
-### Reproduce source integration and audits
+## Validation
 
-From the repository root:
+The v12 branch includes dedicated deterministic validators for the migrated theorem/evidence surfaces, including:
 
 ```text
-python3 TIR/monograph/normalize_build_sources.py
-PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/prepare_publication_candidate_v11_0.py
-PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/apply_kappa_phase_rate_patch.py
-PYTHONDONTWRITEBYTECODE=1 python3 TIR/apply_metatime_paper_review_patch.py
-PYTHONDONTWRITEBYTECODE=1 python3 TIR/validation/kappa_phase_rate_identity_v11_1.py
-PYTHONDONTWRITEBYTECODE=1 python3 TIR/monograph/add_citation_context_v10_9.py
+TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py
+TIR/validation/tir_v12_ch05_euclidean_spatial_gate_v0_1.py
+TIR/validation/tir_v12_ch06_tetrahedral_closure_v0_1.py
+TIR/validation/tir_v12_ch07_holonomy_se3_torsion_v0_1.py
+TIR/validation/tir_v12_hypercharge_anomaly_audit_v0_1.py
+TIR/validation/tir_v12_completion_frontier_dag_v0_1.py
 ```
 
-Then compile the long monograph from `TIR/monograph/` and the short paper from `TIR/` with `latexmk -pdf` and the repository's preflight settings.
+Publication promotion requires an exact-head source-contract pass, LaTeX compilation, citation/reference integrity checks and PDF preflight.
 
-The expected publication artifacts are:
+## Research and publication policy
 
-```text
-TIR/monograph/metatime_monograph.pdf
-TIR/metatime_paper.pdf
-```
+The repository preserves the following invariants:
 
-## Automated publication gates
-
-The review workflow checks or is intended to check:
-
-- exact-head checkout provenance;
-- deterministic and idempotent source preparation;
-- exact symbolic κ phase-rate factor cancellation plus numerical implementation sanity checks;
-- the rank-3 constraint certificate;
-- complete local citation coverage;
-- zero unresolved citations and references;
-- zero multiply defined labels;
-- zero overfull boxes in the monograph;
-- nonempty PDF title, author, subject, and keywords;
-- embedded fonts and absence of Type 3 fonts;
-- `qpdf` syntax and stream integrity;
-- corrected strong-CP and neutron-EDM values;
-- explicit preservation of the neutron-EDM physical FAIL;
-- absence of generated Python bytecode artifacts;
-- artifact upload with checksums and audit ledgers.
-
-A baseline PASS must not be reported as a PASS for a modified review head.  Review-branch validation is reported only after a workflow actually runs on that head.
-
-## Evidence and interpretation policy
-
-When reading or extending this repository:
-
-1. **Do not treat retrospective numerical agreement as prospective confirmation.**
-2. **Do not combine heterogeneous observables into a single accuracy percentage without a justified likelihood.**
-3. **Do not compare scale-dependent quantities at precision level without a common renormalization scale and scheme.**
-4. **Do not remove or suppress failed predictions after observing the result.**
-5. **Do not modify the frozen prospective family after inspecting future data.**
-6. **Preserve Ramanujan continuity in the scaling programme.**
-7. **Keep technical PASS and physical PASS/FAIL separate.**
-8. **Do not promote a conditional algebraic identity into an empirical physical law without an operational observable.**
-9. **Do not infer extremality from reciprocal self-duality alone.**
-10. **Do not use the TIR ↔ Secret-of-a-Half cross-relation circularly to prove a normalization assumption.**
+1. formulas retain source provenance and version identity;
+2. retrospective and prospective evidence remain separate;
+3. failed gates remain visible in the evidence record;
+4. scheme- and scale-dependent quantities use declared comparison conventions;
+5. prospective candidate families remain frozen after their assigned evidence gate opens;
+6. technical PASS and physical empirical verdicts remain separate;
+7. GREMLIN supplies bounded candidate generation and adversarial audit, while theorem promotion requires deterministic proof/validation;
+8. `main` changes only through an explicit promotion decision.
 
 ## Citation
 
-Until a DOI-backed release is deposited, cite the repository and the exact commit used:
+Until a DOI-backed v12 release is deposited, cite the repository and the exact commit used:
 
 ```bibtex
-@misc{Lipa2026Metatime,
+@misc{Lipa2026TIR,
   author       = {Adrian Lipa},
-  title        = {Metatime: A Publication Candidate for an Exploratory
-                  Low-Parameter Phenomenological Ansatz},
+  title        = {Theory of Informational Relations:
+                  Foundations, Emergent Geometry, and Phenomenological Tests},
   year         = {2026},
   howpublished = {The Fundamental Theory of Informational Relations repository},
   url          = {https://github.com/AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations},
-  note         = {Version 11.0 plus review-state commit; cite the exact Git commit used}
+  note         = {Version 12 content-migration candidate; cite the exact Git commit used}
 }
 ```
 
@@ -323,8 +425,4 @@ Until a DOI-backed release is deposited, cite the repository and the exact commi
 Independent Researcher  
 Doncaster, United Kingdom
 
-For scientific discussion, reproducibility reports, or collaboration proposals, use the repository's GitHub issue or discussion channels where available.
-
-## Disclaimer
-
-This repository contains an independent exploratory research programme. It does not claim peer-reviewed validation, experimental confirmation of a final theory, or replacement of the Standard Model. Numerical proximity alone is not treated as proof, and all stated failures and open derivational debts remain part of the public record.
+For scientific discussion, reproducibility reports or collaboration proposals, use the repository's GitHub issue or discussion channels where available.

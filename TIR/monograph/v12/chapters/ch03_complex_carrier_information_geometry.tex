@@ -1,0 +1,204 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Complex Relational Carrier and Information Geometry}
+\label{ch:v12_complex_carrier}
+
+\section{Two-state carrier}
+
+The primitive quantum lift gives
+\begin{equation}
+\mathcal H_2\cong\mathbb C^2.
+\end{equation}
+Choose the pole basis $|N\rangle,|S\rangle$. A normalized pure state can be parameterized by
+\begin{equation}
+\boxed{
+|\psi(\vartheta,\varphi)\rangle
+=\cos\frac\vartheta2\,|N\rangle
++e^{i\varphi}\sin\frac\vartheta2\,|S\rangle.
+}
+\label{eq:v12_spinor_spherical}
+\end{equation}
+The associated probability coordinate is
+\begin{equation}
+u=\sin^2\frac\vartheta2,
+\qquad
+1-u=\cos^2\frac\vartheta2.
+\end{equation}
+Hence the half seam $u=1/2$ is the equatorial condition
+\begin{equation}
+\vartheta=\frac\pi2.
+\end{equation}
+
+\section{Projective state space}
+
+Physical pure-state rays remove global complex phase, giving
+\begin{equation}
+\boxed{\mathbb{CP}^1\cong S^2.}
+\label{eq:v12_cp1_s2}
+\end{equation}
+The standard Fubini--Study line element for normalized rays may be written
+\begin{equation}
+ ds_{\rm FS}^2
+=\langle d\psi|d\psi\rangle
+-|\langle\psi|d\psi\rangle|^2
+\label{eq:v12_fs_general}
+\end{equation}
+and, for Eq.~\eqref{eq:v12_spinor_spherical}, becomes
+\begin{equation}
+\boxed{
+ ds_{\rm FS}^2
+=\frac14\left(d\vartheta^2+\sin^2\vartheta\,d\varphi^2\right).
+}
+\label{eq:v12_fs_qubit}
+\end{equation}
+Thus the qubit projective metric is one quarter of the unit Bloch-sphere metric. Its total area is
+\begin{equation}
+\boxed{\operatorname{Area}_{FS}(\mathbb{CP}^1)=\pi.}
+\end{equation}
+This normalized projective area later provides an exact geometric measure for tetrahedral crosswalks; physical length/area calibration remains separately typed.
+
+\section{Density-matrix representation}
+
+For a normalized pure state,
+\begin{equation}
+\rho_\psi=|\psi\rangle\langle\psi|
+\end{equation}
+can be written in Bloch form
+\begin{equation}
+\boxed{
+\rho_\psi
+=\frac12\left(I+\mathbf r\cdot\boldsymbol\sigma\right),
+\qquad
+|\mathbf r|=1.
+}
+\label{eq:v12_bloch_density}
+\end{equation}
+The coefficient vector is
+\begin{equation}
+\mathbf r
+=(\sin\vartheta\cos\varphi,
+\sin\vartheta\sin\varphi,
+\cos\vartheta).
+\end{equation}
+For a general normalized qubit state, $|\mathbf r|\le1$ and the trace-one Hermitian state space has affine hull
+\begin{equation}
+\boxed{
+\mathcal A_2
+=\{\rho=\rho^\dagger:\operatorname{Tr}\rho=1\}
+=\frac12I+\operatorname{Herm}_0(2).
+}
+\label{eq:v12_affine_qubit_hull}
+\end{equation}
+
+\section{Information coordinate inside projective geometry}
+
+The binary probability coordinate is related to the Bloch vertical coordinate by
+\begin{equation}
+r_z=1-2u=\cos\vartheta.
+\end{equation}
+The exchange-fixed information point therefore obeys
+\begin{equation}
+u=\frac12
+\iff
+r_z=0
+\iff
+\vartheta=\frac\pi2.
+\end{equation}
+The phase coordinate $\varphi$ remains free along the equator. This makes the information/projective relation explicit:
+\begin{equation}
+\boxed{
+\text{binary share }u
+\longleftrightarrow
+\text{Bloch latitude},
+\qquad
+\text{relative phase }\varphi
+\longleftrightarrow
+\text{Bloch azimuth}.
+}
+\end{equation}
+
+At the half seam the entropy is maximal,
+\begin{equation}
+H_2(1/2)=\ln2,
+\end{equation}
+while the coherent family still carries a full $S^1$ phase orbit. The scalar information coordinate and the projective phase coordinate are therefore complementary coordinates of the same two-state carrier.
+
+\section{Operator coordinates}
+
+The real vector space of Hermitian operators on $\mathbb C^2$ admits the unique Pauli decomposition
+\begin{equation}
+\boxed{
+A=a_0I+a_x\sigma_x+a_y\sigma_y+a_z\sigma_z,
+\qquad a_\mu\in\mathbb R.
+}
+\label{eq:v12_pauli_decomposition}
+\end{equation}
+with
+\begin{equation}
+\dim_{\mathbb R}\operatorname{Herm}(2)=4.
+\end{equation}
+The trace component is the uniform direction; the distinction-generating part lies in
+\begin{equation}
+\operatorname{Herm}_0(2)
+=\operatorname{span}_{\mathbb R}\{\sigma_x,\sigma_y,\sigma_z\}.
+\end{equation}
+Chapter~\ref{ch:v12_c2_herm0_r3} turns this observation into the explicit three-real-dimensional relational generator carrier and its affine spatial relation object.
+
+\section{Rotation covariance}
+
+For $U\in SU(2)$,
+\begin{equation}
+A\mapsto UAU^\dagger
+\end{equation}
+preserves trace and the Hilbert--Schmidt pairing. On the Pauli coefficient vector the standard adjoint action induces
+\begin{equation}
+\boxed{
+\operatorname{Ad}:SU(2)\to SO(3),
+\qquad
+SU(2)/\{\pm I\}\cong SO(3).
+}
+\label{eq:v12_su2_so3}
+\end{equation}
+The Bloch sphere, traceless operator sphere and rotation group are therefore coordinated by one algebra rather than introduced as unrelated copies of $S^2$ and $\mathbb R^3$.
+
+\section{Fubini--Study tetrahedral preview}
+
+Four unit Bloch vectors satisfying
+\begin{equation}
+\mathbf n_a\cdot\mathbf n_b=-\frac13
+\qquad(a\neq b)
+\end{equation}
+form a regular tetrahedral frame. Their Bloch central angle obeys
+\begin{equation}
+\cos\chi=-\frac13.
+\end{equation}
+For the corresponding geodesic $\mathbb{CP}^1$ face, the spherical interior angle is $2\pi/3$ and the Fubini--Study area is
+\begin{equation}
+\boxed{a_{FS}^{\rm face}=\frac\pi4.}
+\end{equation}
+Four faces therefore cover total Fubini--Study area
+\begin{equation}
+\boxed{a_{FS}^{\rm tet}=\pi,}
+\end{equation}
+matching the full normalized $\mathbb{CP}^1$ area. Chapter~\ref{ch:v12_tetrahedral_closure} returns to this frame after the spatial carrier and Euclidean dimension gate have been established.
+
+\section{Dependency output}
+
+The chapter exports the exact mathematical packet
+\begin{equation}
+\boxed{
+\mathbb C^2
+\to
+\mathbb{CP}^1\cong S^2
+\to
+\rho=\frac12(I+\mathbf r\cdot\boldsymbol\sigma)
+\to
+\operatorname{Herm}(2)
+\supset
+\operatorname{Herm}_0(2).
+}
+\end{equation}
+The next chapter isolates the traceless translation/generator space and constructs the canonical affine relation
+\[
+\mathcal E_{xy}=2(\rho_y-\rho_x),
+\]
+which is the bridge from projective quantum-state geometry to the local three-real-dimensional relational carrier.

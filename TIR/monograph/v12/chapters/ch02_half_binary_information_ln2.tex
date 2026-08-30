@@ -1,0 +1,210 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter[Half Coordinate, Binary Information and ln2]{The Half Coordinate, Binary Information and $\ln2$}
+\label{ch:v12_half_ln2}
+
+\section{Binary probability coordinate}
+
+The primitive pair from Chapter~\ref{ch:v12_first_distinction} admits the normalized probability coordinate
+\begin{equation}
+\mathbf p(u)=(1-u,u),
+\qquad
+0\le u\le1.
+\end{equation}
+Pole exchange is
+\begin{equation}
+J(u)=1-u.
+\end{equation}
+The unique fixed point is
+\begin{equation}
+\boxed{u_\star=\frac12.}
+\label{eq:v12_half_point}
+\end{equation}
+At this point
+\begin{equation}
+p_N=p_S=\frac12,
+\qquad
+\boxed{H_2=\ln2.}
+\label{eq:v12_half_entropy}
+\end{equation}
+The scalar half and the first symmetric information value are therefore fixed before the flavour and particle branches enter.
+\vTwelveStatus{B}{--}{PASS}
+
+\section{Coherent lift of the half point}
+
+A normalized pure state of the two-state carrier can be written, after removal of the global phase, as
+\begin{equation}
+|\psi(u,\varphi)\rangle
+=\sqrt{1-u}\,|N\rangle
++e^{i\varphi}\sqrt{u}\,|S\rangle,
+\qquad
+\varphi\in\mathbb R/2\pi\mathbb Z.
+\label{eq:v12_pure_binary_state}
+\end{equation}
+Projection to the scalar probability coordinate is
+\begin{equation}
+\pi:\ |\psi(u,\varphi)\rangle\longmapsto(1-u,u).
+\end{equation}
+Over the half point,
+\begin{equation}
+\boxed{
+\pi^{-1}\!\left(\frac12,\frac12\right)
+=
+\left\{
+\frac{|N\rangle+e^{i\varphi}|S\rangle}{\sqrt2}
+:\varphi\in S^1
+\right\}.
+}
+\label{eq:v12_half_fiber}
+\end{equation}
+Thus the scalar half coordinate lifts to a one-dimensional relative-phase fiber
+\begin{equation}
+\boxed{\frac12\longrightarrow U(1)\cong S^1.}
+\end{equation}
+This fiber carries coherent information that is absent from the probability projection.
+
+\section{Bloch realization of the half fiber}
+
+For Eq.~\eqref{eq:v12_pure_binary_state}, the Bloch vector is
+\begin{equation}
+\mathbf r(u,\varphi)
+=\left(
+2\sqrt{u(1-u)}\cos\varphi,
+2\sqrt{u(1-u)}\sin\varphi,
+1-2u
+\right).
+\end{equation}
+Its norm satisfies
+\begin{equation}
+|\mathbf r|^2
+=4u(1-u)+(1-2u)^2
+=1.
+\end{equation}
+Hence pure states lie on $S^2$. At the half point,
+\begin{equation}
+\boxed{
+\mathbf r\left(\frac12,\varphi\right)
+=(\cos\varphi,\sin\varphi,0),
+}
+\label{eq:v12_half_equator}
+\end{equation}
+which is the Bloch equator.
+
+The primitive two-pole relation therefore becomes
+\begin{equation}
+\boxed{
+N\text{ pole}
+\quad\longleftrightarrow\quad
+S^1_{\rm half}\text{ equator}
+\quad\longleftrightarrow\quad
+S\text{ pole}.
+}
+\end{equation}
+The projective geometry of this carrier is developed systematically in Chapter~\ref{ch:v12_complex_carrier}.
+
+\section{Pole exchange on the phase fiber}
+
+Let the exchange operator act by
+\begin{equation}
+X|N\rangle=|S\rangle,
+\qquad
+X|S\rangle=|N\rangle.
+\end{equation}
+On the balanced family,
+\begin{equation}
+X|\psi_{1/2}(\varphi)\rangle
+\sim
+|\psi_{1/2}(-\varphi)\rangle,
+\end{equation}
+where $\sim$ denotes projective equivalence after removal of a global phase. Hence
+\begin{equation}
+\boxed{\varphi\mapsto-\varphi\pmod{2\pi}.}
+\label{eq:v12_half_phase_exchange}
+\end{equation}
+The exchange-fixed projective phases obey
+\begin{equation}
+\varphi=-\varphi\pmod{2\pi},
+\end{equation}
+so
+\begin{equation}
+\boxed{\varphi\in\{0,\pi\}.}
+\label{eq:v12_half_fixed_phases}
+\end{equation}
+These are the two exchange eigen-directions on the equator.
+
+\section{Phase closure and arithmetic indices}
+
+For a closed phase loop,
+\begin{equation}
+\boxed{
+n=\frac1{2\pi}\oint d\varphi\in\mathbb Z.
+}
+\label{eq:v12_winding}
+\end{equation}
+Equivalently, with $z=e^{i\varphi}$,
+\begin{equation}
+z^n=1.
+\end{equation}
+For a primitive $n$-fold closure,
+\begin{equation}
+\varphi=\frac{2\pi k}{n}.
+\end{equation}
+This supplies the operational A5--A6 chain
+\begin{equation}
+\boxed{
+S^1
+\longleftrightarrow
+U(1)
+\longrightarrow
+\text{winding/closure invariant}
+\longrightarrow
+n\in\mathbb N.
+}
+\end{equation}
+The ordering is important: the phase geometry is admitted before the arithmetic closure index is used as a TIR physical label.
+
+\section{Information geometry at the half seam}
+
+The binary probability projection sees the Bloch vertical coordinate
+\begin{equation}
+z_B=1-2u.
+\end{equation}
+At $u=1/2$,
+\begin{equation}
+z_B=0.
+\end{equation}
+All balanced relative phases therefore project to the same scalar probability point,
+\begin{equation}
+\boxed{
+\pi:S^1_{\rm equator}\to\left\{\frac12\right\}.
+}
+\end{equation}
+This is the exact interface between binary information and the coherent phase degree of freedom: the scalar coordinate fixes equal modulus, while the $U(1)$ fiber carries the relative phase.
+
+\section{Dynamical interfaces}
+
+A strongly continuous unitary flow on the half fiber admits a self-adjoint generator under the standard unitary-generator theorem. In the temporal branch, a parametrization
+\begin{equation}
+\varphi=\varphi(\tau)
+\end{equation}
+therefore supplies the entry point to phase dynamics. Multiple Bloch distinction axes similarly give noncommuting Pauli generators and the standard Robertson--Heisenberg structure.
+
+These are downstream interfaces of the carrier established here. The present chapter fixes the static packet
+\begin{equation}
+\boxed{
+\frac12
+\leftrightarrow
+\ln2
+\leftrightarrow
+S^1_{\rm phase}
+\subset
+\mathbb{CP}^1\cong S^2.
+}
+\end{equation}
+
+\section{Ownership boundary}
+
+Chapter 2 owns the binary half, $\ln2$, and its coherent phase fiber. Chapter 8 later introduces the three-flavour carrier, and Chapter 9 is the sole v12 publication owner of the complete normalization
+\[
+\kappa=\frac{\ln2}{24\pi}.
+\]
+This dependency order keeps the binary information numerator upstream of the flavour-mixing phase measure that normalizes it.

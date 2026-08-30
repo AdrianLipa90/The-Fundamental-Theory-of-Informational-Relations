@@ -1,0 +1,177 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Hadrons — Baryons and Mesons}
+\label{ch:v12_hadrons}
+
+\section{Source and status discipline}
+
+This chapter consolidates the historical baryon and meson source family. Standard $SU(3)$ flavour relations are separated from TIR coefficient assignments and from empirical comparison. Current observable verdicts are owned by Chapter~\ref{ch:v12_evidence_matrix}.
+
+Primary legacy sources are
+\path{ch08_gmo_formula.tex} through \path{ch15_heavy_mesons.tex}. The v12 arithmetic audit is
+\path{TIR/validation/tir_v12_hadron_formula_audit_v0_2.py}.
+
+\section{Baryon octet: the standard GMO carrier}
+
+For the baryon octet the standard Gell--Mann--Okubo organization is
+\begin{equation}
+M = a+bY+c\left[I(I+1)-\frac{Y^2}{4}\right],
+\label{eq:v12_gmo_standard}
+\end{equation}
+with the familiar octet relation
+\begin{equation}
+\boxed{
+\frac12(M_N+M_\Xi)=\frac34M_\Lambda+\frac14M_\Sigma.
+}
+\label{eq:v12_gmo_relation}
+\end{equation}
+\vTwelveStatus{A}{--}{PASS}
+The algebraic relation belongs to the established $SU(3)$ flavour framework \cite{GellMann1962,okubo1962}.
+
+The historical TIR parameterization writes
+\begin{equation}
+M=M_0+\alpha+\beta Y+\gamma\left[I(I+1)-\frac{Y^2}{4}\right].
+\label{eq:v12_tir_gmo}
+\end{equation}
+Its coefficient family is retained as a retrospective model surface.
+
+\section{Octet reference scale: v12 derivation audit}
+
+The legacy source defines
+\begin{equation}
+S_0=\frac{s+u}{L_3}\,\kappa
+\label{eq:v12_legacy_s0}
+\end{equation}
+and cites the exponential architecture
+\begin{equation}
+M_0=E_P\exp(-S_0/\kappa).
+\label{eq:v12_legacy_m0_exp}
+\end{equation}
+Equations~\eqref{eq:v12_legacy_s0}--\eqref{eq:v12_legacy_m0_exp} imply
+\begin{equation}
+\frac{S_0}{\kappa}=\frac{s+u}{L_3}=\frac{10}{7},
+\end{equation}
+so literal evaluation gives
+\begin{equation}
+E_Pe^{-10/7}\simeq2.926\times10^{21}\ \mathrm{MeV}.
+\end{equation}
+
+The printed $925.95$ MeV value instead comes from a distinct proton-anchored linear map,
+\begin{equation}
+\boxed{
+M_0^{\rm lin}
+=E_{\rm proton}
+\left(1-\frac{s+u}{L_3}\kappa\right)
+\simeq925.9496\ \mathrm{MeV}.
+}
+\label{eq:v12_octet_m0_linear}
+\end{equation}
+The corresponding exact proton-anchored exponential would be
+\begin{equation}
+E_{\rm proton}\exp\!\left[-\frac{s+u}{L_3}\kappa\right]
+\simeq926.0302\ \mathrm{MeV}.
+\end{equation}
+
+The v12 audit therefore preserves Eq.~\eqref{eq:v12_octet_m0_linear} as the formula that generated the historical table while routing its derivational parentage to repair.
+\vTwelveStatus{D}{RETROSPECTIVE}{QUARANTINED}
+
+\section{Octet coefficient family}
+
+The historical coefficient assignments are
+\begin{align}
+\alpha
+&=E_{\rm proton}\kappa
+\left(q_s^2-q_u^2-q_d^2+L_3\right),
+\label{eq:v12_octet_alpha}\\
+\beta
+&=-\alpha\frac{L_3^2-1}{L_3^2},
+\label{eq:v12_octet_beta}\\
+\gamma
+&=\alpha\frac{L_4(L_3-L_4)}{L_3^2}.
+\label{eq:v12_octet_gamma}
+\end{align}
+For the canonical labels these give approximately
+\[
+\alpha=189.765\ \mathrm{MeV},\qquad
+\beta=-185.892\ \mathrm{MeV},\qquad
+\gamma=38.728\ \mathrm{MeV}.
+\]
+
+The legacy chapter attributes Eqs.~\eqref{eq:v12_octet_beta}--\eqref{eq:v12_octet_gamma} to a ``J--KJ'' eigenvalue construction. Version 12 records a completion gate for the explicit operator/matrix, its domain and its eigenvalue calculation. Until that surface is supplied, the coefficient equations are typed retrospective assignments rather than an operator-level theorem.
+\vTwelveStatus{C}{RETROSPECTIVE}{QUARANTINED}
+
+With Eqs.~\eqref{eq:v12_octet_m0_linear}--\eqref{eq:v12_octet_gamma}, the constructed masses satisfy Eq.~\eqref{eq:v12_gmo_relation} identically. This is an internal algebraic consistency check of the chosen GMO parameterization. Empirical independence is controlled separately through provenance.
+
+\section{Baryon decuplet}
+
+The historical decuplet uses
+\begin{equation}
+M=M_0'+\alpha_{10}+\beta_{10}Y,
+\label{eq:v12_decuplet}
+\end{equation}
+with
+\begin{align}
+M_0'&=E_{\rm proton}\left[1+(s-u)\kappa\right],\\
+\alpha_{10}
+&=E_{\rm proton}\kappa
+\frac{L_3^2+L_4^2+L_5^2+L_3+L_4+L_5+L_4}{L_4},\\
+\beta_{10}
+&=-E_{\rm proton}\kappa\frac{L_3L_5}{L_4}.
+\end{align}
+The displayed values are approximately
+\[
+M_0'=972.72\ \mathrm{MeV},\qquad
+\alpha_{10}=405.41\ \mathrm{MeV},\qquad
+\beta_{10}=-150.95\ \mathrm{MeV}.
+\]
+They generate the equal-spaced sequence reported historically for $\Delta$, $\Sigma^*$, $\Xi^*$ and $\Omega$.
+
+The proton mass enters explicitly as an external anchor and the coefficient numerators are discrete structural assignments. The frozen 2026 evidence matrix therefore treats this as postdiction with a proton anchor and candidate compatibility.
+\vTwelveStatus{C}{RETROSPECTIVE}{COMPATIBLE}
+
+\section{Pseudoscalar mesons: retained arithmetic failure}
+
+The legacy pion and kaon source prints
+\begin{align}
+\frac{\Delta S_\pi}{\kappa}&=\frac6\pi,
+& m_\pi&=E_Pe^{-6/\pi},\\
+\frac{\Delta S_K}{\kappa}&=\zeta(2)-1,
+& m_K&=E_Pe^{-(\zeta(2)-1)}.
+\end{align}
+Literal evaluation with the displayed $E_P=1.22089\times10^{22}$ MeV gives
+\begin{align}
+E_Pe^{-6/\pi}&\simeq1.808\times10^{21}\ \mathrm{MeV},\\
+E_Pe^{-(\zeta(2)-1)}&\simeq6.406\times10^{21}\ \mathrm{MeV}.
+\end{align}
+These values establish the formula/value failure recorded by the PDG-2026 audit.
+\vTwelveStatus{D}{RETROSPECTIVE}{FAIL}
+
+The $\eta$--$\eta'$ source introduces the mixing matrix
+\begin{equation}
+\mathcal M^2=
+\begin{pmatrix}
+m_8^2&M_{81}^2\\
+M_{81}^2&m_1^2
+\end{pmatrix},
+\end{equation}
+while the numerical entries and their independent derivation remain the active provenance gate for the displayed eigenvalues.
+\vTwelveStatus{C}{RETROSPECTIVE}{QUARANTINED}
+
+\section{Heavy and vector mesons}
+
+The historical heavy/vector chapter lists near-identical ``predicted'' and PDG masses for open- and hidden-flavour states while referring to a zeta-operator spectrum. Version 12 requires the operator, input map and reproducible calculation that generates those values before the table can carry evidential weight.
+\vTwelveStatus{C}{RETROSPECTIVE}{QUARANTINED}
+
+\section{Hadronic evidence boundary}
+
+The v12 hadronic hierarchy is therefore
+\[
+\boxed{\begin{aligned}
+\text{standard }SU(3)\text{ mass algebra}
+&\to \text{TIR coefficient/anchor assignments}\\
+&\to \text{reproducible mass calculation}\\
+&\to \text{Chapter 19 verdict}.
+\end{aligned}}
+\]
+
+The audit receipt is
+\path{TIR/validation/TIR_V12_HADRON_FORMULA_AUDIT_V0_2.json}. It records \texttt{PASS\_WITH\_QUARANTINES}: the diagnostic checks themselves pass, while the identified legacy formula/provenance surfaces retain their explicit v12 quarantine/failure states. Version 0.2 supersedes the v0.1 validator metric while preserving the same audited scientific witnesses.

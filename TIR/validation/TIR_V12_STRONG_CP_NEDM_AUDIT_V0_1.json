@@ -1,0 +1,23 @@
+{
+  "schema": "TIR_V12_STRONG_CP_NEDM_AUDIT_V0_1",
+  "status": "PASS_ARITHMETIC_PHYSICAL_FAIL_RETAINED",
+  "inputs": {
+    "kappa": 0.009193150006360484,
+    "L4_over_L3": 0.2857142857142857,
+    "exponent": 14,
+    "hadronic_conversion_e_cm": 2.4e-16,
+    "experimental_bound_e_cm": 1.8e-26
+  },
+  "outputs": {
+    "suppression": 2.4157243620710218e-8,
+    "theta_QCD": 2.2208116434538389e-10,
+    "d_n_e_cm": 5.329947944289213e-26,
+    "bound_ratio": 2.9610821912717853
+  },
+  "verdicts": {
+    "arithmetic": "PASS",
+    "frozen_physical_gate": "FAIL",
+    "theta_source_derivation": "OPEN",
+    "next_source_axis": "SU3_holonomy_to_topological_CP_phase_to_theta_QCD"
+  }
+}

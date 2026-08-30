@@ -1,0 +1,58 @@
+version: "TIR_V12_APPENDIX_INTEGRATION_V0_1"
+branch: "feat/tir-monograph-v12-structural-skeleton"
+parent_exact_head: "b95432d0c5a4aacdfa814c266629f09db6121ee6"
+state: "four-substantive-appendices; fail-closed-integration-audit"
+
+policy:
+  preserve_v11_appendices_as_provenance: true
+  current_appendix_owner_root: "TIR/monograph/v12/appendices"
+  gremlin_role: "candidate-generation-and-adversarial-audit-only"
+  gremlin_promotion_authority: false
+  evidence_verdict_owner: "TIR/monograph/v12/chapters/ch19_unified_evidence_matrix.tex"
+  prospective_contract_owner: "TIR/monograph/v12/chapters/ch20_prospective_predictions_falsification.tex"
+  completion_frontier_owner: "TIR/monograph/v12/chapters/ch21_open_theorems_completion_frontier.tex"
+
+appendices:
+  - id: A
+    file: "appA_formal_proofs_long_algebra.tex"
+    role: "formal proofs, exact algebra, legacy formula firewalls"
+    canonical_surfaces:
+      - "finite Collatz label arithmetic"
+      - "corrected SU(3) representation algebra"
+      - "Poincare metric normalization repair"
+      - "regular tetrahedral Gram algebra"
+      - "common up-sector baseline no-go"
+    legacy_quarantines:
+      - "operator-tetrahedron dihedral shortcut"
+      - "unbound tetrahedron-volume to kappa^3 statement"
+
+  - id: B
+    file: "appB_numerical_tables_reproducibility.tex"
+    role: "numerical traces, validator index, exact-head reproducibility"
+    current_external_validation:
+      - "TIR/validation/pdg2026/TIR_PDG2026_VALIDATION_MATRIX_V2.md"
+    current_hadron_audit:
+      - "TIR/validation/tir_v12_hadron_formula_audit_v0_2.py"
+
+  - id: C
+    file: "appC_publication_protocol_prospective_gates.tex"
+    role: "frozen prospective family and publication decision contract"
+    freeze_date: "2026-07-29"
+    candidate_count: 3
+    observables:
+      - "y_c/y_mu"
+      - "y_c/y_t"
+
+  - id: D
+    file: "appD_cross_framework_interfaces.tex"
+    role: "typed TIR-SOH-IDT-RFC dependency interfaces"
+    interfaces:
+      - "half entropy to canonical TIR kappa normalization"
+      - "negative-inverse critical-axis geometry to Li-domination bridge"
+      - "IDT phase-clock scale to physicalized projective metric candidate"
+      - "Cartan to ADM to Einstein completion export"
+
+validator:
+  executable: "TIR/validation/tir_v12_appendix_integration_audit_v0_1.py"
+  receipt: "TIR/validation/TIR_V12_APPENDIX_INTEGRATION_AUDIT_V0_1.json"
+  required_status: "PASS"

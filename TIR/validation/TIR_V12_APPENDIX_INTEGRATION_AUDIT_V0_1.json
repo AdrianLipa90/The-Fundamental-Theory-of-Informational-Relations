@@ -1,0 +1,19 @@
+{
+  "appendix_count": 4,
+  "appendix_sha256": {
+    "A": "6c988340da4ea2ed087f70967896b2175ff3938cecf15b39422802a8aca8749e",
+    "B": "0c1f19cb52ef8439d7440783cf3a0ebaec9b0d5a0f3a8308252a52e10290a182",
+    "C": "0be84432c1b7353f103e508410041f2e59e52580c6550bb3e4875834d7608884",
+    "D": "5dfd16a354aca4fd1aa55032c0fb4d55e89cf265d1168b5cd1b5d5f908e98834"
+  },
+  "claim_boundary": {
+    "promotion_authority": false,
+    "purpose": "Fail-closed appendix content and algebra integration receipt; scientific verdict ownership remains in theorem/sector/evidence surfaces."
+  },
+  "gremlin": {
+    "promotion_authority": false,
+    "role": "bounded candidate generation and adversarial audit"
+  },
+  "schema": "TIR_V12_APPENDIX_INTEGRATION_AUDIT_V0_1",
+  "technical_status": "PASS"
+}

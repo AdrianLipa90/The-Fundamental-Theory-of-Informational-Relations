@@ -1,0 +1,157 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Electroweak and Higgs Sector}
+\label{ch:v12_electroweak_higgs}
+
+\section{Structural scale and coupling candidates}
+
+The historical electroweak branch supplies the structural scale
+\begin{equation}
+v_0
+=E_{\rm proton}\left(L_3^2L_5+L_3L_4+L_4\right).
+\label{eq:v12_ew_v0}
+\end{equation}
+For $(L_3,L_4,L_5)=(7,2,5)$ the integer factor is $261$, giving
+\begin{equation}
+\boxed{v_0=244.888992\ \mathrm{GeV}}.
+\end{equation}
+The proton mass is an explicit external anchor in this relation.
+\vTwelveStatus{B}{RETROSPECTIVE}{OPEN}
+
+The weak-angle candidate is
+\begin{equation}
+\boxed{
+\sin^2\theta_W^{(0)}
+=\frac{L_4}{L_3+L_4}+\kappa
+=\frac29+\kappa
+=0.2314153722\ldots .
+}
+\label{eq:v12_sin2w0}
+\end{equation}
+Its precision comparison requires a declared renormalization scheme and scale.
+\vTwelveStatus{B}{RETROSPECTIVE}{TENSION}
+
+The separate $SU(2)$ coupling candidate is
+\begin{equation}
+\boxed{
+g_0=\frac{L_4}{L_3}+\frac{L_4}{L_5}
+=\frac{24}{35}
+=0.6857142857\ldots .
+}
+\label{eq:v12_g0}
+\end{equation}
+
+\section[Tree-level W/Z map]{Tree-level $W/Z$ map}
+
+Using Eqs.~\eqref{eq:v12_ew_v0}--\eqref{eq:v12_g0}, the historical tree-level construction is
+\begin{align}
+M_W^{(0)}&=\frac{g_0v_0}{2}
+=83.9619401\ldots\ \mathrm{GeV},\\
+M_Z^{(0)}&=\frac{M_W^{(0)}}{\sqrt{1-\sin^2\theta_W^{(0)}}}
+=95.7715725\ldots\ \mathrm{GeV}.
+\end{align}
+The frozen PDG-2026 comparison assigns precision verdict \texttt{FAIL} to both pole-mass readings.
+\vTwelveStatus{C}{RETROSPECTIVE}{FAIL}
+
+The active closure target is the joint transport
+\begin{equation}
+\boxed{
+(g_0,\theta_W^{(0)},v_0)
+\xrightarrow{\mathcal R_{EW}(\mu,\mathrm{scheme})}
+(g(\mu),\theta_W(\mu),v(\mu))
+\longrightarrow
+(M_W^{\rm pole},M_Z^{\rm pole}).
+}
+\label{eq:v12_rew}
+\end{equation}
+This transport is a shared sector gate rather than an observable-specific correction.
+
+\section{Fine-structure relation}
+
+The independent TIR relation is
+\begin{equation}
+\boxed{
+\alpha_{\rm TIR}^{-1}
+=(L_3L_4)^2-L_3^2-L_4L_5+L_4^2\kappa
+=137.0367726000\ldots .
+}
+\label{eq:v12_alpha_inv}
+\end{equation}
+Its interpretation as the zero-momentum fine-structure constant carries the frozen precision verdict \texttt{FAIL}.
+\vTwelveStatus{C}{RETROSPECTIVE}{FAIL}
+
+\section{Electroweak charge-closure gate}
+
+At tree level the standard electroweak relation between the electromagnetic and $SU(2)$ couplings is
+\begin{equation}
+e=g\sin\theta_W,
+\qquad
+\alpha=\frac{e^2}{4\pi}.
+\label{eq:v12_ew_charge_relation}
+\end{equation}
+Applying the raw structural pair $(g_0,\theta_W^{(0)})$ gives
+\begin{equation}
+e_{g\theta}=g_0\sin\theta_W^{(0)}
+=0.3298673257\ldots,
+\end{equation}
+and therefore
+\begin{equation}
+\boxed{
+\alpha_{g\theta}^{-1}
+=\frac{4\pi}{e_{g\theta}^2}
+=115.4865120\ldots .
+}
+\label{eq:v12_alpha_from_gtheta}
+\end{equation}
+By contrast, Eq.~\eqref{eq:v12_alpha_inv} gives $137.0367726\ldots$. Equivalently, combining the TIR $\alpha$ relation with Eq.~\eqref{eq:v12_sin2w0} requires
+\begin{equation}
+\boxed{g_{\alpha\theta}=0.6294920778\ldots}
+\end{equation}
+rather than the raw $g_0=24/35$.
+
+The three raw structural relations therefore define distinct pre-transport quantities. Their common electroweak binding is an explicit completion problem:
+\begin{equation}
+\boxed{
+(g_0,\theta_W^{(0)},\alpha_0,v_0)
+\xrightarrow{\mathcal R_{EW}(\mu,\mathrm{scheme})}
+(g,e,\theta_W,\alpha,v)_{\mu,\mathrm{scheme}}
+}
+\label{eq:v12_ew_full_closure}
+\end{equation}
+subject to Eq.~\eqref{eq:v12_ew_charge_relation} at the declared comparison surface.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Higgs mass relation}
+
+The current Higgs assignment is
+\begin{equation}
+\boxed{
+M_H=v_0\kappa(L_3^2+L_4+L_5)
+=v_0\kappa\,56
+=126.0728693\ldots\ \mathrm{GeV}.
+}
+\label{eq:v12_higgs_mass}
+\end{equation}
+The functional form was introduced after the earlier scalar relation had failed and after the Higgs target was known, so its evidence timing is retrospective. The frozen 2026 precision comparison assigns verdict \texttt{FAIL}.
+\vTwelveStatus{C}{RETROSPECTIVE}{FAIL}
+
+The structural completion target is a scalar-sector derivation of the discrete factor $L_3^2+L_4+L_5$ from the field/action geometry, followed by the same scheme/scale discipline used by the wider electroweak sector.
+
+\section{v12 electroweak hierarchy}
+
+The resulting dependency structure is
+\[
+\boxed{
+\begin{array}{c}
+(v_0,g_0,\theta_W^{(0)},\alpha_0)_{\rm structural}\\[2pt]
+\downarrow\\[-2pt]
+\mathcal R_{EW}(\mu,\mathrm{scheme})\\[2pt]
+\downarrow\\[-2pt]
+(g,e,\theta_W,\alpha,v)_{\mu,\mathrm{scheme}}\\[2pt]
+\downarrow\\[-2pt]
+(M_W^{\rm pole},M_Z^{\rm pole},M_H^{\rm observable})
+\end{array}}
+\]
+with the current empirical verdicts maintained in Chapter~\ref{ch:v12_evidence_matrix}.
+
+The audit receipt is
+\path{TIR/validation/TIR_V12_ELECTROWEAK_HIGGS_AUDIT_V0_1.json}. It records \texttt{PASS\_WITH\_EW\_CLOSURE\_GATE}: the arithmetic reproduction checks pass and the raw electroweak charge-binding mismatch is promoted to an explicit completion gate.

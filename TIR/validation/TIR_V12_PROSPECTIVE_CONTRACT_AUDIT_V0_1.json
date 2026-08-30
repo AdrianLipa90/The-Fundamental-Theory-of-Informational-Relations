@@ -1,0 +1,27 @@
+{
+  "schema": "TIR_V12_PROSPECTIVE_CONTRACT_AUDIT_V0_1",
+  "status": "PASS",
+  "freeze_date": "2026-07-29",
+  "candidate_count": 3,
+  "active_observables": {
+    "sector": "y_c/y_mu",
+    "generation": "y_c/y_t"
+  },
+  "frozen_predictions": {
+    "C1": {
+      "yc_over_ymu": 4.850346751338371,
+      "yc_over_yt": 0.16766796647328305
+    },
+    "C2": {
+      "yc_over_ymu": 2.3521800134268784,
+      "yc_over_yt": 0.17147213462587316
+    },
+    "C3": {
+      "yc_over_ymu": 6.858021228826228,
+      "yc_over_yt": 2.8101955040512466e-11
+    }
+  },
+  "decision_rule": "PASS iff frozen candidate ratio lies inside the first qualifying published 95% confidence region for its assigned post-freeze likelihood",
+  "no_refit": true,
+  "candidate_status": "E/PROSPECTIVE/OPEN"
+}
