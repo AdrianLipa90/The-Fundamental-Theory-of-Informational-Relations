@@ -91,6 +91,11 @@ jobs:
             exit 1
           fi
 
+          if grep -E 'Package hyperref Warning: Token not allowed in a PDF string|Overfull \\hbox' "$LOG"; then
+            echo "Publication-clean layout/bookmark warning detected"
+            exit 1
+          fi
+
           qpdf --check "$PDF"
           pdfinfo "$PDF" | tee tir-v12-pdfinfo.txt
           pdffonts "$PDF" | tee tir-v12-pdffonts.txt
@@ -120,7 +125,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: tir-monograph-v12-${{ github.sha }}
+          name: tir-monograph-v12-${{ github.event.pull_request.head.sha || github.sha }}
           if-no-files-found: warn
           path: |
             TIR/monograph/tir_monograph_v12.pdf
