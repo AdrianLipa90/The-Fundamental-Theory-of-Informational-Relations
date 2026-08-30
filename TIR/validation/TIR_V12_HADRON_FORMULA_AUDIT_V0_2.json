@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "anchored_linearization_is_distinct_from_declared_planck_exponential": true,
+    "gmo_identity_holds_for_constructed_octet": true,
+    "kaon_printed_exponential_fails_target": true,
+    "kappa_finite": true,
+    "legacy_M0_exponent_is_10_over_7": true,
+    "pion_printed_exponential_fails_target": true,
+    "printed_M0_map_reproduces_925_95": true,
+    "universal_planck_exponential_does_not_reproduce_printed_M0": true
+  },
+  "gmo_identity_residual_MeV": 0.0,
+  "heavy_vector_table_status": "QUARANTINED_PROVENANCE_INCOMPLETE",
+  "kappa": 0.009193150006360484,
+  "octet_coefficients_MeV": {
+    "alpha": 189.764855340893,
+    "beta": -185.89210319107883,
+    "gamma": 38.727521498141435
+  },
+  "octet_constructed_masses_MeV": {
+    "Lambda": 1115.714462136939,
+    "N": 949.1861196949308,
+    "Sigma": 1193.1695051332217,
+    "Xi": 1320.9703260770884
+  },
+  "octet_m0": {
+    "legacy_declared_S0_over_kappa": 1.4285714285714286,
+    "literal_planck_exponential_MeV": 2.9258755388139965e+21,
+    "literal_vs_printed_multiplicative_factor": 3.159864767304193e+18,
+    "printed_proton_anchored_linear_map_MeV": 925.9496067960459,
+    "proton_anchored_exact_exponential_MeV": 926.0301691683912,
+    "v12_status": "QUARANTINED_DERIVATION"
+  },
+  "pseudoscalar_literal_MeV": {
+    "kaon": 6.405974862514391e+21,
+    "pion": 1.8081529902143355e+21
+  },
+  "pseudoscalar_v12_status": "FAIL_LEGACY_PRINTED_FORMULAS",
+  "schema": "TIR_V12_HADRON_FORMULA_AUDIT_V0_2",
+  "status": "PASS_WITH_QUARANTINES",
+  "supersedes": "TIR_V12_HADRON_FORMULA_AUDIT_V0_1"
+}
