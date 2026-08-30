@@ -1,0 +1,37 @@
+name: TIR spatial GR Levi-Civita gate
+
+on:
+  pull_request:
+    paths:
+      - 'TIR/foundations/TIR_CARTAN_REFINEMENT_CURVATURE_TORSION_SEPARATION_V0_1.md'
+      - 'TIR/foundations/TIR_ZERO_TORSION_LEVI_CIVITA_SELECTION_V0_1.md'
+      - 'TIR/foundations/validation/tir_cartan_refinement_curvature_torsion_separation_v0_1.py'
+      - 'TIR/foundations/validation/tir_zero_torsion_levi_civita_selection_v0_1.py'
+      - 'TIR/foundations/validation/TIR_CARTAN_REFINEMENT_CURVATURE_TORSION_SEPARATION_V0_1.json'
+      - 'TIR/foundations/validation/TIR_ZERO_TORSION_LEVI_CIVITA_SELECTION_V0_1.json'
+      - 'TIR/TIR_COMPLETION_FRONTIER_V0_6.md'
+      - '.github/workflows/tir-spatial-gr-levi-civita.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-spatial-gr-levi-civita:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact event revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Re-run Gate A2 Cartan refinement parent
+        run: python TIR/foundations/validation/tir_cartan_refinement_curvature_torsion_separation_v0_1.py
+
+      - name: Run Gate A3 zero-torsion Levi-Civita selection
+        run: python TIR/foundations/validation/tir_zero_torsion_levi_civita_selection_v0_1.py
