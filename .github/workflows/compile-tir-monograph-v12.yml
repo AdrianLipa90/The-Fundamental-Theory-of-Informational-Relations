@@ -47,7 +47,7 @@ jobs:
             TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
             TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py
             TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py
-            TIR/validation/tir_v12_hadron_formula_audit_v0_1.py
+            TIR/validation/tir_v12_hadron_formula_audit_v0_2.py
             TIR/validation/tir_v12_hypercharge_anomaly_audit_v0_1.py
             TIR/validation/tir_v12_electroweak_higgs_audit_v0_1.py
             TIR/validation/tir_v12_strong_cp_nedm_audit_v0_1.py
