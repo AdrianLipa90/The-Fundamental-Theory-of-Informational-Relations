@@ -2,14 +2,216 @@
 \chapter{Open Theorems and Completion Frontier}
 \label{ch:v12_completion_frontier}
 
-\section*{v12 source integration map}
-\begin{itemize}
-\item \path{TIR/TIR_COMPLETION_FRONTIER_V0_4.md}
-\item \path{TIR/CURRENT_STATUS.md}
-\item \path{TIR/monograph/chapters/ch31_open_problems.tex}
-\item \path{TIR/monograph/appendices/appP_secret_half_cross_relation.tex}
-\item \path{TIR/monograph/appendices/appP_information_spinor_crosswalk.tex}
-\end{itemize}
+\section{Frontier as a dependency graph}
 
-\section*{Migration invariant}
-The formal completion frontier is the final theory chapter. Open theorem dependencies and cross-framework interfaces are recorded here independently from prospective empirical tests.
+Version 12 represents the formal completion frontier as a directed acyclic graph rather than a flat list of open problems. A gate can be promoted only after all named parent surfaces are available and the gate itself has a theorem or validator receipt.
+
+The machine-readable DAG audit is
+\path{TIR/validation/tir_v12_completion_frontier_dag_v0_1.py}.
+It currently contains eight closed root surfaces and fifteen open gates.
+
+\section{Closed root surfaces}
+
+The current DAG treats the following as source-bound roots for the next completion layer:
+\begin{enumerate}
+\item the canonical flavour-mixing normalization of $\kappa$;
+\item the local $\operatorname{Herm}_0(2)\cong\mathbb R^3$ geometric carrier;
+\item tetrahedral finite-cell closure;
+\item typed $W_{ij}$ holonomy transport;
+\item the discrete $SE(3)$/solder/torsion source chain;
+\item coefficient role/sign forcing;
+\item the three-flavour carrier;
+\item the v12 Claim Class / Timing / Verdict taxonomy.
+\end{enumerate}
+These roots supply parents to the open theorem graph; their own theorem and validation provenance remains attached to the corresponding foundation chapters.
+
+\section{Geometry-to-GR branch}
+
+The next geometric theorem is the continuum Cartan refinement
+\begin{equation}
+\boxed{
+\frac{\mathcal T_{xyz}}{\text{oriented area}}
+\longrightarrow
+T^a=de^a+\omega^a{}_b\wedge e^b,
+}
+\label{eq:v12_cartan_target}
+\end{equation}
+with the companion curvature limit
+\begin{equation}
+\boxed{
+\frac{\text{rotational holonomy}}{\text{oriented area}}
+\longrightarrow
+\Omega^a{}_b
+=d\omega^a{}_b+\omega^a{}_c\wedge\omega^c{}_b.
+}
+\end{equation}
+Its parents are the discrete solder/torsion surface and typed connection transport.
+\vTwelveStatus{B}{--}{OPEN}
+
+The spatial GR line then proceeds in strict order:
+\begin{equation}
+\boxed{
+\text{Cartan refinement}
+\to T^a=0\text{ spatial sector}
+\to\text{TIR--IDT ADM join}
+\to\text{Einstein constraint/evolution closure}.
+}
+\label{eq:v12_gr_frontier}
+\end{equation}
+The DAG validator enforces this order explicitly.
+
+\section{Coefficient magnitude branch}
+
+Role identity and source orientation are already fixed by the coefficient-forcing surface. The remaining coefficient theorem is
+\begin{equation}
+\boxed{
+\begin{aligned}
+|h|&\leftarrow\text{projective/spin integer invariant},\\
+|a|&\leftarrow\text{generation/release integer invariant},\\
+|b|&\leftarrow\text{return integer invariant},\\
+|c|&\leftarrow\text{curvature/holonomy integer invariant}.
+\end{aligned}}
+\label{eq:v12_magnitude_frontier}
+\end{equation}
+\vTwelveStatus{B}{--}{OPEN}
+The theorem target is extraction of the four integers from coefficient-free parent data with a finite declared degeneracy, followed by a deterministic receipt.
+
+\section{Gauge and electroweak branch}
+
+Typed $W_{ij}$ transport supplies the parent for the continuum gauge-normalization chain
+\begin{equation}
+\boxed{
+W_{ij}
+\to A_\mu
+\to F_{\mu\nu}
+\to S_{YM}
+\to\text{normalized gauge coupling/running}.
+}
+\label{eq:v12_gauge_continuum_frontier}
+\end{equation}
+\vTwelveStatus{B}{--}{OPEN}
+
+Only after this gate does the DAG admit the electroweak scheme/scale closure derived in Chapter~16:
+\begin{equation}
+(g_0,\theta_W^{(0)},\alpha_0,v_0)
+\xrightarrow{\mathcal R_{EW}(\mu,\mathrm{scheme})}
+(g,e,\theta_W,\alpha,v)_{\mu,\mathrm{scheme}}.
+\end{equation}
+This closure must satisfy the common electroweak charge relation and feed the pole-mass map.
+\vTwelveStatus{B}{--}{OPEN}
+
+The Higgs scalar-action binding is downstream of the electroweak closure and coefficient-magnitude theorem. Its target is a field/action derivation of the active scalar discrete factor and its transport to the declared observable mass surface.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Strong-CP and meson branches}
+
+For strong CP, the open theorem is
+\begin{equation}
+\boxed{
+W_{ij}^{c}
+\to U_\gamma
+\to\text{topological CP invariant}
+\to\theta_{\rm QCD}.
+}
+\end{equation}
+The frozen v11 numerical relation and nEDM `FAIL` remain evidence history while this upstream source theorem is developed.
+\vTwelveStatus{B}{--}{OPEN}
+
+For mesons, the open theorem is the absolute action baseline that connects the common action/holonomy architecture to the pion, kaon, $\eta$ and heavy/vector sectors before any renewed mass comparison.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Neutrino absolute-action repair}
+
+The v12 HOUND audit isolated the legacy formula/value mismatch in the absolute neutrino action. Its repair gate is downstream of tetrahedral closure and the canonical $\kappa$ normalization:
+\begin{equation}
+\boxed{
+\text{tetrahedral neutrino source}
++\kappa
+\to S_{1}^{\rm derived}
+\to S_i
+\to m_i.
+}
+\end{equation}
+The repaired equation receives a fresh version identity before its empirical verdict is reconsidered.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Cosmological binding}
+
+Chapter~18 leaves one explicit cosmology gate:
+\begin{equation}
+\boxed{
+(L_3,L_4,L_5)
+\to r_\Lambda
+\to M_\star^4
+\to\rho_\Lambda
+\to\rho_{\rm crit}
+\to\Omega_\Lambda.
+}
+\end{equation}
+The completion theorem must identify the dimensionful scale convention and the critical-density parent in one unit-consistent surface.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{GREMLIN global-gluing promotion}
+
+GREMLIN receives the typed geometric search surface
+\begin{equation}
+\Delta^3
+\to\mathcal E_{ij}
+\to W_{ij}^{X}
+\to G_{ij}^{\nabla}
+\to\text{loop holonomy}
+\to\text{curvature/torsion candidates}.
+\end{equation}
+Its role is bounded candidate generation and adversarial audit. A surviving mapping becomes a TIR theorem surface only through a deterministic proof/validator gate.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Secret-of-a-Half analytic branch}
+
+The negative-inverse bridge uses
+\[
+\Omega(s)=\frac{s}{1-s},
+\qquad
+z_L(s)=1-\frac1s=-\frac1{\Omega(s)},
+\]
+with the local identity
+\[
+\Re s=\frac12\iff |z_L(s)|=1.
+\]
+The current global-domination route reduces the remaining framework-side theorem target to
+\begin{equation}
+\boxed{
+\text{native arithmetic closure}
+\Longrightarrow
+\lambda_n\ge0\qquad\forall n,
+}
+\label{eq:v12_li_positivity_frontier}
+\end{equation}
+with the existing off-axis domination direction providing the companion analytic bridge.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Evidence rerun as a downstream node}
+
+The Unified Evidence Matrix is rerun only after the affected structural repairs have frozen. In the v12 DAG the evidence rerun is explicitly downstream of coefficient magnitudes, electroweak closure, Higgs binding, strong-CP source, meson baseline, neutrino repair and cosmological scale binding.
+
+This prevents empirical residuals from becoming parents of the theorem that is meant to predict them.
+
+\section{DAG receipt}
+
+The completion graph is checked by
+\path{TIR/validation/tir_v12_completion_frontier_dag_v0_1.py}.
+Its receipt
+\path{TIR/validation/TIR_V12_COMPLETION_FRONTIER_DAG_V0_1.json}
+reports `PASS`: 23 resolved nodes, eight closed roots, fifteen open gates, zero missing parents and an acyclic topological order.
+
+The final v12 dependency picture is therefore
+\[
+\boxed{
+\text{foundational roots}
+\to
+\text{typed theorem gates}
+\to
+\text{frozen observable maps}
+\to
+\text{Chapter 19 evidence rerun}.
+}
+\]
