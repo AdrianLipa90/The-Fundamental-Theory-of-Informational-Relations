@@ -1,0 +1,22 @@
+{
+  "schema": "TIR_IDT_SPACETIME_COORDINATE_RANK_CLOSURE_V0_3",
+  "status": "CANDIDATE_ONLY",
+  "canon_promotion": false,
+  "symbolic": {
+    "jacobian": "Matrix([[1/2, 0, 0, 0], [rx/2, ell/2, 0, 0], [ry/2, 0, ell/2, 0], [rz/2, 0, 0, ell/2]])",
+    "jacobian_determinant": "ell**3/16",
+    "full_rank_for_ell_positive": true,
+    "inverse": {
+      "ell": "2*x0",
+      "rx": "x1/x0",
+      "ry": "x2/x0",
+      "rz": "x3/x0"
+    }
+  },
+  "dimension": {
+    "interior": 4,
+    "pure_boundary": 3,
+    "full_hermitian_carrier": 4
+  },
+  "remaining_gate": "IDT_RFC_CLOCK_SCALE_EQUALS_HERMITIAN_EVENT_TRACE_SCALE"
+}
