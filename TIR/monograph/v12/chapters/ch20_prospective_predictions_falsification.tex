@@ -2,13 +2,140 @@
 \chapter{Prospective Predictions and Falsification}
 \label{ch:v12_predictions_falsification}
 
-\section*{v12 source integration map}
-\begin{itemize}
-\item \path{TIR/monograph/chapters/ch31_open_problems.tex}
-\item \path{TIR/monograph/appendices/appM_prospective_observable_identifiability.tex}
-\item \path{TIR/monograph/appendices/appN_separable_candidate_family.tex}
-\item \path{TIR/monograph/appendices/appO_publication_protocol.tex}
-\end{itemize}
+\section{Prospective evidence contract}
 
-\section*{Migration invariant}
-Frozen observables, no-refit rules, decision gates and retained falsification witnesses are separated from the formal completion frontier and collected here as the prospective testing programme.
+Version 12 separates prospective evidence from retrospective sector comparison. A prospective test is represented by
+\begin{equation}
+\boxed{
+\mathcal P
+=(F,\mathcal O,\mathcal D,\mathcal R,\mathcal V),
+}
+\end{equation}
+where $F$ is the frozen formula/version identity, $\mathcal O$ the assigned observable, $\mathcal D$ the post-freeze dataset gate, $\mathcal R$ the decision rule and $\mathcal V$ the no-refit/versioning policy.
+
+The active candidate family was frozen on 29 July 2026. Its executable source is
+\path{TIR/validation/separable_universal_candidate_family_v10_7.py}.
+
+\section{Separable architecture}
+
+The candidate family uses
+\begin{equation}
+\boxed{
+\ln y_{f,g}=F(S_f)+D(G_g,R_g),
+}
+\label{eq:v12_prospective_separable}
+\end{equation}
+with generation-invariant sector coordinate $S_f$, generation coordinate $G_g$, and Ramanujan release $R_g$. The same pair of functions $(F,D)$ is applied across the charged-lepton, down-quark and up-quark sectors.
+
+The frozen structural coordinates are
+\begin{align}
+S_\ell&=4.5,
+&S_d&=3.0876164691516155,
+&S_u&=2.920949802484949,\\
+G_1&=0.8471633855025916,
+&G_2&=0.6088811663290957,
+&G_3&=0.23926393244694075,\\
+R_1&=0.4754443238393299,
+&R_2&=1.0262897039931138,
+&R_3&=2.442442115365772.
+\end{align}
+
+\section{Exactly three frozen candidates}
+
+\subsection{C1: linear separable action}
+\begin{equation}
+F_1(S)=-S,
+\qquad
+D_1(G,R)=-G+R.
+\end{equation}
+
+\subsection{C2: Collatz quarter-power action}
+\begin{equation}
+F_2(S)=-S^{3/4},
+\qquad
+D_2(G,R)=-G^{3/4}+R.
+\end{equation}
+
+\subsection{C3: inverse quarter-power information potential}
+\begin{equation}
+F_3(S)=\frac{S^{-3/4}}{L_3\kappa},
+\qquad
+D_3(G,R)=\frac{G^{-3/4}}{L_3\kappa}+R.
+\end{equation}
+
+All three candidates carry
+\vTwelveStatus{E}{PROSPECTIVE}{OPEN}
+until their assigned post-freeze likelihood is evaluated under the frozen rule.
+
+\section{Orthogonal observable pair}
+
+For charm and muon, the generation coordinate is shared. Equation~\eqref{eq:v12_prospective_separable} therefore gives
+\begin{equation}
+\boxed{
+\ln\frac{y_c}{y_\mu}=F(S_u)-F(S_\ell),
+}
+\label{eq:v12_yc_ymu}
+\end{equation}
+so the generation-release term cancels identically. The active sector observable is the first qualifying post-29-July-2026 joint ATLAS/CMS direct charm-to-muon Higgs-coupling likelihood.
+
+For charm and top, the sector coordinate is shared, giving
+\begin{equation}
+\boxed{
+\ln\frac{y_c}{y_t}
+=D(G_2,R_2)-D(G_3,R_3),
+}
+\label{eq:v12_yc_yt}
+\end{equation}
+so the sector term cancels identically. The active generation observable is the first qualifying post-29-July-2026 joint ATLAS/CMS direct charm-to-top Higgs-coupling likelihood.
+
+The earlier charm-to-tau mapping is retained as historical provenance; the v10.7 orthogonalization above is the active v12 contract.
+
+\section{Frozen numerical predictions}
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Candidate & $y_c/y_\mu$ & $y_c/y_t$\\
+\midrule
+C1 & 4.850346751338371 & 0.16766796647328305\\
+C2 & 2.3521800134268784 & 0.17147213462587316\\
+C3 & 6.858021228826228 & $2.8101955040512466\times10^{-11}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The v12 prospective-contract validator independently reconstructs all six ratios from the frozen coordinates and formula family.
+
+\section{Decision rule}
+
+For each candidate and assigned observable, the frozen decision rule is
+\begin{equation}
+\boxed{
+\text{PASS}
+\iff
+\text{frozen ratio lies inside the published 95\% confidence region}
+}
+\end{equation}
+for the first qualifying post-freeze likelihood. A failed candidate receives verdict `FAIL` for that frozen test. A later formula or observable receives a new version identity and a new prospective contract.
+
+The three-member family is interpreted with an explicit multiplicity-aware comparison policy.
+
+\section{Falsification witnesses from the retrospective programme}
+
+The prospective programme inherits the versioning discipline demonstrated by the retained retrospective witnesses:
+\begin{itemize}
+\item the frozen strong-CP $\to$ neutron-EDM chain carries a physical `FAIL`;
+\item the charged-lepton relations carry precision `FAIL` verdicts;
+\item PMNS $\sin^2\theta_{13}=1/49$ carries `TENSION`;
+\item legacy pion/kaon exponentials carry formula `FAIL`;
+\item neutrino, baryon-octet and cosmological formula surfaces carry explicit `QUARANTINED` diagnostics where derivation or conversion repair is active.
+\end{itemize}
+These rows remain addressable in Chapter~\ref{ch:v12_evidence_matrix} while future versions are tested independently.
+
+\section{Prospective audit receipt}
+
+The active contract is checked by
+\path{TIR/validation/tir_v12_prospective_contract_audit_v0_1.py}.
+Its receipt
+\path{TIR/validation/TIR_V12_PROSPECTIVE_CONTRACT_AUDIT_V0_1.json}
+reports `PASS`: exactly three candidates, the two orthogonal observables, all six frozen ratios, the 29 July 2026 freeze date and the no-refit rule are reproduced.
