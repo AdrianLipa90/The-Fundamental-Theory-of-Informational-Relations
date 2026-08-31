@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "TIR_GLOBAL_RELATIONAL_COMPLEX_CAPTURE_V0_1",
+  "title": "TIR Global Relational Complex Capture",
+  "type": "object",
+  "required": ["schema", "capture_id", "source", "tetrahedral_cells"],
+  "properties": {
+    "schema": {"const": "TIR_GLOBAL_RELATIONAL_COMPLEX_CAPTURE_V0_1"},
+    "capture_id": {"type": "string", "minLength": 1},
+    "source": {
+      "type": "object",
+      "required": ["source_id", "source_class", "immutable_ref"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "source_class": {
+          "enum": ["PRODUCTION_SOURCE", "REFERENCE_CONTROL", "CANDIDATE_SOURCE"]
+        },
+        "immutable_ref": {"type": "string", "minLength": 1},
+        "capture_receipt_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"source_class": {"const": "PRODUCTION_SOURCE"}}},
+          "then": {"required": ["capture_receipt_sha256"]}
+        }
+      ],
+      "additionalProperties": true
+    },
+    "tetrahedral_cells": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["cell_id", "vertices"],
+        "properties": {
+          "cell_id": {"type": "string", "minLength": 1},
+          "vertices": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {"type": "string", "minLength": 1}
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
