@@ -88,7 +88,7 @@ jobs:
           python TIR/zeta_information_axis/scripts/run_audit.py
           python TIR/zeta_information_axis/scripts/solve_axis.py --output TIR/zeta_information_axis/reports/solver_receipt.json > solver-console.json
           grep -Fq '"half_axis_consensus": true' TIR/zeta_information_axis/reports/solver_receipt.json
-          grep -Fq '"rh_derived": false' TIR/zeta_information_axis/reports/solver_receipt.json
+          grep -Fq '"riemann_hypothesis_in_closure": false' TIR/zeta_information_axis/reports/solver_receipt.json
 
       - name: Prepare publication sources and crosswalk audit
         shell: bash
