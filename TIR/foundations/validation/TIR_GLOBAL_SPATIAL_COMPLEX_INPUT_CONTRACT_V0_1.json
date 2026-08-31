@@ -1,14 +1,32 @@
 {
   "schema": "TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1",
-  "status": "REFERENCE_CONTRACT_DEFINED",
+  "status": "PASS_REFERENCE_CONTRACT_WITH_PRODUCTION_INPUT_OPEN",
+  "technical_status": "PASS",
+  "date": "2026-08-31",
   "upstream_certifier": "TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1",
   "input_schema": "TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_V0_1",
+  "tested_head": "014d2f87a17de74a4cf36e564dea9b7270366639",
+  "hosted_validation": {
+    "workflow": "TIR global spatial-complex input contract",
+    "run_number": 3,
+    "run_id": 33345535852,
+    "conclusion": "success"
+  },
   "production_spatial_complex": "OPEN_INPUT",
   "promotion_rule": "production=true AND integrity_valid AND manifold_certified",
+  "minimal_combinatorial_witness": "LOSSLESS_TETRAHEDRAL_FACET_INCIDENCE",
+  "facet_minimality_control": {
+    "full_f_vector": [6, 14, 16, 8],
+    "positive": "stellar subdivision of one tetrahedron in boundary of 4-simplex",
+    "negative": "same-f-vector nonmanifold",
+    "negative_A5_reason": "closed_face_incidence",
+    "result": "PASS_AGGREGATE_COUNTS_INSUFFICIENT"
+  },
   "reference_control": {
     "dataset": "boundary of 4-simplex",
     "production": false,
     "promotion_eligible": false
   },
-  "hosted_verdict_target": "PASS_TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_WITH_PRODUCTION_INPUT_OPEN"
+  "canon_promotion": false,
+  "hosted_verdict": "PASS_TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_WITH_PRODUCTION_INPUT_OPEN"
 }
