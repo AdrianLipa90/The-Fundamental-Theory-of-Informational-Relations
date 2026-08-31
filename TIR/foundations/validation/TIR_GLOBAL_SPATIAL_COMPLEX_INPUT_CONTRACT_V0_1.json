@@ -1,0 +1,14 @@
+{
+  "schema": "TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1",
+  "status": "REFERENCE_CONTRACT_DEFINED",
+  "upstream_certifier": "TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1",
+  "input_schema": "TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_V0_1",
+  "production_spatial_complex": "OPEN_INPUT",
+  "promotion_rule": "production=true AND integrity_valid AND manifold_certified",
+  "reference_control": {
+    "dataset": "boundary of 4-simplex",
+    "production": false,
+    "promotion_eligible": false
+  },
+  "hosted_verdict_target": "PASS_TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_WITH_PRODUCTION_INPUT_OPEN"
+}
