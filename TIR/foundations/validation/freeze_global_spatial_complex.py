@@ -13,14 +13,14 @@ from tir_global_spatial_complex_source_freeze_v0_1 import (
 )
 
 
-def main() -> int:
+def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
         description="Freeze a source-owned relational tetrahedral complex into the TIR GSC1 contract."
     )
     parser.add_argument("capture", type=Path)
     parser.add_argument("--dataset-out", type=Path, required=True)
     parser.add_argument("--certificate-out", type=Path, required=True)
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     try:
         frozen = freeze_json_text(args.capture.read_text(encoding="utf-8"))
@@ -30,6 +30,7 @@ def main() -> int:
             "schema": "TIR_GSC1_SOURCE_FREEZE_CLI_RESULT_V0_1",
             "status": "FAIL",
             "error": str(exc),
+            "production_promoted": False,
             "promotion_authority": False,
         }
         args.certificate_out.write_text(
