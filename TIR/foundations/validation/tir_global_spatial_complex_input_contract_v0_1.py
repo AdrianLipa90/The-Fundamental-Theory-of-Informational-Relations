@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 from dataclasses import asdict, dataclass
+from itertools import combinations
 from typing import Any
 
 from tir_global_3manifold_smooth_certificate_v0_1 import (
@@ -48,6 +49,19 @@ def incidence_sha256(vertices, tetrahedra):
     payload = _canonical_incidence_payload(vertices, tetrahedra)
     encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
+
+
+def simplicial_f_vector(tetrahedra):
+    """Return (f0,f1,f2,f3) derived solely from tetrahedral facet incidence."""
+    vertices = set()
+    edges = set()
+    faces = set()
+    normalized = [tuple(sorted(tet)) for tet in tetrahedra]
+    for tet in normalized:
+        vertices.update(tet)
+        edges.update(tuple(sorted(edge)) for edge in combinations(tet, 2))
+        faces.update(tuple(sorted(face)) for face in combinations(tet, 3))
+    return (len(vertices), len(edges), len(faces), len(normalized))
 
 
 def build_input_dataset(*, dataset_id, vertices, tetrahedra, source, source_commit_or_digest, production):
@@ -150,6 +164,46 @@ def reference_dataset(*, production=False):
     )
 
 
+def same_fvector_controls():
+    """Return one S3 triangulation and one nonmanifold with identical f-vector."""
+    manifold_tetrahedra = [
+        ("0", "2", "3", "4"),
+        ("0", "1", "3", "4"),
+        ("0", "1", "2", "4"),
+        ("0", "1", "2", "3"),
+        ("1", "2", "3", "5"),
+        ("1", "2", "4", "5"),
+        ("1", "3", "4", "5"),
+        ("2", "3", "4", "5"),
+    ]
+    nonmanifold_tetrahedra = [
+        ("0", "1", "2", "3"),
+        ("0", "1", "2", "4"),
+        ("0", "1", "2", "5"),
+        ("0", "1", "3", "4"),
+        ("0", "1", "3", "5"),
+        ("0", "2", "3", "4"),
+        ("0", "2", "3", "5"),
+        ("1", "2", "3", "4"),
+    ]
+
+    def dataset(dataset_id, tets):
+        vertices = sorted({v for tet in tets for v in tet})
+        return build_input_dataset(
+            dataset_id=dataset_id,
+            vertices=vertices,
+            tetrahedra=tets,
+            source="GSC-1 facet minimality control",
+            source_commit_or_digest="DETERMINISTIC_REFERENCE_CONTROL_NOT_PRODUCTION",
+            production=False,
+        )
+
+    return (
+        dataset("same-fvector-stellar-S3", manifold_tetrahedra),
+        dataset("same-fvector-nonmanifold", nonmanifold_tetrahedra),
+    )
+
+
 def main():
     checks = []
 
@@ -189,11 +243,27 @@ def main():
     open_complex["incidence_sha256"] = incidence_sha256(open_complex["vertices"], open_tets)
     open_cert = validate_input_dataset(open_complex)
     checks.append({
-        "name": "valid_input_contract_does_not_mask_nonmanifold_complex",
+        "name": "valid_input_contract_preserves_nonmanifold_A5_failure",
         "pass": open_cert.input_valid
         and open_cert.integrity_valid
         and not open_cert.manifold_certified
         and not open_cert.promotion_eligible,
+    })
+
+    same_f_manifold, same_f_nonmanifold = same_fvector_controls()
+    manifold_cert = validate_input_dataset(same_f_manifold)
+    nonmanifold_cert = validate_input_dataset(same_f_nonmanifold)
+    manifold_f = simplicial_f_vector([tuple(t) for t in same_f_manifold["tetrahedra"]])
+    nonmanifold_f = simplicial_f_vector([tuple(t) for t in same_f_nonmanifold["tetrahedra"]])
+    checks.append({
+        "name": "same_fvector_control_proves_aggregate_counts_do_not_replace_facet_incidence",
+        "pass": manifold_f == (6, 14, 16, 8)
+        and nonmanifold_f == manifold_f
+        and manifold_cert.manifold_certified
+        and not nonmanifold_cert.manifold_certified
+        and nonmanifold_cert.manifold_receipt.get("reason") == "closed_face_incidence",
+        "f_vector": manifold_f,
+        "nonmanifold_reason": nonmanifold_cert.manifold_receipt.get("reason"),
     })
 
     passed = all(check["pass"] for check in checks)
@@ -207,6 +277,7 @@ def main():
         ),
         "production_spatial_complex": "OPEN_INPUT",
         "promotion_rule": "production=true AND integrity_valid AND manifold_certified",
+        "minimal_combinatorial_witness": "LOSSLESS_TETRAHEDRAL_FACET_INCIDENCE",
         "reference_control_promotion_eligible": cert.promotion_eligible,
         "checks": checks,
         "reference_certificate": asdict(cert),
