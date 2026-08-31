@@ -22,6 +22,32 @@ A supplied dataset has schema `TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_V0_1` and contai
 
 Every declared vertex must occur in at least one tetrahedron. The contract rejects undeclared vertices, duplicate vertex identifiers, malformed tetrahedra, missing provenance and digest mismatch.
 
+## Facet-list minimality audit
+
+For a finite pure abstract simplicial 3-complex, the maximal simplices are tetrahedra. Their facet list determines every lower-dimensional simplex by downward closure:
+
+\[
+\boxed{\mathcal T\Longrightarrow(V,E,F,\mathcal T).}
+\]
+
+Therefore the tetrahedral facet incidence is the irreducible combinatorial content consumed by A5. The explicit `vertices` field in this contract is an integrity/provenance redundancy: validation requires it to agree exactly with the vertex set derived from the tetrahedra.
+
+Aggregate counts cannot replace facet incidence. A deterministic control pair uses two eight-tetrahedron complexes with the same full f-vector
+
+\[
+\boxed{(f_0,f_1,f_2,f_3)=(6,14,16,8).}
+\]
+
+The positive member is a stellar subdivision of one tetrahedron in the boundary of the 4-simplex and remains an `S^3` triangulation. The negative member has the same f-vector but A5 rejects it because several triangular faces have incidence one or three instead of two.
+
+Hence
+
+\[
+\boxed{f\text{-vector equality does not determine the A5 manifold certificate}.}
+\]
+
+The production witness may use any lossless encoding equivalent to the facet incidence table, but a summary invariant that discards incidence is insufficient for GSC-1 promotion.
+
 ## A5 handoff
 
 After structural and integrity validation, the tetrahedral incidence data are passed directly to the existing A5 certifier
@@ -55,7 +81,9 @@ The current global spatial incidence dataset remains an open source-owned input.
 
 ## Falsification rules
 
-The input gate fails closed on malformed identifiers, missing provenance, incidence digest mismatch, undeclared or unused vertices, malformed tetrahedra, or any structural input error. A structurally valid dataset may still receive `manifold_certified=false` from A5; the input contract never masks that result.
+The input gate fails closed on malformed identifiers, missing provenance, incidence digest mismatch, undeclared or unused vertices, malformed tetrahedra, or any structural input error. A structurally valid dataset may still receive `manifold_certified=false` from A5; the input contract preserves that result.
+
+The minimality control additionally rejects replacement of the facet incidence witness by aggregate simplex counts.
 
 ## Validation authority
 
