@@ -1,0 +1,22 @@
+{
+  "schema": "TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1",
+  "status": "REFERENCE_CONTRACT_DEFINED",
+  "technical_status": "PASS_TARGET",
+  "date": "2026-08-31",
+  "input_schema": "TIR_INTERLEAF_MATCHING_FIELD_INPUT_V0_1",
+  "source_owner": "TIR",
+  "downstream_consumers": [
+    "RFC_GSC3A_CLOCK_TRANSVERSE_MATCHING_FLOW",
+    "RFC_GSC3B_MATCHING_FLOW_RFE9_CROSSLINK",
+    "RFC_RF_E25_SHARED_SPACETIME_ATLAS"
+  ],
+  "temporal_coordinate_binding": "x0=c*t",
+  "handoff_schema": "TIR_TO_RFC_RFE8_SHIFT_HANDOFF_V0_1",
+  "production_matching_field": "OPEN_INPUT",
+  "reference_control": {
+    "production": false,
+    "promotion_eligible": false
+  },
+  "canon_promotion": false,
+  "hosted_verdict_target": "PASS_TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_WITH_PRODUCTION_INPUT_OPEN"
+}
