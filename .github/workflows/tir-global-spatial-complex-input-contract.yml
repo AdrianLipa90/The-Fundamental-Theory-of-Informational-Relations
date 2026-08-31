@@ -15,5 +15,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Validate GSC-1 source-complex freeze adapter
+        working-directory: TIR/foundations/validation
+        run: python tir_global_spatial_complex_source_freeze_validation_v0_1.py
       - name: Validate GSC-1 spatial input contract
         run: python TIR/foundations/validation/tir_global_spatial_complex_input_contract_v0_1.py
