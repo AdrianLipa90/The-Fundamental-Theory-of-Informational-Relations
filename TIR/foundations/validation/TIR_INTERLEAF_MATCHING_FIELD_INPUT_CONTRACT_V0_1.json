@@ -1,10 +1,17 @@
 {
   "schema": "TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1",
-  "status": "REFERENCE_CONTRACT_DEFINED",
-  "technical_status": "PASS_TARGET",
+  "status": "PASS_REFERENCE_CONTRACT_WITH_PRODUCTION_INPUT_OPEN",
+  "technical_status": "PASS",
   "date": "2026-08-31",
   "input_schema": "TIR_INTERLEAF_MATCHING_FIELD_INPUT_V0_1",
   "source_owner": "TIR",
+  "tested_head": "c0c5b1cca7968691b4d4167e5ad671d9a8ba2bad",
+  "hosted_validation": {
+    "workflow": "TIR inter-leaf matching-field input contract",
+    "run_number": 1,
+    "run_id": 33348820691,
+    "conclusion": "success"
+  },
   "downstream_consumers": [
     "RFC_GSC3A_CLOCK_TRANSVERSE_MATCHING_FLOW",
     "RFC_GSC3B_MATCHING_FLOW_RFE9_CROSSLINK",
@@ -13,10 +20,11 @@
   "temporal_coordinate_binding": "x0=c*t",
   "handoff_schema": "TIR_TO_RFC_RFE8_SHIFT_HANDOFF_V0_1",
   "production_matching_field": "OPEN_INPUT",
+  "source_role": "INTERLEAF_MATCHING_GAUGE_AND_PROVENANCE_HANDOFF",
   "reference_control": {
     "production": false,
     "promotion_eligible": false
   },
   "canon_promotion": false,
-  "hosted_verdict_target": "PASS_TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_WITH_PRODUCTION_INPUT_OPEN"
+  "hosted_verdict": "PASS_TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_WITH_PRODUCTION_INPUT_OPEN"
 }
