@@ -1,11 +1,9 @@
 # CURRENT STATUS — TIR
 
-**Status line:** 2026-08-29 global-geometry Gate A validation batch  
-**Author:** Adrian Lipa  
-**Main baseline:** `ccc89fc06bdf42c1937c0a2303d3e477db487e0f`  
-**Active branch:** `feat/tir-universal-loop-torsion-source-binding-v0.1`  
-**Pull request:** #106 — `TIR: bind Universal-Loop translational holonomy to endpoint defect`  
-**Promotion:** feature branch under hosted validation; main changes only by explicit merge order
+**Status line:** 2026-09-05 status surface covering repository state through the 2026-09-04 Collatz–Fubini–Study relational-phase integration  
+**Repository state covered through:** PR #123, merge commit `b515b4eb5876b64fc4f4d748a4a504267e0a3680`  
+**Status-surface policy:** this file records the scientific/repository state covered by the status surface; it does not use a volatile open branch or open PR as the definition of “current”  
+**Promotion:** merged results are reported as merged; open physical bindings remain explicitly open
 
 This is the current TIR status surface.
 
@@ -65,12 +63,13 @@ TIR_KAPPA_NORMALIZATION = CLOSED_INTERNAL_DERIVATION
 TIR_WIJ_HOLONOMY_FAMILY = SOURCE_BOUND_CROSSWALK
 TIR_SE3_ATLAS_SOURCE = CLOSED_EXACT
 TIR_DISCRETE_SOLDER_OBJECT = TYPED
-TIR_UNIVERSAL_LOOP_TORSION_SOURCE = SOURCE_BOUND_PR106_VALIDATION
+TIR_UNIVERSAL_LOOP_TORSION_SOURCE = SOURCE_BOUND_MAIN
 TIR_CONTINUUM_CARTAN_REFINEMENT = NEXT_GR_GEOMETRY_GATE
 TIR_COEFFICIENT_MAGNITUDES = ACTIVE_TYPED_EXTRACTION
 TIR_STANDARD_MODEL = ACTIVE_RECONCILIATION
 TIR_SOH_NEGATIVE_INVERSE = GLOBAL_DOMINATION_CANDIDATE
 TIR_TIME_JOIN = SIBLING_INTERFACE
+TIR_COLLATZ_FS_RELATIONAL_PHASE = MATHEMATICAL_INTERFACE_ADDED / PHYSICAL_BINDING_OPEN
 ```
 
 ## 2. κ normalization
@@ -276,7 +275,7 @@ Canonical Gate-A theorem:
 
 `TIR/foundations/TIR_UNIVERSAL_LOOP_TORSION_SOURCE_BINDING_V0_1.md`.
 
-The dedicated hosted gate is
+Gate A is merged on `main` through PR #106, merge commit `3f5a08ef04ec53c1a155263d23e8b10a96404370`. The dedicated hosted workflow remains the reproducibility gate:
 
 `.github/workflows/tir-universal-loop-torsion-source-binding.yml`.
 
@@ -384,7 +383,35 @@ The framework-side completion target is
 
 from native arithmetic closure.
 
-## 9. Completion frontier
+## 9. Collatz–Fubini–Study relational phase interface
+
+The merged interface is
+
+`TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md`.
+
+It imports from IDT the exact conditional discrete phase map
+
+\[
+q(Cn)=2q(n)\pmod1,
+\qquad
+\boxed{\zeta_C(Cn)=\zeta_C(n)^2},
+\]
+
+and admits an explicit projective phase coordinate on a TIR relation,
+
+\[
+\boxed{R_{ij}=R_{ij}(S_i,S_j;\zeta_{ij})},
+\qquad
+\zeta_{ij}=e^{i\phi_{ij}}.
+\]
+
+The `2\pi` projective phase and optional `4\pi` spinorial lift remain typed separately. The CP1 two-state placement is mathematical/interface-level. Physical identification with elapsed time, energy, mass, interaction strength, atomic transition rates, spectra, or gravity remains OPEN.
+
+Status:
+
+`MATHEMATICAL_INTERFACE_ADDED / PHYSICAL_BINDING_OPEN`.
+
+## 10. Completion frontier
 
 Canonical frontier:
 
@@ -410,7 +437,9 @@ four coefficient magnitudes
  -> dimensional, unit and statistical certification
 ```
 
-## 10. Reproducibility invariant
+The Collatz–FS phase interface is an additive branch. It does not replace the existing completion frontier and may enter downstream physics only through independently derived bindings.
+
+## 11. Reproducibility invariant
 
 Every PASS belongs to the exact commit tested. Claim promotion follows the evidence class of the specific theorem, validator or observable.
 
