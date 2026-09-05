@@ -1,10 +1,12 @@
-# TIR Monograph v12 — dependency-ordered content migration
+# TIR Monograph v12 — dependency-ordered publication surface
 
-Status: `CONTENT_MIGRATION / PROVENANCE_FIRST / VALIDATION_ACTIVE`
+Status: `INTEGRATED_ON_MAIN / PROVENANCE_FIRST / VALIDATION_ACTIVE`
 
-Baseline: `main@3f5a08ef04ec53c1a155263d23e8b10a96404370`
+Canonical baseline: `main@b515b4eb5876b64fc4f4d748a4a504267e0a3680`
 
-Working branch: `feat/tir-monograph-v12-structural-skeleton`
+Canonical branch: `main`
+
+V12 integration: PR #111 merged validated head `51ec12b5a00201296c8872cadde06bde03cf95d5` into `main`.
 
 ## Purpose
 
@@ -14,9 +16,9 @@ Version 12 reorganizes the long TIR monograph around the current dependency grap
 
 The v11 tree remains historical provenance while v12 owns the current dependency-ordered publication surface.
 
-## Current migration state
+## Current integrated state
 
-All twenty-one v12 theory/evidence chapters now contain migrated substantive content. The migration has also introduced deterministic validators for newly reconciled theorem surfaces and has separated canonical formula ownership from publication verdict ownership.
+All twenty-one v12 theory/evidence chapters contain migrated substantive content. The migration also introduced deterministic validators for newly reconciled theorem surfaces and separated canonical formula ownership from publication verdict ownership.
 
 The current foundational spine is
 
@@ -124,4 +126,4 @@ The v11 master remains
 
 `TIR/monograph/metatime_monograph.tex`.
 
-The final promotion pass consists of source-contract validation, LaTeX compilation, citation/reference checks, PDF preflight and an exact-head workflow receipt. `main` remains unchanged by this branch until an explicit promotion decision.
+The v12 promotion pass was completed on validated head `51ec12b5a00201296c8872cadde06bde03cf95d5` and integrated through PR #111. Subsequent feature work continues to change `main` only through explicit promotion decisions and its own validation receipts.

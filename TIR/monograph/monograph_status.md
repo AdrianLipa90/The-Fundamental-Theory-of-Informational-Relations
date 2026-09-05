@@ -1,9 +1,11 @@
-# Theory of Informational Relations Monograph — v12 migration status
+# Theory of Informational Relations Monograph — historical v12 migration ledger
 
-**Migration date:** 30 August 2026  
-**Working branch:** `feat/tir-monograph-v12-structural-skeleton`  
-**Baseline:** `main@3f5a08ef04ec53c1a155263d23e8b10a96404370`  
-**Promotion state:** feature-branch validation in progress
+**Historical snapshot:** 30 August 2026  
+**Former working branch:** `feat/tir-monograph-v12-structural-skeleton`  
+**Snapshot baseline:** `main@3f5a08ef04ec53c1a155263d23e8b10a96404370`  
+**Promotion state:** `COMPLETED` — validated head `51ec12b5a00201296c8872cadde06bde03cf95d5` was integrated into `main` through PR #111
+
+This file is retained as the historical v12 migration ledger. It is not the current branch-status surface; canonical public status follows `main`.
 
 ## Publication architecture
 
