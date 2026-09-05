@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail-closed source contract for the TIR monograph v12 content-migration candidate."""
+"""Fail-closed source contract for the integrated TIR monograph v12 publication surface."""
 from __future__ import annotations
 
 import json
@@ -60,7 +60,7 @@ def read(path: Path) -> str:
 
 
 def math_mode_path_hits(text: str) -> list[str]:
-    """Return compact witnesses for \path used inside display-math surfaces."""
+    r"""Return compact witnesses for \path used inside display-math surfaces."""
     hits: list[str] = []
     for match in re.finditer(r"\\\[(.*?)\\\]", text, flags=re.S):
         if r"\path{" in match.group(1):
@@ -193,7 +193,11 @@ def main() -> None:
         "TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md" in root_readme
         and "MODEL POSTULATE" not in root_readme
     )
-    checks["v12_readme_content_migration_status"] = "CONTENT_MIGRATION" in v12_readme and "all twenty-one" in v12_readme.lower()
+    checks["v12_readme_integrated_status"] = (
+        "INTEGRATED_ON_MAIN" in v12_readme
+        and "Canonical branch: `main`" in v12_readme
+        and "all twenty-one" in v12_readme.lower()
+    )
     checks["frontmatter_content_migration_status"] = "twenty-one main chapters" in frontmatter and "wrapper chapters" not in frontmatter.lower()
     checks["manifest_content_migration_status"] = 'version: "12.0-content-migration"' in manifest and "all-21-main-chapters-substantive" in manifest
 
