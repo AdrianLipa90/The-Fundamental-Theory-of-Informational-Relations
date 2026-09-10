@@ -1,9 +1,9 @@
 # CURRENT STATUS — TIR
 
-**Status line:** 2026-09-10 synchronization against `main@0f63c823961a58770de22d14b5f53e2bfa38a9b3`  
-**Publication correction:** TIR monograph v12.1 audit branch updates the dependency-ordered publication surface without changing physical verdicts  
+**Status line:** 2026-09-10 v12.1 promoted on `main` after exact-head validation  
+**Publication correction:** TIR monograph v12.1 repository synchronization is merged on `main` without changing physical verdicts  
 **Status-surface policy:** merged theorem/contract results are distinguished from production-input, physical-binding and empirical-evidence gates  
-**Promotion:** Platonic L-constant closure is merged on `main`; v12.1 monograph corrections require their own build validation and later explicit main-promotion authority
+**Promotion:** validated source head `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` merged through PR #128 as `main@3a31da6ebeded16d4f48345de62c974870f76694`
 
 ## 1. Foundational closure
 
@@ -111,7 +111,7 @@ The triangular branch has rotational groups
 A_4,\qquad S_4,\qquad A_5
 \]
 
-with orders `12,24,60`.  Using the tetrahedral rotational group as the common root,
+with orders `12,24,60`. Using the tetrahedral rotational group as the common root,
 
 \[
 [S_4:A_4]=2,
@@ -137,7 +137,7 @@ Hence
 \boxed{(L_3,L_4,L_5)=(7,2,5)}.
 \]
 
-This is an exact TIR-internal structural consequence conditional on the explicit root-extension closure rule.  The Collatz/twin-prime route remains an independent arithmetic crosscheck and is not an input to the finite-group calculation.
+This is an exact TIR-internal structural consequence conditional on the explicit root-extension closure rule. The Collatz/twin-prime route remains an independent arithmetic crosscheck and is not an input to the finite-group calculation.
 
 Canonical source:
 
@@ -237,7 +237,7 @@ Canonical source:
 
 ### Gate A5 — global 3-manifold certifier
 
-The executable A5 certificate validates a supplied tetrahedral complex as a closed combinatorial 3-manifold through incidence and vertex-link conditions; the standard Moise bridge then supplies compatible smooth realization.  Metric and Levi-Civita gluing follow on a passing carrier.
+The executable A5 certificate validates a supplied tetrahedral complex as a closed combinatorial 3-manifold through incidence and vertex-link conditions; the standard Moise bridge then supplies compatible smooth realization. Metric and Levi-Civita gluing follow on a passing carrier.
 
 Canonical source:
 
@@ -257,7 +257,7 @@ The source packet for the inter-leaf matching field is defined by
 
 `TIR/foundations/TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1.md`.
 
-The executable contract validates provenance, payload digest, patch/overlap integrity, the matching-law handoff and the `x0=ct` shift conversion.  Its reference controls pass; the source-owned production `beta_match` dataset remains `OPEN_INPUT`.
+The executable contract validates provenance, payload digest, patch/overlap integrity, the matching-law handoff and the `x0=ct` shift conversion. Its reference controls pass; the source-owned production `beta_match` dataset remains `OPEN_INPUT`.
 
 The relativistic dependency line is therefore
 
@@ -311,7 +311,7 @@ q(Cn)=2q(n)\pmod1,
 \zeta_C(Cn)=\zeta_C(n)^2,
 \]
 
-and types an explicit projective phase coordinate on a TIR relation.  Projective `2pi` and optional spinorial `4pi` carriers remain distinct.
+and types an explicit projective phase coordinate on a TIR relation. Projective `2pi` and optional spinorial `4pi` carriers remain distinct.
 
 Status:
 
@@ -321,7 +321,7 @@ No validated identification with elapsed time, energy, mass, transition strength
 
 ## 8. Secret-of-a-Half / critical-axis boundary
 
-The exact half-axis and negative-inverse identities remain available as interfaces.  The current critical-axis stack contains exact reductions and conditional positive corridors, but its global strict-positivity/nondegeneracy premises remain open.  The integrated solver explicitly requires
+The exact half-axis and negative-inverse identities remain available as interfaces. The current critical-axis stack contains exact reductions and conditional positive corridors, but its global strict-positivity/nondegeneracy premises remain open. The integrated solver explicitly requires
 
 `riemann_hypothesis_in_closure = false`.
 
@@ -367,7 +367,9 @@ The v12.1 audit surface is
 
 `TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md`.
 
-The compiled monograph correction is validated by
+The corrected monograph passed the exact-head v12.1 validation/build/preflight on `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` and was promoted through PR #128 as merge commit `3a31da6ebeded16d4f48345de62c974870f76694`.
+
+The synchronization is validated by
 
 `TIR/validation/tir_v12_1_repository_sync_audit.py`
 
@@ -375,4 +377,4 @@ in addition to the existing v12 source, evidence and appendix gates.
 
 ## 11. Reproducibility invariant
 
-Every `PASS` belongs to the exact theorem assumptions, source revision and validator named by its receipt.  A mathematical or software `PASS` never silently promotes a physical observable.  `FAIL`, `TENSION`, `OPEN` and `QUARANTINED` evidence remains visible until a separately versioned gate supersedes it.
+Every `PASS` belongs to the exact theorem assumptions, source revision and validator named by its receipt. A mathematical or software `PASS` never silently promotes a physical observable. `FAIL`, `TENSION`, `OPEN` and `QUARANTINED` evidence remains visible until a separately versioned gate supersedes it.
