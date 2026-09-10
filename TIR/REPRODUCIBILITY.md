@@ -1,4 +1,4 @@
-# Reproducibility Guide — v12.1 synchronization
+# Reproducibility Guide — v12.1 synchronization and coefficient-frontier update
 
 TIR uses separate reproducibility layers for structural derivations, numerical implementations, historical formula snapshots, empirical comparison, and publication assembly. A `PASS` is scoped to the exact layer and revision named by its receipt; no technical PASS silently promotes a physical observable.
 
@@ -24,7 +24,7 @@ Validator:
 python3 TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py
 ```
 
-The structural chain is
+The structural chain gives
 
 \[
 V_F\cong\mathbb C^3,
@@ -76,7 +76,7 @@ and, conditional on the explicit TIR tetrahedral-root extension rule, obtains
 (L_3,L_4,L_5)=(7,2,5).
 \]
 
-The finite Collatz orbit of 3 and the twin-prime identities are retained as independent arithmetic crosschecks rather than derivation inputs. This validator has no physical-promotion authority.
+The finite Collatz orbit of 3 and twin-prime identities remain independent arithmetic crosschecks rather than derivation inputs. This validator has no physical-promotion authority.
 
 ## 4. κ phase-rate audit
 
@@ -84,7 +84,7 @@ The finite Collatz orbit of 3 and the twin-prime identities are retained as inde
 python3 TIR/validation/kappa_phase_rate_identity_v11_1.py
 ```
 
-Conditional on the canonical normalization and the declared information-phase relation,
+Conditional on the canonical normalization and declared information-phase relation,
 
 \[
 \Gamma_{\mathcal I}=\kappa\omega=\frac{\ln2}{12}f.
@@ -94,7 +94,7 @@ Operational calibration of a physical \(\Gamma_{\mathcal I}\) observable remains
 
 ## 5. Spatial GR theorem stack
 
-The post-v12 geometry validators are run in dependency order:
+Run the post-v12 geometry validators in dependency order:
 
 ```text
 python3 TIR/foundations/validation/tir_cartan_continuum_refinement_v0_1.py
@@ -107,14 +107,41 @@ python3 TIR/foundations/validation/tir_interleaf_matching_field_input_contract_v
 
 The first three certify conditional/local structural results under their declared assumptions. The A5 certifier certifies a supplied combinatorial carrier. The final two commands certify input contracts and reference controls; they do **not** assert that production global spatial or inter-leaf datasets have been supplied.
 
-## 6. v12 discrete-label and coefficient audits
+## 6. Discrete-label and coefficient audits
+
+Run:
 
 ```text
 python3 TIR/validation/tir_v12_discrete_labels_audit_v0_1.py
 python3 TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
+python3 TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py
+python3 TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py
 ```
 
-The discrete-label audit checks the finite Collatz orbit and all \(6!=720\) quark-prime permutations. The coefficient validator certifies role/orientation structure; extraction of the four coefficient magnitudes remains a separate open theorem.
+The discrete-label audit checks the finite Collatz orbit and all \(6!=720\) quark-prime permutations. The role/orientation validator certifies slot identity and source-sign structure on its declared assumptions.
+
+The parent-evaluation validator then evaluates the already-declared magnitude-parent packets from the independently closed counts
+
+\[
+N_F=3,
+\qquad
+(L_3,L_4,L_5)=(7,2,5),
+\]
+
+without measured masses, Yukawa targets or recovered tuples as inputs, yielding
+
+\[
+(1,3,1,1),\qquad(0,5,2,8),\qquad(0,3,1,7).
+\]
+
+The selector-identifiability validator proves a different statement: the current role/orientation inputs do not uniquely select the transition parent packet. Therefore
+
+```text
+COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT
+COEFFICIENT_TRANSITION_PARENT_SELECTOR  = OPEN
+```
+
+The next coefficient theorem must construct a transition-sensitive, coefficient-free selector rather than fit one to known masses.
 
 ## 7. v12 flavour-sector diagnostics
 
@@ -138,21 +165,27 @@ The v0.2 audit checks the 32 normalized rows and retains charged-lepton precisio
 
 ## 9. Current completion-frontier audit
 
-The historical v12.0 DAG snapshot is retained in repository history. The v12.1 publication synchronization uses
+The historical v12.0 and v12.1 DAG snapshots remain in repository history. The current coefficient-frontier branch uses
 
 ```text
-python3 TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py
+python3 TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py
 ```
 
-The current DAG treats A2-A4 and the A5 certifier/input contracts according to their actual theorem/contract status, keeps production spatial/inter-leaf inputs open, and explicitly records `riemann_hypothesis_in_closure=false`.
+The DAG records coefficient parent evaluation as closed, the transition-parent selector as open, keeps production spatial/inter-leaf inputs open, and explicitly records `riemann_hypothesis_in_closure=false`.
 
 ## 10. Repository-to-monograph synchronization
+
+The historical v12.1 repository-sync audit remains
 
 ```text
 python3 TIR/validation/tir_v12_1_repository_sync_audit.py
 ```
 
-This fail-closed audit verifies that the v12.1 master, Chapters 7, 10 and 21, Appendix E, current status and dependency export all point to the current theorem graph and preserve the physical-promotion firewall.
+Its baseline semantics are preserved. The current source contract for the post-promotion coefficient update is
+
+```text
+python3 TIR/validation/tir_v12_source_contract_v0_4.py
+```
 
 Audit ledger:
 
@@ -162,19 +195,19 @@ TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md
 
 ## 11. Source and appendix contracts
 
-The integrated source contract is
+Historical source-contract versions remain immutable provenance. The active source contract is
 
 ```text
-python3 TIR/validation/tir_v12_source_contract_v0_2.py
+python3 TIR/validation/tir_v12_source_contract_v0_4.py
 ```
 
-with v12.1 synchronization markers added on the correction branch. Appendices A-D remain bound to their frozen v12.0 hashes through
+Appendices A-D remain bound to their frozen v12.0 hashes through
 
 ```text
 python3 TIR/validation/tir_v12_appendix_integration_audit_v0_1.py
 ```
 
-Appendix E is validated by the v12.1 repository-sync audit rather than being retroactively inserted into the A-D hash receipt.
+Appendix E remains the v12.1 repository-sync layer; the coefficient update is carried in the current chapters/frontier/theorem surfaces rather than by rewriting the frozen A-D receipt.
 
 ## 12. Critical-axis firewall
 
@@ -188,14 +221,14 @@ for the current theorem graph. Exact transforms, equivalence reductions or condi
 
 ## 13. Publication validation
 
-The v12.1 branch build must run the structural validators above, the current evidence validator, the source/appendix/sync audits, and the LaTeX/PDF preflight on the same exact branch head. Required document checks include a successful two-pass build, no undefined references/citations, no duplicate labels, no fatal PDF-string warnings, `qpdf --check`, and no Type-3 fonts.
+The current branch build must run the structural validators above, the evidence validator, source/appendix/sync audits, coefficient gates, and the LaTeX/PDF preflight on the same exact branch head. Required document checks include a successful build, no undefined references/citations, no duplicate labels, no fatal PDF-string warnings, `qpdf --check`, and no Type-3 fonts.
 
 ## Reviewer checklist
 
 1. Run the canonical κ and Platonic-L structural validators.
 2. Run the A2-A5 spatial stack and confirm production-input firewalls remain open where appropriate.
-3. Run the discrete-label and coefficient-role validators.
+3. Run the coefficient role, parent-evaluation and selector-identifiability validators; confirm the selector remains OPEN.
 4. Run the v12 flavour/hadron diagnostics and the v0.2 evidence matrix audit.
-5. Run the v12.1 completion-frontier and repository-sync validators.
+5. Run `tir_v12_1_completion_frontier_dag_v0_3.py`, `tir_v12_source_contract_v0_4.py`, and the historical v12.1 repository-sync audit.
 6. Inspect retained `FAIL`, `TENSION`, `OPEN`, and `QUARANTINED` rows in Chapter 19.
-7. Compile `TIR/monograph/tir_monograph_v12.tex` on the exact correction head and run PDF preflight before any promotion to `main`.
+7. Compile `TIR/monograph/tir_monograph_v12.tex` on the exact branch head and run PDF preflight before any promotion to `main`.
