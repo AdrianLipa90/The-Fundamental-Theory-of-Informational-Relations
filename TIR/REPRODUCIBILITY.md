@@ -1,6 +1,6 @@
-# Reproducibility Guide — v12 synchronization
+# Reproducibility Guide — v12.1 synchronization
 
-TIR uses separate reproducibility layers for structural derivations, numerical implementations, historical formula snapshots, empirical comparison, and publication assembly. A `PASS` is scoped to the exact layer and revision named by its receipt.
+TIR uses separate reproducibility layers for structural derivations, numerical implementations, historical formula snapshots, empirical comparison, and publication assembly. A `PASS` is scoped to the exact layer and revision named by its receipt; no technical PASS silently promotes a physical observable.
 
 ## 1. Legacy formula reproducibility
 
@@ -8,7 +8,7 @@ TIR uses separate reproducibility layers for structural derivations, numerical i
 python3 TIR/run_audit.py --json
 ```
 
-This retains the selected historical implementation subset under schema `TIR_SELECTED_LEGACY_REPRODUCIBILITY_V11_1`. Its result certifies reproducibility of that frozen subset.
+This retains the selected historical implementation subset under schema `TIR_SELECTED_LEGACY_REPRODUCIBILITY_V11_1`. Its result certifies reproducibility of that frozen subset only.
 
 ## 2. Canonical κ structural derivation
 
@@ -48,9 +48,37 @@ hence
 \boxed{\kappa=\frac{\ln2}{24\pi}}.
 \]
 
-The validator checks the three-flavour multiplicity, Lie-algebra dimension, 24-channel incidence count, half-turn phase, total \(24\pi\) measure, and the independent tetrahedral-order crosscheck. Its classification is `TIR_INTERNAL_DERIVED_NORMALIZATION_FROM_FLAVOUR_MIXING_GEOMETRY`.
+## 3. Platonic L-constant closure
 
-## 3. κ phase-rate audit
+Canonical theorem:
+
+```text
+TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md
+```
+
+Validator:
+
+```text
+python3 TIR/validation/tir_platonic_l_constants_closure_v0_1.py
+```
+
+The validator enumerates the five convex Platonic Schläfli pairs, constructs the relevant finite permutation groups and cosets, verifies
+
+\[
+[S_4:A_4]=2,
+\qquad
+[A_5:A_4]=5,
+\]
+
+and, conditional on the explicit TIR tetrahedral-root extension rule, obtains
+
+\[
+(L_3,L_4,L_5)=(7,2,5).
+\]
+
+The finite Collatz orbit of 3 and the twin-prime identities are retained as independent arithmetic crosschecks rather than derivation inputs. This validator has no physical-promotion authority.
+
+## 4. κ phase-rate audit
 
 ```text
 python3 TIR/validation/kappa_phase_rate_identity_v11_1.py
@@ -59,76 +87,115 @@ python3 TIR/validation/kappa_phase_rate_identity_v11_1.py
 Conditional on the canonical normalization and the declared information-phase relation,
 
 \[
-\frac1{24}(\ln2)\pi^{-1}\times2\pi f
-=\frac1{12}(\ln2)f,
+\Gamma_{\mathcal I}=\kappa\omega=\frac{\ln2}{12}f.
 \]
 
-so
+Operational calibration of a physical \(\Gamma_{\mathcal I}\) observable remains an open evidence gate.
 
-\[
-\boxed{\Gamma_{\mathcal I}=\kappa\omega=\frac{\ln2}{12}f}.
-\]
+## 5. Spatial GR theorem stack
 
-This audit checks exact \(\pi\)-factor cancellation, the rational prefactor \(1/12\), representative numerical implementations, and the rank-three constraint certificate for \((\kappa,\omega,f,\Gamma_{\mathcal I})\). Operational calibration of a physical \(\Gamma_{\mathcal I}\) observable remains an `OPEN` evidence gate.
-
-## 4. v12 discrete-label audit
-
-The v12 migration validates the finite Collatz orbit used for \(L_3\) and exhaustively checks all \(6!=720\) quark-prime permutations. The arithmetic constraints leave two candidates related by \(b\leftrightarrow t\); the typed monotone flavour-order rule selects the canonical assignment uniquely.
-
-Use the v12 discrete-label validator and its receipt under `TIR/validation/` when reviewing Chapter 10.
-
-## 5. v12 coefficient-forcing audit
+The post-v12 geometry validators are run in dependency order:
 
 ```text
+python3 TIR/foundations/validation/tir_cartan_continuum_refinement_v0_1.py
+python3 TIR/foundations/validation/tir_zero_torsion_levi_civita_selection_v0_1.py
+python3 TIR/foundations/validation/tir_leading_loop_locality_metric_jet_v0_1.py
+python3 TIR/foundations/validation/tir_global_3manifold_smooth_certificate_v0_1.py
+python3 TIR/foundations/validation/tir_global_spatial_complex_input_contract_v0_1.py
+python3 TIR/foundations/validation/tir_interleaf_matching_field_input_contract_v0_1.py
+```
+
+The first three certify conditional/local structural results under their declared assumptions. The A5 certifier certifies a supplied combinatorial carrier. The final two commands certify input contracts and reference controls; they do **not** assert that production global spatial or inter-leaf datasets have been supplied.
+
+## 6. v12 discrete-label and coefficient audits
+
+```text
+python3 TIR/validation/tir_v12_discrete_labels_audit_v0_1.py
 python3 TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
 ```
 
-The validator certifies the role-slot bijection, identity as the unique role-preserving slot permutation, gradient-sign scale independence, runtime deadband behaviour, and consensus-orientation uniqueness. The active completion gate is extraction of the four typed integer magnitudes \(|h|,|a|,|b|,|c|\).
+The discrete-label audit checks the finite Collatz orbit and all \(6!=720\) quark-prime permutations. The coefficient validator certifies role/orientation structure; extraction of the four coefficient magnitudes remains a separate open theorem.
 
-## 6. v12 flavour-sector diagnostics
+## 7. v12 flavour-sector diagnostics
 
-Chapter 12 carries a dedicated diagnostic receipt for the legacy neutrino absolute-action formula/value mismatch. Chapter 13 carries a flavour-mixing audit that preserves the PMNS reactor-angle tension and the historical CKM \(J\)-proxy residual as diagnostics.
+Chapter 12 carries a dedicated diagnostic receipt for the legacy neutrino absolute-action formula/value mismatch. Chapter 13 carries a flavour-mixing audit that preserves the PMNS reactor-angle tension and historical CKM diagnostics. These remain evidence inputs rather than current-status owners.
 
-These diagnostics are evidence inputs to Chapter 19 rather than independent current-status owners.
+## 8. Unified Evidence Matrix audit
 
-## 7. Unified Evidence Matrix audit
+Current validator:
 
 ```text
-python3 TIR/validation/tir_v12_evidence_matrix_consistency_v0_1.py
+python3 TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py
 ```
 
-The current publication owner for observable verdicts is
+The publication owner for observable verdicts remains
 
 ```text
 TIR/monograph/v12/chapters/ch19_unified_evidence_matrix.tex
 ```
 
-The audit checks the allowed Claim Class, Timing and Verdict vocabularies, unique row identities, retention of the charged-lepton precision failures, PMNS \(\theta_{13}\) tension, neutron-EDM failure, and v12 formula quarantines.
+The v0.2 audit checks the 32 normalized rows and retains charged-lepton precision failures, PMNS \(\theta_{13}\) tension, neutron-EDM failure, formula quarantines, hypercharge-source openness and standard anomaly-algebra PASS without conflating those statuses.
 
-Receipt:
+## 9. Current completion-frontier audit
 
-```text
-TIR/validation/TIR_V12_EVIDENCE_MATRIX_CONSISTENCY_V0_1.json
-```
-
-## 8. Historical source contract
+The historical v12.0 DAG snapshot is retained in repository history. The v12.1 publication synchronization uses
 
 ```text
-python3 TIR/validation/review_source_contract_v11_1.py
+python3 TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py
 ```
 
-This remains the source-contract audit for the reviewed v11 publication topology. Version 12 preserves those sources as provenance while compiling through `TIR/monograph/tir_monograph_v12.tex`.
+The current DAG treats A2-A4 and the A5 certifier/input contracts according to their actual theorem/contract status, keeps production spatial/inter-leaf inputs open, and explicitly records `riemann_hypothesis_in_closure=false`.
 
-## 9. Publication validation
+## 10. Repository-to-monograph synchronization
 
-The v11 authoritative sequence remains maintained by `.github/workflows/compile-metatime-monograph.yml`. Version 12 requires an exact-head build and its own source/claim audits before publication promotion. Workflow evidence attaches only to the commit it tested.
+```text
+python3 TIR/validation/tir_v12_1_repository_sync_audit.py
+```
+
+This fail-closed audit verifies that the v12.1 master, Chapters 7, 10 and 21, Appendix E, current status and dependency export all point to the current theorem graph and preserve the physical-promotion firewall.
+
+Audit ledger:
+
+```text
+TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md
+```
+
+## 11. Source and appendix contracts
+
+The integrated source contract is
+
+```text
+python3 TIR/validation/tir_v12_source_contract_v0_2.py
+```
+
+with v12.1 synchronization markers added on the correction branch. Appendices A-D remain bound to their frozen v12.0 hashes through
+
+```text
+python3 TIR/validation/tir_v12_appendix_integration_audit_v0_1.py
+```
+
+Appendix E is validated by the v12.1 repository-sync audit rather than being retroactively inserted into the A-D hash receipt.
+
+## 12. Critical-axis firewall
+
+The integrated critical-axis workflow must continue to establish
+
+```text
+"riemann_hypothesis_in_closure": false
+```
+
+for the current theorem graph. Exact transforms, equivalence reductions or conditional positive corridors do not convert an RH-equivalent global positivity/nondegeneracy premise into a proof.
+
+## 13. Publication validation
+
+The v12.1 branch build must run the structural validators above, the current evidence validator, the source/appendix/sync audits, and the LaTeX/PDF preflight on the same exact branch head. Required document checks include a successful two-pass build, no undefined references/citations, no duplicate labels, no fatal PDF-string warnings, `qpdf --check`, and no Type-3 fonts.
 
 ## Reviewer checklist
 
-1. Run the canonical κ flavour-mixing validator.
-2. Run the κ phase-rate validator.
-3. Run the discrete-label and coefficient-forcing validators.
-4. Run the v12 neutrino/flavour diagnostics.
-5. Run `tir_v12_evidence_matrix_consistency_v0_1.py` and inspect the full status triples.
+1. Run the canonical κ and Platonic-L structural validators.
+2. Run the A2-A5 spatial stack and confirm production-input firewalls remain open where appropriate.
+3. Run the discrete-label and coefficient-role validators.
+4. Run the v12 flavour/hadron diagnostics and the v0.2 evidence matrix audit.
+5. Run the v12.1 completion-frontier and repository-sync validators.
 6. Inspect retained `FAIL`, `TENSION`, `OPEN`, and `QUARANTINED` rows in Chapter 19.
-7. Compile `TIR/monograph/tir_monograph_v12.tex` twice and run the exact-head publication preflight before promotion.
+7. Compile `TIR/monograph/tir_monograph_v12.tex` on the exact correction head and run PDF preflight before any promotion to `main`.
