@@ -6,7 +6,7 @@ The audited publication master remains
 
 `TIR/monograph/tir_monograph_v12.tex`
 
-and is compiled as **Version 12.1 Audited Repository Synchronization — 10 September 2026**. The v12.0 migration state and earlier source tree remain historical provenance.
+and is compiled as **Version 12.1 Audited Repository Synchronization — 10 September 2026**. The v12.0 migration state and earlier source tree remain historical provenance. The current post-promotion completion branch narrows the coefficient frontier without changing physical evidence verdicts.
 
 Read the current dependency order as
 
@@ -14,6 +14,7 @@ Read the current dependency order as
 primitive informational relations
 -> emergent geometry
 -> information / phase / flavour
+-> coefficient parent evaluation / transition selector
 -> particle and gauge sectors
 -> extensions / evidence / falsification
 ```
@@ -47,6 +48,31 @@ Gate A5  global 3-manifold certifier                  IMPLEMENTED
 
 The theorem/production-input distinction is mandatory. Reference-control or certifier PASS does not imply that the actual global TIR spatial complex or inter-leaf field has been supplied.
 
+## Current coefficient state
+
+The coarse phrase “coefficient magnitudes remain open” is no longer precise. The existing lineage already declares parent packets and their count valuation is exact under the closed upstream integers:
+
+```text
+ELECTRON_ACTION   -> (1,3,1,1)
+E_TO_MU_RELEASE   -> (0,5,2,8)
+MU_TO_TAU_RELEASE -> (0,3,1,7)
+```
+
+Therefore:
+
+```text
+COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT
+COEFFICIENT_TRANSITION_PARENT_SELECTOR  = OPEN
+```
+
+The exact identifiability audit establishes that current role/orientation data do not uniquely select a transition parent packet. The missing object is a transition-sensitive coefficient-free selector. Known masses, Yukawa targets, recovered tuples and residual-to-target information are forbidden as selector parents.
+
+Canonical sources:
+
+`TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md`
+
+`TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_IDENTIFIABILITY_V0_1.md`
+
 ## Read evidence through three axes
 
 Every publication result is read as
@@ -72,7 +98,7 @@ New theorem or software PASS states do not overwrite existing physical `FAIL`, `
 1. **κ parent chain:** verify the three-flavour carrier, eight-dimensional mixing algebra, 24-channel incidence count, half-turn phase and binary-information numerator.
 2. **Platonic L closure:** verify the five Schläfli pairs, \([S_4:A_4]=2\), \([A_5:A_4]=5\), and the explicit TIR disjoint-union closure rule; keep physical interpretation separate.
 3. **Spatial A2-A5 stack:** verify every theorem assumption and the production-input firewall.
-4. **Coefficient magnitudes:** role/orientation are typed; \(|h|,|a|,|b|,|c|\) extraction remains open.
+4. **Coefficient branch:** verify exact parent-packet valuation, then independently verify the non-identifiability result and that the transition selector remains open.
 5. **Particle-sector evidence:** retain the neutrino absolute-action quarantine, PMNS reactor-angle tension, hadron provenance states, electroweak precision failures/tensions, meson formula failures and frozen nEDM failure.
 6. **Global inputs:** require source-owned frozen spatial incidence and inter-leaf matching data before global spacetime promotion.
 7. **Critical axis:** confirm `riemann_hypothesis_in_closure=false`; RH-equivalent positivity/nondegeneracy conditions remain open, not proved.
@@ -91,9 +117,12 @@ python3 TIR/foundations/validation/tir_cartan_continuum_refinement_v0_1.py
 python3 TIR/foundations/validation/tir_zero_torsion_levi_civita_selection_v0_1.py
 python3 TIR/foundations/validation/tir_leading_loop_locality_metric_jet_v0_1.py
 python3 TIR/foundations/validation/tir_global_3manifold_smooth_certificate_v0_1.py
+python3 TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
+python3 TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py
+python3 TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py
 python3 TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py
-python3 TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py
-python3 TIR/validation/tir_v12_source_contract_v0_3.py
+python3 TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py
+python3 TIR/validation/tir_v12_source_contract_v0_4.py
 python3 TIR/validation/tir_v12_1_repository_sync_audit.py
 ```
 
@@ -101,4 +130,4 @@ Appendices A-D retain their frozen v12.0 integrity gate. Appendix E is the expli
 
 ## Publication boundary
 
-A green exact-head build certifies source synchronization, named validators and PDF integrity on that commit. It is not external experimental validation and does not merge or promote the correction branch by itself.
+A green exact-head build certifies source synchronization, named validators and PDF integrity on that commit. It is not external experimental validation and does not merge or promote the current completion branch by itself.
