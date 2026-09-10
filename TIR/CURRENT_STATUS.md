@@ -1,11 +1,11 @@
 # CURRENT STATUS — TIR
 
-**Status line:** 2026-09-05 status surface covering repository state through the 2026-09-04 Collatz–Fubini–Study relational-phase integration  
-**Repository state covered through:** PR #123, merge commit `b515b4eb5876b64fc4f4d748a4a504267e0a3680`  
-**Status-surface policy:** this file records the scientific/repository state covered by the status surface; it does not use a volatile open branch or open PR as the definition of “current”  
-**Promotion:** merged results are reported as merged; open physical bindings remain explicitly open
+**Status line:** 2026-09-10 branch status surface adding the Platonic L-constant structural closure on top of the 2026-09-05 main state  
+**Repository state covered through:** `main` merge commit `11692996630f1aed0dd11589ed8d0be8fcb2a071`, plus branch `feat/tir-platonic-l-constants-closure-20260910`  
+**Status-surface policy:** this branch records a validated candidate closure without representing it as merged into `main`  
+**Promotion:** exact internal derivations are separated from physical claims; main promotion remains pending explicit merge authority
 
-This is the current TIR status surface.
+This is the branch status surface for the TIR Platonic L-constant closure.
 
 ## 1. Foundational closure
 
@@ -60,6 +60,7 @@ TIR_FOUNDATIONAL_CORE = CLOSED
 TIR_LOCAL_SPATIAL_GEOMETRY = CLOSED
 TIR_TETRAHEDRAL_CONGRUENCE_CLASS = CLOSED_EXACT
 TIR_KAPPA_NORMALIZATION = CLOSED_INTERNAL_DERIVATION
+TIR_L_CONSTANTS = CLOSED_INTERNAL_PLATONIC_COSET_DERIVATION_ON_BRANCH / MAIN_MERGE_PENDING
 TIR_WIJ_HOLONOMY_FAMILY = SOURCE_BOUND_CROSSWALK
 TIR_SE3_ATLAS_SOURCE = CLOSED_EXACT
 TIR_DISCRETE_SOLDER_OBJECT = TYPED
@@ -131,6 +132,103 @@ The spatial finite-symmetry crosscheck is
 \[
 |\operatorname{Aut}(\Delta^3)|=|S_4|=24.
 \]
+
+## 2a. Platonic L-constant closure
+
+The convex Platonic condition
+
+\[
+\frac1p+\frac1q>\frac12,
+\qquad p,q\ge3,
+\]
+
+has exactly the five Schläfli solutions
+
+\[
+\{3,3\},\{3,4\},\{3,5\},\{4,3\},\{5,3\},
+\]
+
+so the complete index alphabet is
+
+\[
+\boxed{\{3,4,5\}}.
+\]
+
+The triangular branch has rotational groups
+
+\[
+A_4,\qquad S_4,\qquad A_5,
+\]
+
+with orders \(12,24,60\). Using the tetrahedral rotational group as the common root gives the exact subgroup indices
+
+\[
+\boxed{[S_4:A_4]=2},
+\qquad
+\boxed{[A_5:A_4]=5}.
+\]
+
+TIR defines the complete non-self-dual extension carrier of that root as
+
+\[
+X_3^{\rm closure}
+:=
+S_4/A_4\sqcup A_5/A_4.
+\]
+
+Therefore
+
+\[
+\boxed{
+L_4=2,
+\qquad
+L_5=5,
+\qquad
+L_3=|X_3^{\rm closure}|=2+5=7.
+}
+\]
+
+Hence
+
+\[
+\boxed{(L_3,L_4,L_5)=(7,2,5)}.
+\]
+
+This closes the numeric L-constant problem as an exact TIR-internal finite-group/combinatorial derivation conditional on the explicit root-extension closure rule. The earlier Collatz/twin-prime route remains an independent arithmetic crosscheck:
+
+\[
+\operatorname{depth}_{\rm Collatz}(3)=7,
+\qquad
+5-3=2,
+\qquad
+5=5.
+\]
+
+The same Platonic index triple also satisfies the exact crosschecks
+
+\[
+3^2+4^2=5^2,
+\qquad
+3+4+5=12=|A_4|,
+\]
+
+\[
+2(3+4+5)=24=|S_4|,
+\qquad
+3\cdot4\cdot5=60=|A_5|.
+\]
+
+Canonical branch theorem:
+
+`TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`.
+
+Deterministic validator:
+
+`TIR/validation/tir_platonic_l_constants_closure_v0_1.py`.
+
+The validator returns `PASS` for the five-symbol enumeration, permutation-group orders, explicit \(A_4\subset A_5\) embedding, coset partitions, subgroup indices, closure cardinality, and arithmetic crosschecks.
+
+Boundary: this closure does not by itself establish a physical interpretation and does not claim that the finite construction has already been derived from \(CP^3\) Kähler geometry.
 
 ## 3. Information-phase rate
 
