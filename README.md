@@ -5,7 +5,8 @@ https://www.researchgate.net/publication/408131825_Metatime_A_Low-Parameter_Ansa
 **Author:** Adrian Lipa — Independent Researcher, Doncaster, United Kingdom  
 **Current audited monograph revision:** TIR v12.1 repository synchronization  
 **Audit baseline:** `main@0f63c823961a58770de22d14b5f53e2bfa38a9b3`  
-**Correction branch:** `fix/tir-monograph-v12-1-sync-20260910`  
+**Validated source head:** `b19d1becd7ed59263d2c78483b617bc4ef83bd3e`  
+**Main promotion:** PR `#128` -> `main@3a31da6ebeded16d4f48345de62c974870f76694`  
 **Publication status:** dependency-ordered research programme with mathematical, implementation, production-input and empirical gates tracked separately
 
 ## Overview
@@ -312,7 +313,7 @@ TIR/
 
 ## Research and publication policy
 
-The repository preserves source provenance and version identity; retrospective and prospective evidence remain separate; failed gates stay visible; scheme- and scale-dependent quantities require explicit conventions; GREMLIN is candidate/audit infrastructure rather than promotion authority; and publication promotion requires exact-head deterministic validation plus PDF preflight. The current v12.1 correction branch is not `main` until an explicit promotion decision is made.
+The repository preserves source provenance and version identity; retrospective and prospective evidence remain separate; failed gates stay visible; scheme- and scale-dependent quantities require explicit conventions; GREMLIN is candidate/audit infrastructure rather than promotion authority; and publication promotion requires exact-head deterministic validation plus PDF preflight. TIR v12.1 has now been promoted to `main` through PR #128 after the exact source head passed the full validation/build/preflight suite. This repository promotion does not change any physical `OPEN`, `TENSION`, `FAIL` or `QUARANTINED` verdict.
 
 ## Citation
 
