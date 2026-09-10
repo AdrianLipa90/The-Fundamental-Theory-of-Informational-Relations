@@ -75,6 +75,7 @@ jobs:
       - name: Enforce critical-axis RH firewall
         run: |
           set -euo pipefail
+          python3 -m pip install -e TIR/zeta_information_axis
           python3 TIR/zeta_information_axis/scripts/solve_axis.py \
             --output TIR/zeta_information_axis/reports/solver_receipt.json \
             > tir-v12-critical-axis-console.json
