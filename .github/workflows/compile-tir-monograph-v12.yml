@@ -52,6 +52,8 @@ jobs:
             TIR/validation/tir_platonic_l_constants_closure_v0_1.py
             TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py
             TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
+            TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py
+            TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py
             TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py
             TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py
             TIR/validation/tir_v12_hadron_formula_audit_v0_2.py
@@ -61,7 +63,7 @@ jobs:
             TIR/validation/tir_v12_cosmology_formula_audit_v0_1.py
             TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py
             TIR/validation/tir_v12_prospective_contract_audit_v0_1.py
-            TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py
+            TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py
             TIR/validation/tir_v12_source_contract_v0_3.py
             TIR/validation/tir_v12_appendix_integration_audit_v0_1.py
             TIR/validation/tir_v12_1_repository_sync_audit.py
