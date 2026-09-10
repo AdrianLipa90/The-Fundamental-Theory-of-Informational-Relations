@@ -1,26 +1,22 @@
-# TIR Monograph v12 — dependency-ordered publication surface
+# TIR Monograph v12.1 — audited dependency-ordered publication surface
 
-Status: `INTEGRATED_ON_MAIN / PROVENANCE_FIRST / VALIDATION_ACTIVE`
+Status: `V12_0_BASELINE_PRESERVED / V12_1_REPOSITORY_SYNC_ACTIVE / PROVENANCE_FIRST / VALIDATION_ACTIVE`
 
-Canonical baseline: `main@b515b4eb5876b64fc4f4d748a4a504267e0a3680`
+Audit baseline: `main@0f63c823961a58770de22d14b5f53e2bfa38a9b3`
 
-Canonical branch: `main`
+Correction branch: `fix/tir-monograph-v12-1-sync-20260910`
 
-V12 integration: PR #111 merged validated head `51ec12b5a00201296c8872cadde06bde03cf95d5` into `main`.
+Historical v12.0 integration baseline remains the 30 August 2026 content-migration publication surface. Version 12.1 synchronizes that architecture with later merged theorem and validation work without promoting unresolved physical claims.
 
 ## Purpose
 
-Version 12 reorganizes the long TIR monograph around the current dependency graph:
+The monograph is organized in dependency order:
 
 `primitive informational relations -> emergent geometry -> information/phase/flavour -> particle and gauge sectors -> extensions and tests`.
 
-The v11 tree remains historical provenance while v12 owns the current dependency-ordered publication surface.
+All twenty-one main chapters remain substantive. Appendix E is the v12.1 repository-state synchronization layer; Appendices A-D remain frozen v12.0 provenance surfaces.
 
-## Current integrated state
-
-All twenty-one v12 theory/evidence chapters contain migrated substantive content. The migration also introduced deterministic validators for newly reconciled theorem surfaces and separated canonical formula ownership from publication verdict ownership.
-
-The current foundational spine is
+## Current foundational spine
 
 ```text
 0
@@ -36,9 +32,18 @@ The current foundational spine is
 -> W_ij transport
 -> SE(3) affine lift
 -> discrete solder/torsion source
+-> Gate A2 Cartan refinement              [conditional local PASS]
+-> Gate A3 T^a=0 / Levi-Civita             [admitted-sector PASS]
+-> Gate A4 leading-loop metric jet <= 2    [LRR PASS]
+-> Gate A5 3-manifold certifier            [implemented]
+-> production global spatial complex       [OPEN INPUT]
 ```
 
-The flavour/information spine continues through
+The global-spacetime line additionally requires the production inter-leaf matching field, followed by TIR-IDT-RFC spacetime/ADM admission and the downstream Einstein-system gates.
+
+## Information, flavour and L-constant state
+
+The canonical information normalization remains
 
 ```text
 C^3
@@ -50,80 +55,69 @@ C^3
 -> kappa=ln2/(24*pi)
 ```
 
-The canonical kappa source is
+Canonical source:
 
 `TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
 
-## Publication ownership
+The discrete structural constants now also have the independent Platonic finite-group closure
 
-Version 12 uses three independent status axes documented in `STATUS_TAXONOMY.md`:
+```text
+A4 subset S4 -> [S4:A4] = 2 = L4
+A4 subset A5 -> [A5:A4] = 5 = L5
+S4/A4 disjoint-union A5/A4 -> cardinality 7 = L3
+```
 
-`(Claim Class, Timing, Verdict)`.
+conditional on the explicit TIR tetrahedral-root extension rule. The Collatz/twin-prime path is retained as an independent arithmetic crosscheck. Canonical source:
 
-Sector chapters own formulas, derivations and provenance. Chapter 19, `Unified Evidence Matrix`, owns current observable-level publication verdicts.
+`TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`.
 
-## Geometry status
+## Evidence and falsification invariant
 
-Chapters 4–7 now source-bind the local spatial construction through the affine two-level state carrier. The canonical endpoint relation is
+Version 12.1 preserves the existing `(Claim Class, Timing, Verdict)` taxonomy. The current evidence owner remains Chapter 19. In particular, repository theorem/contract PASS states do not overwrite charged-lepton precision failures, PMNS reactor-angle tension, electroweak/fine-structure/Higgs precision failures or tensions, pion/kaon formula failures, provenance quarantines, or the frozen strong-CP-to-neutron-EDM failure.
 
-`E_xy = 2(rho_y-rho_x) in Herm_0(2)`.
+## Current open frontier
 
-The Hilbert–Schmidt metric supplies the Euclidean quadratic form, full local `SO(3)` isotropy stabilizes rank three, and minimal finite full isotropy forces the regular tetrahedral Gram matrix. The spatial and qubit-SIC tetrahedra are closed at the orthogonal congruence-class level.
+The current open problems are named gates rather than a frozen count:
 
-The transport chain then separates pure atlas cocycles from path-dependent connection transport and gives the exact discrete identity
-
-`vec(T_xyz) = t_C = -c_xyz`
-
-on the rotationally consistent triangular sector. The next geometry theorem is controlled refinement to Cartan torsion and curvature.
-
-## Evidence and falsification state
-
-The v12 evidence surface preserves compatible results, tensions, failures and quarantines as independent typed rows. Current retained examples include:
-
-- CKM retrospective compatibility in the frozen PDG-2026 matrix;
-- PMNS reactor-angle tension;
-- charged-lepton precision failures;
-- meson formula quarantines/failures;
-- electroweak precision failures plus the common `R_EW` closure gate;
-- the retained neutron-EDM physical failure;
-- exact Standard Model local anomaly cancellations and the Witten doublet count;
-- cosmological arithmetic/conversion quarantine pending the unit-complete scale bridge.
+- production global spatial-complex input and A5 certification on that exact dataset;
+- production inter-leaf matching-field input;
+- global TIR-IDT-RFC spacetime/ADM admission and Einstein constraint/evolution closure;
+- coefficient magnitude extraction;
+- continuum gauge normalization/running and hypercharge source uniqueness;
+- common electroweak scheme/scale transport and Higgs scalar/action binding;
+- scheme/scale-defined quark mass map;
+- neutrino absolute-action repair and meson absolute-action baseline;
+- holonomic/topological strong-CP source theorem;
+- unit-complete cosmological scale/critical-density binding;
+- physical binding of the Collatz-Fubini-Study relational phase;
+- native Li/Weil positivity and globally quantified critical-axis nondegeneracy/strict-positivity conditions; the Riemann hypothesis remains open.
 
 ## Prospective programme
 
-The active prospective contract is the frozen v10.7 three-candidate family with the orthogonal observables
-
-`y_c/y_mu` and `y_c/y_t`.
-
-The family, observable assignment and no-refit rule are frozen before their assigned qualifying future likelihoods are used for model selection.
-
-## Completion frontier
-
-Chapter 21 represents the remaining work as a directed acyclic graph rather than a flat list. Its current machine-readable receipt reports 23 resolved nodes: eight closed roots and fifteen open gates, with zero missing parents and zero cycles.
-
-Principal downstream gates include:
-
-1. discrete-to-continuum Cartan refinement;
-2. zero-torsion spatial sector and TIR–IDT ADM join;
-3. Einstein constraint/evolution closure;
-4. coefficient magnitude forcing;
-5. continuum gauge normalization and running;
-6. common electroweak scheme/scale transport;
-7. Higgs scalar-action binding;
-8. holonomic strong-CP source theorem;
-9. meson absolute-action baseline;
-10. neutrino absolute-action repair;
-11. cosmological dimensionful scale binding;
-12. native Li/Weil positivity closure.
+The frozen v10.7 three-candidate family and its orthogonal observables retain their no-refit evidence contract. A later qualifying dataset may score that frozen family; it does not retroactively become a parent of the structural derivations.
 
 ## Build surface
 
-The v12 master is
+The master remains
 
-`TIR/monograph/tir_monograph_v12.tex`.
+`TIR/monograph/tir_monograph_v12.tex`
 
-The v11 master remains
+but its document metadata identify the compiled revision as **Version 12.1 Audited Repository Synchronization -- 10 September 2026**.
 
-`TIR/monograph/metatime_monograph.tex`.
+The repository-to-publication audit is
 
-The v12 promotion pass was completed on validated head `51ec12b5a00201296c8872cadde06bde03cf95d5` and integrated through PR #111. Subsequent feature work continues to change `main` only through explicit promotion decisions and its own validation receipts.
+`TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md`.
+
+The current synchronization validators are
+
+`TIR/validation/tir_v12_1_repository_sync_audit.py`
+
+and
+
+`TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py`.
+
+The v12.0 migration manifest remains preserved as historical provenance; the v12.1 sync manifest records only the later correction layer.
+
+## Promotion boundary
+
+A green build means source synchronization, deterministic validation and PDF preflight passed on the exact branch head. It does not alter physical `OPEN`, `TENSION`, `FAIL` or `QUARANTINED` verdicts. Promotion of this corrected monograph to `main` is a separate explicit repository action.
