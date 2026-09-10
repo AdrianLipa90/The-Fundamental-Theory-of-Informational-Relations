@@ -9,6 +9,7 @@ Parents:
 - `TIR_COMPLETION_FRONTIER_V0_6.md`
 - `TIR/foundations/TIR_COEFFICIENT_ROLE_ORIENTATION_FORCING_V0_1.md`
 - `TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md`
+- `TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_IDENTIFIABILITY_V0_1.md`
 - `TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`
 - `TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`
 
@@ -92,7 +93,15 @@ Status:
 
 `COEFFICIENT_TRANSITION_PARENT_SELECTOR = OPEN`.
 
-The retrospective stopping-length pattern remains candidate evidence only and is not promoted.
+The exact current-input identifiability result is documented in
+
+`TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_IDENTIFIABILITY_V0_1.md`
+
+and checked by
+
+`TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py`.
+
+It establishes that role routing plus orientation does not distinguish the two existing release parent packets and that the current orientation evaluator does not consume the transition-sensitive seed/stopping fields. Therefore an additional transition-sensitive coefficient-free invariant is required. The retrospective stopping-length pattern remains candidate evidence only and is not promoted.
 
 ## 4. Consequence for the dependency graph
 
