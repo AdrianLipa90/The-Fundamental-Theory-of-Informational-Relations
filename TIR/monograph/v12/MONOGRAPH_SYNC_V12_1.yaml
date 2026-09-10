@@ -1,0 +1,63 @@
+version: "12.1-repository-sync"
+baseline_main: "0f63c823961a58770de22d14b5f53e2bfa38a9b3"
+date: "2026-09-10"
+branch: "fix/tir-monograph-v12-1-sync-20260910"
+historical_baseline_manifest: "TIR/monograph/v12/MIGRATION_MANIFEST.yaml"
+policy:
+  preserve_v12_0_appendices_A_D: true
+  physical_promotion_from_build: false
+  preserve_fail_tension_open_quarantined: true
+  main_merge_requires_explicit_authority: true
+  canonical_status_taxonomy: "TIR/monograph/v12/STATUS_TAXONOMY.md"
+  canonical_evidence_owner: "TIR/monograph/v12/chapters/ch19_unified_evidence_matrix.tex"
+  canonical_kappa_source: "TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md"
+  canonical_l_source: "TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md"
+
+updated_publication_surfaces:
+  - "TIR/monograph/tir_monograph_v12.tex"
+  - "TIR/monograph/frontmatter/publication_frontmatter_v12_0.tex"
+  - "TIR/monograph/v12/chapters/ch07_connections_holonomy_se3_solder_torsion.tex"
+  - "TIR/monograph/v12/chapters/ch10_discrete_structural_labels.tex"
+  - "TIR/monograph/v12/chapters/ch21_open_theorems_completion_frontier.tex"
+  - "TIR/monograph/v12/appendices/appE_v12_1_repository_state_sync.tex"
+  - "TIR/monograph/v12/README.md"
+  - "TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md"
+
+post_v12_theorem_sources:
+  - "TIR/foundations/TIR_CARTAN_CONTINUUM_REFINEMENT_V0_1.md"
+  - "TIR/foundations/TIR_ZERO_TORSION_LEVI_CIVITA_SELECTION_V0_1.md"
+  - "TIR/foundations/TIR_LEADING_LOOP_LOCALITY_METRIC_JET_V0_1.md"
+  - "TIR/foundations/TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md"
+  - "TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md"
+  - "TIR/foundations/TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1.md"
+  - "TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md"
+  - "TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md"
+
+open_production_inputs:
+  - "PRODUCTION_GLOBAL_SPATIAL_COMPLEX_INPUT"
+  - "PRODUCTION_INTERLEAF_MATCHING_FIELD_INPUT"
+
+open_dynamical_physics_gates:
+  - "GLOBAL_TIR_IDT_RFC_SPACETIME_ADM_JOIN"
+  - "EINSTEIN_CONSTRAINT_EVOLUTION_CLOSURE"
+  - "COEFFICIENT_MAGNITUDE_EXTRACTION"
+  - "CONTINUUM_GAUGE_NORMALIZATION"
+  - "HYPERCHARGE_SOURCE_UNIQUENESS"
+  - "QUARK_MASS_MAP"
+  - "ELECTROWEAK_SCHEME_SCALE_CLOSURE"
+  - "HIGGS_SCALAR_ACTION_BINDING"
+  - "STRONG_CP_HOLONOMIC_SOURCE"
+  - "MESON_ABSOLUTE_ACTION_BASELINE"
+  - "NEUTRINO_ABSOLUTE_ACTION_REPAIR"
+  - "COSMOLOGY_DIMENSIONFUL_SCALE_BINDING"
+  - "COLLATZ_FS_PHYSICAL_BINDING"
+  - "SOH_NATIVE_LI_WEIL_POSITIVITY"
+  - "CRITICAL_AXIS_GLOBAL_POSITIVITY_NONDEGENERACY"
+  - "RIEMANN_HYPOTHESIS"
+
+validators:
+  source_contract: "TIR/validation/tir_v12_source_contract_v0_3.py"
+  repository_sync: "TIR/validation/tir_v12_1_repository_sync_audit.py"
+  completion_frontier: "TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py"
+  evidence_matrix: "TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py"
+  platonic_l: "TIR/validation/tir_platonic_l_constants_closure_v0_1.py"

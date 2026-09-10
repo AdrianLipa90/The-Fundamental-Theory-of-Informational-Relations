@@ -1,0 +1,302 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Version 12.1 Repository-State Synchronization}
+\label{app:v12_1_repository_sync}
+
+\paragraph{Scope.}
+This appendix synchronizes the dependency-ordered v12 publication surface with
+TIR theorem and validation work merged after the original v12 migration build.
+The v12.0 appendices A--D remain frozen provenance surfaces.  The baseline for
+this audit is \texttt{main@0f63c823961a58770de22d14b5f53e2bfa38a9b3}.
+No physical verdict is promoted merely because a later mathematical theorem or
+software contract exists.
+
+\section{Post-v12 spatial geometry closure}
+
+The original v12 text ended the spatial line at the exact discrete solder and
+Universal-Loop source identity.  The current repository contains four further
+stages.
+
+\paragraph{Gate A2: Cartan refinement.}
+For an admitted regular smooth shrinking family, the discrete solder object and
+rotational holonomy have the asymptotic forms
+\[
+\mathcal T_{\triangle}
+=\frac12 T^a{}_{\mu\nu}\Sigma^{\mu\nu}_{\triangle}\sigma_a
++O(\ell^3),
+\]
+and
+\[
+R_{\triangle}
+=I+\frac12\Omega_{\mu\nu}\Sigma^{\mu\nu}_{\triangle}
++O(\ell^3).
+\]
+Consequently the area-normalized translational and rotational channels converge
+to Cartan torsion and curvature on the declared refinement surface.  This is a
+conditional local/refining theorem; existence of the production global
+relational complex is not supplied by this statement.
+\vTwelveStatus{B}{--}{PASS}
+
+Canonical source:
+\path{TIR/foundations/TIR_CARTAN_CONTINUUM_REFINEMENT_V0_1.md}.
+
+\paragraph{Gate A3: torsion-free spatial GR sector.}
+When the direct and composed descriptions are admitted as representations of
+the same primitive ordered endpoint relation, intrinsic affine-displacement
+uniqueness selects
+\[
+\mathcal C_{xyz}=0.
+\]
+Together with
+\[
+\mathcal T_{xyz}=-\mathcal C_{xyz},
+\]
+this gives the endpoint-compatible discrete sector
+\[
+\mathcal T_{xyz}=0.
+\]
+Gate A2 transfers this condition to a regular refinement as
+\[
+\boxed{T^a=0}.
+\]
+The induced spatial frame transport is in \(SO(3)\), hence metric compatible;
+the standard uniqueness theorem for a torsion-free metric-compatible
+connection then selects
+\[
+\boxed{D=D^{\rm LC}}.
+\]
+This does not set curvature to zero and does not remove the broader typed
+Cartan/torsional branch.
+\vTwelveStatus{B}{--}{PASS}
+
+Canonical source:
+\path{TIR/foundations/TIR_ZERO_TORSION_LEVI_CIVITA_SELECTION_V0_1.md}.
+
+\paragraph{Gate A4: leading-loop locality.}
+For a regular shrinking loop with \(A_C=\Theta(\epsilon^2)\),
+\[
+\frac{R_C-I}{A_C}\longrightarrow\Omega.
+\]
+Derivative-of-curvature terms enter at higher refinement order.  Under the TIR
+Leading Refinement Rule, the lowest finite nonzero covariant normalized loop
+coefficient is selected as the primitive continuum carrier.  On the A3
+Levi-Civita sector, this bounds the leading metric operator to
+\[
+\mathcal E_{\mu\nu}
+=\mathcal E_{\mu\nu}(g,\partial g,\partial^2g),
+\]
+while higher curvature jets remain available as extended/correction sectors.
+\vTwelveStatus{B}{--}{PASS}
+
+Canonical source:
+\path{TIR/foundations/TIR_LEADING_LOOP_LOCALITY_METRIC_JET_V0_1.md}.
+
+\paragraph{Gate A5: global three-manifold certifier.}
+For a supplied finite pure tetrahedral complex, the executable certificate
+checks the closed combinatorial three-manifold conditions through face
+incidence and spherical vertex links.  Once that certificate passes, standard
+three-dimensional topology supplies the compatible smoothing bridge, and the
+local \(SO(3)\)-related metrics and Levi-Civita restrictions glue globally.
+The theorem/certifier is implemented, but the actual production TIR relational
+complex remains an input gate.
+\vTwelveStatus{B}{--}{OPEN}
+
+Canonical source:
+\path{TIR/foundations/TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md}.
+
+The precise interpretation of the last status is
+\[
+\boxed{
+\text{certifier/theorem PASS}
+\quad\text{and}\quad
+\text{production relational-complex input OPEN}.
+}
+\]
+
+\section{Production input contracts}
+
+The previously vague phrase ``global smooth refinement'' has been split into
+explicit source-owned data gates.
+
+The global spatial-complex contract defines source capture, deterministic
+canonical freeze, provenance hashes and the A5 handoff.  It is executable and
+fail closed, while the production incidence dataset remains absent:
+\[
+\boxed{
+\text{GSC-1 contract PASS}
+\quad/\quad
+\text{production spatial complex OPEN}.
+}
+\]
+Source:
+\path{TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md}.
+
+The inter-leaf matching contract similarly fixes the packet carrying
+\(\beta_{\rm match}\), its coordinate convention, provenance and digest.  The
+handoff consistency condition mirrors the downstream matching law, and the
+\(x^0=ct\) conversion exports the normalized ADM-shift packet.  The contract is
+implemented; the production matching field is still open:
+\[
+\boxed{
+\text{matching contract PASS}
+\quad/\quad
+\text{production }\beta_{\rm match}\text{ OPEN}.
+}
+\]
+Source:
+\path{TIR/foundations/TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1.md}.
+
+\section{Platonic closure of the L-constants}
+
+The v12 arithmetic provenance is retained, but it is no longer the only
+structural path to \((L_3,L_4,L_5)\).
+
+For convex regular polyhedra, the Schlaefli condition
+\[
+\frac1p+\frac1q>\frac12,
+\qquad p,q\ge3,
+\]
+has exactly the five solutions
+\[
+\{3,3\},\ \{3,4\},\ \{3,5\},\ \{4,3\},\ \{5,3\}.
+\]
+The triangular branch has orientation-preserving rotation groups
+\[
+A_4,\qquad S_4,\qquad A_5,
+\]
+with orders \(12,24,60\).  Taking the tetrahedral rotational group as the
+common root gives the exact subgroup indices
+\[
+\boxed{[S_4:A_4]=2},
+\qquad
+\boxed{[A_5:A_4]=5}.
+\]
+TIR defines the complete non-self-dual extension carrier as
+\[
+X_3^{\rm closure}
+:=S_4/A_4\sqcup A_5/A_4,
+\]
+so
+\[
+\boxed{
+L_4=2,
+\qquad L_5=5,
+\qquad L_3=|X_3^{\rm closure}|=2+5=7.
+}
+\]
+Hence
+\[
+\boxed{(L_3,L_4,L_5)=(7,2,5)}.
+\]
+The derivation is exact conditional on the explicit TIR root-extension closure
+rule.  The finite-group result does not, by itself, establish a physical law or
+a derivation from a specific Kaehler geometry.
+\vTwelveStatus{B}{--}{PASS}
+
+Canonical source:
+\path{TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md}.
+
+Validator:
+\path{TIR/validation/tir_platonic_l_constants_closure_v0_1.py}.
+
+The older arithmetic route remains an independent crosscheck:
+\[
+\operatorname{depth}_{\rm Collatz}(3)=7,
+\qquad 5-3=2,
+\qquad 5=L_5.
+\]
+
+\section{Collatz--Fubini--Study phase interface}
+
+The merged interface imports the conditional discrete projective phase map
+\[
+q(Cn)=2q(n)\pmod1,
+\qquad
+\boxed{\zeta_C(Cn)=\zeta_C(n)^2},
+\]
+and permits an explicit relational coordinate
+\[
+R_{ij}=R_{ij}(S_i,S_j;\zeta_{ij}),
+\qquad \zeta_{ij}=e^{i\phi_{ij}}.
+\]
+Projective \(2\pi\) phase and an optional spinorial \(4\pi\) lift remain typed
+separately.  The CP1 carrier is a mathematical interface.  No validated law yet
+identifies this phase itinerary with elapsed time, energy, mass, interaction
+strength, atomic transition probability, spectroscopy or gravity.
+\vTwelveStatus{B}{--}{OPEN}
+
+Source:
+\path{TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md}.
+
+\section{Current unresolved physical and dynamical gates}
+
+The current completion frontier is not a flat list of missing formulas.  The
+principal unresolved gates are:
+
+\begin{enumerate}
+\item a frozen production global spatial-complex incidence input and A5 PASS on
+that exact dataset;
+\item a frozen production inter-leaf matching field and the global TIR--IDT--RFC
+spacetime/ADM join;
+\item Einstein constraint/evolution closure downstream of the admitted global
+spacetime carrier and normalization/action gates;
+\item target-independent extraction of the four coefficient magnitudes
+\(|h|,|a|,|b|,|c|\);
+\item continuum gauge normalization and running from the typed \(W_{ij}\)
+transport carrier;
+\item a common electroweak renormalization/scheme-scale transport;
+\item scalar/Higgs action binding;
+\item a source/uniqueness theorem for hypercharge and a scheme/scale-defined
+quark-mass map;
+\item a repaired neutrino absolute-action derivation;
+\item a source-derived meson absolute-action baseline;
+\item a holonomic/topological strong-CP source theorem before any replacement
+of the failed frozen neutron-EDM route;
+\item a unit-complete cosmological scale/critical-density binding;
+\item a physical binding for the Collatz--FS relational phase coordinate;
+\item native Li/Weil positivity and the remaining global critical-axis
+nondegeneracy/strict-positivity premises.
+\end{enumerate}
+
+\section{Retained empirical failures and tensions}
+
+This synchronization does not rescore the observable matrix.  In particular,
+the current publication retains charged-lepton precision failures, the PMNS
+reactor-angle tension, electroweak/fine-structure/Higgs precision failures or
+tensions according to Chapter~19, the pion and kaon printed-formula failures,
+and the neutron-EDM failure from the frozen strong-CP mapping.
+
+For the latter,
+\[
+d_n\simeq5.3299\times10^{-26}\,e\,\mathrm{cm}
+\]
+remains approximately \(2.96\) times the manuscript bound used by the frozen
+comparison.  A new structural derivation must receive a new version and evidence
+record; it does not overwrite this failure.
+
+\section{Critical-axis firewall}
+
+The active critical-axis stack contains exact identities, equivalence
+reductions and conditional positive corridors, but the globally quantified
+strict-positivity/nondegeneracy premises remain open.  The integrated solver
+contract explicitly requires that the Riemann hypothesis is not present in the
+current closure.  Thus
+\[
+\boxed{\mathrm{RH}\ \text{remains OPEN}.}
+\]
+Failed candidate constructions and numerical negative controls remain evidence
+rather than being removed from the project record.
+
+\section{v12.1 synchronization invariant}
+
+The publication rule for this revision is
+\[
+\boxed{
+\text{merged theorem/contract PASS}
+\not\Rightarrow
+\text{physical observable PASS}.
+}
+\]
+Every exact or conditional theorem keeps its assumptions.  Production-input
+gates remain open until an exact frozen source dataset is supplied.  Existing
+empirical failures remain visible.  Main promotion of this corrected monograph
+is a separate repository action.

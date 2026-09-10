@@ -1,4 +1,4 @@
-name: Compile TIR monograph v12
+name: Compile TIR monograph v12.1
 
 on:
   pull_request:
@@ -32,7 +32,7 @@ jobs:
           git status --short --branch | tee tir-v12-checkout-status.txt
           git diff --check
 
-      - name: Run TIR v12 deterministic validation suite
+      - name: Run TIR v12.1 deterministic validation suite
         run: |
           set -euo pipefail
           validators=(
@@ -42,7 +42,14 @@ jobs:
             TIR/validation/tir_v12_ch05_euclidean_spatial_gate_v0_1.py
             TIR/validation/tir_v12_ch06_tetrahedral_closure_v0_1.py
             TIR/validation/tir_v12_ch07_holonomy_se3_torsion_v0_1.py
+            TIR/foundations/validation/tir_cartan_continuum_refinement_v0_1.py
+            TIR/foundations/validation/tir_zero_torsion_levi_civita_selection_v0_1.py
+            TIR/foundations/validation/tir_leading_loop_locality_metric_jet_v0_1.py
+            TIR/foundations/validation/tir_global_3manifold_smooth_certificate_v0_1.py
+            TIR/foundations/validation/tir_global_spatial_complex_input_contract_v0_1.py
+            TIR/foundations/validation/tir_interleaf_matching_field_input_contract_v0_1.py
             TIR/validation/tir_v12_discrete_labels_audit_v0_1.py
+            TIR/validation/tir_platonic_l_constants_closure_v0_1.py
             TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py
             TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
             TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py
@@ -54,15 +61,26 @@ jobs:
             TIR/validation/tir_v12_cosmology_formula_audit_v0_1.py
             TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py
             TIR/validation/tir_v12_prospective_contract_audit_v0_1.py
-            TIR/validation/tir_v12_completion_frontier_dag_v0_1.py
-            TIR/validation/tir_v12_source_contract_v0_2.py
+            TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py
+            TIR/validation/tir_v12_source_contract_v0_3.py
             TIR/validation/tir_v12_appendix_integration_audit_v0_1.py
+            TIR/validation/tir_v12_1_repository_sync_audit.py
           )
           mkdir -p tir-v12-validation-logs
           for validator in "${validators[@]}"; do
             echo "=== ${validator} ==="
             python3 "$validator" | tee "tir-v12-validation-logs/$(basename "$validator" .py).json"
           done
+
+      - name: Enforce critical-axis RH firewall
+        run: |
+          set -euo pipefail
+          python3 -m pip install -e TIR/zeta_information_axis
+          python3 TIR/zeta_information_axis/scripts/solve_axis.py \
+            --output TIR/zeta_information_axis/reports/solver_receipt.json \
+            > tir-v12-critical-axis-console.json
+          grep -Fq '"riemann_hypothesis_in_closure": false' \
+            TIR/zeta_information_axis/reports/solver_receipt.json
 
       - name: Install publication toolchain
         run: |
@@ -72,14 +90,14 @@ jobs:
             texlive-latex-extra texlive-fonts-recommended texlive-science \
             poppler-utils qpdf
 
-      - name: Compile TIR monograph v12
+      - name: Compile TIR monograph v12.1
         working-directory: TIR/monograph
         run: |
           set -o pipefail
           latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error \
             tir_monograph_v12.tex 2>&1 | tee tir-monograph-v12-compile-console.log
 
-      - name: TIR v12 publication preflight
+      - name: TIR v12.1 publication preflight
         run: |
           set -euo pipefail
           PDF=TIR/monograph/tir_monograph_v12.pdf
@@ -113,7 +131,7 @@ jobs:
         if: always()
         run: |
           {
-            echo "# TIR v12 LaTeX warning ledger"
+            echo "# TIR v12.1 LaTeX warning ledger"
             echo
             if test -f TIR/monograph/tir_monograph_v12.log; then
               grep -E "Warning|Overfull|Underfull" TIR/monograph/tir_monograph_v12.log || true
@@ -122,17 +140,19 @@ jobs:
             fi
           } > tir-v12-warning-ledger.txt
 
-      - name: Upload exact-head v12 publication artifact
+      - name: Upload exact-head v12.1 publication artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: tir-monograph-v12-${{ github.event.pull_request.head.sha || github.sha }}
+          name: tir-monograph-v12-1-${{ github.event.pull_request.head.sha || github.sha }}
           if-no-files-found: warn
           path: |
             TIR/monograph/tir_monograph_v12.pdf
             TIR/monograph/tir_monograph_v12.log
             TIR/monograph/tir-monograph-v12-compile-console.log
             tir-v12-validation-logs/
+            TIR/zeta_information_axis/reports/solver_receipt.json
+            tir-v12-critical-axis-console.json
             tir-v12-checkout-head-sha.txt
             tir-v12-checkout-status.txt
             tir-v12-pdfinfo.txt

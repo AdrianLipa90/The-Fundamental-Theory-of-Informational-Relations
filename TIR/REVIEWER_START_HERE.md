@@ -1,8 +1,14 @@
-# Reviewer Orientation — Theory of Informational Relations v12
+# Reviewer Orientation — Theory of Informational Relations v12.1
 
 ## Review scope
 
-The current review branch reorganizes the TIR monograph around its dependency graph:
+The audited publication master remains
+
+`TIR/monograph/tir_monograph_v12.tex`
+
+and is compiled as **Version 12.1 Audited Repository Synchronization — 10 September 2026**. The v12.0 migration state and earlier source tree remain historical provenance.
+
+Read the current dependency order as
 
 ```text
 primitive informational relations
@@ -12,141 +18,87 @@ primitive informational relations
 -> extensions / evidence / falsification
 ```
 
-The v11 source tree is preserved as historical provenance. The v12 publication master is
+## Canonical structural primitives
 
-`TIR/monograph/tir_monograph_v12.tex`.
-
-## Canonical structural primitives used by the current monograph
-
-- \(\kappa=\ln2/(24\pi)\): TIR-internal derived structural normalization with explicit flavour-mixing and half-turn parents;
-- \((L_3,L_4,L_5)=(7,2,5)\): discrete structural labels with v12 provenance audit;
+- \(\kappa=\ln2/(24\pi)\): TIR-internal derived normalization with explicit flavour-mixing and half-turn parents;
+- \((L_3,L_4,L_5)=(7,2,5)\): exact TIR-internal structural consequence of the explicit Platonic tetrahedral-root extension rule, with Collatz/twin-prime arithmetic retained as an independent crosscheck;
 - \((u,d,s,c,b,t)=(3,5,7,11,13,17)\): typed prime-label assignment with exhaustive permutation audit;
-- declared external anchors and conversion inputs tracked independently from internal structural quantities.
+- external anchors, scales and conversion conventions are tracked separately from internal structural quantities.
 
-The canonical κ surface is
+Canonical sources:
 
-`TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
+`TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`
 
-It records
+`TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`
 
-\[
-V_F\cong\mathbb C^3,
-\qquad
-\dim\mathfrak{su}(3)_F=8,
-\qquad
-N_{\rm mix}=3\times8=24,
-\]
+## Current geometry state
 
-\[
-\Delta\phi_{1/2}=\pi,
-\qquad
-\Phi_{\rm mix}=24\pi,
-\qquad
-H_2(1/2)=\ln2,
-\]
+Do not use the v12.0 phrase “next Cartan gate” as current status. The active repository has:
 
-hence
+```text
+Gate A   discrete solder/torsion source               PASS
+Gate A2  Cartan torsion/curvature refinement          PASS, conditional local/refining theorem
+Gate A3  T^a=0 / Levi-Civita selection                PASS on admitted endpoint-compatible sector
+Gate A4  leading-loop second metric-jet selection     PASS under the TIR Leading Refinement Rule
+Gate A5  global 3-manifold certifier                  IMPLEMENTED
+         production global spatial-complex input      OPEN
+         production inter-leaf matching field         OPEN
+```
 
-\[
-\boxed{\kappa=\frac{\ln2}{24\pi}}.
-\]
-
-The downstream phase-rate identity is
-
-\[
-\boxed{
-\Gamma_{\mathcal I}=\kappa\omega=\frac{\ln2}{12}f
-},
-\qquad
-\omega=2\pi f.
-\]
-
-Its algebraic status and the operational measurement gate are tracked independently.
+The theorem/production-input distinction is mandatory. Reference-control or certifier PASS does not imply that the actual global TIR spatial complex or inter-leaf field has been supplied.
 
 ## Read evidence through three axes
 
-Every promoted v12 result is read as
+Every publication result is read as
 
-`(Claim Class, Timing, Verdict)`.
+`(Claim Class, Timing, Verdict)`
 
-Claim Class:
-
-- `A`: established mathematical identity or external experimental result;
-- `B`: TIR structural law, model identification, or internally derived structural quantity;
-- `C`: retrospective phenomenological assignment;
-- `D`: diagnostic result, retained failure, falsification witness, or restricted no-go theorem;
-- `E`: prospectively frozen prediction;
-- `F`: external anchor, measured scale, convention, or conversion input.
-
-Timing:
-
-`RETROSPECTIVE / PROSPECTIVE / EXTERNAL / --`
-
-Verdict:
-
-`PASS / COMPATIBLE / TENSION / FAIL / OPEN / QUARANTINED`
-
-The canonical vocabulary is maintained in
+with the canonical taxonomy in
 
 `TIR/monograph/v12/STATUS_TAXONOMY.md`.
 
-## Current evidence owner
-
-The single v12 owner of current observable verdicts is
+The current observable-evidence owner is
 
 `TIR/monograph/v12/chapters/ch19_unified_evidence_matrix.tex`.
 
-Sector chapters own equations and derivation provenance. Historical Ch.30, Ch.32 and earlier sector tables remain versioned evidence snapshots.
+Its normalized machine audit is
 
-The frozen PDG-2026 comparison surface is
+`TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py`.
 
-`TIR/validation/pdg2026/TIR_PDG2026_VALIDATION_MATRIX_V2.md`.
+New theorem or software PASS states do not overwrite existing physical `FAIL`, `TENSION`, `OPEN` or `QUARANTINED` rows.
 
 ## High-value current review targets
 
-1. **κ parent chain.** Verify the three-flavour carrier, eight-dimensional mixing algebra, 24-channel incidence count, half-turn phase and binary-information numerator independently.
-2. **Discrete labels.** Verify the finite Collatz orbit used for \(L_3\) and the exhaustive 720-permutation prime-label audit.
-3. **Coefficient forcing.** Verify role-slot identity, sign/orientation forcing, and the still-active four typed magnitude-extraction gates.
-4. **Neutrino absolute-action diagnostic.** Inspect the v12 formula/value reconstruction receipt for legacy Ch.17.
-5. **Flavour mixing.** Inspect the preserved PMNS reactor-angle tension and the historical CKM \(J\)-proxy residual.
-6. **Hadronic provenance.** Separate baryon retrospective refinement from candidate compatibility and verify meson formula arithmetic before promotion.
-7. **Gauge/anomaly algebra.** Audit chirality and sign conventions before assigning a v12 formal verdict.
-8. **Electroweak precision.** Preserve renormalization scheme/scale dependence and the frozen precision failures in Chapter 19.
-9. **Strong-CP gate.** Retain the neutron-EDM physical `FAIL` attached to its frozen conversion map.
-10. **Cosmology.** Re-evaluate the legacy power and unit conversion before restoring an empirical compatibility verdict.
-11. **Prospective evidence.** Confirm formula hashes, observables, decision rules and no-refit contracts before unblinding.
+1. **κ parent chain:** verify the three-flavour carrier, eight-dimensional mixing algebra, 24-channel incidence count, half-turn phase and binary-information numerator.
+2. **Platonic L closure:** verify the five Schläfli pairs, \([S_4:A_4]=2\), \([A_5:A_4]=5\), and the explicit TIR disjoint-union closure rule; keep physical interpretation separate.
+3. **Spatial A2-A5 stack:** verify every theorem assumption and the production-input firewall.
+4. **Coefficient magnitudes:** role/orientation are typed; \(|h|,|a|,|b|,|c|\) extraction remains open.
+5. **Particle-sector evidence:** retain the neutrino absolute-action quarantine, PMNS reactor-angle tension, hadron provenance states, electroweak precision failures/tensions, meson formula failures and frozen nEDM failure.
+6. **Global inputs:** require source-owned frozen spatial incidence and inter-leaf matching data before global spacetime promotion.
+7. **Critical axis:** confirm `riemann_hypothesis_in_closure=false`; RH-equivalent positivity/nondegeneracy conditions remain open, not proved.
+8. **Prospective evidence:** confirm formula hashes, observables, decision rules and no-refit contracts before unblinding.
 
 ## GREMLIN-assisted review discipline
 
-GREMLIN is used as a constrained candidate/audit layer:
-
-```text
-OWL    -> provenance and evidence
-SPIDER -> dependency graph / relation mapping
-MOLE   -> local derivation checks
-HOUND  -> contradictions and counterexamples
-ANT    -> exhaustive finite search
-MANTIS -> redundancy and duplicate ownership
-BELZEBUB -> adversarial synthesis of surviving candidates
-```
-
-GREMLIN outputs enter the repository as candidates or diagnostics. Canonical promotion remains theorem/validator/evidence gated.
+GREMLIN remains a constrained candidate/audit layer. Candidate generation, dependency search or adversarial synthesis is not canonical promotion. Promotion requires a separately identified theorem, validator or evidence gate.
 
 ## Quick reproducibility checks
 
 ```text
 python3 TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py
-python3 TIR/validation/kappa_phase_rate_identity_v11_1.py
-python3 TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
-python3 TIR/validation/tir_v12_evidence_matrix_consistency_v0_1.py
+python3 TIR/validation/tir_platonic_l_constants_closure_v0_1.py
+python3 TIR/foundations/validation/tir_cartan_continuum_refinement_v0_1.py
+python3 TIR/foundations/validation/tir_zero_torsion_levi_civita_selection_v0_1.py
+python3 TIR/foundations/validation/tir_leading_loop_locality_metric_jet_v0_1.py
+python3 TIR/foundations/validation/tir_global_3manifold_smooth_certificate_v0_1.py
+python3 TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py
+python3 TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py
+python3 TIR/validation/tir_v12_source_contract_v0_3.py
+python3 TIR/validation/tir_v12_1_repository_sync_audit.py
 ```
 
-The v11 historical source contract remains available through
-
-```text
-python3 TIR/validation/review_source_contract_v11_1.py
-```
+Appendices A-D retain their frozen v12.0 integrity gate. Appendix E is the explicit v12.1 repository-state synchronization layer.
 
 ## Publication boundary
 
-Publication promotion requires exact-head validation of the v12 master, its claim/status receipts, citations, references and PDF integrity. Workflow evidence is attached to the exact commit that produced it.
+A green exact-head build certifies source synchronization, named validators and PDF integrity on that commit. It is not external experimental validation and does not merge or promote the correction branch by itself.
