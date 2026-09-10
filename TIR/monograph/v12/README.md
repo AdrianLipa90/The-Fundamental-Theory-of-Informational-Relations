@@ -1,10 +1,12 @@
 # TIR Monograph v12.1 — audited dependency-ordered publication surface
 
-Status: `V12_0_BASELINE_PRESERVED / V12_1_REPOSITORY_SYNC_ACTIVE / PROVENANCE_FIRST / VALIDATION_ACTIVE`
+Status: `V12_0_BASELINE_PRESERVED / V12_1_REPOSITORY_SYNC_MAIN_PROMOTED / PROVENANCE_FIRST / VALIDATION_PASS`
 
 Audit baseline: `main@0f63c823961a58770de22d14b5f53e2bfa38a9b3`
 
-Correction branch: `fix/tir-monograph-v12-1-sync-20260910`
+Validated source head: `b19d1becd7ed59263d2c78483b617bc4ef83bd3e`
+
+Main promotion: PR `#128` -> `main@3a31da6ebeded16d4f48345de62c974870f76694`
 
 Historical v12.0 integration baseline remains the 30 August 2026 content-migration publication surface. Version 12.1 synchronizes that architecture with later merged theorem and validation work without promoting unresolved physical claims.
 
@@ -116,8 +118,10 @@ and
 
 `TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py`.
 
-The v12.0 migration manifest remains preserved as historical provenance; the v12.1 sync manifest records only the later correction layer.
+The v12.0 migration manifest remains preserved as historical provenance; the v12.1 sync manifest records the correction layer and its pre-promotion baseline.
 
 ## Promotion boundary
 
-A green build means source synchronization, deterministic validation and PDF preflight passed on the exact branch head. It does not alter physical `OPEN`, `TENSION`, `FAIL` or `QUARANTINED` verdicts. Promotion of this corrected monograph to `main` is a separate explicit repository action.
+The exact source head `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` passed deterministic validation, the critical-axis RH firewall, LaTeX compilation and publication preflight before promotion. It was merged through PR #128 as `main@3a31da6ebeded16d4f48345de62c974870f76694`.
+
+This repository promotion changes publication/repository status only. It does not alter physical `OPEN`, `TENSION`, `FAIL` or `QUARANTINED` verdicts.
