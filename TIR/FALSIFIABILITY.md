@@ -1,14 +1,14 @@
-# Falsifiability and Decision Criteria — v12 synchronization
+# Falsifiability and Decision Criteria — v12.1 synchronization
 
-A TIR falsification gate is defined by a frozen formula, an operational observable, a comparison convention, a decision rule, and an explicit no-refit policy. Version 12 records result state with the independent triple
+A TIR falsification gate is defined by a frozen formula, an operational observable, a comparison convention, a decision rule, and an explicit no-refit policy. Version 12.1 retains the independent status triple
 
 `(Claim Class, Timing, Verdict)`
 
-from `TIR/monograph/v12/STATUS_TAXONOMY.md`.
+from `TIR/monograph/v12/STATUS_TAXONOMY.md`. Mathematical theorem status, software reproducibility and physical evidence remain separate axes.
 
 ## 1. Current retained failures and tensions
 
-| Observable | Active TIR value / relation | Comparison used by publication | v12 verdict |
+| Observable | Active TIR value / relation | Comparison used by publication | verdict |
 |---|---:|---:|---|
 | neutron EDM | \(d_n=5.3299\times10^{-26}\,e\,\mathrm{cm}\) | \(|d_n|<1.8\times10^{-26}\,e\,\mathrm{cm}\) manuscript bound | **FAIL** — factor \(\approx2.96\) high |
 | \(M_W\) relation | \(83.96\,\mathrm{GeV}\) in frozen 2026 matrix | \(80.3625\pm0.0077\,\mathrm{GeV}\) | **FAIL** at precision level |
@@ -16,7 +16,7 @@ from `TIR/monograph/v12/STATUS_TAXONOMY.md`.
 | PMNS \(\sin^2\theta_{13}=1/49\) | \(0.02041\) | selected 2026 global fits \(\sim0.02195\)--\(0.02230\) | **TENSION** |
 | isolated Collatz quarter-power mass trace | frozen v10.1 trace | geometric-mean multiplicative error \(\approx9.967\) | **OPEN diagnostic** |
 
-Technical reproducibility and physical verdict are independent axes. A technically exact calculation can therefore carry an empirical `FAIL` verdict.
+Technical reproducibility and physical verdict are independent. A structurally exact or computationally reproducible calculation may still carry an empirical `FAIL`.
 
 ## 2. Strong-CP / neutron-EDM gate
 
@@ -31,58 +31,48 @@ The frozen reviewed assignment is
 With the fixed hadronic conversion coefficient used by the publication snapshot,
 
 \[
-\boxed{
- d_n\approx5.3299\times10^{-26}\,e\,\mathrm{cm}
-}.
+\boxed{d_n\approx5.3299\times10^{-26}\,e\,\mathrm{cm}}.
 \]
 
-Against the manuscript bound
+Against the manuscript bound \(1.8\times10^{-26}\,e\,\mathrm{cm}\), the frozen physical gate is `FAIL`. A revised exponent, conversion, cancellation mechanism or source map is a new version and receives a new evidence record. The current replacement target is an upstream holonomic/topological source theorem, not numerical retuning of this failed row.
+
+## 3. Canonical structural normalizations
+
+The current information-normalization chain gives
 
 \[
-1.8\times10^{-26}\,e\,\mathrm{cm},
+\boxed{\kappa=\frac{\ln2}{24\pi}}
 \]
 
-the frozen physical gate has verdict `FAIL`. A revised exponent, conversion, cancellation mechanism, or source map constitutes a new version and receives a new evidence record.
-
-## 3. Canonical κ provenance and phase-rate gate
-
-The current structural parent chain is
-
-\[
-\frac12
-\longrightarrow
-\ln2,
-\qquad
-V_F\cong\mathbb C^3,
-\qquad
-\dim\mathfrak{su}(3)_F=8,
-\]
-
-\[
-N_{\rm mix}=3\times8=24,
-\qquad
-\Delta\phi_{1/2}=\pi,
-\qquad
-\Phi_{\rm mix}=24\pi,
-\]
-
-and therefore
-
-\[
-\boxed{
-\kappa=\frac{\ln2}{24\pi}
-}.
-\]
-
-Canonical theorem surface:
+from the declared three-flavour mixing and half-turn parents. Canonical theorem and validator:
 
 `TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`
 
-Canonical validator:
-
 `TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py`
 
-The normalization is classified as a **TIR-internal derived structural normalization** with explicit flavour-mixing and half-turn parents.
+The discrete L-constants now also have the independent finite-group closure
+
+\[
+[S_4:A_4]=2=L_4,
+\qquad
+[A_5:A_4]=5=L_5,
+\]
+
+and, under the explicit TIR root-extension rule,
+
+\[
+L_3=|S_4/A_4\sqcup A_5/A_4|=7.
+\]
+
+Canonical theorem and validator:
+
+`TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`
+
+`TIR/validation/tir_platonic_l_constants_closure_v0_1.py`
+
+This exact internal structural closure has no automatic physical-promotion authority.
+
+## 4. Information-phase observable gate
 
 With
 
@@ -95,42 +85,26 @@ d\mathcal I=\kappa\,d\phi,
 the downstream identity is
 
 \[
-\boxed{
-\Gamma_{\mathcal I}
-=\kappa\omega
-=\frac{\ln2}{12}f
-}.
+\boxed{\Gamma_{\mathcal I}=\kappa\omega=\frac{\ln2}{12}f}.
 \]
 
-Current classification:
+Operational promotion of a physical \(\Gamma_{\mathcal I}\) requires an instrument-level observable, independent frequency measurement, units/calibration, uncertainty propagation, acceptance rule and no-refit protocol.
 
-| Component | v12 status |
-|---|---|
-| \(\kappa=\ln2/(24\pi)\) | Class B / `--` / structural validator `PASS` |
-| \(\omega=2\pi f\) | Class A / standard definition |
-| \(d\mathcal I=\kappa d\phi\) | Class B / TIR information-phase relation |
-| \(\Gamma_{\mathcal I}=(\ln2/12)f\) | exact conditional identity |
-| operational surface-refresh observable | Class B / `--` / `OPEN` |
+The Collatz--Fubini--Study relational-phase interface is similarly mathematical/interface-level until a separately validated physical binding to time, energy, mass, transition rates, spectroscopy or gravity exists.
 
-Empirical promotion of the final row requires a frozen instrument-level observable, independent frequency measurement, units/calibration, uncertainty propagation, acceptance rule, and no-refit protocol.
+## 5. TIR ↔ Secret-of-a-Half / critical-axis boundary
 
-## 4. TIR ↔ Secret-of-a-Half boundary
+The local half-axis and negative-inverse identities do not by themselves prove a global dynamical extremum or the Riemann hypothesis. The active critical-axis stack contains exact reductions and conditional positive corridors, while globally quantified strict-positivity/nondegeneracy premises remain open. The integrated solver contract requires
 
-The DHSE-001 Stage-M finite counterexample fixes a useful theorem boundary:
-reciprocal self-duality by itself supplies set symmetry, while dynamical extremality requires an additional positive/variational mechanism. TIR promotion of a self-dual extremum therefore names that additional parent explicitly.
+`riemann_hypothesis_in_closure = false`.
 
-## 5. Prospectively frozen component
+Thus RH-equivalent positivity criteria remain falsifiable open gates rather than completed theorems.
 
-The v10.7 separable candidate family remains a prospectively frozen TIR component. Its evidence contract contains:
+## 6. Prospectively frozen component
 
-- a finite frozen candidate set;
-- two orthogonal target observables;
-- a post-freeze data gate;
-- a no-refit/no-substitution rule.
+The v10.7 separable candidate family remains prospectively frozen. Its evidence contract contains a finite candidate set, two orthogonal target observables, a post-freeze data gate and a no-refit/no-substitution rule. A failed candidate remains in evidence history; a new formula receives a new experiment/version identity.
 
-A failed candidate remains in the evidence history; a newly introduced formula receives a new experiment/version identity.
-
-## 6. Framework-level falsification conditions
+## 7. Framework-level falsification conditions
 
 A submodel is revised or rejected when a frozen gate establishes one of the following:
 
@@ -140,10 +114,11 @@ A submodel is revised or rejected when a frozen gate establishes one of the foll
 4. an independence claim is contradicted by target-value or external-anchor provenance;
 5. a universal relation fails in a new sector under the same frozen operator and conventions;
 6. a claimed unique structural choice has multiple surviving alternatives and lacks a selection theorem;
-7. a self-duality extremality claim lacks the additional mechanism required by the finite counterexample;
-8. an agreed comparison protocol selects a simpler model with superior prospective likelihood and lower effective complexity.
+7. a self-duality/extremality claim lacks the additional mechanism required by its counterexamples;
+8. a production-input theorem is promoted using only a reference-control dataset;
+9. an agreed comparison protocol selects a simpler model with superior prospective likelihood and lower effective complexity.
 
-## 7. v12 evidence owner
+## 8. Current evidence owner
 
 Current observable verdicts are owned by
 
@@ -151,11 +126,11 @@ Current observable verdicts are owned by
 
 with machine-checkable consistency in
 
-`TIR/validation/tir_v12_evidence_matrix_consistency_v0_1.py`.
+`TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py`.
 
-Historical sector tables remain provenance snapshots.
+Historical sector tables remain provenance snapshots. The v12.1 repository synchronization does not rescore Chapter 19 merely because new structural theorems were merged.
 
-## 8. Invariant
+## 9. Invariant
 
 \[
 \boxed{
@@ -168,5 +143,13 @@ Historical sector tables remain provenance snapshots.
 \text{decision rule}
 +
 \text{versioned no-refit policy}
+}
+\]
+
+and
+
+\[
+\boxed{
+\text{technical/theorem PASS}\not\Rightarrow\text{physical PASS}.
 }
 \]
