@@ -77,3 +77,47 @@ The v0.1 entries above are historical and are not rewritten. The v0.2 records be
 - **No causal explanation of quantum nonlocality is promoted.** The nonlocality bridge remains model-level and requires an explicit relational operator.
 - **C-018 remains OPEN.** The new closure analysis does not derive canonical zeta zerohood from `pi`.
 - **C-007 and C-008 remain unchanged and OPEN.**
+
+## v0.4 normalized-phase closure test
+
+| ID | Claim | Status | Falsification / open debt |
+|---|---|---|---|
+| C-034 | In normalized phase coordinates `q in R/Z`, exact winding closure is `Delta q in Z`, equivalently `integral dq in Z`, and does not require a numerical representation of `pi`. | STANDARD THEOREM / EXACT NORMALIZATION | Applies to the normalized circle coordinate; radians recover the same invariant through `phi=2*pi*q`. |
+| C-035 | For every positive integer `n`, the rational turn cycle `n*(1/n)=1=0 mod 1` closes with exactly zero residual in rational arithmetic. | EXACT ARITHMETIC / EXECUTABLE PASS | Does not imply that every physical phase coordinate is rational. |
+| C-036 | The hypothesis that `pi` intrinsically prevents winding or `U(1)` quotient closure fails: `pi` is a scale factor of the radian chart, while the quotient-group closure law is `mod 1`. | NEGATIVE CONTROL / FAIL FOR INTRINSIC-OBSTRUCTION HYPOTHESIS | A finite-rational radian representation of `pi` still has the C-031 residual. |
+| C-037 | Spin-1/2 sheet closure can be written in normalized projective windings as `sheet_sign(w)=(-1)^w`; two projective windings restore the sheet without numerically evaluating `pi`. | STANDARD THEOREM / EXECUTABLE PASS | This is the double-cover rule only; it does not identify arbitrary Berry holonomy with spinor sign. |
+| C-038 | Conditional on C-023, `kappa_phi=dI/dphi=(dI/dq)/(2*pi)=ln(2)/(24*pi)`; in this construction `pi` enters through the Jacobian of the turn-to-radian coordinate map. | CONDITIONAL ARITHMETIC THEOREM | C-023 remains a model postulate and is not promoted by the normalization test. |
+| C-039 | Rewriting a phase-dependent correlation from radians to normalized turns does not establish, remove, or cause Bell-type nonlocality. | LOGICAL / PHYSICAL BOUNDARY | A causal nonlocality claim still requires a derived relational operator and Bell-observable comparison. |
+
+### v0.4 verdict
+
+- **Intrinsic topological `pi` obstruction: FAIL.** Exact recurrence and winding close in `R/Z` without numerical `pi`.
+- **Radian representation role: PASS.** `2*pi` remains the scale and closure period of the standard angular chart.
+- **Finite-rational radian representation obstruction: RETAINED.** C-031 remains valid under its stated numerical restriction.
+- **Spinor double-cover closure: PASS in normalized winding form.** The `2*pi/4*pi` language is a radian representation of the same `(-1)^w` sheet rule.
+- **Current `kappa` chain: `pi` is a coordinate Jacobian factor conditional on C-023.**
+- **Nonlocality causal claim: OPEN / NOT ESTABLISHED.**
+- **C-018, C-007 and C-008 remain OPEN.**
+
+## v0.5 Berry–AB normalized closure and κ structural reconciliation
+
+| ID | Claim | Status | Falsification / open debt |
+|---|---|---|---|
+| C-040 | In the latitude convention already used by this module, `gamma_B=-2*pi*(1-sigma)` implies the exact normalized Berry class `q_B=gamma_B/(2*pi)=-(1-sigma) mod 1`; at `sigma=1/2`, `q_B=1/2` and the holonomy is `-1`. | STANDARD THEOREM / EXECUTABLE PASS | This is a normalized form of the existing Berry result, not a new physical mechanism. |
+| C-041 | With flux quantum `Phi_0=h/Q`, the Aharonov–Bohm phase `gamma_AB=2*pi*(Phi/Phi_0)` has exact normalized class `q_AB=Phi/Phi_0 mod 1`; half a flux quantum gives `q_AB=1/2` and holonomy `-1`. | STANDARD THEOREM / EXECUTABLE PASS | Sign conventions for charge/orientation may reverse the representative but not the half-turn class modulo 1. |
+| C-042 | Balanced Berry transport and half-flux AB transport occupy the same `U(1)` quotient class `q=1/2` and therefore have the same holonomy `-1`. | STRUCTURAL THEOREM | This does not identify the Berry connection with the electromagnetic gauge potential. |
+| C-043 | Under the already canonical parent-TIR premises `N_F=3`, `dim su(3)=8`, and one normalized half-turn per mixing channel, `N_mix=24` and the total normalized mixing measure is `Q_mix=24*(1/2)=12`. | TIR-INTERNAL EXACT STRUCTURAL CONSEQUENCE | Depends on the parent TIR flavour-mixing carrier and channel definition; it is not an external Standard Model theorem. |
+| C-044 | With `I_*=ln(2)`, C-043 yields the normalized information coefficient `kappa_q=I_*/Q_mix=ln(2)/12`; this supplies the independent structural derivation that historical C-023 lacked. | TIR-INTERNAL DERIVED STRUCTURAL NORMALIZATION | Physical interpretation of the information-phase law remains a TIR Class-B premise, not Class-A established physics. |
+| C-045 | The standard radian chart `phi=2*pi*q` maps `kappa_q=ln(2)/12` to `kappa_phi=kappa_q/(2*pi)=ln(2)/(24*pi)`. | EXACT COORDINATE CONSEQUENCE | `pi` enters here as the turn-to-radian Jacobian/scale, not as an intrinsic quotient-closure obstruction. |
+| C-046 | For the κ normalization itself, prospective candidate status is unnecessary inside the TIR dependency graph: the live parent hierarchy already classifies it as Class B, `TIR-internal derived structural normalization`; unrelated Class-E predictions are unaffected. | CLASSIFICATION RECONCILIATION | External empirical universality remains a separate evidence question. |
+| C-047 | Normalizing Berry/AB and structurally closing κ does not derive canonical zeta zerohood, the zero-state representation, or the Riemann hypothesis. | LOGICAL FIREWALL | C-018, C-007 and C-008 remain OPEN. |
+
+### v0.5 verdict
+
+- **Berry normalized closure: PASS.** The balanced loop is intrinsically the half-turn class `1/2`; `pi` is its radian representative.
+- **Aharonov–Bohm normalized closure: PASS.** Flux ratio `Phi/Phi_0` is the exact turn coordinate; half flux is the same class `1/2`.
+- **Common Berry/AB holonomy class: PASS, physical-potential identification NOT CLAIMED.**
+- **Historical C-023 debt: structurally superseded inside TIR by C-043/C-044.** The parent flavour-mixing construction forces 24 half-turn channels = 12 normalized turns.
+- **κ normalized form: `ln(2)/12`; radian form: `ln(2)/(24*pi)`.** The latter is the coordinate image under `phi=2*pi*q`.
+- **κ internal candidate status: superseded by Class-B structural status.** This is an internal taxonomy result, not a claim of external empirical proof.
+- **C-018, C-007 and C-008 remain OPEN.**
