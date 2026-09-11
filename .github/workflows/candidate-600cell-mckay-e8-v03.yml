@@ -1,0 +1,54 @@
+name: Candidate 600-cell McKay E8 closure v0.3
+
+on:
+  push:
+    branches:
+      - candidate/600cell-working-layer-v0.1-20260911
+    paths:
+      - 'TIR/validation/tir_600cell_mckay_e8_closure_candidate_v0_3.py'
+      - 'TIR/integration/TIR_600CELL_MCKAY_E8_REPRESENTATION_CLOSURE_V0_3.md'
+      - '.github/workflows/candidate-600cell-mckay-e8-v03.yml'
+  pull_request:
+    paths:
+      - 'TIR/validation/tir_600cell_mckay_e8_closure_candidate_v0_3.py'
+      - 'TIR/integration/TIR_600CELL_MCKAY_E8_REPRESENTATION_CLOSURE_V0_3.md'
+      - '.github/workflows/candidate-600cell-mckay-e8-v03.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-mckay-closure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run independent McKay-E8 validator
+        run: |
+          python TIR/validation/tir_600cell_mckay_e8_closure_candidate_v0_3.py > /tmp/mckay.json
+          cat /tmp/mckay.json
+      - name: Verify receipt boundary and exact closure
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('/tmp/mckay.json').read_text())
+          assert data['status'] == 'PASS'
+          assert data['promotion_state'] == 'CANDIDATE_ONLY'
+          assert data['physical_binding'] == 'OPEN'
+          assert data['runtime_default'] is False
+          assert data['canon_write_authority'] is False
+          assert data['mckay_graph'] == 'AFFINE_E8'
+          assert data['coefficient_ranks'] == [1, 4, 9, 16, 25, 36, 25, 40]
+          assert data['cumulative_carrier_ranks'] == [1, 5, 14, 30, 55, 91, 116, 120]
+          assert data['ell6']['coefficient_rank'] == 25
+          assert data['ell7']['coefficient_rank'] == 40
+          assert data['ell7']['new_block_rank'] == 4
+          assert data['ell7']['cumulative_rank'] == 120
+          assert data['group_algebra_dimension'] == 120
+          print('PASS: exact 2I/McKay-E8 branching explains ell=6/7 finite ranks')
+          PY
