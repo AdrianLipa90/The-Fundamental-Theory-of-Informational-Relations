@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "anomaly_only_absolute_u1_normalization_claim": false,
+    "cubic_anomaly_automatic": true,
+    "full_standard_vector_exact": true,
+    "linear_constraint_rank_5_of_6": true,
+    "relative_solution_space_one_dimensional": true,
+    "right_handed_neutrino_in_scope": false,
+    "tir_yq_anchor_one_sixth": true,
+    "y_h_derived": true,
+    "y_l_external_parent_eliminated": true
+  },
+  "date": "2026-09-10",
+  "epistemic_boundary": "Exact on declared Q_L,u_R,d_R,L_L,e_R + one-Higgs Yukawa field content and TIR Y_Q normalization anchor; no claim that field content or anchor is uniquely forced by geometry.",
+  "schema": "TIR_HYPERCHARGE_SOURCE_UNIQUENESS_VALIDATION_V0_1",
+  "status": "PASS_LOCAL_EXACT_RATIONAL",
+  "theorem_path": "TIR/foundations/TIR_HYPERCHARGE_SOURCE_UNIQUENESS_V0_1.md",
+  "theorem_sha256": "c1ba7fc3ead79a42bf6618f593e4a22d8a59f383a5480a600b929a1695b8c8f5",
+  "validated_branch": "feat/tir-hypercharge-source-uniqueness-20260910",
+  "validated_branch_head_before_receipt": "034b88802e41594140b38bed2510566fdb9dc990",
+  "validator_path": "TIR/validation/tir_hypercharge_source_uniqueness_v0_1.py",
+  "validator_sha256": "32b39301582a2bf0b12056fda99397600fb3eadd91e474387175a160bcec7dfd"
+}

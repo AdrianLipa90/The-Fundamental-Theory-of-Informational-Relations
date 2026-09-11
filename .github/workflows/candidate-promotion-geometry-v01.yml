@@ -1,0 +1,32 @@
+name: Candidate promotion geometry v0.1
+
+on:
+  push:
+    branches:
+      - candidate/600cell-working-layer-v0.1-20260911
+    paths:
+      - 'TIR/integration/TIR_PHASENAV_PROMOTION_GEOMETRY_V0_1.md'
+      - 'TIR/validation/validate_promotion_geometry_v01.py'
+      - '.github/workflows/candidate-promotion-geometry-v01.yml'
+  pull_request:
+    paths:
+      - 'TIR/integration/TIR_PHASENAV_PROMOTION_GEOMETRY_V0_1.md'
+      - 'TIR/validation/validate_promotion_geometry_v01.py'
+      - '.github/workflows/candidate-promotion-geometry-v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install isolated validator dependency
+        run: python -m pip install --upgrade numpy
+      - name: Run independent TIR promotion validator
+        run: python TIR/validation/validate_promotion_geometry_v01.py
