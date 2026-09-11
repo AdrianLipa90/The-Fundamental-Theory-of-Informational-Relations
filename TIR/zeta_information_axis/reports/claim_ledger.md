@@ -77,3 +77,24 @@ The v0.1 entries above are historical and are not rewritten. The v0.2 records be
 - **No causal explanation of quantum nonlocality is promoted.** The nonlocality bridge remains model-level and requires an explicit relational operator.
 - **C-018 remains OPEN.** The new closure analysis does not derive canonical zeta zerohood from `pi`.
 - **C-007 and C-008 remain unchanged and OPEN.**
+
+## v0.4 normalized-phase closure test
+
+| ID | Claim | Status | Falsification / open debt |
+|---|---|---|---|
+| C-034 | In normalized phase coordinates `q in R/Z`, exact winding closure is `Delta q in Z`, equivalently `integral dq in Z`, and does not require a numerical representation of `pi`. | STANDARD THEOREM / EXACT NORMALIZATION | Applies to the normalized circle coordinate; radians recover the same invariant through `phi=2*pi*q`. |
+| C-035 | For every positive integer `n`, the rational turn cycle `n*(1/n)=1=0 mod 1` closes with exactly zero residual in rational arithmetic. | EXACT ARITHMETIC / EXECUTABLE PASS | Does not imply that every physical phase coordinate is rational. |
+| C-036 | The hypothesis that `pi` intrinsically prevents winding or `U(1)` quotient closure fails: `pi` is a scale factor of the radian chart, while the quotient-group closure law is `mod 1`. | NEGATIVE CONTROL / FAIL FOR INTRINSIC-OBSTRUCTION HYPOTHESIS | A finite-rational radian representation of `pi` still has the C-031 residual. |
+| C-037 | Spin-1/2 sheet closure can be written in normalized projective windings as `sheet_sign(w)=(-1)^w`; two projective windings restore the sheet without numerically evaluating `pi`. | STANDARD THEOREM / EXECUTABLE PASS | This is the double-cover rule only; it does not identify arbitrary Berry holonomy with spinor sign. |
+| C-038 | Conditional on C-023, `kappa_phi=dI/dphi=(dI/dq)/(2*pi)=ln(2)/(24*pi)`; in this construction `pi` enters through the Jacobian of the turn-to-radian coordinate map. | CONDITIONAL ARITHMETIC THEOREM | C-023 remains a model postulate and is not promoted by the normalization test. |
+| C-039 | Rewriting a phase-dependent correlation from radians to normalized turns does not establish, remove, or cause Bell-type nonlocality. | LOGICAL / PHYSICAL BOUNDARY | A causal nonlocality claim still requires a derived relational operator and Bell-observable comparison. |
+
+### v0.4 verdict
+
+- **Intrinsic topological `pi` obstruction: FAIL.** Exact recurrence and winding close in `R/Z` without numerical `pi`.
+- **Radian representation role: PASS.** `2*pi` remains the scale and closure period of the standard angular chart.
+- **Finite-rational radian representation obstruction: RETAINED.** C-031 remains valid under its stated numerical restriction.
+- **Spinor double-cover closure: PASS in normalized winding form.** The `2*pi/4*pi` language is a radian representation of the same `(-1)^w` sheet rule.
+- **Current `kappa` chain: `pi` is a coordinate Jacobian factor conditional on C-023.**
+- **Nonlocality causal claim: OPEN / NOT ESTABLISHED.**
+- **C-018, C-007 and C-008 remain OPEN.**
