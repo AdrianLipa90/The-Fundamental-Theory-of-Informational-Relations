@@ -1,0 +1,22 @@
+name: Candidate 600-cell working layer v0.1
+
+on:
+  push:
+    branches:
+      - candidate/600cell-working-layer-v0.2-20260911
+  workflow_dispatch:
+
+jobs:
+  validate-600cell-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install validator dependencies
+        run: python -m pip install --upgrade pip numpy
+      - name: Validate S3 spectral/quadrature candidate
+        run: python TIR/validation/tir_600cell_s3_candidate_v0_1.py
+      - name: Validate ell6 boundary and ell7 finite closure
+        run: python TIR/validation/tir_600cell_s3_rank_closure_candidate_v0_2.py
