@@ -57,3 +57,23 @@ The v0.1 entries above are historical and are not rewritten. The v0.2 records be
 - **C-007 remains OPEN GAP.** Reciprocal symmetry and holonomy do not yet construct a genuine zero-state cancellation representation.
 - **C-008 remains OPEN.** No unconditional proof of the Riemann hypothesis is claimed.
 - `W_[ij]` is referenced only as a broader TIR holonomic relation/information connector; its definition and dynamics are out of scope for this module.
+
+## v0.3 pi phase-closure extension
+
+| ID | Claim | Status | Falsification / open debt |
+|---|---|---|---|
+| C-028 | Irrationality and transcendence of `pi` are invariant under changing the integer positional radix; `pi` therefore has no finite or eventually periodic radix-`b` expansion for any integer `b>1`. | STANDARD THEOREM | This is a property of the number, not its notation. |
+| C-029 | For `q in R/Z` with standard radian representative `phi=2*pi*q`, winding is `w=(1/(2*pi))*integral dphi in Z`; `2*pi` is the radian closure period while winding itself is integer-valued. | TOPOLOGICAL FACT / STANDARD THEOREM | Requires the stated circle/radian representation. |
+| C-030 | `U(1)` holonomy phases are identified modulo `2*pi`; spin-1/2 projective recurrence at `2*pi` lifts to literal spinor-sheet restoration at `4*pi`. | STANDARD THEOREM | Generic Berry phase and spinor sign must remain distinct unless the loop/connection identifies them. |
+| C-031 | A finite rational positional numerical representation cannot encode `pi` exactly and therefore carries a nonzero residual `Delta_pi=pi-pi_N`; exact symbolic formal systems can nevertheless represent `pi` exactly as a defined constant. | CONDITIONAL REPRESENTATION THEOREM | The obstruction disappears when exact symbolic constants/analytic definitions are allowed. |
+| C-032 | `pi` is not a Goedel number in the technical sense and does not cause Goedel incompleteness; any TIR analogy is restricted to representation/closure under an explicitly finite-rational numerical encoding. | LOGICAL BOUNDARY | Do not promote the analogy to a theorem about formal incompleteness. |
+| C-033 | If a TIR nonlocal relational model is explicitly encoded by phase connection/holonomy, its radian representation inherits `2*pi` periodicity; this does not establish that `pi` causes quantum nonlocality. | MODEL BRIDGE / OPEN PHYSICAL INTERPRETATION | Requires a derived nonlocal relational operator and comparison with Bell-type observables. |
+
+### v0.3 verdict
+
+- **`pi` is promoted only as a phase-closure constant of the standard radian representation.**
+- **A closure obstruction is promoted only conditionally:** finite rational positional numerics cannot represent `pi` exactly.
+- **No general formal-system incompleteness claim is promoted.** Exact symbolic mathematics can retain `pi` without numerical truncation.
+- **No causal explanation of quantum nonlocality is promoted.** The nonlocality bridge remains model-level and requires an explicit relational operator.
+- **C-018 remains OPEN.** The new closure analysis does not derive canonical zeta zerohood from `pi`.
+- **C-007 and C-008 remain unchanged and OPEN.**
