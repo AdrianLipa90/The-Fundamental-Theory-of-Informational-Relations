@@ -1,9 +1,9 @@
 # CURRENT STATUS — TIR
 
-**Status line:** 2026-09-10 v12.1 promoted on `main` after exact-head validation  
+**Status line:** 2026-09-10 v12.1 promoted on `main`; coefficient-magnitude parent evaluation advanced on the current completion branch  
 **Publication correction:** TIR monograph v12.1 repository synchronization is merged on `main` without changing physical verdicts  
 **Status-surface policy:** merged theorem/contract results are distinguished from production-input, physical-binding and empirical-evidence gates  
-**Promotion:** validated source head `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` merged through PR #128 as `main@3a31da6ebeded16d4f48345de62c974870f76694`
+**Promotion:** validated v12.1 source head `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` merged through PR #128 as `main@3a31da6ebeded16d4f48345de62c974870f76694`; later status-only synchronization reached `main@76bb4d19b20260bf340ceaaa52d945b3cf3816f4`
 
 ## 1. Foundational closure
 
@@ -40,7 +40,8 @@ TIR_LEADING_LOOP_METRIC_JET_A4 = CLOSED_ON_LRR_SELECTION
 TIR_GLOBAL_3MANIFOLD_A5 = CERTIFIER_CLOSED / PRODUCTION_INPUT_OPEN
 TIR_GLOBAL_SPATIAL_INPUT_CONTRACT = CLOSED_CONTRACT / PRODUCTION_INPUT_OPEN
 TIR_INTERLEAF_MATCHING_FIELD_CONTRACT = CLOSED_CONTRACT / PRODUCTION_INPUT_OPEN
-TIR_COEFFICIENT_MAGNITUDES = ACTIVE_TYPED_EXTRACTION
+TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT
+TIR_COEFFICIENT_TRANSITION_PARENT_SELECTOR = OPEN
 TIR_STANDARD_MODEL = ACTIVE_RECONCILIATION
 TIR_SOH_NEGATIVE_INVERSE = GLOBAL_DOMINATION_CANDIDATE / RH_OPEN
 TIR_TIME_JOIN = SIBLING_INTERFACE
@@ -272,14 +273,44 @@ TIR x IDT x RFC global spacetime/ADM join   OPEN
 Einstein constraint/evolution closure       OPEN downstream
 ```
 
-## 6. Standard-Model correction state
+## 6. Coefficient and Standard-Model correction state
 
-Current structural/evidence boundaries remain unchanged by the geometry synchronization.
+The old coarse coefficient-magnitude gate has been split after source audit. The historical integration lineage already declares the magnitude-parent expressions, and the closed upstream integers
 
-Open structural work:
+\[
+N_F=3,\qquad (L_3,L_4,L_5)=(7,2,5)
+\]
+
+make their arithmetic evaluation unique:
+
+\[
+\boxed{M(P_e)=(1,3,1,1)},
+\qquad
+\boxed{M(P_{e\mu})=(0,5,2,8)},
+\qquad
+\boxed{M(P_{\mu\tau})=(0,3,1,7)}.
+\]
+
+Canonical source:
+
+`TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md`.
+
+Validator:
+
+`TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py`.
+
+Status: `COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT`.
+
+The residual non-circular gate is
+
+`COEFFICIENT_TRANSITION_PARENT_SELECTOR = OPEN`,
+
+because the transition-level parent packet still has to be selected from coefficient-free geometry/routing before reading a recovered tuple or mass/Yukawa target.
+
+Other open structural work:
 
 ```text
-coefficient magnitude extraction
+coefficient transition parent selector
 W_ij -> continuum gauge connection/curvature normalization
 common electroweak R_EW(mu,scheme) transport
 Higgs scalar/action binding
@@ -338,13 +369,11 @@ Negative controls and failed candidates remain part of the evidence record.
 
 ## 9. Completion frontier
 
-The latest dedicated spatial frontier source is
+The current cross-program frontier is
 
-`TIR/TIR_COMPLETION_FRONTIER_V0_6.md`,
+`TIR/TIR_COMPLETION_FRONTIER_V0_7.md`.
 
-supplemented by the A4/A5 theorem surfaces and the production-input contracts listed above.
-
-The highest-priority open gates are now data- and dynamics-specific rather than the already-closed local A2/A3 steps:
+The highest-priority unresolved gates are now:
 
 ```text
 production global spatial complex
@@ -352,8 +381,9 @@ production global spatial complex
 -> global TIR-IDT-RFC spacetime/ADM admission
 -> Einstein system closure
 
-coefficient magnitudes
-+ continuum gauge normalization
+coefficient magnitude parent evaluation       CLOSED_EXACT
+-> coefficient transition parent selector     OPEN
++ continuum gauge normalization               OPEN
 -> electroweak scheme/scale closure
 -> scalar/Higgs, strong-CP, meson, neutrino and quark-map closures
 

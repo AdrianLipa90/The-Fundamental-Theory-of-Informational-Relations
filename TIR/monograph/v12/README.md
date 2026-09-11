@@ -1,14 +1,16 @@
 # TIR Monograph v12.1 — audited dependency-ordered publication surface
 
-Status: `V12_0_BASELINE_PRESERVED / V12_1_REPOSITORY_SYNC_MAIN_PROMOTED / PROVENANCE_FIRST / VALIDATION_PASS`
+Status: `V12_0_BASELINE_PRESERVED / V12_1_REPOSITORY_SYNC_MAIN_PROMOTED / COEFFICIENT_PARENT_EVAL_CLOSED / TRANSITION_SELECTOR_OPEN`
 
-Audit baseline: `main@0f63c823961a58770de22d14b5f53e2bfa38a9b3`
+Historical v12.1 audit baseline: `main@0f63c823961a58770de22d14b5f53e2bfa38a9b3`
 
-Validated source head: `b19d1becd7ed59263d2c78483b617bc4ef83bd3e`
+Validated v12.1 source head: `b19d1becd7ed59263d2c78483b617bc4ef83bd3e`
 
 Main promotion: PR `#128` -> `main@3a31da6ebeded16d4f48345de62c974870f76694`
 
-Historical v12.0 integration baseline remains the 30 August 2026 content-migration publication surface. Version 12.1 synchronizes that architecture with later merged theorem and validation work without promoting unresolved physical claims.
+Current completion branch: `feat/tir-coefficient-magnitude-parent-evaluation-20260910`
+
+Historical v12.0 integration baseline remains the 30 August 2026 content-migration publication surface. Version 12.1 synchronized that architecture with later merged theorem and validation work without promoting unresolved physical claims. The current post-promotion completion branch narrows the coefficient frontier without changing the evidence matrix.
 
 ## Purpose
 
@@ -61,7 +63,7 @@ Canonical source:
 
 `TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
 
-The discrete structural constants now also have the independent Platonic finite-group closure
+The discrete structural constants also have the independent Platonic finite-group closure
 
 ```text
 A4 subset S4 -> [S4:A4] = 2 = L4
@@ -72,6 +74,38 @@ S4/A4 disjoint-union A5/A4 -> cardinality 7 = L3
 conditional on the explicit TIR tetrahedral-root extension rule. The Collatz/twin-prime path is retained as an independent arithmetic crosscheck. Canonical source:
 
 `TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`.
+
+## Coefficient branch
+
+The historical charged-lepton lineage contains declared parent packets. With the independently closed upstream counts
+
+```text
+N_F = 3
+(L3,L4,L5) = (7,2,5)
+```
+
+the packet magnitudes evaluate uniquely:
+
+```text
+ELECTRON_ACTION  -> (1,3,1,1)
+E_TO_MU_RELEASE  -> (0,5,2,8)
+MU_TO_TAU_RELEASE -> (0,3,1,7)
+```
+
+Status:
+
+```text
+COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT
+COEFFICIENT_TRANSITION_PARENT_SELECTOR  = OPEN
+```
+
+The current atomic orientation operator does not consume the transition-sensitive seed/stopping fields to select the parent packet, so role identity and orientation alone are non-identifying. The missing object is a coefficient-free, transition-sensitive selector `Sigma`. Retrospective mass/Yukawa residuals and recovered tuples are excluded as selector parents.
+
+Canonical sources:
+
+`TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md`
+
+`TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_IDENTIFIABILITY_V0_1.md`
 
 ## Evidence and falsification invariant
 
@@ -84,7 +118,7 @@ The current open problems are named gates rather than a frozen count:
 - production global spatial-complex input and A5 certification on that exact dataset;
 - production inter-leaf matching-field input;
 - global TIR-IDT-RFC spacetime/ADM admission and Einstein constraint/evolution closure;
-- coefficient magnitude extraction;
+- coefficient transition-parent selector;
 - continuum gauge normalization/running and hypercharge source uniqueness;
 - common electroweak scheme/scale transport and Higgs scalar/action binding;
 - scheme/scale-defined quark mass map;
@@ -104,24 +138,30 @@ The master remains
 
 `TIR/monograph/tir_monograph_v12.tex`
 
-but its document metadata identify the compiled revision as **Version 12.1 Audited Repository Synchronization -- 10 September 2026**.
+and its document metadata identify the compiled revision as **Version 12.1 Audited Repository Synchronization -- 10 September 2026**.
 
-The repository-to-publication audit is
+The historical repository-to-publication audit is
 
 `TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md`.
 
-The current synchronization validators are
+The current completion-branch validators are
 
-`TIR/validation/tir_v12_1_repository_sync_audit.py`
+`TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py`
 
-and
+`TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py`
 
-`TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py`.
+`TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py`
+
+`TIR/validation/tir_v12_source_contract_v0_4.py`
+
+The historical v12.1 repository-sync audit remains
+
+`TIR/validation/tir_v12_1_repository_sync_audit.py`.
 
 The v12.0 migration manifest remains preserved as historical provenance; the v12.1 sync manifest records the correction layer and its pre-promotion baseline.
 
 ## Promotion boundary
 
-The exact source head `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` passed deterministic validation, the critical-axis RH firewall, LaTeX compilation and publication preflight before promotion. It was merged through PR #128 as `main@3a31da6ebeded16d4f48345de62c974870f76694`.
+The exact v12.1 source head `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` passed deterministic validation, the critical-axis RH firewall, LaTeX compilation and publication preflight before promotion through PR #128.
 
-This repository promotion changes publication/repository status only. It does not alter physical `OPEN`, `TENSION`, `FAIL` or `QUARANTINED` verdicts.
+The current coefficient-completion branch is a separate post-promotion change set. Its technical checks do not by themselves authorize merge and do not alter physical `OPEN`, `TENSION`, `FAIL` or `QUARANTINED` verdicts.

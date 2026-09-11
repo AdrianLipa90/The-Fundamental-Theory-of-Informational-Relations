@@ -4,9 +4,10 @@ https://www.researchgate.net/publication/408131825_Metatime_A_Low-Parameter_Ansa
 
 **Author:** Adrian Lipa — Independent Researcher, Doncaster, United Kingdom  
 **Current audited monograph revision:** TIR v12.1 repository synchronization  
-**Audit baseline:** `main@0f63c823961a58770de22d14b5f53e2bfa38a9b3`  
-**Validated source head:** `b19d1becd7ed59263d2c78483b617bc4ef83bd3e`  
+**Historical v12.1 audit baseline:** `main@0f63c823961a58770de22d14b5f53e2bfa38a9b3`  
+**Validated v12.1 source head:** `b19d1becd7ed59263d2c78483b617bc4ef83bd3e`  
 **Main promotion:** PR `#128` -> `main@3a31da6ebeded16d4f48345de62c974870f76694`  
+**Current completion branch:** `feat/tir-coefficient-magnitude-parent-evaluation-20260910`  
 **Publication status:** dependency-ordered research programme with mathematical, implementation, production-input and empirical gates tracked separately
 
 ## Overview
@@ -195,6 +196,49 @@ Canonical post-v12 sources include
 
 The A5 certifier and input-contract PASS states do not imply that the actual production TIR incidence data have been supplied.
 
+## Coefficient architecture
+
+The generator remains
+
+\[
+G(h,a,b,c)=\frac h2+a\kappa+b\frac{\kappa}{L_3}+c\frac{\kappa^2}{2}.
+\]
+
+Role/orientation forcing is already typed. A source audit additionally shows that the historical charged-lepton lineage declares explicit magnitude-parent packets. Using only
+
+\[
+N_F=3,\qquad (L_3,L_4,L_5)=(7,2,5),
+\]
+
+their parent-count valuations are exactly
+
+\[
+M(P_e)=(1,3,1,1),\qquad
+M(P_{e\mu})=(0,5,2,8),\qquad
+M(P_{\mu\tau})=(0,3,1,7).
+\]
+
+Therefore:
+
+```text
+COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT
+COEFFICIENT_TRANSITION_PARENT_SELECTOR  = OPEN
+```
+
+The current atomic orientation operator does not yet use the transition-sensitive seed/stopping fields to select a unique parent packet. Role routing and orientation alone are therefore insufficient; an additional transition-sensitive invariant `Sigma` is required. No measured mass, Yukawa target, recovered tuple or residual-to-target value is admitted as a selector parent.
+
+Canonical sources:
+
+`TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md`
+
+`TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_IDENTIFIABILITY_V0_1.md`
+
+Validators:
+
+`TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py`
+
+`TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py`
+
 ## Collatz–Fubini–Study relational phase
 
 The merged mathematical interface includes
@@ -234,7 +278,7 @@ Current retained states include CKM retrospective compatibility, PMNS reactor-an
 The active structural tasks are
 
 ```text
-coefficient magnitude extraction
+coefficient transition parent selector
 W_ij -> continuum gauge connection/curvature normalization
 hypercharge source/uniqueness theorem
 scheme/scale-defined quark mass map
@@ -248,7 +292,7 @@ cosmological dimensionful scale/rho_crit binding
 
 The current reconciliation ledger is
 
-`TIR/standard_model/TIR_SM_RECONCILIATION_LEDGER_V0_1.md`.
+`TIR/standard_model/TIR_SM_RECONCILIATION_LEDGER_V0_2.md`.
 
 ## Secret-of-a-Half / critical-axis boundary
 
@@ -270,23 +314,25 @@ Current master:
 
 `TIR/monograph/tir_monograph_v12.tex`
 
-Current audited synchronization:
+Historical v12.1 repository-sync audit:
 
 `TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md`
 
-Current sync manifest:
+Historical v12.1 sync manifest:
 
 `TIR/monograph/v12/MONOGRAPH_SYNC_V12_1.yaml`
 
-Current source/sync/frontier validators:
+Current source/frontier validators for the completion branch:
 
 ```text
-TIR/validation/tir_v12_source_contract_v0_3.py
+TIR/validation/tir_v12_source_contract_v0_4.py
 TIR/validation/tir_v12_1_repository_sync_audit.py
-TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py
+TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py
+TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py
+TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py
 ```
 
-Appendices A-D preserve the v12.0 frozen provenance hashes. Appendix E records post-v12 repository synchronization.
+Appendices A-D preserve the v12.0 frozen provenance hashes. Appendix E records the v12.1 repository synchronization.
 
 ## Repository map
 
@@ -313,7 +359,7 @@ TIR/
 
 ## Research and publication policy
 
-The repository preserves source provenance and version identity; retrospective and prospective evidence remain separate; failed gates stay visible; scheme- and scale-dependent quantities require explicit conventions; GREMLIN is candidate/audit infrastructure rather than promotion authority; and publication promotion requires exact-head deterministic validation plus PDF preflight. TIR v12.1 has now been promoted to `main` through PR #128 after the exact source head passed the full validation/build/preflight suite. This repository promotion does not change any physical `OPEN`, `TENSION`, `FAIL` or `QUARANTINED` verdict.
+The repository preserves source provenance and version identity; retrospective and prospective evidence remain separate; failed gates stay visible; scheme- and scale-dependent quantities require explicit conventions; GREMLIN is candidate/audit infrastructure rather than promotion authority; and publication promotion requires exact-head deterministic validation plus PDF preflight. TIR v12.1 was promoted to `main` through PR #128 after the exact source head passed the full validation/build/preflight suite. The current coefficient-completion branch is not promoted until its own exact-head checks pass and a separate merge is explicitly authorized. No repository promotion changes physical `OPEN`, `TENSION`, `FAIL` or `QUARANTINED` verdicts.
 
 ## Citation
 

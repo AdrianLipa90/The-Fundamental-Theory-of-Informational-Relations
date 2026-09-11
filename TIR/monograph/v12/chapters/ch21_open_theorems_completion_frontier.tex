@@ -4,19 +4,21 @@
 
 \paragraph{v12.1 synchronization.}
 The original v12 frontier snapshot treated Cartan refinement and the
-zero-torsion spatial sector as future gates.  They are no longer open in that
-form.  The current repository has conditional/local theorem closure through
-Gates A2--A4 and an implemented Gate-A5 global-manifold certifier.  The
-remaining frontier is therefore stated in terms of production inputs,
-cross-framework global admission, dynamical normalization and unresolved
-physical bindings.
+zero-torsion spatial sector as future gates. They are no longer open in that
+form. The current repository has conditional/local theorem closure through
+Gates A2--A4 and an implemented Gate-A5 global-manifold certifier. The
+coefficient branch has also been narrowed: arithmetic evaluation of the
+already-declared magnitude-parent packets is exact, while transition-level
+parent selection remains open. The remaining frontier is therefore stated in
+terms of production inputs, parent selection, cross-framework global admission,
+dynamical normalization and unresolved physical bindings.
 
 \section{Frontier as a dependency graph}
 
 A TIR gate can be promoted only after every named parent surface is available
 and the gate itself has a theorem, executable contract or evidence receipt
-appropriate to the claim.  The current v12.1 DAG audit is
-\path{TIR/validation/tir_v12_1_completion_frontier_dag_v0_2.py}.
+appropriate to the claim. The current v12.1 DAG audit is
+\path{TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py}.
 It intentionally avoids a frozen headline count of ``open problems'': the
 status is attached to named nodes so later theorem closures cannot leave a
 numerically correct but semantically stale summary.
@@ -27,7 +29,8 @@ The active parent graph includes the primitive half/information spine, the
 local rank-three spatial carrier, tetrahedral closure, typed \(W_{ij}\)
 transport, the discrete solder/torsion source, the canonical \(\kappa\)
 normalization, the Platonic \(L_i\) closure, coefficient role/orientation
-forcing, and the publication status taxonomy.
+forcing, exact coefficient magnitude-parent evaluation and the publication
+status taxonomy.
 
 The post-v12 spatial line adds
 \[
@@ -85,21 +88,49 @@ line proceed as
 The local A2--A4 theorems are parents of this route, not substitutes for the
 global source evidence.
 
-\section{Coefficient magnitude branch}
+\section{Coefficient parent-evaluation and selector branch}
 
-Role identity and orientation are typed, but the coefficient-free magnitude
-extraction remains open:
+The old coefficient-magnitude node contained two distinct tasks. The first is
+now exact: once an already-declared parent packet is supplied, the upstream
+integers
+\[
+N_F=3,
+\qquad
+(L_3,L_4,L_5)=(7,2,5)
+\]
+fix its componentwise magnitude vector. The three historical charged-lepton
+packets evaluate to
+\[
+\boxed{M(P_e)=(1,3,1,1)},
+\]
+\[
+\boxed{M(P_{e\mu})=(0,5,2,8)},
+\]
+and
+\[
+\boxed{M(P_{\mu\tau})=(0,3,1,7)}.
+\]
+The proof and validator are
+\path{TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md}
+and
+\path{TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py}.
+No measured mass or Yukawa target is consumed by this evaluation.
+\vTwelveStatus{B}{--}{PASS}
+
+The residual theorem is the transition selector
 \[
 \boxed{
-\begin{aligned}
-|h|&\leftarrow\text{projective/spin integer invariant},\\
-|a|&\leftarrow\text{generation/release integer invariant},\\
-|b|&\leftarrow\text{return integer invariant},\\
-|c|&\leftarrow\text{curvature/holonomy integer invariant}.
-\end{aligned}}
+\text{coefficient-free transition state}
+\longrightarrow
+(P_h,P_a,P_b,P_c).
+}
 \]
-The admissible theorem must derive the four integer magnitudes from upstream
-structure without using measured masses or Yukawa targets as parents.
+Its canonical gate name is
+\texttt{COEFFICIENT\_TRANSITION\_PARENT\_SELECTOR}.
+The historical lineage still labels this semantic parent assignment as
+\texttt{PROJECT\_MODEL\_ASSIGNMENT}. Therefore the selector must be derived
+from upstream projective/generation/return/holonomy state before reading a
+recovered coefficient tuple or target observable.
 \vTwelveStatus{B}{--}{OPEN}
 
 \section{Gauge, hypercharge and electroweak branch}
@@ -116,7 +147,7 @@ A source-complete normalization and running law remains open.
 
 The hypercharge arithmetic reproduces the conventional one-generation pattern,
 but source/uniqueness remains a separate gate because a legacy parent was
-external.  The quark-prime labels likewise do not by themselves provide a
+external. The quark-prime labels likewise do not by themselves provide a
 scheme- and scale-defined physical quark-mass map.
 \vTwelveStatus{B}{--}{OPEN}
 
@@ -126,13 +157,14 @@ The electroweak target is one common transport,
 \xrightarrow{\mathcal R_{EW}(\mu,\mathrm{scheme})}
 (g,e,\theta_W,\alpha,v)_{\mu,\mathrm{scheme}},
 \]
-followed by the pole-observable map.  Observable-specific retuning is not a
+followed by the pole-observable map. Observable-specific retuning is not a
 valid replacement for this closure.
 \vTwelveStatus{B}{--}{OPEN}
 
-The Higgs gate is downstream of the coefficient and electroweak branches.  It
-requires a scalar/action derivation of the active structural combination rather
-than another numerical repair against the measured Higgs mass.
+The Higgs gate is downstream of the coefficient-selector and electroweak
+branches. It requires a scalar/action derivation of the active structural
+combination rather than another numerical repair against the measured Higgs
+mass.
 \vTwelveStatus{B}{--}{OPEN}
 
 \section{Strong-CP, meson and neutrino branches}
@@ -150,12 +182,14 @@ source theorem would receive a new version rather than overwrite that evidence.
 \vTwelveStatus{B}{--}{OPEN}
 
 For pseudoscalar and related mesons, the printed pion and kaon exponentials
-remain failed legacy formulas.  The open structural task is a source-derived
-absolute action baseline before any renewed mass comparison.
+remain failed legacy formulas. The open structural task is a source-derived
+absolute action baseline before any renewed mass comparison. Any coefficient
+packet needed by that baseline remains downstream of the open transition-parent
+selector.
 \vTwelveStatus{B}{--}{OPEN}
 
 The neutrino absolute-action formula/value mismatch likewise remains
-quarantined.  Its replacement requires a fresh derivation from the admitted
+quarantined. Its replacement requires a fresh derivation from the admitted
 neutrino/tetrahedral parents and canonical \(\kappa\), followed by a new version
 identity and evidence audit.
 \vTwelveStatus{B}{--}{OPEN}
@@ -163,7 +197,7 @@ identity and evidence audit.
 \section{Cosmological scale binding}
 
 The dimensionless arithmetic does not by itself determine a dimensionful
-cosmological observable.  The remaining gate is a unit-complete chain
+cosmological observable. The remaining gate is a unit-complete chain
 \[
 \boxed{
 (L_3,L_4,L_5)
@@ -185,7 +219,7 @@ q(Cn)=2q(n)\pmod1,
 \qquad
 \zeta_C(Cn)=\zeta_C(n)^2,
 \]
-together with a typed CP1 projective relation coordinate.  The physical binding
+together with a typed CP1 projective relation coordinate. The physical binding
 remains open: no validated theorem presently identifies that itinerary with
 elapsed time, energy, mass, interaction strength, atomic transition rate,
 spectroscopy or gravity.
@@ -194,7 +228,7 @@ spectroscopy or gravity.
 \section{GREMLIN global-gluing role}
 
 GREMLIN may search the typed geometric graph for candidate gluing or dependency
-isomorphisms, but it is not a promotion authority.  Global gluing promotion is
+isomorphisms, but it is not a promotion authority. Global gluing promotion is
 blocked until the production spatial carrier and matching data are supplied and
 the corresponding deterministic theorem/validator gates pass.
 \vTwelveStatus{B}{--}{OPEN}
@@ -206,7 +240,7 @@ The negative-inverse interface retains the exact local identity
 \Re s=\frac12\iff|z_L(s)|=1.
 \]
 The active critical-axis stack also contains exact reductions and conditional
-positive corridors.  However, native Li/Weil positivity and several globally
+positive corridors. However, native Li/Weil positivity and several globally
 quantified strict-positivity or nondegeneracy premises remain unresolved.
 The current solver contract explicitly requires
 \[
@@ -219,12 +253,12 @@ Thus an RH-equivalent reformulation is not itself a proof of RH.
 \section{Retained empirical failures and evidence rerun}
 
 The structural frontier is kept separate from the observable evidence owner in
-Chapter~19.  Charged-lepton precision failures, the PMNS reactor-angle tension,
+Chapter~19. Charged-lepton precision failures, the PMNS reactor-angle tension,
 electroweak/fine-structure/Higgs precision failures or tensions, pion/kaon
 formula failures and the frozen strong-CP-to-neutron-EDM failure remain visible.
 
 A refreshed Unified Evidence Matrix is downstream of newly frozen structural
-repairs.  This prevents measured residuals from becoming hidden parents of the
+repairs. This prevents measured residuals from becoming hidden parents of the
 theorems intended to predict them.
 
 \section{Current dependency summary}
@@ -243,15 +277,19 @@ parallel to
 \[
 \boxed{
 \begin{aligned}
-&\text{coefficient magnitudes + continuum gauge normalization}\\
-&\quad\to\text{electroweak/scalar/strong-CP/meson/neutrino closures}\\
+&\text{coefficient parent evaluation (closed)}\\
+&\quad\to\text{transition parent selector (open)}\\
+&\quad+\text{continuum gauge normalization (open)}\\
+&\quad\to\text{electroweak/scalar/strong-CP/meson/quark closures}\\
 &\quad\to\text{new frozen evidence matrix},
 \end{aligned}}
 \]
 and the separately unresolved critical-axis positivity/nondegeneracy line.
 
 Canonical current sources include
-\path{TIR/TIR_COMPLETION_FRONTIER_V0_6.md},
+\path{TIR/TIR_COMPLETION_FRONTIER_V0_7.md},
+\path{TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md},
+\path{TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_IDENTIFIABILITY_V0_1.md},
 \path{TIR/foundations/TIR_LEADING_LOOP_LOCALITY_METRIC_JET_V0_1.md},
 \path{TIR/foundations/TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md},
 \path{TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md},
