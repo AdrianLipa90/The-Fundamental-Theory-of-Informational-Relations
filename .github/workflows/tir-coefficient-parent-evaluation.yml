@@ -1,0 +1,58 @@
+name: TIR coefficient parent evaluation
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  coefficient-parent-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact event head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Verify exact PR head and clean diff
+        if: github.event_name == 'pull_request'
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+          git diff --check
+
+      - name: Validate structural parents and coefficient split
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_platonic_l_constants_closure_v0_1.py
+          python3 TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py
+          python3 TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
+          python3 TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py
+          python3 TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py
+          python3 TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py
+
+      - name: Enforce no physical or RH promotion
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py > coefficient-parent-receipt.json
+          python3 TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py > coefficient-selector-identifiability-receipt.json
+          python3 TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py > coefficient-frontier-receipt.json
+          grep -Fq '"transition_parent_selector_closed": false' coefficient-parent-receipt.json
+          grep -Fq '"transition_parent_selector_closed": false' coefficient-selector-identifiability-receipt.json
+          grep -Fq '"physical_claim": false' coefficient-parent-receipt.json
+          grep -Fq '"physical_claim": false' coefficient-selector-identifiability-receipt.json
+          grep -Fq '"riemann_hypothesis_in_closure": false' coefficient-frontier-receipt.json
+
+      - name: Upload receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: tir-coefficient-parent-evaluation-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            coefficient-parent-receipt.json
+            coefficient-selector-identifiability-receipt.json
+            coefficient-frontier-receipt.json

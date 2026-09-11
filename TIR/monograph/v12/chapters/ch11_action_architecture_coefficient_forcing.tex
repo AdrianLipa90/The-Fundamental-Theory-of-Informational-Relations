@@ -3,8 +3,11 @@
 % - TIR/monograph/chapters/ch05_electron_action.tex
 % - TIR/monograph/chapters/ch06_generation_release.tex
 % - TIR/foundations/TIR_COEFFICIENT_ROLE_ORIENTATION_FORCING_V0_1.md
-% - TIR/TIR_COMPLETION_FRONTIER_V0_4.md
-% Validator: TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
+% - TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md
+% - TIR/TIR_COMPLETION_FRONTIER_V0_7.md
+% Validators:
+% - TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py
+% - TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py
 \chapter[Action Architecture and Coefficient Forcing]{Action Architecture and the Coefficient-Forcing Problem}
 \label{ch:v12_action_coefficients}
 
@@ -66,7 +69,7 @@ R_c\leftrightarrow c.
 }
 \label{eq:v12-role-slot-map}
 \end{equation}
-The four parent signatures are pairwise distinct.  Exhaustive permutation of the
+The four parent signatures are pairwise distinct. Exhaustive permutation of the
 four coefficient slots therefore leaves exactly one role-preserving
 permutation: the identity.
 
@@ -92,7 +95,7 @@ monotonicity and oddness of $\tanh$ imply
 }
 \label{eq:v12-gradient-sign}
 \end{equation}
-for every finite $x$ and positive $\alpha_s$.  The orientation class can
+for every finite $x$ and positive $\alpha_s$. The orientation class can
 therefore be represented by
 \begin{equation}
 \boxed{
@@ -138,7 +141,7 @@ is unique:
 }
 \label{eq:v12-consensus-orientation}
 \end{equation}
-for every nonzero participating source.  States with disagreeing active source
+for every nonzero participating source. States with disagreeing active source
 signs are routed to the conflict surface.
 
 \vTwelveStatus{B}{--}{PASS}
@@ -164,35 +167,79 @@ R_c\to c,
 Thus slot identity and orientation/sign are fixed whenever the declared source
 operators are mutually consistent.
 
-\section{Magnitude frontier}
-After role and sign forcing, the remaining coefficient information is
+\section{Magnitude parent evaluation}
+A source audit shows that the historical integration lineage already declares
+magnitude-parent expressions for the three charged-lepton action/release
+packets. The upstream flavour and Platonic closures supply
 \begin{equation}
-\boxed{|h|,|a|,|b|,|c|.}
-\label{eq:v12-coefficient-magnitudes}
+\boxed{N_F=3,\qquad (L_3,L_4,L_5)=(7,2,5).}
+\label{eq:v12-magnitude-upstream-integers}
 \end{equation}
-The source ownership narrows the extraction problem to four typed integer
-invariants:
+Let $I$ denote the unit count, $I=1$, and let $X_i$ denote the typed parent
+whose cardinality is $L_i$. Componentwise evaluation of the declared packets
 \begin{align}
-|h|&\leftarrow\text{projective/spin closure count},\\
-|a|&\leftarrow\text{generation seed/release count},\\
-|b|&\leftarrow\text{return invariant},\\
-|c|&\leftarrow\text{curvature/holonomy invariant}.
+P_e&=(I,F,I,I),\\
+P_{e\mu}&=(0,X_5,X_4,X_3+I),\\
+P_{\mu\tau}&=(0,F,I,X_3)
 \end{align}
+gives
+\begin{equation}
+\boxed{M(P_e)=(1,3,1,1),}
+\label{eq:v12-magnitude-electron}
+\end{equation}
+\begin{equation}
+\boxed{M(P_{e\mu})=(0,5,2,8),}
+\label{eq:v12-magnitude-emu}
+\end{equation}
+and
+\begin{equation}
+\boxed{M(P_{\mu\tau})=(0,3,1,7).}
+\label{eq:v12-magnitude-mutau}
+\end{equation}
+The evaluation is unique once a parent packet is supplied. It consumes no
+measured lepton mass, Yukawa coupling, fitted action or residual-to-target
+quantity.
+
+\vTwelveStatus{B}{--}{PASS}
+The canonical theorem is
+\path{TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md},
+and the deterministic validator is
+\path{TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py}.
+
+\section{Residual selector frontier}
+The preceding PASS closes arithmetic evaluation of the already-declared parent
+expressions; it does not prove that a physical transition uniquely selects those
+expressions. The old lineage still marks the transition-level semantic mapping
+as \texttt{PROJECT\_MODEL\_ASSIGNMENT}. The remaining coefficient theorem is
+therefore the narrower selector
+\begin{equation}
+\boxed{
+\text{coefficient-free transition state}
+\longrightarrow
+(P_h,P_a,P_b,P_c).
+}
+\label{eq:v12-coefficient-parent-selector}
+\end{equation}
+The selector must be evaluated before reading a recovered coefficient tuple or
+any mass/Yukawa target.
+
 \vTwelveStatus{B}{--}{OPEN}
-This is the active coefficient-forcing frontier recorded in
-\path{TIR/TIR_COMPLETION_FRONTIER_V0_4.md}.
+This gate is named \texttt{COEFFICIENT\_TRANSITION\_PARENT\_SELECTOR} in
+\path{TIR/TIR_COMPLETION_FRONTIER_V0_7.md}.
 
 \section{Circularity firewall}
 The coefficient-forcing map admits coefficient-free geometric and routing
-parents.  Its declared input surface excludes observed particle masses,
+parents. Its declared input surface excludes observed particle masses,
 observed Yukawa couplings, an already recovered coefficient tuple, a runtime
-envelope generated from that tuple, and residual-to-target information.  This
-keeps role/sign forcing upstream of the numerical sector comparisons.
+envelope generated from that tuple, and residual-to-target information. The
+retrospective stopping-length pattern remains candidate evidence and is not
+promoted by the magnitude parent-evaluation theorem.
 
 \section{Interface to particle sectors}
 Historical formulas such as the electron action and the charged-lepton release
-operators are migrated to Chapter~\ref{ch:v12_leptons_neutrinos}.  There they
+operators are migrated to Chapter~\ref{ch:v12_leptons_neutrinos}. There they
 are treated as sector constructions over the basis
 \eqref{eq:v12-generator-basis}, with their own empirical timing and verdict.
 The present chapter owns the upstream generator, typed slot routing, orientation
-forcing and the explicit magnitude frontier.
+forcing, exact parent-expression evaluation and the residual transition-parent
+selector frontier.

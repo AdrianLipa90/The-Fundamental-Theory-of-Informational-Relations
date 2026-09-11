@@ -24,6 +24,8 @@ An exact theorem conditional on TIR structural premises is recorded as an exact 
 | Spin-\(1/2\) Berry phase satisfies \(\gamma=-\Omega/2\pmod{2\pi}\). | Standard geometric-phase result. |
 | \(\dim\mathfrak{su}(3)=3^2-1=8\). | Standard Lie-group dimension formula. |
 | Rotational tetrahedral group \(A_4\) has order 12; full tetrahedral group is isomorphic to \(S_4\) of order 24. | Standard group theory. |
+| The convex Platonic Schläfli symbols are exactly \(\{3,3\},\{3,4\},\{3,5\},\{4,3\},\{5,3\}\); the triangular branch has rotational groups \(A_4,S_4,A_5\). | Standard regular-polyhedron and finite-group theory. |
+| \(A_4\triangleleft S_4\) with index 2, and a point stabilizer in the natural five-point action of \(A_5\) is isomorphic to \(A_4\) with index 5. | Standard finite-group theory. |
 | External comparison values and bounds used by a frozen publication snapshot. | External facts when supported by the cited source. |
 
 ## B. TIR structural layer
@@ -31,7 +33,7 @@ An exact theorem conditional on TIR structural premises is recorded as an exact 
 | Claim | Current status |
 |---|---|
 | \(\kappa=\ln2/(24\pi)\). | **TIR-internal derived structural normalization.** The denominator follows from the three-flavour \(SU(3)_F\) carrier, its eight-dimensional mixing algebra, and the primitive half-turn phase: \(24\pi=3(3^2-1)\pi\). |
-| \((L_3,L_4,L_5)=(7,2,5)\). | Discrete TIR structural integers with their own sector provenance. |
+| \((L_3,L_4,L_5)=(7,2,5)\). | **TIR-internal exact structural consequence** of the explicit Platonic tetrahedral-root extension rule: \(L_4=|S_4/A_4|=2\), \(L_5=|A_5/A_4|=5\), \(L_3=|S_4/A_4\sqcup A_5/A_4|=7\). The older Collatz/twin-prime route is retained as an independent arithmetic crosscheck. |
 | Quark-prime labels \((u,d,s,c,b,t)=(3,5,7,11,13,17)\). | Discrete flavour assignment with explicit sector validation. |
 | Exponential mass ansatz \(m=E_P e^{-S/\kappa}\) in the declared sectors. | TIR sector law with sector-specific action construction. |
 | Tetrahedral/NOEMA operator assignments to flavour or mixing observables. | TIR model geometry with separate empirical validation surfaces. |
@@ -109,6 +111,65 @@ The spatial branch supplies the independent integer crosscheck
 =24
 =|S_4|.
 \]
+
+### Platonic L-constant closure
+
+The convex Platonic condition
+
+\[
+\frac1p+\frac1q>\frac12,
+\qquad p,q\ge3,
+\]
+
+leaves exactly
+
+\[
+\{3,3\},\{3,4\},\{3,5\},\{4,3\},\{5,3\},
+\]
+
+so the complete Platonic index alphabet is \(\{3,4,5\}\). The triangular branch carries
+
+\[
+A_4,\qquad S_4,\qquad A_5.
+\]
+
+Using the common tetrahedral root \(A_4\), standard subgroup theory gives
+
+\[
+\boxed{[S_4:A_4]=2},
+\qquad
+\boxed{[A_5:A_4]=5}.
+\]
+
+TIR defines the complete non-self-dual extension carrier of the tetrahedral root as
+
+\[
+X_3^{\rm closure}
+:=
+S_4/A_4\sqcup A_5/A_4.
+\]
+
+Therefore
+
+\[
+\boxed{
+L_4=2,
+\qquad
+L_5=5,
+\qquad
+L_3=|X_3^{\rm closure}|=2+5=7.
+}
+\]
+
+The canonical derivation surface is
+
+`TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`.
+
+The exact validator is
+
+`TIR/validation/tir_platonic_l_constants_closure_v0_1.py`.
+
+The derivation is exact conditional on the explicit TIR root-extension closure rule. It does not by itself establish a physical interpretation of the L-constants and does not claim a derivation specifically from \(CP^3\) Kähler geometry.
 
 ## Exact formal consequences of the κ layer
 

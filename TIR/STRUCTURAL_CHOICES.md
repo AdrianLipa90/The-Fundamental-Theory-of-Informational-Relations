@@ -27,6 +27,12 @@ This ledger tracks discrete choices, internal structural derivations, external a
 | mixing-algebra dimension | \(\dim\mathfrak{su}(3)_F=8\) | A + D_TIR | \(3^2-1\). |
 | mixing-channel count | \(N_{mix}=3\cdot8=24\) | D_TIR | Generator × flavour incidence count. |
 | \(\kappa\) | \(\ln2/(24\pi)\) | D_TIR | Derived from \(I_\star=\ln2\) over the \(24\pi\) primitive mixing-phase measure. |
+| Platonic index alphabet | \(\{3,4,5\}\) | A | Exact consequence of the convex Platonic Schläfli classification. |
+| tetrahedral root group | \(A_4\) | A + TIR root | Common finite rotational root for the triangular Platonic branch. |
+| \(L_4\) | \([S_4:A_4]=2\) | D_TIR | Exact subgroup-index consequence. |
+| \(L_5\) | \([A_5:A_4]=5\) | D_TIR | Exact subgroup-index consequence using an \(A_4\) point stabilizer in \(A_5\). |
+| root-extension closure | \(X_3^{\rm closure}=S_4/A_4\sqcup A_5/A_4\) | P | TIR structural closure rule over the two non-self-dual Platonic extensions. |
+| \(L_3\) | \(|X_3^{\rm closure}|=7\) | D_TIR | Exact cardinality consequence \(2+5=7\). |
 | informational phase rule | \(d\mathcal I=\kappa d\phi\) | P | TIR information-phase law. |
 
 The κ derivation is
@@ -76,6 +82,65 @@ The spatial branch independently supplies
 
 as a finite-symmetry crosscheck of the same integer.
 
+## Platonic L-constant closure
+
+For convex regular polyhedra,
+
+\[
+\frac1p+\frac1q>\frac12,
+\qquad p,q\ge3,
+\]
+
+gives exactly
+
+\[
+\{3,3\},\{3,4\},\{3,5\},\{4,3\},\{5,3\}.
+\]
+
+The triangular branch has rotational groups
+
+\[
+A_4,\qquad S_4,\qquad A_5,
+\]
+
+and the common tetrahedral root yields
+
+\[
+\boxed{L_4=[S_4:A_4]=2},
+\qquad
+\boxed{L_5=[A_5:A_4]=5}.
+\]
+
+With the explicit TIR root-extension closure rule
+
+\[
+X_3^{\rm closure}=S_4/A_4\sqcup A_5/A_4,
+\]
+
+one obtains
+
+\[
+\boxed{L_3=|X_3^{\rm closure}|=2+5=7}.
+\]
+
+Hence
+
+\[
+\boxed{(L_3,L_4,L_5)=(7,2,5)}.
+\]
+
+This is an exact TIR-internal structural derivation conditional on the declared closure rule. The pre-existing Collatz/twin-prime route is retained as an independent arithmetic crosscheck rather than used as an input to the Platonic derivation.
+
+Canonical derivation:
+
+`TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`.
+
+Validator:
+
+`TIR/validation/tir_platonic_l_constants_closure_v0_1.py`.
+
+A specifically \(CP^3\)-Kähler derivation and all physical identifications remain separate downstream questions.
+
 ## Exact phase-rate consequence
 
 \[
@@ -97,7 +162,7 @@ for \(\omega=2\pi f\). This consequence introduces no additional continuous coef
 | \(q(b)\) | 13 | S |
 | \(q(t)\) | 17 | S |
 
-Their sector-level uniqueness and predictive validation are tracked separately from the κ mixing-multiplicity derivation.
+Their sector-level uniqueness and predictive validation are tracked separately from the κ mixing-multiplicity derivation and the Platonic L-constant closure.
 
 ## External scales and inputs
 

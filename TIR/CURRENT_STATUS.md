@@ -1,59 +1,26 @@
 # CURRENT STATUS — TIR
 
-**Status line:** 2026-08-29 global-geometry Gate A validation batch  
-**Author:** Adrian Lipa  
-**Main baseline:** `ccc89fc06bdf42c1937c0a2303d3e477db487e0f`  
-**Active branch:** `feat/tir-universal-loop-torsion-source-binding-v0.1`  
-**Pull request:** #106 — `TIR: bind Universal-Loop translational holonomy to endpoint defect`  
-**Promotion:** feature branch under hosted validation; main changes only by explicit merge order
-
-This is the current TIR status surface.
+**Status line:** 2026-09-10 v12.1 promoted on `main`; coefficient-magnitude parent evaluation advanced on the current completion branch  
+**Publication correction:** TIR monograph v12.1 repository synchronization is merged on `main` without changing physical verdicts  
+**Status-surface policy:** merged theorem/contract results are distinguished from production-input, physical-binding and empirical-evidence gates  
+**Promotion:** validated v12.1 source head `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` merged through PR #128 as `main@3a31da6ebeded16d4f48345de62c974870f76694`; later status-only synchronization reached `main@76bb4d19b20260bf340ceaaa52d945b3cf3816f4`
 
 ## 1. Foundational closure
 
-The primitive dependency spine is
+The primitive dependency spine remains
 
 \[
-\boxed{
-0
-\to P
-\to \text{FIRST DISTINCTION}
-\to \{N,S\}
-\to \frac12
-\to \ln2
-\to \mathbb C^2.
-}
+0\to P\to\text{FIRST DISTINCTION}\to\{N,S\}\to\frac12\to\ln2\to\mathbb C^2.
 \]
 
-The local spatial branch continues through
+The local spatial branch continues through the traceless-Hermitian carrier
 
 \[
-\boxed{
-\mathbb C^2
-\to \rho_x
-\to \mathcal A_2
-\to \delta(\rho_x,\rho_y)
-\to \operatorname{Herm}_0(2)\cong\mathbb R^3.
-}
+\mathbb C^2\to\rho_x\to\mathcal A_2\to\delta(\rho_x,\rho_y)
+\to\operatorname{Herm}_0(2)\cong\mathbb R^3,
 \]
 
-From the common carrier,
-
-\[
-\boxed{
-\operatorname{Herm}_0(2)
-\to
-\begin{cases}
-\text{Euclidean inner-product branch}\to a^2+b^2=c^2,\\
-\text{minimal finite-cell branch}\to\Delta^3\xrightarrow{A5+A7}\text{regular tetrahedron}.
-\end{cases}}
-\]
-
-The tetrahedral SIC branch independently reaches the same exact regular-tetrahedral Gram/congruence class.
-
-The publication surface is
-
-`TIR/subrepos/the-space-of-geometry/paper/THE_SPACE_OF_GEOMETRY_V1_1.tex`.
+then through the Euclidean metric, rank-three spatial carrier, regular tetrahedral cell, typed connection transport, affine `SE(3)` lift and discrete solder/torsion source.
 
 Current classification:
 
@@ -62,31 +29,33 @@ TIR_FOUNDATIONAL_CORE = CLOSED
 TIR_LOCAL_SPATIAL_GEOMETRY = CLOSED
 TIR_TETRAHEDRAL_CONGRUENCE_CLASS = CLOSED_EXACT
 TIR_KAPPA_NORMALIZATION = CLOSED_INTERNAL_DERIVATION
+TIR_L_CONSTANTS = CLOSED_INTERNAL_PLATONIC_COSET_DERIVATION / MERGED_MAIN
 TIR_WIJ_HOLONOMY_FAMILY = SOURCE_BOUND_CROSSWALK
 TIR_SE3_ATLAS_SOURCE = CLOSED_EXACT
 TIR_DISCRETE_SOLDER_OBJECT = TYPED
-TIR_UNIVERSAL_LOOP_TORSION_SOURCE = SOURCE_BOUND_PR106_VALIDATION
-TIR_CONTINUUM_CARTAN_REFINEMENT = NEXT_GR_GEOMETRY_GATE
-TIR_COEFFICIENT_MAGNITUDES = ACTIVE_TYPED_EXTRACTION
+TIR_UNIVERSAL_LOOP_TORSION_SOURCE = SOURCE_BOUND_MAIN
+TIR_CARTAN_REFINEMENT_A2 = CLOSED_CONDITIONAL_LOCAL_REFINEMENT
+TIR_ZERO_TORSION_LEVI_CIVITA_A3 = CLOSED_ON_REGULAR_ENDPOINT_COMPATIBLE_REFINEMENT
+TIR_LEADING_LOOP_METRIC_JET_A4 = CLOSED_ON_LRR_SELECTION
+TIR_GLOBAL_3MANIFOLD_A5 = CERTIFIER_CLOSED / PRODUCTION_INPUT_OPEN
+TIR_GLOBAL_SPATIAL_INPUT_CONTRACT = CLOSED_CONTRACT / PRODUCTION_INPUT_OPEN
+TIR_INTERLEAF_MATCHING_FIELD_CONTRACT = CLOSED_CONTRACT / PRODUCTION_INPUT_OPEN
+TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT
+TIR_COEFFICIENT_TRANSITION_PARENT_SELECTOR = OPEN
 TIR_STANDARD_MODEL = ACTIVE_RECONCILIATION
-TIR_SOH_NEGATIVE_INVERSE = GLOBAL_DOMINATION_CANDIDATE
+TIR_SOH_NEGATIVE_INVERSE = GLOBAL_DOMINATION_CANDIDATE / RH_OPEN
 TIR_TIME_JOIN = SIBLING_INTERFACE
+TIR_COLLATZ_FS_RELATIONAL_PHASE = MATHEMATICAL_INTERFACE_ADDED / PHYSICAL_BINDING_OPEN
 ```
 
-## 2. κ normalization
+## 2. Canonical information normalization
 
 The flavour carrier is
 
 \[
 V_F\cong\mathbb C^3,
-\qquad
-U_F\in SU(3)_F,
-\]
-
-with
-
-\[
-\dim_{\mathbb R}\mathfrak{su}(3)_F=3^2-1=8.
+\qquad U_F\in SU(3)_F,
+\qquad \dim\mathfrak{su}(3)_F=8.
 \]
 
 Thus
@@ -98,7 +67,7 @@ N_{\rm mix}=3\cdot8=24.
 The primitive half supplies
 
 \[
-\Delta\phi_{1/2}=\frac12(2\pi)=\pi,
+\Delta\phi_{1/2}=\pi,
 \]
 
 so
@@ -116,304 +85,326 @@ I_\star=H_2(1/2)=\ln2,
 TIR obtains
 
 \[
-\boxed{
-\kappa
-=\frac{I_\star}{\Phi_{\rm mix}}
-=\frac{\ln2}{24\pi}.
-}
+\boxed{\kappa=\frac{\ln2}{24\pi}}.
 \]
 
 Canonical source:
 
 `TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
 
-The spatial finite-symmetry crosscheck is
+## 3. Platonic L-constant closure
+
+The convex Platonic condition
 
 \[
-|\operatorname{Aut}(\Delta^3)|=|S_4|=24.
+\frac1p+\frac1q>\frac12,\qquad p,q\ge3,
 \]
 
-## 3. Information-phase rate
-
-With
+has exactly
 
 \[
-d\mathcal I=\kappa\,d\phi,
+\{3,3\},\{3,4\},\{3,5\},\{4,3\},\{5,3\}.
+\]
+
+The triangular branch has rotational groups
+
+\[
+A_4,\qquad S_4,\qquad A_5
+\]
+
+with orders `12,24,60`. Using the tetrahedral rotational group as the common root,
+
+\[
+[S_4:A_4]=2,
 \qquad
-\omega=2\pi f,
+[A_5:A_4]=5.
 \]
 
-one has
+TIR defines
 
 \[
-\boxed{
-\Gamma_{\mathcal I}
-=\kappa\omega
-=\frac{\ln2}{12}f.
-}
+X_3^{\rm closure}:=S_4/A_4\sqcup A_5/A_4,
 \]
 
-One angular cycle carries
+and therefore
 
 \[
-\boxed{
-\Delta\mathcal I_{\rm cycle}
-=\frac{\ln2}{12}.
-}
+\boxed{L_4=2,\qquad L_5=5,\qquad L_3=|X_3^{\rm closure}|=7}.
 \]
 
-The nat/bit/Planck dimensional layer remains a downstream certification corollary.
-
-## 4. Unified W_ij transport family
-
-The source-bound crosswalk is
-
-`TIR/foundations/TIR_WIJ_HOLONOMY_CROSSWALK_V0_1.md`.
-
-The typed family is
+Hence
 
 \[
-\boxed{
-W_{ij}^{WT}\in U(1),
-\qquad
-W_{ij}^{X}\in SU(2),
-\qquad
-W_{ij}^{c}\in SU(3).
-}
+\boxed{(L_3,L_4,L_5)=(7,2,5)}.
 \]
 
-The spatial connection shadow is
+This is an exact TIR-internal structural consequence conditional on the explicit root-extension closure rule. The Collatz/twin-prime route remains an independent arithmetic crosscheck and is not an input to the finite-group calculation.
+
+Canonical source:
+
+`TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`.
+
+Validator:
+
+`TIR/validation/tir_platonic_l_constants_closure_v0_1.py`.
+
+Physical interpretation beyond the finite structural theorem remains separately gated.
+
+## 4. Spatial GR chain: Gates A through A5
+
+### Gate A — discrete torsion source
+
+The exact source identity is
 
 \[
-\boxed{
-R_{ij}=\operatorname{Ad}(W_{ij}^{X})\in SO(3).
-}
+\mathcal T_{xyz}=-\mathcal C_{xyz}
 \]
 
-Together with the intrinsic affine endpoint displacement
+with connection-lifted affine-loop translation carrying the same discrete torsion datum on the rotationally consistent sector.
 
-\[
-\boxed{
-\mathcal E_{ij}=2(\rho_j-\rho_i),
-}
-\]
-
-this supplies the connection-lifted affine edge
-
-\[
-\boxed{
-G_{ij}^{\nabla}
-=\left(\operatorname{Ad}(W_{ij}^{X}),\operatorname{vec}(\mathcal E_{ij})\right)
-\in SE(3).
-}
-\]
-
-GREMLIN receives this sharpened source graph as a candidate-generation surface; promotion remains attached to deterministic theorem and validator receipts.
-
-## 5. Torsion / Universal Loop Gate A
-
-The covariant endpoint defect is
-
-\[
-\boxed{
-\mathcal C_{xyz}
-=\mathcal E_{xz}
--\left(
-\mathcal E_{xy}
-+W_{xy}^{X}\mathcal E_{yz}(W_{xy}^{X})^\dagger
-\right).
-}
-\]
-
-The discrete solder theorem defines
-
-\[
-\boxed{
-\mathcal T_{xyz}
-=\mathcal E_{xy}
-+W_{xy}^{X}\mathcal E_{yz}(W_{xy}^{X})^\dagger
-+W_{xz}^{X}\mathcal E_{zx}(W_{xz}^{X})^\dagger.
-}
-\]
-
-Using the admitted reverse-edge transport rule,
-
-\[
-\boxed{
-\mathcal T_{xyz}=-\mathcal C_{xyz}.
-}
-\]
-
-For a rotationally consistent triangle,
-
-\[
-R_{xz}=R_{xy}R_{yz},
-\]
-
-the closed connection-lifted SE(3) loop gives
-
-\[
-\boxed{
-R_C=I,
-\qquad
-\mathbf t_C
-=\operatorname{vec}(\mathcal T_{xyz})
-=-\operatorname{vec}(\mathcal C_{xyz}).
-}
-\]
-
-The invariant scalar witness is
-
-\[
-\boxed{
-\tau_C
-=\|\mathbf t_C\|
-=\sqrt{\frac12\operatorname{Tr}(\mathcal T_{xyz}^{2})}.
-}
-\]
-
-Canonical Gate-A theorem:
+Canonical source:
 
 `TIR/foundations/TIR_UNIVERSAL_LOOP_TORSION_SOURCE_BINDING_V0_1.md`.
 
-The dedicated hosted gate is
+### Gate A2 — Cartan refinement
 
-`.github/workflows/tir-universal-loop-torsion-source-binding.yml`.
-
-The continuation target is the controlled refining-family limit
+For an admitted smooth shape-regular shrinking family,
 
 \[
-\mathcal T_{\triangle}/\Sigma_{\triangle}
-\to
-T^a
-=de^a+\omega^a{}_b\wedge e^b,
-\]
-
-together with the rotational-holonomy curvature limit.
-
-## 6. Standard-Model correction state
-
-The PDG-2026 addendum is included by `metatime_monograph.tex`.
-
-Synchronized correction surfaces include:
-
-- `ch16_pmns_mixing.tex` — PDG-2026 reactor-angle correction;
-- `ch22_fine_structure.tex` — precision-status correction;
-- `ch24_higgs_mass.tex` — retrospective/precision correction;
-- `ch32_pdg2026_validation_addendum.tex` — sector-level validation addendum;
-- `ch21_weinberg_angle.tex` — renormalization scheme/scale gate;
-- `ch23_gauge_bosons.tex` — electroweak transport target.
-
-The active electroweak line is
-
-\[
-(g_0,\theta_W^{(0)},v_0)
-\xrightarrow{\mathcal R_{EW}(\mu,\mathrm{scheme})}
-(g(\mu),\theta_W(\mu),v(\mu))
-\to
-(M_W^{\rm pole},M_Z^{\rm pole}).
-\]
-
-The current task remains dynamical normalization/action closure followed by a refreshed sector matrix.
-
-## 7. Coefficient forcing
-
-The intrinsic coefficient state is
-
-\[
-(h,a,b,c)\in\mathbb Z^4.
-\]
-
-Role assignment and orientation are already extracted. The active magnitude coordinates are
-
-\[
-|h|\leftarrow\text{spin/projective invariant},
-\quad
-|a|\leftarrow\text{generation/release invariant},
-\]
-
-\[
-|b|\leftarrow\text{return invariant},
-\quad
-|c|\leftarrow\text{curvature/holonomy invariant}.
-\]
-
-Status:
-
-`FOUR_TYPED_INTEGER_INVARIANTS_TO_EXTRACT`.
-
-## 8. Secret-of-a-Half negative-inverse bridge
-
-The local coordinate identities are
-
-\[
-\Omega(s)=\frac{s}{1-s},
-\qquad
-z_L(s)=1-\frac1s=-\frac1{\Omega(s)},
+\mathcal T_{\triangle}
+=\frac12 T^a{}_{\mu\nu}\Sigma^{\mu\nu}_{\triangle}\sigma_a+O(\ell^3),
 \]
 
 and
 
 \[
-\Re s=\frac12
-\iff
-|z_L(s)|=1.
+R_{\triangle}
+=I+\frac12\Omega_{\mu\nu}\Sigma^{\mu\nu}_{\triangle}+O(\ell^3).
 \]
 
-The current TIR interface theorem is
+Thus the area-normalized discrete channels converge to Cartan torsion and curvature under the declared assumptions.
 
-`TIR/interfaces/TIR_SOH_GLOBAL_LI_DOMINATION_BRIDGE_V0_1.md`.
+Canonical source:
 
-Under the standard symmetric Li representation and the classical zeta zero-counting estimate, the current global-domination theorem candidate gives
+`TIR/foundations/TIR_CARTAN_CONTINUUM_REFINEMENT_V0_1.md`.
+
+Status: `PASS_CONDITIONAL_LOCAL_REFINEMENT`; a production global relational complex is not implied.
+
+### Gate A3 — zero torsion and Levi-Civita selection
+
+On the primitive same-endpoint compatible sector, affine-displacement uniqueness selects
 
 \[
-\boxed{
-\exists\rho:\Re\rho\ne\frac12
-\Longrightarrow
-\exists\text{ infinitely many }n:\lambda_n<0.
-}
+\mathcal C_{xyz}=0,
 \]
 
-The framework-side completion target is
+hence
 
 \[
-\boxed{
-\lambda_n\ge0\qquad\forall n
-}
+\mathcal T_{xyz}=0
 \]
 
-from native arithmetic closure.
+and, under A2 refinement,
+
+\[
+T^a=0.
+\]
+
+`SO(3)` frame transport preserves the spatial metric, so the standard uniqueness theorem selects
+
+\[
+D=D^{LC}.
+\]
+
+Curvature may remain nonzero.
+
+Canonical source:
+
+`TIR/foundations/TIR_ZERO_TORSION_LEVI_CIVITA_SELECTION_V0_1.md`.
+
+### Gate A4 — leading-loop locality / metric jet
+
+For a regular shrinking loop,
+
+\[
+\frac{R_C-I}{A_C}\to\Omega.
+\]
+
+Under the TIR Leading Refinement Rule, the leading GR carrier is bounded to second metric-jet order, while higher curvature jets remain typed as extended/correction sectors.
+
+Canonical source:
+
+`TIR/foundations/TIR_LEADING_LOOP_LOCALITY_METRIC_JET_V0_1.md`.
+
+### Gate A5 — global 3-manifold certifier
+
+The executable A5 certificate validates a supplied tetrahedral complex as a closed combinatorial 3-manifold through incidence and vertex-link conditions; the standard Moise bridge then supplies compatible smooth realization. Metric and Levi-Civita gluing follow on a passing carrier.
+
+Canonical source:
+
+`TIR/foundations/TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md`.
+
+The actual source-owned production TIR incidence complex remains `OPEN_INPUT`.
+
+The input/freeze contract is implemented at
+
+`TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md`.
+
+Therefore the remaining global-spatial problem is an explicit evidence/input gate rather than an unspecified local continuum theorem.
+
+## 5. Inter-leaf / spacetime input
+
+The source packet for the inter-leaf matching field is defined by
+
+`TIR/foundations/TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1.md`.
+
+The executable contract validates provenance, payload digest, patch/overlap integrity, the matching-law handoff and the `x0=ct` shift conversion. Its reference controls pass; the source-owned production `beta_match` dataset remains `OPEN_INPUT`.
+
+The relativistic dependency line is therefore
+
+```text
+A2 Cartan refinement                         PASS conditional local
+A3 zero torsion / Levi-Civita               PASS on admitted sector
+A4 leading-loop metric-jet selection        PASS on LRR
+A5 3-manifold certifier                     PASS implementation
+production global spatial complex           OPEN INPUT
+production inter-leaf matching field        OPEN INPUT
+TIR x IDT x RFC global spacetime/ADM join   OPEN
+Einstein constraint/evolution closure       OPEN downstream
+```
+
+## 6. Coefficient and Standard-Model correction state
+
+The old coarse coefficient-magnitude gate has been split after source audit. The historical integration lineage already declares the magnitude-parent expressions, and the closed upstream integers
+
+\[
+N_F=3,\qquad (L_3,L_4,L_5)=(7,2,5)
+\]
+
+make their arithmetic evaluation unique:
+
+\[
+\boxed{M(P_e)=(1,3,1,1)},
+\qquad
+\boxed{M(P_{e\mu})=(0,5,2,8)},
+\qquad
+\boxed{M(P_{\mu\tau})=(0,3,1,7)}.
+\]
+
+Canonical source:
+
+`TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md`.
+
+Validator:
+
+`TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py`.
+
+Status: `COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT`.
+
+The residual non-circular gate is
+
+`COEFFICIENT_TRANSITION_PARENT_SELECTOR = OPEN`,
+
+because the transition-level parent packet still has to be selected from coefficient-free geometry/routing before reading a recovered tuple or mass/Yukawa target.
+
+Other open structural work:
+
+```text
+coefficient transition parent selector
+W_ij -> continuum gauge connection/curvature normalization
+common electroweak R_EW(mu,scheme) transport
+Higgs scalar/action binding
+hypercharge source/uniqueness theorem
+scheme/scale-defined quark mass map
+neutrino absolute-action repair
+meson absolute-action baseline
+strong-CP holonomic/topological source theorem
+cosmological dimensionful scale/rho_crit binding
+```
+
+Retained empirical states include charged-lepton precision `FAIL`, PMNS reactor-angle `TENSION`, electroweak/fine-structure/Higgs precision failures or tensions in the frozen matrix, pion/kaon printed-formula `FAIL`, and the neutron-EDM `FAIL` generated by the frozen legacy strong-CP map.
+
+Canonical reconciliation ledger:
+
+`TIR/standard_model/TIR_SM_RECONCILIATION_LEDGER_V0_1.md`.
+
+## 7. Collatz–Fubini–Study relational phase
+
+The merged interface
+
+`TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md`
+
+imports the conditional discrete phase relation
+
+\[
+q(Cn)=2q(n)\pmod1,
+\qquad
+\zeta_C(Cn)=\zeta_C(n)^2,
+\]
+
+and types an explicit projective phase coordinate on a TIR relation. Projective `2pi` and optional spinorial `4pi` carriers remain distinct.
+
+Status:
+
+`MATHEMATICAL_INTERFACE_ADDED / PHYSICAL_BINDING_OPEN`.
+
+No validated identification with elapsed time, energy, mass, transition strength, spectroscopy, chemistry or gravity is implied by the interface theorem.
+
+## 8. Secret-of-a-Half / critical-axis boundary
+
+The exact half-axis and negative-inverse identities remain available as interfaces. The current critical-axis stack contains exact reductions and conditional positive corridors, but its global strict-positivity/nondegeneracy premises remain open. The integrated solver explicitly requires
+
+`riemann_hypothesis_in_closure = false`.
+
+Therefore:
+
+```text
+RH = OPEN
+native Li/Weil positivity = OPEN
+global strict transverse positivity/convexity = OPEN_RH_EQUIVALENT_CRITERION
+global kernel nondegeneracy / equivalent bridges = OPEN
+```
+
+Negative controls and failed candidates remain part of the evidence record.
 
 ## 9. Completion frontier
 
-Canonical frontier:
+The current cross-program frontier is
 
-`TIR/TIR_COMPLETION_FRONTIER_V0_4.md`.
+`TIR/TIR_COMPLETION_FRONTIER_V0_7.md`.
 
-GR/global-geometry line:
-
-```text
-Universal-Loop discrete torsion source binding
- -> discrete-solder / rotational-holonomy continuum refinement
- -> T^a=0 spatial GR sector
- -> TIR x IDT ADM join
- -> Einstein constraint/evolution derivation from joined action
-```
-
-Parallel TIR completion line:
+The highest-priority unresolved gates are now:
 
 ```text
-four coefficient magnitudes
- -> deterministic GREMLIN gluing promotion
- -> Standard-Model dynamical maps
- -> native-closure / Li-Weil positivity
- -> dimensional, unit and statistical certification
+production global spatial complex
++ production inter-leaf matching field
+-> global TIR-IDT-RFC spacetime/ADM admission
+-> Einstein system closure
+
+coefficient magnitude parent evaluation       CLOSED_EXACT
+-> coefficient transition parent selector     OPEN
++ continuum gauge normalization               OPEN
+-> electroweak scheme/scale closure
+-> scalar/Higgs, strong-CP, meson, neutrino and quark-map closures
+
+native critical-axis positivity/nondegeneracy
+-> RH-equivalent global closure (still OPEN)
 ```
 
-## 10. Reproducibility invariant
+## 10. Publication synchronization
 
-Every PASS belongs to the exact commit tested. Claim promotion follows the evidence class of the specific theorem, validator or observable.
+The v12.1 audit surface is
 
-The integrated workflow remains
+`TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md`.
 
-`.github/workflows/tir-integrated-kappa-critical-axis.yml`.
+The corrected monograph passed the exact-head v12.1 validation/build/preflight on `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` and was promoted through PR #128 as merge commit `3a31da6ebeded16d4f48345de62c974870f76694`.
+
+The synchronization is validated by
+
+`TIR/validation/tir_v12_1_repository_sync_audit.py`
+
+in addition to the existing v12 source, evidence and appendix gates.
+
+## 11. Reproducibility invariant
+
+Every `PASS` belongs to the exact theorem assumptions, source revision and validator named by its receipt. A mathematical or software `PASS` never silently promotes a physical observable. `FAIL`, `TENSION`, `OPEN` and `QUARANTINED` evidence remains visible until a separately versioned gate supersedes it.

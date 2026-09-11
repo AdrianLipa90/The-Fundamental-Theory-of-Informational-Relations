@@ -6,14 +6,15 @@
 % - TIR/monograph/chapters/ch17_neutrino_masses.tex
 % - TIR/monograph/chapters/ch30_parameter_summary.tex
 % - TIR/monograph/chapters/ch32_pdg2026_validation_addendum.tex
+% - TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md
 % Validator: TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py
 \chapter{Charged Leptons and Neutrinos}
 \label{ch:v12_leptons_neutrinos}
 
 \paragraph{Established context.}
 Charged-lepton masses and neutrino oscillation observables are externally
-measured quantities.  The TIR relations collected here are sector constructions
-built over the upstream normalization and coefficient architecture.  Current
+measured quantities. The TIR relations collected here are sector constructions
+built over the upstream normalization and coefficient architecture. Current
 external-data comparison is centralized in Chapter~\ref{ch:v12_evidence_matrix}
 rather than repeated in this chapter.
 
@@ -29,8 +30,12 @@ where $E_P$ is an explicit external scale and $\kappa$ is the structural
 normalization of Chapter~\ref{ch:v12_kappa_normalization}.
 
 \vTwelveStatus{B}{--}{OPEN}
-The action architecture is tested sector by sector; its coefficient-magnitude
-closure remains linked to the frontier in Chapter~\ref{ch:v12_action_coefficients}.
+The parent-count arithmetic for the three historical charged-lepton coefficient
+packets is now closed exactly in
+Chapter~\ref{ch:v12_action_coefficients}. What remains open upstream is the
+coefficient-free transition-parent selector, followed by the physical binding
+and empirical test of the action-to-mass map. A parent-evaluation PASS does not
+change the charged-lepton precision verdict below.
 
 \section{Charged-lepton action family}
 The historical electron action is
@@ -119,14 +124,14 @@ S_1^{\rm rec}=S_{\rm bare}+dS.
 \end{equation}
 The deterministic diagnostic
 \path{TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py}
-checks both equations.  Literal evaluation of the printed double-$\kappa$ rule
+checks both equations. Literal evaluation of the printed double-$\kappa$ rule
 moves all three printed masses by approximately $4.088\%$, whereas
 Eq.~\eqref{eq:v12-neutrino-reconciled-S1} reproduces the historical mass triplet
 to the displayed rounding precision.
 
 \vTwelveStatus{D}{RETROSPECTIVE}{PASS}
 This is a formula/value consistency diagnosis and reconstruction of the
-historical calculation path.  It does not promote the reconstructed relation to
+historical calculation path. It does not promote the reconstructed relation to
 an upstream structural theorem.
 
 \section{Neutrino ratio pattern}
@@ -169,6 +174,6 @@ separately in Chapter~\ref{ch:v12_evidence_matrix}.
 \section{Separation from flavour mixing}
 PMNS angles and CP phase are not folded into the present mass-action chapter.
 They are owned by Chapter~\ref{ch:v12_ckm_pmns}, where the three-flavour carrier
-of Chapter~\ref{ch:v12_three_flavour_su3} is already available upstream.  This
+of Chapter~\ref{ch:v12_three_flavour_su3} is already available upstream. This
 keeps neutrino mass-scale construction distinct from the flavour-mixing
 observable matrix.
