@@ -23,6 +23,7 @@ def add(a: tuple[Fraction, Fraction, Fraction], b: tuple[Fraction, Fraction, Fra
 
 
 def build_receipt() -> dict[str, object]:
+    # Exact 3-4-5 unit-radius certificate already used by the physical-state theorem.
     a = (Fraction(3, 5), Fraction(0), Fraction(0))
     b = (Fraction(0), Fraction(4, 5), Fraction(0))
     c = add(a, b)
@@ -32,21 +33,25 @@ def build_receipt() -> dict[str, object]:
     pyth_dimensionless = q(c) == q(a) + q(b) == Fraction(1)
     pyth_calibrated = scaled_q(c, lstar) == scaled_q(a, lstar) + scaled_q(b, lstar)
 
+    # Ratio invariance under a common positive calibration.
     u = (Fraction(1), Fraction(0), Fraction(0))
     v = (Fraction(0), Fraction(2), Fraction(0))
     ratio_q_dimensionless = q(v) / q(u)
     ratio_q_physical = scaled_q(v, lstar) / scaled_q(u, lstar)
     ratio_invariant = ratio_q_dimensionless == ratio_q_physical == Fraction(4)
 
+    # Orthogonality survives calibration because the metric is multiplied by L_*^2.
     orthogonal_dimensionless = dot(u, v) == 0
     orthogonal_physical = lstar * lstar * dot(u, v) == 0
 
+    # Reference calibration inversion: choose a unit dimensionless reference relation.
     e_ref = c
     q_ref = q(e_ref)
     ell_ref_squared = lstar * lstar * q_ref
     recovered_lstar_squared = ell_ref_squared / q_ref
     calibration_inverse_exact = recovered_lstar_squared == lstar * lstar
 
+    # Physical single-edge coefficient radius is 2, so calibrated max squared length is 4 L_*^2.
     edge_boundary = (Fraction(2), Fraction(0), Fraction(0))
     edge_boundary_q = q(edge_boundary)
     physical_edge_max_squared = scaled_q(edge_boundary, lstar)
