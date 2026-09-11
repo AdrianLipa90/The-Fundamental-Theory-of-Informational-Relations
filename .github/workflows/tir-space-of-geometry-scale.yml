@@ -56,7 +56,7 @@ jobs:
           test -s TIR/subrepos/the-space-of-geometry/foundations/PHYSICAL_LENGTH_SCALE_CALIBRATION_V0_1.md
           test -s TIR/subrepos/the-space-of-geometry/validation/physical_length_scale_calibration_v0_1.py
           grep -Fq 'DERIVE_OR_BIND_L_STAR_SOURCE' TIR/subrepos/the-space-of-geometry/RESEARCH_SPINE_V0_11.md
-          grep -Fq 'g_{\\rm phys}=L_*^2 g_0' TIR/subrepos/the-space-of-geometry/foundations/PHYSICAL_LENGTH_SCALE_CALIBRATION_V0_1.md
+          grep -Fq 'g_{\rm phys}:=L_*^2 g_0' TIR/subrepos/the-space-of-geometry/foundations/PHYSICAL_LENGTH_SCALE_CALIBRATION_V0_1.md
 
       - name: Upload scale receipt
         uses: actions/upload-artifact@v4
