@@ -55,11 +55,74 @@ def radian_holonomy(phi: float) -> complex:
     return cmath.exp(1j * phi)
 
 
+def berry_turn_phase(sigma: Fraction | int) -> Fraction:
+    """Return the normalized Berry phase class for the latitude convention used by TIR.
+
+    The radian phase is gamma_B = -2*pi*(1-sigma), so gamma_B/(2*pi)
+    is exactly -(1-sigma) mod 1.  No numerical value of pi is required.
+    """
+    p = as_fraction(sigma)
+    if p < 0 or p > 1:
+        raise ValueError("sigma must lie in [0, 1]")
+    return mod_one(-(1 - p))
+
+
+def aharonov_bohm_turn_phase(flux_ratio: Fraction | int) -> Fraction:
+    """Return the normalized AB phase class q_AB = Phi/Phi_0 mod 1.
+
+    In the standard convention gamma_AB = 2*pi*(Phi/Phi_0).  The flux ratio
+    is therefore the intrinsic turn coordinate of the U(1) holonomy.
+    """
+    return mod_one(as_fraction(flux_ratio))
+
+
 def spinor_sheet_sign(projective_winding: int) -> int:
     """Spin-1/2 sheet sign after an integer number of projective recurrences."""
     if not isinstance(projective_winding, int):
         raise TypeError("projective_winding must be an integer")
     return -1 if projective_winding % 2 else 1
+
+
+def mixing_channel_count(n_flavours: int = 3) -> int:
+    """Return N_F * dim(su(N_F)) = N_F*(N_F^2-1)."""
+    if not isinstance(n_flavours, int):
+        raise TypeError("n_flavours must be an integer")
+    if n_flavours < 2:
+        raise ValueError("n_flavours must be at least 2")
+    return n_flavours * (n_flavours * n_flavours - 1)
+
+
+def normalized_mixing_measure(n_flavours: int = 3) -> Fraction:
+    """Total normalized-turn measure for one half-turn per mixing channel."""
+    return Fraction(mixing_channel_count(n_flavours), 2)
+
+
+def ln2_per_normalized_mixing_turn_factor(n_flavours: int = 3) -> Fraction:
+    """Exact rational factor multiplying ln(2) in the normalized-turn coefficient."""
+    return Fraction(1, 1) / normalized_mixing_measure(n_flavours)
+
+
+def radian_kappa_from_normalized_structure(n_flavours: int = 3) -> float:
+    """Evaluate the radian coefficient obtained from the normalized TIR structure."""
+    turn_factor = ln2_per_normalized_mixing_turn_factor(n_flavours)
+    return math.log(2.0) * float(turn_factor) / TAU
+
+
+def structural_kappa_certificate(n_flavours: int = 3) -> dict[str, object]:
+    """Return exact structural factors and the radian conversion witness."""
+    channels = mixing_channel_count(n_flavours)
+    half_turn = Fraction(1, 2)
+    measure = normalized_mixing_measure(n_flavours)
+    turn_factor = ln2_per_normalized_mixing_turn_factor(n_flavours)
+    return {
+        "n_flavours": n_flavours,
+        "mixing_channels": channels,
+        "normalized_half_turn": half_turn,
+        "normalized_mixing_measure": measure,
+        "ln2_per_normalized_turn_factor": turn_factor,
+        "radian_jacobian": "1/(2*pi)",
+        "radian_kappa": radian_kappa_from_normalized_structure(n_flavours),
+    }
 
 
 def rational_cycle_certificate(order: int) -> dict[str, object]:

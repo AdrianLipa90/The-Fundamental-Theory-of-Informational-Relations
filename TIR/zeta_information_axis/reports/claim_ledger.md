@@ -98,3 +98,26 @@ The v0.1 entries above are historical and are not rewritten. The v0.2 records be
 - **Current `kappa` chain: `pi` is a coordinate Jacobian factor conditional on C-023.**
 - **Nonlocality causal claim: OPEN / NOT ESTABLISHED.**
 - **C-018, C-007 and C-008 remain OPEN.**
+
+## v0.5 Berry–AB normalized closure and κ structural reconciliation
+
+| ID | Claim | Status | Falsification / open debt |
+|---|---|---|---|
+| C-040 | In the latitude convention already used by this module, `gamma_B=-2*pi*(1-sigma)` implies the exact normalized Berry class `q_B=gamma_B/(2*pi)=-(1-sigma) mod 1`; at `sigma=1/2`, `q_B=1/2` and the holonomy is `-1`. | STANDARD THEOREM / EXECUTABLE PASS | This is a normalized form of the existing Berry result, not a new physical mechanism. |
+| C-041 | With flux quantum `Phi_0=h/Q`, the Aharonov–Bohm phase `gamma_AB=2*pi*(Phi/Phi_0)` has exact normalized class `q_AB=Phi/Phi_0 mod 1`; half a flux quantum gives `q_AB=1/2` and holonomy `-1`. | STANDARD THEOREM / EXECUTABLE PASS | Sign conventions for charge/orientation may reverse the representative but not the half-turn class modulo 1. |
+| C-042 | Balanced Berry transport and half-flux AB transport occupy the same `U(1)` quotient class `q=1/2` and therefore have the same holonomy `-1`. | STRUCTURAL THEOREM | This does not identify the Berry connection with the electromagnetic gauge potential. |
+| C-043 | Under the already canonical parent-TIR premises `N_F=3`, `dim su(3)=8`, and one normalized half-turn per mixing channel, `N_mix=24` and the total normalized mixing measure is `Q_mix=24*(1/2)=12`. | TIR-INTERNAL EXACT STRUCTURAL CONSEQUENCE | Depends on the parent TIR flavour-mixing carrier and channel definition; it is not an external Standard Model theorem. |
+| C-044 | With `I_*=ln(2)`, C-043 yields the normalized information coefficient `kappa_q=I_*/Q_mix=ln(2)/12`; this supplies the independent structural derivation that historical C-023 lacked. | TIR-INTERNAL DERIVED STRUCTURAL NORMALIZATION | Physical interpretation of the information-phase law remains a TIR Class-B premise, not Class-A established physics. |
+| C-045 | The standard radian chart `phi=2*pi*q` maps `kappa_q=ln(2)/12` to `kappa_phi=kappa_q/(2*pi)=ln(2)/(24*pi)`. | EXACT COORDINATE CONSEQUENCE | `pi` enters here as the turn-to-radian Jacobian/scale, not as an intrinsic quotient-closure obstruction. |
+| C-046 | For the κ normalization itself, prospective candidate status is unnecessary inside the TIR dependency graph: the live parent hierarchy already classifies it as Class B, `TIR-internal derived structural normalization`; unrelated Class-E predictions are unaffected. | CLASSIFICATION RECONCILIATION | External empirical universality remains a separate evidence question. |
+| C-047 | Normalizing Berry/AB and structurally closing κ does not derive canonical zeta zerohood, the zero-state representation, or the Riemann hypothesis. | LOGICAL FIREWALL | C-018, C-007 and C-008 remain OPEN. |
+
+### v0.5 verdict
+
+- **Berry normalized closure: PASS.** The balanced loop is intrinsically the half-turn class `1/2`; `pi` is its radian representative.
+- **Aharonov–Bohm normalized closure: PASS.** Flux ratio `Phi/Phi_0` is the exact turn coordinate; half flux is the same class `1/2`.
+- **Common Berry/AB holonomy class: PASS, physical-potential identification NOT CLAIMED.**
+- **Historical C-023 debt: structurally superseded inside TIR by C-043/C-044.** The parent flavour-mixing construction forces 24 half-turn channels = 12 normalized turns.
+- **κ normalized form: `ln(2)/12`; radian form: `ln(2)/(24*pi)`.** The latter is the coordinate image under `phi=2*pi*q`.
+- **κ internal candidate status: superseded by Class-B structural status.** This is an internal taxonomy result, not a claim of external empirical proof.
+- **C-018, C-007 and C-008 remain OPEN.**
