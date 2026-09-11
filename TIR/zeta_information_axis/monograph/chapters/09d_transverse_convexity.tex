@@ -1,0 +1,141 @@
+\chapter{Complex Laguerre geometry and transverse convexity}\label{ch:transverse-convexity}
+
+\section{Classical theorem route}
+
+The XF-4 scalar admits a second theorem-level interpretation that is independent of the Dimitrov--Xu density route.  Csordas and Varga developed necessary and sufficient Laguerre conditions for the Riemann Xi function, and Csordas and Escassut state the complex Laguerre criterion in a form that makes its geometry explicit \cite{CsordasVarga1990,CsordasEscassut2005}.
+
+Let
+\[
+\Xi(z)=\xi\!\left(\frac12+iz\right),
+\qquad z=x+iy.
+\]
+The completed Xi function is real entire of order one, and its zeros lie in the horizontal strip $|\Im z|<1/2$ before any RH specialization.  Thus Xi belongs to the strip class required by the complex Laguerre criterion.
+
+\section{Transverse curvature identity}
+
+Define
+\begin{equation}\label{eq:xf5-modulus-surface}
+M(x,y)=|\Xi(x+iy)|^2.
+\end{equation}
+For a real entire function,
+\[
+\overline{\Xi(x+iy)}=\Xi(x-iy).
+\]
+Using
+\[
+\partial_y\Xi(x+iy)=i\Xi'(x+iy),
+\qquad
+\partial_y^2\Xi(x+iy)=-\Xi''(x+iy),
+\]
+direct differentiation of Eq.~\eqref{eq:xf5-modulus-surface} gives
+\begin{align}
+\partial_y^2M(x,y)
+={}&2|\Xi'(x+iy)|^2\\
+&-2\Ree\!\left[
+\Xi(x+iy)\overline{\Xi''(x+iy)}
+\right].
+\end{align}
+With the XF-4 scalar $Q_\Xi$ from Eq.~\eqref{eq:q-xi-definition},
+\begin{equation}\label{eq:xf5-curvature-identity}
+\boxed{
+\partial_y^2|\Xi(x+iy)|^2=2Q_\Xi(x,y).
+}
+\end{equation}
+The repository records Eq.~\eqref{eq:xf5-curvature-identity} as \status{EXACT\_PASS}.
+
+\section{Complex Laguerre criterion}
+
+For a real entire function $f$ in the strip class $S(A)$, the classical complex Laguerre criterion states
+\begin{equation}\label{eq:complex-laguerre-general}
+f\in\mathcal{LP}
+\iff
+|f'(z)|^2
+\ge
+\Ree\!\left[f(z)\overline{f''(z)}\right]
+\qquad\forall z\in\mathbb C.
+\end{equation}
+Csordas and Escassut explicitly identify the geometric content of Eq.~\eqref{eq:complex-laguerre-general}: for every fixed real $x$, the function $|f(x+iy)|^2$ is convex in $y$ \cite{CsordasEscassut2005}.
+
+Applying Eq.~\eqref{eq:complex-laguerre-general} to Xi and using Eq.~\eqref{eq:xf5-curvature-identity} yields
+\begin{equation}\label{eq:xi-lp-convexity}
+\boxed{
+\Xi\in\mathcal{LP}
+\iff
+\partial_y^2|\Xi(x+iy)|^2\ge0
+\quad\forall x,y\in\mathbb R.
+}
+\end{equation}
+
+\section{RH equivalence}
+
+For the Riemann Xi function, membership in the Laguerre--Pólya class is equivalent to all Xi zeros being real, hence to RH.  Therefore Eq.~\eqref{eq:xi-lp-convexity} gives the classical geometric criterion
+\begin{theorem}[Transverse-convexity criterion]\label{thm:xf5-transverse-convexity}
+Under the standard real-entire strip-class hypotheses for Xi,
+\begin{equation}\label{eq:xf5-rh-convexity}
+\boxed{
+\mathrm{RH}
+\iff
+\forall x,y\in\mathbb R:\quad
+\partial_y^2|\Xi(x+iy)|^2\ge0.
+}
+\end{equation}
+Equivalently,
+\begin{equation}\label{eq:xf5-rh-q-nonnegative}
+\boxed{
+\mathrm{RH}
+\iff
+Q_\Xi(x,y)\ge0
+\quad\forall x,y\in\mathbb R.
+}
+\end{equation}
+\end{theorem}
+
+The equivalence in Theorem~\ref{thm:xf5-transverse-convexity} is classified \status{STANDARD}.  The universally quantified curvature condition is classified
+\[
+\status{OPEN\_RH\_EQUIVALENT\_CRITERION}.
+\]
+
+\section{Relation to the Wiener--Laguerre route}
+
+Theorem~\ref{thm:wiener-laguerre-rh} gives, through Dimitrov--Xu and Wiener,
+\[
+\mathrm{RH}
+\iff
+Q_\Xi(x,y)>0
+\quad
+\forall x\in\mathbb R,
+\quad0<|y|<\frac12.
+\]
+The complex Laguerre theorem gives instead
+\[
+\mathrm{RH}
+\iff
+Q_\Xi(x,y)\ge0
+\quad
+\forall x,y\in\mathbb R.
+\]
+The distinction at $y=0$ is essential: the real-axis Laguerre expression may vanish at a multiple real zero, whereas the XF-4 criterion is posed away from the real axis and uses strict positivity.
+
+Thus XF-4 and XF-5 provide two independently sourced theorem routes to the same scalar.  The repository preserves both provenance chains in the typed solver.
+
+\section{Executable check}
+
+The function
+\begin{center}
+\texttt{xi\_transverse\_modulus\_curvature(x, y)}
+\end{center}
+returns the analytic expression $2Q_\Xi(x,y)$.  The regression suite independently differentiates $|\Xi(x+iy)|^2$ twice with respect to $y$ at reference points and checks agreement with Eq.~\eqref{eq:xf5-curvature-identity}.
+
+Finite evaluations retain \status{NUMERICAL\_DIAGNOSTIC} authority.  The global criterion in Eq.~\eqref{eq:xf5-rh-convexity} remains the analytic frontier.
+
+\section{Next structural target}
+
+The new representation changes the form of the open obligation from Fourier nonvanishing to curvature positivity:
+\begin{equation}\label{eq:xf5-frontier}
+\boxed{
+\partial_y^2|\Xi(x+iy)|^2\ge0
+\quad
+\text{for every }(x,y)\in\mathbb R^2.
+}
+\end{equation}
+A useful next step must therefore derive this sign from an independently controlled structure, for example a positive kernel representation, total positivity, or a positive operator form whose quadratic form equals the transverse curvature.
