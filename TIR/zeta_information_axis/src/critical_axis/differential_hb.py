@@ -28,7 +28,7 @@ from dataclasses import dataclass
 
 import mpmath as mp
 
-from .correlation_kernel import xi_laguerre_quantity
+from .correlation_kernel import even_riemann_phi, xi_laguerre_quantity
 from .xi_kernel import completed_xi_on_z_axis
 
 
@@ -103,3 +103,47 @@ def xi_integrated_laguerre_margin(x: float | mp.mpf, y: float | mp.mpf) -> mp.mp
     if yy == 0:
         return mp.mpf("0")
     return 4 * mp.quad(lambda v: xi_laguerre_quantity(mp.mpc(xx, v)), [0, yy])
+
+
+def xi_autocorrelation_slice_transform(
+    a: float | mp.mpf,
+    x: float | mp.mpf,
+    *,
+    max_terms: int = 12,
+    cutoff: float | mp.mpf = 4,
+) -> mp.mpf:
+    r"""Finite diagnostic for the XF-8A slice transform \hat K_a(x).
+
+    Analytically,
+
+        K_a(t) = Phi_e(a+t/2) Phi_e(a-t/2),
+        \hat K_a(x) = integral_R K_a(t) cos(x t) dt.
+
+    The exact integral runs over R and uses the full Xi-kernel series. This
+    helper exposes both a finite kernel-series truncation and a finite t cutoff
+    and therefore carries NUMERICAL_DIAGNOSTIC status only.
+    """
+    aa = mp.mpf(a)
+    xx = mp.mpf(x)
+    radius = mp.mpf(cutoff)
+    if aa < 0:
+        raise ValueError("slice coordinate a must be nonnegative")
+    if int(max_terms) < 1:
+        raise ValueError("max_terms must be positive")
+    if radius <= 0:
+        raise ValueError("cutoff must be positive")
+
+    def integrand(t: mp.mpf) -> mp.mpf:
+        return (
+            even_riemann_phi(aa + t / 2, max_terms=max_terms)
+            * even_riemann_phi(aa - t / 2, max_terms=max_terms)
+            * mp.cos(xx * t)
+        )
+
+    anchors = [mp.mpf("0")]
+    for point in ("0.5", "1", "1.5", "2", "3"):
+        p = mp.mpf(point)
+        if p < radius:
+            anchors.append(p)
+    anchors.append(radius)
+    return 2 * mp.quad(integrand, anchors)
