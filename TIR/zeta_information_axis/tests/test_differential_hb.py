@@ -4,6 +4,7 @@ import mpmath as mp
 import pytest
 
 from critical_axis.differential_hb import (
+    xi_autocorrelation_slice_transform,
     xi_differential_hb_margin,
     xi_differential_hb_pair,
     xi_integrated_laguerre_margin,
@@ -63,3 +64,25 @@ def test_reference_upper_half_plane_margins_are_positive_diagnostics_only() -> N
     # RH-equivalent strict-margin condition.
     for z in (mp.mpc("0", "0.1"), mp.mpc("10", "0.1"), mp.mpc("17", "0.1")):
         assert xi_differential_hb_margin(z) > 0
+
+
+def test_xf8a_slice_wise_positive_definiteness_route_has_counterexample() -> None:
+    # This falsifies only the deliberately stronger slice-by-slice sufficient
+    # route from XF-8A. It does not falsify positivity of the integrated H_y
+    # kernel or the RH-equivalent differential margin.
+    value = xi_autocorrelation_slice_transform(
+        mp.mpf("0.1"),
+        mp.mpf("12"),
+        max_terms=12,
+        cutoff=4,
+    )
+    assert value < mp.mpf("-1e-5")
+
+
+def test_slice_transform_controls_fail_closed() -> None:
+    with pytest.raises(ValueError):
+        xi_autocorrelation_slice_transform(-1, 1)
+    with pytest.raises(ValueError):
+        xi_autocorrelation_slice_transform(0, 1, max_terms=0)
+    with pytest.raises(ValueError):
+        xi_autocorrelation_slice_transform(0, 1, cutoff=0)
