@@ -8,12 +8,13 @@ from critical_axis.differential_hb import (
     xi_differential_hb_pair,
     xi_integrated_laguerre_margin,
     xi_modulus_y_derivative,
+    xi_weyl_log_derivative,
 )
 from critical_axis.xi_kernel import zeta_s_to_xi_z
 
 
 @pytest.fixture(autouse=True)
-def _xf6_precision():
+def _xf8_precision():
     with mp.workdps(50):
         yield
 
@@ -38,6 +39,14 @@ def test_hb_margin_matches_integrated_laguerre_curvature() -> None:
     margin = xi_differential_hb_margin(mp.mpc(x, y))
     integrated = xi_integrated_laguerre_margin(x, y)
     assert abs(margin - integrated) < mp.mpf("1e-30")
+
+
+def test_hb_margin_matches_weyl_herglotz_form() -> None:
+    z = mp.mpc("10", "0.1")
+    pair = xi_differential_hb_pair(z)
+    m_xi = xi_weyl_log_derivative(z)
+    rhs = 4 * abs(pair.xi) ** 2 * mp.im(m_xi)
+    assert abs(pair.margin - rhs) < mp.mpf("1e-40")
 
 
 def test_first_known_simple_zero_has_pi_boundary_phase() -> None:
