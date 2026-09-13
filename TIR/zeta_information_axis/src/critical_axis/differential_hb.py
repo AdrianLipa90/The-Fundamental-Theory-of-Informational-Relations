@@ -1,0 +1,149 @@
+"""Differential Hermite--Biehler bridge for the Riemann Xi programme.
+
+Let A(z)=Xi(z)=xi(1/2+i z), which is a real entire function. Define
+
+    E_D(z)      = A(z) + i A'(z),
+    E_D^#(z)    = A(z) - i A'(z).
+
+Then A=(E_D+E_D^#)/2 exactly. The Hermite--Biehler margin satisfies
+
+    |E_D|^2 - |E_D^#|^2
+      = 4 Im(A conjugate(A'))
+      = 2 d_y |A(x+i y)|^2
+      = 4 integral_0^y Q_Xi(x,v) dv.
+
+Away from Xi zeros the same margin can be written
+
+    |E_D|^2 - |E_D^#|^2 = 4 |Xi|^2 Im(-Xi'/Xi).
+
+Thus the global strict-margin target is equivalent to asking the canonical
+log-derivative m_Xi=-Xi'/Xi to map the upper half-plane into itself. The
+identities are exact; global Herglotz positivity remains RH-level and is not
+asserted by these numerical helpers.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+import mpmath as mp
+
+from .correlation_kernel import even_riemann_phi, xi_laguerre_quantity
+from .xi_kernel import completed_xi_on_z_axis
+
+
+@dataclass(frozen=True)
+class DifferentialHBPair:
+    z: mp.mpc
+    xi: mp.mpc
+    xi_prime: mp.mpc
+    e: mp.mpc
+    e_sharp: mp.mpc
+
+    @property
+    def margin(self) -> mp.mpf:
+        return abs(self.e) ** 2 - abs(self.e_sharp) ** 2
+
+    def theta(self) -> mp.mpc:
+        """Return E_D^#/E_D where defined."""
+        if self.e == 0:
+            raise ZeroDivisionError("differential HB quotient is undefined where E_D vanishes")
+        return self.e_sharp / self.e
+
+
+def xi_differential_hb_pair(z: complex | mp.mpc) -> DifferentialHBPair:
+    """Evaluate the canonical differential pair E_D=Xi+iXi'."""
+    zz = mp.mpc(z)
+    value = completed_xi_on_z_axis(zz)
+    first = mp.diff(completed_xi_on_z_axis, zz, 1)
+    return DifferentialHBPair(
+        z=zz,
+        xi=value,
+        xi_prime=first,
+        e=value + 1j * first,
+        e_sharp=value - 1j * first,
+    )
+
+
+def xi_differential_hb_margin(z: complex | mp.mpc) -> mp.mpf:
+    """Return |E_D|^2-|E_D^#|^2 at one point."""
+    return xi_differential_hb_pair(z).margin
+
+
+def xi_modulus_y_derivative(x: float | mp.mpf, y: float | mp.mpf) -> mp.mpf:
+    """Return d_y |Xi(x+i y)|^2 via the analytic first derivative."""
+    zz = mp.mpc(mp.mpf(x), mp.mpf(y))
+    value = completed_xi_on_z_axis(zz)
+    first = mp.diff(completed_xi_on_z_axis, zz, 1)
+    return 2 * mp.im(value * mp.conj(first))
+
+
+def xi_weyl_log_derivative(z: complex | mp.mpc) -> mp.mpc:
+    """Return m_Xi(z)=-Xi'(z)/Xi(z) away from Xi zeros.
+
+    Proving Im(m_Xi(z))>0 throughout Im(z)>0 is RH-equivalent for Xi and is
+    deliberately not inferred from finite evaluations.
+    """
+    zz = mp.mpc(z)
+    value = completed_xi_on_z_axis(zz)
+    if value == 0:
+        raise ZeroDivisionError("Xi logarithmic derivative is undefined at Xi zeros")
+    first = mp.diff(completed_xi_on_z_axis, zz, 1)
+    return -first / value
+
+
+def xi_integrated_laguerre_margin(x: float | mp.mpf, y: float | mp.mpf) -> mp.mpf:
+    """Numerically realize 4*integral_0^y Q_Xi(x,v) dv.
+
+    This is an identity check / diagnostic only. Finite numerical quadrature
+    does not establish the globally quantified RH-equivalent sign condition.
+    """
+    xx = mp.mpf(x)
+    yy = mp.mpf(y)
+    if yy == 0:
+        return mp.mpf("0")
+    return 4 * mp.quad(lambda v: xi_laguerre_quantity(mp.mpc(xx, v)), [0, yy])
+
+
+def xi_autocorrelation_slice_transform(
+    a: float | mp.mpf,
+    x: float | mp.mpf,
+    *,
+    max_terms: int = 12,
+    cutoff: float | mp.mpf = 4,
+) -> mp.mpf:
+    r"""Finite diagnostic for the XF-8A slice transform \hat K_a(x).
+
+    Analytically,
+
+        K_a(t) = Phi_e(a+t/2) Phi_e(a-t/2),
+        \hat K_a(x) = integral_R K_a(t) cos(x t) dt.
+
+    The exact integral runs over R and uses the full Xi-kernel series. This
+    helper exposes both a finite kernel-series truncation and a finite t cutoff
+    and therefore carries NUMERICAL_DIAGNOSTIC status only.
+    """
+    aa = mp.mpf(a)
+    xx = mp.mpf(x)
+    radius = mp.mpf(cutoff)
+    if aa < 0:
+        raise ValueError("slice coordinate a must be nonnegative")
+    if int(max_terms) < 1:
+        raise ValueError("max_terms must be positive")
+    if radius <= 0:
+        raise ValueError("cutoff must be positive")
+
+    def integrand(t: mp.mpf) -> mp.mpf:
+        return (
+            even_riemann_phi(aa + t / 2, max_terms=max_terms)
+            * even_riemann_phi(aa - t / 2, max_terms=max_terms)
+            * mp.cos(xx * t)
+        )
+
+    anchors = [mp.mpf("0")]
+    for point in ("0.5", "1", "1.5", "2", "3"):
+        p = mp.mpf(point)
+        if p < radius:
+            anchors.append(p)
+    anchors.append(radius)
+    return 2 * mp.quad(integrand, anchors)
