@@ -1,20 +1,25 @@
 """Differential Hermite--Biehler bridge for the Riemann Xi programme.
 
-Let A(z)=Xi(z)=xi(1/2+i z), which is a real entire function.  Define
+Let A(z)=Xi(z)=xi(1/2+i z), which is a real entire function. Define
 
     E_D(z)      = A(z) + i A'(z),
     E_D^#(z)    = A(z) - i A'(z).
 
-Then A=(E_D+E_D^#)/2 exactly.  The Hermite--Biehler margin satisfies
+Then A=(E_D+E_D^#)/2 exactly. The Hermite--Biehler margin satisfies
 
     |E_D|^2 - |E_D^#|^2
       = 4 Im(A conjugate(A'))
       = 2 d_y |A(x+i y)|^2
-      = 4 integral_0^y Q_Xi(x,v) dv,
+      = 4 integral_0^y Q_Xi(x,v) dv.
 
-where Q_Xi is the XF-5 Laguerre scalar.  The identities are exact; global
-strict positivity of the margin in the upper half-plane remains RH-level and
-is not asserted by these numerical helpers.
+Away from Xi zeros the same margin can be written
+
+    |E_D|^2 - |E_D^#|^2 = 4 |Xi|^2 Im(-Xi'/Xi).
+
+Thus the global strict-margin target is equivalent to asking the canonical
+log-derivative m_Xi=-Xi'/Xi to map the upper half-plane into itself. The
+identities are exact; global Herglotz positivity remains RH-level and is not
+asserted by these numerical helpers.
 """
 
 from __future__ import annotations
@@ -73,10 +78,24 @@ def xi_modulus_y_derivative(x: float | mp.mpf, y: float | mp.mpf) -> mp.mpf:
     return 2 * mp.im(value * mp.conj(first))
 
 
+def xi_weyl_log_derivative(z: complex | mp.mpc) -> mp.mpc:
+    """Return m_Xi(z)=-Xi'(z)/Xi(z) away from Xi zeros.
+
+    Proving Im(m_Xi(z))>0 throughout Im(z)>0 is RH-equivalent for Xi and is
+    deliberately not inferred from finite evaluations.
+    """
+    zz = mp.mpc(z)
+    value = completed_xi_on_z_axis(zz)
+    if value == 0:
+        raise ZeroDivisionError("Xi logarithmic derivative is undefined at Xi zeros")
+    first = mp.diff(completed_xi_on_z_axis, zz, 1)
+    return -first / value
+
+
 def xi_integrated_laguerre_margin(x: float | mp.mpf, y: float | mp.mpf) -> mp.mpf:
     """Numerically realize 4*integral_0^y Q_Xi(x,v) dv.
 
-    This is an identity check / diagnostic only.  Finite numerical quadrature
+    This is an identity check / diagnostic only. Finite numerical quadrature
     does not establish the globally quantified RH-equivalent sign condition.
     """
     xx = mp.mpf(x)
