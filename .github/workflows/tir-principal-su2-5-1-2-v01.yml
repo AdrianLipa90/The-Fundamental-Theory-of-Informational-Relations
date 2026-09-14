@@ -1,0 +1,33 @@
+name: TIR principal SU2 5|1|2 decomposition v0.1
+
+on:
+  push:
+    paths:
+      - 'TIR/foundations/TIR_PRINCIPAL_SU2_5_1_2_DECOMPOSITION_V0_1.md'
+      - 'TIR/validation/tir_principal_su2_5_1_2_v0_1.py'
+      - '.github/workflows/tir-principal-su2-5-1-2-v01.yml'
+      - 'TIR/foundations/TIR_DYNAMIC_IDENTITY_INVARIANT_V0_1.md'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE23_CHIRALITY_INTERTWINER_V0_1.md'
+  pull_request:
+    paths:
+      - 'TIR/foundations/TIR_PRINCIPAL_SU2_5_1_2_DECOMPOSITION_V0_1.md'
+      - 'TIR/validation/tir_principal_su2_5_1_2_v0_1.py'
+      - '.github/workflows/tir-principal-su2-5-1-2-v01.yml'
+      - 'TIR/foundations/TIR_DYNAMIC_IDENTITY_INVARIANT_V0_1.md'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE23_CHIRALITY_INTERTWINER_V0_1.md'
+  workflow_dispatch:
+
+jobs:
+  validate-principal-su2-5-1-2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact symbolic dependency
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Validate principal SU2 5|1|2 theorem
+        run: python TIR/validation/tir_principal_su2_5_1_2_v0_1.py
+      - name: Re-run DII validator
+        run: python TIR/validation/tir_dynamic_identity_invariant_v0_1.py
