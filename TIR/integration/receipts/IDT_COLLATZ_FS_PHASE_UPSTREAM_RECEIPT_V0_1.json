@@ -1,0 +1,17 @@
+{
+  "schema": "tir.idt-collatz-fs-phase-upstream-receipt/v0.1",
+  "source_repo": "AdrianLipa90/Informational-Dynamics-of-Time",
+  "source_branch": "main",
+  "source_commit": "f670e60112b578756a90a7b29a4f574c37a8c03f",
+  "source_document": "docs/IDT_COLLATZ_FS_TEMPORAL_PHASE_V0_1.md",
+  "source_document_blob_sha": "7cae714e86787b56cd64443553d397cb75d4e737",
+  "imported_map_type": "unreduced_collatz",
+  "even_rule": "n/2",
+  "odd_rule": "3n+1",
+  "parity_itinerary": "b_k(n)=C^k(n) mod 2",
+  "phase_shift": "q(Cn)=2q(n) mod 1",
+  "phase_map": "zeta_C(Cn)=zeta_C(n)^2",
+  "terminal_cycle_binding": "conditional",
+  "collatz_conjecture_claimed": false,
+  "frozen_for": "TIR_CP1_DYADIC_FRACTAL_GATE_V0_1"
+}
