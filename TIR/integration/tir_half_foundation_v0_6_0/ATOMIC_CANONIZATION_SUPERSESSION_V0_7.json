@@ -1,0 +1,44 @@
+{
+  "schema": "tir-half/atomic-assignment-canonization-supersession/v0.7",
+  "status": "PASS_FAIL_CLOSED_SUPERSESSION",
+  "date": "2026-09-14",
+  "base_main_sha": "91c6856c769be2429a0b1b15a935f31ee60b3714",
+  "historical_receipt": {
+    "path": "TIR/integration/tir_half_foundation_v0_6_0/ATOMIC_CANONIZATION_RECEIPT.json",
+    "blob_sha": "9f13b1bc659c8bd476bb1014036e12677422ad38",
+    "retained_unchanged": true
+  },
+  "active_precedence_source": {
+    "path": "TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE22_SEED_PRECEDENCE_V0_1.md",
+    "blob_sha": "8b46d863a519578201d08b94a510b88209f02f4e",
+    "seed_order": [[3, 5], [5, 7], [11, 13]],
+    "centers": [4, 6, 12],
+    "stopping_lengths": [2, 8, 9]
+  },
+  "superseding_theorem": {
+    "path": "TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_PRECEDENCE_FALSIFICATION_V0_2.md",
+    "blob_sha": "cc4b939a8190f9d3e712300099628c2386064e79",
+    "status": "EXACT_ACTIVE_PRECEDENCE_FALSIFICATION"
+  },
+  "runtime_helper": {
+    "path": "TIR/integration/tir_half_foundation_v0_6_0/atomic_assignment_operator.py",
+    "function": "retrospective_collatz_candidate",
+    "required_status": "FALSIFIED_UNDER_ACTIVE_STAGE22_PRECEDENCE_DO_NOT_PROMOTE",
+    "selector_promoted": false
+  },
+  "superseded_classifications": {
+    "collatz_stopping_sign_rule": "RETROSPECTIVE_CANDIDATE_NEEDS_PROSPECTIVE_TEST",
+    "collatz_destination_curvature_magnitude": "RETROSPECTIVE_CANDIDATE_UNDERDETERMINED"
+  },
+  "current_classifications": {
+    "collatz_stopping_sign_rule": "FALSIFIED_FOR_SECOND_ACTIVE_TRANSITION",
+    "collatz_destination_curvature_magnitude": "FALSIFIED_UNDER_ACTIVE_PRECEDENCE",
+    "coefficient_transition_parent_selector": "OPEN"
+  },
+  "proof_firewall": {
+    "mass_as_input": "FORBIDDEN",
+    "yukawa_as_input": "FORBIDDEN",
+    "known_coefficient_tuple_as_runtime_selector_input": "FORBIDDEN",
+    "retrospective_rule_promotion": "FORBIDDEN"
+  }
+}
