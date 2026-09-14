@@ -57,6 +57,15 @@ jobs:
           grep -Fq '"physical_promotion": false' ckm-projective-even-sector-selector-receipt-v0.3.json
           grep -Fq '"derive_additive_a_kappa_operator": true' ckm-projective-even-sector-selector-receipt-v0.3.json
 
+      - name: Validate clean noncommuting family pair v0.4
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_ckm_600cell_clean_noncommuting_family_pair_candidate_v0_4.py \
+            | tee ckm-600cell-clean-family-pair-receipt-v0.4.json
+          grep -Fq '"status": "PASS"' ckm-600cell-clean-family-pair-receipt-v0.4.json
+          grep -Fq '"physical_promotion": false' ckm-600cell-clean-family-pair-receipt-v0.4.json
+          grep -Fq '"clean_complex_holonomy_lift": true' ckm-600cell-clean-family-pair-receipt-v0.4.json
+
       - name: Upload exact-head receipts
         uses: actions/upload-artifact@v4
         with:
@@ -65,3 +74,4 @@ jobs:
             ckm-600cell-flag-incidence-receipt-v0.1.json
             ckm-600cell-a2-selector-receipt-v0.2.json
             ckm-projective-even-sector-selector-receipt-v0.3.json
+            ckm-600cell-clean-family-pair-receipt-v0.4.json
