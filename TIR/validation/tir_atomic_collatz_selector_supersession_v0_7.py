@@ -5,6 +5,7 @@ from __future__ import annotations
 import importlib.util
 import json
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 OPERATOR = ROOT / "TIR/integration/tir_half_foundation_v0_6_0/atomic_assignment_operator.py"
@@ -15,11 +16,17 @@ THEOREM = ROOT / "TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_PRECEDENCE
 
 
 def load_operator():
-    spec = importlib.util.spec_from_file_location("tir_atomic_assignment_operator", OPERATOR)
+    name = "tir_atomic_assignment_operator"
+    spec = importlib.util.spec_from_file_location(name, OPERATOR)
     if spec is None or spec.loader is None:
         raise RuntimeError("cannot load atomic assignment operator")
     module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    sys.modules[name] = module
+    try:
+        spec.loader.exec_module(module)
+    except Exception:
+        sys.modules.pop(name, None)
+        raise
     return module
 
 
