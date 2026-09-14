@@ -48,6 +48,15 @@ jobs:
           grep -Fq '"physical_promotion": false' ckm-600cell-a2-selector-receipt-v0.2.json
           grep -Fq '"unique_weyl_channel_label_binding": true' ckm-600cell-a2-selector-receipt-v0.2.json
 
+      - name: Validate projective even-sector base selector v0.3
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_ckm_projective_even_sector_selector_candidate_v0_3.py \
+            | tee ckm-projective-even-sector-selector-receipt-v0.3.json
+          grep -Fq '"status": "PASS"' ckm-projective-even-sector-selector-receipt-v0.3.json
+          grep -Fq '"physical_promotion": false' ckm-projective-even-sector-selector-receipt-v0.3.json
+          grep -Fq '"derive_additive_a_kappa_operator": true' ckm-projective-even-sector-selector-receipt-v0.3.json
+
       - name: Upload exact-head receipts
         uses: actions/upload-artifact@v4
         with:
@@ -55,3 +64,4 @@ jobs:
           path: |
             ckm-600cell-flag-incidence-receipt-v0.1.json
             ckm-600cell-a2-selector-receipt-v0.2.json
+            ckm-projective-even-sector-selector-receipt-v0.3.json
