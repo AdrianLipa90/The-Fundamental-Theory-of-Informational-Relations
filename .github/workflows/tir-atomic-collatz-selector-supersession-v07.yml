@@ -1,0 +1,43 @@
+name: TIR atomic Collatz selector supersession v0.7
+
+on:
+  push:
+    branches:
+      - main
+      - fix/deprecate-stale-collatz-selector-candidate-v0.1
+    paths:
+      - 'TIR/integration/tir_half_foundation_v0_6_0/atomic_assignment_operator.py'
+      - 'TIR/integration/tir_half_foundation_v0_6_0/ATOMIC_CANONIZATION_RECEIPT.json'
+      - 'TIR/integration/tir_half_foundation_v0_6_0/ATOMIC_CANONIZATION_SUPERSESSION_V0_7.json'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE22_SEED_PRECEDENCE_V0_1.md'
+      - 'TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_PRECEDENCE_FALSIFICATION_V0_2.md'
+      - 'TIR/validation/tir_atomic_collatz_selector_supersession_v0_7.py'
+      - '.github/workflows/tir-atomic-collatz-selector-supersession-v07.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'TIR/integration/tir_half_foundation_v0_6_0/atomic_assignment_operator.py'
+      - 'TIR/integration/tir_half_foundation_v0_6_0/ATOMIC_CANONIZATION_RECEIPT.json'
+      - 'TIR/integration/tir_half_foundation_v0_6_0/ATOMIC_CANONIZATION_SUPERSESSION_V0_7.json'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE22_SEED_PRECEDENCE_V0_1.md'
+      - 'TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_PRECEDENCE_FALSIFICATION_V0_2.md'
+      - 'TIR/validation/tir_atomic_collatz_selector_supersession_v0_7.py'
+      - '.github/workflows/tir-atomic-collatz-selector-supersession-v07.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-supersession:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate fail-closed selector supersession
+        run: python TIR/validation/tir_atomic_collatz_selector_supersession_v0_7.py
+      - name: Re-run selector identifiability gate
+        run: python TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py

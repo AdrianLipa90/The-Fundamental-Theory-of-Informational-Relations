@@ -120,15 +120,54 @@ def evaluate_orientation(state: AtomicGeometryState) -> dict[str, object]:
 
 
 def retrospective_collatz_candidate() -> dict[str, object]:
-    """Observation only; MUST NOT be consumed as canon without a prospective test."""
+    """Historical stopping-length selector receipt; explicitly fail-closed.
+
+    The original v0.6 observation used the earlier generation ordering with
+    stopping lengths 2 -> 9 -> 8. Stage 22 later fixed the active ordering to
+    centers (4, 6, 12), hence stopping lengths 2 -> 8 -> 9. Under that active
+    precedence both retrospective candidate rules are falsified by the already
+    recorded release packets. This function is retained only for provenance and
+    MUST NOT be consumed as a parent selector.
+    """
+
     def s(a: int, b: int) -> int:
-        return sign3(b-a)
+        return sign3(b - a)
+
     return {
-        "e_to_mu": {"ell_source": 2, "ell_destination": 9, "sign": s(2, 9), "candidate_abs_c": 8},
-        "mu_to_tau": {"ell_source": 9, "ell_destination": 8, "sign": s(9, 8), "candidate_abs_c": 7},
+        "legacy_precedence_observation": {
+            "e_to_mu": {
+                "ell_source": 2,
+                "ell_destination": 9,
+                "predicted_sign": s(2, 9),
+                "candidate_abs_c": 8,
+            },
+            "mu_to_tau": {
+                "ell_source": 9,
+                "ell_destination": 8,
+                "predicted_sign": s(9, 8),
+                "candidate_abs_c": 7,
+            },
+            "status": "HISTORICAL_RETROSPECTIVE_PATTERN_ONLY",
+        },
+        "active_stage22_precedence": {
+            "e_to_mu": {
+                "ell_source": 2,
+                "ell_destination": 8,
+                "predicted_sign": s(2, 8),
+                "candidate_abs_c": 7,
+            },
+            "mu_to_tau": {
+                "ell_source": 8,
+                "ell_destination": 9,
+                "predicted_sign": s(8, 9),
+                "candidate_abs_c": 8,
+            },
+        },
         "candidate_rules": [
             "sign_transition = sign(ell_destination-ell_source)",
             "abs(c) = ell_destination-1",
         ],
-        "status": "RETROSPECTIVE_PATTERN_ONLY_NOT_CANON",
+        "selector_promoted": False,
+        "status": "FALSIFIED_UNDER_ACTIVE_STAGE22_PRECEDENCE_DO_NOT_PROMOTE",
+        "superseding_theorem": "TIR_COEFFICIENT_TRANSITION_SELECTOR_PRECEDENCE_FALSIFICATION_V0_2",
     }
