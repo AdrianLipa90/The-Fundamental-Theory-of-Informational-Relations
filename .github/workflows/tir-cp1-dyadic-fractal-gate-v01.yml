@@ -1,0 +1,33 @@
+name: TIR CP1 dyadic fractal gate v0.1
+
+on:
+  push:
+    paths:
+      - 'TIR/foundations/TIR_CP1_DYADIC_FRACTAL_GATE_V0_1.md'
+      - 'TIR/validation/tir_cp1_dyadic_fractal_gate_v0_1.py'
+      - '.github/workflows/tir-cp1-dyadic-fractal-gate-v01.yml'
+      - 'TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md'
+      - 'TIR/foundations/TIR_PRINCIPAL_SU2_5_1_2_DECOMPOSITION_V0_1.md'
+  pull_request:
+    paths:
+      - 'TIR/foundations/TIR_CP1_DYADIC_FRACTAL_GATE_V0_1.md'
+      - 'TIR/validation/tir_cp1_dyadic_fractal_gate_v0_1.py'
+      - '.github/workflows/tir-cp1-dyadic-fractal-gate-v01.yml'
+      - 'TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md'
+      - 'TIR/foundations/TIR_PRINCIPAL_SU2_5_1_2_DECOMPOSITION_V0_1.md'
+  workflow_dispatch:
+
+jobs:
+  validate-cp1-dyadic-fractal-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate dyadic CP1 gate
+        run: python TIR/validation/tir_cp1_dyadic_fractal_gate_v0_1.py
+      - name: Install symbolic dependency for parent theorem
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Re-run principal SU2 5|1|2 validator
+        run: python TIR/validation/tir_principal_su2_5_1_2_v0_1.py
