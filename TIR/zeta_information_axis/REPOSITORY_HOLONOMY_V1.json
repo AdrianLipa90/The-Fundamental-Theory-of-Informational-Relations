@@ -1,0 +1,22 @@
+{
+  "schema": "tir.soh-repository-holonomy/v1",
+  "status": "ACTIVE_BACKLINK_CONTRACT",
+  "relationship": "CROSS_REPOSITORY_HOLONOMY_BACKLINK",
+  "local_repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+  "local_branch": "main",
+  "local_path": "TIR/zeta_information_axis",
+  "dedicated_repository": "AdrianLipa90/secret-of-a-half",
+  "dedicated_branch": "main",
+  "dedicated_alias": "1/2",
+  "embedded_source_preserved": true,
+  "recursive_submodule": false,
+  "physical_gitlink_direction": "secret-of-a-half -> TIR",
+  "scientific_claim_impact": "NONE",
+  "riemann_hypothesis_status": "OPEN",
+  "invariants": [
+    "Do not delete or move TIR/zeta_information_axis as a consequence of the cross-repository link.",
+    "Do not create a reciprocal TIR -> secret-of-a-half submodule; the TIR side is a declarative backlink only.",
+    "The dedicated repository may pin a TIR commit and expose this local path through a symlink alias.",
+    "Repository wiring does not promote, prove, or modify any mathematical claim."
+  ]
+}
