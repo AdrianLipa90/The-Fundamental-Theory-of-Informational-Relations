@@ -1,0 +1,41 @@
+name: TIR coefficient selector precedence falsification v0.2
+
+on:
+  push:
+    branches:
+      - main
+      - feat/coefficient-selector-precedence-falsification-v0.2
+    paths:
+      - 'TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_PRECEDENCE_FALSIFICATION_V0_2.md'
+      - 'TIR/validation/tir_coefficient_transition_selector_precedence_falsification_v0_2.py'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE22_SEED_PRECEDENCE_V0_1.md'
+      - 'TIR/integration/tir_half_foundation_v0_6_0/ATOMIC_ASSIGNMENT_CANONIZATION.md'
+      - 'TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md'
+      - 'TIR/foundations/TIR_DYNAMIC_IDENTITY_INVARIANT_V0_2.md'
+      - '.github/workflows/tir-coefficient-selector-precedence-falsification-v02.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_PRECEDENCE_FALSIFICATION_V0_2.md'
+      - 'TIR/validation/tir_coefficient_transition_selector_precedence_falsification_v0_2.py'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE22_SEED_PRECEDENCE_V0_1.md'
+      - 'TIR/integration/tir_half_foundation_v0_6_0/ATOMIC_ASSIGNMENT_CANONIZATION.md'
+      - 'TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md'
+      - 'TIR/foundations/TIR_DYNAMIC_IDENTITY_INVARIANT_V0_2.md'
+      - '.github/workflows/tir-coefficient-selector-precedence-falsification-v02.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-selector-falsification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate active-precedence selector falsification
+        run: python TIR/validation/tir_coefficient_transition_selector_precedence_falsification_v0_2.py
