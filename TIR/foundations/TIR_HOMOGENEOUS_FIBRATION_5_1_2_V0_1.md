@@ -1,6 +1,6 @@
 # TIR Homogeneous Fibration 5|1|2 v0.1
 
-Status: `EXACT_NESTED_HOMOGENEOUS_FIBRATION / EXACT_7_EQUALS_5_PLUS_2_TANGENT_SPLIT / EXACT_SO2_ISOTROPY_ROLE / EXACT_LOCAL_CP1_GOLDEN_MEAN_FRACTAL / GLOBAL_FRACTAL_SUBBUNDLE_NOT_DERIVED / PHYSICAL_HORIZON_NOT_CLAIMED`
+Status: `EXACT_NESTED_HOMOGENEOUS_FIBRATION / EXACT_7_EQUALS_5_PLUS_2_TANGENT_SPLIT / EXACT_SO2_ISOTROPY_ROLE / EXACT_LOCAL_CP1_GOLDEN_MEAN_FRACTAL / EXACT_TRIVIAL_AXIAL_ROTATION_STABILIZER / GLOBAL_FRACTAL_SUBBUNDLE_NOT_DERIVED / PHYSICAL_HORIZON_NOT_CLAIMED`
 
 Scope: pure compact Lie-group, homogeneous-space, and symbolic/projective dynamics. The words `base`, `fiber`, `vertical`, `horizontal`, and `isotropy` are used in their mathematical bundle sense. No spacetime horizon, causal boundary, cosmological surface, or physical dimensional reduction is asserted.
 
@@ -352,6 +352,44 @@ SO(2)\cdot K_C\neq K_C.
 
 The discrete Collatz/doubling dynamics preserves the fractal; the full continuous axial rotation symmetry does not.
 
+### 7.1 Exact axial setwise stabilizer
+
+The rotational symmetry can be sharpened completely. Since
+
+```math
+K_C\subset[0,2/3]
+```
+
+on the chosen circle coordinate, the complement contains the open arc
+
+```math
+G_\star=(2/3,1)
+```
+
+of length `1/3`.
+
+Inside the convex hull `[0,2/3]`, the first self-similar gap is
+
+```math
+(1/3,1/2)
+```
+
+of length `1/6`. Every remaining internal gap is an image of this gap under a finite composition of the contractions `x/2` and `1/2+x/4`; hence every descendant gap has length at most `1/6`, and in fact strictly less after at least one contraction.
+
+Therefore `G_*` is the **unique largest connected component** of `S1 \ K_C`.
+
+Any rotation preserving `K_C` setwise also preserves its complement and therefore must map the unique largest gap `G_*` to itself. An orientation-preserving circle rotation that maps the proper arc `(2/3,1)` to itself must fix its endpoints, hence has rotation angle `0 mod 1`.
+
+Thus
+
+```math
+\boxed{
+\operatorname{Stab}_{SO(2)}(K_C)=\{e\}.
+}
+```
+
+So within the axial rotation group there is no nontrivial residual continuous or finite rotational symmetry of the golden-mean set.
+
 ## 8. Consequence for a global fractal bundle
 
 The homogeneous fibration itself is canonical:
@@ -360,13 +398,15 @@ The homogeneous fibration itself is canonical:
 CP^1\hookrightarrow SU(3)/SO(2)\to SU(3)/SO(3).
 ```
 
-However, the subset `K_C` is not invariant under the full fiber isotropy/phase-rotation action. Therefore the present data do **not** define a canonical phase-frame-independent global subbundle whose fiber is `K_C`.
+However, the subset `K_C` is not invariant under the full fiber isotropy/phase-rotation action, and its setwise stabilizer inside that axial `SO(2)` is only the identity. Therefore the present data do **not** define a canonical phase-frame-independent global subbundle whose fiber is `K_C`.
+
+In particular, any attempt to patch local `K_C` phase sets using transition functions valued only in the axial `SO(2)` can preserve `K_C` only when those transition functions are identity-valued on overlaps. Equivalently, nontrivial axial holonomy cannot preserve the exact golden-mean set.
 
 To globalize the fractal one must additionally derive at least one of:
 
-1. a reduction of the relevant transport/structure symmetry to a subgroup preserving `K_C`;
-2. a distinguished global/local phase section with transition functions preserving `K_C`;
-3. a connection whose holonomy preserves the symbolic grammar;
+1. a distinguished phase trivialization/section compatible across the base;
+2. a larger non-axial geometric symmetry whose action preserves the embedded `K_C`;
+3. a connection whose holonomy lies in the actual setwise automorphism group of the embedded fractal;
 4. an independent intertwiner binding the symbolic branch grammar to the geometric `E7,E8` carrier.
 
 Until then,
@@ -420,6 +460,8 @@ This is a bundle-theoretic and projective-dynamical theorem. No physical identif
 | `K_C subset S1 subset CP1` with `dim_H K_C=log_2(phi)` | `EXACT_DOWNSTREAM` |
 | doubling map preserves `K_C` | `EXACT` |
 | full `SO(2)` rotation action preserves `K_C` | `FAIL` |
+| axial setwise stabilizer `Stab_SO2(K_C)` | `EXACT_TRIVIAL` |
+| nontrivial axial holonomy preserves `K_C` | `FAIL` |
 | canonical phase-independent global `K_C` subbundle | `OPEN` |
 | `E7,E8` literally equal symbolic inverse-branch labels | `NOT_CLAIMED` |
 | `E6` is a physical horizon | `NOT_CLAIMED` |
@@ -436,4 +478,5 @@ A deterministic validator must:
 6. verify the upstream golden-mean dimension receipt;
 7. verify finite-word forward invariance of the no-`11` language under the binary shift;
 8. include the exact counterexample `0 -> 3/8=0.011_2` against full `SO(2)` invariance;
-9. re-run the parent `5|1|2` and CP1/golden-mean validators.
+9. verify the unique-largest-gap argument for the trivial axial setwise stabilizer;
+10. re-run the parent `5|1|2` and CP1/golden-mean validators.
