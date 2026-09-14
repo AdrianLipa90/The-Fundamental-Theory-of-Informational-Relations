@@ -1,0 +1,33 @@
+name: TIR DII periodic simplex v0.2
+
+on:
+  push:
+    branches:
+      - main
+      - feat/dynamic-identity-invariant-v0.1
+    paths:
+      - 'TIR/foundations/TIR_DYNAMIC_IDENTITY_INVARIANT_V0_2.md'
+      - 'TIR/validation/tir_dynamic_identity_invariant_v0_2.py'
+      - '.github/workflows/tir-dii-periodic-simplex-v02.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'TIR/foundations/TIR_DYNAMIC_IDENTITY_INVARIANT_V0_2.md'
+      - 'TIR/validation/tir_dynamic_identity_invariant_v0_2.py'
+      - '.github/workflows/tir-dii-periodic-simplex-v02.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-periodic-simplex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate DII periodic simplex / Bloch-Floquet closure
+        run: python TIR/validation/tir_dynamic_identity_invariant_v0_2.py
