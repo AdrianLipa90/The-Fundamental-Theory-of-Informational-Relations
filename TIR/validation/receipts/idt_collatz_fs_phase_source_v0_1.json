@@ -1,0 +1,16 @@
+{
+  "schema": "TIR_IDT_COLLATZ_FS_PHASE_SOURCE_V0_1",
+  "upstream_repository": "AdrianLipa90/Informational-Dynamics-of-Time",
+  "upstream_ref": "main",
+  "upstream_commit_sha": "f670e60112b578756a90a7b29a4f574c37a8c03f",
+  "source_path": "docs/IDT_COLLATZ_FS_PHASE_REGISTRY_SUPPLEMENT_V0_1.md",
+  "source_blob_sha": "727cbadf7bf86c7fdce26ac906d4febe0464b4bc",
+  "imported_claims": [
+    "q_C(x)=sum_{k>=0}(C^k(x) mod 2)/2^(k+1) mod 1",
+    "q_C(Cx)=2 q_C(x) mod 1",
+    "q_C(4)=1/7, q_C(2)=2/7, q_C(1)=4/7",
+    "finite-terminal formula with tail 4/(7*2^L)"
+  ],
+  "physical_time_binding": "OPEN",
+  "recorded_date": "2026-09-14"
+}
