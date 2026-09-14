@@ -1,0 +1,39 @@
+name: TIR active seed Collatz reachability v0.1
+
+on:
+  push:
+    branches:
+      - main
+      - feat/active-seed-collatz-reachability-v0.1
+    paths:
+      - 'TIR/foundations/TIR_ACTIVE_SEED_COLLATZ_REACHABILITY_V0_1.md'
+      - 'TIR/validation/tir_active_seed_collatz_reachability_v0_1.py'
+      - 'TIR/validation/receipts/idt_collatz_fs_phase_source_v0_1.json'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE22_SEED_PRECEDENCE_V0_1.md'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE24_TIR_SEED_CHIRALITY_E8_INTERTWINER_V0_1.md'
+      - '.github/workflows/tir-active-seed-collatz-reachability-v01.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'TIR/foundations/TIR_ACTIVE_SEED_COLLATZ_REACHABILITY_V0_1.md'
+      - 'TIR/validation/tir_active_seed_collatz_reachability_v0_1.py'
+      - 'TIR/validation/receipts/idt_collatz_fs_phase_source_v0_1.json'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE22_SEED_PRECEDENCE_V0_1.md'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE24_TIR_SEED_CHIRALITY_E8_INTERTWINER_V0_1.md'
+      - '.github/workflows/tir-active-seed-collatz-reachability-v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-active-seed-reachability:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate active seed Collatz reachability and IDT phases
+        run: python TIR/validation/tir_active_seed_collatz_reachability_v0_1.py
