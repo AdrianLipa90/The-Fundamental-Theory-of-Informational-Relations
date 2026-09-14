@@ -5,6 +5,7 @@ on:
     paths:
       - 'TIR/foundations/TIR_CP1_DYADIC_FRACTAL_GATE_V0_1.md'
       - 'TIR/validation/tir_cp1_dyadic_fractal_gate_v0_1.py'
+      - 'TIR/integration/receipts/IDT_COLLATZ_FS_PHASE_UPSTREAM_RECEIPT_V0_1.json'
       - '.github/workflows/tir-cp1-dyadic-fractal-gate-v01.yml'
       - 'TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md'
       - 'TIR/foundations/TIR_PRINCIPAL_SU2_5_1_2_DECOMPOSITION_V0_1.md'
@@ -12,6 +13,7 @@ on:
     paths:
       - 'TIR/foundations/TIR_CP1_DYADIC_FRACTAL_GATE_V0_1.md'
       - 'TIR/validation/tir_cp1_dyadic_fractal_gate_v0_1.py'
+      - 'TIR/integration/receipts/IDT_COLLATZ_FS_PHASE_UPSTREAM_RECEIPT_V0_1.json'
       - '.github/workflows/tir-cp1-dyadic-fractal-gate-v01.yml'
       - 'TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md'
       - 'TIR/foundations/TIR_PRINCIPAL_SU2_5_1_2_DECOMPOSITION_V0_1.md'
@@ -25,7 +27,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate dyadic CP1 gate
+      - name: Validate dyadic CP1 / golden-mean gate
         run: python TIR/validation/tir_cp1_dyadic_fractal_gate_v0_1.py
       - name: Install symbolic dependency for parent theorem
         run: python -m pip install --disable-pip-version-check sympy
