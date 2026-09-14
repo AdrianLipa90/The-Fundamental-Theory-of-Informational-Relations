@@ -41,7 +41,8 @@ charpoly = sp.expand(A.charpoly(lam).as_expr())
 checks["transfer_charpoly"] = sp.expand(charpoly - (lam**2 - lam - 1)) == 0
 checks["phi_root"] = sp.simplify(phi**2 - phi - 1) == 0
 checks["second_root_minus_inverse_phi"] = sp.simplify((1 - sqrt5) / 2 + 1 / phi) == 0
-checks["perron_vector"] = A * sp.Matrix([phi, 1]) == sp.simplify(phi) * sp.Matrix([phi, 1])
+perron_residual = (A * sp.Matrix([phi, 1]) - phi * sp.Matrix([phi, 1])).applyfunc(sp.simplify)
+checks["perron_vector"] = perron_residual == sp.zeros(2, 1)
 
 # Fibonacci power law and path counts.
 def fib(n: int) -> sp.Integer:
