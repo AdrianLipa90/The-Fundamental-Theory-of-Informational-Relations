@@ -11,16 +11,25 @@ ROOT = Path(__file__).resolve().parents[2]
 PHASE = ROOT / "TIR" / "integration" / "TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md"
 DECOMP = ROOT / "TIR" / "foundations" / "TIR_PRINCIPAL_SU2_5_1_2_DECOMPOSITION_V0_1.md"
 THEOREM = ROOT / "TIR" / "foundations" / "TIR_CP1_DYADIC_FRACTAL_GATE_V0_1.md"
+IDT_RECEIPT = ROOT / "TIR" / "integration" / "receipts" / "IDT_COLLATZ_FS_PHASE_UPSTREAM_RECEIPT_V0_1.json"
 
 phase_text = PHASE.read_text(encoding="utf-8")
 decomp_text = DECOMP.read_text(encoding="utf-8")
 theorem_text = THEOREM.read_text(encoding="utf-8")
+idt_receipt = json.loads(IDT_RECEIPT.read_text(encoding="utf-8"))
 
 checks: dict[str, bool] = {}
 
 # Upstream operator and carrier provenance.
 checks["phase_squaring_upstream"] = "\\zeta_C(Cn)=\\zeta_C(n)^2" in phase_text
-checks["unreduced_collatz_upstream"] = "3n+1" in phase_text and "n/2" in phase_text
+checks["idt_commit_pinned"] = idt_receipt.get("source_commit") == "f670e60112b578756a90a7b29a4f574c37a8c03f"
+checks["idt_document_blob_pinned"] = idt_receipt.get("source_document_blob_sha") == "7cae714e86787b56cd64443553d397cb75d4e737"
+checks["unreduced_collatz_upstream"] = (
+    idt_receipt.get("imported_map_type") == "unreduced_collatz"
+    and idt_receipt.get("even_rule") == "n/2"
+    and idt_receipt.get("odd_rule") == "3n+1"
+    and idt_receipt.get("collatz_conjecture_claimed") is False
+)
 checks["cp1_upstream"] = "\\mathbb CP^1" in phase_text or "\\mathbb{CP}^1" in phase_text
 checks["five_one_two_upstream"] = "\\boxed{8=5+1+2}" in decomp_text
 
@@ -142,6 +151,8 @@ status = "PASS" if all(checks.values()) else "FAIL"
 report = {
     "schema": "tir.cp1-dyadic-collatz-fractal-gate/v0.1",
     "status": status,
+    "idt_source_commit": idt_receipt.get("source_commit"),
+    "idt_source_blob": idt_receipt.get("source_document_blob_sha"),
     "canonical_circle_map": "zeta -> zeta^2",
     "unreduced_collatz_forbidden_word": "11",
     "language_counts_k1_to_k10": language_counts,
