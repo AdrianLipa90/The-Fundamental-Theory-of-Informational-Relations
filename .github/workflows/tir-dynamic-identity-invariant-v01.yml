@@ -1,0 +1,25 @@
+name: TIR dynamic identity invariant v0.1
+
+on:
+  push:
+    branches:
+      - feat/dynamic-identity-invariant-v0.1
+    paths:
+      - 'TIR/foundations/TIR_DYNAMIC_IDENTITY_INVARIANT_V0_1.md'
+      - 'TIR/validation/tir_dynamic_identity_invariant_v0_1.py'
+      - '.github/workflows/tir-dynamic-identity-invariant-v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-dynamic-identity-invariant:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run deterministic invariant validator
+        run: python TIR/validation/tir_dynamic_identity_invariant_v0_1.py
