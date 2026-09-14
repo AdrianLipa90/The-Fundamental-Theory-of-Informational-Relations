@@ -1,0 +1,41 @@
+name: TIR coefficient cocycle potential reduction v0.4
+
+on:
+  push:
+    paths:
+      - 'TIR/foundations/TIR_COEFFICIENT_COCYCLE_POTENTIAL_REDUCTION_V0_4.md'
+      - 'TIR/validation/tir_coefficient_cocycle_potential_reduction_v0_4.py'
+      - '.github/workflows/tir-coefficient-cocycle-potential-v04.yml'
+      - 'TIR/integration/tir_half_foundation_v0_5_0/action_generator.py'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE24_TIR_SEED_CHIRALITY_E8_INTERTWINER_V0_1.md'
+      - 'TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md'
+      - 'TIR/foundations/TIR_COEFFICIENT_SELECTOR_COMPOSITION_NOGO_V0_3.md'
+  pull_request:
+    paths:
+      - 'TIR/foundations/TIR_COEFFICIENT_COCYCLE_POTENTIAL_REDUCTION_V0_4.md'
+      - 'TIR/validation/tir_coefficient_cocycle_potential_reduction_v0_4.py'
+      - '.github/workflows/tir-coefficient-cocycle-potential-v04.yml'
+      - 'TIR/integration/tir_half_foundation_v0_5_0/action_generator.py'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE24_TIR_SEED_CHIRALITY_E8_INTERTWINER_V0_1.md'
+      - 'TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md'
+      - 'TIR/foundations/TIR_COEFFICIENT_SELECTOR_COMPOSITION_NOGO_V0_3.md'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-cocycle-potential:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate coefficient cocycle and potential reduction
+        run: python TIR/validation/tir_coefficient_cocycle_potential_reduction_v0_4.py
+      - name: Re-run composition no-go gate
+        run: python TIR/validation/tir_coefficient_selector_composition_nogo_v0_3.py
+      - name: Re-run magnitude parent evaluation
+        run: python TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py
+      - name: Re-run active-seed reachability gate
+        run: python TIR/validation/tir_active_seed_collatz_reachability_v0_1.py
