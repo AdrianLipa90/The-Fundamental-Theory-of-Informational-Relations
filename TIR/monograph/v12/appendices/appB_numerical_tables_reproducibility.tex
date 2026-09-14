@@ -48,6 +48,8 @@ source validators in addition to the foundational geometry suite:
 \path{TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py}.
 \item[CKM/PMNS internal consistency:]
 \path{TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py}.
+\item[CKM Jarlskog invariant closure:]
+\path{TIR/validation/tir_ckm_jarlskog_invariant_closure_v0_1.py}.
 \item[Hadron formula audit:]
 \path{TIR/validation/tir_v12_hadron_formula_audit_v0_2.py}.
 \item[Hypercharge/anomaly audit:]
@@ -184,16 +186,33 @@ and
 \[
 \delta_{\rm CKM}=\arccos\frac25=66.4218215^\circ\ldots .
 \]
-The structural CP quantity
+With
 \[
-J_{\rm TIR}
+s_{12}=\lambda,\qquad s_{23}=|V_{cb}|,\qquad s_{13}=|V_{ub}|,
+\qquad c_{ij}=\sqrt{1-s_{ij}^2},
+\]
+the exact rephasing-invariant Jarlskog quantity of the current CKM matrix is
+\[
+\boxed{
+J_{\rm CP}^{\rm CKM}
+=s_{12}s_{23}s_{13}c_{12}c_{23}c_{13}^2\sin\delta_{\rm CKM}
+=2.97106576668\times10^{-5}.
+}
+\]
+The earlier independent structural assignment
+\[
+J_{\rm old}
 =\kappa^2\frac{L_4}{L_5}
 \left(1-\frac12\left(\frac{L_4}{L_5}\right)^2\right)
 =3.110115459\times10^{-5}
 \]
-has separate provenance from the historical magnitude-product proxy.  Their
-relative gap is about \(4.47\%\), which is retained as the diagnostic
-proxy-versus-invariant tension.
+is retained only as historical provenance and is deprecated as an independent
+Jarlskog invariant.  Its relative gap from the exact current CKM invariant is
+\[
+4.47088522\%.
+\]
+The closure validator also checks all nine nontrivial CKM quartets and the
+matrix unitarity/determinant conditions.
 
 \section{Hadron and meson reproduction firewall}
 
