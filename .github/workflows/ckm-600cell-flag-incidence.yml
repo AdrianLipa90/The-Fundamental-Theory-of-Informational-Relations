@@ -1,4 +1,4 @@
-name: CKM 600-cell flag-incidence candidate
+name: CKM 600-cell incidence and A2 selector candidates
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  validate-ckm-600cell-flag-incidence:
+  validate-ckm-600cell-candidates:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -31,16 +31,27 @@ jobs:
           git rev-parse HEAD
           git diff --check
 
-      - name: Validate 600-cell incidence and CKM reconstruction
+      - name: Validate 600-cell incidence and CKM reconstruction v0.1
         run: |
           set -euo pipefail
           python3 TIR/validation/tir_ckm_600cell_flag_incidence_candidate_v0_1.py \
-            | tee ckm-600cell-flag-incidence-receipt.json
-          grep -Fq '"status": "PASS"' ckm-600cell-flag-incidence-receipt.json
-          grep -Fq '"physical_promotion": false' ckm-600cell-flag-incidence-receipt.json
+            | tee ckm-600cell-flag-incidence-receipt-v0.1.json
+          grep -Fq '"status": "PASS"' ckm-600cell-flag-incidence-receipt-v0.1.json
+          grep -Fq '"physical_promotion": false' ckm-600cell-flag-incidence-receipt-v0.1.json
 
-      - name: Upload exact-head receipt
+      - name: Validate local A2 and selector operator bridge v0.2
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_ckm_600cell_a2_selector_bridge_candidate_v0_2.py \
+            | tee ckm-600cell-a2-selector-receipt-v0.2.json
+          grep -Fq '"status": "PASS"' ckm-600cell-a2-selector-receipt-v0.2.json
+          grep -Fq '"physical_promotion": false' ckm-600cell-a2-selector-receipt-v0.2.json
+          grep -Fq '"unique_weyl_channel_label_binding": true' ckm-600cell-a2-selector-receipt-v0.2.json
+
+      - name: Upload exact-head receipts
         uses: actions/upload-artifact@v4
         with:
-          name: ckm-600cell-flag-incidence-${{ github.event.pull_request.head.sha || github.sha }}
-          path: ckm-600cell-flag-incidence-receipt.json
+          name: ckm-600cell-selector-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            ckm-600cell-flag-incidence-receipt-v0.1.json
+            ckm-600cell-a2-selector-receipt-v0.2.json
