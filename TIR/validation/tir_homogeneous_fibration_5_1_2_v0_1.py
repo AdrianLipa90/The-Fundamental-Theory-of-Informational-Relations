@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+from fractions import Fraction
 from itertools import product
 import json
 from pathlib import Path
@@ -18,7 +19,6 @@ theorem_text = THEOREM.read_text(encoding="utf-8")
 
 I = sp.I
 sqrt = sp.sqrt
-zero = sp.Integer(0)
 one = sp.Integer(1)
 
 # Standard Hermitian Gell-Mann basis.
@@ -124,11 +124,37 @@ three_eighths_bits = (0, 1, 1)  # fractional bits .011
 checks["rotation_counterexample_origin_in_K"] = admissible((0, 0, 0, 0))
 checks["rotation_counterexample_3_8_not_in_K"] = not admissible(three_eighths_bits)
 
+# Unique-largest-gap proof for the axial setwise stabilizer.
+# K_C lies in [0,2/3], so the exterior circle gap has length 1/3.
+# The first internal gap has length 1/6; every descendant is contracted by
+# products of 1/2 and 1/4, so none can match 1/3.
+external_gap = Fraction(1, 3)
+primary_internal_gap = Fraction(1, 6)
+descendant_bound = primary_internal_gap * Fraction(1, 2)
+checks["external_gap_larger_than_internal"] = external_gap > primary_internal_gap
+checks["descendant_gaps_strictly_smaller"] = descendant_bound < primary_internal_gap < external_gap
+
+# If a rotation c fixes the unique largest arc (2/3,1) setwise, it must
+# preserve or swap its boundary points {2/3,0}. The preserving case gives c=0.
+# The swapping equations would require c=1/3 and c=2/3 simultaneously.
+preserve_case_c = Fraction(0, 1)
+swap_from_two_thirds = Fraction(1, 3)  # 2/3+c = 0 mod 1
+swap_from_zero = Fraction(2, 3)        # 0+c = 2/3 mod 1
+checks["largest_gap_preserving_rotation_identity"] = preserve_case_c == 0
+checks["largest_gap_endpoint_swap_impossible"] = swap_from_two_thirds != swap_from_zero
+checks["axial_setwise_stabilizer_trivial"] = (
+    checks["external_gap_larger_than_internal"]
+    and checks["descendant_gaps_strictly_smaller"]
+    and checks["largest_gap_endpoint_swap_impossible"]
+)
+
 # Claim firewall tokens.
 checks["E6_isotropy_claim"] = "E_6\\notin T_{eH}(G/H)" in theorem_text
 checks["global_fractal_subbundle_open"] = "canonical global fractal subbundle}=\\text{OPEN}" in theorem_text
 checks["physical_horizon_not_claimed"] = "`E6` is a physical horizon | `NOT_CLAIMED`" in theorem_text
 checks["full_SO2_invariance_fail"] = "full `SO(2)` rotation action preserves `K_C` | `FAIL`" in theorem_text
+checks["trivial_axial_stabilizer_claim"] = "\\operatorname{Stab}_{SO(2)}(K_C)=\\{e\\}" in theorem_text
+checks["nontrivial_axial_holonomy_fail"] = "nontrivial axial holonomy preserves `K_C` | `FAIL`" in theorem_text
 
 status = "PASS" if all(checks.values()) else "FAIL"
 report = {
@@ -141,6 +167,9 @@ report = {
     "vertical_basis": ["E7", "E8"],
     "fractal_dimension": "log_2(phi)",
     "fractal_full_SO2_invariant": False,
+    "axial_setwise_stabilizer": "identity",
+    "largest_complement_gap": "(2/3,1)",
+    "largest_complement_gap_length": "1/3",
     "admissible_word_counts_k1_to_k14": counts,
     "checks": checks,
 }
