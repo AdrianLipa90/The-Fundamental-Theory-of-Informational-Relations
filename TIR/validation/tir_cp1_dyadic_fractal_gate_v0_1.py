@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 from fractions import Fraction
+import itertools
 import json
+import math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -18,63 +20,139 @@ checks: dict[str, bool] = {}
 
 # Upstream operator and carrier provenance.
 checks["phase_squaring_upstream"] = "\\zeta_C(Cn)=\\zeta_C(n)^2" in phase_text
+checks["unreduced_collatz_upstream"] = "3n+1" in phase_text and "n/2" in phase_text
 checks["cp1_upstream"] = "\\mathbb CP^1" in phase_text or "\\mathbb{CP}^1" in phase_text
 checks["five_one_two_upstream"] = "\\boxed{8=5+1+2}" in decomp_text
 
-# Exact inverse-angle branches for D(q)=2q mod 1.
-def g0(q: Fraction) -> Fraction:
-    return q / 2
+
+def C(n: int) -> int:
+    return n // 2 if n % 2 == 0 else 3 * n + 1
 
 
-def g1(q: Fraction) -> Fraction:
-    return (q + 1) / 2
+def T(n: int) -> int:
+    return n // 2 if n % 2 == 0 else (3 * n + 1) // 2
 
-# Images of [0,1] are [0,1/2] and [1/2,1].
-checks["g0_interval"] = (g0(Fraction(0)), g0(Fraction(1))) == (Fraction(0), Fraction(1, 2))
-checks["g1_interval"] = (g1(Fraction(0)), g1(Fraction(1))) == (Fraction(1, 2), Fraction(1))
-checks["ifs_union_full_interval"] = g0(Fraction(1)) == g1(Fraction(0)) == Fraction(1, 2)
 
-# Similarity-dimension equation at d=1: 2*(1/2)^1 = 1.
-checks["similarity_dimension_one"] = 2 * Fraction(1, 2) == 1
+def parity_prefix(f, n: int, k: int) -> str:
+    bits: list[str] = []
+    for _ in range(k):
+        bits.append(str(n & 1))
+        n = f(n)
+    return "".join(bits)
 
-# Exact 2^k preimage count, using the canonical q(4)=1/7 anchor.
+
+# Exact local grammar: an odd C-state always maps to an even state.
+checks["odd_forces_even"] = all(C(n) % 2 == 0 for n in range(1, 1000, 2))
+
+# Fibonacci language counts and finite-prefix realizability witness.
+def fib(n: int) -> int:
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+
+def parse_C_word_to_T_word(w: str) -> str:
+    # Append the forced zero if a requested finite prefix ends in 1.
+    extended = w + ("0" if w.endswith("1") else "")
+    out: list[str] = []
+    i = 0
+    while i < len(extended):
+        if extended[i] == "0":
+            out.append("0")
+            i += 1
+        else:
+            assert i + 1 < len(extended) and extended[i : i + 2] == "10"
+            out.append("1")
+            i += 2
+    return "".join(out)
+
+
+language_counts: dict[str, int] = {}
+finite_realizability_ok = True
+T_bijection_ok = True
+for k in range(1, 11):
+    allowed = [
+        "".join(bits)
+        for bits in itertools.product("01", repeat=k)
+        if "11" not in "".join(bits)
+    ]
+    language_counts[str(k)] = len(allowed)
+    finite_realizability_ok = finite_realizability_ok and len(allowed) == fib(k + 2)
+
+    for w in allowed:
+        tw = parse_C_word_to_T_word(w)
+        m = len(tw)
+        modulus = 2**m
+        table: dict[str, int] = {}
+        for r in range(modulus):
+            table[parity_prefix(T, r, m)] = r
+        T_bijection_ok = T_bijection_ok and len(table) == modulus
+        if tw not in table:
+            finite_realizability_ok = False
+            continue
+        r = table[tw]
+        n = r if r > 0 else modulus
+        if parity_prefix(C, n, k) != w:
+            finite_realizability_ok = False
+
+checks["fibonacci_language_counts"] = all(language_counts[str(k)] == fib(k + 2) for k in range(1, 11))
+checks["accelerated_parity_vector_bijection_witness"] = T_bijection_ok
+checks["all_tested_11_free_prefixes_realized"] = finite_realizability_ok
+
+# Golden-mean self-similar envelope K = f0(K) union f10(K).
+def f0(x: Fraction) -> Fraction:
+    return x / 2
+
+
+def f10(x: Fraction) -> Fraction:
+    return Fraction(1, 2) + x / 4
+
+max_k = Fraction(2, 3)
+checks["max_admissible_phase_two_thirds"] = f10(max_k) == max_k
+checks["f0_hull"] = (f0(Fraction(0)), f0(max_k)) == (Fraction(0), Fraction(1, 3))
+checks["f10_hull"] = (f10(Fraction(0)), f10(max_k)) == (Fraction(1, 2), Fraction(2, 3))
+checks["strong_separation_gap"] = f0(max_k) < f10(Fraction(0))
+
+# Similarity dimension: x=2^-d solves x+x^2=1, x=1/phi.
+phi = (1.0 + math.sqrt(5.0)) / 2.0
+dim = math.log(phi, 2.0)
+x = 2.0 ** (-dim)
+checks["golden_mean_dimension_equation"] = abs((x + x * x) - 1.0) < 1e-14
+checks["dimension_noninteger"] = 0.69 < dim < 0.70
+
+# Full degree-two circle covering remains distinct from the admissible subshift.
 q_star = Fraction(1, 7)
-preimage_counts = {}
-preimage_unique = True
+full_preimage_counts = {}
 for k in range(1, 11):
     vals = {((q_star + m) / (2**k)) % 1 for m in range(2**k)}
-    preimage_counts[str(k)] = len(vals)
-    preimage_unique = preimage_unique and len(vals) == 2**k
-checks["two_power_k_preimages"] = preimage_unique
-
-# Mesh bound demonstrates density of inverse levels on the circle in the k->infinity limit.
-# Consecutive m values differ by exactly 1/2^k.
-mesh_ok = True
-for k in range(1, 11):
-    vals = sorted(((q_star + m) / (2**k)) % 1 for m in range(2**k))
-    diffs = [vals[i + 1] - vals[i] for i in range(len(vals) - 1)]
-    mesh_ok = mesh_ok and all(d == Fraction(1, 2**k) for d in diffs)
-checks["inverse_level_mesh_exact"] = mesh_ok
-
-# z -> z^2 iterate exponent doubles exactly: F^k(z)=z^(2^k).
-checks["iterate_degree_growth"] = all((2 ** k) == pow(2, k) for k in range(0, 16))
+    full_preimage_counts[str(k)] = len(vals)
+checks["full_circle_two_power_k_preimages"] = all(
+    full_preimage_counts[str(k)] == 2**k for k in range(1, 11)
+)
 
 # Claim firewall tokens.
 checks["branch_labels_not_E7E8"] = "not identified with the coordinate basis vectors `E7,E8`" in theorem_text
-checks["nontrivial_fractal_not_derived"] = "NONTRIVIAL_FRACTAL_GEOMETRY_NOT_DERIVED" in theorem_text
-checks["archival_dimension_not_imported"] = "archival number is not imported" in theorem_text
-checks["future_fractal_open"] = "future nontrivial fractal dynamics | `OPEN`" in theorem_text
+checks["terminal_closure_kept_open"] = "closure of terminal-reaching phase points equals `K_C` | `OPEN`" in theorem_text
+checks["archival_dimension_not_imported"] = "archival number is **not imported**" in theorem_text
+checks["physical_fractal_open"] = "physical/cosmological fractal binding | `OPEN`" in theorem_text
+checks["golden_mean_dimension_claim_present"] = "log_2\\varphi" in theorem_text
 
 status = "PASS" if all(checks.values()) else "FAIL"
 report = {
-    "schema": "tir.cp1-dyadic-fractal-gate/v0.1",
+    "schema": "tir.cp1-dyadic-collatz-fractal-gate/v0.1",
     "status": status,
-    "canonical_map": "zeta -> zeta^2",
-    "inverse_branches": ["q/2", "(q+1)/2"],
-    "preimage_counts": preimage_counts,
-    "natural_ifs_attractor": "[0,1]",
-    "similarity_dimension": 1,
-    "nontrivial_fractal_geometry": "NOT_DERIVED",
+    "canonical_circle_map": "zeta -> zeta^2",
+    "unreduced_collatz_forbidden_word": "11",
+    "language_counts_k1_to_k10": language_counts,
+    "full_circle_preimage_counts": full_preimage_counts,
+    "admissible_ifs": ["x/2", "1/2+x/4"],
+    "admissible_hull": ["0", "2/3"],
+    "strong_separation_gap": ["1/3", "1/2"],
+    "hausdorff_dimension_formula": "log(phi)/log(2)",
+    "hausdorff_dimension_numeric": dim,
+    "terminal_phase_closure_equals_symbolic_envelope": "OPEN",
+    "physical_fractal_binding": "OPEN",
     "checks": checks,
 }
 print(json.dumps(report, indent=2, sort_keys=True))
