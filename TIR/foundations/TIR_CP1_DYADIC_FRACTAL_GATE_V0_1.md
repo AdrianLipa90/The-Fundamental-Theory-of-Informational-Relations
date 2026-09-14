@@ -1,10 +1,10 @@
-# TIR CP1 Dyadic Fractal Gate v0.1
+# TIR CP1 Dyadic / Collatz-Admissible Fractal Gate v0.1
 
-Status: `EXACT_DYADIC_COVERING / EXACT_BINARY_PREIMAGE_TREE / EXACT_IFS_DIMENSION_ONE / NONTRIVIAL_FRACTAL_GEOMETRY_NOT_DERIVED`
+Status: `EXACT_DYADIC_COVERING / EXACT_UNREDUCED_COLLATZ_LANGUAGE / EXACT_GOLDEN_MEAN_SYMBOLIC_FRACTAL / EXACT_DIMENSION_LOG2_PHI / TERMINAL_PHASE_SET_COUNTABLE / PHYSICAL_FRACTAL_BINDING_OPEN`
 
-Scope: pure dynamics on the already-established `78` transverse `CP1` carrier. No physical horizon, cosmological fractal, measured fractal dimension, or particle interpretation is asserted.
+Scope: pure symbolic and projective dynamics on the already-established `78` transverse `CP1` carrier. No physical horizon, cosmological fractal, measured spatial fractal dimension, or particle interpretation is asserted.
 
-## 1. Upstream carrier
+## 1. Upstream carrier and phase map
 
 The principal-SU(2) theorem gives the exact axis-adapted split
 
@@ -18,20 +18,37 @@ with the transverse two-real-dimensional sector
 SO(3)/SO(2)\cong S^2\cong \mathbb{CP}^1.
 ```
 
-The Collatz-Fubini-Study phase interface independently supplies
+The Collatz-Fubini-Study phase interface imports the **unreduced** Collatz map
 
 ```math
-\zeta_C(Cn)=\zeta_C(n)^2,
-\qquad |\zeta_C|=1.
+C(n)=
+\begin{cases}
+n/2,&n\equiv0\pmod2,\\
+3n+1,&n\equiv1\pmod2,
+\end{cases}
 ```
 
-Therefore the canonical phase dynamics on the equatorial `CP1` section is
+and its parity itinerary
+
+```math
+b_k(n)=C^k(n)\bmod2.
+```
+
+For the canonical terminal-reaching phase coordinate,
+
+```math
+\zeta_C(n)=e^{2\pi i q_C(n)},
+\qquad
+\boxed{\zeta_C(Cn)=\zeta_C(n)^2}.
+```
+
+Thus the equatorial `CP1` carrier carries the degree-two phase map
 
 ```math
 \boxed{F(\zeta)=\zeta^2}.
 ```
 
-## 2. Exact two-sheeted covering
+## 2. Full dyadic covering before Collatz admissibility
 
 Writing
 
@@ -39,162 +56,336 @@ Writing
 \zeta=e^{2\pi i q},\qquad q\in\mathbb R/\mathbb Z,
 ```
 
-gives the angle-doubling map
+gives
 
 ```math
 \boxed{D(q)=2q\pmod1}.
 ```
 
-Each phase has exactly two inverse phase branches,
+The unrestricted inverse branches are
 
 ```math
 g_0(q)=\frac q2,
 \qquad
-g_1(q)=\frac{q+1}{2}
-\pmod1.
+g_1(q)=\frac{q+1}{2}\pmod1.
 ```
 
-Thus `F:S1->S1` is a degree-two covering. After `k` inverse levels, a phase `q_*` has exactly
+At depth `k`, the unrestricted degree-two covering has `2^k` inverse phases.
+
+This full inverse tree is a property of the circle map. It must not be conflated with the **Collatz-admissible** parity language.
+
+The two inverse branch labels are also not identified with the coordinate basis vectors `E7,E8`; such an identification would require an additional intertwiner.
+
+## 3. Exact local grammar of the unreduced Collatz map
+
+If `n` is odd, then
 
 ```math
-\boxed{2^k}
+C(n)=3n+1
 ```
 
-preimages
+is even. Therefore every parity itinerary obeys
 
 ```math
-q_{k,m}=\frac{q_*+m}{2^k},
-\qquad m=0,\ldots,2^k-1
-\pmod1.
+\boxed{b_k=1\Longrightarrow b_{k+1}=0}.
 ```
 
-This is an exact dyadic self-similar **branching hierarchy**.
+Equivalently, the binary word
 
-The two inverse branches are branch labels of the covering map. They are not identified with the coordinate basis vectors `E7,E8`; such an identification would require an additional intertwiner and is not claimed.
+```text
+11
+```
 
-## 3. The natural inverse IFS is not a nontrivial fractal
+is forbidden.
 
-On the lifted phase interval `[0,1]`, the two contractions are
+This is an exact local statement and does not depend on the Collatz conjecture.
+
+Conversely, **every finite binary word containing no `11` occurs as the initial parity word of some positive integer**.
+
+### Proof by the accelerated parity-vector map
+
+Define the one-halving map
 
 ```math
-g_0([0,1])=[0,1/2],
+T(n)=
+\begin{cases}
+n/2,&n\text{ even},\\
+(3n+1)/2,&n\text{ odd}.
+\end{cases}
+```
+
+For every `m>=1`, the length-`m` parity-vector map of `T` is a bijection
+
+```math
+\mathbb Z/2^m\mathbb Z\longleftrightarrow\{0,1\}^m.
+```
+
+Inductively:
+
+- for an initial `0`, write `n=2r`; the tail is the parity vector of `r`;
+- for an initial `1`, write `n=2r+1`; then `T(n)=3r+2`, and multiplication by `3` is invertible modulo `2^{m-1}`, so every desired tail has a unique `r mod 2^{m-1}`.
+
+For the unreduced map `C`, a `T`-bit `0` corresponds to the one-step block
+
+```text
+0
+```
+
+while a `T`-bit `1` corresponds to the two-step block
+
+```text
+10
+```
+
+because
+
+```math
+n\text{ odd}\Longrightarrow
+n\xrightarrow{C}3n+1\xrightarrow{C}(3n+1)/2=T(n).
+```
+
+Every finite binary word with no `11` can be uniquely parsed into the blocks `0` and `10` after appending one final `0` if the word ends in `1`. Hence the `T` parity-vector bijection realizes every such finite `C` word as a prefix.
+
+Therefore the exact finite Collatz language is
+
+```math
+\boxed{\mathcal L_C=\{w\in\{0,1\}^*: 11\not\subset w\}}.
+```
+
+The number of allowed words of length `k` is
+
+```math
+\boxed{|\mathcal L_C(k)|=F_{k+2}},
+```
+
+where `F_k` is the Fibonacci sequence.
+
+## 4. Golden-mean symbolic fractal envelope
+
+Define the compact symbolic phase envelope
+
+```math
+\boxed{
+K_C=
+\left\{
+\sum_{k\ge0}\frac{b_k}{2^{k+1}}:
+ b_k\in\{0,1\},\ b_kb_{k+1}=0
+\right\}.
+}
+```
+
+This is the binary-image realization of the golden-mean subshift.
+
+Every sequence in `K_C` either begins with `0`, or begins with the forced block `10`. Therefore
+
+```math
+\boxed{
+K_C=f_0(K_C)\cup f_{10}(K_C)
+}
+```
+
+with
+
+```math
+f_0(x)=\frac{x}{2},
 \qquad
-g_1([0,1])=[1/2,1].
+f_{10}(x)=\frac12+\frac{x}{4}.
 ```
 
-Hence
+The maximum admissible binary sequence is
 
-```math
-\boxed{g_0([0,1])\cup g_1([0,1])=[0,1]}.
-```
-
-The IFS attractor is the full interval, not a Cantor-type proper subset.
-
-Its similarity-dimension equation is
-
-```math
-2\left(\frac12\right)^d=1,
+```text
+10101010...
 ```
 
 so
 
 ```math
-\boxed{d=1}.
+\max K_C=\frac23.
 ```
 
-Therefore the canonical dyadic inverse system has integer Hausdorff/similarity dimension one.
-
-## 4. Complex dynamics of z^2
-
-For the polynomial
+Consequently,
 
 ```math
-F(z)=z^2,
+f_0(K_C)\subset[0,1/3],
+\qquad
+f_{10}(K_C)\subset[1/2,2/3].
 ```
 
-iteration gives
+The images are strictly separated by the open gap `(1/3,1/2)`. Thus the strong separation condition holds.
+
+## 5. Exact Hausdorff/similarity dimension of the admissible envelope
+
+The contraction ratios are
 
 ```math
-F^{\circ k}(z)=z^{2^k}.
+r_0=\frac12,
+\qquad
+r_{10}=\frac14.
+```
+
+By the standard self-similar-set dimension theorem under strong separation, the Hausdorff dimension `d_C` is the unique solution of
+
+```math
+\left(\frac12\right)^{d_C}
++
+\left(\frac14\right)^{d_C}
+=1.
+```
+
+Let
+
+```math
+x=2^{-d_C}.
+```
+
+Then
+
+```math
+x+x^2=1,
+```
+
+so
+
+```math
+x=\frac{\sqrt5-1}{2}=\frac1\varphi,
+\qquad
+\varphi=\frac{1+\sqrt5}{2}.
 ```
 
 Therefore
 
-- if `|z|<1`, then `F^k(z)->0`;
-- if `|z|>1`, then `|F^k(z)|->infinity`;
-- if `|z|=1`, then every iterate remains on the unit circle.
-
-The boundary between the two basins is exactly
-
 ```math
-\boxed{J(F)=S^1},
+\boxed{
+\dim_H K_C
+=\frac{\ln\varphi}{\ln2}
+=\log_2\varphi
+\approx0.6942419136.
+}
 ```
 
-the standard Julia set of `z^2`. Its Hausdorff dimension is exactly one.
+This is a non-integer symbolic/projective fractal dimension derived from the unreduced Collatz parity constraint, with no fitted parameter.
 
-Thus the currently imported nonlinear map is degree two and dynamically nontrivial, but it still does **not** generate a non-integer-dimensional fractal set.
+Equivalently, the word-count growth
 
-## 5. What survives from the "78 fractal" intuition
+```math
+F_{k+2}\sim\frac{\varphi^{k+2}}{\sqrt5}
+```
 
-The following typed statement is exact:
+has topological entropy
+
+```math
+h_{top}=\ln\varphi,
+```
+
+and
+
+```math
+\dim_H K_C=\frac{h_{top}}{\ln2}.
+```
+
+## 6. What is — and is not — the fractal here
+
+There are three differently typed sets:
+
+### A. Full circle dynamics
+
+The map
+
+```math
+F(z)=z^2
+```
+
+has the standard Julia set
+
+```math
+\boxed{J(F)=S^1}
+```
+
+with Hausdorff dimension `1`.
+
+### B. Collatz-admissible symbolic envelope
+
+The forbidden word `11` restricts the binary phase language to `K_C`, with
+
+```math
+\boxed{\dim_H K_C=\log_2\varphi<1}.
+```
+
+This is the nontrivial fractal established here.
+
+### C. Canonical terminal-reaching IDT phase set
+
+IDT currently promotes `q_C(n)` canonically for trajectories reaching the terminal cycle. Since the positive integers are countable, the set of those individual canonical phase points is countable and therefore has Hausdorff dimension `0`.
+
+The present theorem does **not** claim that the closure of terminal-reaching phase points equals all of `K_C`. Establishing that density would require a separate theorem and must not be inferred from the Collatz conjecture or from finite numerical checks.
+
+Thus the fractal statement applies to the exact **local-admissibility closure / symbolic envelope**, not to the raw countable set of terminal phase points.
+
+## 7. Finite-prefix density for unrestricted positive-integer parity itineraries
+
+Section 3 proves that every finite admissible cylinder `w` with no `11` is realized by a positive integer orbit prefix.
+
+Therefore, if the binary itinerary sum is considered purely mathematically for all positive integers (without requiring terminal arrival), the set of positive-integer parity codes intersects every cylinder of the golden-mean shift. Its symbolic closure is exactly `K_C`.
+
+This is a mathematical extension of the parity code. It does not alter the canonical IDT claim boundary, which currently binds the named phase interface to terminal-reaching trajectories.
+
+## 8. Relation to the `78` carrier
+
+The typed chain now supported is
 
 ```math
 \boxed{
 78\text{ transverse }CP1\text{ carrier}
-\;\longrightarrow\;
-\zeta\mapsto\zeta^2
-\;\longrightarrow\;
-2^k\text{ inverse-branch hierarchy}.
+\longrightarrow
+S^1\text{ phase section}
+\longrightarrow
+\text{unreduced Collatz parity grammar}
+\longrightarrow
+K_C
 }
 ```
 
-This establishes dyadic recursive branching on the higher two-dimensional carrier.
-
-It does not establish a nontrivial geometric fractal.
-
-## 6. Finite rotations do not change the verdict
-
-The existing polygonal action
+with
 
 ```math
-R_N:z\mapsto e^{2\pi i/N}z
+\boxed{
+\dim_H K_C=\log_2\varphi.
+}
 ```
 
-has finite order `N`, and the existing `C3 x Z2` lift has finite order six. Composing these finite/compact rotational actions with the carrier does not by itself introduce a contractive Cantor IFS or a new rational-map critical orbit.
+This is substantially stronger than the unrestricted `2^k` inverse tree: the Collatz grammar removes the `11` cylinders and leaves a genuine Cantor-like self-similar subset.
 
-Likewise, the DII transports are unitary `SU(2)` actions. On `CP1` they are Möbius automorphisms of degree one. Composition of them remains degree one.
+It still does not identify the two coordinate directions `E7,E8` with the two symbolic branch labels; that requires an independent intertwiner.
 
-Therefore a nontrivial fractal cannot be attributed to the existing compact transport sector alone.
+## 9. Historical claim firewall
 
-## 7. Historical claim firewall
+An archived pre-canonical MetaTheory text contains a historical numerical statement assigning a different Hausdorff dimension to a Collatz IFS. That archival number is **not imported**.
 
-An archived pre-canonical MetaTheory text contains an historical statement assigning a numerical Hausdorff dimension to a Collatz IFS. That archival number is not imported here. The present canonical interface is tested from its explicit operator `zeta -> zeta^2`, for which the exact invariant set above has dimension one.
+The canonical value derived here follows solely from:
 
-Any future non-integer dimension must be re-derived from a separately specified canonical operator and ambient metric.
+1. the explicit unreduced Collatz rule;
+2. the exact local prohibition `11`;
+3. the resulting self-similar maps `x/2` and `1/2+x/4`.
 
-## 8. What would be sufficient for a nontrivial fractal
+No observational target or fitted parameter enters the derivation.
 
-A future gate may promote `FRACTAL_DYNAMICS` only if TIR independently derives at least one of:
-
-1. a proper restricted branch language/subshift whose invariant set is a strict self-similar subset;
-2. a coefficient-free contractive IFS with a nontrivial attractor;
-3. a rational map `R:CP1->CP1` of degree at least two whose critical orbit is not conjugate to the trivial `z^d` circle case;
-4. a hyperbolic/noncompact transport semigroup with a derived fractal limit set.
-
-No fitted parameter may be inserted solely to obtain a desired dimension.
-
-## 9. Claim classes
+## 10. Claim classes
 
 | Statement | Status |
 |---|---|
 | `78` sector is a real two-dimensional `CP1` transverse carrier | `EXACT_UPSTREAM` |
 | imported phase dynamics `zeta -> zeta^2` | `EXACT_UPSTREAM` |
-| angle doubling / two inverse branches | `EXACT` |
-| depth-k preimage count `2^k` | `EXACT` |
-| dyadic recursive branching hierarchy | `EXACT` |
-| natural inverse IFS attractor is `[0,1]` | `EXACT` |
-| natural IFS similarity dimension is `1` | `EXACT` |
+| unrestricted circle map is degree two | `EXACT` |
+| unreduced Collatz parity forbids `11` | `EXACT` |
+| every finite `11`-free word is realizable as a positive-integer orbit prefix | `EXACT` |
+| number of allowed length-k words is `F_{k+2}` | `EXACT` |
+| admissible symbolic envelope obeys `K=f0(K) union f10(K)` | `EXACT` |
+| strong separation of the two self-similar pieces | `EXACT` |
+| `dim_H K_C = log_2(phi)` | `STANDARD_THEOREM_APPLIED_EXACTLY` |
 | Julia set of `z^2` is `S1`, dimension `1` | `STANDARD_EXACT_COMPLEX_DYNAMICS` |
-| current `78` geometry has a non-integer fractal dimension | `FAIL_NOT_DERIVED` |
+| canonical terminal-reaching phase-point set is countable, dimension `0` | `EXACT` |
+| closure of terminal-reaching phase points equals `K_C` | `OPEN` |
+| inverse symbolic branches are literally `E7,E8` | `NOT_CLAIMED` |
 | archived numerical fractal dimension imported into canon | `NO` |
-| future nontrivial fractal dynamics | `OPEN` |
+| physical/cosmological fractal binding | `OPEN` |
