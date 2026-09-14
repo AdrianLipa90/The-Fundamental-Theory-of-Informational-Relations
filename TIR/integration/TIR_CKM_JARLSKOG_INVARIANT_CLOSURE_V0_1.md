@@ -10,25 +10,25 @@ This surface removes the Jarlskog invariant as an independent TIR input once the
 
 ## Current TIR CKM parameterization
 
-Define
+To avoid collision with the standard Wolfenstein coefficient `A`, define the auxiliary structural ratios
 
 \[
 \kappa=\frac{\ln2}{24\pi},\qquad
-A=\frac{L_4}{L_3}=\frac27,\qquad
-B=\frac{L_4}{L_3+L_4}=\frac29,\qquad
-C=\frac{L_4}{L_5}=\frac25.
+a=\frac{L_4}{L_3}=\frac27,\qquad
+b=\frac{L_4}{L_3+L_4}=\frac29,\qquad
+c=\frac{L_4}{L_5}=\frac25.
 \]
 
 The retained CKM inputs are
 
 \[
-s_{12}=B+A\kappa,
+s_{12}=b+a\kappa,
 \qquad
-s_{23}=\frac{A^2}{2},
+s_{23}=\frac{a^2}{2},
 \qquad
-s_{13}=\frac{A^2BC}{2},
+s_{13}=\frac{a^2bc}{2},
 \qquad
-\delta=\arccos C.
+\delta=\arccos c.
 \]
 
 Let
@@ -89,18 +89,18 @@ Substituting the current TIR parameterization gives
 \boxed{
 J_{\rm TIR}^{\rm CKM}
 =
-\frac{A^4BC}{4}(B+A\kappa)
-\sqrt{1-(B+A\kappa)^2}
-\sqrt{1-\frac{A^4}{4}}
-\left(1-\frac{A^4B^2C^2}{4}\right)
-\sqrt{1-C^2}.
+\frac{a^4bc}{4}(b+a\kappa)
+\sqrt{1-(b+a\kappa)^2}
+\sqrt{1-\frac{a^4}{4}}
+\left(1-\frac{a^4b^2c^2}{4}\right)
+\sqrt{1-c^2}.
 }
 \]
 
 For
 
 \[
-(A,B,C)=\left(\frac27,\frac29,\frac25\right),
+(a,b,c)=\left(\frac27,\frac29,\frac25\right),
 \]
 
 this evaluates to
@@ -117,7 +117,7 @@ The historical independent expression
 
 \[
 J_{\rm old}
-=\kappa^2 C\left(1-\frac{C^2}{2}\right)
+=\kappa^2 c\left(1-\frac{c^2}{2}\right)
 =3.11011545905\times10^{-5}
 \]
 
@@ -137,23 +137,23 @@ The discrepancy has two structural sources.
 First,
 
 \[
-\sin\delta=\sqrt{1-C^2},
+\sin\delta=\sqrt{1-c^2},
 \]
 
 whereas
 
 \[
-1-\frac{C^2}{2}
+1-\frac{c^2}{2}
 \]
 
-is only the first nontrivial truncation of the Taylor series of \(\sqrt{1-C^2}\).
+is only the first nontrivial truncation of the Taylor series of \(\sqrt{1-c^2}\).
 
 Second, the exact invariant carries the full mixing Jacobian
 
 \[
 \mathcal M
 =
-\frac{s_{12}s_{23}s_{13}c_{12}c_{23}c_{13}^2}{\kappa^2C}
+\frac{s_{12}s_{23}s_{13}c_{12}c_{23}c_{13}^2}{\kappa^2c}
 =0.95892344664\ldots,
 \]
 
@@ -164,11 +164,11 @@ Thus
 \[
 \boxed{
 J_{\rm TIR}^{\rm CKM}
-=\kappa^2C\,\mathcal M\,\sqrt{1-C^2},
+=\kappa^2c\,\mathcal M\,\sqrt{1-c^2},
 }
 \]
 
-while \(J_{\rm old}\) replaced the product \(\mathcal M\sqrt{1-C^2}\) by \(1-C^2/2\).
+while \(J_{\rm old}\) replaced the product \(\mathcal M\sqrt{1-c^2}\) by \(1-c^2/2\).
 
 ## Historical backsolve correction
 
@@ -201,11 +201,11 @@ The following remains open:
 \[
 \boxed{
 \text{first-principles forcing of }
- s_{12}=B+A\kappa,
+ s_{12}=b+a\kappa,
 \quad
- s_{23}=A^2/2,
+ s_{23}=a^2/2,
 \quad
- s_{13}=A^2BC/2.
+ s_{13}=a^2bc/2.
 }
 \]
 
