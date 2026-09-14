@@ -259,25 +259,25 @@ These identities are exact matrix statements.
 
 ## 6. Axis-weight decomposition
 
-Because commutators of Hermitian matrices are anti-Hermitian, define the Hermitian adjoint generator
+On the complexified adjoint space define the ordinary adjoint action
 
 ```math
-\boxed{D_6=-i\,\operatorname{ad}_{E_6}}
+\boxed{A_6=\operatorname{ad}_{E_6},\qquad A_6(X)=[E_6,X].}
 ```
 
-on the complexified adjoint space.
-
-Its spectrum is
+Although `A_6` sends a Hermitian real basis element to an anti-Hermitian one, the complexified adjoint space is invariant and diagonalizes into the standard weight sectors. Its spectrum is
 
 ```math
-\boxed{\operatorname{spec}(D_6)=\{-2,-1,-1,0,0,1,1,2\}}.
+\boxed{\operatorname{spec}(A_6)=\{-2,-1,-1,0,0,1,1,2\}}.
 ```
 
 Equivalently,
 
 ```math
-\boxed{\chi_{D_6}(x)=x^2(x^2-1)^2(x^2-4)}.
+\boxed{\chi_{A_6}(x)=x^2(x^2-1)^2(x^2-4)}.
 ```
+
+If instead one represents `-i ad(E_6)` on the real Hermitian basis, the corresponding real rotation blocks have complex eigenvalues `+-i` and `+-2i`; those are a differently typed representation of the same weight decomposition and are not to be confused with the weights above.
 
 Under the selected `SO(2)` axis, the five-dimensional sector decomposes as
 
@@ -285,7 +285,7 @@ Under the selected `SO(2)` axis, the five-dimensional sector decomposes as
 \boxed{5=1+2+2},
 ```
 
-with weights `0`, `+-1`, and `+-2`, while the principal three-dimensional sector decomposes as
+with adjoint weights `0`, `+-1`, and `+-2`, while the principal three-dimensional sector decomposes as
 
 ```math
 \boxed{3=1+2},
@@ -334,7 +334,7 @@ Calling this a `horizon` is an interpretation and is not promoted to an exact ph
 | DII-axis map `sigma_n/2 -> J_n` | `EXACT_LIE_ALGEBRA_INTERTWINER` |
 | `8=5+1+2` after axis choice | `EXACT` |
 | `SO(3)/SO(2) ~= S2 ~= CP1` transverse carrier | `STANDARD_GEOMETRIC_IDENTIFICATION` |
-| spectrum of `D6=-i ad(E6)` | `EXACT` |
+| complexified spectrum of `ad(E6)` | `EXACT` |
 | `E6` as absolute barrier | `FAIL` |
 | `E6` as axial stabilizer | `EXACT` |
 | physical horizon identification | `NOT_CLAIMED` |
@@ -349,5 +349,6 @@ A deterministic validator must:
 3. verify the full adapted-basis Gram matrix is `I8`;
 4. verify the three symmetric-pair support rules;
 5. verify the explicit `12345|6|78` commutators above;
-6. verify the exact characteristic polynomial of `D6`;
-7. include the direct `5 -> 78` commutators as a negative control against the absolute-barrier interpretation.
+6. verify the exact characteristic polynomial of complexified `ad(E6)`;
+7. verify separately that the real-basis `-i ad(E6)` blocks have the corresponding `+-i` and `+-2i` spectrum;
+8. include the direct `5 -> 78` commutators as a negative control against the absolute-barrier interpretation.
