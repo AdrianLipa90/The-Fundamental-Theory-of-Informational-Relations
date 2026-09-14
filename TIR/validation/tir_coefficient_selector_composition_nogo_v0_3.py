@@ -4,6 +4,12 @@ from __future__ import annotations
 
 from fractions import Fraction
 import json
+from pathlib import Path
+import sys
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from TIR.integration.tir_half_foundation_v0_5_0.action_generator import (
     COEFFICIENT_STATES,
