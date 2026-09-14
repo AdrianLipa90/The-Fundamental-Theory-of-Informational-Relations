@@ -1,0 +1,46 @@
+name: CKM 600-cell flag-incidence candidate
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-ckm-600cell-flag-incidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout exact event head revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Verify exact pull-request head
+        if: github.event_name == 'pull_request'
+        run: test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+
+      - name: Record provenance and diff integrity
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          git diff --check
+
+      - name: Validate 600-cell incidence and CKM reconstruction
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_ckm_600cell_flag_incidence_candidate_v0_1.py \
+            | tee ckm-600cell-flag-incidence-receipt.json
+          grep -Fq '"status": "PASS"' ckm-600cell-flag-incidence-receipt.json
+          grep -Fq '"physical_promotion": false' ckm-600cell-flag-incidence-receipt.json
+
+      - name: Upload exact-head receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: ckm-600cell-flag-incidence-${{ github.event.pull_request.head.sha || github.sha }}
+          path: ckm-600cell-flag-incidence-receipt.json
