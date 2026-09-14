@@ -1,0 +1,39 @@
+name: TIR golden-mean transfer kappa v0.1
+
+on:
+  push:
+    paths:
+      - 'TIR/foundations/TIR_GOLDEN_MEAN_TRANSFER_KAPPA_V0_1.md'
+      - 'TIR/validation/tir_golden_mean_transfer_kappa_v0_1.py'
+      - '.github/workflows/tir-golden-mean-transfer-kappa-v01.yml'
+      - 'TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md'
+      - 'TIR/foundations/TIR_CP1_DYADIC_FRACTAL_GATE_V0_1.md'
+      - 'TIR/foundations/TIR_HOMOGENEOUS_FIBRATION_5_1_2_V0_1.md'
+  pull_request:
+    paths:
+      - 'TIR/foundations/TIR_GOLDEN_MEAN_TRANSFER_KAPPA_V0_1.md'
+      - 'TIR/validation/tir_golden_mean_transfer_kappa_v0_1.py'
+      - '.github/workflows/tir-golden-mean-transfer-kappa-v01.yml'
+      - 'TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md'
+      - 'TIR/foundations/TIR_CP1_DYADIC_FRACTAL_GATE_V0_1.md'
+      - 'TIR/foundations/TIR_HOMOGENEOUS_FIBRATION_5_1_2_V0_1.md'
+  workflow_dispatch:
+
+jobs:
+  validate-golden-mean-transfer-kappa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact symbolic dependency
+        run: python -m pip install --disable-pip-version-check sympy
+      - name: Validate golden-mean transfer / kappa theorem
+        run: python TIR/validation/tir_golden_mean_transfer_kappa_v0_1.py
+      - name: Re-run CP1 golden-mean fractal validator
+        run: python TIR/validation/tir_cp1_dyadic_fractal_gate_v0_1.py
+      - name: Re-run homogeneous 5|1|2 fibration validator
+        run: python TIR/validation/tir_homogeneous_fibration_5_1_2_v0_1.py
+      - name: Re-run canonical kappa normalization validator
+        run: python TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py
