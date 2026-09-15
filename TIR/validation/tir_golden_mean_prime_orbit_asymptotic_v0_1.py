@@ -22,11 +22,19 @@ euler = texts[EULER.stem]
 coding = texts[CODING.stem]
 transfer = texts[TRANSFER.stem]
 
-# Parent receipts.
-checks["upstream_mobius_orbit_receipt"] = "O_n=\\frac1n\\sum_{d\\midn}\\mu" in compact[EULER.stem]
-checks["upstream_lucas_fixed_point_receipt"] = "F_n:=\\#\\operatorname{Fix}(D^n|_{K_C})=\\operatorname{tr}(A^n)=L_n" in compact[EULER.stem]
-checks["upstream_entropy_receipt"] = "h_{\\rmtop}=\\ln\\varphi" in compact[TRANSFER.stem]
-checks["upstream_kappa_dimension_receipt"] = "h_{\\rmtop}=24\\pi\\kappa\\,\\dim_HK_C" in compact[TRANSFER.stem]
+# Parent receipts. Match the actual canonical algebra, not a formatting-specific rendering.
+euler_compact = compact[EULER.stem]
+transfer_compact = compact[TRANSFER.stem]
+checks["upstream_mobius_orbit_receipt"] = (
+    "nO_n=\\sum_{d\\midn}\\mu" in euler_compact
+    and "O_n=\\frac{E_n}{n}" in euler_compact
+)
+checks["upstream_lucas_fixed_point_receipt"] = "F_n:=\\#\\operatorname{Fix}(D^n|_{K_C})=\\operatorname{tr}(A^n)=L_n" in euler_compact
+checks["upstream_entropy_receipt"] = "h_{\\rmtop}=\\ln\\varphi" in transfer_compact
+checks["upstream_kappa_dimension_receipt"] = (
+    "h_{\\rmtop}=24\\pi\\,\\kappa\\,\\dim_HK_C" in transfer_compact
+    and "24\\pi\\kappa=\\ln2" in transfer_compact
+)
 
 phi = (1 + sp.sqrt(5)) / 2
 psi = -1 / phi
@@ -95,8 +103,11 @@ checks["kappa_exponential_rewrite"] = sp.simplify(sp.exp(24 * sp.pi * kappa * d_
 
 # Analytic proof receipts / type firewalls.
 theorem_compact = compact[THEOREM.stem]
-checks["explicit_tau_bound_receipt"] = "\\frac{\\varphi^{-n}}n+\\frac{2(\\tau(n)-1)}n\\varphi^{n/2}" in theorem_compact
-checks["asymptotic_receipt"] = "O_n\\sim\\frac{\\varphi^n}n" in theorem_compact
+checks["explicit_tau_bound_receipt"] = (
+    "\\frac{\\varphi^{-n}}{n}" in theorem_compact
+    and "\\frac{2(\\tau(n)-1)}{n}\\varphi^{n/2}" in theorem_compact
+)
+checks["asymptotic_receipt"] = "O_n\\sim\\frac{\\varphi^n}{n}" in theorem_compact
 checks["limit_receipt"] = "\\lim_{n\\to\\infty}\\frac{nO_n}{\\varphi^n}=1" in theorem_compact
 checks["dynamical_prime_firewall"] = "primitive dynamical orbit = arithmetic prime integer     FALSE / TYPE_ERROR" in theorem
 checks["pnt_firewall"] = "arithmetic prime-number theorem derived | `NOT_DERIVED`" in theorem
