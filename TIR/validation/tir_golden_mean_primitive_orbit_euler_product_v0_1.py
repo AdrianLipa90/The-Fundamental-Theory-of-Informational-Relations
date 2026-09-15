@@ -72,8 +72,7 @@ checks["mobius_inversion_n1_to_n18"] = mobius_identity
 expected_first12 = {1: 1, 2: 1, 3: 1, 4: 1, 5: 2, 6: 2, 7: 4, 8: 5, 9: 8, 10: 11, 11: 18, 12: 25}
 checks["primitive_counts_first12_receipt"] = all(O[n] == expected_first12[n] for n in expected_first12)
 
-# Exact truncated coefficient convolution for
-# product_{m<=N} (1-z^m)^(-O_m).
+# Exact truncated coefficient convolution for product_{m<=N}(1-z^m)^(-O_m).
 # The factor coefficient at z^(k*m) is C(O_m+k-1,k).
 coeff = [0] * (N + 1)
 coeff[0] = 1
@@ -100,15 +99,10 @@ rational_coeff = [fib(n + 1) for n in range(N + 1)]
 checks["finite_euler_product_matches_rational_through_degree18"] = coeff == rational_coeff
 
 # z d/dz log(product) coefficient at z^n is sum_{m|n} m O_m = F_n.
-log_derivative_coeff = {
-    n: sum(m * O[m] for m in sp.divisors(n))
-    for n in range(1, N + 1)
-}
+log_derivative_coeff = {n: sum(m * O[m] for m in sp.divisors(n)) for n in range(1, N + 1)}
 checks["log_derivative_matches_fixed_points_through_degree18"] = all(log_derivative_coeff[n] == F[n] for n in range(1, N + 1))
 
 # Weighted substitution y=qz multiplies every degree-n coefficient by q^n.
-# The determinant rational form has the same recurrence, hence the same exact
-# finite coefficient vector with those weights.
 checks["weighted_orbit_product_matches_determinant_through_degree18"] = all(coeff[n] == rational_coeff[n] for n in range(N + 1))
 
 I2 = sp.eye(2)
@@ -127,13 +121,18 @@ checks["formal_log_coefficients_exact_n1_to_n18"] = formal_log_coefficients
 
 # Firewalls and theorem receipts.
 theorem = texts["theorem"]
+theorem_compact = compact["theorem"]
 checks["dynamical_prime_firewall"] = "primitive / prime dynamical orbit != prime integer" in theorem
 checks["arithmetic_euler_product_firewall"] = "dynamical Euler product equals Riemann Euler product | `NOT_DERIVED / NOT_CLAIMED`" in theorem
 checks["riemann_zeta_firewall"] = "Riemann-zeta identification | `NOT_DERIVED / NOT_CLAIMED`" in theorem
 checks["rh_firewall"] = "implication for RH | `NONE`" in theorem
 checks["physical_firewall"] = "physical particle/cosmological interpretation of primitive orbits | `OPEN_NOT_CLAIMED`" in theorem
-checks["weighted_orbit_receipt"] = "\\prod_{m\\ge1}(1-(qz)^m)^{-O_m}" in compact["theorem"]
-checks["rational_collapse_receipt"] = "\\prod_{m\\ge1}(1-z^m)^{-O_m}=\\frac1{1-z-z^2}" in compact["theorem"]
+checks["weighted_orbit_receipt"] = "\\prod_{m\\ge1}(1-(qz)^m)^{-O_m}" in theorem_compact
+checks["rational_collapse_receipt"] = (
+    "\\prod_{m\\ge1}(1-z^m)^{-O_m}" in theorem_compact
+    and "\\frac1{\\det(I-zA)}" in theorem_compact
+    and "\\frac1{1-z-z^2}" in theorem_compact
+)
 
 status = "PASS" if all(checks.values()) else "FAIL"
 report = {
