@@ -28,7 +28,7 @@ checks["upstream_fractal_language"] = "11\\not\\subsetw" in compact["fractal"]
 checks["upstream_fractal_dimension"] = "\\dim_HK_C=\\frac{\\ln\\varphi}{\\ln2}" in compact["fractal"]
 checks["upstream_transfer_matrix"] = "A=\\begin{pmatrix}1&1\\\\1&0\\end{pmatrix}" in compact["transfer"]
 checks["upstream_pressure_family"] = "M(s)=2^{-s}A" in compact["pressure"]
-checks["upstream_pressure_identity"] = "P(s)=h_{\\rmtop}-24\\pi\\kappas" in compact["pressure"]
+checks["upstream_pressure_identity"] = "P(s)=h_{\\rmtop}-24\\pi\\kappa" in compact["pressure"]
 
 # Exact adjacency / Lucas identities.
 A = sp.Matrix([[1, 1], [1, 0]])
@@ -37,8 +37,6 @@ z = sp.symbols("z")
 q = sp.symbols("q", positive=True)
 I2 = sp.eye(2)
 
-checks["transfer_charpoly"] = sp.expand(A.charpoly().as_expr() - (sp.Symbol("lambda")**2 - sp.Symbol("lambda") - 1)) == 0
-# SymPy chooses its own charpoly symbol if one is not supplied; verify directly as well.
 lam = sp.symbols("lam")
 checks["transfer_charpoly"] = sp.expand(A.charpoly(lam).as_expr() - (lam**2 - lam - 1)) == 0
 checks["phi_relation"] = sp.simplify(phi**2 - phi - 1) == 0
