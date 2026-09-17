@@ -1,0 +1,29 @@
+{
+  "schema": "TIR_XF9_WRITEBACK_RECEIPT_V1",
+  "date_utc": "2026-09-17",
+  "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+  "branch": "research/xf9-closure-force-gram-v1",
+  "base_main_sha": "18947402100145b5e8b88865ea90e4aab146a8dc",
+  "pre_receipt_head_sha": "bf4185fcd6113eb3d49023afad695c6464b38dcf",
+  "files_written": [
+    "TIR/zeta_information_axis/formalism/XF9_CLOSURE_FORCE_GRAM_KERNEL.md",
+    "TIR/zeta_information_axis/src/critical_axis/closure_force_gram.py",
+    "TIR/zeta_information_axis/tests/test_closure_force_gram.py"
+  ],
+  "validation": {
+    "python_source_compile_before_write": "PASS",
+    "independent_mpmath_radial_force_vs_direct_derivative": "PASS",
+    "independent_mpmath_lagarias_vs_xi_coordinate_force": "PASS",
+    "independent_mpmath_debranges_pi_crosswalk": "PASS",
+    "repository_ci": "NOT_RUN_NO_PR_CREATED",
+    "branch_compare_to_main_before_receipt": "AHEAD_3_BEHIND_0_ONLY_ADDITIONS"
+  },
+  "epistemic_firewall": {
+    "rh_proved": false,
+    "global_radial_force_sign_proved": false,
+    "full_gram_psd_proved": false,
+    "main_mutated": false,
+    "finite_numerics_promoted_to_theorem": false
+  },
+  "open_target": "F_x(r)=d_r |Xi(x+i*sqrt(r))|^2 > 0 for all real x and 0<r<1/4; operator route: PSD of the regularized Xi/de Branges Gram kernel"
+}
