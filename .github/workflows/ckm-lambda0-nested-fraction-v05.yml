@@ -1,0 +1,50 @@
+name: CKM lambda0 nested-fraction v0.5
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-lambda0-v05:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout exact event head revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Verify exact pull-request head
+        if: github.event_name == 'pull_request'
+        run: test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+
+      - name: Record source provenance
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          git diff --check
+
+      - name: Validate lambda0 nested-fraction decomposition
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_ckm_lambda0_nested_fraction_decomposition_v0_5.py \
+            | tee ckm-lambda0-nested-fraction-receipt-v0.5.json
+          grep -Fq '"status": "PASS"' ckm-lambda0-nested-fraction-receipt-v0.5.json
+          grep -Fq '"nested": "1/(4+1/2)"' ckm-lambda0-nested-fraction-receipt-v0.5.json
+          grep -Fq '"inverse": "9/2"' ckm-lambda0-nested-fraction-receipt-v0.5.json
+          grep -Fq '"all_three_routes_agree_exactly": true' ckm-lambda0-nested-fraction-receipt-v0.5.json
+          grep -Fq '"derive_additive_a_kappa_operator": true' ckm-lambda0-nested-fraction-receipt-v0.5.json
+          grep -Fq '"physical_promotion": false' ckm-lambda0-nested-fraction-receipt-v0.5.json
+
+      - name: Upload exact-head receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: ckm-lambda0-v05-${{ github.event.pull_request.head.sha || github.sha }}
+          path: ckm-lambda0-nested-fraction-receipt-v0.5.json
