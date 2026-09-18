@@ -241,6 +241,42 @@ s_{13}
 The new invariant closure does not silently promote these three historical
 structural assignments.
 
+\section{GREMLIN Pass-4 selector audit}
+
+The preserved 600-cell/McKay/A2 branch narrows the upstream problem without
+changing its evidence class.  The exact mathematical layer now contains:
+
+\begin{itemize}
+\item tetrahedral incidence counts \(\nu_F=2\) and \(\nu_E=5\), with
+      the structural ratio alphabet \((2/7,2/9,2/5)\);
+\item a local centred \(A_2\) three-channel carrier and an exact
+      non-adjacent-plane principal cosine \(2/9\);
+\item exact finite-operator readouts for \(s_{23}=2/49\) and the
+      composite-root factorization \(s_{13}=s_{23}(2/9)(2/5)\);
+\item a conditional projective even-sector selector for the rational base
+      weights;
+\item a half-kernel boundary compression \(9\to7\) and a Kronecker-sum
+      realization of the historical scalar readout \(2/9+(2/7)\kappa\);
+\item an exact operator-identifiability no-go: the scalar trace alone does not
+      determine a unique generator;
+\item an exact angle--sine firewall: additivity of a Lie-algebra angle does not
+      imply additivity of the sine coordinate.
+\end{itemize}
+
+These results are kept as structural/conditional mechanisms.  They do not turn
+the historically developed CKM formula into a prospective prediction, and they
+do not establish that the 600-cell is a literal physical lattice.  The
+remaining physical theorem is a coefficient-free flavour/readout map that
+selects the admitted channel operators and their observable sine coordinates
+without consuming CKM targets.
+
+\vTwelveStatus{B}{--}{OPEN}
+
+The Pass-4 provenance chain is recorded in
+\path{TIR/integration/TIR_CKM_600CELL_FLAG_INCIDENCE_CANDIDATE_V0_1.md}
+through
+\path{TIR/integration/TIR_CKM_SU3F_ANGLE_SINE_GENERATOR_FIREWALL_V0_8.md}.
+
 \section{Reproducibility}
 The retained arithmetic/internal-consistency audit is
 \path{TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py}.
