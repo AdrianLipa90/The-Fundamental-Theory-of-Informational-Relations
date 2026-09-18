@@ -54,7 +54,7 @@ def main() -> None:
         "sync_v12_2_no_branch_delete": "branch_deletion: false" in sync_v12_2,
         "pass4_audit_main_untouched": "No direct mutation of main was performed" in pass4_audit,
         "pass4_audit_no_branch_delete": "No remote branch was deleted" in pass4_audit,
-        "chapter13_exact_jarlskog": "2.97106576668" in ch13 and "deprecated as an independent Jarlskog invariant" in ch13,
+        "chapter13_exact_jarlskog": "2.97106576668" in ch13 and "Historical independent Jarlskog assignment: deprecated" in ch13 and "not the exact Jarlskog invariant" in ch13 and "no longer retained as an independent CP assignment" in ch13,
         "chapter13_selector_open": "GREMLIN Pass-4 selector audit" in ch13 and r"\vTwelveStatus{B}{--}{OPEN}" in ch13,
         "golden_prime_orbit_firewall": "arithmetic prime-number theorem derived | `NOT_DERIVED`" in golden and "implication for RH | `NONE`" in golden,
         "xf9_rh_firewall": "OPEN_RH_EQUIVALENT_CRITERION" in xf9 and "RIEMANN_HYPOTHESIS" in xf9 and "OPEN" in xf9,
