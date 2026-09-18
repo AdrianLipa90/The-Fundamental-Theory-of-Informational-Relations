@@ -1,4 +1,4 @@
-name: Compile TIR monograph v12.1
+name: Compile TIR monograph v12.2
 
 on:
   pull_request:
@@ -32,7 +32,7 @@ jobs:
           git status --short --branch | tee tir-v12-checkout-status.txt
           git diff --check
 
-      - name: Run TIR v12.1 deterministic validation suite
+      - name: Run TIR v12.2 deterministic validation suite
         run: |
           set -euo pipefail
           validators=(
@@ -56,6 +56,15 @@ jobs:
             TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py
             TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py
             TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py
+            TIR/validation/tir_ckm_600cell_flag_incidence_candidate_v0_1.py
+            TIR/validation/tir_ckm_600cell_a2_selector_bridge_candidate_v0_2.py
+            TIR/validation/tir_ckm_projective_even_sector_selector_candidate_v0_3.py
+            TIR/validation/tir_ckm_600cell_clean_noncommuting_family_pair_candidate_v0_4.py
+            TIR/validation/tir_ckm_lambda0_nested_fraction_decomposition_v0_5.py
+            TIR/validation/tir_ckm_half_kernel_kappa_selector_candidate_v0_6.py
+            TIR/validation/tir_ckm_half_kernel_product_flow_uniqueness_audit_v0_7.py
+            TIR/validation/tir_ckm_su3f_angle_sine_generator_firewall_v0_8.py
+            TIR/validation/tir_ckm_jarlskog_invariant_closure_v0_1.py
             TIR/validation/tir_v12_hadron_formula_audit_v0_2.py
             TIR/validation/tir_v12_hypercharge_anomaly_audit_v0_1.py
             TIR/validation/tir_v12_electroweak_higgs_audit_v0_1.py
@@ -92,14 +101,14 @@ jobs:
             texlive-latex-extra texlive-fonts-recommended texlive-science \
             poppler-utils qpdf
 
-      - name: Compile TIR monograph v12.1
+      - name: Compile TIR monograph v12.2
         working-directory: TIR/monograph
         run: |
           set -o pipefail
           latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error \
             tir_monograph_v12.tex 2>&1 | tee tir-monograph-v12-compile-console.log
 
-      - name: TIR v12.1 publication preflight
+      - name: TIR v12.2 publication preflight
         run: |
           set -euo pipefail
           PDF=TIR/monograph/tir_monograph_v12.pdf
@@ -133,7 +142,7 @@ jobs:
         if: always()
         run: |
           {
-            echo "# TIR v12.1 LaTeX warning ledger"
+            echo "# TIR v12.2 LaTeX warning ledger"
             echo
             if test -f TIR/monograph/tir_monograph_v12.log; then
               grep -E "Warning|Overfull|Underfull" TIR/monograph/tir_monograph_v12.log || true
@@ -142,11 +151,11 @@ jobs:
             fi
           } > tir-v12-warning-ledger.txt
 
-      - name: Upload exact-head v12.1 publication artifact
+      - name: Upload exact-head v12.2 publication artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: tir-monograph-v12-1-${{ github.event.pull_request.head.sha || github.sha }}
+          name: tir-monograph-v12-2-${{ github.event.pull_request.head.sha || github.sha }}
           if-no-files-found: warn
           path: |
             TIR/monograph/tir_monograph_v12.pdf
