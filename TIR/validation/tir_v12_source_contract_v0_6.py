@@ -227,7 +227,7 @@ def main() -> int:
 
     frontmatter = read(FRONTMATTER) if FRONTMATTER.is_file() else ""
     checks["frontmatter_v12_3_status"] = "Version 12.3" in frontmatter and "semantic-frontier reconciliation" in frontmatter and "Local Einstein/ADM constraints" in frontmatter
-    checks["frontmatter_rh_firewall"] = "Riemann hypothesis is not in the current closure" in frontmatter
+    checks["frontmatter_rh_firewall"] = "Riemann hypothesis remains open" in frontmatter
 
     sync_manifest = read(SYNC_MANIFEST) if SYNC_MANIFEST.is_file() else ""
     checks["sync_manifest_bound_to_v12_3_semantics"] = (
