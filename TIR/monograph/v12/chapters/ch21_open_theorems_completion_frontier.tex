@@ -2,7 +2,7 @@
 \chapter{Open Theorems and Completion Frontier}
 \label{ch:v12_completion_frontier}
 
-\paragraph{v12.1 synchronization.}
+\paragraph{v12.2 synchronization.}
 The original v12 frontier snapshot treated Cartan refinement and the
 zero-torsion spatial sector as future gates. They are no longer open in that
 form. The current repository has conditional/local theorem closure through
@@ -17,7 +17,7 @@ dynamical normalization and unresolved physical bindings.
 
 A TIR gate can be promoted only after every named parent surface is available
 and the gate itself has a theorem, executable contract or evidence receipt
-appropriate to the claim. The current v12.1 DAG audit is
+appropriate to the claim. The retained v12.1 DAG audit is
 \path{TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py}.
 It intentionally avoids a frozen headline count of ``open problems'': the
 status is attached to named nodes so later theorem closures cannot leave a
@@ -133,6 +133,31 @@ from upstream projective/generation/return/holonomy state before reading a
 recovered coefficient tuple or target observable.
 \vTwelveStatus{B}{--}{OPEN}
 
+\section{CKM selector and exact Jarlskog closure}
+
+The exact Jarlskog invariant is no longer an independent TIR input once the
+current CKM parameterization is fixed.  Chapter~\ref{ch:v12_ckm_pmns} now owns
+the downstream matrix identity and deprecates the earlier independent
+\(J_{\rm old}\) assignment.
+
+The Pass-4 600-cell/McKay/A2 surfaces substantially narrow the upstream
+selector problem: incidence counts, principal-angle readouts, finite-projector
+traces, the rational base selector, clean noncommuting real family operators,
+the half-kernel boundary compression and the angle--sine no-go are all explicit
+and executable.  They do not, however, provide a unique physical map from TIR
+connection dynamics to the observed CKM sine coordinates.
+
+The remaining gate is therefore
+\[
+\boxed{
+\text{coefficient-free TIR flavour dynamics}
+\longrightarrow
+(s_{12},s_{23},s_{13},\delta)
+}
+\]
+with the readout map fixed independently of CKM target data.
+\vTwelveStatus{B}{--}{OPEN}
+
 \section{Gauge, hypercharge and electroweak branch}
 
 Typed transport supplies the parent for the continuum gauge-normalization chain
@@ -225,6 +250,30 @@ elapsed time, energy, mass, interaction strength, atomic transition rate,
 spectroscopy or gravity.
 \vTwelveStatus{B}{--}{OPEN}
 
+\section{Golden-mean primitive-orbit closure}
+
+The symbolic golden-mean subsystem now has an exact primitive dynamical
+orbit-count asymptotic.  If \(O_n\) counts primitive period-\(n\) dynamical
+orbits, then
+\[
+\boxed{
+O_n\sim\frac{\varphi^n}{n}
+=\frac{e^{n h_{\rm top}}}{n},
+}
+\]
+with an explicit exponentially decaying relative-error bound derived from the
+exact Lucas/Mobius orbit formula.  The equivalent normalization rewrite
+\[
+O_n\sim
+\frac{\exp\!\left(24\pi\kappa\,\dim_HK_C\,n\right)}{n}
+\]
+introduces no new parameter.
+
+This is a mathematical closure for a primitive \emph{dynamical} orbit count.
+It does not identify primitive orbits with arithmetic prime integers, does not
+derive the arithmetic prime-number theorem, and has no RH implication.
+\vTwelveStatus{B}{--}{PASS}
+
 \section{GREMLIN global-gluing role}
 
 GREMLIN may search the typed geometric graph for candidate gluing or dependency
@@ -240,14 +289,32 @@ The negative-inverse interface retains the exact local identity
 \Re s=\frac12\iff|z_L(s)|=1.
 \]
 The active critical-axis stack also contains exact reductions and conditional
-positive corridors. However, native Li/Weil positivity and several globally
+positive corridors.  XF-9 adds the exact closure-defect potential
+\[
+V_x(r)=\left|\Xi(x+i\sqrt r)\right|^2
+\]
+and radial force
+\[
+\mathcal F_x(r)=\partial_rV_x(r),
+\]
+together with the pole-free regularized two-point kernel
+\[
+\mathscr K_\Xi(z,w)
+=
+\frac{\Xi(z)\overline{\Xi'(w)}-\Xi'(z)\overline{\Xi(w)}}{z-\bar w}
+\]
+and its exact de Branges-kernel crosswalk.  These identities are now coupled to
+an explicit prior-art ledger.
+
+The missing theorem is still global positivity.  In the open critical
+half-strip, strict positivity of the radial force is an RH-equivalent
+criterion, not an RH proof.  Native Li/Weil positivity and several globally
 quantified strict-positivity or nondegeneracy premises remain unresolved.
 The current solver contract explicitly requires
 \[
 \boxed{\texttt{RIEMANN\_HYPOTHESIS}=\texttt{OPEN}}
 \]
 and, operationally, \texttt{riemann\_hypothesis\_in\_closure=false}.
-Thus an RH-equivalent reformulation is not itself a proof of RH.
 \vTwelveStatus{B}{--}{OPEN}
 
 \section{Retained empirical failures and evidence rerun}
@@ -294,5 +361,7 @@ Canonical current sources include
 \path{TIR/foundations/TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md},
 \path{TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md},
 \path{TIR/foundations/TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1.md},
-and the v12.1 repository audit
-\path{TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md}.
+the v12.1 repository audit
+\path{TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md},
+and the v12.2 GREMLIN Pass-4 audit
+\path{TIR/monograph/v12/GREMLIN_PASS4_BRANCH_MONOGRAPH_AUDIT_20260918.md}.
