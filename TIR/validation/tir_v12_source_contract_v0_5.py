@@ -237,7 +237,7 @@ def main() -> int:
     pass4_audit = read(PASS4_AUDIT) if PASS4_AUDIT.is_file() else ""
     checks["pass4_audit_present_and_non_destructive"] = (
         PASS4_AUDIT.is_file()
-        and "77 branches with \`ahead_by=0\`" in pass4_audit
+        and "77 branches with `ahead_by=0`" in pass4_audit
         and "No remote branch was deleted" in pass4_audit
         and "Deletion boundary" in pass4_audit
     )
