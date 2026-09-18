@@ -1,6 +1,6 @@
-# TIR Monograph v12.2 — GREMLIN Pass-4 repository consolidation
+# TIR Monograph v12.3 — Semantic Frontier Reconciliation
 
-Status: `V12_0_BASELINE_PRESERVED / V12_1_SYNC_PRESERVED / V12_2_BRANCH_CONSOLIDATION_CANDIDATE / MAIN_UNTOUCHED`
+Status: `V12_0_BASELINE_PRESERVED / V12_1_SYNC_PRESERVED / V12_2_BRANCH_CONSOLIDATION_PRESERVED / V12_3_SEMANTIC_FRONTIER_RECONCILED / MAIN_UNTOUCHED`
 
 Baseline main for Pass-4: `45b54c0c8aa60ec92607e6132b69aca9ab766d75`
 
@@ -8,7 +8,7 @@ Integration branch: `integration/gremlin-tir-pass4-20260918`
 
 Date: `2026-09-18`
 
-Historical v12.0 and v12.1 provenance remains intact. Version 12.2 is a bounded consolidation layer: it imports unique work from previously isolated branches, updates the publication surface only where the new mathematics changes the canonical narrative, and preserves all OPEN/TENSION/FAIL/QUARANTINED evidence states.
+Historical v12.0--v12.2 provenance remains intact. Version 12.3 rebuilds the completion frontier from current cross-repository theorem, validator and receipt surfaces. Formal/derivational closure is now kept separate from production/physical openness.
 
 ## Canonical publication surface
 
@@ -69,7 +69,7 @@ No branch deletion is authorized or performed by this consolidation.
 -> production global spatial complex       [OPEN INPUT]
 ```
 
-The global-spacetime line still requires the production inter-leaf matching field, TIR-IDT-RFC spacetime/ADM admission and downstream Einstein-system closure.
+The local TIR-IDT-RFC Einstein/ADM derivation is no longer an open gate: RFC closes the ADM spine through RF-E13 and the local Einstein form through RF-E24. The remaining global line is production-owned: spatial/matching/shared-atlas realization, patchwise solution/source lineage and target-domain coverage.
 
 ## Information and flavour ownership
 
@@ -149,26 +149,36 @@ Appendix B    -> numerical/validator reproducibility
 
 Repository tests or document builds do not overwrite physical evidence states.
 
-## Current open frontier
+## Current semantic frontier
 
-Major open gates include:
+Closed or narrowed since the old v12.1 headline list:
 
-- production global spatial-complex input;
-- production inter-leaf matching-field input;
-- global TIR-IDT-RFC spacetime/ADM admission;
-- Einstein constraint/evolution closure;
+- local Einstein/ADM constraints, evolution and Bianchi propagation: CLOSED on the declared RFC/TIR selection rules;
+- coefficient magnitude-parent evaluation: CLOSED EXACT; transition-parent selector remains OPEN;
+- hypercharge relative uniqueness: CLOSED on the declared field content and TIR normalization anchor;
+- neutrino source/action transcription repair: CLOSED; absolute-mass empirical validation remains OPEN;
+- Collatz--Fubini--Study phase-fibre interface: CLOSED kinematically; physical metric/source coupling remains OPEN;
+- global matching/atlas/Einstein mathematics: certifier chain substantially CLOSED/CONDITIONAL; production source packets and coverage remain OPEN.
+
+The principal genuinely unresolved core is:
+
+- source-owned production spatial, matching/event-placement and shared-atlas realization, including coverage/source lineage;
 - coefficient transition-parent selector;
-- unique physical CKM flavour/readout selector;
 - continuum gauge normalization/running;
-- hypercharge source uniqueness;
-- common electroweak scheme/scale transport and Higgs scalar/action binding;
-- scheme/scale-defined quark mass map;
-- neutrino absolute-action repair and meson absolute-action baseline;
+- common electroweak scheme/scale transport;
+- Higgs scalar/action binding;
+- scheme/scale-defined quark mass map and stronger geometric-anchor extensions of hypercharge;
+- source-derived meson absolute-action baseline;
 - holonomic/topological strong-CP source theorem;
-- unit-complete cosmological scale binding;
-- physical binding of Collatz--Fubini--Study phase;
-- native Li/Weil positivity and global critical-axis positivity/nondegeneracy;
+- unit-complete cosmological scale/critical-density binding;
+- physical metric/source coupling of the Collatz--FS phase fibre;
+- native Li/Weil and global critical-axis positivity/nondegeneracy;
 - Riemann hypothesis.
+
+Machine-readable authority:
+
+- `TIR/monograph/v12/SEMANTIC_FRONTIER_V12_3.json`;
+- `TIR/monograph/v12/GREMLIN_PASS5_SEMANTIC_FRONTIER_AUDIT_20260918.md`.
 
 ## Synchronization manifests
 
@@ -177,13 +187,19 @@ Historical:
 - `TIR/monograph/v12/MIGRATION_MANIFEST.yaml`;
 - `TIR/monograph/v12/MONOGRAPH_SYNC_V12_1.yaml`.
 
-Current Pass-4 candidate:
+Pass-4 provenance:
 
 - `TIR/monograph/v12/MONOGRAPH_SYNC_V12_2.yaml`;
 - `TIR/monograph/v12/GREMLIN_PASS4_BRANCH_MONOGRAPH_AUDIT_20260918.md`.
 
+Current semantic sync:
+
+- `TIR/monograph/v12/MONOGRAPH_SYNC_V12_3.yaml`;
+- `TIR/monograph/v12/SEMANTIC_FRONTIER_V12_3.json`;
+- `TIR/monograph/v12/GREMLIN_PASS5_SEMANTIC_FRONTIER_AUDIT_20260918.md`.
+
 ## Promotion boundary
 
-GREMLIN has candidate/audit authority only. This v12.2 branch must pass the deterministic validator suite, the new CKM/Jarlskog validators, the golden-mean workflow, the critical-axis RH firewall, exact-head LaTeX/PDF preflight and visual PDF QA before any promotion decision.
+GREMLIN has candidate/audit authority only. This v12.3 branch must pass the deterministic validator suite, the new CKM/Jarlskog validators, the golden-mean workflow, the critical-axis RH firewall, exact-head LaTeX/PDF preflight and visual PDF QA before any promotion decision.
 
 No merge to `main` is performed by this Pass-4 preparation without an explicit main-merge instruction.
