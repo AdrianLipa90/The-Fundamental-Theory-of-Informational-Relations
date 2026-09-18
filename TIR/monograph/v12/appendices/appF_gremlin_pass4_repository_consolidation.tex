@@ -1,0 +1,88 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{GREMLIN Pass-4 Repository Consolidation}
+\label{app:v12_gremlin_pass4}
+
+\paragraph{Purpose.}
+Version 12.2 records a bounded repository-consolidation pass performed under the
+GREMLIN candidate/audit runtime.  The pass does not create scientific promotion
+authority.  Its function is to reduce branch ambiguity, preserve unique work,
+synchronize the publication surface and keep the claim-status firewall intact.
+
+\section{Branch sweep}
+
+The baseline repository state was
+\[
+\boxed{\texttt{main@45b54c0c8aa60ec92607e6132b69aca9ab766d75}.}
+\]
+Exact comparison of all 81 non-main branches against that baseline gave
+\[
+\boxed{
+81=77_{\rm contained}+4_{\rm unique}.
+}
+\]
+The 77 contained branches had \texttt{ahead\_by=0}; their payload was already
+reachable from main.  No branch deletion is performed by this publication
+pass.
+
+The four unique-payload sources were:
+\begin{enumerate}
+\item \path{feat/golden-mean-prime-orbit-asymptotic-v0.1};
+\item \path{jarlskog-closure-v01};
+\item \path{policy/no-ai-training-without-license-20260917};
+\item \path{research/xf9-preprint-spider-bib-20260918}.
+\end{enumerate}
+The complete branch inventory is retained in
+\path{TIR/monograph/v12/GREMLIN_PASS4_BRANCH_MONOGRAPH_AUDIT_20260918.md}.
+
+\section{Integration rule}
+
+Clean or additive unique files are preserved byte-for-byte.  The Jarlskog branch
+was substantially behind the current repository state, so its old copies of
+current monograph/workflow files were not merged wholesale.  Instead, unique
+theorem/validator surfaces were preserved and the publication changes were
+transplanted onto the current v12 surface.
+
+This rule prevents a stale branch from reverting later theorem closures while
+still preserving every unique research artifact.
+
+\section{Scientific effects}
+
+Pass-4 changes the canonical narrative only where the repository state changed
+the mathematics:
+\begin{itemize}
+\item the Jarlskog invariant is exact downstream of the retained CKM matrix
+      parameters and the former independent \(J_{\rm old}\) assignment is
+      deprecated;
+\item the CKM 600-cell/McKay/A2/half-kernel chain is preserved as an
+      exact/conditional selector programme, with physical readout uniqueness
+      still open;
+\item the golden-mean subsystem gains an exact primitive dynamical-orbit
+      asymptotic with explicit error bounds and an arithmetic-prime/RH
+      firewall;
+\item XF-9 gains the closure-force, pole-free Gram-kernel and de Branges
+      crosswalk together with explicit prior/concurrent-art provenance.
+\end{itemize}
+
+No retained empirical FAIL, TENSION, OPEN or QUARANTINED verdict is overwritten
+by these structural updates.
+
+\section{GREMLIN authority boundary}
+
+The live GREMLIN runtime for this pass reports
+\[
+\boxed{
+\texttt{authority=CANDIDATE\_ONLY},
+\qquad
+\texttt{canon\_allowed=false}.
+}
+\]
+GREMLIN routes candidate searches, dependency checks, adversarial audits and
+redundancy analysis.  Canonical repository changes still require explicit
+source edits, deterministic validators, publication preflight and normal
+repository promotion.
+
+\section{Destructive-cleanup boundary}
+
+This appendix certifies branch classification and payload preservation only.
+Remote-branch deletion is a separate destructive action and requires explicit
+authorization plus a fresh post-integration containment check.

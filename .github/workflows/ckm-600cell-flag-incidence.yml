@@ -1,0 +1,77 @@
+name: CKM 600-cell incidence and A2 selector candidates
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-ckm-600cell-candidates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout exact event head revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Verify exact pull-request head
+        if: github.event_name == 'pull_request'
+        run: test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+
+      - name: Record provenance and diff integrity
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          git diff --check
+
+      - name: Validate 600-cell incidence and CKM reconstruction v0.1
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_ckm_600cell_flag_incidence_candidate_v0_1.py \
+            | tee ckm-600cell-flag-incidence-receipt-v0.1.json
+          grep -Fq '"status": "PASS"' ckm-600cell-flag-incidence-receipt-v0.1.json
+          grep -Fq '"physical_promotion": false' ckm-600cell-flag-incidence-receipt-v0.1.json
+
+      - name: Validate local A2 and selector operator bridge v0.2
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_ckm_600cell_a2_selector_bridge_candidate_v0_2.py \
+            | tee ckm-600cell-a2-selector-receipt-v0.2.json
+          grep -Fq '"status": "PASS"' ckm-600cell-a2-selector-receipt-v0.2.json
+          grep -Fq '"physical_promotion": false' ckm-600cell-a2-selector-receipt-v0.2.json
+          grep -Fq '"unique_weyl_channel_label_binding": true' ckm-600cell-a2-selector-receipt-v0.2.json
+
+      - name: Validate projective even-sector base selector v0.3
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_ckm_projective_even_sector_selector_candidate_v0_3.py \
+            | tee ckm-projective-even-sector-selector-receipt-v0.3.json
+          grep -Fq '"status": "PASS"' ckm-projective-even-sector-selector-receipt-v0.3.json
+          grep -Fq '"physical_promotion": false' ckm-projective-even-sector-selector-receipt-v0.3.json
+          grep -Fq '"derive_additive_a_kappa_operator": true' ckm-projective-even-sector-selector-receipt-v0.3.json
+
+      - name: Validate clean noncommuting family pair v0.4
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_ckm_600cell_clean_noncommuting_family_pair_candidate_v0_4.py \
+            | tee ckm-600cell-clean-family-pair-receipt-v0.4.json
+          grep -Fq '"status": "PASS"' ckm-600cell-clean-family-pair-receipt-v0.4.json
+          grep -Fq '"physical_promotion": false' ckm-600cell-clean-family-pair-receipt-v0.4.json
+          grep -Fq '"clean_complex_holonomy_lift": true' ckm-600cell-clean-family-pair-receipt-v0.4.json
+
+      - name: Upload exact-head receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ckm-600cell-selector-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            ckm-600cell-flag-incidence-receipt-v0.1.json
+            ckm-600cell-a2-selector-receipt-v0.2.json
+            ckm-projective-even-sector-selector-receipt-v0.3.json
+            ckm-600cell-clean-family-pair-receipt-v0.4.json

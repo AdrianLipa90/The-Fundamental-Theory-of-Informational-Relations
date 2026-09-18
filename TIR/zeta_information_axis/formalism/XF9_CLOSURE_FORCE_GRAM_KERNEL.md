@@ -490,6 +490,88 @@ corresponding de Branges kernel) without assuming real-zero localization.
 
 No such global positivity theorem is claimed here.
 
+## 11. PRIOR_ART_AND_INDEPENDENT_REDISCOVERY
+
+This section is normative provenance. Overlap with prior or concurrent
+literature is credited explicitly. INDEPENDENT_REDISCOVERY means that the
+project re-derived a structure before the targeted literature cross-check;
+it does **not** assert historical priority.
+
+### 11.1 PRIOR_ART
+
+- **Lagarias (1999; correction 2005):** the classical positivity criterion
+  for the logarithmic derivative of the Riemann Xi function and its
+  Pick/Nevanlinna interpretation. XF-9's normalized scalar force is a
+  closure-coordinate rewriting of this established criterion.
+- **de Branges (1968):** reproducing-kernel/Hermite--Biehler theory underlying
+  the de Branges kernel used in the XF-8/XF-9 crosswalk.
+- **Denisov--Yattselev (2026):** Loewner kernels for Nevanlinna--Pick
+  functions, sign-regularity, Gram total positivity, and links to
+  Pólya-frequency series. This is direct prior/concurrent art for the
+  operator-level Pick/Loewner -> Gram -> determinant pathway.
+- **Covei (2026):** independent formalization of the pole obstruction for
+  naive pointwise logarithmic-derivative concavity and a spectral-averaging
+  regularization. This supports XF-9's insistence on a pole-free formulation.
+- **Planat--Solé (2026):** second-level concavity of the first Laguerre
+  expression for the Riemann Xi kernel and the associated double-Turán
+  inequalities. Their result is external prior/concurrent art for the
+  higher-curvature part of the later boundary-certificate route.
+- **Csordas, Dimitrov--Xu, Wang--Yang, Sokal/Sokal--Walrad:** positive-definite
+  kernels, Wronskians/Laguerre inequalities, complete monotonicity, Stieltjes
+  moments, and continued fractions used elsewhere in the same crosswalk.
+- **Michałowski (2026):** coefficient Toeplitz-minor tail positivity and a
+  certified PF_5 failure for the continuous de Bruijn--Newman kernel. The
+  latter is a provenance firewall: coefficient total positivity and
+  continuous-kernel total positivity must not be conflated.
+
+### 11.2 INDEPENDENT_REDISCOVERY
+
+Before the targeted 18 September 2026 preprint spider, the project had already
+re-derived the following structures:
+
+1. the diagonal normalized force as a Pick-kernel density;
+2. the pole obstruction in \(-\Xi'/\Xi\);
+3. pole removal by congruence with the underlying entire function;
+4. the promotion from a diagonal scalar margin to a two-point Gram kernel;
+5. the equivalence between quotient-plane Stieltjes/Hankel kernels and the
+   Xi-plane regularized kernel under the square-coordinate crosswalk.
+
+After the literature cross-check, items 1--4 are treated as independent
+rediscoveries of mechanisms with substantial prior/concurrent art. The
+literature receives theorem-level credit wherever it supplies the same
+implication. XF-9 keeps only the exact project-specific coordinate identities
+as its own contribution.
+
+### 11.3 PROJECT-SPECIFIC CROSSWALKS
+
+As of the search dated 18 September 2026, the following are retained as
+project-specific crosswalks, not historical-priority claims:
+
+- the identification of
+  \[
+  r=(\Re s-\tfrac12)^2
+  \]
+  simultaneously as SOH closure defect, squared transverse displacement, and
+  the radial variable of the Xi modulus surface;
+- the exact identity
+  \[
+  \mathcal F_x(r)=\frac{\Delta_D(x+i\sqrt r)}{4\sqrt r}
+  \]
+  joining the SOH closure coordinate to the pre-existing XF-8 differential
+  Hermite--Biehler margin;
+- the pole-free kernel identity
+  \[
+  \mathscr K_\Xi(z,w)=\pi K_{E_D}(z,w),
+  \]
+  under the explicit XF-8 convention used in this repository;
+- the coordinate diagram joining the SOH square quotient \(F(z^2)\), its
+  Stieltjes dual-Hankel/S-fraction representation, and the Xi/de Branges
+  two-point kernel.
+
+If an equivalent pre-existing formula is later located, this section must be
+updated immediately and the relevant credit transferred. Provenance is
+maintained as a revisable research ledger rather than an ownership assertion.
+
 ## References
 
 - J. C. Lagarias, *On a positivity property of the Riemann xi-function*,

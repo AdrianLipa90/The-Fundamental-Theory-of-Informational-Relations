@@ -4,7 +4,9 @@
 % - TIR/monograph/chapters/ch18_ckm_matrix.tex
 % - TIR/monograph/chapters/ch19_ckm_cp_violation.tex
 % - TIR/validation/pdg2026/TIR_PDG2026_VALIDATION_MATRIX_V2.md
-% Validator: TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py
+% Validators:
+% - TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py
+% - TIR/validation/tir_ckm_jarlskog_invariant_closure_v0_1.py
 \chapter{CKM/PMNS and Flavour Mixing}
 \label{ch:v12_ckm_pmns}
 
@@ -111,7 +113,7 @@ The 2026 validation matrix reports all nine displayed magnitudes within roughly
 $1.71\sigma$ of its selected reference snapshot, while retaining postdiction
 provenance.
 
-\section{CKM CP phase}
+\section{CKM CP phase and exact Jarlskog invariant}
 The direct TIR phase assignment is
 \begin{equation}
 \boxed{
@@ -122,53 +124,165 @@ The direct TIR phase assignment is
 }
 \label{eq:v12-ckm-delta}
 \end{equation}
-The separate structural Jarlskog assignment is
+
+Once the three CKM mixing amplitudes and this phase are fixed, the Jarlskog
+invariant is not an independent parameter.  Let
+\begin{equation}
+s_{12}=\lambda,
+\qquad
+s_{23}=|V_{cb}|,
+\qquad
+s_{13}=|V_{ub}|,
+\qquad
+c_{ij}=\sqrt{1-s_{ij}^2}.
+\label{eq:v12-ckm-sines}
+\end{equation}
+For the standard three-angle one-phase CKM parameterization,
 \begin{equation}
 \boxed{
-J_{\rm CP}^{\rm TIR}
-=\kappa^2\frac{L_4}{L_5}
-\left(1-\frac{(L_4/L_5)^2}{2}\right)
-=3.11011546\times10^{-5}.
+J_{\rm CP}^{\rm CKM}
+=\operatorname{Im}
+\left(V_{ud}V_{cs}V_{us}^{\ast}V_{cd}^{\ast}\right)
+=s_{12}s_{23}s_{13}c_{12}c_{23}c_{13}^{2}\sin\delta_{\rm CKM}.
 }
 \label{eq:v12-ckm-jarlskog}
 \end{equation}
-
-\vTwelveStatus{C}{RETROSPECTIVE}{COMPATIBLE}
-Both quantities are strong compatibility postdictions in the frozen PDG-2026
-validation matrix.
-
-\section{Historical Jarlskog proxy diagnostic}
-The v11 CP chapter also evaluates the proxy
-\begin{equation}
-J_{\rm proxy}
-=|V_{us}||V_{cb}||V_{ub}||V_{cs}|\sin\delta_{\rm CKM}.
-\label{eq:v12-ckm-j-proxy}
-\end{equation}
-Using the displayed magnitudes gives
-\[
-J_{\rm proxy}=2.97106928\times10^{-5},
-\]
-which differs from Eq.~\eqref{eq:v12-ckm-jarlskog} by
+Substituting Eqs.~\eqref{eq:v12-ckm-lambda}--\eqref{eq:v12-ckm-delta}
+gives
 \begin{equation}
 \boxed{
-\frac{|J_{\rm CP}^{\rm TIR}-J_{\rm proxy}|}
-{J_{\rm CP}^{\rm TIR}}
-=4.4708\%.
+J_{\rm CP}^{\rm CKM}
+=2.97106576668\times10^{-5}.
 }
-\label{eq:v12-ckm-j-proxy-gap}
+\label{eq:v12-ckm-jarlskog-value}
 \end{equation}
-The exact Jarlskog invariant is associated with the imaginary part of a
-rephasing-invariant CKM quartet; Eq.~\eqref{eq:v12-ckm-j-proxy} is therefore
-retained as a historical magnitude proxy rather than promoted as an exact
-identity for the standard CKM phase.
+The dedicated closure validator constructs the full complex CKM matrix,
+checks $VV^\dagger=I$ and $\det V=1$ to floating-point roundoff, and verifies
+that all nine nontrivial rephasing-invariant quartets carry the same
+$|J_{\rm CP}^{\rm CKM}|$ up to orientation sign.
 
-\vTwelveStatus{D}{RETROSPECTIVE}{TENSION}
-The internal gap is retained as a diagnostic.  The independent TIR assignments
-\eqref{eq:v12-ckm-delta} and \eqref{eq:v12-ckm-jarlskog} keep separate
-provenance.
+\vTwelveStatus{C}{RETROSPECTIVE}{COMPATIBLE}
+The external-data timing classification remains retrospective because the
+underlying mixing-magnitude formulas retain their historical provenance.  The
+Jarlskog reduction itself is an exact matrix identity conditional on those CKM
+inputs.
+
+\section{Historical independent Jarlskog assignment: deprecated}
+Earlier TIR versions used the independent expression
+\begin{equation}
+J_{\rm old}
+=\kappa^2\frac{L_4}{L_5}
+\left(1-\frac{(L_4/L_5)^2}{2}\right)
+=3.11011545905\times10^{-5}.
+\label{eq:v12-ckm-j-old}
+\end{equation}
+It is not the exact Jarlskog invariant of the current CKM matrix and is no
+longer retained as an independent CP assignment.  Its gap from the exact matrix
+invariant is
+\begin{equation}
+\boxed{
+\frac{|J_{\rm old}-J_{\rm CP}^{\rm CKM}|}{J_{\rm old}}
+=4.47088522\%.
+}
+\label{eq:v12-ckm-j-old-gap}
+\end{equation}
+
+Writing
+\[
+c=\frac{L_4}{L_5}=\frac25,
+\]
+the exact phase factor is
+\[
+\sin\delta_{\rm CKM}=\sqrt{1-c^2},
+\]
+whereas $1-c^2/2$ is only the first nontrivial truncation of the Taylor series
+of $\sqrt{1-c^2}$.  In addition, the historical assignment omitted the full
+mixing Jacobian
+\begin{equation}
+\mathcal M
+=\frac{s_{12}s_{23}s_{13}c_{12}c_{23}c_{13}^2}{\kappa^2c}
+=0.95892344664\ldots .
+\label{eq:v12-ckm-mixing-jacobian}
+\end{equation}
+Thus the exact current relation may be written as
+\begin{equation}
+\boxed{
+J_{\rm CP}^{\rm CKM}
+=\kappa^2c\,\mathcal M\sqrt{1-c^2}.
+}
+\label{eq:v12-ckm-j-factorized}
+\end{equation}
+The former independent assignment effectively replaced the product
+$\mathcal M\sqrt{1-c^2}$ by $1-c^2/2$.
+
+The archived Stage-32 phase backsolve also used a denominator proportional to
+$s_{12}s_{23}s_{13}c_{12}c_{23}c_{13}$; the exact Jarlskog identity contains
+$c_{13}^2$.  Because $c_{13}\simeq1$, the numerical effect is tiny, but the
+formal correction is retained.
+
+\section{Remaining CKM upstream gate}
+The Jarlskog invariant is now closed downstream of the current CKM inputs.  A
+full first-principles CKM closure still requires an independent forcing theorem
+for the functional forms
+\begin{equation}
+\boxed{
+\begin{aligned}
+s_{12}
+&=\frac{L_4}{L_3+L_4}+\frac{L_4}{L_3}\kappa,\\
+s_{23}
+&=\frac12\left(\frac{L_4}{L_3}\right)^2,\\
+s_{13}
+&=\frac12\left(\frac{L_4}{L_3}\right)^2
+\frac{L_4}{L_3+L_4}\frac{L_4}{L_5}.
+\end{aligned}
+}
+\label{eq:v12-ckm-upstream-open}
+\end{equation}
+The new invariant closure does not silently promote these three historical
+structural assignments.
+
+\section{GREMLIN Pass-4 selector audit}
+
+The preserved 600-cell/McKay/A2 branch narrows the upstream problem without
+changing its evidence class.  The exact mathematical layer now contains:
+
+\begin{itemize}
+\item tetrahedral incidence counts \(\nu_F=2\) and \(\nu_E=5\), with
+      the structural ratio alphabet \((2/7,2/9,2/5)\);
+\item a local centred \(A_2\) three-channel carrier and an exact
+      non-adjacent-plane principal cosine \(2/9\);
+\item exact finite-operator readouts for \(s_{23}=2/49\) and the
+      composite-root factorization \(s_{13}=s_{23}(2/9)(2/5)\);
+\item a conditional projective even-sector selector for the rational base
+      weights;
+\item a half-kernel boundary compression \(9\to7\) and a Kronecker-sum
+      realization of the historical scalar readout \(2/9+(2/7)\kappa\);
+\item an exact operator-identifiability no-go: the scalar trace alone does not
+      determine a unique generator;
+\item an exact angle--sine firewall: additivity of a Lie-algebra angle does not
+      imply additivity of the sine coordinate.
+\end{itemize}
+
+These results are kept as structural/conditional mechanisms.  They do not turn
+the historically developed CKM formula into a prospective prediction, and they
+do not establish that the 600-cell is a literal physical lattice.  The
+remaining physical theorem is a coefficient-free flavour/readout map that
+selects the admitted channel operators and their observable sine coordinates
+without consuming CKM targets.
+
+\vTwelveStatus{B}{--}{OPEN}
+
+The Pass-4 provenance chain is recorded in
+\path{TIR/integration/TIR_CKM_600CELL_FLAG_INCIDENCE_CANDIDATE_V0_1.md}
+through
+\path{TIR/integration/TIR_CKM_SU3F_ANGLE_SINE_GENERATOR_FIREWALL_V0_8.md}.
 
 \section{Reproducibility}
-The deterministic arithmetic/internal-consistency audit is
+The retained arithmetic/internal-consistency audit is
 \path{TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py}.
+The exact CKM/Jarlskog closure audit is
+\path{TIR/validation/tir_ckm_jarlskog_invariant_closure_v0_1.py}.
+The theorem surface is
+\path{TIR/integration/TIR_CKM_JARLSKOG_INVARIANT_CLOSURE_V0_1.md}.
 Current external comparison is read from the unified evidence layer rather than
 from the historical tables embedded in the v11 sector chapters.
