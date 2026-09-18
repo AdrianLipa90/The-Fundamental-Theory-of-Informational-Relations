@@ -1,0 +1,50 @@
+version: "12.3-semantic-frontier-reconciliation"
+date: "2026-09-18"
+supersedes_as_current_semantic_frontier:
+  - "TIR/monograph/v12/MONOGRAPH_SYNC_V12_1.yaml"
+  - "TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py"
+preserves_as_historical_provenance:
+  - "TIR/monograph/v12/MIGRATION_MANIFEST.yaml"
+  - "TIR/monograph/v12/MONOGRAPH_SYNC_V12_1.yaml"
+  - "TIR/monograph/v12/MONOGRAPH_SYNC_V12_2.yaml"
+  - "TIR/monograph/v12/GREMLIN_PASS4_BRANCH_MONOGRAPH_AUDIT_20260918.md"
+pinned_heads:
+  TIR: "45b54c0c8aa60ec92607e6132b69aca9ab766d75"
+  IDT: "58f453a4725bf0304417a5d07730f2dc1765dea5"
+  RFC: "ce4af9ddd480ea40dfb5a3ee26ed396a58cb0e54"
+  SOH: "d99545aa447ef86bc253d8241a3fee9adb8a42c1"
+authority:
+  gremlin: "CANDIDATE_ONLY"
+  canon_allowed: false
+  direct_main_mutation: false
+  merge_to_main: false
+  physical_promotion_from_software: false
+status_model:
+  axes:
+    - "formal_or_derivational"
+    - "production_or_physical"
+semantic_registry: "TIR/monograph/v12/SEMANTIC_FRONTIER_V12_3.json"
+audit: "TIR/monograph/v12/GREMLIN_PASS5_SEMANTIC_FRONTIER_AUDIT_20260918.md"
+corrected_closures:
+  - "EINSTEIN_ADM_LOCAL_DERIVATION_CLOSED"
+  - "COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_CLOSED"
+  - "HYPERCHARGE_RELATIVE_UNIQUENESS_CLOSED_ON_DECLARED_CONTENT"
+  - "NEUTRINO_ACTION_SOURCE_REPAIR_CLOSED"
+  - "COLLATZ_FS_KINEMATIC_PHASE_FIBRE_INTERFACE_CLOSED"
+narrowed_production_gates:
+  - "GLOBAL_SPATIAL_PRODUCTION_REALIZATION"
+  - "INTERLEAF_MATCHING_AND_SHARED_ATLAS_PRODUCTION_PACKET"
+  - "GLOBAL_EINSTEIN_CARRIER_PRODUCTION_COVERAGE"
+true_open_core:
+  - "COEFFICIENT_TRANSITION_PARENT_SELECTOR"
+  - "CONTINUUM_GAUGE_NORMALIZATION_RUNNING"
+  - "ELECTROWEAK_SCHEME_SCALE_TRANSPORT"
+  - "HIGGS_SCALAR_ACTION_BINDING"
+  - "QUARK_MASS_MAP_AND_HYPERCHARGE_GEOMETRIC_ANCHOR_EXTENSION"
+  - "MESON_ABSOLUTE_ACTION_BASELINE"
+  - "STRONG_CP_HOLONOMIC_SOURCE"
+  - "COSMOLOGY_DIMENSIONFUL_SCALE_RHOCRIT_BINDING"
+  - "COLLATZ_FS_PHYSICAL_METRIC_SOURCE_COUPLING"
+  - "SOH_NATIVE_LI_WEIL_AND_GLOBAL_CRITICAL_AXIS_POSITIVITY"
+separate_physical_evidence_open:
+  - "ABSOLUTE_NEUTRINO_MASS_EMPIRICAL_VALIDATION"
