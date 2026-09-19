@@ -337,7 +337,7 @@ def main() -> None:
         ),
         "legacy_axis_v23_source_derived_cp1_before_weak_naming": (
             "SOURCE_DERIVED_CHIRAL_CP1_AXIS" in archive_axis_v23
-            and "weak isospin is the SM realization of that axis" in archive_axis_v23
+            and "the SM interpretation of that abstract axis is weak isospin" in archive_axis_v23
             and "CONDITIONALLY_CLOSED_STRUCTURAL_ENUMERATION" in archive_axis_v23
         ),
         "stage15_sm_subalgebra_parent_pass_present": (
