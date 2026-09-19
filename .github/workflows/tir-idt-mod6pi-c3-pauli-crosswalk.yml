@@ -61,9 +61,12 @@ jobs:
           grep -Fq '"cubic_complement_selector_eta_exact": "-75*(59+21*sqrt(5))/638"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"branch_symbol_split_real_operator_status": "BRANCH_SYMBOL_TO_SPLIT_REAL_THREE_OPERATOR_CLOSED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"legacy_rhythm_status": "LEGACY_BOUNDED_RHYTHM_MODEL_CHOICE_NOT_PROMOTED"' mod6pi-c3-pauli-receipt.json
-          grep -Fq '"exact_rhythm_status": "OPEN_EXACT_COLLATZ_TWIN_PRIME_RHO_S_DERIVATION"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"poincare_branch_translation_length_status": "POINCARE_BRANCH_TRANSLATION_LENGTH_ALPHABET_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"branch_scale_cocycle_status": "SIGNED_LOG_JACOBIAN_COCYCLE_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"geometric_rhythm_alphabet_status": "CANONICAL_GEOMETRIC_RHYTHM_ALPHABET_AVAILABLE"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"exact_rhythm_status": "EXACT_GEOMETRIC_BRANCH_LENGTH_ALPHABET_CLOSED__HAMILTONIAN_RHO_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"compact_family_branch_operator_status": "OPEN_COMPACT_REAL_FORM_AND_FAMILY_OPERATOR_BINDING"' mod6pi-c3-pauli-receipt.json
-          grep -Fq '"family_dynamics_selector_status": "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__RHYTHM_AND_COMPACT_FAMILY_MAP_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_dynamics_selector_status": "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__RHO_BINDING_AND_COMPACT_FAMILY_MAP_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"historical_generation_numbering_status": "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"source_order_anchor_status": "UNIQUE_ORDER_PRESERVING_LABEL_CROSSWALK_CLOSED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"declared_anchor_dependency": "REMOVED_AT_ORDERED_LABEL_REPRESENTATION_LEVEL"' mod6pi-c3-pauli-receipt.json
