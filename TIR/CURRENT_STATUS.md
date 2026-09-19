@@ -1992,3 +1992,203 @@ Status:
 `D6_SIX_STATE_REAL_REP_DECOMPOSES_AS_1_PLUS_1_PLUS_2_PLUS_2`.
 
 This is finite-group representation data only.
+
+### Appendix BB update — compact outer-(Z_2) (SU(3)) class quotient
+
+For every (U\in SU(3)), the conjugacy class is completely determined by
+
+\[
+t=\operatorname{tr}U,
+\]
+
+because
+
+\[
+p_U(\lambda)=\lambda^3-t\lambda^2+\bar t\lambda-1.
+\]
+
+The compact trace region is the (SU(3)) deltoid. Complex conjugation acts by
+
+\[
+t\mapsto\bar t.
+\]
+
+Its fixed classes form exactly
+
+\[
+t\in[-1,3]\subset\mathbb R.
+\]
+
+Therefore the quotient by the outer involution is a compact half-deltoid.
+
+Status:
+
+`SU3_CONJUGACY_CLASS_COMPLETELY_COORDINATIZED_BY_COMPLEX_TRACE`
+
+`OUTER_CONJUGATION_FIXED_CLASSES_FORM_REAL_TRACE_INTERVAL_MINUS1_TO3`
+
+`COMPACT_SU3_CLASS_SPACE_MOD_OUTER_Z2_HALF_DELTOID`.
+
+The terminal forward/reverse loop classes have conjugate nonreal traces and form a two-element outer orbit, which becomes one point off the fixed boundary in the quotient.
+
+`TERMINAL_FORWARD_REVERSE_PAIR_IDENTIFIED_AS_ONE_OFF_FIXED_LOCUS_QUOTIENT_POINT`.
+
+No physical CP identification is made.
+
+### Appendix BC update — outer fixed classes equal the spin-one/(SO(3)) class locus
+
+For (U\in SU(3)),
+
+\[
+\det(U-I)=2i\,\operatorname{Im}\operatorname{tr}U.
+\]
+
+Hence a class is fixed by outer conjugation exactly when it has eigenvalue (1), equivalently when it is conjugate to a real (SO(3)) rotation with spectrum
+
+\[
+\{1,e^{i\theta},e^{-i\theta}\}.
+\]
+
+Status:
+
+`OUTER_FIXED_CLASS_LOCUS_EQUALS_CONJUGATE_SPIN1_SO3_CLASS_LOCUS`.
+
+Stage 55 supplies the corresponding symmetric-pair split
+
+\[
+\mathfrak{su}(3)=\mathfrak{so}(3)\oplus\mathfrak p,
+\qquad
+3+5=8.
+\]
+
+`OUTER_INVOLUTION_LIE_SPLIT_SU3_EQUALS_SO3_PLUS_FIVE_COMPLEMENT`.
+
+The terminal loop has nonreal trace and no unit eigenvalue, so it lies off the fixed class locus and necessarily uses complement directions:
+
+`TERMINAL_OFF_FIXED_CLASS_REQUIRES_SU3_OVER_SO3_COMPLEMENT_DIRECTIONS`.
+
+No physical CP identification is made.
+
+### Appendix BD update — rank-two (SU(3)/SO(3)) Weyl plane
+
+The family zero-sum plane
+
+\[
+x_1+x_2+x_3=0
+\]
+
+maps explicitly to the diagonal traceless tangent plane
+
+\[
+H(x)=\operatorname{diag}(x_1,x_2,x_3)
+\subset
+\operatorname{Sym}^2_0(\mathbb R^3).
+\]
+
+It is a maximal abelian two-plane of (SU(3)/SO(3)), so
+
+\[
+\operatorname{rank}(SU(3)/SO(3))=2.
+\]
+
+The restricted roots form (A_2), and the restricted Weyl group is
+
+\[
+W(A_2)\cong S_3\cong D_3.
+\]
+
+Status:
+
+`SU3_SO3_SYMMETRIC_SPACE_RANK_TWO`
+
+`SU3_SO3_RESTRICTED_ROOT_SYSTEM_A2`
+
+`SU3_SO3_RESTRICTED_WEYL_GROUP_D3_ISOMORPHIC_S3`
+
+`FAMILY_STANDARD_TWO_PLANE_INTERTWINES_SU3_SO3_RANK2_CARTAN_PLANE`.
+
+This is representation/symmetric-space rank, not a physical spatial-dimension claim.
+
+### Appendix BE update — compact (A_2) alcove maps to the (SU(3)) deltoid
+
+The rank-two Cartan plane of Appendix BD compactifies under coroot periodicity and the (A_2) Weyl group to an exact equilateral fundamental alcove.
+
+Its vertices are
+
+\[
+(0,0,0),
+\quad
+(2\pi/3,2\pi/3,-4\pi/3),
+\quad
+(4\pi/3,-2\pi/3,-2\pi/3),
+\]
+
+with side
+
+\[
+2\pi\sqrt{2/3}
+\]
+
+and area
+
+\[
+2\pi^2/\sqrt3.
+\]
+
+The trace map sends them to
+
+\[
+3,
+\qquad
+3\omega,
+\qquad
+3\omega^2,
+\]
+
+the three cusps of the compact (SU(3)) trace deltoid.
+
+Status:
+
+`SU3_RANK2_WEYL_ALCOVE_EQUILATERAL_TRIANGLE_EXACT`
+
+`SU3_WEYL_ALCOVE_TRACE_MAPS_TO_COMPACT_DELTOID_CLASS_SPACE`
+
+`FAMILY_STANDARD_TWO_PLANE_COMPACTIFIES_VIA_A2_AFFINE_WEYL_TO_SU3_CLASS_DELTOID`.
+
+This is Lie/class-space compactification, not a physical-space or volume claim.
+
+### Appendix BF update — Cartan embedding of (SU(3)/SO(3))
+
+The compact symmetric space admits the exact Cartan embedding
+
+\[
+\Phi(gSO(3))=gg^T.
+\]
+
+Its image is precisely the symmetric unitary determinant-one manifold
+
+\[
+\{S\in SU(3):S^T=S\}.
+\]
+
+Status:
+
+`SU3_MOD_SO3_CARTAN_EMBEDDING_IS_SYMMETRIC_UNITARY_DET1_MANIFOLD`.
+
+On the rank-two diagonal flat
+
+\[
+H=\operatorname{diag}(\theta_1,\theta_2,\theta_3),
+\qquad
+\sum_i\theta_i=0,
+\]
+
+one has
+
+\[
+\Phi(e^{iH/2}SO(3))=e^{iH}.
+\]
+
+`RANK2_CARTAN_FLAT_EMBEDS_AS_DIAGONAL_SYMMETRIC_UNITARY_EXP_IH`.
+
+This is internal symmetric-space geometry, not a physical-space claim.
