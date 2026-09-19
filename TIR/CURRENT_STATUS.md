@@ -1614,3 +1614,34 @@ Status:
 `COMMON_TARGET_FAMILY_PATH_HOLONOMY_CANDIDATE_FROZEN_PREVALIDATION`.
 
 The next gate tests SU(3) typing, reversal, composition and triangular Wilson-loop flatness before any physical promotion.
+
+### Appendix AN update — common-target family (W^F_{ij}) scaffold validated flat
+
+The source-derived pairwise transport
+
+\[
+W^F_{ij}=G_i^\dagger G_j
+\]
+
+has passed hosted validation as an (SU(3))-typed groupoid.
+
+Key hosted results:
+
+```text
+edge nontriviality              = 1.521891036749805
+edge commutator max             = 0.8527092175626987
+W_ij composition residual       = 2.0206123459202648e-14
+triangle Wilson-loop residual   = 2.1094300329942488e-14
+```
+
+Thus the edges are nontrivial/non-Abelian, but the common-target loop is flat/pure-gauge.
+
+Status:
+
+`PASS_SU3_GROUPOID_FLAT_PURE_GAUGE`
+
+`SOURCE_DERIVED_COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_CLOSED`
+
+`TRIANGULAR_WILSON_LOOP_IDENTITY`.
+
+A non-flat physical family connection remains OPEN.
