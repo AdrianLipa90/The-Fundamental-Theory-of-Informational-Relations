@@ -5354,3 +5354,98 @@ Status:
 Current frontier:
 
 `SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_VALIDATED__PHYSICAL_RHO_TEMPORAL_FAMILY_AND_CKM_PROMOTION_OPEN`.
+
+---
+
+## Appendix AL — NEW 2026-09-19 — Hosted validation of the Collatz–Poincare branch-rhythm candidate
+
+### AL.1 Frozen candidate
+
+The separately frozen branch-local positive rhythm candidate is
+
+\[
+\boxed{
+\rho_{geo}(b)
+=
+\begin{cases}
+\ln2,&b=E,\\
+\ln3,&b=O.
+\end{cases}
+}
+\]
+
+with signed companion
+
+\[
+\sigma_E=-\ln2,
+\qquad
+\sigma_O=+\ln3.
+\]
+
+The freeze predates validation and excludes CKM, PMNS, fermion masses, fitted White-Thread values, the historical `eta=0.35`, and retrospective target tuning.
+
+### AL.2 Hosted validation
+
+The candidate passed the hosted workflow
+
+`TIR Collatz Poincare branch rhythm v0.1`
+
+on the same validated branch state used by the AJ hosted audit.
+
+Hosted result:
+
+`PASS_CANDIDATE_MATHEMATICAL_AND_PROVENANCE_VALIDATION__PHYSICAL_RHYTHM_NOT_PROMOTED`.
+
+The exact recomputation gives
+
+\[
+\rho_E=0.6931471805599453=\ln2,
+\]
+
+\[
+\rho_O=1.0986122886681098=\ln3.
+\]
+
+The Stage-48 frozen words accumulate additively:
+
+\[
+R_{geo}(\texttt{OEOE})
+=2\ln2+2\ln3
+=\ln36,
+\]
+
+and for the 90-step third-seed word
+
+\[
+R_{geo}(w_3)=56\ln2+34\ln3.
+\]
+
+Status:
+
+`COLLATZ_POINCARE_BRANCH_RHYTHM_CANDIDATE_MATH_PROVENANCE_PASS`.
+
+### AL.3 Exact boundary
+
+The hosted receipt explicitly keeps
+
+```text
+physical_rhythm_promoted      = false
+branch_to_family_operator     = OPEN
+```
+
+Therefore the old broad phrase `exact rho_s(k) open` must now be split into two statements:
+
+```text
+source-derived positive branch-local rhythm candidate
+    = VALIDATED
+
+uniqueness as the physical Hamiltonian rhythm
+    = OPEN
+
+physical Hamiltonian identification rho_s = rho_geo
+    = OPEN
+```
+
+Status:
+
+`BRANCH_LOCAL_GEOMETRIC_RHYTHM_VALIDATED__PHYSICAL_UNIQUENESS_AND_HAMILTONIAN_BINDING_OPEN`.
