@@ -1086,3 +1086,33 @@ Status:
 Because endpoint (SU(3)) has trivial abelianization, the nonzero coefficient/sector selector must retain path-local information upstream of endpoint reduction.
 
 `SELECTOR_MUST_RETAIN_PATH_LOCAL_DATA_UPSTREAM_OF_ENDPOINT_SU3_REDUCTION`.
+
+### Appendix AA update — directed stationary family tangent
+
+Stage 66 independently selects the (23) symmetric tangent as the unique negative constrained-Hessian mode:
+
+\[
+v_-\parallel P_3A_{seed}P_3^T.
+\]
+
+Stage 24 independently fixes the representation-level cycle
+
+\[
+s_1\to s_2\to s_3\to s_1.
+\]
+
+Together they select the directed representation-level tangent
+
+\[
+\boxed{s_2\to s_3}.
+\]
+
+Status:
+
+`STAGE24_ORIENTATION_PLUS_STAGE66_SELECTS_DIRECTED_2_TO_3_TANGENT_AT_REPRESENTATION_LEVEL`.
+
+Remaining gate:
+
+`OPEN_COLLATZ_BRANCH_TO_DIRECTED_FAMILY_GENERATOR_AND_EXACT_RHO_BINDING`.
+
+This does not select the physical Stage-39 up/down assignment.
