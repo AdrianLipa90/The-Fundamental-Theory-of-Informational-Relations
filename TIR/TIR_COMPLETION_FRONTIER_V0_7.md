@@ -1303,3 +1303,27 @@ Status:
 `CLOSED_REPRESENTATION_LEVEL_VIA_NEGATIVE_STOPPING_DEPTH_MOD3`.
 
 Physical temporal-family identification and physical rhythm promotion remain OPEN.
+
+### Appendix AJ update — state-dependent signed-geometric SU(3) step candidate frozen
+
+Before any new physical-target comparison, the branch freezes
+
+\[
+K_{geo}(n)=\sigma_{b(n)}A_{(-L(n))\bmod3},
+\qquad
+U_{geo}(n)=e^{-iK_{geo}(n)},
+\]
+
+with
+
+\[
+\sigma_E=-\ln2,
+\qquad
+\sigma_O=+\ln3.
+\]
+
+Status:
+
+`STATE_DEPENDENT_SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_FROZEN_PREVALIDATION`.
+
+No CKM, PMNS, mass, or fitted coefficient is used. Physical promotion is not claimed.
