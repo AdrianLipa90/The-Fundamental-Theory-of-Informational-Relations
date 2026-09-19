@@ -1280,47 +1280,6 @@ def main() -> None:
         for M in d3_elements
     )
 
-    # Cartan embedding Phi(g SO(3)) = g g^T for SU(3)/SO(3).
-    g_cartan_test = candidate_step[("O", 0)]["U"] @ candidate_step[("E", 1)]["U"]
-    S_cartan_test = g_cartan_test @ g_cartan_test.T
-    cartan_embedding_symmetry_residual = float(
-        np.max(np.abs(S_cartan_test.T - S_cartan_test))
-    )
-    cartan_embedding_unitarity_residual = float(
-        np.max(
-            np.abs(
-                S_cartan_test.conj().T @ S_cartan_test - np.eye(3)
-            )
-        )
-    )
-    cartan_embedding_determinant_residual = float(
-        abs(np.linalg.det(S_cartan_test) - 1.0)
-    )
-
-    # Right SO(3) action leaves gg^T invariant.
-    k_angle = 0.417
-    k_so3 = np.array(
-        [
-            [math.cos(k_angle), -math.sin(k_angle), 0.0],
-            [math.sin(k_angle), math.cos(k_angle), 0.0],
-            [0.0, 0.0, 1.0],
-        ],
-        dtype=complex,
-    )
-    cartan_embedding_right_so3_residual = float(
-        np.max(
-            np.abs(
-                (g_cartan_test @ k_so3)
-                @ (g_cartan_test @ k_so3).T
-                - S_cartan_test
-            )
-        )
-    )
-    cartan_embedding_k_unitarity_residual = float(
-        np.max(np.abs(k_so3.conj().T @ k_so3 - np.eye(3)))
-    )
-    cartan_embedding_k_det_residual = abs(np.linalg.det(k_so3) - 1.0)
-
     # On the rank-two diagonal Cartan flat, choose g=exp(iH/2), so Phi=exp(iH).
     H_cartan_probe = np.diag(alcove_probe_x).astype(complex)
     g_cartan_probe = np.diag(np.exp(0.5j * alcove_probe_x))
@@ -1799,6 +1758,48 @@ def main() -> None:
                 candidate_determinant_residual,
                 float(abs(np.linalg.det(U) - 1.0)),
             )
+
+    # Cartan embedding Phi(g SO(3)) = g g^T for SU(3)/SO(3).
+    g_cartan_test = candidate_step[("O", 0)]["U"] @ candidate_step[("E", 1)]["U"]
+    S_cartan_test = g_cartan_test @ g_cartan_test.T
+    cartan_embedding_symmetry_residual = float(
+        np.max(np.abs(S_cartan_test.T - S_cartan_test))
+    )
+    cartan_embedding_unitarity_residual = float(
+        np.max(
+            np.abs(
+                S_cartan_test.conj().T @ S_cartan_test - np.eye(3)
+            )
+        )
+    )
+    cartan_embedding_determinant_residual = float(
+        abs(np.linalg.det(S_cartan_test) - 1.0)
+    )
+
+    # Right SO(3) action leaves gg^T invariant.
+    k_angle = 0.417
+    k_so3 = np.array(
+        [
+            [math.cos(k_angle), -math.sin(k_angle), 0.0],
+            [math.sin(k_angle), math.cos(k_angle), 0.0],
+            [0.0, 0.0, 1.0],
+        ],
+        dtype=complex,
+    )
+    cartan_embedding_right_so3_residual = float(
+        np.max(
+            np.abs(
+                (g_cartan_test @ k_so3)
+                @ (g_cartan_test @ k_so3).T
+                - S_cartan_test
+            )
+        )
+    )
+    cartan_embedding_k_unitarity_residual = float(
+        np.max(np.abs(k_so3.conj().T @ k_so3 - np.eye(3)))
+    )
+    cartan_embedding_k_det_residual = abs(np.linalg.det(k_so3) - 1.0)
+
 
     # Same branch counts but reversed branch order on the same two consecutive
     # C3 edges must remain distinguishable.
