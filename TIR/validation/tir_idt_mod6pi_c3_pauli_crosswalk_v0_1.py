@@ -312,6 +312,16 @@ def main() -> None:
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE64_SELECTOR_PROVENANCE_GATE_V0_1.md"
     ).read_text(encoding="utf-8")
+    stage65 = (
+        ROOT
+        / "TIR/frozen_predictions/"
+        "TIR_POLYGONAL_STAGE65_STATIONARY_ORDERED_AXIS_CUBIC_SELECTOR_FREEZE_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage66 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE66_STATIONARY_SELECTOR_DERIVATION_V0_1.md"
+    ).read_text(encoding="utf-8")
     stage61 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -629,6 +639,147 @@ def main() -> None:
     sym2_dimension = 2 * (2 + 1) // 2
     re_eigen_moduli = sorted(abs(x) for x in np.linalg.eigvals(RE))
 
+    # Independent Stage-65/66 stationary cubic-selector reproduction.
+    phi = (1.0 + math.sqrt(5.0)) / 2.0
+    ico_vertices: list[np.ndarray] = []
+    for s1 in (-1.0, 1.0):
+        for s2 in (-1.0, 1.0):
+            ico_vertices.extend(
+                [
+                    np.array([0.0, s1, s2 * phi]),
+                    np.array([s1, s2 * phi, 0.0]),
+                    np.array([s2 * phi, 0.0, s1]),
+                ]
+            )
+    ico_norm = float(np.linalg.norm(ico_vertices[0]))
+    ico_axes: list[np.ndarray] = []
+    for v in ico_vertices:
+        u = v / ico_norm
+        for value in u:
+            if abs(value) > TOL:
+                if value < 0:
+                    u = -u
+                break
+        if not any(np.max(np.abs(u - a)) < TOL for a in ico_axes):
+            ico_axes.append(u)
+    ico_quadrupoles = [np.outer(u, u) - np.eye(3) / 3.0 for u in ico_axes]
+
+    def proj0_real(M: np.ndarray) -> np.ndarray:
+        return 0.5 * (M + M.T) - np.trace(M) / 3.0 * np.eye(3)
+
+    def grad_iso(S: np.ndarray) -> np.ndarray:
+        return 3.0 * proj0_real(S @ S)
+
+    def grad_a5(S: np.ndarray) -> np.ndarray:
+        return 3.0 * sum(
+            (np.trace(S @ Q) ** 2) * Q for Q in ico_quadrupoles
+        )
+
+    def hess_iso_action(S: np.ndarray, X: np.ndarray) -> np.ndarray:
+        return 3.0 * proj0_real(S @ X + X @ S)
+
+    def hess_a5_action(S: np.ndarray, X: np.ndarray) -> np.ndarray:
+        return 6.0 * sum(
+            np.trace(S @ Q) * np.trace(X @ Q) * Q
+            for Q in ico_quadrupoles
+        )
+
+    D_selector = np.diag([-1.0 / 3.0, 0.0, 1.0 / math.sqrt(5.0)])
+    D0_selector = D_selector - np.trace(D_selector) / 3.0 * np.eye(3)
+    g0_selector = grad_iso(D0_selector)
+    g1_selector = grad_a5(D0_selector)
+    selector_linear = np.column_stack(
+        [np.diag(g1_selector), -np.diag(D0_selector)]
+    )
+    selector_rhs = -np.diag(g0_selector)
+    eta_selector, lambda_selector = np.linalg.lstsq(
+        selector_linear, selector_rhs, rcond=None
+    )[0]
+    eta_selector_exact = -75.0 * (59.0 + 21.0 * math.sqrt(5.0)) / 638.0
+    lambda_selector_exact = -(8765.0 + 4758.0 * math.sqrt(5.0)) / 4785.0
+    eta_selector_residual = abs(float(eta_selector) - eta_selector_exact)
+    lambda_selector_residual = abs(float(lambda_selector) - lambda_selector_exact)
+    selector_stationarity_residual = float(
+        np.max(
+            np.abs(
+                g0_selector
+                + eta_selector * g1_selector
+                - lambda_selector * D0_selector
+            )
+        )
+    )
+
+    selector_basis: list[np.ndarray] = [
+        np.diag([1.0, -1.0, 0.0]) / math.sqrt(2.0),
+        np.diag([1.0, 1.0, -2.0]) / math.sqrt(6.0),
+    ]
+    for i, j in ((0, 1), (0, 2), (1, 2)):
+        M = np.zeros((3, 3))
+        M[i, j] = M[j, i] = 1.0 / math.sqrt(2.0)
+        selector_basis.append(M)
+
+    selector_H = np.zeros((5, 5), dtype=float)
+    for i, X in enumerate(selector_basis):
+        Y = (
+            hess_iso_action(D0_selector, X)
+            + eta_selector * hess_a5_action(D0_selector, X)
+        )
+        for j, B in enumerate(selector_basis):
+            selector_H[j, i] = np.trace(B @ Y)
+
+    selector_d = np.array(
+        [np.trace(B @ D0_selector) for B in selector_basis], dtype=float
+    )
+    selector_d /= np.linalg.norm(selector_d)
+    _, _, selector_vh = np.linalg.svd(selector_d.reshape(1, -1))
+    selector_tangent = selector_vh[1:].T
+    selector_constrained = selector_tangent.T @ (
+        selector_H - lambda_selector * np.eye(5)
+    ) @ selector_tangent
+    selector_constrained = 0.5 * (
+        selector_constrained + selector_constrained.T
+    )
+    selector_eigenvalues, selector_eigenvectors_tangent = np.linalg.eigh(
+        selector_constrained
+    )
+    selector_eigenvectors_full = (
+        selector_tangent @ selector_eigenvectors_tangent
+    )
+
+    selector_Aseed = np.zeros((3, 3))
+    selector_Aseed[0, 1] = selector_Aseed[1, 0] = 0.5
+    selector_orbit = [selector_Aseed]
+    for _ in range(2):
+        selector_orbit.append(
+            np.real(P_family) @ selector_orbit[-1] @ np.real(P_family).T
+        )
+    selector_orbit_vectors = []
+    for A in selector_orbit:
+        v = np.array([np.trace(B @ A) for B in selector_basis], dtype=float)
+        selector_orbit_vectors.append(v / np.linalg.norm(v))
+    selector_orbit_vectors = np.stack(selector_orbit_vectors, axis=0)
+    selector_alignment = np.abs(
+        selector_orbit_vectors @ selector_eigenvectors_full
+    )
+    selector_negative_indices = np.where(selector_eigenvalues < -1.0e-9)[0]
+    selector_positive_indices = np.where(selector_eigenvalues > 1.0e-9)[0]
+    selector_zero_indices = np.where(np.abs(selector_eigenvalues) <= 1.0e-9)[0]
+    selector_neg_index = (
+        int(selector_negative_indices[0])
+        if len(selector_negative_indices) == 1
+        else -1
+    )
+    selector_negative_best_orbit_index = (
+        int(np.argmax(selector_alignment[:, selector_neg_index]))
+        if selector_neg_index >= 0
+        else -1
+    )
+    selector_negative_best_alignment = (
+        float(np.max(selector_alignment[:, selector_neg_index]))
+        if selector_neg_index >= 0
+        else 0.0
+    )
+
     checks = {
         "legacy_projection_source_blob_pinned": (
             archive_projection_blob == "01b9be380f095b613a731ba258865bc617d8e854"
@@ -823,6 +974,36 @@ def main() -> None:
             "STAGE_64_CANONICAL_SCALAR_SELECTOR_REMAINS_OPEN_PASS" in stage64
             and "branch symbol -> family-space operator" in stage64
             and "canonical_scalar_selector_status: OPEN" in stage64
+        ),
+        "stage65_stationary_selector_prevalidation_freeze_present": (
+            "STAGE_65_STATIONARY_ORDERED_AXIS_SELECTOR_FROZEN_PREVALIDATION"
+            in stage65
+            and "CKM entries" in stage65
+            and "A_seed is deliberately excluded from the selector equation"
+            in stage65
+        ),
+        "stage66_unique_stationary_selector_parent_pass_present": (
+            "STAGE_66_UNIQUE_STATIONARY_SELECTOR_PASS_WITH_SADDLE_CLASSIFICATION"
+            in stage66
+            and "eta_*" in stage66
+            and "signature" in stage66
+            and "A_seed" in stage66
+        ),
+        "stage66_selector_eta_exact_reproduced": eta_selector_residual < 1.0e-10,
+        "stage66_selector_lambda_exact_reproduced": (
+            lambda_selector_residual < 1.0e-10
+        ),
+        "stage66_stationarity_residual_reproduced": (
+            selector_stationarity_residual < 1.0e-10
+        ),
+        "stage66_selector_hessian_signature_minus_plus_plus_plus": (
+            len(selector_negative_indices) == 1
+            and len(selector_positive_indices) == 3
+            and len(selector_zero_indices) == 0
+        ),
+        "stage66_negative_mode_is_p3_Aseed_orbit_image": (
+            selector_negative_best_orbit_index == 1
+            and abs(selector_negative_best_alignment - 1.0) < 1.0e-10
         ),
         "sym2_binary_to_three_dimension_exact": sym2_dimension == 3,
         "sym2_branch_generators_have_det_one": bool(
@@ -1091,8 +1272,16 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "cubic_complement_selector_status": (
+            "STAGE66_UNIQUE_STATIONARY_CUBIC_SELECTOR_CLOSED_SADDLE"
+            if passed
+            else "FAILED"
+        ),
+        "cubic_complement_selector_eta_exact": (
+            "-75*(59+21*sqrt(5))/638"
+        ),
         "family_dynamics_selector_status": (
-            "OPEN_BRANCH_OPERATOR_RHYTHM_REALFORM_AND_COMPLEMENT_SELECTION"
+            "CUBIC_SELECTOR_CLOSED__BRANCH_OPERATOR_RHYTHM_AND_REALFORM_SELECTION_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -1222,6 +1411,30 @@ def main() -> None:
             "six_weak_intertwiner": six_weak_intertwiner_residual,
             "jarlskog_exact": abs(J - J_exact),
         },
+        "stationary_cubic_selector_audit": {
+            "eta": float(eta_selector),
+            "eta_exact": "-75*(59+21*sqrt(5))/638",
+            "eta_residual": eta_selector_residual,
+            "lambda": float(lambda_selector),
+            "lambda_exact": "-(8765+4758*sqrt(5))/4785",
+            "lambda_residual": lambda_selector_residual,
+            "stationarity_residual": selector_stationarity_residual,
+            "hessian_eigenvalues": selector_eigenvalues.tolist(),
+            "hessian_signature": {
+                "negative": int(len(selector_negative_indices)),
+                "zero": int(len(selector_zero_indices)),
+                "positive": int(len(selector_positive_indices)),
+            },
+            "classification": "SADDLE",
+            "negative_mode_best_Aseed_orbit_index": (
+                selector_negative_best_orbit_index
+            ),
+            "negative_mode_best_alignment": selector_negative_best_alignment,
+            "Aseed_used_to_solve_eta": False,
+            "uses_observed_CKM": False,
+            "uses_observed_masses": False,
+            "uses_fitted_coefficients": False,
+        },
         "icosahedral_su3_complement_audit": {
             "compact_subgroup_dimension": 3,
             "symmetric_space_tangent_dimension": 5,
@@ -1300,6 +1513,10 @@ def main() -> None:
             "five_dimensional_complement_is_lie_tangent_not_five_physical_spatial_dimensions": True,
             "a5_icosahedral_five_carrier_is_not_equated_with_su3f_without_dynamics": True,
             "icosahedral_quadrupole_lie_generation_does_not_close_physical_family_selector": True,
+            "stage64_selector_open_status_is_superseded_by_frozen_stage65_66_selector": True,
+            "stage66_stationary_selector_is_mathematical_not_full_physical_dynamics": True,
+            "stage66_saddle_classification_is_retained_not_repaired": True,
+            "Aseed_was_not_used_to_fit_eta": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
             "physical_ckm_assignment": "OPEN",
