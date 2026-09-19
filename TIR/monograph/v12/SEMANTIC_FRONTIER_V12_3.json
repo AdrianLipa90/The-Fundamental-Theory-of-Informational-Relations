@@ -1,0 +1,213 @@
+{
+  "schema": "TIR_MONOGRAPH_SEMANTIC_FRONTIER_V12_3",
+  "date": "2026-09-18",
+  "purpose": "Replace the stale v12.1 open-gate snapshot with a cross-repository semantic closure ledger.",
+  "authority": {
+    "canon_allowed": false,
+    "direct_main_mutation": false,
+    "merge_to_main": false,
+    "physical_promotion_from_software": false
+  },
+  "pinned_heads": {
+    "TIR": "45b54c0c8aa60ec92607e6132b69aca9ab766d75",
+    "IDT": "58f453a4725bf0304417a5d07730f2dc1765dea5",
+    "RFC": "ce4af9ddd480ea40dfb5a3ee26ed396a58cb0e54",
+    "SOH": "d99545aa447ef86bc253d8241a3fee9adb8a42c1"
+  },
+  "gates": [
+    {
+      "id": "G1_GLOBAL_SPATIAL_PRODUCTION_REALIZATION",
+      "old_wording": "frozen production global spatial-complex incidence input and A5 PASS on that exact dataset",
+      "formal_status": "CERTIFIER_AND_BINDING_CONTRACT_CLOSED",
+      "production_status": "OPEN_SOURCE_INPUT",
+      "verdict": "PRODUCTION_OPEN",
+      "evidence": [
+        "TIR/foundations/TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md",
+        "TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md",
+        "TIR/foundations/validation/tir_production_realization_binding_v0_2.py"
+      ],
+      "correction": "Do not list A5/capture mechanics as missing. Only the source-owned physical production realization remains open."
+    },
+    {
+      "id": "G2_INTERLEAF_SHARED_ATLAS_GLOBAL_JOIN",
+      "old_wording": "frozen production inter-leaf matching field and global TIR-IDT-RFC spacetime/ADM join",
+      "formal_status": "MATCHING_SOLDERING_SHARED_ATLAS_AND_GLOBALIZATION_CERTIFIERS_CLOSED_CONDITIONALLY",
+      "production_status": "OPEN_SOURCE_PACKET_EVENT_PLACEMENT_COVERAGE",
+      "verdict": "PRODUCTION_OPEN",
+      "evidence": [
+        "TIR/foundations/TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1.md",
+        "TIR/foundations/validation/tir_production_realization_binding_v0_2.py",
+        "RFC:closure/einstein/RF_GSC3A_CLOCK_TRANSVERSE_MATCHING_FLOW_SOLDERING.md",
+        "RFC:closure/einstein/RF_GSC4A_SOURCE_ASSEMBLED_SHARED_SPACETIME_ATLAS.md",
+        "RFC:closure/einstein/RF_E25_SHARED_SPACETIME_ATLAS_COCYCLE.md",
+        "RFC:closure/einstein/RF_GSC5A_NATURAL_EINSTEIN_GLOBALIZATION_REDUCTION.md"
+      ],
+      "correction": "The mathematical join/certifier chain is no longer open as a single theorem. Production realization, event placement, shared-atlas packet and coverage remain open."
+    },
+    {
+      "id": "G3_EINSTEIN_ADM_CONSTRAINT_EVOLUTION",
+      "old_wording": "Einstein constraint/evolution closure downstream of admitted global spacetime carrier",
+      "formal_status": "CLOSED_LOCAL_ACTION_LEVEL_ADM_THROUGH_RF_E13_AND_LOCAL_EINSTEIN_RF_E24",
+      "production_status": "GLOBAL_PRODUCTION_CARRIER_AND_COVERAGE_OPEN",
+      "verdict": "CLOSED_DERIVATION_PRODUCTION_OPEN",
+      "evidence": [
+        "RFC:formalism/DEPENDENCY_GRAPH.md",
+        "RFC:closure/einstein/RF_E12_ACTION_PROJECTED_ADM_SOURCE_CONSTRAINTS.md",
+        "RFC:closure/einstein/RF_E13_CONSTRAINT_PROPAGATION_BIANCHI_LEDGER.md",
+        "RFC:closure/einstein/RF_E24_LOCAL_EINSTEIN_FORM_CLOSURE.md",
+        "RFC:validation/RF_E24_LOCAL_EINSTEIN_FORM_CLOSURE_V0_1.json",
+        "RFC:closure/einstein/RF_E26_GLOBAL_EINSTEIN_CARRIER_PROMOTION.md"
+      ],
+      "correction": "Remove Einstein constraint/evolution derivation from the unresolved list. The remaining gate is production global carrier/atlas/coverage, not ADM or local Einstein-form derivation."
+    },
+    {
+      "id": "G4_COEFFICIENT_MAGNITUDES_AND_SELECTOR",
+      "old_wording": "target-independent extraction of |h|, |a|, |b|, |c|",
+      "formal_status": "MAGNITUDE_PARENT_EVALUATION_CLOSED_EXACT",
+      "production_status": "TRANSITION_PARENT_SELECTOR_OPEN",
+      "verdict": "PARTIAL_CLOSED_SELECTOR_OPEN",
+      "evidence": [
+        "TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md",
+        "TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_IDENTIFIABILITY_V0_1.md",
+        "TIR/foundations/TIR_COEFFICIENT_SELECTOR_COMPOSITION_NOGO_V0_3.md"
+      ],
+      "correction": "The magnitude evaluator is closed once a parent packet is supplied. The unresolved object is the coefficient-free transition-parent selector Sigma."
+    },
+    {
+      "id": "G5_CONTINUUM_GAUGE_NORMALIZATION_RUNNING",
+      "old_wording": "continuum gauge normalization and running from typed W_ij transport",
+      "formal_status": "DISCRETE_GAUGE_CARRIER_AND_MATTER_COUPLING_CLOSED",
+      "production_status": "CONTINUUM_NORMALIZATION_AND_RUNNING_OPEN",
+      "verdict": "OPEN",
+      "evidence": [
+        "TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE27_GAUGE_INVARIANT_QUARK_LINK_COUPLING_V0_1.md",
+        "TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE28_DISCRETE_GAUGE_MATTER_ACTION_V0_1.md",
+        "TIR/standard_model/TIR_SM_RECONCILIATION_LEDGER_V0_2.md"
+      ]
+    },
+    {
+      "id": "G6_ELECTROWEAK_SCHEME_SCALE_TRANSPORT",
+      "old_wording": "common electroweak renormalization/scheme-scale transport",
+      "formal_status": "OPEN_INCONSISTENT_RAW_STRUCTURAL_TRIPLE",
+      "production_status": "OPEN",
+      "verdict": "OPEN",
+      "evidence": [
+        "TIR/validation/TIR_V12_ELECTROWEAK_HIGGS_AUDIT_V0_1.json"
+      ]
+    },
+    {
+      "id": "G7_HIGGS_SCALAR_ACTION_BINDING",
+      "old_wording": "scalar/Higgs action binding",
+      "formal_status": "OPEN",
+      "production_status": "OPEN",
+      "verdict": "OPEN",
+      "evidence": [
+        "TIR/validation/TIR_V12_ELECTROWEAK_HIGGS_AUDIT_V0_1.json"
+      ]
+    },
+    {
+      "id": "G8_HYPERCHARGE_AND_QUARK_MASS",
+      "old_wording": "source/uniqueness theorem for hypercharge and scheme/scale-defined quark-mass map",
+      "formal_status": "HYPERCHARGE_RELATIVE_UNIQUENESS_CLOSED_ON_DECLARED_FIELD_CONTENT",
+      "production_status": "GEOMETRIC_ANCHOR_UNIQUENESS_EXTENSION_AND_QUARK_MASS_MAP_OPEN",
+      "verdict": "HYPERCHARGE_CLOSED_QUARK_MAP_OPEN",
+      "evidence": [
+        "TIR/foundations/TIR_HYPERCHARGE_SOURCE_UNIQUENESS_V0_1.md",
+        "TIR/validation/TIR_HYPERCHARGE_SOURCE_UNIQUENESS_VALIDATION_V0_1.json",
+        "TIR/standard_model/TIR_SM_RECONCILIATION_LEDGER_V0_2.md"
+      ],
+      "correction": "Do not list hypercharge relative/source uniqueness as wholly open. It is exact on the declared field content and TIR normalization anchor. Quark mass map and geometric uniqueness/extensions remain open."
+    },
+    {
+      "id": "G9_NEUTRINO_ABSOLUTE_ACTION_REPAIR",
+      "old_wording": "repaired neutrino absolute-action derivation",
+      "formal_status": "SOURCE_CONFLICT_RESOLVED_SINGLE_OFFSET_RULE_RESTORED",
+      "production_status": "ABSOLUTE_NEUTRINO_MASS_EMPIRICAL_STATUS_OPEN",
+      "verdict": "CLOSED_DERIVATION_PHYSICAL_OPEN",
+      "evidence": [
+        "TIR/foundations/TIR_NEUTRINO_ABSOLUTE_ACTION_SOURCE_REPAIR_V0_1.md",
+        "TIR/validation/tir_neutrino_absolute_action_source_repair_v0_1.py"
+      ],
+      "correction": "Remove the derivational repair from unresolved gates. Only physical absolute-mass validation remains open."
+    },
+    {
+      "id": "G10_MESON_ABSOLUTE_ACTION_BASELINE",
+      "old_wording": "source-derived meson absolute-action baseline",
+      "formal_status": "OPEN",
+      "production_status": "OPEN",
+      "verdict": "OPEN",
+      "evidence": [
+        "TIR/monograph/v12/chapters/ch14_hadrons_baryons_mesons.tex",
+        "TIR/standard_model/TIR_SM_RECONCILIATION_LEDGER_V0_2.md"
+      ]
+    },
+    {
+      "id": "G11_STRONG_CP_HOLONOMIC_SOURCE",
+      "old_wording": "holonomic/topological strong-CP source theorem",
+      "formal_status": "OPEN",
+      "production_status": "FROZEN_NEDM_ROUTE_FAIL_RETAINED",
+      "verdict": "OPEN_WITH_RETAINED_PHYSICAL_FAIL",
+      "evidence": [
+        "TIR/validation/TIR_V12_STRONG_CP_NEDM_AUDIT_V0_1.json"
+      ]
+    },
+    {
+      "id": "G12_COSMOLOGY_SCALE_RHOCRIT",
+      "old_wording": "unit-complete cosmological scale/critical-density binding",
+      "formal_status": "DIMENSIONLESS_ARITHMETIC_PASS_UNIT_BINDING_OPEN",
+      "production_status": "RHOCRIT_AND_OMEGA_BINDING_QUARANTINED_OPEN",
+      "verdict": "OPEN",
+      "evidence": [
+        "TIR/validation/TIR_V12_COSMOLOGY_FORMULA_AUDIT_V0_1.json"
+      ]
+    },
+    {
+      "id": "G13_COLLATZ_FS_PHYSICAL_BINDING",
+      "old_wording": "physical binding for the Collatz-Fubini-Study relational phase coordinate",
+      "formal_status": "EXACT_PHASE_INTERFACE_AND_RFC_PHASE_FIBRE_ADDED",
+      "production_status": "METRIC_SOURCE_COUPLING_SCALE_OPEN",
+      "verdict": "INTERFACE_CLOSED_PHYSICAL_COUPLING_OPEN",
+      "evidence": [
+        "TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md",
+        "RFC:closure/einstein/RF_E27_COLLATZ_FS_PHASE_FIBRE_INTERFACE.md"
+      ],
+      "correction": "The kinematic interface is closed; only physical coupling/metric/source identification remains open."
+    },
+    {
+      "id": "G14_LI_WEIL_CRITICAL_AXIS",
+      "old_wording": "native Li/Weil positivity and global critical-axis nondegeneracy/strict positivity",
+      "formal_status": "OPEN",
+      "production_status": "OPEN",
+      "verdict": "OPEN",
+      "evidence": [
+        "SOH:research/SOH_C005_LOCALIZED_POSITIVITY_V0_1.md",
+        "SOH:monograph/frontmatter/abstract.tex",
+        "SOH:monograph/backmatter/final_synthesis.tex"
+      ],
+      "firewall": "RIEMANN_HYPOTHESIS_OPEN"
+    }
+  ],
+  "summary": {
+    "stale_open_entries_closed_or_narrowed": [
+      "G2 mathematical join/certifier layer",
+      "G3 Einstein/ADM derivation",
+      "G4 coefficient magnitude evaluation",
+      "G8 hypercharge relative uniqueness on declared content",
+      "G9 neutrino source repair",
+      "G13 Collatz-FS kinematic phase-fibre interface"
+    ],
+    "genuinely_open_core": [
+      "production global spatial/matching/shared-atlas realization and coverage",
+      "coefficient transition-parent selector",
+      "continuum gauge normalization/running",
+      "electroweak common scheme-scale transport",
+      "Higgs scalar/action binding",
+      "quark mass map and hypercharge geometric-anchor extensions",
+      "meson absolute-action baseline",
+      "strong-CP holonomic source theorem",
+      "cosmological dimensionful/rho_crit binding",
+      "Collatz-FS physical metric/source coupling",
+      "native Li/Weil and global critical-axis positivity/nondegeneracy"
+    ]
+  }
+}

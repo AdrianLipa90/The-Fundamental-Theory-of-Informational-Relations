@@ -1,26 +1,52 @@
-# TIR Monograph v12.1 — audited dependency-ordered publication surface
+# TIR Monograph v12.3 — Semantic Frontier Reconciliation
 
-Status: `V12_0_BASELINE_PRESERVED / V12_1_REPOSITORY_SYNC_MAIN_PROMOTED / COEFFICIENT_PARENT_EVAL_CLOSED / TRANSITION_SELECTOR_OPEN`
+Status: `V12_0_BASELINE_PRESERVED / V12_1_SYNC_PRESERVED / V12_2_BRANCH_CONSOLIDATION_PRESERVED / V12_3_SEMANTIC_FRONTIER_RECONCILED / MAIN_UNTOUCHED`
 
-Historical v12.1 audit baseline: `main@0f63c823961a58770de22d14b5f53e2bfa38a9b3`
+Baseline main for Pass-4: `45b54c0c8aa60ec92607e6132b69aca9ab766d75`
 
-Validated v12.1 source head: `b19d1becd7ed59263d2c78483b617bc4ef83bd3e`
+Integration branch: `integration/gremlin-tir-pass4-20260918`
 
-Main promotion: PR `#128` -> `main@3a31da6ebeded16d4f48345de62c974870f76694`
+Date: `2026-09-18`
 
-Current completion branch: `feat/tir-coefficient-magnitude-parent-evaluation-20260910`
+Historical v12.0--v12.2 provenance remains intact. Version 12.3 rebuilds the completion frontier from current cross-repository theorem, validator and receipt surfaces. Formal/derivational closure is now kept separate from production/physical openness.
 
-Historical v12.0 integration baseline remains the 30 August 2026 content-migration publication surface. Version 12.1 synchronized that architecture with later merged theorem and validation work without promoting unresolved physical claims. The current post-promotion completion branch narrows the coefficient frontier without changing the evidence matrix.
+## Canonical publication surface
 
-## Purpose
+Master:
 
-The monograph is organized in dependency order:
+`TIR/monograph/tir_monograph_v12.tex`
 
-`primitive informational relations -> emergent geometry -> information/phase/flavour -> particle and gauge sectors -> extensions and tests`.
+Publication tree:
 
-All twenty-one main chapters remain substantive. Appendix E is the v12.1 repository-state synchronization layer; Appendices A-D remain frozen v12.0 provenance surfaces.
+`TIR/monograph/v12/`
 
-## Current foundational spine
+Build authority:
+
+`.github/workflows/compile-tir-monograph-v12.yml`
+
+The metatime papers, zeta-information-axis monograph and archive monographs remain provenance/specialist surfaces; they are not competing canonical TIR masters.
+
+## GREMLIN Pass-4 branch sweep
+
+Exact compare against baseline main found 81 non-main branches:
+
+- 77 with `ahead_by=0`: already contained in main;
+- 4 with unique payload.
+
+The unique payload sources are:
+
+1. `feat/golden-mean-prime-orbit-asymptotic-v0.1`;
+2. `jarlskog-closure-v01`;
+3. `policy/no-ai-training-without-license-20260917`;
+4. `research/xf9-preprint-spider-bib-20260918`.
+
+The full receipt and branch list are in:
+
+`TIR/monograph/v12/GREMLIN_PASS4_BRANCH_MONOGRAPH_AUDIT_20260918.md`.
+
+No branch deletion is authorized or performed by this consolidation.
+
+## Foundational spine
 
 ```text
 0
@@ -43,11 +69,11 @@ All twenty-one main chapters remain substantive. Appendix E is the v12.1 reposit
 -> production global spatial complex       [OPEN INPUT]
 ```
 
-The global-spacetime line additionally requires the production inter-leaf matching field, followed by TIR-IDT-RFC spacetime/ADM admission and the downstream Einstein-system gates.
+The local TIR-IDT-RFC Einstein/ADM derivation is no longer an open gate: RFC closes the ADM spine through RF-E13 and the local Einstein form through RF-E24. The remaining global line is production-owned: spatial/matching/shared-atlas realization, patchwise solution/source lineage and target-domain coverage.
 
-## Information, flavour and L-constant state
+## Information and flavour ownership
 
-The canonical information normalization remains
+The canonical normalization remains
 
 ```text
 C^3
@@ -59,109 +85,121 @@ C^3
 -> kappa=ln2/(24*pi)
 ```
 
-Canonical source:
+Owner:
 
 `TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
 
-The discrete structural constants also have the independent Platonic finite-group closure
+The exact Platonic closure of `(L3,L4,L5)=(7,2,5)` remains conditional on its declared tetrahedral-root extension rule.
+
+### CKM/Jarlskog state after Pass-4
+
+The Jarlskog invariant is now exact downstream of the retained CKM parameterization:
 
 ```text
-A4 subset S4 -> [S4:A4] = 2 = L4
-A4 subset A5 -> [A5:A4] = 5 = L5
-S4/A4 disjoint-union A5/A4 -> cardinality 7 = L3
+(s12,s23,s13,delta)
+-> standard unitary CKM matrix
+-> exact rephasing-invariant quartets
+-> unique |J|
 ```
 
-conditional on the explicit TIR tetrahedral-root extension rule. The Collatz/twin-prime path is retained as an independent arithmetic crosscheck. Canonical source:
+The historical independent `J_old` expression is deprecated as an exact Jarlskog assignment.
 
-`TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`.
+The upstream mixing-weight question is not silently promoted. The 600-cell/McKay/A2/half-kernel chain supplies exact incidence geometry, operator readouts, conditional selector mechanisms and no-go firewalls, but the unique physical flavour/readout law remains OPEN/CONDITIONAL.
 
-## Coefficient branch
+Canonical publication owner: Chapter 13.
 
-The historical charged-lepton lineage contains declared parent packets. With the independently closed upstream counts
+## Golden-mean dynamical prime-orbit theorem
+
+Pass-4 preserves the exact theorem
 
 ```text
-N_F = 3
-(L3,L4,L5) = (7,2,5)
+O_n ~ phi^n / n = exp(n h_top)/n
 ```
 
-the packet magnitudes evaluate uniquely:
+with explicit error bounds and the normalization rewrite through `kappa` and the Hausdorff dimension.
+
+Firewall:
 
 ```text
-ELECTRON_ACTION  -> (1,3,1,1)
-E_TO_MU_RELEASE  -> (0,5,2,8)
-MU_TO_TAU_RELEASE -> (0,3,1,7)
+primitive dynamical orbit != arithmetic prime integer
+PNT not derived
+Riemann zeta identification not derived
+RH implication none
 ```
 
-Status:
+## XF-9 critical-axis crosswalk
+
+The XF-9 surface now records the exact closure-defect radial-force identity, its regularized pole-free Pick/Gram kernel and its de Branges crosswalk. Prior/concurrent art is credited explicitly.
+
+The global positive-force/Gram statement remains RH-equivalent/open. The repository firewall continues to require:
+
+`riemann_hypothesis_in_closure=false`.
+
+## Evidence ownership
+
+The publication invariant remains:
 
 ```text
-COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT
-COEFFICIENT_TRANSITION_PARENT_SELECTOR  = OPEN
+sector chapter -> formula/provenance
+Chapter 19    -> current observable evidence verdict
+Chapter 20    -> frozen prospective contracts
+Chapter 21    -> open theorem/completion frontier
+Appendix B    -> numerical/validator reproducibility
 ```
 
-The current atomic orientation operator does not consume the transition-sensitive seed/stopping fields to select the parent packet, so role identity and orientation alone are non-identifying. The missing object is a coefficient-free, transition-sensitive selector `Sigma`. Retrospective mass/Yukawa residuals and recovered tuples are excluded as selector parents.
+Repository tests or document builds do not overwrite physical evidence states.
 
-Canonical sources:
+## Current semantic frontier
 
-`TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md`
+Closed or narrowed since the old v12.1 headline list:
 
-`TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_IDENTIFIABILITY_V0_1.md`
+- local Einstein/ADM constraints, evolution and Bianchi propagation: CLOSED on the declared RFC/TIR selection rules;
+- coefficient magnitude-parent evaluation: CLOSED EXACT; transition-parent selector remains OPEN;
+- hypercharge relative uniqueness: CLOSED on the declared field content and TIR normalization anchor;
+- neutrino source/action transcription repair: CLOSED; absolute-mass empirical validation remains OPEN;
+- Collatz--Fubini--Study phase-fibre interface: CLOSED kinematically; physical metric/source coupling remains OPEN;
+- global matching/atlas/Einstein mathematics: certifier chain substantially CLOSED/CONDITIONAL; production source packets and coverage remain OPEN.
 
-## Evidence and falsification invariant
+The principal genuinely unresolved core is:
 
-Version 12.1 preserves the existing `(Claim Class, Timing, Verdict)` taxonomy. The current evidence owner remains Chapter 19. In particular, repository theorem/contract PASS states do not overwrite charged-lepton precision failures, PMNS reactor-angle tension, electroweak/fine-structure/Higgs precision failures or tensions, pion/kaon formula failures, provenance quarantines, or the frozen strong-CP-to-neutron-EDM failure.
-
-## Current open frontier
-
-The current open problems are named gates rather than a frozen count:
-
-- production global spatial-complex input and A5 certification on that exact dataset;
-- production inter-leaf matching-field input;
-- global TIR-IDT-RFC spacetime/ADM admission and Einstein constraint/evolution closure;
+- source-owned production spatial, matching/event-placement and shared-atlas realization, including coverage/source lineage;
 - coefficient transition-parent selector;
-- continuum gauge normalization/running and hypercharge source uniqueness;
-- common electroweak scheme/scale transport and Higgs scalar/action binding;
-- scheme/scale-defined quark mass map;
-- neutrino absolute-action repair and meson absolute-action baseline;
+- continuum gauge normalization/running;
+- common electroweak scheme/scale transport;
+- Higgs scalar/action binding;
+- scheme/scale-defined quark mass map and stronger geometric-anchor extensions of hypercharge;
+- source-derived meson absolute-action baseline;
 - holonomic/topological strong-CP source theorem;
 - unit-complete cosmological scale/critical-density binding;
-- physical binding of the Collatz-Fubini-Study relational phase;
-- native Li/Weil positivity and globally quantified critical-axis nondegeneracy/strict-positivity conditions; the Riemann hypothesis remains open.
+- physical metric/source coupling of the Collatz--FS phase fibre;
+- native Li/Weil and global critical-axis positivity/nondegeneracy;
+- Riemann hypothesis.
 
-## Prospective programme
+Machine-readable authority:
 
-The frozen v10.7 three-candidate family and its orthogonal observables retain their no-refit evidence contract. A later qualifying dataset may score that frozen family; it does not retroactively become a parent of the structural derivations.
+- `TIR/monograph/v12/SEMANTIC_FRONTIER_V12_3.json`;
+- `TIR/monograph/v12/GREMLIN_PASS5_SEMANTIC_FRONTIER_AUDIT_20260918.md`.
 
-## Build surface
+## Synchronization manifests
 
-The master remains
+Historical:
 
-`TIR/monograph/tir_monograph_v12.tex`
+- `TIR/monograph/v12/MIGRATION_MANIFEST.yaml`;
+- `TIR/monograph/v12/MONOGRAPH_SYNC_V12_1.yaml`.
 
-and its document metadata identify the compiled revision as **Version 12.1 Audited Repository Synchronization -- 10 September 2026**.
+Pass-4 provenance:
 
-The historical repository-to-publication audit is
+- `TIR/monograph/v12/MONOGRAPH_SYNC_V12_2.yaml`;
+- `TIR/monograph/v12/GREMLIN_PASS4_BRANCH_MONOGRAPH_AUDIT_20260918.md`.
 
-`TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md`.
+Current semantic sync:
 
-The current completion-branch validators are
-
-`TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py`
-
-`TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py`
-
-`TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py`
-
-`TIR/validation/tir_v12_source_contract_v0_4.py`
-
-The historical v12.1 repository-sync audit remains
-
-`TIR/validation/tir_v12_1_repository_sync_audit.py`.
-
-The v12.0 migration manifest remains preserved as historical provenance; the v12.1 sync manifest records the correction layer and its pre-promotion baseline.
+- `TIR/monograph/v12/MONOGRAPH_SYNC_V12_3.yaml`;
+- `TIR/monograph/v12/SEMANTIC_FRONTIER_V12_3.json`;
+- `TIR/monograph/v12/GREMLIN_PASS5_SEMANTIC_FRONTIER_AUDIT_20260918.md`.
 
 ## Promotion boundary
 
-The exact v12.1 source head `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` passed deterministic validation, the critical-axis RH firewall, LaTeX compilation and publication preflight before promotion through PR #128.
+GREMLIN has candidate/audit authority only. This v12.3 branch must pass the deterministic validator suite, the new CKM/Jarlskog validators, the golden-mean workflow, the critical-axis RH firewall, exact-head LaTeX/PDF preflight and visual PDF QA before any promotion decision.
 
-The current coefficient-completion branch is a separate post-promotion change set. Its technical checks do not by themselves authorize merge and do not alter physical `OPEN`, `TENSION`, `FAIL` or `QUARANTINED` verdicts.
+No merge to `main` is performed by this Pass-4 preparation without an explicit main-merge instruction.

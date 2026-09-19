@@ -1,0 +1,38 @@
+version: "12.2-gremlin-pass4-repository-consolidation"
+date: "2026-09-18"
+baseline_main: "45b54c0c8aa60ec92607e6132b69aca9ab766d75"
+integration_branch: "integration/gremlin-tir-pass4-20260918"
+authority:
+  gremlin: "CANDIDATE_ONLY"
+  canon_allowed: false
+  direct_main_mutation: false
+  branch_deletion: false
+canonical_monograph:
+  master: "TIR/monograph/tir_monograph_v12.tex"
+  surface: "TIR/monograph/v12"
+  evidence_owner: "TIR/monograph/v12/chapters/ch19_unified_evidence_matrix.tex"
+  frontier_owner: "TIR/monograph/v12/chapters/ch21_open_theorems_completion_frontier.tex"
+branch_sweep:
+  non_main_at_baseline: 81
+  fully_contained_in_main: 77
+  unique_payload: 4
+unique_payload_sources:
+  - "feat/golden-mean-prime-orbit-asymptotic-v0.1"
+  - "jarlskog-closure-v01"
+  - "policy/no-ai-training-without-license-20260917"
+  - "research/xf9-preprint-spider-bib-20260918"
+scientific_boundaries:
+  jarlskog: "exact downstream matrix invariant; upstream CKM selector remains conditional/open"
+  golden_mean: "dynamical primitive-orbit theorem; arithmetic-prime/PNT/RH identification forbidden"
+  xf9: "exact coordinate/kernel crosswalk; RH-equivalent positivity remains open"
+  ai_policy: "repository-use policy; no scientific claim"
+historical_manifests_preserved:
+  - "TIR/monograph/v12/MIGRATION_MANIFEST.yaml"
+  - "TIR/monograph/v12/MONOGRAPH_SYNC_V12_1.yaml"
+validation_required:
+  - "all v12.1 deterministic validators"
+  - "new CKM/Jarlskog Pass-4 validators"
+  - "golden-mean prime-orbit workflow"
+  - "critical-axis RH firewall"
+  - "exact-head LaTeX/PDF preflight"
+  - "visual PDF inspection"

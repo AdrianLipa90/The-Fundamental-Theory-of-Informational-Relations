@@ -44,14 +44,40 @@ source validators in addition to the foundational geometry suite:
 \path{TIR/validation/tir_v12_discrete_labels_audit_v0_1.py}.
 \item[Coefficient forcing:]
 \path{TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py}.
+\item[Coefficient selector composition no-go:]
+\path{TIR/validation/tir_coefficient_selector_composition_nogo_v0_3.py}.
 \item[Neutrino action consistency:]
 \path{TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py}.
+\item[Neutrino source repair:]
+\path{TIR/validation/tir_neutrino_absolute_action_source_repair_v0_1.py}.
 \item[CKM/PMNS internal consistency:]
 \path{TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py}.
+\item[CKM Jarlskog invariant closure:]
+\path{TIR/validation/tir_ckm_jarlskog_invariant_closure_v0_1.py}.
+\item[CKM 600-cell incidence:]
+\path{TIR/validation/tir_ckm_600cell_flag_incidence_candidate_v0_1.py}.
+\item[CKM local A2/operator bridge:]
+\path{TIR/validation/tir_ckm_600cell_a2_selector_bridge_candidate_v0_2.py}.
+\item[CKM projective even-sector selector:]
+\path{TIR/validation/tir_ckm_projective_even_sector_selector_candidate_v0_3.py}.
+\item[CKM clean noncommuting family pair:]
+\path{TIR/validation/tir_ckm_600cell_clean_noncommuting_family_pair_candidate_v0_4.py}.
+\item[CKM lambda0 nested-fraction provenance:]
+\path{TIR/validation/tir_ckm_lambda0_nested_fraction_decomposition_v0_5.py}.
+\item[CKM half-kernel kappa selector:]
+\path{TIR/validation/tir_ckm_half_kernel_kappa_selector_candidate_v0_6.py}.
+\item[CKM product-flow uniqueness audit:]
+\path{TIR/validation/tir_ckm_half_kernel_product_flow_uniqueness_audit_v0_7.py}.
+\item[CKM angle--sine generator firewall:]
+\path{TIR/validation/tir_ckm_su3f_angle_sine_generator_firewall_v0_8.py}.
+\item[Golden-mean primitive-orbit asymptotic:]
+\path{TIR/validation/tir_golden_mean_prime_orbit_asymptotic_v0_1.py}.
 \item[Hadron formula audit:]
 \path{TIR/validation/tir_v12_hadron_formula_audit_v0_2.py}.
 \item[Hypercharge/anomaly audit:]
 \path{TIR/validation/tir_v12_hypercharge_anomaly_audit_v0_1.py}.
+\item[Hypercharge relative uniqueness:]
+\path{TIR/validation/tir_hypercharge_source_uniqueness_v0_1.py}.
 \item[Electroweak/Higgs audit:]
 \path{TIR/validation/tir_v12_electroweak_higgs_audit_v0_1.py}.
 \item[Strong-CP/neutron-EDM audit:]
@@ -62,10 +88,10 @@ source validators in addition to the foundational geometry suite:
 \path{TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py}.
 \item[Prospective contract:]
 \path{TIR/validation/tir_v12_prospective_contract_audit_v0_1.py}.
-\item[Completion DAG:]
-\path{TIR/validation/tir_v12_completion_frontier_dag_v0_1.py}.
 \item[Source contract:]
-\path{TIR/validation/tir_v12_source_contract_v0_2.py}.
+\path{TIR/validation/tir_v12_source_contract_v0_6.py}.
+\item[Semantic frontier audit:]
+\path{TIR/validation/tir_v12_3_semantic_frontier_audit_v0_1.py}.
 \item[Appendix integration:]
 \path{TIR/validation/tir_v12_appendix_integration_audit_v0_1.py}.
 \end{description}
@@ -134,10 +160,7 @@ while the reconciled rule yields
 \[
 (0.00500999,\ 0.01001999,\ 0.05009994)\ {\rm eV}.
 \]
-The deterministic receipt classifies this as a formula/value mismatch with a
-unique single-offset reconstruction.  The reconstruction is a diagnostic
-repair surface; upstream promotion requires the absolute-action derivation
-listed in Chapter~21.
+The source-repair theorem classifies the extra factor of $\kappa$ as a transcription/composition defect and restores the single-offset rule as the canonical repository derivation. The derivational repair is therefore closed; only physical absolute-mass validation remains open, as recorded in Chapter~21.
 
 \section{Flavour-mixing snapshot}
 
@@ -184,16 +207,33 @@ and
 \[
 \delta_{\rm CKM}=\arccos\frac25=66.4218215^\circ\ldots .
 \]
-The structural CP quantity
+With
 \[
-J_{\rm TIR}
+s_{12}=\lambda,\qquad s_{23}=|V_{cb}|,\qquad s_{13}=|V_{ub}|,
+\qquad c_{ij}=\sqrt{1-s_{ij}^2},
+\]
+the exact rephasing-invariant Jarlskog quantity of the current CKM matrix is
+\[
+\boxed{
+J_{\rm CP}^{\rm CKM}
+=s_{12}s_{23}s_{13}c_{12}c_{23}c_{13}^2\sin\delta_{\rm CKM}
+=2.97106576668\times10^{-5}.
+}
+\]
+The earlier independent structural assignment
+\[
+J_{\rm old}
 =\kappa^2\frac{L_4}{L_5}
 \left(1-\frac12\left(\frac{L_4}{L_5}\right)^2\right)
 =3.110115459\times10^{-5}
 \]
-has separate provenance from the historical magnitude-product proxy.  Their
-relative gap is about \(4.47\%\), which is retained as the diagnostic
-proxy-versus-invariant tension.
+is retained only as historical provenance and is deprecated as an independent
+Jarlskog invariant.  Its relative gap from the exact current CKM invariant is
+\[
+4.47088522\%.
+\]
+The closure validator also checks all nine nontrivial CKM quartets and the
+matrix unitarity/determinant conditions.
 
 \section{Hadron and meson reproduction firewall}
 

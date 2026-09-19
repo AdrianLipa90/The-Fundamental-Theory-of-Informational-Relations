@@ -1,0 +1,87 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Semantic Frontier Reconciliation}
+\label{app:v12_semantic_frontier_reconciliation}
+
+\paragraph{Purpose.}
+This appendix records the v12.3 correction of the completion frontier after a
+cross-repository theorem/validator/receipt audit. The previous v12.1 frontier
+is retained as historical provenance but is not used as the current semantic
+source of truth.
+
+\section{Status model}
+
+Every frontier coordinate is split into
+\[
+\boxed{
+\text{formal/derivational status}
+\quad\oplus\quad
+\text{production/physical status}.
+}
+\]
+This prevents two opposite errors: a software PASS cannot create a physical
+PASS, and an open physical source input cannot relabel a completed derivation
+as mathematically open.
+
+\section{Corrected former headline gates}
+
+\begin{longtable}{p{0.07\textwidth}p{0.36\textwidth}p{0.47\textwidth}}
+\toprule
+No. & Former headline & v12.3 status \\
+\midrule
+1 & Production global spatial complex &
+A5/capture/binding certifiers closed; source-owned production realization open. \\
+2 & Inter-leaf matching and global spacetime/ADM join &
+Matching-flow, shared-atlas and globalization certifiers closed conditionally;
+production packet, event placement and coverage open. \\
+3 & Einstein constraint/evolution closure &
+Local ADM constraints, evolution, Bianchi propagation and local Einstein form
+closed; production global carrier/coverage remains open. \\
+4 & Four coefficient magnitudes &
+Magnitude-parent evaluation closed; transition-parent selector open. \\
+5 & Continuum gauge normalization/running &
+Discrete structural gauge layer closed; continuum normalization/running open. \\
+6 & Electroweak scheme-scale transport &
+Open. \\
+7 & Higgs scalar/action binding &
+Open. \\
+8 & Hypercharge uniqueness and quark masses &
+Hypercharge relative uniqueness closed on declared field content and anchor;
+quark-mass map and stronger geometric-anchor uniqueness open. \\
+9 & Neutrino absolute-action repair &
+Source conflict and derivational repair closed; empirical absolute-mass scale
+open. \\
+10 & Meson absolute-action baseline &
+Open. \\
+11 & Strong-CP source theorem &
+Open; retained neutron-EDM physical FAIL remains visible. \\
+12 & Cosmological scale/critical density &
+Dimensionless arithmetic audited; dimensionful and rho-critical binding open. \\
+13 & Collatz--FS physical binding &
+Kinematic phase-fibre interface closed; metric/source coupling and scale open. \\
+14 & Li--Weil/global critical-axis positivity &
+Open; RH remains open. \\
+\bottomrule
+\end{longtable}
+
+\section{Pinned repositories}
+
+The reconciliation pins:
+\begin{itemize}
+\item TIR main: \texttt{45b54c0c8aa60ec92607e6132b69aca9ab766d75};
+\item IDT main: \texttt{58f453a4725bf0304417a5d07730f2dc1765dea5};
+\item RFC main: \texttt{ce4af9ddd480ea40dfb5a3ee26ed396a58cb0e54};
+\item Secret-of-a-Half main:
+      \texttt{d99545aa447ef86bc253d8241a3fee9adb8a42c1}.
+\end{itemize}
+
+The machine-readable ledger is
+\path{TIR/monograph/v12/SEMANTIC_FRONTIER_V12_3.json}.
+The human-readable provenance audit is
+\path{TIR/monograph/v12/GREMLIN_PASS5_SEMANTIC_FRONTIER_AUDIT_20260918.md}.
+
+\section{Promotion boundary}
+
+GREMLIN remains candidate/audit authority only. This reconciliation changes the
+status description only where an existing theorem, validator or receipt already
+supports the change. It does not create new physical evidence and does not
+authorize a merge to main or destructive branch cleanup.

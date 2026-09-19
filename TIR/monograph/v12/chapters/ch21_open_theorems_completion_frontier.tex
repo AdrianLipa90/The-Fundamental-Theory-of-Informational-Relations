@@ -1,298 +1,266 @@
 % !TEX root = ../../tir_monograph_v12.tex
-\chapter{Open Theorems and Completion Frontier}
+\chapter{Completion Frontier}
 \label{ch:v12_completion_frontier}
 
-\paragraph{v12.1 synchronization.}
-The original v12 frontier snapshot treated Cartan refinement and the
-zero-torsion spatial sector as future gates. They are no longer open in that
-form. The current repository has conditional/local theorem closure through
-Gates A2--A4 and an implemented Gate-A5 global-manifold certifier. The
-coefficient branch has also been narrowed: arithmetic evaluation of the
-already-declared magnitude-parent packets is exact, while transition-level
-parent selection remains open. The remaining frontier is therefore stated in
-terms of production inputs, parent selection, cross-framework global admission,
-dynamical normalization and unresolved physical bindings.
+\paragraph{v12.3 semantic reconciliation.}
+The completion frontier is rebuilt from current theorem, validator and receipt
+surfaces rather than inherited from the v12.1 headline list. The v12.1 frontier
+is historical provenance, not the current semantic source of truth. The
+machine-readable ledger is
+\path{TIR/monograph/v12/SEMANTIC_FRONTIER_V12_3.json}, with audit
+\path{TIR/monograph/v12/GREMLIN_PASS5_SEMANTIC_FRONTIER_AUDIT_20260918.md}.
 
-\section{Frontier as a dependency graph}
-
-A TIR gate can be promoted only after every named parent surface is available
-and the gate itself has a theorem, executable contract or evidence receipt
-appropriate to the claim. The current v12.1 DAG audit is
-\path{TIR/validation/tir_v12_1_completion_frontier_dag_v0_3.py}.
-It intentionally avoids a frozen headline count of ``open problems'': the
-status is attached to named nodes so later theorem closures cannot leave a
-numerically correct but semantically stale summary.
-
-\section{Closed or implemented structural parents}
-
-The active parent graph includes the primitive half/information spine, the
-local rank-three spatial carrier, tetrahedral closure, typed \(W_{ij}\)
-transport, the discrete solder/torsion source, the canonical \(\kappa\)
-normalization, the Platonic \(L_i\) closure, coefficient role/orientation
-forcing, exact coefficient magnitude-parent evaluation and the publication
-status taxonomy.
-
-The post-v12 spatial line adds
+Every gate now has two independent axes:
 \[
 \boxed{
-\begin{aligned}
-\text{Gate A2: Cartan refinement}
-&\quad \text{PASS on the declared regular smooth refinement},\\
-\text{Gate A3: }T^a=0/D^{LC}
-&\quad \text{PASS on the endpoint-compatible refinement sector},\\
-\text{Gate A4: leading-loop metric jet}
-&\quad \text{PASS under the Leading Refinement Rule},\\
-\text{Gate A5: 3-manifold certifier}
-&\quad \text{IMPLEMENTED; production input still OPEN}.
-\end{aligned}}
-\]
-The distinction in the last row is essential: a certifier can be complete while
-the production datum it is meant to certify remains absent.
-
-\section{Global geometry and spacetime inputs}
-
-The next source-owned spatial gate is
-\[
-\boxed{\texttt{PRODUCTION\_GLOBAL\_SPATIAL\_COMPLEX\_INPUT}}.
-\]
-The source-capture, deterministic freeze, digest and A5 handoff contract are
-already implemented in
-\path{TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md}.
-What remains open is the actual frozen production tetrahedral incidence carrier
-and an A5 PASS on that exact dataset.
-\vTwelveStatus{B}{--}{OPEN}
-
-The temporal/gluing side similarly has an executable packet contract but lacks
-the production field
-\[
-\boxed{\texttt{PRODUCTION\_INTERLEAF\_MATCHING\_FIELD\_INPUT}}.
-\]
-The source surface is
-\path{TIR/foundations/TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1.md}.
-It validates provenance, overlap data, the matching-law handoff and the
-\(x^0=ct\) normalization, but the source-owned production
-\(\beta_{\rm match}\) realization remains open.
-\vTwelveStatus{B}{--}{OPEN}
-
-Only after those production inputs are admitted can the global relativistic
-line proceed as
-\[
-\boxed{
-\begin{aligned}
-&\text{production spatial complex}
-+\text{production inter-leaf matching field}\\
-&\quad\to\text{global TIR--IDT--RFC spacetime/ADM admission}\\
-&\quad\to\text{Einstein constraint/evolution closure}.
-\end{aligned}}
-\]
-The local A2--A4 theorems are parents of this route, not substitutes for the
-global source evidence.
-
-\section{Coefficient parent-evaluation and selector branch}
-
-The old coefficient-magnitude node contained two distinct tasks. The first is
-now exact: once an already-declared parent packet is supplied, the upstream
-integers
-\[
-N_F=3,
-\qquad
-(L_3,L_4,L_5)=(7,2,5)
-\]
-fix its componentwise magnitude vector. The three historical charged-lepton
-packets evaluate to
-\[
-\boxed{M(P_e)=(1,3,1,1)},
-\]
-\[
-\boxed{M(P_{e\mu})=(0,5,2,8)},
-\]
-and
-\[
-\boxed{M(P_{\mu\tau})=(0,3,1,7)}.
-\]
-The proof and validator are
-\path{TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md}
-and
-\path{TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py}.
-No measured mass or Yukawa target is consumed by this evaluation.
-\vTwelveStatus{B}{--}{PASS}
-
-The residual theorem is the transition selector
-\[
-\boxed{
-\text{coefficient-free transition state}
-\longrightarrow
-(P_h,P_a,P_b,P_c).
+\text{formal / derivational status}
+\quad\oplus\quad
+\text{production / physical status}.
 }
 \]
-Its canonical gate name is
-\texttt{COEFFICIENT\_TRANSITION\_PARENT\_SELECTOR}.
-The historical lineage still labels this semantic parent assignment as
-\texttt{PROJECT\_MODEL\_ASSIGNMENT}. Therefore the selector must be derived
-from upstream projective/generation/return/holonomy state before reading a
-recovered coefficient tuple or target observable.
+A closed theorem does not imply a physical PASS; an open production input does
+not turn completed mathematics back into an open derivation.
+
+\section{Pinned evidence surface}
+
+The audit pins the following exact heads:
+\begin{description}
+\item[TIR:] \path{45b54c0c8aa60ec92607e6132b69aca9ab766d75}.
+\item[IDT:] \path{58f453a4725bf0304417a5d07730f2dc1765dea5}.
+\item[RFC:] \path{ce4af9ddd480ea40dfb5a3ee26ed396a58cb0e54}.
+\item[Secret-of-a-Half:] \path{d99545aa447ef86bc253d8241a3fee9adb8a42c1}.
+\end{description}
+
+Branch containment and semantic closure are distinct. A branch already
+contained in main does not make an older status ledger inside main current.
+
+\section{Closed or narrowed gates}
+
+\subsection{Spatial and local geometric spine}
+
+Gates A2--A4 remain PASS on their declared sectors, and A5 remains an
+implemented three-manifold certifier. The unresolved A5 coordinate is the
+source-owned production incidence carrier, not the certifier itself.
+
+\subsection{Einstein and ADM dynamics}
+
+The former Einstein constraint/evolution item is stale. Current RFC main records
+\[
+\boxed{
+\begin{aligned}
+\text{RF-E8 ADM assembly} &:\quad \mathrm{PASS},\\
+\text{RF-E9 extrinsic curvature} &:\quad \mathrm{PASS},\\
+\text{RF-E10 Einstein projections} &:\quad \mathrm{PASS},\\
+\text{RF-E11 source typing} &:\quad \mathrm{PASS},\\
+\text{RF-E12 ADM source constraints} &:\quad \mathrm{PASS},\\
+\text{RF-E13 evolution + Bianchi propagation} &:\quad \mathrm{PASS}.
+\end{aligned}}
+\]
+RF-E24 further closes the local Einstein form on its declared selection rules,
+\[
+\boxed{
+G_{\mu\nu}+\Lambda g_{\mu\nu}
+=\kappa_E T_{\mu\nu}.
+}
+\]
+RF-E26 and GSC5A provide conditional local-to-global tensor-gluing certifiers.
+Therefore the Einstein/ADM derivation is closed locally; the production global
+carrier, source lineage and domain coverage remain open.
+\vTwelveStatus{B}{--}{PASS}
+
+\subsection{Coefficient magnitudes}
+
+For an already selected parent packet, the magnitude valuation is exact.
+The unresolved object is instead the coefficient-free selector
+\[
+\boxed{
+\Sigma:\mathcal S_{\rm precoef}\to(P_h,P_a,P_b,P_c).
+}
+\]
+The identifiability and composition no-go theorems prove that the current coarse
+role/orientation selectors are insufficient. Thus magnitude evaluation is
+CLOSED while the transition-parent selector remains OPEN.
+
+\subsection{Hypercharge relative uniqueness}
+
+On the declared one-generation, one-Higgs field content with the TIR
+normalization anchor, the hypercharge theorem fixes the relative vector
+\[
+(q,u,d,\ell,e,h)
+=q(1,N_c+1,1-N_c,-N_c,-2N_c,N_c).
+\]
+For \(N_c=3\) and \(q=1/6\),
+\[
+\boxed{
+\left(\frac16,\frac23,-\frac13,-\frac12,-1,\frac12\right).
+}
+\]
+The external \(Y_L\) parent is eliminated and the cubic anomaly follows after
+the linear constraints. Relative uniqueness is therefore CLOSED on the declared
+field content. Geometric inevitability of the field content or normalization
+anchor, and extensions such as an added gauged right-handed neutrino, are
+separate questions.
+\vTwelveStatus{B}{--}{PASS}
+
+\subsection{Neutrino action repair}
+
+The repository-internal source conflict is resolved:
+\[
+\boxed{
+S_1=S_{\rm bare}+dS,
+\qquad
+dS=\kappa A_{\rm face}(1-\kappa).
+}
+\]
+The historical extra factor of \(\kappa\) after \(dS\) is quarantined as a
+transcription defect. Hence the derivational repair is CLOSED. The empirical
+absolute-neutrino mass scale remains OPEN and is not promoted by this repair.
+
+\subsection{Collatz--Fubini--Study phase interface}
+
+The TIR/IDT relational-phase interface is present, and RFC RF-E27 adds a typed
+phase fibre over the existing spacetime carrier. The kinematic interface is
+therefore CLOSED. RF-E27 explicitly keeps the physical identity of the
+connection, coupling scale and any metric/source coupling OPEN.
+
+\section{Production-global geometry frontier}
+
+The global-geometry frontier is now principally a production-evidence problem.
+TIR supplies the global spatial source/freeze contract, A5 certifier,
+inter-leaf matching contract and the v0.2 physical-realization bundle
+certifier. RFC supplies product-clock and matching-flow soldering, source
+assembly of the shared atlas, RF-E25 atlas certification, and RF-E26/GSC5
+globalization reductions.
+
+The unresolved source-owned coordinates are
+\[
+\boxed{
+\begin{aligned}
+&\text{production spatial realization},\\
+&\text{production matching/event-placement realization},\\
+&\text{production shared atlas and patchwise local-solution receipts},\\
+&\text{target-domain coverage and physical source provenance}.
+\end{aligned}}
+\]
+No concrete source-owned physical realization bundle was found on the pinned
+TIR main during this audit.
 \vTwelveStatus{B}{--}{OPEN}
 
-\section{Gauge, hypercharge and electroweak branch}
+\section{Gauge and Standard-Model dynamical frontier}
 
-Typed transport supplies the parent for the continuum gauge-normalization chain
+\subsection{Continuum gauge normalization and running}
+
+The typed \(W_{ij}\) carrier, gauge-invariant quark-link coupling and discrete
+gauge-matter action have PASS surfaces. What remains open is specifically
 \[
 \boxed{
 W_{ij}\to A_\mu\to F_{\mu\nu}\to S_{YM}
-\to\text{normalized coupling/running}.
+\to\text{physical continuum normalization and running}.
 }
 \]
-A source-complete normalization and running law remains open.
 \vTwelveStatus{B}{--}{OPEN}
 
-The hypercharge arithmetic reproduces the conventional one-generation pattern,
-but source/uniqueness remains a separate gate because a legacy parent was
-external. The quark-prime labels likewise do not by themselves provide a
-scheme- and scale-defined physical quark-mass map.
-\vTwelveStatus{B}{--}{OPEN}
+\subsection{Electroweak common transport and Higgs action}
 
-The electroweak target is one common transport,
+The current audit still reports an inconsistent raw structural triple and
+requires one common
 \[
-(g_0,\theta_W^{(0)},\alpha_0,v_0)
-\xrightarrow{\mathcal R_{EW}(\mu,\mathrm{scheme})}
-(g,e,\theta_W,\alpha,v)_{\mu,\mathrm{scheme}},
+\boxed{\mathcal R_{EW}(\mu,\mathrm{scheme})}
 \]
-followed by the pole-observable map. Observable-specific retuning is not a
-valid replacement for this closure.
+rather than observable-specific retuning. The Higgs scalar/action binding is
+downstream of that unresolved transport. Both remain OPEN.
 \vTwelveStatus{B}{--}{OPEN}
 
-The Higgs gate is downstream of the coefficient-selector and electroweak
-branches. It requires a scalar/action derivation of the active structural
-combination rather than another numerical repair against the measured Higgs
-mass.
+\subsection{Quark mass map}
+
+Hypercharge closure does not supply a quark-mass theorem. A physical
+scheme- and scale-defined quark-mass map remains OPEN.
 \vTwelveStatus{B}{--}{OPEN}
 
-\section{Strong-CP, meson and neutrino branches}
+\section{Hadronic, CP and cosmological frontier}
 
-For strong CP, the required replacement source is upstream and holonomic:
+\subsection{Meson absolute-action baseline}
+
+No current canonical theorem or receipt was found that closes a source-derived
+absolute meson action baseline. The legacy pion/kaon formulas remain unsuitable
+as that source theorem.
+\vTwelveStatus{B}{--}{OPEN}
+
+\subsection{Strong CP}
+
+The current audit separates arithmetic from physics:
 \[
 \boxed{
-W_{ij}^{c}\to U_\gamma
-\to\text{topological CP invariant}
-\to\theta_{\rm QCD}\to d_n.
-}
-\]
-The frozen legacy mapping continues to own its neutron-EDM \texttt{FAIL}; a new
-source theorem would receive a new version rather than overwrite that evidence.
-\vTwelveStatus{B}{--}{OPEN}
-
-For pseudoscalar and related mesons, the printed pion and kaon exponentials
-remain failed legacy formulas. The open structural task is a source-derived
-absolute action baseline before any renewed mass comparison. Any coefficient
-packet needed by that baseline remains downstream of the open transition-parent
-selector.
-\vTwelveStatus{B}{--}{OPEN}
-
-The neutrino absolute-action formula/value mismatch likewise remains
-quarantined. Its replacement requires a fresh derivation from the admitted
-neutrino/tetrahedral parents and canonical \(\kappa\), followed by a new version
-identity and evidence audit.
-\vTwelveStatus{B}{--}{OPEN}
-
-\section{Cosmological scale binding}
-
-The dimensionless arithmetic does not by itself determine a dimensionful
-cosmological observable. The remaining gate is a unit-complete chain
-\[
-\boxed{
-(L_3,L_4,L_5)
-\to r_\Lambda
-\to M_\star^4
-\to\rho_\Lambda
-\to\rho_{\rm crit}
-\to\Omega_\Lambda,
-}
-\]
-with the scale convention, units and critical-density parent all explicit.
-\vTwelveStatus{B}{--}{OPEN}
-
-\section{Collatz--Fubini--Study physical binding}
-
-The mathematical relational-phase interface is merged and supplies
-\[
-q(Cn)=2q(n)\pmod1,
+\text{legacy arithmetic}=\mathrm{PASS},
 \qquad
-\zeta_C(Cn)=\zeta_C(n)^2,
+\text{frozen neutron-EDM gate}=\mathrm{FAIL}.
+}
 \]
-together with a typed CP1 projective relation coordinate. The physical binding
-remains open: no validated theorem presently identifies that itinerary with
-elapsed time, energy, mass, interaction strength, atomic transition rate,
-spectroscopy or gravity.
+The source derivation of \(\theta_{\rm QCD}\) remains OPEN. Any replacement must
+be derived from the holonomic/topological source axis and must not overwrite
+the retained physical FAIL.
 \vTwelveStatus{B}{--}{OPEN}
 
-\section{GREMLIN global-gluing role}
+\subsection{Cosmological scale binding}
 
-GREMLIN may search the typed geometric graph for candidate gluing or dependency
-isomorphisms, but it is not a promotion authority. Global gluing promotion is
-blocked until the production spatial carrier and matching data are supplied and
-the corresponding deterministic theorem/validator gates pass.
+The dimensionless power arithmetic has been audited, but the unit-complete
+physical bridge is not closed. The \(\rho_{\rm crit}\) and
+\(\Omega_\Lambda\) chain remains quarantined/open. The genuine gate is the
+dimensionful scale/critical-density binding, not the already-audited integer
+power arithmetic.
 \vTwelveStatus{B}{--}{OPEN}
 
-\section{Secret-of-a-Half and critical-axis branch}
+\section{Critical-axis frontier}
 
-The negative-inverse interface retains the exact local identity
-\[
-\Re s=\frac12\iff|z_L(s)|=1.
-\]
-The active critical-axis stack also contains exact reductions and conditional
-positive corridors. However, native Li/Weil positivity and several globally
-quantified strict-positivity or nondegeneracy premises remain unresolved.
-The current solver contract explicitly requires
-\[
-\boxed{\texttt{RIEMANN\_HYPOTHESIS}=\texttt{OPEN}}
-\]
-and, operationally, \texttt{riemann\_hypothesis\_in\_closure=false}.
-Thus an RH-equivalent reformulation is not itself a proof of RH.
-\vTwelveStatus{B}{--}{OPEN}
-
-\section{Retained empirical failures and evidence rerun}
-
-The structural frontier is kept separate from the observable evidence owner in
-Chapter~19. Charged-lepton precision failures, the PMNS reactor-angle tension,
-electroweak/fine-structure/Higgs precision failures or tensions, pion/kaon
-formula failures and the frozen strong-CP-to-neutron-EDM failure remain visible.
-
-A refreshed Unified Evidence Matrix is downstream of newly frozen structural
-repairs. This prevents measured residuals from becoming hidden parents of the
-theorems intended to predict them.
-
-\section{Current dependency summary}
-
-The synchronized frontier is
+Current Secret-of-a-Half main explicitly keeps the global analytic coordinates
 \[
 \boxed{
 \begin{aligned}
-&\text{closed local structural theorems/contracts}\\
-&\quad\to\text{production spatial + inter-leaf inputs}\\
-&\quad\to\text{global spacetime/ADM admission}\\
-&\quad\to\text{Einstein-system closure},
+&\text{native/full admissible Li--Weil positivity},\\
+&\text{global strict critical-axis positivity/nondegeneracy},\\
+&\mathrm{PF}_3\text{ and }\mathrm{PF}_\infty\text{ on the actual kernel},\\
+&\text{zero-to-native-closure / reciprocal-orbit bridge},\\
+&\text{Riemann Hypothesis}
 \end{aligned}}
 \]
-parallel to
+OPEN. An RH-equivalent criterion is not a proof. Operationally,
+\[
+\boxed{\texttt{riemann\_hypothesis\_in\_closure=false}.}
+\]
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Current unresolved core}
+
+After removing stale or over-broad entries, the principal unresolved frontier
+is:
+\begin{enumerate}
+\item source-owned production spatial, matching/event-placement and shared-atlas
+      realization, including target-domain coverage and source provenance;
+\item the coefficient-free transition-parent selector \(\Sigma\);
+\item continuum gauge normalization and running;
+\item one common electroweak scheme/scale transport;
+\item Higgs scalar/action binding;
+\item a scheme/scale-defined quark-mass map and any stronger geometric
+      uniqueness extension of the hypercharge normalization anchor;
+\item a source-derived meson absolute-action baseline;
+\item a holonomic/topological strong-CP source theorem;
+\item a unit-complete cosmological scale/\(\rho_{\rm crit}\) binding;
+\item physical metric/source coupling of the Collatz--FS phase fibre;
+\item native Li--Weil and global critical-axis positivity/nondegeneracy.
+\end{enumerate}
+
+The absolute neutrino-mass empirical status remains separately OPEN even though
+the source-level neutrino action repair is CLOSED.
+
+\section{Completion invariant}
+
+The v12.3 frontier enforces
 \[
 \boxed{
-\begin{aligned}
-&\text{coefficient parent evaluation (closed)}\\
-&\quad\to\text{transition parent selector (open)}\\
-&\quad+\text{continuum gauge normalization (open)}\\
-&\quad\to\text{electroweak/scalar/strong-CP/meson/quark closures}\\
-&\quad\to\text{new frozen evidence matrix},
-\end{aligned}}
+\text{closed derivation}\not\equiv\text{physical PASS},
+\qquad
+\text{open production input}\not\equiv\text{missing mathematics}.
+}
 \]
-and the separately unresolved critical-axis positivity/nondegeneracy line.
-
-Canonical current sources include
-\path{TIR/TIR_COMPLETION_FRONTIER_V0_7.md},
-\path{TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md},
-\path{TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_IDENTIFIABILITY_V0_1.md},
-\path{TIR/foundations/TIR_LEADING_LOOP_LOCALITY_METRIC_JET_V0_1.md},
-\path{TIR/foundations/TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md},
-\path{TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md},
-\path{TIR/foundations/TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1.md},
-and the v12.1 repository audit
-\path{TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md}.
+This separation replaces the stale v12.1 headline frontier as the current
+monograph completion contract.
