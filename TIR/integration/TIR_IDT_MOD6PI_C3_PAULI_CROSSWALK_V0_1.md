@@ -7347,3 +7347,214 @@ five-dimensional p       = observed CP-violation field
 without an additional physical sector-binding theorem.
 
 The result is a symmetric-pair/conjugacy-class theorem only.
+
+---
+
+## Appendix BD — NEW 2026-09-19 — Rank-two (SU(3)/SO(3)) Cartan plane and the family (D_3) Weyl intertwiner
+
+### BD.1 The family standard plane
+
+The real three-label permutation carrier already decomposes as
+
+\[
+\mathbb R^3
+=
+\mathbf1
+\oplus
+\mathbf2,
+\]
+
+with invariant singlet
+
+\[
+\frac1{\sqrt3}(1,1,1)
+\]
+
+and standard two-plane
+
+\[
+\boxed{
+x_1+x_2+x_3=0.
+}
+\]
+
+A convenient orthonormal basis is
+
+\[
+b_1=\frac1{\sqrt2}(1,-1,0),
+\qquad
+b_2=\frac1{\sqrt6}(1,1,-2).
+\]
+
+### BD.2 Explicit map into the symmetric-space tangent
+
+Stage 55 identifies
+
+\[
+SU(3)/SO(3)
+\]
+
+with tangent complement
+
+\[
+\mathfrak p
+\cong
+\operatorname{Sym}^2_0(\mathbb R^3).
+\]
+
+Map a zero-sum family vector to the diagonal real-symmetric traceless matrix
+
+\[
+\boxed{
+H(x)=\operatorname{diag}(x_1,x_2,x_3).
+}
+\]
+
+The images
+
+\[
+H(b_1),
+\qquad
+H(b_2)
+\]
+
+are orthonormal under the trace inner product and commute.
+
+Hence they span a two-dimensional abelian subspace
+
+\[
+\mathfrak a\subset\mathfrak p.
+\]
+
+For (SU(3)/SO(3)) this is a maximal abelian tangent subspace.
+
+Therefore
+
+\[
+\boxed{
+\operatorname{rank}(SU(3)/SO(3))=2.
+}
+\]
+
+Status:
+
+`SU3_SO3_SYMMETRIC_SPACE_RANK_TWO`.
+
+### BD.3 Exact (D_3) intertwining
+
+For every family permutation matrix (Min S_3),
+
+\[
+M\,H(x)\,M^T
+=
+H(Mx).
+\]
+
+In particular the already-frozen family generators (P_3) and (R_{\rm orient}) induce on \(\mathfrak a\) exactly the same two-dimensional matrices as on the family standard plane.
+
+Thus
+
+\[
+\boxed{
+\mathbf2_{\rm family}
+\cong
+\mathfrak a
+}
+\]
+
+as a real (D_3\simeq S_3) module.
+
+Status:
+
+`FAMILY_STANDARD_TWO_PLANE_INTERTWINES_SU3_SO3_RANK2_CARTAN_PLANE`.
+
+### BD.4 Restricted roots
+
+On \(\mathfrak a\), take
+
+\[
+\alpha_{12}=x_1-x_2,
+\qquad
+\alpha_{23}=x_2-x_3,
+\qquad
+\alpha_{13}=x_1-x_3.
+\]
+
+In the orthonormal \((b_1,b_2)\) coordinates,
+
+\[
+\alpha_{13}=\alpha_{12}+\alpha_{23},
+\]
+
+all three roots have squared norm (2), and the simple-root Cartan matrix is
+
+\[
+\boxed{
+\begin{pmatrix}
+2&-1\\
+-1&2
+\end{pmatrix}.
+}
+\]
+
+Hence the restricted root system is
+
+\[
+\boxed{A_2}.
+\]
+
+Status:
+
+`SU3_SO3_RESTRICTED_ROOT_SYSTEM_A2`.
+
+### BD.5 Weyl group
+
+The Weyl group of (A_2) is
+
+\[
+W(A_2)\cong S_3\cong D_3.
+\]
+
+This is exactly the same nonabelian orientation group already generated on the family labels by
+
+\[
+P_3,
+\qquad
+R_{\rm orient},
+\qquad
+R_{\rm orient}P_3R_{\rm orient}=P_3^{-1}.
+\]
+
+Therefore the earlier family orientation (D_3) is simultaneously the restricted Weyl action on the rank-two Cartan plane of (SU(3)/SO(3)).
+
+Status:
+
+`SU3_SO3_RESTRICTED_WEYL_GROUP_D3_ISOMORPHIC_S3`.
+
+### BD.6 Interpretation firewall
+
+The exact chain is
+
+```text
+three family labels
+    = real permutation carrier 3
+
+invariant mean direction
+    = singlet 1
+
+zero-sum relative plane
+    = standard 2
+
+SU(3)/SO(3) maximal abelian tangent
+    = rank-2 Cartan plane
+
+restricted root system
+    = A2
+
+restricted Weyl group
+    = S3 ~= D3
+```
+
+This is group/representation geometry only.
+
+It does **not** identify the rank-two Cartan plane with two physical spatial axes, the three family labels with physical (x,y,z), or the (2\to3) representation structure with a dynamical wavelength/amplitude-to-volume law.
