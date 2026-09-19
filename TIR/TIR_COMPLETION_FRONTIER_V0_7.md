@@ -637,3 +637,30 @@ The compact spin-one subgroup alone has \(J=0\); nonzero family CP requires comp
 Remaining gate:
 
 \`OPEN_BRANCH_OPERATOR_RHYTHM_REALFORM_AND_COMPLEMENT_SELECTION\`.
+
+
+### Appendix L update — \(N=5\) icosahedral five-carrier
+
+Stages 55--58 identify the missing five-dimensional family-algebra complement as
+
+\[
+T(SU(3)/SO(3))
+\cong
+\operatorname{Sym}^2_0(\mathbb R^3),
+\]
+
+with dimension five and spin-two character.
+
+Among the frozen Platonic levels \(N=3,4,5\), only the \(N=5\) rotational icosahedral group \(A_5\) keeps this \(\mathbf5\) irreducible.
+
+Six unoriented icosahedral axes define quadrupoles \(Q_a\) spanning the full five-dimensional complement; their commutators span the three-dimensional \(\mathfrak{so}(3)\) sector, and the resulting Lie closure is the full eight-dimensional \(\mathfrak{su}(3)\).
+
+Status:
+
+\`FIVE_DIMENSIONAL_SU3_OVER_SO3_SPIN2_COMPLEMENT_CURRENT_EXACT\`
+
+\`N5_A5_IRREDUCIBLE_FIVE_CARRIER_CURRENT_EXACT\`
+
+\`SIX_ICOSAHEDRAL_QUADRUPOLES_GENERATE_FULL_SU3_CURRENT_EXACT\`.
+
+This is Lie/representation geometry, not a claim of five physical spatial dimensions. The physical family selector remains OPEN.
