@@ -4596,3 +4596,62 @@ This no-go does not invalidate the Stage-66 selected tangent; it only prevents u
 Current frontier:
 
 `CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__NONCOMMUTING_BRANCH_OPERATOR_AND_RHO_BINDING_OPEN`.
+
+---
+
+## Appendix AD — NEW 2026-09-19 — Minimal D/C branch map reduces to a Z2 assignment
+
+Stage 42 supplies the source-derived noncommuting Hermitian family pair
+
+\[
+D,
+\qquad
+C=F_3DF_3^\dagger,
+\qquad
+[D,C]\ne0.
+\]
+
+Using the exact branch-length scalars \(\ell_E=\ln2\), \(\ell_O=\ln3\), there are two minimal branch assignments using only this pair:
+
+```text
+A: E -> D, O -> C
+B: E -> C, O -> D
+```
+
+At Lie-generator level,
+
+\[
+[\ell_ED,\ell_OC]
+=
+\ell_E\ell_O[D,C],
+\]
+
+while the swapped assignment gives
+
+\[
+[\ell_EC,\ell_OD]
+=
+-\ell_E\ell_O[D,C].
+\]
+
+Therefore both assignments retain noncommutativity, but branch swap reverses the commutator orientation.
+
+Status:
+
+`TWO_NONCOMMUTING_DC_ASSIGNMENTS_EXIST_WITH_BRANCH_SWAP_SIGN_REVERSAL`.
+
+The current source graph contains no theorem selecting which Collatz branch owns \(D\) and which owns \(C\). Hence the continuous operator ambiguity has been reduced, at this minimal level, to a discrete branch-swap ambiguity:
+
+\[
+\boxed{\mathbb Z_2:\ (E\leftrightarrow O)\text{ against }(D\leftrightarrow C).}
+\]
+
+Status:
+
+`OPEN_Z2_EO_TO_DC_ASSIGNMENT_NOT_SOURCE_SELECTED`.
+
+Selecting one assignment from an observed CKM matrix or CP-sign convention would be target leakage and is excluded.
+
+Current frontier:
+
+`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__EO_TO_DC_Z2_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN`.
