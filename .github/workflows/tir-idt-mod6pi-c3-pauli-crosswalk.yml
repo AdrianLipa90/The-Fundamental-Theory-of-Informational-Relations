@@ -97,7 +97,9 @@ jobs:
           grep -Fq '"stage24_66_forward_pair_status": "ORIENTED_A1_TO_A2_NONCOMMUTING_PAIR_WITH_EXPLICIT_COMPLEMENT_INJECTION"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"family_complement_injection_status": "CLOSED_AT_STAGE66_C3_ORBIT_GENERATOR_SET_LEVEL__BRANCH_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"stage66_branch_assignment_status": "STATIC_EO_TO_TWO_STAGE66_ORBIT_GENERATORS_REFUTED"' mod6pi-c3-pauli-receipt.json
-          grep -Fq '"stage66_state_dependent_orbit_binding_status": "OPEN_COLLATZ_STATE_OR_PATH_TO_STAGE66_C3_ORBIT_INDEX_BINDING"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"collatz_temporal_c3_frame_status": "STOPPING_DEPTH_MOD3_COLLATZ_TO_TEMPORAL_C3_EQUIVARIANT_BINDING_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"stage66_state_dependent_orbit_binding_status": "CLOSED_REPRESENTATION_LEVEL_VIA_NEGATIVE_STOPPING_DEPTH_MOD3"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"collatz_state_family_generator_index_status": "G_N_EQUALS_A_MINUS_L_MOD3_C3_EQUIVARIANT"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"stage66_full_orbit_access_requirement": "FULL_SU3F_FROM_STAGE66_REQUIRES_ALL_THREE_ORBIT_GENERATORS_OR_EQUIVALENT_EXTRA_DIRECTION"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"ckm_quantitative_status": "STAGE40_FULL_CKM_SHAPE_FAIL_RETAINED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"projective_holonomy_source_status": "C3_PROJECTIVE_FRAMES_AND_STAGE39_STRUCTURAL_SECTOR_FRAMES_DERIVED__PHYSICAL_ASSIGNMENT_AND_CKM_PROMOTION_OPEN"' mod6pi-c3-pauli-receipt.json
@@ -106,7 +108,7 @@ jobs:
           grep -Fq '"stage39_40_status": "TWO_OPERATOR_MECHANISM_RETAINED_FULL_CKM_SHAPE_FAIL"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"continuous_real_lie_lift_status": "NONTRIVIAL_CONTINUOUS_PSL2R_TO_SU3F_LIE_HOMOMORPHIC_LIFT_REFUTED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"compact_family_branch_operator_status": "OPEN_DISCRETE_OR_HOLONOMIC_NONPOLAR_BRANCHWISE_SU3F_LIFT"' mod6pi-c3-pauli-receipt.json
-          grep -Fq '"family_dynamics_selector_status": "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__STATE_DEPENDENT_ORBIT_INDEX_AND_RHO_PHYSICAL_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_dynamics_selector_status": "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__RHO_PHYSICAL_AND_TEMPORAL_FAMILY_PROMOTION_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"historical_generation_numbering_status": "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"source_order_anchor_status": "UNIQUE_ORDER_PRESERVING_LABEL_CROSSWALK_CLOSED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"declared_anchor_dependency": "REMOVED_AT_ORDERED_LABEL_REPRESENTATION_LEVEL"' mod6pi-c3-pauli-receipt.json
