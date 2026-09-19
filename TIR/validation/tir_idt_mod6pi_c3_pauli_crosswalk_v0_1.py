@@ -240,6 +240,10 @@ def main() -> None:
         ROOT
         / "TIR/foundations/TIR_COEFFICIENT_COCYCLE_POTENTIAL_REDUCTION_V0_4.md"
     ).read_text(encoding="utf-8")
+    collatz_fs_phase_interface = (
+        ROOT
+        / "TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md"
+    ).read_text(encoding="utf-8")
 
     stage15 = (
         ROOT
@@ -650,6 +654,37 @@ def main() -> None:
     q_raw_is_arithmetic_progression = (q2 - q1) == (q3 - q2)
     q_raw_family_order_is_monotone = q1 < q2 < q3
 
+    # Exact CP no-go for any family phase matrix built only as a separable
+    # vertex potential from the scalar IDT q_C values.  For
+    # phi_ij = 2*pi*(alpha_i-beta_j), every rephasing-invariant plaquette
+    # exponent alpha_i-beta_k+alpha_j-beta_l-alpha_i+beta_l-alpha_j+beta_k
+    # cancels exactly.  The concrete q_C-difference law is one such case.
+    q_vertices = (q1, q2, q3)
+    qc_pair_phase_turns = tuple(
+        tuple(q_vertices[i] - q_vertices[j] for j in range(3))
+        for i in range(3)
+    )
+    qc_plaquette_turns = []
+    for i in range(3):
+        for j in range(i + 1, 3):
+            for k in range(3):
+                for l in range(k + 1, 3):
+                    qc_plaquette_turns.append(
+                        qc_pair_phase_turns[i][k]
+                        + qc_pair_phase_turns[j][l]
+                        - qc_pair_phase_turns[i][l]
+                        - qc_pair_phase_turns[j][k]
+                    )
+    qc_all_plaquette_turns_zero = all(x == 0 for x in qc_plaquette_turns)
+    qc_pair_phase_antisymmetric = all(
+        qc_pair_phase_turns[i][j] == -qc_pair_phase_turns[j][i]
+        for i in range(3)
+        for j in range(3)
+    )
+    qc_pair_phase_diagonal_zero = all(
+        qc_pair_phase_turns[i][i] == 0 for i in range(3)
+    )
+
     # Raw product-seed Collatz dynamics: exact directed reachability among
     # n=(15,35,143).  This is a negative control for deriving the Stage-24 C3
     # cycle directly from ordinary Collatz dynamics.
@@ -1022,6 +1057,20 @@ def main() -> None:
             and "q_1:=q_C(4)=\\frac17" in cocycle_phase
             and "q_2:=q_C(6)=\\frac{141}{448}" in cocycle_phase
             and "q_3:=q_C(12)=\\frac{141}{896}" in cocycle_phase
+        ),
+        "collatz_fs_relational_phase_interface_parent_present": (
+            "MATHEMATICAL_INTERFACE_ADDED / PHYSICAL_BINDING_OPEN"
+            in collatz_fs_phase_interface
+            and "\\zeta_C(Cn)=\\zeta_C(n)^2" in collatz_fs_phase_interface
+            and "R_{ij}" in collatz_fs_phase_interface
+            and "\\zeta_{ij}=e^{i\\phi_{ij}}" in collatz_fs_phase_interface
+        ),
+        "scalar_qc_difference_phase_has_zero_all_plaquettes_exact": (
+            qc_all_plaquette_turns_zero
+        ),
+        "scalar_qc_difference_phase_is_pure_vertex_coboundary": (
+            qc_pair_phase_antisymmetric
+            and qc_pair_phase_diagonal_zero
         ),
         "active_center_stopping_depths_strictly_increase_with_stage22_order": (
             center_depths == [2, 8, 9]
@@ -1633,7 +1682,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_NONSEPARABLE_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -1666,6 +1715,16 @@ def main() -> None:
             if passed
             else "NOT_EVALUATED"
         ),
+        "scalar_qc_cp_status": (
+            "SCALAR_VERTEX_QC_PHASE_DIFFERENCE_CP_NO_GO"
+            if passed
+            else "FAILED"
+        ),
+        "cp_phase_source_requirement": (
+            "NONSEPARABLE_PAIR_DEPENDENT_HOLONOMY_REQUIRED_FOR_NONZERO_PLAQUETTE_PHASE"
+            if passed
+            else "FAILED"
+        ),
         "flavour_cardinality_result": (
             "N_F_EQUALS_3_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"
             if passed
@@ -1677,7 +1736,7 @@ def main() -> None:
             else "FAILED"
         ),
         "branch_to_complex_holonomy_status": (
-            "OPEN_CLEAN_COLLATZ_POINCARE_TO_COMPLEX_FAMILY_HOLONOMY_SOURCE_MAP"
+            "OPEN_CLEAN_NONSEPARABLE_COLLATZ_POINCARE_TO_COMPLEX_FAMILY_HOLONOMY_MAP"
         ),
         "stage39_40_status": (
             "TWO_OPERATOR_MECHANISM_RETAINED_FULL_CKM_SHAPE_FAIL"
@@ -1851,6 +1910,23 @@ def main() -> None:
                 "complexification_plus_additional_dynamics",
             ],
         },
+        "scalar_qc_cp_nogo_audit": {
+            "active_centers": active_centers,
+            "qC": [str(q) for q in q_vertices],
+            "pair_phase_turns_qi_minus_qj": [
+                [str(x) for x in row] for row in qc_pair_phase_turns
+            ],
+            "all_2x2_plaquette_phase_turns": [
+                str(x) for x in qc_plaquette_turns
+            ],
+            "all_plaquettes_zero_exact": qc_all_plaquette_turns_zero,
+            "phase_law_class": "SEPARABLE_VERTEX_COBBOUNDARY",
+            "rephasing_invariant_CP_phase": "ZERO",
+            "stage36_nonzero_plaquette_phase_requires": (
+                "PAIR_DEPENDENT_NONSEPARABLE_PHASE_SOURCE"
+            ),
+            "scalar_qC_alone_sufficient_for_stage36_CP": False,
+        },
         "complex_holonomy_provenance_audit": {
             "real_family_pair_stage35": "J_EQUALS_ZERO",
             "complex_holonomy_stage36": "J_NONZERO_MECHANISM_PASS",
@@ -1976,6 +2052,9 @@ def main() -> None:
             "polar_compact_factor_is_diagnostic_not_physical_family_operator": True,
             "stage36_complex_holonomy_mechanism_is_not_promoted_from_quarantined_rows": True,
             "nonzero_cp_mechanism_does_not_supply_collatz_branch_source_map": True,
+            "scalar_qc_vertex_phase_cannot_generate_nonzero_plaquette_cp": True,
+            "pair_dependent_relational_phase_is_not_derived_from_scalar_qc_by_subtraction": True,
+            "collatz_fs_relational_phase_interface_does_not_itself_supply_family_cp_operator": True,
             "no_nontrivial_continuous_real_lie_homomorphism_psl2r_to_su3f": True,
             "stage52_complexification_bridge_is_not_a_direct_real_form_homomorphism": True,
             "remaining_branch_map_must_not_be_claimed_as_continuous_psl2r_representation": True,
