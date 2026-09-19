@@ -5821,3 +5821,126 @@ Physical sector binding remains OPEN.
 Status:
 
 `TERMINAL_COLLATZ_CYCLE_NONTRIVIAL_SU3_HOLONOMY_RETROSPECTIVE_CANDIDATE`.
+
+---
+
+## Appendix AP — NEW 2026-09-19 — Hosted validation of the terminal Collatz-cycle SU(3) holonomy
+
+### AP.1 Hosted provenance
+
+The retrospective Appendix-AO structural candidate has passed the exact-head hosted crosswalk gate.
+
+```text
+validated head : 65ce0d93fb0358eb709fbdc7904c51e5f7665509
+workflow       : TIR IDT mod6pi C3 Pauli crosswalk
+run            : #213 / 35446942861
+job            : 105907392990
+conclusion     : success
+```
+
+The evidential class remains
+
+`RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST`.
+
+### AP.2 Exact loop data
+
+The hosted validator independently reproduces
+
+```text
+states      = [1, 4, 2]
+next states = [4, 2, 1]
+branches    = [O, E, E]
+frames      = [0, 1, 2]
+```
+
+and
+
+\[
+U_\circ=U_E(A_2)U_E(A_1)U_O(A_0).
+\]
+
+### AP.3 SU(3) and nontriviality
+
+The hosted residuals are
+
+```text
+unitarity residual   = 6.661338147750939e-16
+determinant residual = 9.994535692500799e-16
+max |U_circle-I|     = 0.5008161081115994
+```
+
+so the loop is a nonidentity (SU(3))-typed holonomy.
+
+Status:
+
+`TERMINAL_COLLATZ_CYCLE_NONTRIVIAL_SU3_HOLONOMY_RETROSPECTIVE_STRUCTURAL_PASS`.
+
+### AP.4 Analytic trace witness
+
+The validator reproduces
+
+\[
+\boxed{
+\operatorname{tr}U_\circ
+=
+2\cos\frac{\ln3}{2}\cos\frac{\ln2}{2}
++\cos^2\frac{\ln2}{2}
++i\sin\frac{\ln3}{2}\sin^2\frac{\ln2}{2}
+}
+\]
+
+with
+
+```text
+trace real             = 2.4889716929998738
+trace imaginary        = 0.06023967414631505
+trace formula residual = 8.884223316973178e-16
+imaginary residual     = 2.0816681711721685e-17
+```
+
+and therefore a strictly nonzero imaginary conjugacy-class witness.
+
+### AP.5 Eigenphases and gauge-conjugacy audit
+
+The hosted eigenphases are
+
+\[
+(-0.8284975357488279,
+\ 0.2744955841537181,
+\ 0.5540019515951093).
+\]
+
+After conjugation by the exact (F_3) basis transform, the invariant residuals are
+
+```text
+trace residual          = 4.518280359883027e-16
+trace(U^2) residual     = 8.326672684688674e-16
+determinant residual    = 5.592276282644142e-16
+characteristic residual = 3.722145839155691e-15
+```
+
+confirming that the nontriviality is a conjugacy-class property, not a basis artifact.
+
+### AP.6 Structural consequence
+
+The common-target construction of Appendix AN is flat because it is a frame coboundary.
+
+The actual directed terminal Collatz cycle is different: it is a genuine closed source loop and the validated AJ connection assigns it a nonidentity (SU(3)) holonomy.
+
+Thus a source-derived non-flat loop candidate now exists.
+
+Status:
+
+`TERMINAL_CYCLE_SUPPLIES_NONFLAT_SOURCE_DERIVED_LOOP_CANDIDATE`.
+
+### AP.7 Physical firewall
+
+A nontrivial Wilson loop is not automatically physical CP violation.
+
+No physical sector identification, CKM/PMNS matrix, Jarlskog invariant, or mass relation is promoted by this result.
+
+Status:
+
+`NONTRIVIAL_WILSON_LOOP_NOT_YET_PHYSICAL_CP_OR_SECTOR_BINDING`.
+
+The remaining gate is the physical interpretation/binding of this source-derived non-flat holonomy.
