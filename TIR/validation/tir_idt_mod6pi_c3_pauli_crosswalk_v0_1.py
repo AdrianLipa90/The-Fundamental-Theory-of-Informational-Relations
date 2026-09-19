@@ -93,6 +93,11 @@ def main() -> None:
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE22_SEED_PRECEDENCE_V0_1.md"
     ).read_text(encoding="utf-8")
+    stage23 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE23_CHIRALITY_INTERTWINER_V0_1.md"
+    ).read_text(encoding="utf-8")
     stage24 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -189,6 +194,40 @@ def main() -> None:
         for k in range(3)
     ]
 
+    # Exact C3 x Z2 six-state product already present in Stage 23/24.
+    J_chi = np.array([[0.0, 1.0], [1.0, 0.0]], dtype=complex)
+    I2 = np.eye(2, dtype=complex)
+    I3 = np.eye(3, dtype=complex)
+    P6_temporal = np.kron(P_temporal, I2)
+    Z2_temporal = np.kron(I3, J_chi)
+    G6_temporal = P6_temporal @ Z2_temporal
+
+    P6_family = np.kron(P_family, I2)
+    Z2_family = np.kron(I3, J_chi)
+    G6_family = P6_family @ Z2_family
+
+    M6 = np.kron(M_tf, I2)
+    six_state_intertwiner_residual = float(
+        np.max(np.abs(M6 @ G6_temporal - G6_family @ M6))
+    )
+    six_state_seed = np.kron(
+        np.array([1.0, 0.0, 0.0], dtype=complex),
+        np.array([1.0, 0.0], dtype=complex),
+    )
+    six_state_orbit = [
+        tuple(
+            np.rint(
+                np.real(np.linalg.matrix_power(G6_temporal, k) @ six_state_seed)
+            ).astype(int)
+        )
+        for k in range(6)
+    ]
+    g6_charpoly = np.poly(G6_temporal)
+    expected_g6_charpoly = np.array(
+        [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0],
+        dtype=complex,
+    )
+
     J = jarlskog(F3)
     J_exact = 1.0 / (6.0 * math.sqrt(3.0))
 
@@ -212,6 +251,10 @@ def main() -> None:
                 "(5,7)\\to2",
                 "(11,13)\\to3",
             )
+        ),
+        "stage23_chirality_z2_parent_pass_present": (
+            "STAGE_23_Z2_INTERTWINER_PASS_WITH_ORIENTATION_CONVENTION"
+            in stage23
         ),
         "stage24_family_c3_cycle_is_frozen": all(
             token in stage24
@@ -279,6 +322,52 @@ def main() -> None:
         "family_transitive_orbit_has_three_labels": (
             len(set(family_orbit)) == 3
         ),
+        "c3_and_z2_actions_commute": bool(
+            np.allclose(
+                P6_temporal @ Z2_temporal,
+                Z2_temporal @ P6_temporal,
+                atol=TOL,
+            )
+        ),
+        "z2_involution_exact": bool(
+            np.allclose(
+                np.linalg.matrix_power(Z2_temporal, 2),
+                np.eye(6),
+                atol=TOL,
+            )
+        ),
+        "six_state_generator_order_six": bool(
+            np.allclose(
+                np.linalg.matrix_power(G6_temporal, 6),
+                np.eye(6),
+                atol=TOL,
+            )
+            and not np.allclose(
+                np.linalg.matrix_power(G6_temporal, 3),
+                np.eye(6),
+                atol=TOL,
+            )
+        ),
+        "six_state_cube_equals_chirality_flip": bool(
+            np.allclose(
+                np.linalg.matrix_power(G6_temporal, 3),
+                Z2_temporal,
+                atol=TOL,
+            )
+        ),
+        "six_state_single_transitive_orbit": (
+            len(set(six_state_orbit)) == 6
+        ),
+        "six_state_characteristic_polynomial_lambda6_minus_1": bool(
+            np.allclose(
+                g6_charpoly,
+                expected_g6_charpoly,
+                atol=1.0e-10,
+            )
+        ),
+        "temporal_family_six_state_intertwining": (
+            six_state_intertwiner_residual < TOL
+        ),
         "shared_character_jarlskog_exact": abs(J - J_exact) < TOL,
         "family_stage42_lie_dimension_is_eight": dim_family == 8,
         "pulled_temporal_lie_dimension_is_eight": dim_temporal == 8,
@@ -317,10 +406,19 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "six_state_product_binding": (
+            "C3_X_CHIRALITY_Z2_SIX_STATE_INTERTWINER_CLOSED"
+            if passed
+            else "FAILED"
+        ),
+        "six_quark_flavour_status": (
+            "OPEN_REQUIRES_CHIRALITY_Z2_TO_WEAK_ISOSPIN_DOUBLET_BINDING"
+        ),
         "physical_sector_binding": "OPEN",
         "idt_parent": "02JN periodic P4 endpoint quotient at N=3",
         "tir_pauli_parent": "TIR_RELATIONAL_GENERATOR_SPACE_V0_1",
         "tir_family_order_parent": "TIR_POLYGONAL_STAGE22_SEED_PRECEDENCE_V0_1",
+        "tir_chirality_parent": "TIR_POLYGONAL_STAGE23_CHIRALITY_INTERTWINER_V0_1",
         "tir_family_cycle_parent": "TIR_POLYGONAL_STAGE24_TIR_SEED_CHIRALITY_E8_INTERTWINER_V0_1",
         "tir_cp_parent": "TIR_POLYGONAL_STAGE38_C3_CHARACTER_BASIS_CP_V0_1",
         "tir_lie_parent": "TIR_POLYGONAL_STAGE42_FAMILY_LIE_CLOSURE_V0_1",
@@ -331,11 +429,13 @@ def main() -> None:
             "anchor": anchor_residual,
             "family_lie_structure": residual_family,
             "temporal_pullback_lie_structure": residual_temporal,
+            "six_state_intertwiner": six_state_intertwiner_residual,
             "jarlskog_exact": abs(J - J_exact),
         },
         "orbit_cardinalities": {
             "temporal": len(set(temporal_orbit)),
             "family": len(set(family_orbit)),
+            "family_x_chirality": len(set(six_state_orbit)),
         },
         "lie_dimensions": {
             "family": dim_family,
@@ -349,6 +449,8 @@ def main() -> None:
             "physical_ckm_assignment": "OPEN",
             "physical_pmns_assignment": "OPEN",
             "family_count_is_conditional_on_sector_binding": True,
+            "six_state_family_x_chirality_is_not_yet_six_quark_flavours": True,
+            "required_next_gate": "CHIRALITY_Z2_TO_WEAK_ISOSPIN_DOUBLET_BINDING",
         },
     }
     print(json.dumps(payload, indent=2, sort_keys=True))
