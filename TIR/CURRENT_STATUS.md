@@ -2156,3 +2156,39 @@ Status:
 `FAMILY_STANDARD_TWO_PLANE_COMPACTIFIES_VIA_A2_AFFINE_WEYL_TO_SU3_CLASS_DELTOID`.
 
 This is Lie/class-space compactification, not a physical-space or volume claim.
+
+### Appendix BF update — Cartan embedding of (SU(3)/SO(3))
+
+The compact symmetric space admits the exact Cartan embedding
+
+\[
+\Phi(gSO(3))=gg^T.
+\]
+
+Its image is precisely the symmetric unitary determinant-one manifold
+
+\[
+\{S\in SU(3):S^T=S\}.
+\]
+
+Status:
+
+`SU3_MOD_SO3_CARTAN_EMBEDDING_IS_SYMMETRIC_UNITARY_DET1_MANIFOLD`.
+
+On the rank-two diagonal flat
+
+\[
+H=\operatorname{diag}(\theta_1,\theta_2,\theta_3),
+\qquad
+\sum_i\theta_i=0,
+\]
+
+one has
+
+\[
+\Phi(e^{iH/2}SO(3))=e^{iH}.
+\]
+
+`RANK2_CARTAN_FLAT_EMBEDS_AS_DIAGONAL_SYMMETRIC_UNITARY_EXP_IH`.
+
+This is internal symmetric-space geometry, not a physical-space claim.
