@@ -2068,3 +2068,43 @@ The terminal loop has nonreal trace and no unit eigenvalue, so it lies off the f
 `TERMINAL_OFF_FIXED_CLASS_REQUIRES_SU3_OVER_SO3_COMPLEMENT_DIRECTIONS`.
 
 No physical CP identification is made.
+
+### Appendix BD update — rank-two (SU(3)/SO(3)) Weyl plane
+
+The family zero-sum plane
+
+\[
+x_1+x_2+x_3=0
+\]
+
+maps explicitly to the diagonal traceless tangent plane
+
+\[
+H(x)=\operatorname{diag}(x_1,x_2,x_3)
+\subset
+\operatorname{Sym}^2_0(\mathbb R^3).
+\]
+
+It is a maximal abelian two-plane of (SU(3)/SO(3)), so
+
+\[
+\operatorname{rank}(SU(3)/SO(3))=2.
+\]
+
+The restricted roots form (A_2), and the restricted Weyl group is
+
+\[
+W(A_2)\cong S_3\cong D_3.
+\]
+
+Status:
+
+`SU3_SO3_SYMMETRIC_SPACE_RANK_TWO`
+
+`SU3_SO3_RESTRICTED_ROOT_SYSTEM_A2`
+
+`SU3_SO3_RESTRICTED_WEYL_GROUP_D3_ISOMORPHIC_S3`
+
+`FAMILY_STANDARD_TWO_PLANE_INTERTWINES_SU3_SO3_RANK2_CARTAN_PLANE`.
+
+This is representation/symmetric-space rank, not a physical spatial-dimension claim.
