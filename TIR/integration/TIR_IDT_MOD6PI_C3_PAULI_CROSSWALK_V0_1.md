@@ -3497,3 +3497,181 @@ The remaining operator gate is therefore
 Current aggregate frontier:
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN\`.
+
+
+---
+
+## Appendix T — NEW 2026-09-19 — Scalar \(q_C\) separable-phase CP no-go
+
+### T.1 Exact current IDT phase vertices
+
+The current IDT/TIR Collatz-Fubini-Study interface supplies the scalar projective phase coordinate
+
+\[
+\zeta_C(n)=e^{2\pi i q_C(n)},
+\qquad
+q_C(Cn)=2q_C(n)\pmod1.
+\]
+
+On the active Stage-22 center projection,
+
+\[
+m_1=4,\qquad m_2=6,\qquad m_3=12,
+\]
+
+the exact phase vertices are
+
+\[
+\boxed{
+q_1=\frac17,\qquad
+q_2=\frac{141}{448},\qquad
+q_3=\frac{141}{896}.
+}
+\]
+
+These are exact scalar vertex data.
+
+### T.2 Natural vertex-difference phase is separable
+
+The most immediate pair phase generated solely from those vertex scalars is
+
+\[
+\boxed{
+\phi_{ij}=2\pi(q_i-q_j).
+}
+\]
+
+In turns, the exact antisymmetric matrix is
+
+\[
+\frac{\phi_{ij}}{2\pi}
+=
+\begin{pmatrix}
+0 & -11/64 & -13/896\\
+11/64 & 0 & 141/896\\
+13/896 & -141/896 & 0
+\end{pmatrix}.
+\]
+
+More generally, any phase law of the form
+
+\[
+\phi_{ij}=\alpha_i-\beta_j
+\]
+
+is row/column separable.
+
+### T.3 Every rephasing-invariant plaquette vanishes
+
+For any row pair \(i,j\) and column pair \(k,l\), the plaquette phase is
+
+\[
+\Phi_{ij;kl}
+=
+\phi_{ik}
++
+\phi_{jl}
+-
+\phi_{il}
+-
+\phi_{jk}.
+\]
+
+Substituting a separable phase,
+
+\[
+\Phi_{ij;kl}
+=
+(\alpha_i-\beta_k)
++
+(\alpha_j-\beta_l)
+-
+(\alpha_i-\beta_l)
+-
+(\alpha_j-\beta_k)
+=
+0.
+\]
+
+Therefore
+
+\[
+\boxed{
+\Phi_{ij;kl}=0
+}
+\]
+
+for every plaquette, exactly.
+
+Equivalently, if
+
+\[
+W_{ij}=a_{ij}e^{i(\alpha_i-\beta_j)},
+\]
+
+all of these phases can be removed by independent row and column rephasings.
+
+Status:
+
+\`SCALAR_VERTEX_QC_PHASE_DIFFERENCE_CP_NO_GO\`.
+
+### T.4 Consequence for Stage 36
+
+Stage 36 requires a phase matrix with a nonzero rephasing-invariant plaquette phase and obtains
+
+\[
+J_F\neq0
+\]
+
+at mechanism level.
+
+Therefore the Stage-36 complex phase cannot be generated solely by assigning one scalar \(q_C\) value to each family label and taking pair differences.
+
+The required phase source must contain genuinely pair-dependent information:
+
+\[
+\boxed{
+\phi_{ij}
+\neq
+\alpha_i-\beta_j
+}
+\]
+
+for at least one nontrivial plaquette.
+
+Status:
+
+\`NONSEPARABLE_PAIR_DEPENDENT_HOLONOMY_REQUIRED_FOR_NONZERO_PLAQUETTE_PHASE\`.
+
+### T.5 Boundary
+
+This is not a no-go for the IDT phase coordinate itself.
+
+The scalar \(q_C\) remains an exact projective phase coordinate and may still contribute to a larger relational operator, path-local cochain, curvature integral, or state-dependent holonomy.
+
+The no-go is narrower:
+
+\`\`\`text
+scalar q_C vertex data
+    = EXACT
+
+q_i-q_j pair phase
+    = EXACT / SEPARABLE
+
+all plaquette phases from q_i-q_j
+    = ZERO EXACT
+
+scalar q_C alone as Stage-36 CP source
+    = REFUTED
+
+genuinely pair-dependent nonseparable holonomy
+    = REQUIRED FOR NONZERO PLAQUETTE CP
+\`\`\`
+
+Thus the current clean-source gate becomes
+
+\`OPEN_CLEAN_NONSEPARABLE_COLLATZ_POINCARE_TO_COMPLEX_FAMILY_HOLONOMY_MAP\`.
+
+Current aggregate frontier:
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_NONSEPARABLE_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN\`.
