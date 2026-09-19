@@ -6062,3 +6062,121 @@ Those bindings remain OPEN.
 Current frontier:
 
 `TERMINAL_COLLATZ_CYCLE_NONFLAT_SU3_LOOP_OUTSIDE_SPIN1_RETROSPECTIVE_PASS__PHYSICAL_RHO_TEMPORAL_FAMILY_CP_AND_CKM_PROMOTION_OPEN`.
+
+---
+
+## Appendix AR — NEW 2026-09-19 — Basepoint covariance and orientation-odd terminal-loop class invariant
+
+### AR.1 Three basepoints on the same terminal cycle
+
+For the exact Collatz cycle
+
+\[
+1\xrightarrow{O}4\xrightarrow{E}2\xrightarrow{E}1,
+\]
+
+write the validated step matrices as
+
+\[
+U_{1\to4},\qquad U_{4\to2},\qquad U_{2\to1}.
+\]
+
+The loop based at 1 is
+
+\[
+U_1=U_{2\to1}U_{4\to2}U_{1\to4}.
+\]
+
+The same oriented loop based at 4 and 2 is
+
+\[
+U_4=U_{1\to4}U_{2\to1}U_{4\to2},
+\]
+
+\[
+U_2=U_{4\to2}U_{1\to4}U_{2\to1}.
+\]
+
+These obey
+
+\[
+\boxed{U_4=U_{1\to4}U_1U_{1\to4}^{-1}}
+\]
+
+and
+
+\[
+\boxed{U_2=U_{1\to2}U_1U_{1\to2}^{-1}},
+\qquad
+U_{1\to2}=U_{4\to2}U_{1\to4}.
+\]
+
+Therefore trace, characteristic polynomial, eigenvalues and every conjugacy-class observable are independent of the chosen basepoint on the terminal cycle.
+
+Status:
+
+`TERMINAL_LOOP_CONJUGACY_CLASS_BASEPOINT_COVARIANT`.
+
+### AR.2 Orientation reversal
+
+Traversing the same loop in reverse gives
+
+\[
+\boxed{U_{\circ^{-1}}=U_\circ^{-1}=U_\circ^\dagger.}
+\]
+
+Hence
+
+\[
+\operatorname{tr}(U_{\circ^{-1}})
+=
+\operatorname{tr}(U_\circ)^*.
+\]
+
+Therefore
+
+\[
+\operatorname{Re}\operatorname{tr}(U_{\circ^{-1}})
+=
+\operatorname{Re}\operatorname{tr}(U_\circ),
+\]
+
+while
+
+\[
+\boxed{
+\operatorname{Im}\operatorname{tr}(U_{\circ^{-1}})
+=
+-\operatorname{Im}\operatorname{tr}(U_\circ).
+}
+\]
+
+For the validated terminal loop, the forward value is nonzero, so the imaginary trace is a strictly orientation-odd conjugacy-class witness.
+
+Status:
+
+`TERMINAL_LOOP_IMAGINARY_TRACE_ORIENTATION_ODD_CLASS_WITNESS`.
+
+### AR.3 Combined structural meaning
+
+Appendix AQ established that the terminal loop lies outside every conjugate compact spin-one \(SU(2)\) subgroup.
+
+Appendix AR adds that this nontrivial conjugacy class is basepoint-covariant and carries an orientation-odd imaginary-trace invariant.
+
+Thus the source-derived terminal Collatz loop has a genuine non-Abelian, orientation-sensitive \(SU(3)\) conjugacy class.
+
+### AR.4 Physical firewall
+
+The orientation-odd quantity
+
+\[
+\operatorname{Im}\operatorname{tr}U_\circ
+\]
+
+is used here only as a Wilson-loop conjugacy invariant.
+
+It is not identified with the CKM Jarlskog invariant, a CP phase, or any measured flavour observable.
+
+Status remains:
+
+`NONTRIVIAL_WILSON_LOOP_NOT_YET_PHYSICAL_CP_OR_SECTOR_BINDING`.
