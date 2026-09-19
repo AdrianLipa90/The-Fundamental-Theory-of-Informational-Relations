@@ -2869,3 +2869,137 @@ Thus the prior broad rhythm debt is narrowed to a binding problem, not a lack of
 Current aggregate frontier:
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__RHO_BINDING_AND_COMPACT_FAMILY_MAP_OPEN\`.
+
+
+---
+
+## Appendix P — NEW 2026-09-19 — Compact \(SU(3)_F\) endpoint class versus branch-wise real-form lift
+
+### P.1 Current family endpoint is already compact and unitary
+
+The current TIR family carrier is
+
+\[
+\boxed{
+V_F\cong\mathbb C^3
+}
+\]
+
+with full determinant-one family transformations
+
+\[
+\boxed{
+U_F\in SU(3)_F.
+}
+\]
+
+This is not introduced by the present crosswalk. It is already a current structural parent of the flavour branch.
+
+Stage 25 independently uses
+
+\[
+I_3\otimes I_2\otimes U_F,
+\qquad
+U_F\in SU(3)_F,
+\]
+
+on the factorized matter carrier.
+
+Therefore the physical family endpoint class is a positive-definite compact unitary three-carrier.
+
+Status:
+
+\`CURRENT_FAMILY_ENDPOINT_COMPACT_SU3F_REQUIRED\`.
+
+### P.2 Stage-51 no-go remains intact
+
+The Stage-50 split-real generators
+
+\[
+R_E,R_O\in SL(3,\mathbb R)
+\]
+
+preserve an indefinite form. Stage 51 proves that no fixed similarity transformation can convert the same split-real representation into the current compact unitary family representation.
+
+Hence
+
+\[
+\boxed{
+\operatorname{Sym}^2(PSL(2,\mathbb R))
+\not\sim SU(3)_F
+}
+\]
+
+by fixed similarity.
+
+The endpoint requirement does not weaken or bypass this no-go.
+
+### P.3 Stage-52 bridge fixes availability, not branch-wise dynamics
+
+Stage 52 supplies the mathematically valid change-of-real-form route
+
+\[
+\mathfrak{sl}(2,\mathbb R)
+\to
+\mathfrak{sl}(2,\mathbb C)
+\leftarrow
+\mathfrak{su}(2)
+\xrightarrow{\operatorname{Sym}^2}
+\mathfrak{su}(3).
+\]
+
+Combined with the already-current family carrier, this means the **target real-form class** is no longer ambiguous:
+
+\[
+\boxed{
+\text{physical family endpoint}
+=
+SU(3)_F.
+}
+\]
+
+What remains unresolved is the dynamical map that takes the exact ordered split-real branch operators to definite compact family operators,
+
+\[
+\boxed{
+R_E,R_O
+\stackrel{?}{\longrightarrow}
+U_E,U_O\in SU(3)_F.
+}
+\]
+
+Status:
+
+\`COMPACT_ENDPOINT_CLASS_FIXED__DYNAMICAL_BRANCHWISE_LIFT_OPEN\`.
+
+### P.4 Corrected real-form frontier
+
+The broad phrase
+
+\`compact-real-form selection OPEN\`
+
+is therefore decomposed into two levels:
+
+\`\`\`text
+physical family endpoint class SU(3)_F
+    = CLOSED / CURRENT PARENT
+
+direct split-real similarity to SU(3)_F
+    = REFUTED
+
+complexification/change-of-real-form bridge
+    = AVAILABLE
+
+branch-wise lift R_E,R_O -> U_E,U_O in SU(3)_F
+    = OPEN
+\`\`\`
+
+This distinction is important. Unitarity fixes what class the physical family transformation must belong to; it does not derive the map from Collatz/Poincare branch dynamics into that class.
+
+Current split-real/unitary status:
+
+\`DIRECT_UNITARIZATION_REFUTED__COMPACT_SU3F_ENDPOINT_REQUIRED__BRANCHWISE_REALFORM_LIFT_OPEN\`.
+
+Current aggregate family-dynamics frontier:
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__RHO_BINDING_AND_BRANCHWISE_COMPACT_LIFT_OPEN\`.
