@@ -662,3 +662,24 @@ Remaining principal seam:
 \`TEMPORAL_C3_TO_PHYSICAL_FAMILY_BINDING = OPEN\`.
 
 Masses, Yukawa structure, CKM/PMNS and full physical spectrum remain separately open.
+
+
+### Appendix F update — \(A_1\) axis conjugacy
+
+For the current \(A_1\cong\mathfrak{su}(2)\) weak carrier, every normalized Cartan representative is \(SU(2)\)-conjugate to
+
+\[
+T_3=\frac12\sigma_z.
+\]
+
+The Weyl involution transports covariantly under the same conjugation, so the exact binary weak carrier does not require an absolute pre-breaking axis orientation.
+
+Status:
+
+\`A1_CARTAN_ORIENTATION_SU2_CONJUGACY_CLASS_CLOSED\`.
+
+The remaining electroweak gate is not “choose an absolute weak axis”; it is
+
+\`OPEN_HIGGS_HYPERCHARGE_ALIGNMENT_NOT_CLOSED_BY_AXIS_CONJUGACY\`.
+
+The temporal-to-physical-family binding and mass/mixing spectrum remain separately OPEN.
