@@ -380,7 +380,7 @@ including \(u_L\) and \(d_L\).
 
 The preserved generated CSV at blob SHA
 \`3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1\`
-contains the matching \`u_L,up_quark\` row and no conflicting \`nu_L,up_quark\` row; the generated artifact is consistent with the archived source for this mapping.
+contains the historical stale identifier \`nu_L,up_quark\`, while the archived source generator contains the corrected \`u_L,up_quark\` row. The source generator is the provenance authority; CSV staleness is diagnostic only and does not gate the representation theorem.
 
 With the recovered orientation anchor, the current Stage-23 pole-exchange \(Z_2\) and the weak-doublet component-exchange \(Z_2\) are exactly intertwined, and the six-state map lifts as
 
