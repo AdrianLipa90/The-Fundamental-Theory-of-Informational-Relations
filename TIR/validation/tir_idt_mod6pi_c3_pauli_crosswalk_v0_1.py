@@ -286,6 +286,11 @@ def main() -> None:
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE25_COLOR_FAMILY_FACTORISATION_V0_1.md"
     ).read_text(encoding="utf-8")
+    stage30 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE30_PRECKM_CROSS_GRAM_AUDIT_V0_1.md"
+    ).read_text(encoding="utf-8")
     flavour_normalization = (
         ROOT
         / "TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md"
@@ -734,6 +739,43 @@ def main() -> None:
         - math.log((3.0 ** 34) / (2.0 ** 56))
     )
 
+    # Canonical 2x2 positive-determinant polar compact factor.
+    def polar_so2(M: np.ndarray) -> np.ndarray:
+        a, b = float(M[0, 0]), float(M[0, 1])
+        cc, d = float(M[1, 0]), float(M[1, 1])
+        norm = math.hypot(a + d, cc - b)
+        return np.array(
+            [[a + d, b - cc], [cc - b, a + d]],
+            dtype=float,
+        ) / norm
+
+    QE = polar_so2(ME)
+    QO = polar_so2(MO)
+    QO_exact = np.array([[4.0, 1.0], [-1.0, 4.0]]) / math.sqrt(17.0)
+    polar_QE_identity_residual = float(np.max(np.abs(QE - np.eye(2))))
+    polar_QO_exact_residual = float(np.max(np.abs(QO - QO_exact)))
+    polar_QO_orthogonality_residual = float(
+        np.max(np.abs(QO.T @ QO - np.eye(2)))
+    )
+
+    # Generator-wise compact-factor assignment loses E positions because QE=I.
+    generator_polar_EO = QE @ QO
+    generator_polar_OE = QO @ QE
+    generator_polar_order_separation = float(
+        np.max(np.abs(generator_polar_EO - generator_polar_OE))
+    )
+
+    # Word-wise polar factor retains order but is not a monoid homomorphism.
+    Q_EO_word = polar_so2(ME @ MO)
+    Q_OE_word = polar_so2(MO @ ME)
+    word_polar_order_separation = float(
+        np.max(np.abs(Q_EO_word - Q_OE_word))
+    )
+    word_polar_homomorphism_residual = max(
+        float(np.max(np.abs(Q_EO_word - QE @ QO))),
+        float(np.max(np.abs(Q_OE_word - QO @ QE))),
+    )
+
     J_split = np.array(
         [[0.0, 0.0, 0.5], [0.0, -1.0, 0.0], [0.5, 0.0, 0.0]],
         dtype=float,
@@ -1031,6 +1073,12 @@ def main() -> None:
             "U_F\\in SU(3)_F" in stage25
             and "I_3\\otimes I_2\\otimes U_F" in stage25
         ),
+        "stage30_canonical_polar_diagnostic_parent_present": (
+            "STAGE_30_SECTOR_MISALIGNMENT_PASS__DIRECT_MIXING_PROMOTION_OPEN"
+            in stage30
+            and "Canonical polar factor" in stage30
+            and "requires an independently derived TIR rule" in stage30
+        ),
         "stage38_c3_cp_parent_pass_present": (
             "STAGE_38_C3_CHARACTER_BASIS_CP_MATH_PASS" in stage38
         ),
@@ -1165,6 +1213,22 @@ def main() -> None:
         "frozen_branch_word_signed_scale_cocycle_exact": (
             w1_slope_residual < TOL
             and w3_slope_residual < 1.0e-12
+        ),
+        "polar_even_compact_factor_is_identity": (
+            polar_QE_identity_residual < TOL
+        ),
+        "polar_odd_compact_factor_exact": (
+            polar_QO_exact_residual < TOL
+            and polar_QO_orthogonality_residual < TOL
+        ),
+        "generatorwise_polar_compactification_loses_E_order": (
+            generator_polar_order_separation < TOL
+        ),
+        "wordwise_polar_factor_detects_EO_vs_OE_order": (
+            word_polar_order_separation > TOL
+        ),
+        "wordwise_polar_factor_is_not_branch_homomorphism": (
+            word_polar_homomorphism_residual > TOL
         ),
         "sym2_branch_generators_have_det_one": bool(
             abs(np.linalg.det(RE) - 1.0) < TOL
@@ -1438,8 +1502,13 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "canonical_polar_compactification_status": (
+            "CANONICAL_POLAR_COMPACTIFICATION_REFUTED_AS_SUFFICIENT_BRANCH_LIFT"
+            if passed
+            else "FAILED"
+        ),
         "compact_family_branch_operator_status": (
-            "OPEN_BRANCHWISE_SPLIT_REAL_TO_COMPACT_SU3F_LIFT"
+            "OPEN_NONPOLAR_BRANCHWISE_SPLIT_REAL_TO_COMPACT_SU3F_LIFT"
         ),
         "binary_to_three_carrier_status": (
             "SYM2_TWO_TO_THREE_CARRIER_CLOSED"
@@ -1480,7 +1549,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__RHO_BINDING_AND_BRANCHWISE_COMPACT_LIFT_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__CANONICAL_POLAR_LIFT_REFUTED__RHO_BINDING_AND_NONPOLAR_COMPACT_LIFT_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -1611,6 +1680,11 @@ def main() -> None:
             "poincare_length_O_ln3": ell_O_residual,
             "branch_signed_scale": signed_scale_residual,
             "kappa_even_branch_length": kappa_length_residual,
+            "polar_QE_identity": polar_QE_identity_residual,
+            "polar_QO_exact": polar_QO_exact_residual,
+            "polar_generator_order_separation": generator_polar_order_separation,
+            "polar_word_order_separation": word_polar_order_separation,
+            "polar_word_homomorphism": word_polar_homomorphism_residual,
             "anchor": anchor_residual,
             "family_lie_structure": residual_family,
             "temporal_pullback_lie_structure": residual_temporal,
@@ -1659,6 +1733,20 @@ def main() -> None:
             "commutator_span_dimension": 3,
             "lie_closure_dimension": 8,
             "physical_family_dynamics_selector": "OPEN",
+        },
+        "polar_compactification_audit": {
+            "QE": QE.tolist(),
+            "QO": QO.tolist(),
+            "QO_exact": "1/sqrt(17)*[[4,1],[-1,4]]",
+            "QE_identity_residual": polar_QE_identity_residual,
+            "QO_exact_residual": polar_QO_exact_residual,
+            "QO_orthogonality_residual": polar_QO_orthogonality_residual,
+            "generatorwise_EO_vs_OE_separation": generator_polar_order_separation,
+            "wordwise_EO_vs_OE_separation": word_polar_order_separation,
+            "wordwise_polar_homomorphism_residual": word_polar_homomorphism_residual,
+            "generatorwise_conclusion": "ORDER_INFORMATION_LOST_BECAUSE_QE_IS_IDENTITY",
+            "wordwise_conclusion": "ORDER_RETAINED_BUT_NOT_A_MONOID_REPRESENTATION",
+            "sufficient_family_lift": False,
         },
         "compact_family_endpoint_audit": {
             "family_carrier": "C^3",
@@ -1756,6 +1844,9 @@ def main() -> None:
             "current_family_unitarity_fixes_endpoint_class_not_branchwise_lift": True,
             "su3f_endpoint_requirement_does_not_override_stage51_similarity_nogo": True,
             "branchwise_realform_lift_requires_additional_dynamics": True,
+            "generatorwise_polar_compactification_is_order_blind_for_even_steps": True,
+            "wordwise_polar_factor_is_not_a_branch_monoid_homomorphism": True,
+            "polar_compact_factor_is_diagnostic_not_physical_family_operator": True,
             "branch_symbol_to_split_real_operator_is_closed_but_not_physical_family_map": True,
             "legacy_eta_0_35_rhythm_is_model_choice_not_current_input": True,
             "exact_geometric_branch_length_alphabet_is_closed": True,
