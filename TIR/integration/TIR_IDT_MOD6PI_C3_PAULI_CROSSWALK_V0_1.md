@@ -6676,3 +6676,126 @@ It is not identified with physical parity or CP.
 Likewise the weak Weyl involution is a separate current \(A_1\) representation action.
 
 The Appendix records the exact group-theoretic distinction only.
+
+---
+
+## Appendix AY — NEW 2026-09-19 — Twelve-element dihedral extension of the six-state weak-family cycle
+
+### AY.1 Existing six-state rotation
+
+The commuting family and weak actions give the six-state generator
+
+\[
+\boxed{
+G_6=P_3\otimes J_W.
+}
+\]
+
+Because \(P_3\) has order 3, \(J_W\) has order 2, and the two factors commute,
+
+\[
+\boxed{G_6^6=I_6}
+\]
+
+with no smaller positive power equal to identity.
+
+Thus \(G_6\) generates the already-current cyclic six-state action
+
+\[
+\langle G_6\rangle\cong C_6.
+\]
+
+### AY.2 Orientation reflection on the six-state carrier
+
+Lift the family orientation reflection to the product space:
+
+\[
+\boxed{
+R_6=R_{\rm orient}\otimes I_2.
+}
+\]
+
+Then
+
+\[
+R_6^2=I_6
+\]
+
+and, because the reflection inverts \(P_3\) while leaving the weak factor untouched,
+
+\[
+\boxed{
+R_6G_6R_6=G_6^{-1}.
+}
+\]
+
+### AY.3 Twelve distinct group elements
+
+The matrices
+
+\[
+G_6^k,
+\qquad
+R_6G_6^k,
+\qquad
+k=0,\ldots,5,
+\]
+
+are all distinct.
+
+Therefore the generated group has exactly 12 elements and presentation
+
+\[
+\boxed{
+\langle G_6,R_6
+\mid
+G_6^6=R_6^2=1,\
+R_6G_6R_6=G_6^{-1}
+\rangle.
+}
+\]
+
+This is the dihedral symmetry group of a hexagon.
+
+Status:
+
+`C6_SEMIDIRECT_Z2_INVERSION_IS_HEXAGON_DIHEDRAL_GROUP_ORDER12`.
+
+Equivalently,
+
+\[
+\boxed{
+C_6\rtimes_{\rm inversion}Z_2
+\text{ has order }12.
+}
+\]
+
+Status:
+
+`SIX_STATE_C6_ROTATION_EXTENDS_TO_TWELVE_ELEMENT_ORIENTATION_DIHEDRAL_SYMMETRY`.
+
+### AY.4 Nested structure
+
+The exact nested chain is
+
+\[
+C_3^{\rm family}
+\subset
+C_6^{\rm family\times weak}
+\subset
+D_{\rm hexagon}^{(12)}.
+\]
+
+The first extension uses the commuting weak Weyl \(Z_2\).
+
+The second uses the orientation inversion \(Z_2\).
+
+These two involutions are distinct.
+
+### AY.5 Firewall
+
+The number 12 here is the order of the generated symmetry group.
+
+It is not asserted to be a particle count, a spacetime dimension, a fermion count, or an experimental observable.
+
+Likewise the orientation reflection is not promoted to physical parity or CP.
