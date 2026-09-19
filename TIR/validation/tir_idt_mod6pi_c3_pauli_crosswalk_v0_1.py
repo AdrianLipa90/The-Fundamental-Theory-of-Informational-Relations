@@ -318,6 +318,36 @@ def main() -> None:
         np.max(np.abs(J_weak @ T3_weak @ J_weak.conj().T + T3_weak))
     )
 
+    # Generic A1 Cartan-axis conjugacy test.  Absolute orientation of the
+    # normalized weak axis is an SU(2)-conjugacy choice; the Weyl Z2 action
+    # transports covariantly with the axis.
+    n_axis = np.array([1.0, 2.0, 3.0], dtype=float)
+    n_axis = n_axis / np.linalg.norm(n_axis)
+    theta_axis = math.acos(float(n_axis[2]))
+    phi_axis = math.atan2(float(n_axis[1]), float(n_axis[0]))
+    U_z = (
+        math.cos(phi_axis / 2.0) * np.eye(2, dtype=complex)
+        - 1j * math.sin(phi_axis / 2.0) * sz
+    )
+    U_y = (
+        math.cos(theta_axis / 2.0) * np.eye(2, dtype=complex)
+        - 1j * math.sin(theta_axis / 2.0) * sy
+    )
+    U_axis = U_z @ U_y
+    H_axis = 0.5 * (
+        n_axis[0] * sx + n_axis[1] * sy + n_axis[2] * sz
+    )
+    axis_conjugacy_residual = float(
+        np.max(np.abs(U_axis @ T3_weak @ U_axis.conj().T - H_axis))
+    )
+    J_axis = U_axis @ J_weak @ U_axis.conj().T
+    axis_weyl_involution_residual = float(
+        np.max(np.abs(J_axis @ J_axis - np.eye(2)))
+    )
+    axis_weyl_flip_residual = float(
+        np.max(np.abs(J_axis @ H_axis @ J_axis.conj().T + H_axis))
+    )
+
     F_chi_weak = np.eye(2, dtype=complex)
     chirality_weak_intertwiner_residual = float(
         np.max(np.abs(F_chi_weak @ J_chi - J_weak @ F_chi_weak))
@@ -471,6 +501,15 @@ def main() -> None:
         "current_weak_a1_weyl_reflection_flips_t3": (
             weak_weyl_flip_residual < TOL
         ),
+        "weak_axis_generic_su2_conjugacy_exact": (
+            axis_conjugacy_residual < TOL
+        ),
+        "weak_axis_transported_weyl_is_involution": (
+            axis_weyl_involution_residual < TOL
+        ),
+        "weak_axis_transported_weyl_flips_generic_cartan": (
+            axis_weyl_flip_residual < TOL
+        ),
         "current_family_x_weak_generator_order_six": bool(
             np.allclose(
                 np.linalg.matrix_power(G6_weak, 6),
@@ -601,6 +640,14 @@ def main() -> None:
             else "NOT_ESTABLISHED"
         ),
         "weak_a1_weyl_z2_status": "CURRENT_EXACT",
+        "weak_axis_conjugacy_status": (
+            "A1_CARTAN_ORIENTATION_SU2_CONJUGACY_CLASS_CLOSED"
+            if passed
+            else "FAILED"
+        ),
+        "electroweak_vacuum_alignment_status": (
+            "OPEN_HIGGS_HYPERCHARGE_ALIGNMENT_NOT_CLOSED_BY_AXIS_CONJUGACY"
+        ),
         "family_x_weak_six_cycle": (
             "CURRENT_C3_X_A1_WEYL_Z2_C6_EXACT"
             if passed
@@ -650,6 +697,9 @@ def main() -> None:
             "temporal_pullback_lie_structure": residual_temporal,
             "six_state_intertwiner": six_state_intertwiner_residual,
             "weak_weyl_t3_flip": weak_weyl_flip_residual,
+            "generic_axis_conjugacy": axis_conjugacy_residual,
+            "generic_axis_weyl_involution": axis_weyl_involution_residual,
+            "generic_axis_weyl_flip": axis_weyl_flip_residual,
             "chirality_weak_intertwiner": chirality_weak_intertwiner_residual,
             "six_weak_intertwiner": six_weak_intertwiner_residual,
             "jarlskog_exact": abs(J - J_exact),
@@ -682,6 +732,8 @@ def main() -> None:
             "legacy_projection_script_is_provenance_authority": True,
             "chirality_to_weak_label_map_uses_recovered_orientation_anchor": True,
             "weak_a1_weyl_z2_does_not_require_legacy_orientation_anchor": True,
+            "absolute_a1_cartan_axis_orientation_is_su2_conjugacy_choice": True,
+            "axis_conjugacy_does_not_close_higgs_hypercharge_vacuum_alignment": True,
             "legacy_anchor_only_orients_cp1_ns_against_t3_sign": True,
             "six_weak_family_component_count_is_conditional_on_family_binding": True,
             "remaining_physical_gate": "TEMPORAL_C3_TO_PHYSICAL_FAMILY_BINDING_AND_FULL_MASS_MIXING_SPECTRUM",
