@@ -50,7 +50,10 @@ jobs:
           grep -Fq '"legacy_weak_pole_orientation_audit": "ARCHIVAL_SOURCE_RECOVERED_CURRENT_PROMOTION_CONDITIONAL"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"chirality_to_weak_label_intertwiner": "CLOSED_CONDITIONAL_ON_RECOVERED_NORTH_SOUTH_T3_ORIENTATION_ANCHOR"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"six_cycle_weak_family_label_operator": "CLOSED_CONDITIONAL_ON_RECOVERED_WEAK_ORIENTATION_ANCHOR"' mod6pi-c3-pauli-receipt.json
-          grep -Fq '"six_cycle_physical_flavour_operator": "NOT_FULLY_PROMOTED_FIRST_PRINCIPLES_WEAK_AXIS_SELECTION_REMAINS_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"weak_a1_weyl_z2_status": "CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_x_weak_six_cycle": "CURRENT_C3_X_A1_WEYL_Z2_C6_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_weak_component_label_count": "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_cycle_physical_flavour_operator": "CURRENT_WEAK_FAMILY_REPRESENTATION_EXACT_PHYSICAL_GENERATION_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"physical_sector_binding": "OPEN"' mod6pi-c3-pauli-receipt.json
 
       - name: Upload receipt
