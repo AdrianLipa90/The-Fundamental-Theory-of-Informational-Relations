@@ -1116,3 +1116,17 @@ Remaining gate:
 `OPEN_COLLATZ_BRANCH_TO_DIRECTED_FAMILY_GENERATOR_AND_EXACT_RHO_BINDING`.
 
 This does not select the physical Stage-39 up/down assignment.
+
+### Appendix AC update — single-axis branch map is impossible
+
+If both (E) and (O) are exponentials of scalar multiples of the same Stage-66 tangent (T_{23}), they commute and lose Collatz word order.
+
+The exact Möbius branch generators do not commute.
+
+Therefore:
+
+`NO_GO_SINGLE_STAGE66_TANGENT_CANNOT_PRESERVE_COLLATZ_BRANCH_ORDER`
+
+and the surviving operator map requires
+
+`AT_LEAST_TWO_NONCOMMUTING_GENERATORS_OR_STATE_DEPENDENT_CONJUGATION_REQUIRED`.
