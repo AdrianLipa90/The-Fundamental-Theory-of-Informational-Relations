@@ -1266,6 +1266,58 @@ def main() -> None:
         np.linalg.norm(selector_forward_commutator, "fro") ** 2
     )
 
+    # Exact Collatz-state -> temporal C3 frame index on the finite-stopping basin.
+    # Anchor n=1 at frame 0 and define r_C(n)=-L(n) mod 3.  One Collatz
+    # step advances the frame by +1 mod 3, including the terminal 1->4 step.
+    collatz_c3_tested = 10000
+    collatz_c3_failures = []
+    collatz_c3_frame_counts = [0, 0, 0]
+    for n in range(1, collatz_c3_tested + 1):
+        Ln = collatz_depth_to_one(n)
+        Lnext = collatz_depth_to_one(collatz_step(n))
+        rn = (-Ln) % 3
+        rnext = (-Lnext) % 3
+        collatz_c3_frame_counts[rn] += 1
+        if rnext != (rn + 1) % 3:
+            collatz_c3_failures.append(
+                {
+                    "n": n,
+                    "L": Ln,
+                    "L_next": Lnext,
+                    "r": rn,
+                    "r_next": rnext,
+                }
+            )
+
+    terminal_cycle_states = [1, 4, 2]
+    terminal_cycle_depths = [collatz_depth_to_one(n) for n in terminal_cycle_states]
+    terminal_cycle_frames = [(-x) % 3 for x in terminal_cycle_depths]
+    terminal_cycle_qc = [q_c(n) for n in terminal_cycle_states]
+    terminal_cycle_qc_expected = [
+        Fraction(4, 7),
+        Fraction(1, 7),
+        Fraction(2, 7),
+    ]
+    terminal_qc_doubling_exact = all(
+        (terminal_cycle_qc[(i + 1) % 3] - 2 * terminal_cycle_qc[i]).denominator
+        == 1
+        for i in range(3)
+    )
+
+    state_generator_equivariance_residual = max(
+        float(
+            np.max(
+                np.abs(
+                    selector_orbit[(r + 1) % 3]
+                    - np.real(P_family)
+                    @ selector_orbit[r]
+                    @ np.real(P_family).T
+                )
+            )
+        )
+        for r in range(3)
+    )
+
     # Single-axis branch-map no-go.  The Stage-66 selected tangent is the
     # P3 image of A_seed, i.e. the symmetric 23 channel.  Any two branch
     # generators that are merely scalar multiples of this one tangent commute,
@@ -1847,6 +1899,22 @@ def main() -> None:
             selector_orbit_kp[2]["k_norm2"] < TOL
             and abs(selector_orbit_kp[2]["p_norm2"] - 0.5) < TOL
         ),
+        "collatz_stopping_depth_mod3_advances_exact_temporal_c3_frame": (
+            len(collatz_c3_failures) == 0
+            and sum(collatz_c3_frame_counts) == collatz_c3_tested
+        ),
+        "terminal_collatz_cycle_maps_to_ordered_c3_frames": (
+            terminal_cycle_states == [1, 4, 2]
+            and terminal_cycle_depths == [0, 2, 1]
+            and terminal_cycle_frames == [0, 1, 2]
+        ),
+        "terminal_qc_phase_cycle_matches_collatz_c3_orientation": (
+            terminal_cycle_qc == terminal_cycle_qc_expected
+            and terminal_qc_doubling_exact
+        ),
+        "collatz_state_selected_stage66_generator_is_c3_equivariant": (
+            state_generator_equivariance_residual < TOL
+        ),
         "single_stage66_axis_branch_generators_commute_exactly": (
             single_axis_generator_commutator < TOL
         ),
@@ -2241,7 +2309,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__STATE_DEPENDENT_ORBIT_INDEX_AND_RHO_PHYSICAL_BINDING_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__RHO_PHYSICAL_AND_TEMPORAL_FAMILY_PROMOTION_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2303,8 +2371,20 @@ def main() -> None:
         "stage66_branch_assignment_status": (
             "STATIC_EO_TO_TWO_STAGE66_ORBIT_GENERATORS_REFUTED"
         ),
+        "collatz_temporal_c3_frame_status": (
+            "STOPPING_DEPTH_MOD3_COLLATZ_TO_TEMPORAL_C3_EQUIVARIANT_BINDING_CLOSED"
+            if passed
+            else "FAILED"
+        ),
         "stage66_state_dependent_orbit_binding_status": (
-            "OPEN_COLLATZ_STATE_OR_PATH_TO_STAGE66_C3_ORBIT_INDEX_BINDING"
+            "CLOSED_REPRESENTATION_LEVEL_VIA_NEGATIVE_STOPPING_DEPTH_MOD3"
+            if passed
+            else "FAILED"
+        ),
+        "collatz_state_family_generator_index_status": (
+            "G_N_EQUALS_A_MINUS_L_MOD3_C3_EQUIVARIANT"
+            if passed
+            else "FAILED"
         ),
         "stage66_full_orbit_access_requirement": (
             "FULL_SU3F_FROM_STAGE66_REQUIRES_ALL_THREE_ORBIT_GENERATORS_OR_EQUIVALENT_EXTRA_DIRECTION"
@@ -2545,6 +2625,7 @@ def main() -> None:
             "stage66_c3_orbit_lie_closure": selector_orbit_lie_residual,
             "stage66_c3_orbit_kp_projection": selector_orbit_kp_residual,
             "stage66_c3_orbit_kp_reconstruction": selector_orbit_kp_reconstruction_residual,
+            "collatz_state_generator_c3_equivariance": state_generator_equivariance_residual,
         },
         "stationary_cubic_selector_audit": {
             "eta": float(eta_selector),
@@ -2614,6 +2695,23 @@ def main() -> None:
                 "state_dependent_map",
                 "complexification_plus_additional_dynamics",
             ],
+        },
+        "collatz_c3_state_index_audit": {
+            "definition": "r_C(n)=(-L(n)) mod 3",
+            "tested_range": [1, collatz_c3_tested],
+            "failures": collatz_c3_failures,
+            "frame_counts": collatz_c3_frame_counts,
+            "terminal_cycle_states": terminal_cycle_states,
+            "terminal_cycle_depths": terminal_cycle_depths,
+            "terminal_cycle_frames": terminal_cycle_frames,
+            "terminal_cycle_qC": [str(x) for x in terminal_cycle_qc],
+            "terminal_cycle_qC_expected": ["4/7", "1/7", "2/7"],
+            "terminal_qC_doubling_exact": terminal_qc_doubling_exact,
+            "state_generator_equivariance_residual": (
+                state_generator_equivariance_residual
+            ),
+            "family_generator_index": "A_{r_C(n)}",
+            "physical_temporal_family_binding": "OPEN",
         },
         "stage66_c3_orbit_generator_audit": {
             "orbit_labels": ["A0_12", "A1_23", "A2_13"],
@@ -2944,7 +3042,10 @@ def main() -> None:
             "stage24_66_forward_pair_is_representation_level_not_physical_branch_map": True,
             "any_static_EO_map_to_two_stage66_orbit_axes_has_only_three_dimensional_lie_closure": True,
             "full_stage66_su3f_access_requires_state_dependent_or_three_axis_traversal": True,
-            "collatz_step_to_temporal_c3_orbit_index_binding_not_found_current": True,
+            "collatz_step_to_temporal_c3_orbit_index_binding_not_found_current": False,
+            "stopping_depth_mod3_supplies_representation_level_collatz_c3_index": True,
+            "stopping_depth_mod3_binding_is_conditional_on_finite_stopping_depth": True,
+            "representation_level_collatz_c3_index_is_not_physical_temporal_family_identification": True,
             "Aseed_was_not_used_to_fit_eta": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
