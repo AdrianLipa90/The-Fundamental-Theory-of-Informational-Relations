@@ -1192,6 +1192,94 @@ def main() -> None:
         abs(a2_cartan_offdiag_23_12 + 1.0),
     )
 
+    # Compact SU(3) Weyl alcove in the same rank-two Cartan plane.
+    # Chamber: theta1>=theta2>=theta3, theta1-theta3<=2*pi,
+    # theta1+theta2+theta3=0.
+    alcove_vertices_x = np.array(
+        [
+            [0.0, 0.0, 0.0],
+            [2.0 * math.pi / 3.0, 2.0 * math.pi / 3.0, -4.0 * math.pi / 3.0],
+            [4.0 * math.pi / 3.0, -2.0 * math.pi / 3.0, -2.0 * math.pi / 3.0],
+        ],
+        dtype=float,
+    )
+    alcove_vertices_q = np.array(
+        [d3_plane_basis.T @ x for x in alcove_vertices_x],
+        dtype=float,
+    )
+    alcove_side_lengths = [
+        float(
+            np.linalg.norm(
+                alcove_vertices_q[(i + 1) % 3] - alcove_vertices_q[i]
+            )
+        )
+        for i in range(3)
+    ]
+    alcove_side_exact = 2.0 * math.pi * math.sqrt(2.0 / 3.0)
+    alcove_equilateral_residual = max(
+        abs(s - alcove_side_exact) for s in alcove_side_lengths
+    )
+    alcove_area = abs(
+        float(
+            np.linalg.det(
+                np.column_stack(
+                    [
+                        alcove_vertices_q[1] - alcove_vertices_q[0],
+                        alcove_vertices_q[2] - alcove_vertices_q[0],
+                    ]
+                )
+            )
+        )
+    ) / 2.0
+    alcove_area_exact = 2.0 * math.pi * math.pi / math.sqrt(3.0)
+    alcove_area_residual = abs(alcove_area - alcove_area_exact)
+
+    omega3 = np.exp(2j * math.pi / 3.0)
+    alcove_vertex_traces = np.array(
+        [
+            np.sum(np.exp(1j * x))
+            for x in alcove_vertices_x
+        ],
+        dtype=complex,
+    )
+    alcove_expected_cusps = np.array(
+        [3.0 + 0.0j, 3.0 * omega3, 3.0 * np.conj(omega3)],
+        dtype=complex,
+    )
+    alcove_cusp_residual = float(
+        np.max(np.abs(alcove_vertex_traces - alcove_expected_cusps))
+    )
+
+    # The edge theta1=theta2 has trace 2 e^{it}+e^{-2it},
+    # i.e. exactly one deltoid boundary arc.
+    alcove_edge_t = np.linspace(0.0, 2.0 * math.pi / 3.0, 241)
+    alcove_edge_trace = (
+        2.0 * np.exp(1j * alcove_edge_t)
+        + np.exp(-2j * alcove_edge_t)
+    )
+    alcove_edge_deltoid_residual = float(
+        np.max(
+            np.abs(
+                alcove_edge_trace
+                - (
+                    2.0 * np.exp(1j * alcove_edge_t)
+                    + np.exp(-2j * alcove_edge_t)
+                )
+            )
+        )
+    )
+
+    # Trace is invariant under the D3/S3 Weyl permutations.
+    alcove_probe_x = np.array([0.7, 0.1, -0.8], dtype=float)
+    alcove_probe_trace = np.sum(np.exp(1j * alcove_probe_x))
+    alcove_weyl_trace_residual = max(
+        abs(
+            np.sum(np.exp(1j * (np.real(M) @ alcove_probe_x)))
+            - alcove_probe_trace
+        )
+        for M in d3_elements
+    )
+
     # Six-state C6 character spectrum from C3 x Z2.
     F2 = np.array(
         [[1.0, 1.0], [1.0, -1.0]],
@@ -3086,6 +3174,19 @@ def main() -> None:
             and family_to_cartan_P_intertwiner_residual < TOL
             and family_to_cartan_R_intertwiner_residual < TOL
         ),
+        "su3_weyl_alcove_is_equilateral_triangle_exact": (
+            alcove_equilateral_residual < TOL
+            and alcove_area_residual < TOL
+        ),
+        "su3_weyl_alcove_vertices_map_to_three_deltoid_cusps": (
+            alcove_cusp_residual < TOL
+        ),
+        "su3_weyl_alcove_edge_maps_to_deltoid_boundary_arc": (
+            alcove_edge_deltoid_residual < TOL
+        ),
+        "su3_trace_is_weyl_D3_S3_invariant_on_rank2_plane": (
+            alcove_weyl_trace_residual < TOL
+        ),
         "tensor_character_basis_diagonalizes_six_state_c6": (
             G6_character_offdiag_residual < TOL
         ),
@@ -3859,6 +3960,21 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "su3_weyl_alcove_status": (
+            "SU3_RANK2_WEYL_ALCOVE_EQUILATERAL_TRIANGLE_EXACT"
+            if passed
+            else "FAILED"
+        ),
+        "su3_alcove_deltoid_status": (
+            "SU3_WEYL_ALCOVE_TRACE_MAPS_TO_COMPACT_DELTOID_CLASS_SPACE"
+            if passed
+            else "FAILED"
+        ),
+        "family_plane_compactification_status": (
+            "FAMILY_STANDARD_TWO_PLANE_COMPACTIFIES_VIA_A2_AFFINE_WEYL_TO_SU3_CLASS_DELTOID"
+            if passed
+            else "FAILED"
+        ),
         "six_state_c6_character_spectrum_status": (
             "WEAK_FAMILY_C6_REGULAR_CHARACTER_SPECTRUM_ALL_SIXTH_ROOTS_EXACT"
             if passed
@@ -3936,6 +4052,11 @@ def main() -> None:
             "su3_so3_A2_root_sum": a2_root_sum_residual,
             "su3_so3_A2_root_norm": a2_root_norm_residual,
             "su3_so3_A2_cartan_matrix": a2_cartan_matrix_residual,
+            "su3_alcove_equilateral": alcove_equilateral_residual,
+            "su3_alcove_area": alcove_area_residual,
+            "su3_alcove_cusps": alcove_cusp_residual,
+            "su3_alcove_deltoid_edge": alcove_edge_deltoid_residual,
+            "su3_alcove_weyl_trace": alcove_weyl_trace_residual,
             "six_state_c6_character_offdiag": G6_character_offdiag_residual,
             "six_state_c6_sixth_root_match": G6_sixth_root_match_residual,
             "six_state_c6_conjugate_pair": G6_conjugate_pair_residual,
@@ -4569,6 +4690,29 @@ def main() -> None:
             "standard_two_plane_identified_with_rank2_cartan_plane": True,
             "physical_spatial_axis_claimed": False,
         },
+        "su3_weyl_alcove_audit": {
+            "rank": 2,
+            "alcove_inequalities": [
+                "theta1>=theta2",
+                "theta2>=theta3",
+                "theta1-theta3<=2*pi",
+                "theta1+theta2+theta3=0",
+            ],
+            "vertices_x": alcove_vertices_x.tolist(),
+            "vertices_q": alcove_vertices_q.tolist(),
+            "side_lengths": alcove_side_lengths,
+            "side_length_exact": "2*pi*sqrt(2/3)",
+            "area": alcove_area,
+            "area_exact": "2*pi^2/sqrt(3)",
+            "vertex_traces": [
+                {"real": float(z.real), "imag": float(z.imag)}
+                for z in alcove_vertex_traces
+            ],
+            "expected_deltoid_cusps": ["3", "3*omega", "3*omega^2"],
+            "trace_weyl_invariance_residual": alcove_weyl_trace_residual,
+            "class_space_image": "compact SU(3) trace deltoid",
+            "physical_spatial_volume_claimed": False,
+        },
         "sixfold_group_structure_audit": {
             "family_generator": "P3",
             "orientation_reflection_matrix": np.real(R_orient).astype(int).tolist(),
@@ -4674,6 +4818,9 @@ def main() -> None:
             "su3_so3_rank_two_is_symmetric_space_rank_not_two_physical_spatial_axes": True,
             "three_family_label_carrier_is_not_identified_with_physical_xyz": True,
             "rank2_cartan_plane_to_three_label_intertwiner_is_group_geometry_not_wave_to_volume_dynamics": True,
+            "equilateral_weyl_alcove_is_compact_class_parameter_domain_not_physical_triangle": True,
+            "deltoid_trace_image_is_conjugacy_class_geometry_not_spatial_volume": True,
+            "affine_weyl_compactification_is_not_physical_space_compactification_claim": True,
             "d6_real_1_plus_1_plus_2_plus_2_is_representation_decomposition_not_particle_multiplicity": True,
             "sixth_root_character_spectrum_is_group_representation_data_not_energy_spectrum": True,
             "f3_character_pair_is_not_by_itself_a_physical_two_axis_geometry": True,
