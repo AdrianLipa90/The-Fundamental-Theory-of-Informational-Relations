@@ -2809,6 +2809,22 @@ def main() -> None:
             and np.trace(U_terminal_reverse).imag < -1.0e-6
             and terminal_reverse_trace_halfplane_residual < 1.0e-12
         ),
+        "outer_fixed_class_locus_matches_unit_eigenvalue_locus": (
+            terminal_trace_det_identity_residual < 1.0e-12
+        ),
+        "stage55_identifies_spin1_image_with_so3_symmetric_pair": (
+            "SU(2)/\\mathbb Z_2\\cong SO(3)" in stage55
+            and "(\\mathfrak{su}(3),\\mathfrak{so}(3))" in stage55
+            and "SU(3)/SO(3)" in stage55
+        ),
+        "outer_fixed_class_locus_matches_conjugate_spin1_so3_class_locus": (
+            terminal_trace_det_identity_residual < 1.0e-12
+            and "STAGE_55_SU3_SO3_SYMMETRIC_PAIR_PASS" in stage55
+        ),
+        "terminal_off_fixed_locus_consistent_with_spin1_exclusion": (
+            terminal_trace_fixed_locus_distance > 1.0e-6
+            and terminal_spin1_unit_eigenvalue_exclusion > 1.0e-6
+        ),
         "terminal_loop_has_three_distinct_unitary_eigenvalues": (
             terminal_min_eigenvalue_separation > 1.0e-6
             and terminal_spectral_discriminant > 1.0e-12
@@ -3493,6 +3509,21 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "outer_fixed_spin1_class_locus_status": (
+            "OUTER_FIXED_CLASS_LOCUS_EQUALS_CONJUGATE_SPIN1_SO3_CLASS_LOCUS"
+            if passed
+            else "FAILED"
+        ),
+        "outer_symmetric_pair_split_status": (
+            "OUTER_INVOLUTION_LIE_SPLIT_SU3_EQUALS_SO3_PLUS_FIVE_COMPLEMENT"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_outer_complement_status": (
+            "TERMINAL_OFF_FIXED_CLASS_REQUIRES_SU3_OVER_SO3_COMPLEMENT_DIRECTIONS"
+            if passed
+            else "FAILED"
+        ),
         "terminal_cycle_outer_inner_distinction_status": (
             "COMPLEX_CONJUGATION_NOT_INNER_ON_TERMINAL_CLASS_WITNESS"
             if passed
@@ -4009,6 +4040,19 @@ def main() -> None:
                 "terminal_outer_orbit_size": terminal_outer_orbit_size,
                 "quotient_representative_halfplane": "Im(t)>=0",
                 "physical_CP_identification": False,
+                "fixed_class_equivalences": [
+                    "Im(tr U)=0",
+                    "det(U-I)=0",
+                    "eigenvalue_1_present",
+                    "class_intersects_conjugate_SO3_spin1_subgroup",
+                ],
+                "stage55_symmetric_pair": "SU(3)/SO(3)",
+                "lie_fixed_sector_dimension": 3,
+                "lie_antifixed_complement_dimension": 5,
+                "terminal_spin1_exclusion_abs_det_U_minus_I": (
+                    float(terminal_spin1_unit_eigenvalue_exclusion)
+                ),
+                "terminal_requires_complement_directions": True,
             },
             "outer_complex_conjugation": {
                 "involution_residual": terminal_complex_conjugation_involution_residual,
@@ -4497,6 +4541,9 @@ def main() -> None:
             "outer_automorphism_structure_is_not_by_itself_a_cp_symmetry_statement": True,
             "compact_outer_z2_class_quotient_is_group_geometry_not_physical_cp_claim": True,
             "terminal_off_fixed_locus_trace_is_orientation_class_witness_not_cp_violation_measurement": True,
+            "outer_fixed_so3_class_locus_is_group_geometry_not_physical_cp_conservation_statement": True,
+            "five_dimensional_outer_antifixed_complement_is_lie_tangent_not_five_spatial_dimensions": True,
+            "terminal_complement_requirement_is_necessary_geometry_not_sufficient_physical_cp_condition": True,
             "su3_trace_deltoid_compactness_does_not_identify_observed_mixing_parameters": True,
             "basepoint_covariance_is_groupoid_consistency_not_physical_promotion": True,
             "nontrivial_terminal_loop_closes_nonseparable_path_source_only_at_structural_candidate_level": True,
