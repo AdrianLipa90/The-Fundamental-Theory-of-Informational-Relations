@@ -1,0 +1,50 @@
+{
+  "schema": "TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_VALIDATION_V0_1",
+  "date": "2026-09-19",
+  "authority": "CANDIDATE_ONLY",
+  "status": "PASS",
+  "canon_allowed": false,
+  "physical_production_claim": false,
+  "empirical_theory_confirmation": false,
+  "source_evidence_class": "EXTERNAL_OBSERVATIONAL_ARCHIVE_DERIVED_MODEL_LEVEL",
+  "tested_head_sha": "e05562d7c5583d74480cdd0445469c045e9346e4",
+  "source": {
+    "source_id": "RT218283.SP3@8013",
+    "epochs": [
+      "2015-01-21T00:01:00Z",
+      "2015-01-21T00:03:00Z"
+    ],
+    "dt_s": 120,
+    "record_shape_per_epoch": "R3_POSITION_PLUS_R1_CLOCK"
+  },
+  "result": {
+    "spatial_manifold_certified": true,
+    "spatial_production_source_admitted": false,
+    "matching_handoff_compatible": true,
+    "matching_production_input": false,
+    "same_physical_realization": true,
+    "same_realization_receipt": true,
+    "spatial_ready": false,
+    "matching_ready": false,
+    "promotion_review_eligible": false,
+    "blockers": [
+      "TIR_GSC1_PRODUCTION_SPATIAL_CAPTURE",
+      "TIR_INTERLEAF_PRODUCTION_MATCHING_CAPTURE"
+    ],
+    "only_production_evidence_blockers_remain": true
+  },
+  "candidate_receipt_sha256": "b187a741d8b71d2a43bfd9851e35151b5196e84d8a81b14969f6331d3a8d7c8a",
+  "ci": {
+    "workflow": "TIR SP3 3plus1 bundle compatibility",
+    "run_id": 35469613552,
+    "job_id": 105968065107,
+    "conclusion": "success"
+  },
+  "interpretation_firewall": {
+    "mnemonic_not_physical_evidence": true,
+    "candidate_source_not_production_source": true,
+    "archive_derived_topology_not_direct_spatial_measurement": true,
+    "sp3_tuple_not_identified_with_tir_herm2_event_carrier": true,
+    "two_epoch_transform_not_identified_with_collatz": true
+  }
+}

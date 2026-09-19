@@ -1,0 +1,56 @@
+{
+  "schema": "TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_VALIDATION_V0_1",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "authority": "CANDIDATE_ONLY",
+  "canon_allowed": false,
+  "physical_production_claim": false,
+  "empirical_theory_confirmation": false,
+  "tested_head_sha": "a0066abd6076b589db0932ea6bf7c465472e2249",
+  "source": {
+    "source_id": "RT218283.SP3@8013",
+    "epoch1": "2015-01-21T00:01:00Z",
+    "epoch2": "2015-01-21T00:03:00Z",
+    "dt_s": "120",
+    "c_km_s": "299792.458",
+    "ell_binding": "ell = c*dt"
+  },
+  "bridge": {
+    "formula": "X = 1/2 * (c*dt I + delta_x dot sigma)",
+    "coefficient_identity": "x0 = c*dt/2; xi = delta_x_i/2",
+    "trace_recovery": "Tr(X)=c*dt; Tr(X sigma_i)=delta_x_i",
+    "bloch_rfc_binding": "r = delta_x/(c*dt) = beta/c = RF-E8 shift",
+    "midpoint_role": "X carries the centered half-displacement around the two-epoch midpoint"
+  },
+  "checks": {
+    "all_five_delta_herm2_witnesses_strictly_positive": true,
+    "bloch_vector_equals_existing_rfe8_shift_with_float_boundary_tolerance": true,
+    "raw_sp3_clock_correction_direct_trace_scale_identification_refuted_for_all_five": true,
+    "bundle_candidate_same_parent_still_passes": true,
+    "trace_recovers_full_temporal_separation_exactly": true,
+    "pauli_traces_recover_full_spatial_displacement_exactly": true
+  },
+  "metrics": {
+    "max_r_norm": "0.000010431270636079400209316372931205608922733359095825467959223431896240761586237477",
+    "max_rfc_shift_residual": "4.21402640266998755963811915953313719897961320072079109252752893915E-20",
+    "minimum_lambda_min_km": "17987359.847024156791987684999803558552335860022051883949525290249814837822867456",
+    "minimum_det_X_km2": "323551864310048.2167762221185"
+  },
+  "no_go": {
+    "raw_sp3_clock_correction_is_not_tir_event_trace_scale": true,
+    "reason": "naive midpoint clock-correction-to-length substitution places all five raw tuples outside the TIR future determinant cone"
+  },
+  "candidate_receipt_sha256": "d0ec78d6e4a3d1fdf3c7834057c4eba2a183f576dc8544ed091fb5bef284b4e9",
+  "ci": {
+    "workflow": "TIR SP3 3plus1 bundle compatibility",
+    "run_id": 35470074520,
+    "job_id": 105969295697,
+    "conclusion": "success"
+  },
+  "interpretation_firewall": {
+    "finite_event_witness_is_not_global_spacetime_proof": true,
+    "candidate_does_not_promote_production_source": true,
+    "candidate_does_not_identify_collatz_with_spacetime_dynamics": true,
+    "canon_allowed": false
+  }
+}
