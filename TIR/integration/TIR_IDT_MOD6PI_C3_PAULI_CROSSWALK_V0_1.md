@@ -6336,3 +6336,99 @@ This closes the existence gate for a source-derived path-local non-coboundary (S
 Remaining physical gate:
 
 `OPEN_TERMINAL_PATH_SOURCE_TO_PHYSICAL_FAMILY_CONNECTION_BINDING`.
+
+---
+
+## Appendix AU — NEW 2026-09-19 — Orientation reversal gives a distinct \(SU(3)\) conjugacy class
+
+### AU.1 Characteristic polynomial identity
+
+For any \(U\in SU(3)\), let
+
+\[
+t=\operatorname{tr}U.
+\]
+
+Because \(U\) is unitary with determinant one,
+
+\[
+\det(zI-U)
+=
+z^3-tz^2+\bar t\,z-1.
+\]
+
+Evaluating at \(z=1\) and accounting for \(\det(U-I)=-\det(I-U)\) gives
+
+\[
+\boxed{
+\det(U-I)=t-\bar t=2i\,\operatorname{Im}t.
+}
+\]
+
+The validator reproduces this identity for the terminal Collatz loop.
+
+Status:
+
+`SU3_DET_U_MINUS_I_EQUALS_2I_IM_TRACE_EXACT`.
+
+### AU.2 Three equivalent witnesses
+
+For the terminal loop \(U_\circ\), the validated quantity
+
+\[
+\operatorname{Im}\operatorname{tr}U_\circ
+\neq0
+\]
+
+therefore implies simultaneously
+
+\[
+1\notin\operatorname{spec}U_\circ
+\]
+
+and
+
+\[
+\operatorname{tr}(U_\circ^{-1})
+=
+\overline{\operatorname{tr}U_\circ}
+\neq
+\operatorname{tr}U_\circ.
+\]
+
+The exact trace gap obeys
+
+\[
+\boxed{
+|\operatorname{tr}U_\circ-\operatorname{tr}U_\circ^{-1}|
+=
+2|\operatorname{Im}\operatorname{tr}U_\circ|.
+}
+\]
+
+### AU.3 Orientation reverse is not inner-conjugate
+
+Conjugate matrices have the same trace. Since the forward and reverse loop traces differ,
+
+\[
+\boxed{
+U_\circ
+\not\sim
+U_\circ^{-1}
+\quad\text{inside }SU(3).
+}
+\]
+
+Status:
+
+`TERMINAL_LOOP_AND_ORIENTATION_REVERSE_ARE_DISTINCT_SU3_CONJUGACY_CLASSES`
+
+`ORIENTATION_REVERSAL_NOT_REMOVABLE_BY_INNER_SU3_CONJUGATION`.
+
+### AU.4 Structural interpretation and firewall
+
+The terminal loop therefore carries a genuine orientation asymmetry at the level of \(SU(3)\) conjugacy classes: reversing the path exchanges two distinct classes rather than merely changing the representative inside one class.
+
+This is a group-theoretic statement only.
+
+It is not yet identified with physical CP, CKM, PMNS, matter-antimatter asymmetry, or a measured CP phase.
