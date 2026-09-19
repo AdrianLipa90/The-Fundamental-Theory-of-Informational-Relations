@@ -1946,3 +1946,23 @@ Status:
 `SIX_STATE_C6_ROTATION_EXTENDS_TO_TWELVE_ELEMENT_ORIENTATION_DIHEDRAL_SYMMETRY`.
 
 The 12 is a group order only; no particle/dimension identification is made.
+
+### Appendix AZ update — real family \(3=1+2\) decomposition
+
+The \(D_3/S_3\) permutation representation on the three family labels splits as
+
+\[
+\boxed{\mathbf3_{\rm perm}=\mathbf1\oplus\mathbf2}.
+\]
+
+The singlet is \((1,1,1)/\sqrt3\); the orthogonal plane \(x+y+z=0\) carries the standard two-dimensional dihedral representation.
+
+In the \(F_3\) basis, the same split is the trivial character plus the conjugate \(\omega,\omega^2\) pair.
+
+Status:
+
+`D3_FAMILY_PERMUTATION_REP_REAL_3_DECOMPOSES_AS_1_PLUS_2`
+
+`F3_TRIVIAL_SINGLET_PLUS_CONJUGATE_CHARACTER_PAIR_COMPLEXIFIES_REAL_1_PLUS_2`.
+
+This is a representation decomposition only, not a spacetime-dimension claim.
