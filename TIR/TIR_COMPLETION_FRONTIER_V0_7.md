@@ -138,7 +138,9 @@ GLOBAL_TIR_IDT_RFC_SPACETIME_ADM_JOIN       OPEN
 EINSTEIN_CONSTRAINT_EVOLUTION_CLOSURE       OPEN
 ```
 
-`TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2` is implemented by
+`TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2` is specified by
+`TIR/foundations/TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2.md`
+and implemented by
 `TIR/foundations/validation/tir_production_realization_binding_v0_2.py`.
 It reuses the existing GSC-1/A5 and inter-leaf validators and refuses PNCS Phase36 realization identifiers as physical-realization identifiers. The remaining blocker is source evidence: no production spatial/matching bundle with a common physical realization receipt is present on `main`.
 
