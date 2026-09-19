@@ -39,7 +39,11 @@ jobs:
           set -euo pipefail
           python3 TIR/validation/tir_idt_mod6pi_c3_pauli_crosswalk_v0_1.py > mod6pi-c3-pauli-receipt.json
           grep -Fq '"technical_status": "PASS"' mod6pi-c3-pauli-receipt.json
-          grep -Fq '"representation_status": "C3_CHARACTER_AND_PAULI_EQUIVARIANT_CROSSWALK_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"representation_status": "TEMPORAL_C3_TO_PAULI_AND_ORDERED_FAMILY_C3_CROSSWALK_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"temporal_family_label_binding": "ANCHORED_EQUIVARIANT_LABEL_INTERTWINER_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"flavour_cardinality_result": "N_F_EQUALS_3_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"cp_character_transfer": "F3_JARLSKOG_MATH_TRANSFER_CLOSED_PHYSICAL_CP_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"su3f_transfer": "LIE_DIMENSION_8_PRESERVED_UNDER_ORDERED_INTERTWINER"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"physical_sector_binding": "OPEN"' mod6pi-c3-pauli-receipt.json
 
       - name: Upload receipt
