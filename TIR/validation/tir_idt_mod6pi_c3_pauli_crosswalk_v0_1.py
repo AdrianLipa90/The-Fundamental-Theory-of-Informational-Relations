@@ -623,6 +623,28 @@ def main() -> None:
     D_temporal = M_tf.conj().T @ D_family @ M_tf
     C_temporal = M_tf.conj().T @ C_family @ M_tf
 
+    # D and C=F3 D F3^dagger are unitarily conjugate.  Therefore no
+    # single-generator spectral invariant can break the E/O <-> D/C Z2.
+    dc_spectral_eigen_residual = float(
+        np.max(
+            np.abs(
+                np.sort(np.linalg.eigvalsh(D_family))
+                - np.sort(np.linalg.eigvalsh(C_family))
+            )
+        )
+    )
+    dc_trace_power_residual = max(
+        abs(
+            complex(np.trace(np.linalg.matrix_power(D_family, p)))
+            - complex(np.trace(np.linalg.matrix_power(C_family, p)))
+        )
+        for p in (1, 2, 3)
+    )
+    dc_frobenius_residual = abs(
+        float(np.linalg.norm(D_family, "fro"))
+        - float(np.linalg.norm(C_family, "fro"))
+    )
+
     # Stage-39 two-sector structural candidate, frozen before target comparison.
     alpha_a = 2.0 / 7.0
     alpha_b = 2.0 / 9.0
@@ -1601,6 +1623,21 @@ def main() -> None:
             and "not a change of basis inside the original real representation"
             in stage52
         ),
+        "dc_unitary_conjugacy_spectrum_exact": (
+            dc_spectral_eigen_residual < TOL
+        ),
+        "dc_unitary_conjugacy_trace_powers_exact": (
+            dc_trace_power_residual < TOL
+        ),
+        "dc_unitary_conjugacy_frobenius_norm_exact": (
+            dc_frobenius_residual < TOL
+        ),
+        "stage52_compact_real_form_selection_explicitly_open": (
+            "STAGE_52_COMPACT_REAL_FORM_SYM2_BRIDGE_PASS_SELECTION_OPEN"
+            in stage52
+            and "does not yet contain a derived rule selecting the compact real form"
+            in stage52
+        ),
         "stage53_spin1_cp_nogo_and_3plus5_parent_pass": (
             "STAGE_53_SPIN1_CP_NOGO_AND_SU3_3PLUS5_DECOMPOSITION_PASS" in stage53
             and "\\boxed{J=0}" in stage53
@@ -2059,7 +2096,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__EO_TO_DC_Z2_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__SPECTRAL_Z2_SELECTION_REFUTED__RELATIONAL_EO_TO_DC_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2089,6 +2126,14 @@ def main() -> None:
         ),
         "branch_generator_assignment_status": (
             "OPEN_Z2_EO_TO_DC_ASSIGNMENT_NOT_SOURCE_SELECTED"
+        ),
+        "dc_spectral_assignment_status": (
+            "NO_GO_SINGLE_GENERATOR_SPECTRAL_INVARIANTS_CANNOT_SELECT_EO_TO_DC_Z2"
+            if passed
+            else "FAILED"
+        ),
+        "dc_basis_appearance_status": (
+            "DIAGONAL_VS_MIXED_APPEARANCE_NOT_INVARIANT_WITHOUT_DERIVED_REAL_FORM_INTERTWINER"
         ),
         "icosahedral_family_embedding_status": (
             "STAGE61_62_C3_COMPATIBLE_RIGID_EMBEDDING_CURRENT_PASS"
@@ -2412,6 +2457,11 @@ def main() -> None:
             "assignment_B_commutator_max_abs": dc_comm_B_norm,
             "branch_swap_commutator_sign_residual": dc_branch_swap_sign_residual,
             "DC_assignment_source_selection": "OPEN_Z2",
+            "D_C_spectral_eigen_residual": dc_spectral_eigen_residual,
+            "D_C_trace_power_residual": dc_trace_power_residual,
+            "D_C_frobenius_residual": dc_frobenius_residual,
+            "single_generator_spectral_Z2_selection": "REFUTED",
+            "compact_real_form_dynamic_selection": "OPEN_STAGE52",
         },
         "sector_assignment_provenance_audit": {
             "stage39_assignments": {
@@ -2685,6 +2735,9 @@ def main() -> None:
             "branch_operator_map_requires_noncommuting_or_state_dependent_structure": True,
             "minimal_DC_pair_supplies_noncommutativity_but_not_EO_source_assignment": True,
             "EO_to_DC_assignment_must_not_be_selected_from_CKM_or_CP_target_sign": True,
+            "D_and_C_are_unitarily_conjugate_so_spectra_cannot_select_branch_assignment": True,
+            "diagonal_vs_mixed_matrix_appearance_is_basis_dependent": True,
+            "stage52_real_form_bridge_availability_does_not_supply_dynamic_intertwiner_selection": True,
             "Aseed_was_not_used_to_fit_eta": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
