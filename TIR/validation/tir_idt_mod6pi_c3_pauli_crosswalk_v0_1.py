@@ -1394,6 +1394,153 @@ def main() -> None:
             candidate_three_step_dims[key] = dim3
             candidate_three_step_residuals[key] = res3
 
+    # Prospectively frozen Appendix-AM common-target family path-holonomy
+    # candidate.  Each exact Stage-48 path is propagated with the already
+    # frozen Appendix-AJ state-dependent step.  W^F_ij = G_i^dagger G_j
+    # follows the generic W_ij convention (map j-frame -> i-frame).
+    common_target = 35
+    common_target_seeds = [15, 35, 143]
+    expected_common_target_lengths = [4, 0, 90]
+    common_target_paths = {}
+    common_target_propagators = {}
+    common_target_path_unitarity_residual = 0.0
+    common_target_path_determinant_residual = 0.0
+    common_target_final_frame_residual = 0
+
+    for seed, expected_len in zip(
+        common_target_seeds, expected_common_target_lengths
+    ):
+        x = seed
+        states = []
+        branches = []
+        frames = []
+        G = np.eye(3, dtype=complex)
+        for _ in range(10000):
+            if x == common_target:
+                break
+            branch = "E" if x % 2 == 0 else "O"
+            r = (-collatz_depth_to_one(x)) % 3
+            states.append(x)
+            branches.append(branch)
+            frames.append(r)
+            G = candidate_step[(branch, r)]["U"] @ G
+            x = collatz_step(x)
+        else:
+            raise RuntimeError("common-target Collatz path limit exceeded")
+
+        if len(branches) != expected_len:
+            raise RuntimeError(
+                f"unexpected path length for {seed}: {len(branches)}"
+            )
+
+        final_frame = (-collatz_depth_to_one(x)) % 3
+        target_frame = (-collatz_depth_to_one(common_target)) % 3
+        common_target_final_frame_residual = max(
+            common_target_final_frame_residual,
+            abs(final_frame - target_frame),
+        )
+        common_target_paths[seed] = {
+            "states": states,
+            "branches": branches,
+            "frames": frames,
+            "length": len(branches),
+            "final": x,
+            "final_frame": final_frame,
+        }
+        common_target_propagators[seed] = G
+        common_target_path_unitarity_residual = max(
+            common_target_path_unitarity_residual,
+            float(np.max(np.abs(G.conj().T @ G - np.eye(3)))),
+        )
+        common_target_path_determinant_residual = max(
+            common_target_path_determinant_residual,
+            float(abs(np.linalg.det(G) - 1.0)),
+        )
+
+    common_target_W = {}
+    common_target_w_unitarity_residual = 0.0
+    common_target_w_determinant_residual = 0.0
+    common_target_reversal_residual = 0.0
+    common_target_composition_residual = 0.0
+    common_target_diagonal_residual = 0.0
+    for i, seed_i in enumerate(common_target_seeds):
+        for j, seed_j in enumerate(common_target_seeds):
+            Wij = (
+                common_target_propagators[seed_i].conj().T
+                @ common_target_propagators[seed_j]
+            )
+            common_target_W[(i, j)] = Wij
+            common_target_w_unitarity_residual = max(
+                common_target_w_unitarity_residual,
+                float(np.max(np.abs(Wij.conj().T @ Wij - np.eye(3)))),
+            )
+            common_target_w_determinant_residual = max(
+                common_target_w_determinant_residual,
+                float(abs(np.linalg.det(Wij) - 1.0)),
+            )
+            if i == j:
+                common_target_diagonal_residual = max(
+                    common_target_diagonal_residual,
+                    float(np.max(np.abs(Wij - np.eye(3)))),
+                )
+
+    for i in range(3):
+        for j in range(3):
+            common_target_reversal_residual = max(
+                common_target_reversal_residual,
+                float(
+                    np.max(
+                        np.abs(
+                            common_target_W[(j, i)]
+                            - common_target_W[(i, j)].conj().T
+                        )
+                    )
+                ),
+            )
+            for k in range(3):
+                common_target_composition_residual = max(
+                    common_target_composition_residual,
+                    float(
+                        np.max(
+                            np.abs(
+                                common_target_W[(i, j)]
+                                @ common_target_W[(j, k)]
+                                - common_target_W[(i, k)]
+                            )
+                        )
+                    ),
+                )
+
+    common_target_triangle = (
+        common_target_W[(0, 1)]
+        @ common_target_W[(1, 2)]
+        @ common_target_W[(2, 0)]
+    )
+    common_target_triangle_residual = float(
+        np.max(np.abs(common_target_triangle - np.eye(3)))
+    )
+    common_target_reverse_triangle = (
+        common_target_W[(0, 2)]
+        @ common_target_W[(2, 1)]
+        @ common_target_W[(1, 0)]
+    )
+    common_target_reverse_triangle_residual = float(
+        np.max(np.abs(common_target_reverse_triangle - np.eye(3)))
+    )
+    common_target_edge_nontriviality = max(
+        float(np.max(np.abs(common_target_W[(0, 1)] - np.eye(3)))),
+        float(np.max(np.abs(common_target_W[(1, 2)] - np.eye(3)))),
+        float(np.max(np.abs(common_target_W[(0, 2)] - np.eye(3)))),
+    )
+    common_target_edge_commutator = float(
+        np.max(
+            np.abs(
+                common_target_W[(0, 1)] @ common_target_W[(1, 2)]
+                - common_target_W[(1, 2)] @ common_target_W[(0, 1)]
+            )
+        )
+    )
+
     # Single-axis branch-map no-go.  The Stage-66 selected tangent is the
     # P3 image of A_seed, i.e. the symmetric 23 channel.  Any two branch
     # generators that are merely scalar multiples of this one tangent commute,
@@ -2012,6 +2159,42 @@ def main() -> None:
             set(candidate_three_step_dims.values()) == {8}
             and max(candidate_three_step_residuals.values()) < 1.0e-10
         ),
+        "appendix_am_candidate_freeze_precedes_validation": (
+            "COMMON_TARGET_FAMILY_PATH_HOLONOMY_CANDIDATE_FROZEN_PREVALIDATION"
+            in idt_c3_crosswalk_doc
+            and "If the triangular Wilson product is identity" in idt_c3_crosswalk_doc
+        ),
+        "common_target_paths_match_stage47_48_lengths_and_target": (
+            [common_target_paths[s]["length"] for s in common_target_seeds]
+            == expected_common_target_lengths
+            and all(
+                common_target_paths[s]["final"] == common_target
+                for s in common_target_seeds
+            )
+            and common_target_final_frame_residual == 0
+        ),
+        "common_target_path_propagators_are_su3": (
+            common_target_path_unitarity_residual < TOL
+            and common_target_path_determinant_residual < TOL
+        ),
+        "common_target_pairwise_transports_are_su3": (
+            common_target_w_unitarity_residual < TOL
+            and common_target_w_determinant_residual < TOL
+            and common_target_diagonal_residual < TOL
+        ),
+        "common_target_pairwise_transport_reversal_exact": (
+            common_target_reversal_residual < TOL
+        ),
+        "common_target_pairwise_transport_composition_exact": (
+            common_target_composition_residual < TOL
+        ),
+        "common_target_triangle_wilson_loop_is_identity": (
+            common_target_triangle_residual < TOL
+            and common_target_reverse_triangle_residual < TOL
+        ),
+        "common_target_transport_edges_are_nontrivial_despite_flat_loop": (
+            common_target_edge_nontriviality > TOL
+        ),
         "single_stage66_axis_branch_generators_commute_exactly": (
             single_axis_generator_commutator < TOL
         ),
@@ -2406,7 +2589,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_VALIDATED__PHYSICAL_RHO_TEMPORAL_FAMILY_AND_CKM_PROMOTION_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_VALIDATED__COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_FLAT_PURE_GAUGE__PHYSICAL_RHO_NONFLAT_CONNECTION_TEMPORAL_FAMILY_AND_CKM_PROMOTION_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2506,6 +2689,29 @@ def main() -> None:
         "physical_signed_geometric_step_status": (
             "NOT_PROMOTED_PHYSICAL_HAMILTONIAN_BINDING_OPEN"
         ),
+        "common_target_family_path_holonomy_status": (
+            "PASS_SU3_GROUPOID_FLAT_PURE_GAUGE"
+            if passed
+            else "FAILED"
+        ),
+        "common_target_family_wij_status": (
+            "SOURCE_DERIVED_COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_CLOSED"
+            if passed
+            else "FAILED"
+        ),
+        "common_target_wilson_loop_status": (
+            "TRIANGULAR_WILSON_LOOP_IDENTITY"
+            if passed
+            else "FAILED"
+        ),
+        "common_target_cp_holonomy_status": (
+            "NO_GO_COMMON_TARGET_COBoundARY_TRANSPORT_ALONE_CANNOT_SOURCE_NONZERO_LOOP_HOLONOMY"
+            if passed
+            else "FAILED"
+        ),
+        "physical_family_connection_status": (
+            "OPEN_NONFLAT_PATH_DEPENDENT_EXTENSION_OR_ADDITIONAL_CONNECTION"
+        ),
         "stage66_full_orbit_access_requirement": (
             "FULL_SU3F_FROM_STAGE66_REQUIRES_ALL_THREE_ORBIT_GENERATORS_OR_EQUIVALENT_EXTRA_DIRECTION"
         ),
@@ -2578,7 +2784,7 @@ def main() -> None:
             else "FAILED"
         ),
         "family_wij_source_binding_status": (
-            "OPEN_FAMILY_SPECIFIC_WIJ_PATH_LOCAL_SOURCE_BINDING"
+            "COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_SOURCE_DERIVED_FLAT__NONFLAT_PHYSICAL_CONNECTION_OPEN"
         ),
         "selector_location_status": (
             "SELECTOR_MUST_RETAIN_PATH_LOCAL_DATA_UPSTREAM_OF_ENDPOINT_SU3_REDUCTION"
@@ -2750,6 +2956,16 @@ def main() -> None:
             "signed_geo_candidate_trace": candidate_trace_residual,
             "signed_geo_candidate_unitarity": candidate_unitarity_residual,
             "signed_geo_candidate_determinant": candidate_determinant_residual,
+            "common_target_path_unitarity": common_target_path_unitarity_residual,
+            "common_target_path_determinant": common_target_path_determinant_residual,
+            "common_target_wij_unitarity": common_target_w_unitarity_residual,
+            "common_target_wij_determinant": common_target_w_determinant_residual,
+            "common_target_wij_reversal": common_target_reversal_residual,
+            "common_target_wij_composition": common_target_composition_residual,
+            "common_target_triangle_wilson": common_target_triangle_residual,
+            "common_target_reverse_triangle_wilson": (
+                common_target_reverse_triangle_residual
+            ),
         },
         "stationary_cubic_selector_audit": {
             "eta": float(eta_selector),
@@ -2819,6 +3035,46 @@ def main() -> None:
                 "state_dependent_map",
                 "complexification_plus_additional_dynamics",
             ],
+        },
+        "common_target_family_path_holonomy_audit": {
+            "target": common_target,
+            "seeds": common_target_seeds,
+            "path_lengths": {
+                str(s): common_target_paths[s]["length"]
+                for s in common_target_seeds
+            },
+            "branch_words": {
+                str(s): "".join(common_target_paths[s]["branches"])
+                for s in common_target_seeds
+            },
+            "start_frames": {
+                str(s): (
+                    common_target_paths[s]["frames"][0]
+                    if common_target_paths[s]["frames"]
+                    else (-collatz_depth_to_one(s)) % 3
+                )
+                for s in common_target_seeds
+            },
+            "target_frame": (-collatz_depth_to_one(common_target)) % 3,
+            "path_unitarity_residual": common_target_path_unitarity_residual,
+            "path_determinant_residual": common_target_path_determinant_residual,
+            "wij_unitarity_residual": common_target_w_unitarity_residual,
+            "wij_determinant_residual": common_target_w_determinant_residual,
+            "wij_reversal_residual": common_target_reversal_residual,
+            "wij_composition_residual": common_target_composition_residual,
+            "wij_diagonal_residual": common_target_diagonal_residual,
+            "triangle_wilson_residual": common_target_triangle_residual,
+            "reverse_triangle_wilson_residual": (
+                common_target_reverse_triangle_residual
+            ),
+            "edge_nontriviality": common_target_edge_nontriviality,
+            "edge_commutator_max_abs": common_target_edge_commutator,
+            "classification": "FLAT_PURE_GAUGE_COMMON_TARGET_GROUPOID",
+            "physical_promotion": False,
+            "uses_observed_CKM": False,
+            "uses_observed_PMNS": False,
+            "uses_observed_masses": False,
+            "uses_fitted_coefficients": False,
         },
         "signed_geometric_step_candidate_audit": {
             "freeze_status": "FROZEN_PREVALIDATION_BEFORE_THIS_VALIDATOR_COMMIT",
@@ -3192,6 +3448,10 @@ def main() -> None:
             "signed_geometric_step_candidate_was_frozen_before_validation": True,
             "signed_geometric_step_candidate_is_not_promoted_to_physical_hamiltonian": True,
             "candidate_validation_uses_no_ckm_pmns_mass_or_fitted_coefficient_targets": True,
+            "common_target_family_path_candidate_was_frozen_before_validation": True,
+            "common_target_wij_scaffold_is_not_promoted_to_physical_family_connection": True,
+            "common_target_coboundary_transport_is_flat_and_cannot_supply_nonzero_loop_holonomy": True,
+            "nonflat_cp_capable_family_connection_requires_additional_path_dependent_structure": True,
             "Aseed_was_not_used_to_fit_eta": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
