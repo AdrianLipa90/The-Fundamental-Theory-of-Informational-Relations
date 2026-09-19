@@ -24,6 +24,57 @@ The endpoint is
 
 The tetrahedral finite-cell branch is parallel rather than required for Pythagoras.
 
+### IDT periodic triad representation crosswalk
+
+The representation-level seam from the IDT three-frame (6\pi) carrier to the TIR Pauli generator triplet is now closed under an explicit periodic endpoint condition.
+
+For the open-cut IDT support path (P_4), imposing
+
+\[
+\Theta\sim\Theta+6\pi,
+\qquad
+v_0\sim v_3
+\]
+
+gives
+
+\[
+P_4/(v_0\sim v_3)\cong C_3.
+\]
+
+The resulting regular cyclic shift is diagonalized exactly by the same (F_3) character matrix used by the TIR Stage-38 family-space branch.  Independently, the map
+
+\[
+e_1\mapsto\sigma_x,\qquad
+e_2\mapsto\sigma_y,\qquad
+e_3\mapsto\sigma_z
+\]
+
+is (C_3)-equivariant under the (SU(2)) lift
+
+\[
+U_3=
+\exp\!\left[
+-\frac{i\pi}{3}
+\frac{\sigma_x+\sigma_y+\sigma_z}{\sqrt3}
+\right],
+\]
+
+because
+
+\[
+\operatorname{Ad}_{U_3}:
+\sigma_x\to\sigma_y\to\sigma_z\to\sigma_x.
+\]
+
+Status: `REPRESENTATION_CROSSWALK_CLOSED / TEMPORAL_SPATIAL_PHYSICAL_BINDING_OPEN / TEMPORAL_FLAVOUR_PHYSICAL_BINDING_OPEN`.
+
+Canonical integration source on this branch:
+
+`TIR/integration/TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1.md`.
+
+This result removes the abstract triad-to-Pauli representation map from the open frontier. It does not identify the IDT temporal carrier with the physical spatial tangent bundle or the physical flavour carrier.
+
 ### Kappa normalization
 
 The denominator is internally derived as
