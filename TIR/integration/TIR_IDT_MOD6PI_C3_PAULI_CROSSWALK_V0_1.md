@@ -3852,3 +3852,125 @@ The sector firewall remains active: a nonzero Berry triangle from another TIR ca
 Current aggregate frontier:
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_SEPARABLE_AND_EQUATORIAL_BARGMANN_CP_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_NONSEPARABLE_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN\`.
+
+---
+
+## Appendix V — NEW 2026-09-19 — Family plaquette phase as a Bargmann quadrilateral
+
+### V.1 Conditional overlap realization
+
+Assume a family matrix admits a projective-overlap realization
+
+\[
+\boxed{W_{ij}=\langle u_i|d_j\rangle}
+\]
+
+for two ordered sets of nonzero complex rays \(\{|u_i\rangle\}\) and \(\{|d_j\rangle\}\).
+
+No orthonormality assumption is required for the phase identity below.
+
+### V.2 Rephasing-invariant plaquette
+
+Take two row labels \(i,k\) and two column labels \(j,\ell\). The standard rephasing-invariant plaquette is
+
+\[
+\Pi_{ik;j\ell}=W_{ij}W_{kj}^*W_{k\ell}W_{i\ell}^*.
+\]
+
+Substituting the overlap realization gives
+
+\[
+\Pi_{ik;j\ell}
+=
+\langle u_i|d_j\rangle
+\langle d_j|u_k\rangle
+\langle u_k|d_\ell\rangle
+\langle d_\ell|u_i\rangle.
+\]
+
+Therefore
+
+\[
+\boxed{
+\Pi_{ik;j\ell}
+=
+\mathcal B_4(u_i,d_j,u_k,d_\ell)
+}
+\]
+
+and
+
+\[
+\boxed{\arg\Pi_{ik;j\ell}=\arg\mathcal B_4(u_i,d_j,u_k,d_\ell).}
+\]
+
+Status:
+
+`PLAQUETTE_PHASE_EQUALS_BARGMANN_QUADRILATERAL_UNDER_OVERLAP_REALIZATION`.
+
+### V.3 Gauge invariance
+
+Under independent ray rephasings
+
+\[
+|u_i\rangle\to e^{i\alpha_i}|u_i\rangle,
+\qquad
+|d_j\rangle\to e^{i\beta_j}|d_j\rangle,
+\]
+
+the four phase factors cancel exactly around the quadrilateral.
+
+Hence the plaquette/Bargmann phase is ray-gauge invariant.
+
+### V.4 Relation to the scalar-qC no-go
+
+Appendices T/U show that a separable vertex-phase assignment of the form
+
+\[
+W_{ij}\propto e^{2\pi i(\alpha_i-\beta_j)}
+\]
+
+has trivial plaquette phase.
+
+The Bargmann-quadrilateral identity shows what extra structure is missing: a nonseparable projective relation among four rays, not merely one scalar phase attached independently to each family label.
+
+Thus the source problem is narrowed to
+
+\[
+\boxed{
+\text{derive two projective family frames, or an equivalent pairwise holonomy, from source dynamics}.
+}
+\]
+
+### V.5 Geometric support and authority firewall
+
+The current hexahedral Bloch theorem independently demonstrates nonzero Berry/Bargmann phases in a multi-ray projective geometry. That establishes that the TIR projective machinery can support nontrivial gauge-invariant geometric phases.
+
+It does not identify the hexahedral spatial rays with family rays.
+
+GREMLIN candidate XFI.02 records the same plaquette-to-Bargmann relation as `EXACT_CONDITIONAL`, but the GREMLIN overlay is explicitly `CANDIDATE_ONLY / CHYBA / NON_CANONICAL_OVERLAY`.
+
+This Appendix does not promote that candidate by authority; it independently verifies the algebraic identity.
+
+Current state:
+
+```text
+scalar q_C vertex phase -> family CP
+    = REFUTED
+
+equatorial scalar-q_C Bargmann phase
+    = ZERO
+
+generic overlap plaquette -> Bargmann quadrilateral
+    = CLOSED CONDITIONAL
+
+nonzero projective Bargmann geometry exists in TIR
+    = CLOSED IN OTHER CARRIERS
+
+source-derived family overlap frames
+    = OPEN
+```
+
+Remaining source gate:
+
+`OVERLAP_REALIZATION_CONDITIONAL__SOURCE_STATES_NOT_YET_DERIVED`.
