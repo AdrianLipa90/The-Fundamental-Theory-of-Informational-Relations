@@ -567,3 +567,46 @@ Status:
 \`INDEPENDENT_C3_CROSSWALK_TO_EXISTING_MULTIPLICITY3_FAMILY_CARRIER\`.
 
 The temporal \(C_3\) is therefore an independent cross-consistency/origin candidate, not the sole parent of the family multiplicity.
+
+
+### Appendix J update — raw seed-cycle no-go and temporal orientation
+
+Ordinary Collatz dynamics does not generate the Stage-24 family \(C_3\), on either the center projection or the product-seed projection.
+
+For product seeds
+
+\[
+(15,35,143),
+\]
+
+the exact directed first-hit matrix is
+
+\[
+\begin{pmatrix}
+0&4&-1\\
+-1&0&-1\\
+-1&90&0
+\end{pmatrix},
+\]
+
+so no directed three-cycle exists.
+
+Stage 45 also confirms that no canonical distance/path-cost-to-amplitude law is available.
+
+Separately, Stage 61/62 supplies a rigid \(C_3\)-compatible family embedding. The forward temporal orientation
+
+\[
+e_1\to e_2\to e_3
+\]
+
+selects \(P_3\) rather than \(P_3^{-1}\) under the ordered temporal-family intertwiner.
+
+Status:
+
+\`ORDINARY_PRODUCT_SEED_COLLATZ_C3_CYCLE_REFUTED\`
+
+\`CANONICAL_PATH_COST_TO_AMPLITUDE_RULE_NOT_FOUND\`
+
+\`TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL\`
+
+\`OPEN_RICHER_POINCARE_HOLONOMY_OPERATOR_REQUIRED\`.
