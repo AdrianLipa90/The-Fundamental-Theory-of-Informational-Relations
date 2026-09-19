@@ -1,0 +1,14 @@
+{
+  "schema": "TIR_WIJ_SEMANTIC_U1_HOLONOMY_FROM_A_PROVENANCE_V0_1",
+  "date": "2026-09-19",
+  "base_main_sha": "1b7bad9c04e0046a130a2bf041e43f1d189d97ec",
+  "status": "CANDIDATE_ONLY_CHYBA",
+  "canon_allowed": false,
+  "source_clarification": "W_sem is nonlocal semantic coupling / phase holonomy derived from local semantic connection A_sem",
+  "compatibility": {
+    "existing_crosswalk": "TIR/foundations/TIR_WIJ_HOLONOMY_CROSSWALK_V0_1.md",
+    "preserves_typed_nonabelian_W": true,
+    "semantic_W_group": "U(1)"
+  },
+  "validator": "TIR/validation/tir_wij_semantic_u1_holonomy_from_a_v0_1.py"
+}
