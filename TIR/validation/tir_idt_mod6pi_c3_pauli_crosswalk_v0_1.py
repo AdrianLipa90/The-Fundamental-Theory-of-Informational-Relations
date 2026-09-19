@@ -1962,6 +1962,83 @@ def main() -> None:
         - 2.0 * abs(terminal_orientation_odd_witness)
     )
 
+    # SU(3) conjugacy classes are completely determined by t=tr(U):
+    # p_U(lambda)=lambda^3-t lambda^2+conj(t) lambda-1.
+    terminal_trace_class_poly_expected = np.array(
+        [
+            1.0 + 0.0j,
+            -terminal_loop_trace,
+            np.conj(terminal_loop_trace),
+            -1.0 + 0.0j,
+        ],
+        dtype=complex,
+    )
+    terminal_trace_class_poly_residual = float(
+        np.max(
+            np.abs(
+                np.poly(U_terminal)
+                - terminal_trace_class_poly_expected
+            )
+        )
+    )
+
+    # Outer complex conjugation/inversion acts on class coordinate as
+    # t -> conj(t). Its fixed locus is the real interval [-1,3].
+    terminal_trace_fixed_locus_distance = abs(terminal_loop_trace.imag)
+    terminal_trace_real_in_fixed_interval = (
+        -1.0 - TOL <= terminal_loop_trace.real <= 3.0 + TOL
+    )
+    terminal_outer_orbit_size = (
+        2 if terminal_trace_fixed_locus_distance > 1.0e-6 else 1
+    )
+    terminal_reverse_trace_halfplane_residual = abs(
+        np.trace(U_terminal_reverse).imag + terminal_loop_trace.imag
+    )
+
+    # Boundary of the SU(3) trace image (deltoid):
+    # z(theta)=2 e^{i theta}+e^{-2 i theta}.  Conjugation is theta->-theta.
+    deltoid_theta = np.linspace(0.0, 2.0 * math.pi, 721)
+    deltoid_boundary = (
+        2.0 * np.exp(1j * deltoid_theta)
+        + np.exp(-2j * deltoid_theta)
+    )
+    deltoid_conjugation_residual = float(
+        np.max(
+            np.abs(
+                np.conj(deltoid_boundary)
+                - (
+                    2.0 * np.exp(-1j * deltoid_theta)
+                    + np.exp(2j * deltoid_theta)
+                )
+            )
+        )
+    )
+    deltoid_real_endpoint_residual = max(
+        abs((2.0 * np.exp(0.0j) + np.exp(0.0j)) - 3.0),
+        abs(
+            (
+                2.0 * np.exp(1j * math.pi)
+                + np.exp(-2j * math.pi)
+            )
+            + 1.0
+        ),
+    )
+
+    # For real class coordinate x, the SU(3) characteristic polynomial
+    # factors as (lambda-1)(lambda^2+(1-x)lambda+1).
+    fixed_test_x = float(terminal_loop_trace.real)
+    fixed_poly_coeffs = np.array(
+        [1.0, -fixed_test_x, fixed_test_x, -1.0],
+        dtype=float,
+    )
+    fixed_poly_factored = np.polymul(
+        np.array([1.0, -1.0]),
+        np.array([1.0, 1.0 - fixed_test_x, 1.0]),
+    )
+    fixed_locus_factorization_residual = float(
+        np.max(np.abs(fixed_poly_coeffs - fixed_poly_factored))
+    )
+
     terminal_pairwise_eigenvalue_separations = [
         float(abs(terminal_loop_eigenvalues[i] - terminal_loop_eigenvalues[j]))
         for i in range(3)
@@ -2712,6 +2789,26 @@ def main() -> None:
             and terminal_outer_class_trace_separation_identity_residual
             < 1.0e-12
         ),
+        "su3_conjugacy_class_characteristic_polynomial_determined_by_trace": (
+            terminal_trace_class_poly_residual < 1.0e-12
+        ),
+        "su3_outer_involution_fixed_locus_real_polynomial_factorization_exact": (
+            fixed_locus_factorization_residual < TOL
+        ),
+        "su3_trace_deltoid_boundary_is_conjugation_symmetric": (
+            deltoid_conjugation_residual < TOL
+            and deltoid_real_endpoint_residual < TOL
+        ),
+        "terminal_class_lies_off_outer_fixed_locus": (
+            terminal_trace_fixed_locus_distance > 1.0e-6
+            and terminal_outer_orbit_size == 2
+            and terminal_trace_real_in_fixed_interval
+        ),
+        "terminal_forward_reverse_classes_occupy_opposite_trace_halfplanes": (
+            terminal_loop_trace.imag > 1.0e-6
+            and np.trace(U_terminal_reverse).imag < -1.0e-6
+            and terminal_reverse_trace_halfplane_residual < 1.0e-12
+        ),
         "terminal_loop_has_three_distinct_unitary_eigenvalues": (
             terminal_min_eigenvalue_separation > 1.0e-6
             and terminal_spectral_discriminant > 1.0e-12
@@ -3376,6 +3473,26 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "su3_conjugacy_trace_coordinate_status": (
+            "SU3_CONJUGACY_CLASS_COMPLETELY_COORDINATIZED_BY_COMPLEX_TRACE"
+            if passed
+            else "FAILED"
+        ),
+        "su3_outer_fixed_locus_status": (
+            "OUTER_CONJUGATION_FIXED_CLASSES_FORM_REAL_TRACE_INTERVAL_MINUS1_TO3"
+            if passed
+            else "FAILED"
+        ),
+        "su3_outer_quotient_compactification_status": (
+            "COMPACT_SU3_CLASS_SPACE_MOD_OUTER_Z2_HALF_DELTOID"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_outer_quotient_status": (
+            "TERMINAL_FORWARD_REVERSE_PAIR_IDENTIFIED_AS_ONE_OFF_FIXED_LOCUS_QUOTIENT_POINT"
+            if passed
+            else "FAILED"
+        ),
         "terminal_cycle_outer_inner_distinction_status": (
             "COMPLEX_CONJUGATION_NOT_INNER_ON_TERMINAL_CLASS_WITNESS"
             if passed
@@ -3730,6 +3847,10 @@ def main() -> None:
             "terminal_cycle_gauge_trace2": terminal_gauge_trace2_residual,
             "terminal_cycle_gauge_det": terminal_gauge_det_residual,
             "terminal_cycle_gauge_charpoly": terminal_charpoly_residual,
+            "terminal_trace_class_polynomial": terminal_trace_class_poly_residual,
+            "su3_deltoid_conjugation": deltoid_conjugation_residual,
+            "su3_fixed_locus_factorization": fixed_locus_factorization_residual,
+            "terminal_outer_fixed_locus_distance": terminal_trace_fixed_locus_distance,
         },
         "stationary_cubic_selector_audit": {
             "eta": float(eta_selector),
@@ -3863,6 +3984,31 @@ def main() -> None:
                 "principal_eigenphase_sum_residual": terminal_eigenphase_sum_residual,
                 "centralizer": "MAXIMAL_TORUS_U1_X_U1",
                 "cartan_rank": 2,
+            },
+            "su3_trace_class_compactification": {
+                "class_coordinate": "t=tr(U)",
+                "characteristic_polynomial": (
+                    "lambda^3-t*lambda^2+conj(t)*lambda-1"
+                ),
+                "characteristic_polynomial_residual": (
+                    terminal_trace_class_poly_residual
+                ),
+                "trace_region": "compact_deltoid",
+                "deltoid_boundary": "2*exp(i*theta)+exp(-2*i*theta)",
+                "deltoid_conjugation_residual": (
+                    deltoid_conjugation_residual
+                ),
+                "outer_involution": "t -> conj(t)",
+                "fixed_locus": "real_interval[-1,3]",
+                "fixed_locus_factorization_residual": (
+                    fixed_locus_factorization_residual
+                ),
+                "terminal_distance_to_fixed_locus_trace_plane": (
+                    terminal_trace_fixed_locus_distance
+                ),
+                "terminal_outer_orbit_size": terminal_outer_orbit_size,
+                "quotient_representative_halfplane": "Im(t)>=0",
+                "physical_CP_identification": False,
             },
             "outer_complex_conjugation": {
                 "involution_residual": terminal_complex_conjugation_involution_residual,
@@ -4349,6 +4495,9 @@ def main() -> None:
             "orientation_reflection_is_not_promoted_to_physical_parity_or_cp": True,
             "complex_conjugation_outer_z2_pair_is_not_identified_with_physical_charge_conjugation": True,
             "outer_automorphism_structure_is_not_by_itself_a_cp_symmetry_statement": True,
+            "compact_outer_z2_class_quotient_is_group_geometry_not_physical_cp_claim": True,
+            "terminal_off_fixed_locus_trace_is_orientation_class_witness_not_cp_violation_measurement": True,
+            "su3_trace_deltoid_compactness_does_not_identify_observed_mixing_parameters": True,
             "basepoint_covariance_is_groupoid_consistency_not_physical_promotion": True,
             "nontrivial_terminal_loop_closes_nonseparable_path_source_only_at_structural_candidate_level": True,
             "noncoboundary_source_does_not_by_itself_identify_ckm_or_pmns": True,
