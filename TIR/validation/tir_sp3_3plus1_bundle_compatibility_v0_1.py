@@ -3,10 +3,15 @@ from __future__ import annotations
 
 import hashlib
 import json
+import sys
 from decimal import Decimal, getcontext
 from itertools import combinations
+from pathlib import Path
 
 import numpy as np
+
+FOUNDATION_VALIDATION = Path(__file__).resolve().parents[1] / "foundations" / "validation"
+sys.path.insert(0, str(FOUNDATION_VALIDATION))
 
 from tir_interleaf_matching_field_input_contract_v0_1 import payload_sha256
 from tir_production_realization_binding_v0_2 import (
