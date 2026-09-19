@@ -5118,3 +5118,95 @@ It does not prove that the temporal C3 carrier is physically identical to the qu
 Current frontier:
 
 `CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__RHO_PHYSICAL_AND_TEMPORAL_FAMILY_PROMOTION_OPEN`.
+
+---
+
+## Appendix AJ — NEW 2026-09-19 — Freeze of the state-dependent signed-geometric SU(3) step candidate
+
+Status: `STATE_DEPENDENT_SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_FROZEN_PREVALIDATION`.
+
+Freeze date: `2026-09-19`.
+
+### AJ.1 Frozen parent objects
+
+The candidate uses only already-admitted source objects:
+
+```text
+Collatz branch symbol b(n) in {E,O}
+stopping-depth C3 index r_C(n)=(-L(n)) mod 3
+Stage-66 orbit generators A0,A1,A2
+exact Poincare branch lengths rho_E=ln2, rho_O=ln3
+exact signed log-Jacobian orientation chi_E=-1, chi_O=+1
+```
+
+No observed CKM, PMNS, mass, PDG, or fitted coefficient enters the definition.
+
+### AJ.2 Frozen signed generator
+
+For a state n on the admitted finite-stopping basin, define
+
+\[
+\boxed{
+K_{geo}(n)
+=
+\chi_{b(n)}\rho_{geo}(b(n))A_{r_C(n)}
+=
+\sigma_{b(n)}A_{r_C(n)}.
+}
+\]
+
+Explicitly,
+
+\[
+\sigma_E=-\ln2,
+\qquad
+\sigma_O=+\ln3.
+\]
+
+The branch symbol therefore controls the exact signed geometric scalar, while the Collatz state controls the C3-orbit generator index.
+
+No static map
+
+\[
+E\to A_i,\qquad O\to A_j
+\]
+
+is introduced.
+
+### AJ.3 Frozen unitary step candidate
+
+Define
+
+\[
+\boxed{
+U_{geo}(n)=\exp[-iK_{geo}(n)].
+}
+\]
+
+Because each A_r is Hermitian and traceless and each sigma_b is real, the candidate is typed to lie in SU(3).
+
+### AJ.4 Prospective validation gates
+
+After this freeze, and before any target comparison, validate:
+
+1. Hermiticity and tracelessness of every K_geo branch/frame combination.
+2. Unitarity and determinant one of every U_geo branch/frame combination.
+3. C3 covariance of the state-selected axis.
+4. Order sensitivity for distinct branch words with equal branch counts.
+5. Full eight-dimensional Lie accessibility over every three consecutive C3 axes.
+6. No dependence on observed CKM, PMNS, masses, or fitted coefficients.
+
+### AJ.5 Promotion boundary
+
+This freeze does not claim
+
+```text
+physical Hamiltonian = K_geo
+physical rho_s = rho_geo
+physical CKM/PMNS = product of U_geo
+temporal C3 = physical flavour C3
+```
+
+Those remain separate physical-binding gates.
+
+The candidate is frozen solely as the minimal parameter-free state-dependent operator scaffold compatible with the current exact mathematical parents.
