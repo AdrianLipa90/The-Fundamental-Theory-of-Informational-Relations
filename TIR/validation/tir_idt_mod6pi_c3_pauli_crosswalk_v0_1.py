@@ -248,6 +248,10 @@ def main() -> None:
         ROOT
         / "TIR/standard_model/TIR_SM_RECONCILIATION_LEDGER_V0_1.md"
     ).read_text(encoding="utf-8")
+    wij_crosswalk = (
+        ROOT
+        / "TIR/foundations/TIR_WIJ_HOLONOMY_CROSSWALK_V0_1.md"
+    ).read_text(encoding="utf-8")
     collatz_fs_phase_interface = (
         ROOT
         / "TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md"
@@ -1479,6 +1483,23 @@ def main() -> None:
             "bind the full CKM matrix to the same coefficient-free holonomic/orientation forcing theorem"
             in sm_reconciliation
         ),
+        "generic_wij_path_holonomy_grammar_current": (
+            "W_{ij}^{(G,R)}" in wij_crosswalk
+            and "\\mathcal P\\exp" in wij_crosswalk
+            and "W_{ji}=W_{ij}^{-1}=W_{ij}^{\\dagger}" in wij_crosswalk
+            and "W_{ij}\\mapsto G_iW_{ij}G_j^{-1}" in wij_crosswalk
+        ),
+        "wij_crosswalk_explicit_current_instances_are_wt_spatial_color": (
+            "W_{ij}^{WT}" in wij_crosswalk
+            and "W_{ij}^{X}" in wij_crosswalk
+            and "W_{ij}^{c}" in wij_crosswalk
+            and "SU(3)_F" not in wij_crosswalk
+        ),
+        "endpoint_su3_abelianization_selector_nogo_parent_present": (
+            "endpoint_SU3_homomorphism_to_nonzero_Z4_selector = IMPOSSIBLE_BY_STANDARD_PERFECT_GROUP_THEOREM"
+            in cocycle_phase
+            and "path-local cochain" in cocycle_phase
+        ),
         "stage40_does_not_select_assignment_by_fit": (
             "No assignment is selected by fit." in stage40
         ),
@@ -1982,7 +2003,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__RHO_BINDING_AND_COEFFICIENT_FREE_HOLONOMIC_ASSIGNMENT_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__FAMILY_WIJ_PATH_SOURCE_AND_RHO_BINDING_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2051,6 +2072,17 @@ def main() -> None:
         ),
         "ckm_closure_status": (
             "OPEN_COEFFICIENT_FREE_HOLONOMIC_SECTOR_ASSIGNMENT_THEOREM"
+        ),
+        "generic_wij_holonomy_status": (
+            "GENERIC_WIJ_PATH_HOLONOMY_GRAMMAR_TYPED_CURRENT"
+            if passed
+            else "FAILED"
+        ),
+        "family_wij_source_binding_status": (
+            "OPEN_FAMILY_SPECIFIC_WIJ_PATH_LOCAL_SOURCE_BINDING"
+        ),
+        "selector_location_status": (
+            "SELECTOR_MUST_RETAIN_PATH_LOCAL_DATA_UPSTREAM_OF_ENDPOINT_SU3_REDUCTION"
         ),
         "ckm_quantitative_status": (
             "STAGE40_FULL_CKM_SHAPE_FAIL_RETAINED"
@@ -2270,6 +2302,20 @@ def main() -> None:
                 "state_dependent_map",
                 "complexification_plus_additional_dynamics",
             ],
+        },
+        "family_wij_source_audit": {
+            "generic_transport": "W_ij^(G,R)=Pexp(int_gamma A_R)",
+            "current_explicit_instances": [
+                "WT_U1",
+                "SPATIAL_SU2",
+                "COLOR_SU3",
+            ],
+            "current_explicit_family_SU3F_path_holonomy": False,
+            "endpoint_SU3_to_nonzero_Z4_homomorphic_selector": "IMPOSSIBLE",
+            "required_selector_location": "PATH_LOCAL_UPSTREAM_OF_ENDPOINT_REDUCTION",
+            "required_next_object": (
+                "SOURCE_DERIVED_FAMILY_WIJ_OR_EQUIVALENT_PAIRWISE_PROJECTIVE_HOLONOMY"
+            ),
         },
         "sector_assignment_provenance_audit": {
             "stage39_assignments": {
@@ -2513,6 +2559,10 @@ def main() -> None:
             "qc_bc_orientation_sign_correlation_is_not_alpha_u_alpha_d_map": True,
             "observed_ckm_j_sign_must_not_select_stage39_assignment": True,
             "sector_assignment_requires_coefficient_free_holonomic_source_theorem": True,
+            "generic_wij_family_word_does_not_mean_flavour_family_holonomy": True,
+            "current_wij_crosswalk_has_no_explicit_family_su3f_path_transport": True,
+            "endpoint_su3_data_alone_cannot_supply_nonzero_additive_z4_selector": True,
+            "family_assignment_selector_must_retain_path_local_data": True,
             "stage40_full_ckm_shape_failure_blocks_quantitative_promotion": True,
             "additional_nonseparable_or_non_equatorial_structure_required_for_cp": True,
             "no_nontrivial_continuous_real_lie_homomorphism_psl2r_to_su3f": True,
