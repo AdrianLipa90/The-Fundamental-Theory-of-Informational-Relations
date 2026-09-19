@@ -1538,3 +1538,31 @@ Status:
 `TERMINAL_LOOP_REQUIRES_DIRECTIONS_BEYOND_COMPACT_SPIN1_SUBGROUP`.
 
 This is a representation/subgroup result only; physical CP/CKM/PMNS promotion remains OPEN.
+
+### Appendix AR update — terminal-loop basepoint covariance and orientation oddness
+
+Changing the basepoint among \(1,4,2\) conjugates the terminal-loop holonomy, so trace and characteristic polynomial are basepoint invariant.
+
+Status:
+
+`TERMINAL_LOOP_CONJUGACY_CLASS_BASEPOINT_COVARIANT`.
+
+Reversing the loop gives
+
+\[
+U_{\circ^{-1}}=U_\circ^{-1}=U_\circ^\dagger,
+\]
+
+and therefore
+
+\[
+\operatorname{Im}\operatorname{tr}(U_{\circ^{-1}})
+=
+-\operatorname{Im}\operatorname{tr}(U_\circ).
+\]
+
+Status:
+
+`TERMINAL_LOOP_IMAGINARY_TRACE_ORIENTATION_ODD_CLASS_WITNESS`.
+
+This is a structural Wilson-loop invariant, not yet a physical CP observable.
