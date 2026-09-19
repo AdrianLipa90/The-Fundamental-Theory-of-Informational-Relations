@@ -84,6 +84,14 @@ def git_blob_sha(data: bytes) -> str:
     return hashlib.sha1(header + data).hexdigest()
 
 
+def json_default(value):
+    if isinstance(value, np.generic):
+        return value.item()
+    raise TypeError(
+        f"Unsupported JSON payload type: {type(value).__module__}.{type(value).__qualname__}"
+    )
+
+
 def collatz_step(n: int) -> int:
     return n // 2 if n % 2 == 0 else 3 * n + 1
 
@@ -1535,7 +1543,14 @@ def main() -> None:
             "remaining_physical_gate": "TEMPORAL_C3_TO_PHYSICAL_FAMILY_BINDING_AND_FULL_MASS_MIXING_SPECTRUM",
         },
     }
-    print(json.dumps(payload, indent=2, sort_keys=True))
+    print(
+        json.dumps(
+            payload,
+            indent=2,
+            sort_keys=True,
+            default=json_default,
+        )
+    )
     raise SystemExit(0 if passed else 1)
 
 
