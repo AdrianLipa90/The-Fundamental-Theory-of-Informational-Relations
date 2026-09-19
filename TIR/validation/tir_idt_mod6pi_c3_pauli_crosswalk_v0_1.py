@@ -2394,6 +2394,15 @@ def main() -> None:
             and terminal_orientation_odd_imag_sum_residual < TOL
             and terminal_orientation_even_real_diff_residual < TOL
         ),
+        "nontrivial_terminal_wilson_loop_refutes_global_coboundary_factorization": (
+            terminal_loop_nonidentity > 1.0e-6
+            and common_target_triangle_residual < TOL
+        ),
+        "flat_common_target_and_nonflat_terminal_path_structures_are_distinct": (
+            common_target_triangle_residual < TOL
+            and terminal_loop_nonidentity > 1.0e-6
+            and terminal_loop_trace.imag > 1.0e-6
+        ),
         "terminal_collatz_cycle_conjugacy_invariants_gauge_stable": (
             terminal_gauge_trace_residual < TOL
             and terminal_gauge_trace2_residual < TOL
@@ -2794,7 +2803,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_VALIDATED__COMMON_TARGET_WIJ_FLAT__TERMINAL_COLLATZ_CYCLE_NONFLAT_SU3_LOOP_OUTSIDE_SPIN1_RETROSPECTIVE_PASS__PHYSICAL_RHO_TEMPORAL_FAMILY_CP_AND_CKM_PROMOTION_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_VALIDATED__COMMON_TARGET_WIJ_FLAT__TERMINAL_COLLATZ_NONCOBOUNDARY_NONSEPARABLE_SU3_LOOP_OUTSIDE_SPIN1_RETROSPECTIVE_PASS__PHYSICAL_RHO_TEMPORAL_FAMILY_CP_AND_CKM_PROMOTION_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2947,6 +2956,16 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "terminal_cycle_coboundary_status": (
+            "NONTRIVIAL_TERMINAL_WILSON_LOOP_REFUTES_GLOBAL_GI_DAGGER_GJ_FACTORIZATION"
+            if passed
+            else "FAILED"
+        ),
+        "nonseparable_path_holonomy_status": (
+            "SOURCE_DERIVED_NONSEPARABLE_PATH_HOLONOMY_CANDIDATE_EXISTS"
+            if passed
+            else "FAILED"
+        ),
         "terminal_cycle_cp_status": (
             "NONTRIVIAL_WILSON_LOOP_NOT_YET_PHYSICAL_CP_OR_SECTOR_BINDING"
         ),
@@ -3025,7 +3044,7 @@ def main() -> None:
             else "FAILED"
         ),
         "family_wij_source_binding_status": (
-            "COMMON_TARGET_FAMILY_WIJ_FLAT_SCAFFOLD_CLOSED__TERMINAL_COLLATZ_NONFLAT_LOOP_CANDIDATE_EXISTS__PHYSICAL_BINDING_OPEN"
+            "COMMON_TARGET_FLAT_COBoundARY_SCAFFOLD_CLOSED__TERMINAL_COLLATZ_NONCOBOUNDARY_NONSEPARABLE_SU3_HOLONOMY_CANDIDATE_EXISTS__PHYSICAL_BINDING_OPEN"
         ),
         "selector_location_status": (
             "SELECTOR_MUST_RETAIN_PATH_LOCAL_DATA_UPSTREAM_OF_ENDPOINT_SU3_REDUCTION"
@@ -3067,7 +3086,7 @@ def main() -> None:
             else "FAILED"
         ),
         "branch_to_complex_holonomy_status": (
-            "OPEN_CLEAN_NONSEPARABLE_COLLATZ_POINCARE_TO_COMPLEX_FAMILY_HOLONOMY_MAP"
+            "SOURCE_DERIVED_STATE_DEPENDENT_NONSEPARABLE_SU3_HOLONOMY_MAP_CANDIDATE_EXISTS__PHYSICAL_FAMILY_CP_BINDING_OPEN"
         ),
         "stage39_40_status": (
             "TWO_OPERATOR_MECHANISM_RETAINED_FULL_CKM_SHAPE_FAIL"
@@ -3285,6 +3304,18 @@ def main() -> None:
                 "state_dependent_map",
                 "complexification_plus_additional_dynamics",
             ],
+        },
+        "path_holonomy_separability_audit": {
+            "flat_coboundary_form": "W_ij = G_i^dagger G_j",
+            "flat_triangle_identity_required": True,
+            "common_target_triangle_residual": common_target_triangle_residual,
+            "terminal_loop_nonidentity_max_abs": terminal_loop_nonidentity,
+            "terminal_loop_global_coboundary_factorization_possible": False,
+            "terminal_path_data_classification": (
+                "NONCOBOUNDARY_NONSEPARABLE_PATH_HOLONOMY_CANDIDATE"
+            ),
+            "physical_family_connection_promoted": False,
+            "physical_cp_promoted": False,
         },
         "terminal_collatz_cycle_holonomy_audit": {
             "classification": "RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST",
@@ -3725,6 +3756,8 @@ def main() -> None:
             "nonreal_trace_is_used_only_as_conjugacy_subgroup_exclusion_witness": True,
             "orientation_odd_imaginary_trace_is_not_identified_with_physical_cp": True,
             "basepoint_covariance_is_groupoid_consistency_not_physical_promotion": True,
+            "nontrivial_terminal_loop_closes_nonseparable_path_source_only_at_structural_candidate_level": True,
+            "noncoboundary_source_does_not_by_itself_identify_ckm_or_pmns": True,
             "branch_symbol_to_split_real_operator_is_closed_but_not_physical_family_map": True,
             "legacy_eta_0_35_rhythm_is_model_choice_not_current_input": True,
             "exact_geometric_branch_length_alphabet_is_closed": True,
