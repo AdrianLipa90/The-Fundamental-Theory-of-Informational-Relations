@@ -1031,6 +1031,94 @@ def main() -> None:
         for M in D6_elements
     }
     D6_unique_element_count = len(D6_element_keys)
+
+    # Real permutation representation decomposition R^3 = 1 + 2 for D3/S3.
+    d3_singlet = np.ones(3, dtype=float) / math.sqrt(3.0)
+    d3_plane_basis = np.column_stack(
+        [
+            np.array([1.0, -1.0, 0.0], dtype=float) / math.sqrt(2.0),
+            np.array([1.0, 1.0, -2.0], dtype=float) / math.sqrt(6.0),
+        ]
+    )
+    d3_plane_orthonormal_residual = float(
+        np.max(
+            np.abs(
+                d3_plane_basis.T @ d3_plane_basis
+                - np.eye(2)
+            )
+        )
+    )
+    d3_singlet_plane_residual = float(
+        np.max(np.abs(d3_plane_basis.T @ d3_singlet))
+    )
+    d3_singlet_P_residual = float(
+        np.max(
+            np.abs(
+                np.real(P_family) @ d3_singlet - d3_singlet
+            )
+        )
+    )
+    d3_singlet_R_residual = float(
+        np.max(
+            np.abs(
+                np.real(R_orient) @ d3_singlet - d3_singlet
+            )
+        )
+    )
+    P_d3_plane = d3_plane_basis.T @ np.real(P_family) @ d3_plane_basis
+    R_d3_plane = d3_plane_basis.T @ np.real(R_orient) @ d3_plane_basis
+    d3_plane_rotation_order3_residual = float(
+        np.max(
+            np.abs(
+                np.linalg.matrix_power(P_d3_plane, 3)
+                - np.eye(2)
+            )
+        )
+    )
+    d3_plane_rotation_trace_residual = abs(
+        float(np.trace(P_d3_plane)) + 1.0
+    )
+    d3_plane_rotation_det_residual = abs(
+        float(np.linalg.det(P_d3_plane)) - 1.0
+    )
+    d3_plane_reflection_involution_residual = float(
+        np.max(
+            np.abs(
+                R_d3_plane @ R_d3_plane - np.eye(2)
+            )
+        )
+    )
+    d3_plane_reflection_det_residual = abs(
+        float(np.linalg.det(R_d3_plane)) + 1.0
+    )
+    d3_plane_dihedral_relation_residual = float(
+        np.max(
+            np.abs(
+                R_d3_plane @ P_d3_plane @ R_d3_plane
+                - np.linalg.matrix_power(P_d3_plane, 2)
+            )
+        )
+    )
+
+    f3_trivial_character_residual = float(
+        np.max(np.abs(F3[:, 0] - d3_singlet.astype(complex)))
+    )
+    f3_nontrivial_character_conjugacy_residual = float(
+        np.max(np.abs(F3[:, 2] - np.conj(F3[:, 1])))
+    )
+    d3_real_plane_projector = d3_plane_basis @ d3_plane_basis.T
+    f3_nontrivial_projector = (
+        np.outer(F3[:, 1], np.conj(F3[:, 1]))
+        + np.outer(F3[:, 2], np.conj(F3[:, 2]))
+    )
+    f3_character_plane_projector_residual = float(
+        np.max(
+            np.abs(
+                f3_nontrivial_projector
+                - d3_real_plane_projector.astype(complex)
+            )
+        )
+    )
     temporal_forward_edge = tuple(
         np.rint(np.real(P_forward @ e1)).astype(int)
     )
@@ -2729,6 +2817,31 @@ def main() -> None:
         "six_state_dihedral_extension_has_twelve_distinct_elements": (
             D6_unique_element_count == 12
         ),
+        "d3_permutation_rep_has_invariant_singlet": (
+            d3_singlet_P_residual < TOL
+            and d3_singlet_R_residual < TOL
+        ),
+        "d3_permutation_rep_orthogonal_complement_is_two_dimensional": (
+            d3_plane_orthonormal_residual < TOL
+            and d3_singlet_plane_residual < TOL
+        ),
+        "d3_standard_plane_c3_action_is_order3_rotation": (
+            d3_plane_rotation_order3_residual < TOL
+            and d3_plane_rotation_trace_residual < TOL
+            and d3_plane_rotation_det_residual < TOL
+        ),
+        "d3_standard_plane_z2_action_is_reflection": (
+            d3_plane_reflection_involution_residual < TOL
+            and d3_plane_reflection_det_residual < TOL
+            and d3_plane_dihedral_relation_residual < TOL
+        ),
+        "f3_trivial_character_is_real_invariant_singlet": (
+            f3_trivial_character_residual < TOL
+        ),
+        "f3_nontrivial_character_pair_complexifies_real_standard_plane": (
+            f3_nontrivial_character_conjugacy_residual < TOL
+            and f3_character_plane_projector_residual < TOL
+        ),
         "oriented_temporal_c3_selects_family_p3_equivariantly": (
             oriented_generator_residual < TOL
         ),
@@ -3425,6 +3538,16 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "d3_real_rep_decomposition_status": (
+            "D3_FAMILY_PERMUTATION_REP_REAL_3_DECOMPOSES_AS_1_PLUS_2"
+            if passed
+            else "FAILED"
+        ),
+        "f3_character_decomposition_status": (
+            "F3_TRIVIAL_SINGLET_PLUS_CONJUGATE_CHARACTER_PAIR_COMPLEXIFIES_REAL_1_PLUS_2"
+            if passed
+            else "FAILED"
+        ),
         "six_weak_component_label_count": (
             "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"
             if passed
@@ -3480,6 +3603,11 @@ def main() -> None:
             "six_state_c6_order6": G6_order6_residual,
             "six_state_orientation_z2": R6_involution_residual,
             "six_state_dihedral_inversion": D6_inversion_relation_residual,
+            "d3_singlet_P": d3_singlet_P_residual,
+            "d3_singlet_R": d3_singlet_R_residual,
+            "d3_plane_order3": d3_plane_rotation_order3_residual,
+            "d3_plane_reflection": d3_plane_reflection_involution_residual,
+            "f3_character_plane_projector": f3_character_plane_projector_residual,
             "sym2_branch_homomorphism": sym2_homomorphism_residual,
             "split_branch_noncommutativity": split_branch_noncommutativity,
             "poincare_length_E_ln2": ell_E_residual,
@@ -4018,6 +4146,22 @@ def main() -> None:
             "temporal_forward_e1_image": temporal_forward_edge,
             "temporal_inverse_e1_image": temporal_reverse_edge,
         },
+        "d3_one_plus_two_representation_audit": {
+            "real_decomposition": "R^3 = invariant 1 + standard 2",
+            "singlet_vector": d3_singlet.tolist(),
+            "plane_basis": d3_plane_basis.tolist(),
+            "P3_on_plane": P_d3_plane.tolist(),
+            "R_on_plane": R_d3_plane.tolist(),
+            "P3_plane_trace": float(np.trace(P_d3_plane)),
+            "P3_plane_det": float(np.linalg.det(P_d3_plane)),
+            "R_plane_det": float(np.linalg.det(R_d3_plane)),
+            "complex_character_decomposition": "chi0 + chi_omega + chi_omega2",
+            "F3_trivial_character_singlet_residual": f3_trivial_character_residual,
+            "F3_nontrivial_pair_projector_residual": (
+                f3_character_plane_projector_residual
+            ),
+            "physical_spatial_dimension_claimed": False,
+        },
         "sixfold_group_structure_audit": {
             "family_generator": "P3",
             "orientation_reflection_matrix": np.real(R_orient).astype(int).tolist(),
@@ -4119,6 +4263,8 @@ def main() -> None:
             "weak_z2_and_orientation_z2_are_distinct_actions": True,
             "c6_and_d3_both_have_six_elements_but_are_not_identified": True,
             "twelve_element_dihedral_extension_is_group_structure_not_particle_count": True,
+            "d3_real_1_plus_2_decomposition_is_representation_dimension_not_spacetime_dimension": True,
+            "f3_character_pair_is_not_by_itself_a_physical_two_axis_geometry": True,
             "orientation_reflection_is_not_promoted_to_physical_parity_or_cp": True,
             "complex_conjugation_outer_z2_pair_is_not_identified_with_physical_charge_conjugation": True,
             "outer_automorphism_structure_is_not_by_itself_a_cp_symmetry_statement": True,
