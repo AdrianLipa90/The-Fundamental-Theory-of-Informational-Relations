@@ -1064,3 +1064,25 @@ Because Stage-39 A/B exchange reverses the sign of \(J\), choosing the assignmen
 Remaining gate:
 
 `OPEN_COEFFICIENT_FREE_HOLONOMIC_SECTOR_ASSIGNMENT_THEOREM`.
+
+### Appendix Z update — family selector must be path-local
+
+The current (W_{ij}) theorem already supplies the generic path-holonomy grammar
+
+\[
+W_{ij}^{(G,R)}=\mathcal P\exp\!\int_{\gamma_{ij}}A_R,
+\]
+
+with reversal and gauge covariance.
+
+Current explicit instances are White-Thread (U(1)), spatial (SU(2)), and colour (SU(3)). The generic crosswalk does not yet contain an explicit source-bound flavour-family (W_{ij}^{F}\in SU(3)_F).
+
+Status:
+
+`GENERIC_WIJ_PATH_HOLONOMY_GRAMMAR_TYPED_CURRENT`
+
+`OPEN_FAMILY_SPECIFIC_WIJ_PATH_LOCAL_SOURCE_BINDING`.
+
+Because endpoint (SU(3)) has trivial abelianization, the nonzero coefficient/sector selector must retain path-local information upstream of endpoint reduction.
+
+`SELECTOR_MUST_RETAIN_PATH_LOCAL_DATA_UPSTREAM_OF_ENDPOINT_SU3_REDUCTION`.
