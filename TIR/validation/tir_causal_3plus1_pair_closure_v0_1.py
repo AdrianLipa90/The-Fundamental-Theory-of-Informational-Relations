@@ -112,7 +112,7 @@ def main():
     timelike_det_positive = sp.simplify(timelike.det()) == 1
     null_det_zero = sp.simplify(null.det()) == 0
     null_eigenvalues = sorted([sp.simplify(v) for v in null.eigenvals().keys()], key=str)
-    null_psd_nonzero = null != sp.zeros(2) and all(v.is_nonnegative for v in null_eigenvals)
+    null_psd_nonzero = null != sp.zeros(2) and all(v.is_nonnegative for v in null_eigenvalues)
 
     # Exact Pauli multiplication/metric identities.
     paulis = (sx, sy, sz)
