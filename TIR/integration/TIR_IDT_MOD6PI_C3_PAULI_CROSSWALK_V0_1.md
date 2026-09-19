@@ -1585,3 +1585,132 @@ raw qC -> uniform mod-6pi three-frame clock          REFUTED
 active Stage-22 family seed carrier -> physical family/generation index
                                                      OPEN
 ```
+
+
+---
+
+## Appendix I — NEW 2026-09-19 — Independent \(E_8\) family multiplicity-three parent
+
+### I.1 Exceptional family parent
+
+Stage 21 supplies the current exact exceptional carrier
+
+\[
+E_8\supset(E_6\times SU(3)_F)/Z_3
+\]
+
+with matter content containing
+
+\[
+(16,3_F).
+\]
+
+Therefore the one-family spinor content is replicated by an independent triplet factor:
+
+\[
+16\times3=48.
+\]
+
+Stage 21 explicitly states that the exceptional representation fixes a multiplicity factor of three.
+
+Status:
+
+\`STAGE21_E8_THREEFOLD_MULTIPLICITY_3_CURRENT_PASS\`.
+
+### I.2 Seed-to-exceptional triplet binding
+
+Stage 22 fixes the active ordered seed basis
+
+\[
+s_1=(3,5),\qquad
+s_2=(5,7),\qquad
+s_3=(11,13),
+\]
+
+and Stage 24 maps it to the ordered exceptional triplet basis by
+
+\[
+M_s|s_j\rangle=|t_j\rangle,
+\]
+
+with
+
+\[
+\boxed{
+M_sP_s=P_3M_s.
+}
+\]
+
+Status:
+
+\`STAGE24_ORDERED_SEED_TO_E8_TRIPLET_INTERTWINER_CURRENT_PASS\`.
+
+### I.3 Independence from color
+
+Stage 25 factors the quark-doublet carrier as
+
+\[
+V_Q
+=
+\mathbb C^3_C
+\otimes
+\mathbb C^2_L
+\otimes
+\mathbb C^3_F
+\]
+
+and verifies that color and family transformations commute on separate tensor factors.
+
+Hence the family triplet is not the color triplet:
+
+\[
+SU(3)_C\neq SU(3)_F
+\]
+
+as typed carrier actions.
+
+### I.4 Role of the new temporal \(C_3\)
+
+The new periodic IDT carrier supplies an independent
+
+\[
+C_3^{\rm temporal}.
+\]
+
+The crosswalk now gives
+
+\[
+C_3^{\rm temporal}
+\longleftrightarrow
+C_3^{\rm active\ seed}
+\longleftrightarrow
+C_3^{E_8\rm\ triplet}
+\]
+
+at ordered representation level.
+
+The correct status is therefore
+
+\`INDEPENDENT_C3_CROSSWALK_TO_EXISTING_MULTIPLICITY3_FAMILY_CARRIER\`.
+
+The temporal \(C_3\) is not claimed as the sole source of family multiplicity three. Instead, two independently constructed triplet structures meet in one equivariant representation diagram.
+
+### I.5 Consequence for six weak-family labels
+
+The current representation chain has independently typed dimensions
+
+\[
+\dim V_F=3,
+\qquad
+\dim V_W=2.
+\]
+
+Therefore
+
+\[
+\boxed{
+\dim(V_F\otimes V_W)=6.
+}
+\]
+
+This six-state carrier is a representation-level consequence of the already-current family and weak parents. Masses, Yukawa couplings, physical CKM/PMNS values and full spectrum dynamics remain separate open gates.
