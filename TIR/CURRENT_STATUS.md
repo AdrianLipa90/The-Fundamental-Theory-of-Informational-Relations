@@ -1064,3 +1064,24 @@ Remaining gate:
 \`OPEN_CLEAN_COLLATZ_POINCARE_TO_COMPLEX_FAMILY_HOLONOMY_SOURCE_MAP\`.
 
 Stage-40 full-CKM-shape failure is retained; no retuning is performed.
+
+
+### Appendix S update — continuous split-real to compact Lie lift refuted
+
+The source algebra \(\mathfrak{sl}(2,\mathbb R)\) has Killing-form signature
+
+\[
+(2,1),
+\]
+
+so it is noncompact. Since it is simple, any nonzero real-Lie homomorphism into \(\mathfrak{su}(3)\) would be injective, but a compact Lie algebra cannot contain a subalgebra isomorphic to noncompact \(\mathfrak{sl}(2,\mathbb R)\).
+
+Status:
+
+\`NONTRIVIAL_CONTINUOUS_PSL2R_TO_SU3F_LIE_HOMOMORPHIC_LIFT_REFUTED\`.
+
+The Stage-52 bridge remains valid because it changes real form only after common complexification.
+
+Remaining branch map:
+
+\`OPEN_DISCRETE_OR_HOLONOMIC_NONPOLAR_BRANCHWISE_SU3F_LIFT\`.
