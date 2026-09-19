@@ -7,6 +7,7 @@ on:
       - 'TIR/foundations/TIR_WIJ_SEMANTIC_U1_HOLONOMY_FROM_A_V0_1.md'
       - 'TIR/validation/tir_wij_semantic_u1_holonomy_from_a_v0_1.py'
       - 'TIR/provenance/TIR_WIJ_SEMANTIC_U1_HOLONOMY_FROM_A_V0_1.json'
+      - 'TIR/provenance/TIR_W_SEMANTIC_HOLONOMY_CROSS_REPO_VALIDATION_RECEIPT_V0_1.json'
       - '.github/workflows/tir-semantic-u1-holonomy-v01.yml'
 
 permissions:
