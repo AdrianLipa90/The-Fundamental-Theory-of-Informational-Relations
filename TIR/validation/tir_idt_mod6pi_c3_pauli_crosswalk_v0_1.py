@@ -1628,6 +1628,11 @@ def main() -> None:
             selector_negative_best_orbit_index == 1
             and abs(selector_negative_best_alignment - 1.0) < 1.0e-10
         ),
+        "stage24_oriented_c3_and_stage66_negative_mode_select_directed_23_tangent": (
+            "P_s|s_2\\rangle=|s_3\\rangle" in stage24
+            and selector_negative_best_orbit_index == 1
+            and abs(selector_negative_best_alignment - 1.0) < 1.0e-10
+        ),
         "sym2_binary_to_three_dimension_exact": sym2_dimension == 3,
         "split_real_branch_operator_homomorphism_exact": (
             sym2_homomorphism_residual < TOL
@@ -2003,12 +2008,20 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__FAMILY_WIJ_PATH_SOURCE_AND_RHO_BINDING_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__COLLATZ_BRANCH_OPERATOR_AND_RHO_BINDING_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
             if passed
             else "FAILED"
+        ),
+        "directed_stationary_family_tangent_status": (
+            "STAGE24_ORIENTATION_PLUS_STAGE66_SELECTS_DIRECTED_2_TO_3_TANGENT_AT_REPRESENTATION_LEVEL"
+            if passed
+            else "FAILED"
+        ),
+        "ordered_family_step_map_status": (
+            "OPEN_COLLATZ_BRANCH_TO_DIRECTED_FAMILY_GENERATOR_AND_EXACT_RHO_BINDING"
         ),
         "icosahedral_family_embedding_status": (
             "STAGE61_62_C3_COMPATIBLE_RIGID_EMBEDDING_CURRENT_PASS"
@@ -2264,6 +2277,9 @@ def main() -> None:
             ),
             "negative_mode_best_alignment": selector_negative_best_alignment,
             "Aseed_used_to_solve_eta": False,
+            "oriented_negative_mode_label": "s2_to_s3_representation_tangent",
+            "orientation_parent": "Stage24 P_s: s2 -> s3",
+            "orientation_scope": "REPRESENTATION_LEVEL_ONLY",
             "uses_observed_CKM": False,
             "uses_observed_masses": False,
             "uses_fitted_coefficients": False,
@@ -2582,6 +2598,9 @@ def main() -> None:
             "stage64_selector_open_status_is_superseded_by_frozen_stage65_66_selector": True,
             "stage66_stationary_selector_is_mathematical_not_full_physical_dynamics": True,
             "stage66_saddle_classification_is_retained_not_repaired": True,
+            "stage24_plus_stage66_selects_directed_23_tangent_only_at_representation_level": True,
+            "directed_23_tangent_is_not_yet_collatz_branch_operator_binding": True,
+            "directed_23_tangent_does_not_select_stage39_up_down_assignment": True,
             "Aseed_was_not_used_to_fit_eta": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
