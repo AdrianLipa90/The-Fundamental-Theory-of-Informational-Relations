@@ -2654,3 +2654,218 @@ split-real branch operator -> compact SU(3)_F operator
 The corrected aggregate frontier is
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__RHYTHM_AND_COMPACT_FAMILY_MAP_OPEN\`.
+
+
+---
+
+## Appendix O — NEW 2026-09-19 — Exact Poincare branch-length alphabet
+
+### O.1 Canonical hyperbolic translation lengths
+
+Stage 49 places the normalized Collatz branch generators in
+
+\[
+PSL(2,\mathbb R)
+\]
+
+with
+
+\[
+\widehat M_E=
+\begin{pmatrix}
+1/\sqrt2&0\\
+0&\sqrt2
+\end{pmatrix},
+\qquad
+\widehat M_O=
+\frac1{\sqrt3}
+\begin{pmatrix}
+3&1\\
+0&1
+\end{pmatrix}.
+\]
+
+For a hyperbolic element \(g\in PSL(2,\mathbb R)\), in the standard curvature-\(-1\) Poincare normalization, the canonical translation length is
+
+\[
+\ell(g)
+=
+2\,\operatorname{arcosh}
+\left(
+\frac{|\operatorname{tr}g|}{2}
+\right).
+\]
+
+Therefore
+
+\[
+\boxed{
+\ell_E=\ln2
+}
+\]
+
+and
+
+\[
+\boxed{
+\ell_O=\ln3.
+}
+\]
+
+Status:
+
+\`POINCARE_BRANCH_TRANSLATION_LENGTH_ALPHABET_CLOSED\`.
+
+### O.2 Signed local scale cocycle
+
+On the real boundary the two affine branch derivatives are
+
+\[
+E'(x)=\frac12,
+\qquad
+O'(x)=3.
+\]
+
+Hence the signed logarithmic scale cocycle is
+
+\[
+\boxed{
+\chi(E)=-\ln2,
+\qquad
+\chi(O)=+\ln3.
+}
+\]
+
+For an ordered branch word \(w=b_1\cdots b_m\),
+
+\[
+\chi(w)
+=
+\sum_j\chi(b_j)
+\]
+
+reproduces the logarithm of the exact affine slope of the composite.
+
+For the frozen word
+
+\[
+w_1=OEOE,
+\]
+
+\[
+\chi(w_1)
+=
+2\ln3-2\ln2
+=
+\ln\frac94.
+\]
+
+For the long third-family word with 34 odd and 56 even steps,
+
+\[
+\chi(w_3)
+=
+34\ln3-56\ln2
+=
+\ln\frac{3^{34}}{2^{56}}.
+\]
+
+Status:
+
+\`SIGNED_LOG_JACOBIAN_COCYCLE_CLOSED\`.
+
+### O.3 Exact relation to the canonical information scale
+
+The project fixes
+
+\[
+\kappa=\frac{\ln2}{24\pi}.
+\]
+
+Because
+
+\[
+\ell_E=\ln2,
+\]
+
+one has the exact identity
+
+\[
+\boxed{
+\kappa
+=
+\frac{\ell_E}{24\pi}.
+}
+\]
+
+No fit or external physical target enters this equality.
+
+The dimensionless odd/even geometric length ratio is
+
+\[
+\boxed{
+\frac{\ell_O}{\ell_E}
+=
+\frac{\ln3}{\ln2}
+=
+\log_2 3.
+}
+\]
+
+### O.4 Geometric rhythm alphabet versus Hamiltonian rhythm
+
+The exact Poincare geometry therefore supplies the positive branch-length alphabet
+
+\[
+\boxed{
+E\mapsto\ln2,
+\qquad
+O\mapsto\ln3.
+}
+\]
+
+This is a canonical geometric scalar attached to each exact Collatz branch.
+
+Status:
+
+\`CANONICAL_GEOMETRIC_RHYTHM_ALPHABET_AVAILABLE\`.
+
+However, the Hamiltonian scaffold uses a symbol
+
+\[
+\rho_s(k)
+\]
+
+as a dynamical weighting factor. The equality
+
+\[
+\boxed{
+\rho_s(k)
+\stackrel{?}{=}
+\ell(\widehat M_{b_k})
+}
+\]
+
+is not promoted by this Appendix.
+
+The distinction is:
+
+\`\`\`text
+exact Poincare branch translation lengths
+    = CLOSED
+
+exact signed log-Jacobian cocycle
+    = CLOSED
+
+geometric positive branch-length alphabet
+    = CLOSED
+
+identification with Hamiltonian rho_s(k)
+    = OPEN
+\`\`\`
+
+Thus the prior broad rhythm debt is narrowed to a binding problem, not a lack of an exact branch-local geometric scale.
+
+Current aggregate frontier:
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__RHO_BINDING_AND_COMPACT_FAMILY_MAP_OPEN\`.
