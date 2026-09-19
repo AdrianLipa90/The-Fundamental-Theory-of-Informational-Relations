@@ -1705,3 +1705,36 @@ Status:
 `TERMINAL_CYCLE_SUPPLIES_NONFLAT_SOURCE_DERIVED_LOOP_CANDIDATE`.
 
 It remains explicitly retrospective and is not promoted to physical CP/CKM/PMNS.
+
+### Appendix AQ update — terminal loop outside compact spin-one subgroup
+
+For every spin-one \(SU(2)\subset SU(3)\) element,
+
+\[
+\operatorname{tr}U=1+2\cos\theta\in\mathbb R
+\]
+
+and \(1\) is an eigenvalue.
+
+The validated terminal Collatz-cycle holonomy instead has
+
+\[
+\operatorname{Im}\operatorname{tr}U_\circ
+=0.06023967414631505\neq0
+\]
+
+and
+
+\[
+\det(U_\circ-I_3)\neq0.
+\]
+
+Hence it lies outside every conjugate spin-one \(SU(2)\) subgroup of \(SU(3)\).
+
+Status:
+
+`TERMINAL_LOOP_OUTSIDE_EVERY_CONJUGATE_SPIN1_SU2_SUBGROUP`
+
+`TERMINAL_LOOP_REQUIRES_DIRECTIONS_BEYOND_COMPACT_SPIN1_SUBGROUP`.
+
+This is a representation/subgroup result only; physical CP/CKM/PMNS promotion remains OPEN.
