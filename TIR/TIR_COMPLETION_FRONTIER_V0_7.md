@@ -1766,3 +1766,29 @@ Status:
 `F3_TRIVIAL_SINGLET_PLUS_CONJUGATE_CHARACTER_PAIR_COMPLEXIFIES_REAL_1_PLUS_2`.
 
 This is a representation decomposition only, not a spacetime-dimension claim.
+
+### Appendix BA update — six-state character spectrum
+
+The tensor basis \(F_3\otimes F_2\) diagonalizes
+
+\[
+G_6=P_3\otimes J_W
+\]
+
+with all six sixth roots of unity occurring exactly once.
+
+Status:
+
+`WEAK_FAMILY_C6_REGULAR_CHARACTER_SPECTRUM_ALL_SIXTH_ROOTS_EXACT`.
+
+Under the orientation reflection, the real six-state representation decomposes as
+
+\[
+\boxed{6=1+1+2+2}.
+\]
+
+Status:
+
+`D6_SIX_STATE_REAL_REP_DECOMPOSES_AS_1_PLUS_1_PLUS_2_PLUS_2`.
+
+This is finite-group representation data only.
