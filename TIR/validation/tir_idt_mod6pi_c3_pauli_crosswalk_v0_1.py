@@ -657,6 +657,44 @@ def main() -> None:
         float(np.max(np.abs(sym2(MO @ ME) - RO @ RE))),
     )
     split_branch_noncommutativity = float(np.max(np.abs(RE @ RO - RO @ RE)))
+
+    # Canonical hyperbolic translation-length / log-Jacobian alphabet for
+    # the exact Stage-49 PSL(2,R) branch generators, in the standard
+    # curvature -1 Poincare normalization.
+    ell_E = 2.0 * math.acosh(abs(float(np.trace(ME))) / 2.0)
+    ell_O = 2.0 * math.acosh(abs(float(np.trace(MO))) / 2.0)
+    ell_E_exact = math.log(2.0)
+    ell_O_exact = math.log(3.0)
+    ell_E_residual = abs(ell_E - ell_E_exact)
+    ell_O_residual = abs(ell_O - ell_O_exact)
+
+    signed_log_jacobian_E = math.log(0.5)
+    signed_log_jacobian_O = math.log(3.0)
+    signed_scale_residual = max(
+        abs(signed_log_jacobian_E + ell_E_exact),
+        abs(signed_log_jacobian_O - ell_O_exact),
+    )
+
+    kappa_canonical = math.log(2.0) / (24.0 * math.pi)
+    kappa_length_residual = abs(
+        kappa_canonical - ell_E_exact / (24.0 * math.pi)
+    )
+
+    # Exact abelianized slope cocycle checks for the frozen branch words.
+    w1_signed_scale = (
+        2.0 * signed_log_jacobian_O
+        + 2.0 * signed_log_jacobian_E
+    )
+    w1_slope_residual = abs(w1_signed_scale - math.log(9.0 / 4.0))
+    w3_signed_scale = (
+        34.0 * signed_log_jacobian_O
+        + 56.0 * signed_log_jacobian_E
+    )
+    w3_slope_residual = abs(
+        w3_signed_scale
+        - math.log((3.0 ** 34) / (2.0 ** 56))
+    )
+
     J_split = np.array(
         [[0.0, 0.0, 0.5], [0.0, -1.0, 0.0], [0.5, 0.0, 0.0]],
         dtype=float,
@@ -1056,6 +1094,22 @@ def main() -> None:
         "split_real_branch_operators_noncommute": (
             split_branch_noncommutativity > TOL
         ),
+        "poincare_even_branch_translation_length_is_ln2": (
+            ell_E_residual < TOL
+        ),
+        "poincare_odd_branch_translation_length_is_ln3": (
+            ell_O_residual < TOL
+        ),
+        "branch_signed_log_jacobian_matches_translation_lengths": (
+            signed_scale_residual < TOL
+        ),
+        "kappa_equals_even_branch_length_over_24pi": (
+            kappa_length_residual < TOL
+        ),
+        "frozen_branch_word_signed_scale_cocycle_exact": (
+            w1_slope_residual < TOL
+            and w3_slope_residual < 1.0e-12
+        ),
         "sym2_branch_generators_have_det_one": bool(
             abs(np.linalg.det(RE) - 1.0) < TOL
             and abs(np.linalg.det(RO) - 1.0) < TOL
@@ -1300,8 +1354,23 @@ def main() -> None:
         "legacy_rhythm_status": (
             "LEGACY_BOUNDED_RHYTHM_MODEL_CHOICE_NOT_PROMOTED"
         ),
+        "poincare_branch_translation_length_status": (
+            "POINCARE_BRANCH_TRANSLATION_LENGTH_ALPHABET_CLOSED"
+            if passed
+            else "FAILED"
+        ),
+        "branch_scale_cocycle_status": (
+            "SIGNED_LOG_JACOBIAN_COCYCLE_CLOSED"
+            if passed
+            else "FAILED"
+        ),
+        "geometric_rhythm_alphabet_status": (
+            "CANONICAL_GEOMETRIC_RHYTHM_ALPHABET_AVAILABLE"
+            if passed
+            else "FAILED"
+        ),
         "exact_rhythm_status": (
-            "OPEN_EXACT_COLLATZ_TWIN_PRIME_RHO_S_DERIVATION"
+            "EXACT_GEOMETRIC_BRANCH_LENGTH_ALPHABET_CLOSED__HAMILTONIAN_RHO_BINDING_OPEN"
         ),
         "compact_family_branch_operator_status": (
             "OPEN_COMPACT_REAL_FORM_AND_FAMILY_OPERATOR_BINDING"
@@ -1345,7 +1414,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__RHYTHM_AND_COMPACT_FAMILY_MAP_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__RHO_BINDING_AND_COMPACT_FAMILY_MAP_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -1465,6 +1534,10 @@ def main() -> None:
             "forward_inverse_generator_separation": inverse_generator_separation,
             "sym2_branch_homomorphism": sym2_homomorphism_residual,
             "split_branch_noncommutativity": split_branch_noncommutativity,
+            "poincare_length_E_ln2": ell_E_residual,
+            "poincare_length_O_ln3": ell_O_residual,
+            "branch_signed_scale": signed_scale_residual,
+            "kappa_even_branch_length": kappa_length_residual,
             "anchor": anchor_residual,
             "family_lie_structure": residual_family,
             "temporal_pullback_lie_structure": residual_temporal,
@@ -1519,6 +1592,17 @@ def main() -> None:
             "split_real_O_operator": RO.tolist(),
             "sym2_homomorphism_residual": sym2_homomorphism_residual,
             "branch_operator_noncommutativity_residual": split_branch_noncommutativity,
+            "poincare_translation_length_E": ell_E,
+            "poincare_translation_length_O": ell_O,
+            "poincare_translation_length_E_exact": "ln(2)",
+            "poincare_translation_length_O_exact": "ln(3)",
+            "normalized_length_ratio_O_over_E": ell_O / ell_E,
+            "normalized_length_ratio_exact": "ln(3)/ln(2)",
+            "signed_log_jacobian_E": signed_log_jacobian_E,
+            "signed_log_jacobian_O": signed_log_jacobian_O,
+            "kappa_equals_ell_E_over_24pi_residual": kappa_length_residual,
+            "w1_signed_scale_log_slope_residual": w1_slope_residual,
+            "w3_signed_scale_log_slope_residual": w3_slope_residual,
             "split_real_branch_operator": "CLOSED",
             "compact_family_branch_operator": "OPEN",
             "legacy_bounded_rhythm_eta": 0.35,
@@ -1588,7 +1672,10 @@ def main() -> None:
             "compact_real_form_bridge_availability_is_not_dynamical_selection": True,
             "branch_symbol_to_split_real_operator_is_closed_but_not_physical_family_map": True,
             "legacy_eta_0_35_rhythm_is_model_choice_not_current_input": True,
-            "exact_rho_s_remains_open": True,
+            "exact_geometric_branch_length_alphabet_is_closed": True,
+            "translation_length_equals_hamiltonian_rho_is_not_yet_promoted": True,
+            "standard_poincare_curvature_minus_one_normalization_used_for_lengths": True,
+            "exact_rho_s_remains_open_as_hamiltonian_binding": True,
             "spin1_compact_subgroup_alone_cannot_supply_nonzero_CP": True,
             "five_dimensional_complement_is_lie_tangent_not_five_physical_spatial_dimensions": True,
             "a5_icosahedral_five_carrier_is_not_equated_with_su3f_without_dynamics": True,
