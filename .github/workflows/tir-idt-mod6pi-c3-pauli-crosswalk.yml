@@ -163,6 +163,8 @@ jobs:
           grep -Fq '"mod6pi_six_to_twelve_group_status": "SIX_STATE_C6_ROTATION_EXTENDS_TO_TWELVE_ELEMENT_ORIENTATION_DIHEDRAL_SYMMETRY"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"d3_real_rep_decomposition_status": "D3_FAMILY_PERMUTATION_REP_REAL_3_DECOMPOSES_AS_1_PLUS_2"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"f3_character_decomposition_status": "F3_TRIVIAL_SINGLET_PLUS_CONJUGATE_CHARACTER_PAIR_COMPLEXIFIES_REAL_1_PLUS_2"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_state_c6_character_spectrum_status": "WEAK_FAMILY_C6_REGULAR_CHARACTER_SPECTRUM_ALL_SIXTH_ROOTS_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_state_d6_real_mode_decomposition_status": "D6_SIX_STATE_REAL_REP_DECOMPOSES_AS_1_PLUS_1_PLUS_2_PLUS_2"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"six_weak_component_label_count": "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"six_cycle_physical_flavour_operator": "CURRENT_WEAK_FAMILY_REPRESENTATION_EXACT_PHYSICAL_GENERATION_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"physical_sector_binding": "OPEN"' mod6pi-c3-pauli-receipt.json
