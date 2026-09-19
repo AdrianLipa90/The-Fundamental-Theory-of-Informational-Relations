@@ -4769,3 +4769,125 @@ The result does not select the remaining E/O to D/C Z2 assignment and does not p
 Current frontier:
 
 `CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__SPECTRAL_Z2_SELECTION_REFUTED__SPIN1_ONLY_DC_GENERATION_REFUTED__BRANCH_TO_COMPLEMENT_INJECTION_EO_Z2_AND_RHO_PHYSICAL_BINDING_OPEN`.
+
+---
+
+## Appendix AG — NEW 2026-09-19 — Stage-66 C3 orbit as a full source-derived SU(3)_F generator set
+
+Stage 66 supplies the frozen orbit
+
+\[
+A_0=A_{seed},
+\qquad
+A_1=P_3A_0P_3^T,
+\qquad
+A_2=P_3^2A_0(P_3^T)^2.
+\]
+
+In the ordered family basis these are the symmetric channels
+
+\[
+A_0\sim12,
+\qquad
+A_1\sim23,
+\qquad
+A_2\sim13.
+\]
+
+### AG.1 Pairwise closure is only three-dimensional
+
+For each pair
+
+\[
+(A_0,A_1),\quad(A_1,A_2),\quad(A_2,A_0),
+\]
+
+the real Lie closure of the traceless skew-Hermitian generators has dimension
+
+\[
+\boxed{3}.
+\]
+
+Thus no fixed pair from the orbit alone gives the full family algebra.
+
+### AG.2 The full C3 orbit generates all of su(3)_F
+
+Using all three orbit members gives
+
+\[
+\boxed{
+\dim_{\mathbb R}\operatorname{Lie}\langle iA_0,iA_1,iA_2\rangle=8
+}
+\]
+
+and therefore
+
+\[
+\boxed{
+\operatorname{Lie}\langle iA_0,iA_1,iA_2\rangle
+=
+\mathfrak{su}(3)_F.
+}
+\]
+
+Status:
+
+`STAGE66_C3_ORBIT_GENERATES_FULL_SU3F_LIE_ALGEBRA`.
+
+### AG.3 Exact k/p content
+
+Under the Stage-55 symmetric-pair decomposition
+
+\[
+\mathfrak{su}(3)_F=\mathfrak k\oplus\mathfrak p,
+\]
+
+the three orbit members have exact squared norms
+
+```text
+A0: ||Pk A0||^2 = 1/4,  ||Pp A0||^2 = 1/4
+A1: ||Pk A1||^2 = 1/4,  ||Pp A1||^2 = 1/4
+A2: ||Pk A2||^2 = 0,    ||Pp A2||^2 = 1/2
+```
+
+so the orbit already contains explicit nonzero SU(3)/SO(3) complement content, and the forward successor A2 is purely in the complement.
+
+Status:
+
+`CLOSED_AT_STAGE66_C3_ORBIT_GENERATOR_SET_LEVEL__BRANCH_BINDING_OPEN`.
+
+### AG.4 Oriented noncommuting forward pair
+
+Stage 66 selects A1 as the unique negative Hessian mode. Stage 24 supplies the forward C3 orientation, so its successor is A2.
+
+The pair
+
+\[
+\boxed{A_1\to A_2}
+\]
+
+is noncommuting, with
+
+\[
+\|[A_1,A_2]\|_F^2=\frac18.
+\]
+
+Since A2 is pure complement while A1 is mixed k/p, this gives a source-derived oriented pair with explicit complement injection.
+
+Status:
+
+`ORIENTED_A1_TO_A2_NONCOMMUTING_PAIR_WITH_EXPLICIT_COMPLEMENT_INJECTION`.
+
+### AG.5 Remaining boundary
+
+This closes the problem of finding a source-derived full family generator set. It does not yet decide which Collatz branch symbol is assigned to which member of the oriented pair.
+
+Remaining:
+
+`OPEN_EO_TO_ORIENTED_STAGE66_GENERATOR_PAIR_ASSIGNMENT`.
+
+The independently frozen Poincare rhythm candidate remains mathematically valid but is not yet promoted to the unique physical Hamiltonian rhythm.
+
+Current frontier:
+
+`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__ORIENTED_A1_A2_COMPLEMENT_PAIR_CLOSED__EO_TO_ORBIT_PAIR_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN`.
