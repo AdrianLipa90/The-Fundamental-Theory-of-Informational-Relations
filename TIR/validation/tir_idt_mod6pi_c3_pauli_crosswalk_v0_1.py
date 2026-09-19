@@ -556,9 +556,9 @@ def main() -> None:
         "active_stage22_order_explicitly_supersedes_historical_order_for_validation": (
             "explicitly supersedes the early v0.5 generation ordering"
             in precedence_falsification
-            and "(3,5)\\to1" in precedence_falsification
-            and "(5,7)\\to2" in precedence_falsification
-            and "(11,13)\\to3" in precedence_falsification
+            and "s_1=(3,5)" in precedence_falsification
+            and "s_2=(5,7)" in precedence_falsification
+            and "s_3=(11,13)" in precedence_falsification
         ),
         "stage23_chirality_z2_parent_pass_present": (
             "STAGE_23_Z2_INTERTWINER_PASS_WITH_ORIENTATION_CONVENTION"
