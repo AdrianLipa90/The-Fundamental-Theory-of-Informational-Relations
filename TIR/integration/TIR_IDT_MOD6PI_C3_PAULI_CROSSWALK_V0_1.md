@@ -5944,3 +5944,121 @@ Status:
 `NONTRIVIAL_WILSON_LOOP_NOT_YET_PHYSICAL_CP_OR_SECTOR_BINDING`.
 
 The remaining gate is the physical interpretation/binding of this source-derived non-flat holonomy.
+
+---
+
+## Appendix AQ — NEW 2026-09-19 — Terminal Collatz holonomy lies outside every conjugate spin-one \(SU(2)\) subgroup
+
+### AQ.1 Spin-one character constraint
+
+For the irreducible spin-one representation of \(SU(2)\), every group element has eigenvalues
+
+\[
+\{e^{i\theta},1,e^{-i\theta}\}.
+\]
+
+Hence its character is
+
+\[
+\boxed{\chi_1(\theta)=1+2\cos\theta\in\mathbb R.}
+\]
+
+In particular every element of any conjugate spin-one subgroup
+
+\[
+g\,SU(2)_{j=1}\,g^{-1}\subset SU(3)
+\]
+
+has real trace and an eigenvalue equal to \(1\). Both properties are invariant under conjugation.
+
+### AQ.2 Terminal-loop witnesses
+
+Appendix AP gives the exact terminal Collatz-cycle holonomy
+
+\[
+U_\circ=U_E(A_2)U_E(A_1)U_O(A_0)\in SU(3)
+\]
+
+for
+
+\[
+1\to4\to2\to1.
+\]
+
+The hosted validator obtains
+
+\[
+\operatorname{Im}\operatorname{tr}U_\circ
+=
+0.06023967414631505
+\neq0.
+\]
+
+It also verifies
+
+\[
+\boxed{\det(U_\circ-I_3)\neq0,}
+\]
+
+so \(1\) is not an eigenvalue of the terminal-loop holonomy.
+
+Either invariant is already sufficient to exclude membership in the spin-one subgroup; together they provide independent conjugacy witnesses.
+
+### AQ.3 Exact subgroup exclusion
+
+Therefore
+
+\[
+\boxed{
+U_\circ
+\notin
+g\,SU(2)_{j=1}\,g^{-1}
+\quad
+\text{for every }g\in SU(3).
+}
+\]
+
+Status:
+
+`TERMINAL_LOOP_OUTSIDE_EVERY_CONJUGATE_SPIN1_SU2_SUBGROUP`.
+
+Equivalently, the terminal Collatz loop requires group directions beyond the compact spin-one subgroup singled out in Stage 53.
+
+Status:
+
+`TERMINAL_LOOP_REQUIRES_DIRECTIONS_BEYOND_COMPACT_SPIN1_SUBGROUP`.
+
+### AQ.4 Relation to the \(3\oplus5\) decomposition
+
+Stage 53 gives
+
+\[
+\mathfrak{su}(3)
+\cong
+\mathbf3\oplus\mathbf5
+\]
+
+under the embedded spin-one \(SU(2)\).
+
+The terminal-loop subgroup exclusion shows that the validated state-dependent Collatz construction is not confined to the compact \(\mathbf3\) subgroup at group level.
+
+This is consistent with the independent Stage-66 result that the full orbit generates all eight real directions of \(\mathfrak{su}(3)_F\).
+
+### AQ.5 Physical firewall
+
+A non-real trace is a conjugacy/subgroup witness here. It is not itself identified with a physical CP-odd observable.
+
+The result does not establish
+
+```text
+terminal loop = CKM holonomy
+terminal loop = PMNS holonomy
+Im tr(U_circle) = physical CP phase
+temporal C3 = physical flavour dynamics
+```
+
+Those bindings remain OPEN.
+
+Current frontier:
+
+`TERMINAL_COLLATZ_CYCLE_NONFLAT_SU3_LOOP_OUTSIDE_SPIN1_RETROSPECTIVE_PASS__PHYSICAL_RHO_TEMPORAL_FAMILY_CP_AND_CKM_PROMOTION_OPEN`.
