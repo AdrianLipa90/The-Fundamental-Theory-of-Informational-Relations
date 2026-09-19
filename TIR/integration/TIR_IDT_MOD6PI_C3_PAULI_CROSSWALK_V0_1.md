@@ -7726,3 +7726,143 @@ Status:
 This is compact Lie-group/conjugacy-class geometry.
 
 The equilateral alcove is not claimed to be a physical triangle in space; the rank-two plane is not claimed to be two physical spatial axes; the deltoid is not a physical volume; and no wavelength/amplitude-to-volume dynamics is inferred from this compactification.
+
+---
+
+## Appendix BF — NEW 2026-09-19 — Cartan embedding of (SU(3)/SO(3))
+
+### BF.1 Coset embedding
+
+For the compact symmetric pair
+
+\[
+(SU(3),SO(3)),
+\]
+
+use the involution
+
+\[
+\Theta(g)=\bar g.
+\]
+
+Its fixed subgroup is (SO(3)). The Cartan embedding is
+
+\[
+\boxed{
+\Phi(gSO(3))
+=
+g\,\Theta(g^{-1})
+=
+gg^T.
+}
+\]
+
+### BF.2 Image
+
+For (g\in SU(3)),
+
+\[
+S=gg^T
+\]
+
+satisfies
+
+\[
+S^T=S,
+\qquad
+S^\dagger S=I,
+\qquad
+\det S=1.
+\]
+
+Hence the Cartan image lies in the manifold of symmetric unitary determinant-one matrices.
+
+Conversely, every symmetric unitary (S\in SU(3)) admits a Takagi factorization
+
+\[
+S=gg^T
+\]
+
+with a representative (g\in SU(3)) after an (SO(3)) fiber adjustment.
+
+Therefore
+
+\[
+\boxed{
+SU(3)/SO(3)
+\cong
+\{S\in SU(3):S^T=S\}.
+}
+\]
+
+Status:
+
+`SU3_MOD_SO3_CARTAN_EMBEDDING_IS_SYMMETRIC_UNITARY_DET1_MANIFOLD`.
+
+### BF.3 Coset invariance
+
+If (k\in SO(3)), then
+
+\[
+\Phi(gk,SO(3))
+=
+gkk^Tg^T
+=
+gg^T.
+\]
+
+Thus the embedding depends only on the right coset (gSO(3)).
+
+### BF.4 Rank-two flat
+
+Let
+
+\[
+H=\operatorname{diag}(\theta_1,\theta_2,\theta_3),
+\qquad
+\theta_1+\theta_2+\theta_3=0.
+\]
+
+Choose
+
+\[
+g=\exp(iH/2).
+\]
+
+Then
+
+\[
+\boxed{
+\Phi(gSO(3))
+=
+gg^T
+=
+\exp(iH).
+}
+\]
+
+Therefore the rank-two Cartan plane and the compact Weyl alcove of Appendices BD–BE sit explicitly inside the five-dimensional compact symmetric space.
+
+Status:
+
+`RANK2_CARTAN_FLAT_EMBEDS_AS_DIAGONAL_SYMMETRIC_UNITARY_EXP_IH`.
+
+### BF.5 Dimensional structure
+
+The internal symmetric-space geometry now has the exact hierarchy
+
+```text
+SU(3)                  dimension 8
+SO(3) fixed subgroup   dimension 3
+SU(3)/SO(3) manifold   dimension 5
+maximal flat / rank    dimension 2
+restricted Weyl group  D3 ~= S3
+```
+
+The rank-two flat parametrizes maximal commuting relative directions inside a compact five-dimensional internal manifold.
+
+### BF.6 Interpretation firewall
+
+This is an internal compact symmetric-space statement.
+
+The five-dimensional manifold is not claimed to be five physical spatial dimensions; the rank-two flat is not claimed to be two physical axes; and the Cartan embedding is not promoted to a spacetime configuration-space map.
