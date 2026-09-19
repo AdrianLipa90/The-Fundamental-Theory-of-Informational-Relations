@@ -918,3 +918,24 @@ Status:
 Remaining source-map gate:
 
 \`OPEN_CLEAN_NONSEPARABLE_COLLATZ_POINCARE_TO_COMPLEX_FAMILY_HOLONOMY_MAP\`.
+
+
+### Appendix U update — active equatorial \(q_C\) Bargmann phase is zero
+
+For
+
+\[
+|\psi(q)\rangle
+=
+\frac{|0\rangle+e^{2\pi iq}|1\rangle}{\sqrt2},
+\]
+
+the three-overlap Bargmann phase telescopes around the active \(q_C\) triplet. Since every active pair separation satisfies \(|q_i-q_j|<1/2\), the Bargmann product is positive real.
+
+Status:
+
+\`ACTIVE_SCALAR_QC_EQUATORIAL_BARGMANN_PHASE_ZERO\`.
+
+Therefore scalar \(q_C\) on one equator is insufficient as the Stage-36 CP source. An additional nonseparable connection, non-equatorial motion, multi-ray Berry geometry, or equivalent path-local structure is required.
+
+The existing hexahedral Bloch theorem has a nonzero \(\pm\pi/4\) Bargmann phase, but no family-sector identification is made.
