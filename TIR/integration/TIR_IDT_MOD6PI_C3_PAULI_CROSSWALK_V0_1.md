@@ -487,3 +487,178 @@ Consequently the remaining physical seam is narrower:
 \]
 
 If that final sector-binding theorem passes, the three-family cardinality is no longer an independent model input; it follows from the transitive \(C_3\) orbit.
+
+
+---
+
+## Appendix B — NEW 2026-09-19 — Exact \(C_3\times Z_2\) six-state lift
+
+### B.1 Independent binary carrier
+
+Stage 23 already supplies the structural two-state CP1/chirality carrier
+
+\[
+\{|N\rangle,|S\rangle\}
+\]
+
+with involution
+
+\[
+J_\chi=
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix},
+\qquad
+J_\chi^2=I_2.
+\]
+
+This \(Z_2\) channel is independent of the ordered three-family label index.
+
+### B.2 Product carrier
+
+Combine the periodic temporal \(C_3\) carrier with the existing chirality \(Z_2\):
+
+\[
+\mathcal H_{6,T}
+=
+E_T\otimes\mathbb C^2.
+\]
+
+Define
+
+\[
+G_T=P_T\otimes J_\chi.
+\]
+
+Because the two factors act on independent tensor components,
+
+\[
+(P_T\otimes I_2)(I_3\otimes J_\chi)
+=
+(I_3\otimes J_\chi)(P_T\otimes I_2).
+\]
+
+Since
+
+\[
+P_T^3=I_3,
+\qquad
+J_\chi^2=I_2,
+\qquad
+\gcd(3,2)=1,
+\]
+
+the product generator has order six:
+
+\[
+\boxed{G_T^6=I_6}
+\]
+
+while
+
+\[
+\boxed{G_T^3=I_3\otimes J_\chi\neq I_6.}
+\]
+
+Therefore the generated finite action is a \(C_6\) realization of
+
+\[
+\boxed{C_3\times Z_2\cong C_6.}
+\]
+
+The orbit of one basis state contains all six product labels exactly once before returning.
+
+### B.3 Existing Stage-24 family realization
+
+Stage 24 already defines
+
+\[
+G_F=P_F\otimes J_\chi
+\]
+
+on the ordered family×chirality basis and records the six-cycle
+
+\[
+(s_1,N)
+\to
+(s_2,S)
+\to
+(s_3,N)
+\to
+(s_1,S)
+\to
+(s_2,N)
+\to
+(s_3,S)
+\to
+(s_1,N).
+\]
+
+The temporal-to-family intertwiner from Appendix A lifts canonically to
+
+\[
+M_6=M_{TF}\otimes I_2.
+\]
+
+Then
+
+\[
+\boxed{
+M_6G_T=G_FM_6.
+}
+\]
+
+Thus
+
+\[
+\boxed{
+(C_3^{\rm temporal}\times Z_2^\chi)
+\cong
+(C_3^{\rm family}\times Z_2^\chi)
+}
+\]
+
+as anchored six-state label representations.
+
+Status:
+
+\`C3_X_CHIRALITY_Z2_SIX_STATE_INTERTWINER_CLOSED\`.
+
+### B.4 What six means here
+
+The exact result is
+
+\[
+\boxed{3\times2=6}
+\]
+
+for **family×chirality labels**.
+
+It is not yet a derivation of the six quark flavours
+
+\[
+u,d,c,s,t,b.
+\]
+
+That stronger statement requires an additional theorem identifying the binary factor with the physical weak-isospin doublet:
+
+\[
+\boxed{
+Z_2^{\chi}
+\stackrel{?}{\longrightarrow}
+Z_2^{\rm weak}.
+}
+\]
+
+The current repository supports a CP1/Bloch weak-axis structure, but the exact identity of the Stage-23 chirality involution with the physical \(u/d\)-type weak-doublet index is not established by this crosswalk.
+
+Therefore:
+
+\`SIX_STATE_FAMILY_X_CHIRALITY = CLOSED\`
+
+but
+
+\`SIX_QUARK_FLAVOURS_FROM_3_X_2 = OPEN_PENDING_CHIRALITY_TO_WEAK_DOUBLET_BINDING\`.
+
+This is the next minimal physical gate.
