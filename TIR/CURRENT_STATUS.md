@@ -260,6 +260,12 @@ The source packet for the inter-leaf matching field is defined by
 
 The executable contract validates provenance, payload digest, patch/overlap integrity, the matching-law handoff and the `x0=ct` shift conversion. Its reference controls pass; the source-owned production `beta_match` dataset remains `OPEN_INPUT`.
 
+A later executable source-bundle gate is already merged at
+
+`TIR/foundations/validation/tir_production_realization_binding_v0_2.py`.
+
+It composes the production spatial capture and production matching capture only when both carry the same source-declared `physical_realization_id` and the same `physical_realization_receipt_sha256`. The assembler itself is closed; it does not fabricate either source capture and keeps `canon_allowed=false`. No production v0.2 bundle is currently present in the repository.
+
 The relativistic dependency line is therefore
 
 ```text
@@ -267,8 +273,10 @@ A2 Cartan refinement                         PASS conditional local
 A3 zero torsion / Levi-Civita               PASS on admitted sector
 A4 leading-loop metric-jet selection        PASS on LRR
 A5 3-manifold certifier                     PASS implementation
-production global spatial complex           OPEN INPUT
-production inter-leaf matching field        OPEN INPUT
+production global spatial capture           OPEN INPUT
+production inter-leaf matching capture      OPEN INPUT
+same physical realization ID + receipt      REQUIRED
+TIR physical-realization bundle v0.2        ASSEMBLER CLOSED / INPUTS OPEN
 TIR x IDT x RFC global spacetime/ADM join   OPEN
 Einstein constraint/evolution closure       OPEN downstream
 ```
@@ -376,8 +384,10 @@ The current cross-program frontier is
 The highest-priority unresolved gates are now:
 
 ```text
-production global spatial complex
-+ production inter-leaf matching field
+production global spatial capture
++ production inter-leaf matching capture
++ same physical realization ID / receipt
+-> TIR physical-realization source bundle v0.2
 -> global TIR-IDT-RFC spacetime/ADM admission
 -> Einstein system closure
 
