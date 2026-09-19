@@ -73,13 +73,15 @@ jobs:
           grep -Fq '"cp_phase_source_requirement": "NONSEPARABLE_PAIR_DEPENDENT_HOLONOMY_REQUIRED_FOR_NONZERO_PLAQUETTE_PHASE"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"equatorial_qc_bargmann_status": "ACTIVE_SCALAR_QC_EQUATORIAL_BARGMANN_PHASE_ZERO"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"overlap_bargmann_crosswalk_status": "PLAQUETTE_PHASE_EQUALS_BARGMANN_QUADRILATERAL_UNDER_OVERLAP_REALIZATION"' mod6pi-c3-pauli-receipt.json
-          grep -Fq '"projective_holonomy_source_status": "OVERLAP_REALIZATION_CONDITIONAL__SOURCE_STATES_NOT_YET_DERIVED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"c3_projective_frame_status": "C3_LABEL_AND_CHARACTER_PROJECTIVE_FRAMES_CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"f3_bargmann_cp_status": "F3_NONZERO_BARGMANN_PLAQUETTE_AND_JARLSKOG_CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"projective_holonomy_source_status": "REPRESENTATION_LEVEL_C3_FRAMES_DERIVED__PHYSICAL_SECTOR_FRAME_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"geometric_cp_source_requirement": "ADDITIONAL_NONSEPARABLE_CONNECTION_OR_NON_EQUATORIAL_MULTI_RAY_GEOMETRY_REQUIRED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"branch_to_complex_holonomy_status": "OPEN_CLEAN_NONSEPARABLE_COLLATZ_POINCARE_TO_COMPLEX_FAMILY_HOLONOMY_MAP"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"stage39_40_status": "TWO_OPERATOR_MECHANISM_RETAINED_FULL_CKM_SHAPE_FAIL"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"continuous_real_lie_lift_status": "NONTRIVIAL_CONTINUOUS_PSL2R_TO_SU3F_LIE_HOMOMORPHIC_LIFT_REFUTED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"compact_family_branch_operator_status": "OPEN_DISCRETE_OR_HOLONOMIC_NONPOLAR_BRANCHWISE_SU3F_LIFT"' mod6pi-c3-pauli-receipt.json
-          grep -Fq '"family_dynamics_selector_status": "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_SEPARABLE_AND_EQUATORIAL_BARGMANN_CP_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_NONSEPARABLE_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_dynamics_selector_status": "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_PROJECTIVE_FRAMES_CLOSED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_PHYSICAL_SECTOR_FRAME_BRANCH_MAP_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"historical_generation_numbering_status": "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"source_order_anchor_status": "UNIQUE_ORDER_PRESERVING_LABEL_CROSSWALK_CLOSED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"declared_anchor_dependency": "REMOVED_AT_ORDERED_LABEL_REPRESENTATION_LEVEL"' mod6pi-c3-pauli-receipt.json
