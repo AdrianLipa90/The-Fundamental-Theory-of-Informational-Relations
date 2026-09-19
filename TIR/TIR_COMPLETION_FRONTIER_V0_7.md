@@ -1792,3 +1792,45 @@ Status:
 `D6_SIX_STATE_REAL_REP_DECOMPOSES_AS_1_PLUS_1_PLUS_2_PLUS_2`.
 
 This is finite-group representation data only.
+
+### Appendix BB update — compact outer-(Z_2) (SU(3)) class quotient
+
+For every (U\in SU(3)), the conjugacy class is completely determined by
+
+\[
+t=\operatorname{tr}U,
+\]
+
+because
+
+\[
+p_U(\lambda)=\lambda^3-t\lambda^2+\bar t\lambda-1.
+\]
+
+The compact trace region is the (SU(3)) deltoid. Complex conjugation acts by
+
+\[
+t\mapsto\bar t.
+\]
+
+Its fixed classes form exactly
+
+\[
+t\in[-1,3]\subset\mathbb R.
+\]
+
+Therefore the quotient by the outer involution is a compact half-deltoid.
+
+Status:
+
+`SU3_CONJUGACY_CLASS_COMPLETELY_COORDINATIZED_BY_COMPLEX_TRACE`
+
+`OUTER_CONJUGATION_FIXED_CLASSES_FORM_REAL_TRACE_INTERVAL_MINUS1_TO3`
+
+`COMPACT_SU3_CLASS_SPACE_MOD_OUTER_Z2_HALF_DELTOID`.
+
+The terminal forward/reverse loop classes have conjugate nonreal traces and form a two-element outer orbit, which becomes one point off the fixed boundary in the quotient.
+
+`TERMINAL_FORWARD_REVERSE_PAIR_IDENTIFIED_AS_ONE_OFF_FIXED_LOCUS_QUOTIENT_POINT`.
+
+No physical CP identification is made.
