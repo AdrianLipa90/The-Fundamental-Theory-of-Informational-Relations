@@ -1866,3 +1866,23 @@ Status:
 `TERMINAL_LOOP_SUPPLIES_TWO_INDEPENDENT_CARTAN_EIGENPHASE_COORDINATES`.
 
 These remain structural loop invariants, not physical mixing parameters.
+
+### Appendix AW update — terminal forward/reverse classes form an outer involutive pair
+
+Complex conjugation maps the terminal holonomy to the same \(SU(3)\) conjugacy class as orientation reversal:
+
+\[
+[U_\circ^*]=[U_\circ^{-1}].
+\]
+
+The forward and reverse classes are distinct because their traces are complex conjugates with nonzero imaginary part.
+
+Status:
+
+`COMPLEX_CONJUGATION_MAPS_TERMINAL_FORWARD_CLASS_TO_REVERSE_CLASS`
+
+`TERMINAL_FORWARD_REVERSE_CLASSES_FORM_INVOLUTIVE_OUTER_Z2_PAIR`
+
+`COMPLEX_CONJUGATION_NOT_INNER_ON_TERMINAL_CLASS_WITNESS`.
+
+This is a group-automorphism result only; no physical C/P/CP identification is made.
