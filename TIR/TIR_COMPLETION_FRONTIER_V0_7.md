@@ -816,3 +816,31 @@ remains OPEN.
 Aggregate frontier:
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__RHO_BINDING_AND_BRANCHWISE_COMPACT_LIFT_OPEN\`.
+
+
+### Appendix Q update — polar compactification refuted as sufficient lift
+
+The canonical polar factors of the Stage-49 branch matrices are
+
+\[
+Q_E=I_2,
+\qquad
+Q_O=
+\frac1{\sqrt{17}}
+\begin{pmatrix}
+4&1\\
+-1&4
+\end{pmatrix}.
+\]
+
+Generator-wise polar compactification therefore loses all positional information carried by \(E\), while word-wise polar factorization is not multiplicative.
+
+Status:
+
+\`CANONICAL_POLAR_COMPACTIFICATION_REFUTED_AS_SUFFICIENT_BRANCH_LIFT\`.
+
+The remaining branch-wise compact map must be non-polar and composition-preserving.
+
+Frontier:
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__CANONICAL_POLAR_LIFT_REFUTED__RHO_BINDING_AND_NONPOLAR_COMPACT_LIFT_OPEN\`.
