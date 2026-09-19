@@ -864,3 +864,40 @@ Status:
 \`SIX_ICOSAHEDRAL_QUADRUPOLES_GENERATE_FULL_SU3_CURRENT_EXACT\`.
 
 This is Lie/representation geometry, not a claim of five physical spatial dimensions. The physical family selector remains OPEN.
+
+
+### Appendix M update — Stage-66 stationary cubic selector
+
+The Stage-64 scalar-selector OPEN is superseded by the prospective Stage-65 freeze and Stage-66 derivation.
+
+The unique projective coefficient is
+
+\[
+\boxed{
+\eta_*
+=
+-\frac{75(59+21\sqrt5)}{638}
+}
+\]
+
+with constrained Hessian signature
+
+\[
+(-,+,+,+).
+\]
+
+The stationary point is therefore a retained saddle. The unique negative mode aligns exactly with
+
+\[
+P_3A_{\rm seed}P_3^T,
+\]
+
+while \(A_{\rm seed}\) was excluded from the equation used to solve \(\eta\).
+
+Status:
+
+\`STAGE66_UNIQUE_STATIONARY_CUBIC_SELECTOR_CLOSED_SADDLE\`.
+
+The remaining family-dynamics debt is narrower:
+
+\`CUBIC_SELECTOR_CLOSED__BRANCH_OPERATOR_RHYTHM_AND_REALFORM_SELECTION_OPEN\`.
