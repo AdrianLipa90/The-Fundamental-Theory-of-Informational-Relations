@@ -248,6 +248,14 @@ def main() -> None:
         ROOT
         / "TIR/integration/TIR_HEXAHEDRAL_BLOCH_DUAL_FRAME_V0_1.md"
     ).read_text(encoding="utf-8")
+    gremlin_overlay = (
+        ROOT
+        / "TIR/integration/GREMLIN_CROSS_REPO_DEPENDENCY_OVERLAY_V0_1.md"
+    ).read_text(encoding="utf-8")
+    hexahedral_bloch = (
+        ROOT
+        / "TIR/integration/TIR_HEXAHEDRAL_BLOCH_DUAL_FRAME_V0_1.md"
+    ).read_text(encoding="utf-8")
 
     stage15 = (
         ROOT
@@ -1036,6 +1044,68 @@ def main() -> None:
         else 0.0
     )
 
+    # Conditional overlap-realization theorem for family plaquette phase.
+    # If W_ij=<u_i|d_j>, the rephasing-invariant plaquette is exactly the
+    # Bargmann/Pancharatnam quadrilateral phase.
+    u_overlap = [
+        np.array([1.0, 0.0, 0.0], dtype=complex),
+        np.array([1.0, 1.0j, 0.0], dtype=complex) / math.sqrt(2.0),
+        np.array([1.0, 0.0, 1.0], dtype=complex) / math.sqrt(2.0),
+    ]
+    d_overlap = [
+        np.array([1.0, 1.0, 0.0], dtype=complex) / math.sqrt(2.0),
+        np.array([1.0, 0.0, 1.0j], dtype=complex) / math.sqrt(2.0),
+        np.array([0.0, 1.0, 1.0], dtype=complex) / math.sqrt(2.0),
+    ]
+    W_overlap = np.array(
+        [[np.vdot(u, d) for d in d_overlap] for u in u_overlap],
+        dtype=complex,
+    )
+
+    i0, k0, j0, l0 = 0, 1, 0, 1
+    plaquette_overlap = (
+        W_overlap[i0, j0]
+        * np.conj(W_overlap[k0, j0])
+        * W_overlap[k0, l0]
+        * np.conj(W_overlap[i0, l0])
+    )
+    bargmann_quad = (
+        np.vdot(u_overlap[i0], d_overlap[j0])
+        * np.vdot(d_overlap[j0], u_overlap[k0])
+        * np.vdot(u_overlap[k0], d_overlap[l0])
+        * np.vdot(d_overlap[l0], u_overlap[i0])
+    )
+    overlap_bargmann_identity_residual = abs(
+        plaquette_overlap - bargmann_quad
+    )
+    overlap_bargmann_phase = math.atan2(
+        float(np.imag(bargmann_quad)),
+        float(np.real(bargmann_quad)),
+    )
+
+    # Explicit ray-gauge invariance: independent phase changes of u_i,d_j.
+    u_gauge = [
+        np.exp(1j * t) * u
+        for t, u in zip((0.13, -0.41, 0.77), u_overlap)
+    ]
+    d_gauge = [
+        np.exp(1j * t) * d
+        for t, d in zip((-0.22, 0.51, -0.63), d_overlap)
+    ]
+    W_gauge = np.array(
+        [[np.vdot(u, d) for d in d_gauge] for u in u_gauge],
+        dtype=complex,
+    )
+    plaquette_gauge = (
+        W_gauge[i0, j0]
+        * np.conj(W_gauge[k0, j0])
+        * W_gauge[k0, l0]
+        * np.conj(W_gauge[i0, l0])
+    )
+    overlap_bargmann_gauge_residual = abs(
+        plaquette_gauge - plaquette_overlap
+    )
+
     checks = {
         "legacy_projection_source_blob_pinned": (
             archive_projection_blob == "01b9be380f095b613a731ba258865bc617d8e854"
@@ -1122,6 +1192,20 @@ def main() -> None:
             and "|\\gamma_{B,\\rm oct}|=\\frac{\\Omega_{\\rm oct}}2=\\frac\\pi4"
             in hexahedral_bloch
             and "\\langle +x|+y\\rangle" in hexahedral_bloch
+        ),
+        "overlap_plaquette_equals_bargmann_quadrilateral_exact": (
+            overlap_bargmann_identity_residual < TOL
+        ),
+        "overlap_bargmann_quadrilateral_is_ray_gauge_invariant": (
+            overlap_bargmann_gauge_residual < TOL
+        ),
+        "generic_overlap_realization_can_have_nonzero_bargmann_phase": (
+            abs(overlap_bargmann_phase) > TOL
+        ),
+        "gremlin_xfi02_is_candidate_only_not_promoted_parent": (
+            "XFI.02" in gremlin_overlay
+            and "EXACT_CONDITIONAL" in gremlin_overlay
+            and "CANDIDATE_ONLY / CHYBA / NON_CANONICAL_OVERLAY" in gremlin_overlay
         ),
         "active_qc_equatorial_bargmann_turn_sum_zero_exact": (
             qc_bargmann_turn_sum == 0
@@ -1778,6 +1862,14 @@ def main() -> None:
             if passed
             else "NOT_EVALUATED"
         ),
+        "overlap_bargmann_crosswalk_status": (
+            "PLAQUETTE_PHASE_EQUALS_BARGMANN_QUADRILATERAL_UNDER_OVERLAP_REALIZATION"
+            if passed
+            else "FAILED"
+        ),
+        "projective_holonomy_source_status": (
+            "OVERLAP_REALIZATION_CONDITIONAL__SOURCE_STATES_NOT_YET_DERIVED"
+        ),
         "scalar_qc_cp_status": (
             "SCALAR_VERTEX_QC_PHASE_DIFFERENCE_CP_NO_GO"
             if passed
@@ -1983,6 +2075,18 @@ def main() -> None:
                 "complexification_plus_additional_dynamics",
             ],
         },
+        "overlap_bargmann_audit": {
+            "condition": "W_ij = <u_i|d_j>",
+            "plaquette_equals_bargmann_quadrilateral_residual": (
+                overlap_bargmann_identity_residual
+            ),
+            "ray_gauge_invariance_residual": overlap_bargmann_gauge_residual,
+            "example_bargmann_phase_rad": overlap_bargmann_phase,
+            "gremlin_xfi02_status": "CANDIDATE_ONLY_NOT_USED_AS_AUTHORITY",
+            "remaining_source_problem": (
+                "DERIVE_THE_TWO_PROJECTIVE_FAMILY_FRAMES_OR_EQUIVALENT_PAIRWISE_HOLONOMY"
+            ),
+        },
         "equatorial_qc_bargmann_audit": {
             "carrier": "S1_SUBSET_CP1_EQUATOR",
             "qC": [str(q) for q in q_vertices],
@@ -2143,6 +2247,9 @@ def main() -> None:
             "collatz_fs_relational_phase_interface_does_not_itself_supply_family_cp_operator": True,
             "equatorial_scalar_qc_bargmann_phase_is_zero_for_active_triplet": True,
             "nonzero_hexahedral_bargmann_phase_is_not_reassigned_to_family_sector": True,
+            "bargmann_quadrilateral_identity_is_conditional_on_overlap_realization": True,
+            "gremlin_xfi02_candidate_is_not_promoted_by_this_crosswalk": True,
+            "projective_overlap_geometry_does_not_derive_family_frames_by_itself": True,
             "additional_nonseparable_or_non_equatorial_structure_required_for_cp": True,
             "no_nontrivial_continuous_real_lie_homomorphism_psl2r_to_su3f": True,
             "stage52_complexification_bridge_is_not_a_direct_real_form_homomorphism": True,
