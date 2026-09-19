@@ -6432,3 +6432,45 @@ The terminal loop therefore carries a genuine orientation asymmetry at the level
 This is a group-theoretic statement only.
 
 It is not yet identified with physical CP, CKM, PMNS, matter-antimatter asymmetry, or a measured CP phase.
+
+---
+
+## Appendix AV — NEW 2026-09-19 — Terminal Collatz loop is a regular rank-two \(SU(3)\) conjugacy class
+
+The hosted terminal-loop audit gives the principal eigenphases
+
+\[
+(-0.8284975357488278,\ 0.2744955841537180,\ 0.5540019515951092),
+\]
+
+which are pairwise distinct and sum to zero to numerical tolerance.
+
+Hence the terminal loop has three distinct unit-modulus eigenvalues with determinant one.
+
+Therefore
+
+\[
+\boxed{U_\circ\text{ is a regular element of }SU(3).}
+\]
+
+Status:
+
+`TERMINAL_LOOP_REGULAR_SU3_CONJUGACY_CLASS`.
+
+For a regular element of \(SU(3)\), the centralizer is a maximal torus:
+
+\[
+\boxed{Z_{SU(3)}(U_\circ)\cong U(1)\times U(1).}
+\]
+
+Status:
+
+`TERMINAL_LOOP_CENTRALIZER_IS_MAXIMAL_TORUS_U1_X_U1`.
+
+After the determinant-one constraint removes the common phase, the conjugacy class therefore carries two independent Cartan eigenphase coordinates.
+
+Status:
+
+`TERMINAL_LOOP_SUPPLIES_TWO_INDEPENDENT_CARTAN_EIGENPHASE_COORDINATES`.
+
+This is a Wilson-loop conjugacy statement. The two eigenphase coordinates are not identified with CKM/PMNS mixing angles or a measured CP phase.
