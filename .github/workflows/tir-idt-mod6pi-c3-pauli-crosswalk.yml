@@ -102,6 +102,12 @@ jobs:
           grep -Fq '"collatz_state_family_generator_index_status": "G_N_EQUALS_A_MINUS_L_MOD3_C3_EQUIVARIANT"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"signed_geometric_step_candidate_status": "PASS_MATH_PROVENANCE__PHYSICAL_PROMOTION_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"state_dependent_su3_step_status": "SOURCE_DERIVED_PARAMETER_FREE_SU3_STEP_SCAFFOLD_VALIDATED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"common_target_family_path_holonomy_status": "PASS_SU3_GROUPOID_FLAT_PURE_GAUGE"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"common_target_family_wij_status": "SOURCE_DERIVED_COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"common_target_wilson_loop_status": "TRIANGULAR_WILSON_LOOP_IDENTITY"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"common_target_cp_holonomy_status": "NO_GO_COMMON_TARGET_COBoundARY_TRANSPORT_ALONE_CANNOT_SOURCE_NONZERO_LOOP_HOLONOMY"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"physical_family_connection_status": "OPEN_NONFLAT_PATH_DEPENDENT_EXTENSION_OR_ADDITIONAL_CONNECTION"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_wij_source_binding_status": "COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_SOURCE_DERIVED_FLAT__NONFLAT_PHYSICAL_CONNECTION_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"signed_geometric_order_status": "EQUAL_COUNT_EO_OE_ORDER_DISTINGUISHED_ON_ROTATING_C3_AXES"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"three_step_lie_access_status": "EVERY_THREE_CONSECUTIVE_C3_AXES_LIE_GENERATE_SU3F"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"physical_signed_geometric_step_status": "NOT_PROMOTED_PHYSICAL_HAMILTONIAN_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
@@ -113,7 +119,7 @@ jobs:
           grep -Fq '"stage39_40_status": "TWO_OPERATOR_MECHANISM_RETAINED_FULL_CKM_SHAPE_FAIL"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"continuous_real_lie_lift_status": "NONTRIVIAL_CONTINUOUS_PSL2R_TO_SU3F_LIE_HOMOMORPHIC_LIFT_REFUTED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"compact_family_branch_operator_status": "OPEN_DISCRETE_OR_HOLONOMIC_NONPOLAR_BRANCHWISE_SU3F_LIFT"' mod6pi-c3-pauli-receipt.json
-          grep -Fq '"family_dynamics_selector_status": "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_VALIDATED__PHYSICAL_RHO_TEMPORAL_FAMILY_AND_CKM_PROMOTION_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_dynamics_selector_status": "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_VALIDATED__COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_FLAT_PURE_GAUGE__PHYSICAL_RHO_NONFLAT_CONNECTION_TEMPORAL_FAMILY_AND_CKM_PROMOTION_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"historical_generation_numbering_status": "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"source_order_anchor_status": "UNIQUE_ORDER_PRESERVING_LABEL_CROSSWALK_CLOSED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"declared_anchor_dependency": "REMOVED_AT_ORDERED_LABEL_REPRESENTATION_LEVEL"' mod6pi-c3-pauli-receipt.json
