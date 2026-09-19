@@ -287,6 +287,26 @@ def main() -> None:
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE53_SPIN1_SUBGROUP_CP_NOGO_3PLUS5_V0_1.md"
     ).read_text(encoding="utf-8")
+    stage55 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE55_SU3_SO3_SYMMETRIC_PAIR_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage56 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE56_PLATONIC_SPIN2_RESTRICTION_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage57 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE57_PLATONIC_TRIPLET_TENSOR_SQUARE_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage58 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE58_ICOSAHEDRAL_QUADRUPOLE_SU3_GENERATION_V0_1.md"
+    ).read_text(encoding="utf-8")
     stage64 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -780,6 +800,25 @@ def main() -> None:
             and "\\boxed{J=0}" in stage53
             and "\\mathbf 3\\oplus\\mathbf 5" in stage53
         ),
+        "stage55_su3_so3_symmetric_pair_pass_present": (
+            "STAGE_55_SU3_SO3_SYMMETRIC_PAIR_PASS" in stage55
+            and "SU(3)/SO(3)" in stage55
+            and "\\dim\\mathfrak p=5" in stage55
+        ),
+        "stage56_n5_icosahedral_spin2_irreducibility_pass_present": (
+            "STAGE_56_N5_ICOSAHEDRAL_SPIN2_IRREDUCIBILITY_PASS" in stage56
+            and "\\mathbf5\\downarrow A_5=\\mathbf5_{\\rm irr}" in stage56
+        ),
+        "stage57_icosahedral_triplet_tensor_square_match_pass_present": (
+            "STAGE_57_ICOSAHEDRAL_TRIPLET_TENSOR_SQUARE_MATCH_PASS" in stage57
+            and "\\mathbf3\\otimes\\mathbf3" in stage57
+            and "\\mathbf1\\oplus\\mathbf3\\oplus\\mathbf5" in stage57
+        ),
+        "stage58_icosahedral_quadrupole_su3_generation_pass_present": (
+            "STAGE_58_ICOSAHEDRAL_QUADRUPOLE_SU3_GENERATION_PASS" in stage58
+            and "\\operatorname{rank}\\{Q_a\\}=5" in stage58
+            and "Lie-closure dimension `8`" in stage58
+        ),
         "stage64_selector_provenance_open_parent_present": (
             "STAGE_64_CANONICAL_SCALAR_SELECTOR_REMAINS_OPEN_PASS" in stage64
             and "branch symbol -> family-space operator" in stage64
@@ -1037,6 +1076,21 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "su3_so3_complement_status": (
+            "FIVE_DIMENSIONAL_SU3_OVER_SO3_SPIN2_COMPLEMENT_CURRENT_EXACT"
+            if passed
+            else "FAILED"
+        ),
+        "n5_icosahedral_complement_status": (
+            "N5_A5_IRREDUCIBLE_FIVE_CARRIER_CURRENT_EXACT"
+            if passed
+            else "FAILED"
+        ),
+        "icosahedral_su3_generation_status": (
+            "SIX_ICOSAHEDRAL_QUADRUPOLES_GENERATE_FULL_SU3_CURRENT_EXACT"
+            if passed
+            else "FAILED"
+        ),
         "family_dynamics_selector_status": (
             "OPEN_BRANCH_OPERATOR_RHYTHM_REALFORM_AND_COMPLEMENT_SELECTION"
         ),
@@ -1168,6 +1222,19 @@ def main() -> None:
             "six_weak_intertwiner": six_weak_intertwiner_residual,
             "jarlskog_exact": abs(J - J_exact),
         },
+        "icosahedral_su3_complement_audit": {
+            "compact_subgroup_dimension": 3,
+            "symmetric_space_tangent_dimension": 5,
+            "full_su3_dimension": 8,
+            "symmetric_pair": "SU(3)/SO(3)",
+            "n5_rotation_group": "A5",
+            "n5_spin2_restriction": "irreducible_5",
+            "icosahedral_axes_unoriented": 6,
+            "quadrupole_span_dimension": 5,
+            "commutator_span_dimension": 3,
+            "lie_closure_dimension": 8,
+            "physical_family_dynamics_selector": "OPEN",
+        },
         "collatz_poincare_three_carrier_audit": {
             "input_carrier_dimension": 2,
             "sym2_carrier_dimension": sym2_dimension,
@@ -1230,6 +1297,9 @@ def main() -> None:
             "split_real_three_carrier_is_not_identified_directly_with_SU3F": True,
             "compact_real_form_bridge_availability_is_not_dynamical_selection": True,
             "spin1_compact_subgroup_alone_cannot_supply_nonzero_CP": True,
+            "five_dimensional_complement_is_lie_tangent_not_five_physical_spatial_dimensions": True,
+            "a5_icosahedral_five_carrier_is_not_equated_with_su3f_without_dynamics": True,
+            "icosahedral_quadrupole_lie_generation_does_not_close_physical_family_selector": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
             "physical_ckm_assignment": "OPEN",
