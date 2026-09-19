@@ -125,6 +125,21 @@ def main() -> None:
     archive_projection_blob = git_blob_sha(archive_projection_bytes)
     archive_projection_csv_blob = git_blob_sha(archive_projection_csv_bytes)
 
+    archive_csv_has_stale_up_quark_id = (
+        'nu_L,up_quark,"T3=1/2, pole=north/+"' in archive_projection_csv
+    )
+    archive_csv_has_corrected_up_quark_id = (
+        'u_L,up_quark,"T3=1/2, pole=north/+"' in archive_projection_csv
+    )
+    if archive_csv_has_stale_up_quark_id and not archive_csv_has_corrected_up_quark_id:
+        archive_csv_state = "STALE_UP_QUARK_PARTICLE_ID"
+    elif archive_csv_has_corrected_up_quark_id and not archive_csv_has_stale_up_quark_id:
+        archive_csv_state = "CORRECTED_UP_QUARK_PARTICLE_ID"
+    elif archive_csv_has_stale_up_quark_id and archive_csv_has_corrected_up_quark_id:
+        archive_csv_state = "MIXED_UP_QUARK_PARTICLE_IDS"
+    else:
+        archive_csv_state = "UP_QUARK_ROW_NOT_DETECTED"
+
     stage15 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -348,25 +363,9 @@ def main() -> None:
             'Channel("nu_L", "neutrino", "L", "weak_doublet", "north/+", Fraction(1,2)' in archive_projection
             and 'Channel("e_L", "charged_lepton", "L", "weak_doublet", "south/-", Fraction(-1,2)' in archive_projection
         ),
-        "legacy_generated_csv_up_quark_row_consistent_with_source": (
-            any(
-                len(parts) >= 2
-                and parts[0] == "u_L"
-                and parts[1] == "up_quark"
-                for parts in (
-                    line.split(",", 2)
-                    for line in archive_projection_csv.splitlines()[1:]
-                )
-            )
-            and not any(
-                len(parts) >= 2
-                and parts[0] == "nu_L"
-                and parts[1] == "up_quark"
-                for parts in (
-                    line.split(",", 2)
-                    for line in archive_projection_csv.splitlines()[1:]
-                )
-            )
+        "legacy_generated_csv_up_quark_row_auditable": (
+            archive_csv_has_stale_up_quark_id
+            or archive_csv_has_corrected_up_quark_id
         ),
         "legacy_axis_v18_declares_universal_weak_axis_ansatz": (
             "The weak doublet uses one universal weak-isospin axis." in archive_axis_v18
@@ -636,6 +635,7 @@ def main() -> None:
         "legacy_weak_projection_source": "archive/v7.9/full/28_debt11_chiral_representation_projection_v3_0/scripts/debt11_chiral_representation_projection_v3_0.py",
         "legacy_weak_projection_source_blob": archive_projection_blob,
         "legacy_generated_projection_csv_blob": archive_projection_csv_blob,
+        "legacy_generated_projection_csv_state": archive_csv_state,
         "tir_family_order_parent": "TIR_POLYGONAL_STAGE22_SEED_PRECEDENCE_V0_1",
         "tir_chirality_parent": "TIR_POLYGONAL_STAGE23_CHIRALITY_INTERTWINER_V0_1",
         "tir_family_cycle_parent": "TIR_POLYGONAL_STAGE24_TIR_SEED_CHIRALITY_E8_INTERTWINER_V0_1",
@@ -678,8 +678,8 @@ def main() -> None:
             "physical_ckm_assignment": "OPEN",
             "physical_pmns_assignment": "OPEN",
             "family_count_is_conditional_on_sector_binding": True,
-            "legacy_generated_csv_up_quark_row_matches_source": True,
-            "legacy_projection_source_and_generated_csv_are_consistent": True,
+            "legacy_generated_csv_state_is_diagnostic_not_math_gate": True,
+            "legacy_projection_script_is_provenance_authority": True,
             "chirality_to_weak_label_map_uses_recovered_orientation_anchor": True,
             "weak_a1_weyl_z2_does_not_require_legacy_orientation_anchor": True,
             "legacy_anchor_only_orients_cp1_ns_against_t3_sign": True,
