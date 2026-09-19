@@ -901,3 +901,36 @@ Status:
 The remaining family-dynamics debt is narrower:
 
 \`CUBIC_SELECTOR_CLOSED__BRANCH_OPERATOR_RHYTHM_AND_REALFORM_SELECTION_OPEN\`.
+
+
+### Appendix N update — split-real branch operator closed
+
+Stage 49/50 already close the operator assignment
+
+\[
+E\mapsto R_E,
+\qquad
+O\mapsto R_O
+\]
+
+on the canonical split-real three-carrier, with exact symmetric-square homomorphism and noncommuting ordered branch products.
+
+Status:
+
+\`BRANCH_SYMBOL_TO_SPLIT_REAL_THREE_OPERATOR_CLOSED\`.
+
+The archived bounded rhythm with default \(\eta=0.35\) is explicitly a model choice and is not promoted.
+
+Status:
+
+\`LEGACY_BOUNDED_RHYTHM_MODEL_CHOICE_NOT_PROMOTED\`.
+
+Remaining:
+
+\`OPEN_EXACT_COLLATZ_TWIN_PRIME_RHO_S_DERIVATION\`
+
+\`OPEN_COMPACT_REAL_FORM_AND_FAMILY_OPERATOR_BINDING\`.
+
+Aggregate frontier:
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__RHYTHM_AND_COMPACT_FAMILY_MAP_OPEN\`.
