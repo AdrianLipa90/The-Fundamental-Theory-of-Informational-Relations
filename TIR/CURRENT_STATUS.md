@@ -1677,3 +1677,31 @@ The exact trace witness is
 hence the loop is analytically nontrivial.
 
 Repository validation is the next gate. Physical CKM/PMNS/CP promotion remains OPEN.
+
+### Appendix AP update — terminal Collatz-cycle SU(3) loop hosted PASS
+
+The retrospective terminal-cycle candidate has passed exact-head hosted validation.
+
+\[
+1\to4\to2\to1,
+\qquad
+U_\circ=U_E(A_2)U_E(A_1)U_O(A_0).
+\]
+
+Hosted results:
+
+```text
+max |U_circle-I|       = 0.5008161081115994
+unitarity residual     = 6.661338147750939e-16
+determinant residual   = 9.994535692500799e-16
+Im tr(U_circle)        = 0.06023967414631505
+trace formula residual = 8.884223316973178e-16
+```
+
+Status:
+
+`TERMINAL_COLLATZ_CYCLE_NONTRIVIAL_SU3_HOLONOMY_RETROSPECTIVE_STRUCTURAL_PASS`
+
+`TERMINAL_CYCLE_SUPPLIES_NONFLAT_SOURCE_DERIVED_LOOP_CANDIDATE`.
+
+It remains explicitly retrospective and is not promoted to physical CP/CKM/PMNS.
