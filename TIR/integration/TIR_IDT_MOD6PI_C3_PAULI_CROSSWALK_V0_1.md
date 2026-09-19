@@ -5542,3 +5542,130 @@ flatness or non-flatness in advance
 Status remains:
 
 `COMMON_TARGET_FAMILY_PATH_HOLONOMY_CANDIDATE_FROZEN_PREVALIDATION`.
+
+---
+
+## Appendix AN — NEW 2026-09-19 — Hosted validation of the common-target family (W^F_{ij}) scaffold
+
+### AN.1 Hosted provenance
+
+The Appendix-AM candidate has passed the exact-head hosted crosswalk gate.
+
+```text
+validated head : f930361fe52cd899c8bba12ece67ea160e017413
+workflow       : TIR IDT mod6pi C3 Pauli crosswalk
+run            : #205 / 35446617955
+job            : 105906536985
+conclusion     : success
+```
+
+Status:
+
+`PASS_SU3_GROUPOID_FLAT_PURE_GAUGE`.
+
+### AN.2 Exact source paths
+
+The hosted replay uses
+
+```text
+15  -> 35 : OEOE, 4 steps
+35  -> 35 : empty word, 0 steps
+143 -> 35 : frozen 90-step Stage-48 word
+```
+
+with starting (C_3) frame indices
+
+```text
+15  : 1
+35  : 2
+143 : 2
+```
+
+and common target frame `2`.
+
+### AN.3 Path propagators and pairwise transports
+
+For
+
+\[
+G_i=\overleftarrow{\prod}U_{geo}(n_{i,k}),
+\qquad
+W^F_{ij}=G_i^\dagger G_j,
+\]
+
+the hosted residuals are
+
+```text
+path unitarity residual     = 2.0206066545682744e-14
+path determinant residual   = 3.033368243768708e-14
+W_ij unitarity residual     = 4.04121180963557e-14
+W_ij determinant residual   = 6.028513077328184e-14
+W_ij reversal residual      = 5.551115123125783e-17
+W_ij composition residual   = 2.0206123459202648e-14
+```
+
+Thus the candidate closes an (SU(3))-typed pairwise transport groupoid to floating-point tolerance.
+
+Status:
+
+`SOURCE_DERIVED_COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_CLOSED`.
+
+### AN.4 Non-Abelian edges but flat loop
+
+The transport is not trivial:
+
+\[
+\max\|W^F_{ij}-I\|
+=
+1.521891036749805,
+\]
+
+and representative edge transports do not commute:
+
+\[
+\max\|[W^F_{12},W^F_{23}]\|
+=
+0.8527092175626987.
+\]
+
+Nevertheless the triangular Wilson loop closes to identity:
+
+\[
+\boxed{
+W^F_{12}W^F_{23}W^F_{31}=I
+}
+\]
+
+with residual
+
+\[
+2.1094300329942488\times10^{-14},
+\]
+
+and the reverse orientation gives
+
+\[
+2.1094257466330393\times10^{-14}.
+\]
+
+Therefore the common-target construction is a non-Abelian but flat frame coboundary:
+
+`FLAT_PURE_GAUGE_COMMON_TARGET_GROUPOID`.
+
+### AN.5 Consequence
+
+The source-derived family (W^F_{ij}) scaffold is no longer absent. What remains open is a **non-flat** physical family connection.
+
+A common-target coboundary alone cannot source a nonzero gauge-invariant loop phase or CP curvature.
+
+Status:
+
+`TRIANGULAR_WILSON_LOOP_IDENTITY`
+
+`NO_GO_COMMON_TARGET_COBoundARY_TRANSPORT_ALONE_CANNOT_SOURCE_NONZERO_LOOP_HOLONOMY`
+
+`OPEN_NONFLAT_PATH_DEPENDENT_EXTENSION_OR_ADDITIONAL_CONNECTION`.
+
+Current family-source status:
+
+`COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_SOURCE_DERIVED_FLAT__NONFLAT_PHYSICAL_CONNECTION_OPEN`.
