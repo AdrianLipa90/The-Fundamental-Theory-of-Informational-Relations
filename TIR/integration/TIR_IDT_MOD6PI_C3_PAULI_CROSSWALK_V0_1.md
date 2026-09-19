@@ -7021,3 +7021,848 @@ These are exact representation-theory statements.
 The sixth-root spectrum is a character spectrum of the finite symmetry action.
 
 It is not an energy spectrum, particle-mass spectrum, physical frequency spectrum, or spacetime-dimension statement.
+
+---
+
+## Appendix BB — NEW 2026-09-19 — Compact outer-(Z_2) quotient of the (SU(3)) conjugacy-class space
+
+### BB.1 Complex trace is a complete (SU(3)) class coordinate
+
+For (U\in SU(3)), let
+
+\[
+t=\operatorname{tr}U.
+\]
+
+If the eigenvalues are \(\lambda_1,\lambda_2,\lambda_3\), then \(|\lambda_i|=1\) and \(\lambda_1\lambda_2\lambda_3=1\). Therefore the second elementary symmetric polynomial is
+
+\[
+\lambda_1\lambda_2+\lambda_1\lambda_3+\lambda_2\lambda_3
+=
+\overline{\lambda_1+\lambda_2+\lambda_3}
+=
+\bar t.
+\]
+
+Hence the characteristic polynomial is
+
+\[
+\boxed{
+p_U(\lambda)
+=
+\lambda^3-t\lambda^2+\bar t\lambda-1.
+}
+\]
+
+Since unitary matrices are normal, the eigenvalue multiset fixes the conjugacy class. Thus the complex trace is a complete coordinate on the (SU(3)) conjugacy-class space.
+
+Status:
+
+`SU3_CONJUGACY_CLASS_COMPLETELY_COORDINATIZED_BY_COMPLEX_TRACE`.
+
+### BB.2 Compact trace region and outer involution
+
+The trace image of compact (SU(3)) is the compact three-cusped deltoid. Its boundary is
+
+\[
+\boxed{
+t_{\partial}(\theta)
+=
+2e^{i\theta}+e^{-2i\theta}.
+}
+\]
+
+Complex conjugation sends
+
+\[
+t\mapsto\bar t,
+\]
+
+equivalently \(\theta\mapsto-\theta\) on the boundary.
+
+The outer involution induced by
+
+\[
+U\mapsto U^*
+\]
+
+therefore acts on conjugacy classes as reflection of the compact deltoid across the real axis.
+
+### BB.3 Fixed locus
+
+A class is fixed by the outer involution exactly when
+
+\[
+t=\bar t\in\mathbb R.
+\]
+
+For real \(t=x\),
+
+\[
+\lambda^3-x\lambda^2+x\lambda-1
+=
+(\lambda-1)
+\left(\lambda^2+(1-x)\lambda+1\right).
+\]
+
+For an (SU(3)) class the two remaining roots are a conjugate reciprocal pair, so the fixed classes have spectrum
+
+\[
+\{1,e^{i\theta},e^{-i\theta}\}
+\]
+
+and
+
+\[
+\boxed{
+x=1+2\cos\theta\in[-1,3].
+}
+\]
+
+Status:
+
+`OUTER_CONJUGATION_FIXED_CLASSES_FORM_REAL_TRACE_INTERVAL_MINUS1_TO3`.
+
+### BB.4 Compact quotient
+
+Quotienting the compact conjugacy-class deltoid by the involution
+
+\[
+t\sim\bar t
+\]
+
+gives a compact half-deltoid, which may be represented by
+
+\[
+\operatorname{Im}t\ge0.
+\]
+
+The real interval \([-1,3]\) is its fixed boundary.
+
+Status:
+
+`COMPACT_SU3_CLASS_SPACE_MOD_OUTER_Z2_HALF_DELTOID`.
+
+### BB.5 Terminal Collatz holonomy lies off the fixed locus
+
+For the validated terminal loop,
+
+\[
+t_\circ
+=
+2.4889716929998738
++
+0.06023967414631505\,i.
+\]
+
+Thus
+
+\[
+\operatorname{Im}t_\circ\neq0,
+\]
+
+so the forward terminal class is not fixed by the outer involution. The reverse loop has
+
+\[
+\operatorname{tr}U_{\circ^{-1}}=\bar t_\circ
+\]
+
+and the two classes form an orbit of size two.
+
+In the quotient they become one point away from the fixed boundary.
+
+Status:
+
+`TERMINAL_FORWARD_REVERSE_PAIR_IDENTIFIED_AS_ONE_OFF_FIXED_LOCUS_QUOTIENT_POINT`.
+
+### BB.6 Interpretation firewall
+
+This theorem gives a compact symmetry structure for the pair of orientation-reversed (SU(3)) classes:
+
+```text
+forward class
+    <-> outer Z2 <->
+reverse class
+
+quotient class space
+    = compact
+
+fixed classes
+    = real-trace interval [-1,3]
+```
+
+It does **not** identify the outer involution with physical charge conjugation, parity, or CP, and it does not treat \(|\operatorname{Im}t|\) as an observed CP-violation parameter.
+
+The result is purely group/conjugacy-class geometry.
+
+---
+
+## Appendix BC — NEW 2026-09-19 — Outer-fixed (SU(3)) classes as the compact spin-one/(SO(3)) locus
+
+### BC.1 Fixed-class criterion
+
+For (U\in SU(3)), Appendix BB gives
+
+\[
+p_U(\lambda)=\lambda^3-t\lambda^2+\bar t\lambda-1,
+\qquad
+t=\operatorname{tr}U.
+\]
+
+The exact identity already validated on the terminal class is the general (SU(3)) relation
+
+\[
+\boxed{
+\det(U-I)=2i\,\operatorname{Im}\operatorname{tr}U.
+}
+\]
+
+Therefore
+
+\[
+\operatorname{Im}\operatorname{tr}U=0
+\iff
+\det(U-I)=0
+\iff
+1\in\operatorname{spec}(U).
+\]
+
+If (1\) is an eigenvalue, determinant one and unitarity force the remaining pair to be
+
+\[
+e^{i\theta},e^{-i\theta}.
+\]
+
+Hence the class is conjugate to a real three-dimensional rotation.
+
+Thus
+
+\[
+\boxed{
+\text{outer-fixed conjugacy class}
+\iff
+\text{class intersects a conjugate }SO(3)\subset SU(3).
+}
+\]
+
+Status:
+
+`OUTER_FIXED_CLASS_LOCUS_EQUALS_CONJUGATE_SPIN1_SO3_CLASS_LOCUS`.
+
+### BC.2 Stage-55 symmetric pair is the Lie-algebra form of the same involution
+
+Stage 55 already establishes
+
+\[
+\boxed{
+(\mathfrak{su}(3),\mathfrak{so}(3))
+}
+\]
+
+and
+
+\[
+\mathfrak{su}(3)=\mathfrak k\oplus\mathfrak p,
+\qquad
+\dim\mathfrak k=3,
+\qquad
+\dim\mathfrak p=5,
+\]
+
+with
+
+\[
+[\mathfrak k,\mathfrak k]\subset\mathfrak k,
+\qquad
+[\mathfrak k,\mathfrak p]\subset\mathfrak p,
+\qquad
+[\mathfrak p,\mathfrak p]\subset\mathfrak k.
+\]
+
+For the outer conjugation involution, the fixed Lie algebra is a conjugate copy of
+
+\[
+\mathfrak{so}(3),
+\]
+
+while the anti-fixed tangent is the five-dimensional symmetric-traceless complement.
+
+Status:
+
+`OUTER_INVOLUTION_LIE_SPLIT_SU3_EQUALS_SO3_PLUS_FIVE_COMPLEMENT`.
+
+### BC.3 Terminal loop is an off-fixed class
+
+The terminal holonomy satisfies
+
+\[
+\operatorname{Im}\operatorname{tr}U_\circ\neq0
+\]
+
+and
+
+\[
+\det(U_\circ-I)\neq0.
+\]
+
+Hence it has no forced unit eigenvalue and cannot be conjugated into any compact spin-one (SO(3)) subgroup.
+
+This agrees with the independently validated terminal spin-one exclusion.
+
+Therefore the terminal class necessarily uses directions outside the fixed (SO(3)) sector, i.e. the (SU(3)/SO(3)) complement.
+
+Status:
+
+`TERMINAL_OFF_FIXED_CLASS_REQUIRES_SU3_OVER_SO3_COMPLEMENT_DIRECTIONS`.
+
+### BC.4 Geometric meaning of the compact quotient
+
+Appendix BB showed that the outer quotient of the compact class deltoid is a compact half-deltoid.
+
+Appendix BC now identifies its fixed boundary intrinsically:
+
+```text
+fixed boundary of outer quotient
+    = conjugacy classes intersecting compact SO(3)
+
+interior paired classes
+    = classes not self-conjugate under outer Z2
+
+transverse Lie directions
+    = five-dimensional SU(3)/SO(3) complement
+```
+
+This is the exact group-geometric sense in which a compact fixed symmetry and its non-fixed paired classes coexist.
+
+### BC.5 Interpretation firewall
+
+This result does not identify
+
+```text
+outer complex conjugation = physical C
+SO(3) fixed locus         = physical CP-conserving sector
+five-dimensional p       = observed CP-violation field
+```
+
+without an additional physical sector-binding theorem.
+
+The result is a symmetric-pair/conjugacy-class theorem only.
+
+---
+
+## Appendix BD — NEW 2026-09-19 — Rank-two (SU(3)/SO(3)) Cartan plane and the family (D_3) Weyl intertwiner
+
+### BD.1 The family standard plane
+
+The real three-label permutation carrier already decomposes as
+
+\[
+\mathbb R^3
+=
+\mathbf1
+\oplus
+\mathbf2,
+\]
+
+with invariant singlet
+
+\[
+\frac1{\sqrt3}(1,1,1)
+\]
+
+and standard two-plane
+
+\[
+\boxed{
+x_1+x_2+x_3=0.
+}
+\]
+
+A convenient orthonormal basis is
+
+\[
+b_1=\frac1{\sqrt2}(1,-1,0),
+\qquad
+b_2=\frac1{\sqrt6}(1,1,-2).
+\]
+
+### BD.2 Explicit map into the symmetric-space tangent
+
+Stage 55 identifies
+
+\[
+SU(3)/SO(3)
+\]
+
+with tangent complement
+
+\[
+\mathfrak p
+\cong
+\operatorname{Sym}^2_0(\mathbb R^3).
+\]
+
+Map a zero-sum family vector to the diagonal real-symmetric traceless matrix
+
+\[
+\boxed{
+H(x)=\operatorname{diag}(x_1,x_2,x_3).
+}
+\]
+
+The images
+
+\[
+H(b_1),
+\qquad
+H(b_2)
+\]
+
+are orthonormal under the trace inner product and commute.
+
+Hence they span a two-dimensional abelian subspace
+
+\[
+\mathfrak a\subset\mathfrak p.
+\]
+
+For (SU(3)/SO(3)) this is a maximal abelian tangent subspace.
+
+Therefore
+
+\[
+\boxed{
+\operatorname{rank}(SU(3)/SO(3))=2.
+}
+\]
+
+Status:
+
+`SU3_SO3_SYMMETRIC_SPACE_RANK_TWO`.
+
+### BD.3 Exact (D_3) intertwining
+
+For every family permutation matrix (Min S_3),
+
+\[
+M\,H(x)\,M^T
+=
+H(Mx).
+\]
+
+In particular the already-frozen family generators (P_3) and (R_{\rm orient}) induce on \(\mathfrak a\) exactly the same two-dimensional matrices as on the family standard plane.
+
+Thus
+
+\[
+\boxed{
+\mathbf2_{\rm family}
+\cong
+\mathfrak a
+}
+\]
+
+as a real (D_3\simeq S_3) module.
+
+Status:
+
+`FAMILY_STANDARD_TWO_PLANE_INTERTWINES_SU3_SO3_RANK2_CARTAN_PLANE`.
+
+### BD.4 Restricted roots
+
+On \(\mathfrak a\), take
+
+\[
+\alpha_{12}=x_1-x_2,
+\qquad
+\alpha_{23}=x_2-x_3,
+\qquad
+\alpha_{13}=x_1-x_3.
+\]
+
+In the orthonormal \((b_1,b_2)\) coordinates,
+
+\[
+\alpha_{13}=\alpha_{12}+\alpha_{23},
+\]
+
+all three roots have squared norm (2), and the simple-root Cartan matrix is
+
+\[
+\boxed{
+\begin{pmatrix}
+2&-1\\
+-1&2
+\end{pmatrix}.
+}
+\]
+
+Hence the restricted root system is
+
+\[
+\boxed{A_2}.
+\]
+
+Status:
+
+`SU3_SO3_RESTRICTED_ROOT_SYSTEM_A2`.
+
+### BD.5 Weyl group
+
+The Weyl group of (A_2) is
+
+\[
+W(A_2)\cong S_3\cong D_3.
+\]
+
+This is exactly the same nonabelian orientation group already generated on the family labels by
+
+\[
+P_3,
+\qquad
+R_{\rm orient},
+\qquad
+R_{\rm orient}P_3R_{\rm orient}=P_3^{-1}.
+\]
+
+Therefore the earlier family orientation (D_3) is simultaneously the restricted Weyl action on the rank-two Cartan plane of (SU(3)/SO(3)).
+
+Status:
+
+`SU3_SO3_RESTRICTED_WEYL_GROUP_D3_ISOMORPHIC_S3`.
+
+### BD.6 Interpretation firewall
+
+The exact chain is
+
+```text
+three family labels
+    = real permutation carrier 3
+
+invariant mean direction
+    = singlet 1
+
+zero-sum relative plane
+    = standard 2
+
+SU(3)/SO(3) maximal abelian tangent
+    = rank-2 Cartan plane
+
+restricted root system
+    = A2
+
+restricted Weyl group
+    = S3 ~= D3
+```
+
+This is group/representation geometry only.
+
+It does **not** identify the rank-two Cartan plane with two physical spatial axes, the three family labels with physical (x,y,z), or the (2\to3) representation structure with a dynamical wavelength/amplitude-to-volume law.
+
+---
+
+## Appendix BE — NEW 2026-09-19 — Compact (A_2) Weyl alcove and the (SU(3)) trace deltoid
+
+### BE.1 Compactification of the rank-two plane
+
+Appendix BD identifies the family standard two-plane with the rank-two Cartan plane
+
+\[
+\mathfrak a
+=
+\{\operatorname{diag}(\theta_1,\theta_2,\theta_3):
+\theta_1+\theta_2+\theta_3=0\}.
+\]
+
+Exponentiation
+
+\[
+H\mapsto e^{iH}
+\]
+
+introduces the coroot-lattice periodicity, while the (A_2) Weyl group (S_3\simeq D_3) permutes the three eigenphases.
+
+A fundamental compact parameter domain is the Weyl alcove
+
+\[
+\boxed{
+\theta_1\ge\theta_2\ge\theta_3,
+\qquad
+\theta_1-\theta_3\le2\pi,
+\qquad
+\theta_1+\theta_2+\theta_3=0.
+}
+\]
+
+### BE.2 Exact equilateral triangle
+
+The three alcove vertices can be chosen as
+
+\[
+v_0=(0,0,0),
+\]
+
+\[
+v_1=\left(\frac{2\pi}{3},\frac{2\pi}{3},-\frac{4\pi}{3}\right),
+\]
+
+\[
+v_2=\left(\frac{4\pi}{3},-\frac{2\pi}{3},-\frac{2\pi}{3}\right).
+\]
+
+In the orthonormal rank-two coordinates of Appendix BD, all three side lengths are
+
+\[
+\boxed{
+L=2\pi\sqrt{\frac23}
+}
+\]
+
+and the area is
+
+\[
+\boxed{
+A=\frac{2\pi^2}{\sqrt3}.
+}
+\]
+
+Thus the fundamental alcove is an exact equilateral triangle.
+
+Status:
+
+`SU3_RANK2_WEYL_ALCOVE_EQUILATERAL_TRIANGLE_EXACT`.
+
+### BE.3 Trace map to the three deltoid cusps
+
+For a diagonal representative
+
+\[
+U(\theta)=\operatorname{diag}
+\left(e^{i\theta_1},e^{i\theta_2},e^{i\theta_3}\right),
+\]
+
+define
+
+\[
+t(\theta)=\operatorname{tr}U(\theta).
+\]
+
+At the three vertices,
+
+\[
+\boxed{
+t(v_0)=3,
+\qquad
+t(v_1)=3\omega,
+\qquad
+t(v_2)=3\omega^2,
+}
+\]
+
+where
+
+\[
+\omega=e^{2\pi i/3}.
+\]
+
+These are exactly the three cusps of the compact (SU(3)) trace deltoid.
+
+### BE.4 Alcove edges give the deltoid boundary
+
+On the edge with two equal eigenphases
+
+\[
+(\theta_1,\theta_2,\theta_3)=(t,t,-2t),
+\]
+
+the trace is
+
+\[
+\boxed{
+2e^{it}+e^{-2it},
+}
+\]
+
+which is precisely the deltoid boundary parameterization from Appendix BB.
+
+The remaining two edges are its (2\pi/3)-rotated images.
+
+Therefore
+
+\[
+\boxed{
+\text{compact Weyl alcove}
+\xrightarrow{\operatorname{tr}\exp(i\cdot)}
+\text{compact }SU(3)\text{ conjugacy-class deltoid}.
+}
+\]
+
+Status:
+
+`SU3_WEYL_ALCOVE_TRACE_MAPS_TO_COMPACT_DELTOID_CLASS_SPACE`.
+
+### BE.5 Family-plane interpretation
+
+The same rank-two plane already carries the family (D_3/S_3) standard action. Hence the exact chain is
+
+```text
+three-label permutation carrier
+    -> remove invariant singlet
+rank-two family relative plane
+    -> explicit diagonal Cartan intertwiner
+rank-two SU(3)/SO(3) Cartan plane
+    -> affine A2 Weyl quotient
+compact equilateral alcove
+    -> trace map
+compact SU(3) class deltoid
+```
+
+Status:
+
+`FAMILY_STANDARD_TWO_PLANE_COMPACTIFIES_VIA_A2_AFFINE_WEYL_TO_SU3_CLASS_DELTOID`.
+
+### BE.6 Interpretation firewall
+
+This is compact Lie-group/conjugacy-class geometry.
+
+The equilateral alcove is not claimed to be a physical triangle in space; the rank-two plane is not claimed to be two physical spatial axes; the deltoid is not a physical volume; and no wavelength/amplitude-to-volume dynamics is inferred from this compactification.
+
+---
+
+## Appendix BF — NEW 2026-09-19 — Cartan embedding of (SU(3)/SO(3))
+
+### BF.1 Coset embedding
+
+For the compact symmetric pair
+
+\[
+(SU(3),SO(3)),
+\]
+
+use the involution
+
+\[
+\Theta(g)=\bar g.
+\]
+
+Its fixed subgroup is (SO(3)). The Cartan embedding is
+
+\[
+\boxed{
+\Phi(gSO(3))
+=
+g\,\Theta(g^{-1})
+=
+gg^T.
+}
+\]
+
+### BF.2 Image
+
+For (g\in SU(3)),
+
+\[
+S=gg^T
+\]
+
+satisfies
+
+\[
+S^T=S,
+\qquad
+S^\dagger S=I,
+\qquad
+\det S=1.
+\]
+
+Hence the Cartan image lies in the manifold of symmetric unitary determinant-one matrices.
+
+Conversely, every symmetric unitary (S\in SU(3)) admits a Takagi factorization
+
+\[
+S=gg^T
+\]
+
+with a representative (g\in SU(3)) after an (SO(3)) fiber adjustment.
+
+Therefore
+
+\[
+\boxed{
+SU(3)/SO(3)
+\cong
+\{S\in SU(3):S^T=S\}.
+}
+\]
+
+Status:
+
+`SU3_MOD_SO3_CARTAN_EMBEDDING_IS_SYMMETRIC_UNITARY_DET1_MANIFOLD`.
+
+### BF.3 Coset invariance
+
+If (k\in SO(3)), then
+
+\[
+\Phi(gk,SO(3))
+=
+gkk^Tg^T
+=
+gg^T.
+\]
+
+Thus the embedding depends only on the right coset (gSO(3)).
+
+### BF.4 Rank-two flat
+
+Let
+
+\[
+H=\operatorname{diag}(\theta_1,\theta_2,\theta_3),
+\qquad
+\theta_1+\theta_2+\theta_3=0.
+\]
+
+Choose
+
+\[
+g=\exp(iH/2).
+\]
+
+Then
+
+\[
+\boxed{
+\Phi(gSO(3))
+=
+gg^T
+=
+\exp(iH).
+}
+\]
+
+Therefore the rank-two Cartan plane and the compact Weyl alcove of Appendices BD–BE sit explicitly inside the five-dimensional compact symmetric space.
+
+Status:
+
+`RANK2_CARTAN_FLAT_EMBEDS_AS_DIAGONAL_SYMMETRIC_UNITARY_EXP_IH`.
+
+### BF.5 Dimensional structure
+
+The internal symmetric-space geometry now has the exact hierarchy
+
+```text
+SU(3)                  dimension 8
+SO(3) fixed subgroup   dimension 3
+SU(3)/SO(3) manifold   dimension 5
+maximal flat / rank    dimension 2
+restricted Weyl group  D3 ~= S3
+```
+
+The rank-two flat parametrizes maximal commuting relative directions inside a compact five-dimensional internal manifold.
+
+### BF.6 Interpretation firewall
+
+This is an internal compact symmetric-space statement.
+
+The five-dimensional manifold is not claimed to be five physical spatial dimensions; the rank-two flat is not claimed to be two physical axes; and the Cartan embedding is not promoted to a spacetime configuration-space map.

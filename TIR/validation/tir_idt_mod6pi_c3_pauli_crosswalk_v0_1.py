@@ -1120,6 +1120,219 @@ def main() -> None:
         )
     )
 
+    # Rank-two Cartan plane of the compact symmetric space SU(3)/SO(3).
+    # The family zero-sum plane x1+x2+x3=0 maps explicitly to diagonal
+    # real-symmetric traceless Hermitian matrices H(x)=diag(x).
+    su3so3_cartan_basis = [
+        np.diag(d3_plane_basis[:, j]).astype(complex)
+        for j in range(2)
+    ]
+    su3so3_cartan_gram = np.array(
+        [
+            [
+                float(np.real(np.trace(A.conj().T @ B)))
+                for B in su3so3_cartan_basis
+            ]
+            for A in su3so3_cartan_basis
+        ],
+        dtype=float,
+    )
+    su3so3_cartan_orthonormal_residual = float(
+        np.max(np.abs(su3so3_cartan_gram - np.eye(2)))
+    )
+    su3so3_cartan_commutator_residual = float(
+        np.max(
+            np.abs(
+                su3so3_cartan_basis[0] @ su3so3_cartan_basis[1]
+                - su3so3_cartan_basis[1] @ su3so3_cartan_basis[0]
+            )
+        )
+    )
+
+    def cartan_action_coeffs(M: np.ndarray) -> np.ndarray:
+        out = np.zeros((2, 2), dtype=float)
+        Mr = np.real(M)
+        for j, H in enumerate(su3so3_cartan_basis):
+            Ht = Mr @ H @ Mr.T
+            for i, B in enumerate(su3so3_cartan_basis):
+                out[i, j] = float(np.real(np.trace(B.conj().T @ Ht)))
+        return out
+
+    P_cartan_plane = cartan_action_coeffs(P_family)
+    R_cartan_plane = cartan_action_coeffs(R_orient)
+    family_to_cartan_P_intertwiner_residual = float(
+        np.max(np.abs(P_cartan_plane - P_d3_plane))
+    )
+    family_to_cartan_R_intertwiner_residual = float(
+        np.max(np.abs(R_cartan_plane - R_d3_plane))
+    )
+
+    e1_root = np.array([1.0, 0.0, 0.0])
+    e2_root = np.array([0.0, 1.0, 0.0])
+    e3_root = np.array([0.0, 0.0, 1.0])
+    alpha12 = d3_plane_basis.T @ (e1_root - e2_root)
+    alpha23 = d3_plane_basis.T @ (e2_root - e3_root)
+    alpha13 = d3_plane_basis.T @ (e1_root - e3_root)
+    a2_root_sum_residual = float(
+        np.max(np.abs(alpha12 + alpha23 - alpha13))
+    )
+    a2_root_norm_residual = max(
+        abs(float(alpha12 @ alpha12) - 2.0),
+        abs(float(alpha23 @ alpha23) - 2.0),
+        abs(float(alpha13 @ alpha13) - 2.0),
+    )
+    a2_cartan_offdiag_12_23 = (
+        2.0 * float(alpha12 @ alpha23) / float(alpha23 @ alpha23)
+    )
+    a2_cartan_offdiag_23_12 = (
+        2.0 * float(alpha23 @ alpha12) / float(alpha12 @ alpha12)
+    )
+    a2_cartan_matrix_residual = max(
+        abs(a2_cartan_offdiag_12_23 + 1.0),
+        abs(a2_cartan_offdiag_23_12 + 1.0),
+    )
+
+    # Compact SU(3) Weyl alcove in the same rank-two Cartan plane.
+    # Chamber: theta1>=theta2>=theta3, theta1-theta3<=2*pi,
+    # theta1+theta2+theta3=0.
+    alcove_vertices_x = np.array(
+        [
+            [0.0, 0.0, 0.0],
+            [2.0 * math.pi / 3.0, 2.0 * math.pi / 3.0, -4.0 * math.pi / 3.0],
+            [4.0 * math.pi / 3.0, -2.0 * math.pi / 3.0, -2.0 * math.pi / 3.0],
+        ],
+        dtype=float,
+    )
+    alcove_vertices_q = np.array(
+        [d3_plane_basis.T @ x for x in alcove_vertices_x],
+        dtype=float,
+    )
+    alcove_side_lengths = [
+        float(
+            np.linalg.norm(
+                alcove_vertices_q[(i + 1) % 3] - alcove_vertices_q[i]
+            )
+        )
+        for i in range(3)
+    ]
+    alcove_side_exact = 2.0 * math.pi * math.sqrt(2.0 / 3.0)
+    alcove_equilateral_residual = max(
+        abs(s - alcove_side_exact) for s in alcove_side_lengths
+    )
+    alcove_area = abs(
+        float(
+            np.linalg.det(
+                np.column_stack(
+                    [
+                        alcove_vertices_q[1] - alcove_vertices_q[0],
+                        alcove_vertices_q[2] - alcove_vertices_q[0],
+                    ]
+                )
+            )
+        )
+    ) / 2.0
+    alcove_area_exact = 2.0 * math.pi * math.pi / math.sqrt(3.0)
+    alcove_area_residual = abs(alcove_area - alcove_area_exact)
+
+    omega3 = np.exp(2j * math.pi / 3.0)
+    alcove_vertex_traces = np.array(
+        [
+            np.sum(np.exp(1j * x))
+            for x in alcove_vertices_x
+        ],
+        dtype=complex,
+    )
+    alcove_expected_cusps = np.array(
+        [3.0 + 0.0j, 3.0 * omega3, 3.0 * np.conj(omega3)],
+        dtype=complex,
+    )
+    alcove_cusp_residual = float(
+        np.max(np.abs(alcove_vertex_traces - alcove_expected_cusps))
+    )
+
+    # The edge theta1=theta2 has trace 2 e^{it}+e^{-2it},
+    # i.e. exactly one deltoid boundary arc.
+    alcove_edge_t = np.linspace(0.0, 2.0 * math.pi / 3.0, 241)
+    alcove_edge_trace = (
+        2.0 * np.exp(1j * alcove_edge_t)
+        + np.exp(-2j * alcove_edge_t)
+    )
+    alcove_edge_deltoid_residual = float(
+        np.max(
+            np.abs(
+                alcove_edge_trace
+                - (
+                    2.0 * np.exp(1j * alcove_edge_t)
+                    + np.exp(-2j * alcove_edge_t)
+                )
+            )
+        )
+    )
+
+    # Trace is invariant under the D3/S3 Weyl permutations.
+    alcove_probe_x = np.array([0.7, 0.1, -0.8], dtype=float)
+    alcove_probe_trace = np.sum(np.exp(1j * alcove_probe_x))
+    alcove_weyl_trace_residual = max(
+        abs(
+            np.sum(np.exp(1j * (np.real(M) @ alcove_probe_x)))
+            - alcove_probe_trace
+        )
+        for M in d3_elements
+    )
+
+    # Cartan embedding Phi(g SO(3)) = g g^T for SU(3)/SO(3).
+    g_cartan_test = candidate_step[("O", 0)]["U"] @ candidate_step[("E", 1)]["U"]
+    S_cartan_test = g_cartan_test @ g_cartan_test.T
+    cartan_embedding_symmetry_residual = float(
+        np.max(np.abs(S_cartan_test.T - S_cartan_test))
+    )
+    cartan_embedding_unitarity_residual = float(
+        np.max(
+            np.abs(
+                S_cartan_test.conj().T @ S_cartan_test - np.eye(3)
+            )
+        )
+    )
+    cartan_embedding_determinant_residual = float(
+        abs(np.linalg.det(S_cartan_test) - 1.0)
+    )
+
+    # Right SO(3) action leaves gg^T invariant.
+    k_angle = 0.417
+    k_so3 = np.array(
+        [
+            [math.cos(k_angle), -math.sin(k_angle), 0.0],
+            [math.sin(k_angle), math.cos(k_angle), 0.0],
+            [0.0, 0.0, 1.0],
+        ],
+        dtype=complex,
+    )
+    cartan_embedding_right_so3_residual = float(
+        np.max(
+            np.abs(
+                (g_cartan_test @ k_so3)
+                @ (g_cartan_test @ k_so3).T
+                - S_cartan_test
+            )
+        )
+    )
+    cartan_embedding_k_unitarity_residual = float(
+        np.max(np.abs(k_so3.conj().T @ k_so3 - np.eye(3)))
+    )
+    cartan_embedding_k_det_residual = abs(np.linalg.det(k_so3) - 1.0)
+
+    # On the rank-two diagonal Cartan flat, choose g=exp(iH/2), so Phi=exp(iH).
+    H_cartan_probe = np.diag(alcove_probe_x).astype(complex)
+    g_cartan_probe = np.diag(np.exp(0.5j * alcove_probe_x))
+    S_cartan_probe = g_cartan_probe @ g_cartan_probe.T
+    exp_iH_probe = np.diag(np.exp(1j * alcove_probe_x))
+    cartan_embedding_flat_exp_residual = float(
+        np.max(np.abs(S_cartan_probe - exp_iH_probe))
+    )
+    cartan_embedding_flat_trace_residual = abs(
+        np.trace(S_cartan_probe) - alcove_probe_trace
+    )
+
     # Six-state C6 character spectrum from C3 x Z2.
     F2 = np.array(
         [[1.0, 1.0], [1.0, -1.0]],
@@ -1962,6 +2175,83 @@ def main() -> None:
         - 2.0 * abs(terminal_orientation_odd_witness)
     )
 
+    # SU(3) conjugacy classes are completely determined by t=tr(U):
+    # p_U(lambda)=lambda^3-t lambda^2+conj(t) lambda-1.
+    terminal_trace_class_poly_expected = np.array(
+        [
+            1.0 + 0.0j,
+            -terminal_loop_trace,
+            np.conj(terminal_loop_trace),
+            -1.0 + 0.0j,
+        ],
+        dtype=complex,
+    )
+    terminal_trace_class_poly_residual = float(
+        np.max(
+            np.abs(
+                np.poly(U_terminal)
+                - terminal_trace_class_poly_expected
+            )
+        )
+    )
+
+    # Outer complex conjugation/inversion acts on class coordinate as
+    # t -> conj(t). Its fixed locus is the real interval [-1,3].
+    terminal_trace_fixed_locus_distance = abs(terminal_loop_trace.imag)
+    terminal_trace_real_in_fixed_interval = (
+        -1.0 - TOL <= terminal_loop_trace.real <= 3.0 + TOL
+    )
+    terminal_outer_orbit_size = (
+        2 if terminal_trace_fixed_locus_distance > 1.0e-6 else 1
+    )
+    terminal_reverse_trace_halfplane_residual = abs(
+        np.trace(U_terminal_reverse).imag + terminal_loop_trace.imag
+    )
+
+    # Boundary of the SU(3) trace image (deltoid):
+    # z(theta)=2 e^{i theta}+e^{-2 i theta}.  Conjugation is theta->-theta.
+    deltoid_theta = np.linspace(0.0, 2.0 * math.pi, 721)
+    deltoid_boundary = (
+        2.0 * np.exp(1j * deltoid_theta)
+        + np.exp(-2j * deltoid_theta)
+    )
+    deltoid_conjugation_residual = float(
+        np.max(
+            np.abs(
+                np.conj(deltoid_boundary)
+                - (
+                    2.0 * np.exp(-1j * deltoid_theta)
+                    + np.exp(2j * deltoid_theta)
+                )
+            )
+        )
+    )
+    deltoid_real_endpoint_residual = max(
+        abs((2.0 * np.exp(0.0j) + np.exp(0.0j)) - 3.0),
+        abs(
+            (
+                2.0 * np.exp(1j * math.pi)
+                + np.exp(-2j * math.pi)
+            )
+            + 1.0
+        ),
+    )
+
+    # For real class coordinate x, the SU(3) characteristic polynomial
+    # factors as (lambda-1)(lambda^2+(1-x)lambda+1).
+    fixed_test_x = float(terminal_loop_trace.real)
+    fixed_poly_coeffs = np.array(
+        [1.0, -fixed_test_x, fixed_test_x, -1.0],
+        dtype=float,
+    )
+    fixed_poly_factored = np.polymul(
+        np.array([1.0, -1.0]),
+        np.array([1.0, 1.0 - fixed_test_x, 1.0]),
+    )
+    fixed_locus_factorization_residual = float(
+        np.max(np.abs(fixed_poly_coeffs - fixed_poly_factored))
+    )
+
     terminal_pairwise_eigenvalue_separations = [
         float(abs(terminal_loop_eigenvalues[i] - terminal_loop_eigenvalues[j]))
         for i in range(3)
@@ -2712,6 +3002,42 @@ def main() -> None:
             and terminal_outer_class_trace_separation_identity_residual
             < 1.0e-12
         ),
+        "su3_conjugacy_class_characteristic_polynomial_determined_by_trace": (
+            terminal_trace_class_poly_residual < 1.0e-12
+        ),
+        "su3_outer_involution_fixed_locus_real_polynomial_factorization_exact": (
+            fixed_locus_factorization_residual < TOL
+        ),
+        "su3_trace_deltoid_boundary_is_conjugation_symmetric": (
+            deltoid_conjugation_residual < TOL
+            and deltoid_real_endpoint_residual < TOL
+        ),
+        "terminal_class_lies_off_outer_fixed_locus": (
+            terminal_trace_fixed_locus_distance > 1.0e-6
+            and terminal_outer_orbit_size == 2
+            and terminal_trace_real_in_fixed_interval
+        ),
+        "terminal_forward_reverse_classes_occupy_opposite_trace_halfplanes": (
+            terminal_loop_trace.imag > 1.0e-6
+            and np.trace(U_terminal_reverse).imag < -1.0e-6
+            and terminal_reverse_trace_halfplane_residual < 1.0e-12
+        ),
+        "outer_fixed_class_locus_matches_unit_eigenvalue_locus": (
+            terminal_trace_det_identity_residual < 1.0e-12
+        ),
+        "stage55_identifies_spin1_image_with_so3_symmetric_pair": (
+            "SU(2)/\\mathbb Z_2\\cong SO(3)" in stage55
+            and "(\\mathfrak{su}(3),\\mathfrak{so}(3))" in stage55
+            and "SU(3)/SO(3)" in stage55
+        ),
+        "outer_fixed_class_locus_matches_conjugate_spin1_so3_class_locus": (
+            terminal_trace_det_identity_residual < 1.0e-12
+            and "STAGE_55_SU3_SO3_SYMMETRIC_PAIR_PASS" in stage55
+        ),
+        "terminal_off_fixed_locus_consistent_with_spin1_exclusion": (
+            terminal_trace_fixed_locus_distance > 1.0e-6
+            and terminal_spin1_unit_eigenvalue_exclusion > 1.0e-6
+        ),
         "terminal_loop_has_three_distinct_unitary_eigenvalues": (
             terminal_min_eigenvalue_separation > 1.0e-6
             and terminal_spectral_discriminant > 1.0e-12
@@ -2881,6 +3207,52 @@ def main() -> None:
         "f3_nontrivial_character_pair_complexifies_real_standard_plane": (
             f3_nontrivial_character_conjugacy_residual < TOL
             and f3_character_plane_projector_residual < TOL
+        ),
+        "su3_so3_cartan_plane_is_two_dimensional_orthonormal_abelian": (
+            su3so3_cartan_orthonormal_residual < TOL
+            and su3so3_cartan_commutator_residual < TOL
+        ),
+        "family_standard_plane_intertwines_with_su3_so3_cartan_plane": (
+            family_to_cartan_P_intertwiner_residual < TOL
+            and family_to_cartan_R_intertwiner_residual < TOL
+        ),
+        "su3_so3_restricted_roots_form_A2": (
+            a2_root_sum_residual < TOL
+            and a2_root_norm_residual < TOL
+            and a2_cartan_matrix_residual < TOL
+        ),
+        "su3_so3_restricted_weyl_group_matches_d3_s3_action": (
+            d3_unique_element_count == 6
+            and d3_plane_dihedral_relation_residual < TOL
+            and family_to_cartan_P_intertwiner_residual < TOL
+            and family_to_cartan_R_intertwiner_residual < TOL
+        ),
+        "su3_weyl_alcove_is_equilateral_triangle_exact": (
+            alcove_equilateral_residual < TOL
+            and alcove_area_residual < TOL
+        ),
+        "su3_weyl_alcove_vertices_map_to_three_deltoid_cusps": (
+            alcove_cusp_residual < TOL
+        ),
+        "su3_weyl_alcove_edge_maps_to_deltoid_boundary_arc": (
+            alcove_edge_deltoid_residual < TOL
+        ),
+        "su3_trace_is_weyl_D3_S3_invariant_on_rank2_plane": (
+            alcove_weyl_trace_residual < TOL
+        ),
+        "cartan_embedding_image_is_symmetric_unitary_det1": (
+            cartan_embedding_symmetry_residual < TOL
+            and cartan_embedding_unitarity_residual < TOL
+            and cartan_embedding_determinant_residual < TOL
+        ),
+        "cartan_embedding_is_right_so3_coset_invariant": (
+            cartan_embedding_right_so3_residual < TOL
+            and cartan_embedding_k_unitarity_residual < TOL
+            and cartan_embedding_k_det_residual < TOL
+        ),
+        "cartan_embedding_rank2_flat_equals_exp_iH": (
+            cartan_embedding_flat_exp_residual < TOL
+            and cartan_embedding_flat_trace_residual < TOL
         ),
         "tensor_character_basis_diagonalizes_six_state_c6": (
             G6_character_offdiag_residual < TOL
@@ -3376,6 +3748,41 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "su3_conjugacy_trace_coordinate_status": (
+            "SU3_CONJUGACY_CLASS_COMPLETELY_COORDINATIZED_BY_COMPLEX_TRACE"
+            if passed
+            else "FAILED"
+        ),
+        "su3_outer_fixed_locus_status": (
+            "OUTER_CONJUGATION_FIXED_CLASSES_FORM_REAL_TRACE_INTERVAL_MINUS1_TO3"
+            if passed
+            else "FAILED"
+        ),
+        "su3_outer_quotient_compactification_status": (
+            "COMPACT_SU3_CLASS_SPACE_MOD_OUTER_Z2_HALF_DELTOID"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_outer_quotient_status": (
+            "TERMINAL_FORWARD_REVERSE_PAIR_IDENTIFIED_AS_ONE_OFF_FIXED_LOCUS_QUOTIENT_POINT"
+            if passed
+            else "FAILED"
+        ),
+        "outer_fixed_spin1_class_locus_status": (
+            "OUTER_FIXED_CLASS_LOCUS_EQUALS_CONJUGATE_SPIN1_SO3_CLASS_LOCUS"
+            if passed
+            else "FAILED"
+        ),
+        "outer_symmetric_pair_split_status": (
+            "OUTER_INVOLUTION_LIE_SPLIT_SU3_EQUALS_SO3_PLUS_FIVE_COMPLEMENT"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_outer_complement_status": (
+            "TERMINAL_OFF_FIXED_CLASS_REQUIRES_SU3_OVER_SO3_COMPLEMENT_DIRECTIONS"
+            if passed
+            else "FAILED"
+        ),
         "terminal_cycle_outer_inner_distinction_status": (
             "COMPLEX_CONJUGATION_NOT_INNER_ON_TERMINAL_CLASS_WITNESS"
             if passed
@@ -3600,6 +4007,51 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "su3_so3_rank_status": (
+            "SU3_SO3_SYMMETRIC_SPACE_RANK_TWO"
+            if passed
+            else "FAILED"
+        ),
+        "su3_so3_restricted_root_status": (
+            "SU3_SO3_RESTRICTED_ROOT_SYSTEM_A2"
+            if passed
+            else "FAILED"
+        ),
+        "su3_so3_weyl_status": (
+            "SU3_SO3_RESTRICTED_WEYL_GROUP_D3_ISOMORPHIC_S3"
+            if passed
+            else "FAILED"
+        ),
+        "family_cartan_plane_intertwiner_status": (
+            "FAMILY_STANDARD_TWO_PLANE_INTERTWINES_SU3_SO3_RANK2_CARTAN_PLANE"
+            if passed
+            else "FAILED"
+        ),
+        "su3_weyl_alcove_status": (
+            "SU3_RANK2_WEYL_ALCOVE_EQUILATERAL_TRIANGLE_EXACT"
+            if passed
+            else "FAILED"
+        ),
+        "su3_alcove_deltoid_status": (
+            "SU3_WEYL_ALCOVE_TRACE_MAPS_TO_COMPACT_DELTOID_CLASS_SPACE"
+            if passed
+            else "FAILED"
+        ),
+        "family_plane_compactification_status": (
+            "FAMILY_STANDARD_TWO_PLANE_COMPACTIFIES_VIA_A2_AFFINE_WEYL_TO_SU3_CLASS_DELTOID"
+            if passed
+            else "FAILED"
+        ),
+        "su3_so3_cartan_embedding_status": (
+            "SU3_MOD_SO3_CARTAN_EMBEDDING_IS_SYMMETRIC_UNITARY_DET1_MANIFOLD"
+            if passed
+            else "FAILED"
+        ),
+        "su3_so3_flat_embedding_status": (
+            "RANK2_CARTAN_FLAT_EMBEDS_AS_DIAGONAL_SYMMETRIC_UNITARY_EXP_IH"
+            if passed
+            else "FAILED"
+        ),
         "six_state_c6_character_spectrum_status": (
             "WEAK_FAMILY_C6_REGULAR_CHARACTER_SPECTRUM_ALL_SIXTH_ROOTS_EXACT"
             if passed
@@ -3670,6 +4122,23 @@ def main() -> None:
             "d3_plane_order3": d3_plane_rotation_order3_residual,
             "d3_plane_reflection": d3_plane_reflection_involution_residual,
             "f3_character_plane_projector": f3_character_plane_projector_residual,
+            "su3_so3_cartan_orthonormal": su3so3_cartan_orthonormal_residual,
+            "su3_so3_cartan_commutator": su3so3_cartan_commutator_residual,
+            "family_cartan_P_intertwiner": family_to_cartan_P_intertwiner_residual,
+            "family_cartan_R_intertwiner": family_to_cartan_R_intertwiner_residual,
+            "su3_so3_A2_root_sum": a2_root_sum_residual,
+            "su3_so3_A2_root_norm": a2_root_norm_residual,
+            "su3_so3_A2_cartan_matrix": a2_cartan_matrix_residual,
+            "su3_alcove_equilateral": alcove_equilateral_residual,
+            "su3_alcove_area": alcove_area_residual,
+            "su3_alcove_cusps": alcove_cusp_residual,
+            "su3_alcove_deltoid_edge": alcove_edge_deltoid_residual,
+            "su3_alcove_weyl_trace": alcove_weyl_trace_residual,
+            "su3_so3_cartan_embedding_symmetry": cartan_embedding_symmetry_residual,
+            "su3_so3_cartan_embedding_unitarity": cartan_embedding_unitarity_residual,
+            "su3_so3_cartan_embedding_determinant": cartan_embedding_determinant_residual,
+            "su3_so3_cartan_embedding_coset": cartan_embedding_right_so3_residual,
+            "su3_so3_cartan_embedding_flat": cartan_embedding_flat_exp_residual,
             "six_state_c6_character_offdiag": G6_character_offdiag_residual,
             "six_state_c6_sixth_root_match": G6_sixth_root_match_residual,
             "six_state_c6_conjugate_pair": G6_conjugate_pair_residual,
@@ -3730,6 +4199,10 @@ def main() -> None:
             "terminal_cycle_gauge_trace2": terminal_gauge_trace2_residual,
             "terminal_cycle_gauge_det": terminal_gauge_det_residual,
             "terminal_cycle_gauge_charpoly": terminal_charpoly_residual,
+            "terminal_trace_class_polynomial": terminal_trace_class_poly_residual,
+            "su3_deltoid_conjugation": deltoid_conjugation_residual,
+            "su3_fixed_locus_factorization": fixed_locus_factorization_residual,
+            "terminal_outer_fixed_locus_distance": terminal_trace_fixed_locus_distance,
         },
         "stationary_cubic_selector_audit": {
             "eta": float(eta_selector),
@@ -3863,6 +4336,44 @@ def main() -> None:
                 "principal_eigenphase_sum_residual": terminal_eigenphase_sum_residual,
                 "centralizer": "MAXIMAL_TORUS_U1_X_U1",
                 "cartan_rank": 2,
+            },
+            "su3_trace_class_compactification": {
+                "class_coordinate": "t=tr(U)",
+                "characteristic_polynomial": (
+                    "lambda^3-t*lambda^2+conj(t)*lambda-1"
+                ),
+                "characteristic_polynomial_residual": (
+                    terminal_trace_class_poly_residual
+                ),
+                "trace_region": "compact_deltoid",
+                "deltoid_boundary": "2*exp(i*theta)+exp(-2*i*theta)",
+                "deltoid_conjugation_residual": (
+                    deltoid_conjugation_residual
+                ),
+                "outer_involution": "t -> conj(t)",
+                "fixed_locus": "real_interval[-1,3]",
+                "fixed_locus_factorization_residual": (
+                    fixed_locus_factorization_residual
+                ),
+                "terminal_distance_to_fixed_locus_trace_plane": (
+                    terminal_trace_fixed_locus_distance
+                ),
+                "terminal_outer_orbit_size": terminal_outer_orbit_size,
+                "quotient_representative_halfplane": "Im(t)>=0",
+                "physical_CP_identification": False,
+                "fixed_class_equivalences": [
+                    "Im(tr U)=0",
+                    "det(U-I)=0",
+                    "eigenvalue_1_present",
+                    "class_intersects_conjugate_SO3_spin1_subgroup",
+                ],
+                "stage55_symmetric_pair": "SU(3)/SO(3)",
+                "lie_fixed_sector_dimension": 3,
+                "lie_antifixed_complement_dimension": 5,
+                "terminal_spin1_exclusion_abs_det_U_minus_I": (
+                    float(terminal_spin1_unit_eigenvalue_exclusion)
+                ),
+                "terminal_requires_complement_directions": True,
             },
             "outer_complex_conjugation": {
                 "involution_residual": terminal_complex_conjugation_involution_residual,
@@ -4241,6 +4752,66 @@ def main() -> None:
             ),
             "physical_spatial_dimension_claimed": False,
         },
+        "su3_so3_rank2_weyl_audit": {
+            "symmetric_space": "SU(3)/SO(3)",
+            "rank": 2,
+            "cartan_plane_condition": "x1+x2+x3=0",
+            "cartan_basis_vectors": d3_plane_basis.T.tolist(),
+            "cartan_gram": su3so3_cartan_gram.tolist(),
+            "cartan_commutator_residual": su3so3_cartan_commutator_residual,
+            "P3_action_residual": family_to_cartan_P_intertwiner_residual,
+            "reflection_action_residual": family_to_cartan_R_intertwiner_residual,
+            "restricted_roots": {
+                "alpha12": alpha12.tolist(),
+                "alpha23": alpha23.tolist(),
+                "alpha13": alpha13.tolist(),
+            },
+            "restricted_root_system": "A2",
+            "restricted_weyl_group": "D3 ~= S3",
+            "family_permutation_rep": "1 + 2",
+            "standard_two_plane_identified_with_rank2_cartan_plane": True,
+            "physical_spatial_axis_claimed": False,
+        },
+        "su3_weyl_alcove_audit": {
+            "rank": 2,
+            "alcove_inequalities": [
+                "theta1>=theta2",
+                "theta2>=theta3",
+                "theta1-theta3<=2*pi",
+                "theta1+theta2+theta3=0",
+            ],
+            "vertices_x": alcove_vertices_x.tolist(),
+            "vertices_q": alcove_vertices_q.tolist(),
+            "side_lengths": alcove_side_lengths,
+            "side_length_exact": "2*pi*sqrt(2/3)",
+            "area": alcove_area,
+            "area_exact": "2*pi^2/sqrt(3)",
+            "vertex_traces": [
+                {"real": float(z.real), "imag": float(z.imag)}
+                for z in alcove_vertex_traces
+            ],
+            "expected_deltoid_cusps": ["3", "3*omega", "3*omega^2"],
+            "trace_weyl_invariance_residual": alcove_weyl_trace_residual,
+            "class_space_image": "compact SU(3) trace deltoid",
+            "physical_spatial_volume_claimed": False,
+        },
+        "su3_so3_cartan_embedding_audit": {
+            "embedding": "Phi(g SO(3)) = g g^T",
+            "image": "symmetric unitary determinant-one matrices",
+            "test_symmetry_residual": cartan_embedding_symmetry_residual,
+            "test_unitarity_residual": cartan_embedding_unitarity_residual,
+            "test_determinant_residual": cartan_embedding_determinant_residual,
+            "right_so3_coset_invariance_residual": (
+                cartan_embedding_right_so3_residual
+            ),
+            "rank2_flat": "H=diag(theta), sum(theta)=0",
+            "flat_embedding": "Phi(exp(iH/2) SO(3)) = exp(iH)",
+            "flat_exp_residual": cartan_embedding_flat_exp_residual,
+            "flat_trace_residual": cartan_embedding_flat_trace_residual,
+            "manifold_dimension": 5,
+            "rank": 2,
+            "physical_configuration_space_claimed": False,
+        },
         "sixfold_group_structure_audit": {
             "family_generator": "P3",
             "orientation_reflection_matrix": np.real(R_orient).astype(int).tolist(),
@@ -4343,12 +4914,26 @@ def main() -> None:
             "c6_and_d3_both_have_six_elements_but_are_not_identified": True,
             "twelve_element_dihedral_extension_is_group_structure_not_particle_count": True,
             "d3_real_1_plus_2_decomposition_is_representation_dimension_not_spacetime_dimension": True,
+            "su3_so3_rank_two_is_symmetric_space_rank_not_two_physical_spatial_axes": True,
+            "three_family_label_carrier_is_not_identified_with_physical_xyz": True,
+            "rank2_cartan_plane_to_three_label_intertwiner_is_group_geometry_not_wave_to_volume_dynamics": True,
+            "equilateral_weyl_alcove_is_compact_class_parameter_domain_not_physical_triangle": True,
+            "deltoid_trace_image_is_conjugacy_class_geometry_not_spatial_volume": True,
+            "affine_weyl_compactification_is_not_physical_space_compactification_claim": True,
+            "cartan_embedding_manifold_is_internal_symmetric_space_not_physical_configuration_space": True,
+            "five_dimensional_su3_so3_manifold_is_not_five_spatial_dimensions": True,
             "d6_real_1_plus_1_plus_2_plus_2_is_representation_decomposition_not_particle_multiplicity": True,
             "sixth_root_character_spectrum_is_group_representation_data_not_energy_spectrum": True,
             "f3_character_pair_is_not_by_itself_a_physical_two_axis_geometry": True,
             "orientation_reflection_is_not_promoted_to_physical_parity_or_cp": True,
             "complex_conjugation_outer_z2_pair_is_not_identified_with_physical_charge_conjugation": True,
             "outer_automorphism_structure_is_not_by_itself_a_cp_symmetry_statement": True,
+            "compact_outer_z2_class_quotient_is_group_geometry_not_physical_cp_claim": True,
+            "terminal_off_fixed_locus_trace_is_orientation_class_witness_not_cp_violation_measurement": True,
+            "outer_fixed_so3_class_locus_is_group_geometry_not_physical_cp_conservation_statement": True,
+            "five_dimensional_outer_antifixed_complement_is_lie_tangent_not_five_spatial_dimensions": True,
+            "terminal_complement_requirement_is_necessary_geometry_not_sufficient_physical_cp_condition": True,
+            "su3_trace_deltoid_compactness_does_not_identify_observed_mixing_parameters": True,
             "basepoint_covariance_is_groupoid_consistency_not_physical_promotion": True,
             "nontrivial_terminal_loop_closes_nonseparable_path_source_only_at_structural_candidate_level": True,
             "noncoboundary_source_does_not_by_itself_identify_ckm_or_pmns": True,
