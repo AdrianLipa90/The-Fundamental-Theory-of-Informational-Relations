@@ -1042,3 +1042,25 @@ Status:
 Physical up/down assignment remains OPEN and Stage-40 full CKM-shape failure is retained:
 
 `STAGE40_FULL_CKM_SHAPE_FAIL_RETAINED`.
+
+### Appendix Y update — coefficient orientation does not yet select Stage-39 A/B
+
+The current coefficient-role/sign theorem fixes slot roles and source-consensus orientations, but it contains no map
+
+\[
+(h,a,b,c)\to(\alpha_u,\alpha_d).
+\]
+
+The qC sign correlation to the coefficient \(b,c\) slots likewise remains an orientation correlation, not a sector-assignment theorem.
+
+Status:
+
+`COEFFICIENT_ORIENTATION_DOES_NOT_YET_SELECT_STAGE39_SECTOR_ASSIGNMENT`.
+
+Because Stage-39 A/B exchange reverses the sign of \(J\), choosing the assignment from the observed CKM sign would be target leakage.
+
+`OBSERVED_CP_SIGN_SELECTION_FORBIDDEN_AS_TARGET_LEAKAGE`.
+
+Remaining gate:
+
+`OPEN_COEFFICIENT_FREE_HOLONOMIC_SECTOR_ASSIGNMENT_THEOREM`.
