@@ -1497,3 +1497,91 @@ C_3^{\rm physical\ generation/family}
 \]
 
 This firewall prevents the old v0.5 ordering from being silently reintroduced into the new mod-\(6\pi\) crosswalk.
+
+---
+
+## Appendix H — NEW 2026-09-19 — Source-order anchor and raw-qC negative control
+
+### H.1 Independent order check on the active Stage-22 carrier
+
+The active family-seed order is
+
+\[
+s_1=(3,5),\qquad s_2=(5,7),\qquad s_3=(11,13).
+\]
+
+On the current integer-center projection this gives
+
+\[
+m_1=4,\qquad m_2=6,\qquad m_3=12.
+\]
+
+Ordinary Collatz stopping depth to \(1\) is
+
+\[
+\boxed{L(4)=2,\qquad L(6)=8,\qquad L(12)=9.}
+\]
+
+Thus the independent stopping-depth ranking is strictly consistent with the active Stage-22 order.
+
+### H.2 Unique order-preserving representation map
+
+The IDT parent retains the ordered open-cut frame provenance
+
+\[
+e_1<e_2<e_3
+\]
+
+before periodic endpoint identification. The active TIR family carrier is also an ordered three-element basis.
+
+There is exactly one order-preserving bijection between these ordered triples:
+
+\[
+\boxed{M_{\rm ord}(e_j)=s_j,\qquad j=1,2,3.}
+\]
+
+Therefore the earlier explicit anchor \(e_1\mapsto s_1\) is no longer a free cyclic relabelling at the ordered-label representation level.
+
+Status:
+
+`UNIQUE_ORDER_PRESERVING_LABEL_CROSSWALK_CLOSED`
+
+`DECLARED_ANCHOR_DEPENDENCY_REMOVED_AT_ORDERED_LABEL_REPRESENTATION_LEVEL`.
+
+This does not identify temporal frame rank with physical generation rank. Appendix G's precedence firewall remains in force.
+
+### H.3 Raw \(q_C\) is not the uniform three-frame clock
+
+The current IDT Collatz phases on the active centers are
+
+\[
+q_C(4)=\frac17,\qquad
+q_C(6)=\frac{141}{448},\qquad
+q_C(12)=\frac{141}{896}.
+\]
+
+They are not monotone in active Stage-22 order and are not an arithmetic progression:
+
+\[
+q_C(6)-q_C(4)=\frac{11}{64}
+\neq
+-\frac{141}{896}=q_C(12)-q_C(6).
+\]
+
+Hence the raw \(q_C\) values cannot be directly identified with uniformly spaced positions of the periodic \(6\pi\) three-frame carrier.
+
+Status:
+
+`DIRECT_UNIFORM_C3_CLOCK_IDENTIFICATION_REFUTED`.
+
+The exact IDT phase coboundary and its existing sign correlations remain valid; they simply do not close the physical temporal-to-family seam by themselves.
+
+### H.4 Frontier after the negative control
+
+```text
+temporal C3 -> active Stage-22 ordered family C3      CLOSED representation/order
+free cyclic anchor                                   REMOVED
+raw qC -> uniform mod-6pi three-frame clock          REFUTED
+active Stage-22 family seed carrier -> physical family/generation index
+                                                     OPEN
+```
