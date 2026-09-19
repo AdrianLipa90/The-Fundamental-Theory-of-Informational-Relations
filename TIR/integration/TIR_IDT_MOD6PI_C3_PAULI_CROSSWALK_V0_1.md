@@ -4705,3 +4705,67 @@ The remaining Z2 must therefore be broken, if at all, by a relational invariant 
 Current frontier:
 
 `CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__SPECTRAL_Z2_SELECTION_REFUTED__RELATIONAL_EO_TO_DC_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN`.
+
+---
+
+## Appendix AF — NEW 2026-09-19 — Stage-52 spin-one bridge alone cannot generate the D/C family pair
+
+Stage 52 supplies the compact real-form route
+
+\[
+\mathfrak{sl}(2,\mathbb R)
+\to
+\mathfrak{sl}(2,\mathbb C)
+\leftarrow
+\mathfrak{su}(2)
+\xrightarrow{\operatorname{Sym}^2}
+\mathfrak k\subset\mathfrak{su}(3)_F,
+\]
+
+with \(\mathfrak k\cong\mathfrak{so}(3)\).
+
+Stage 55 gives the compact symmetric-pair decomposition
+
+\[
+\mathfrak{su}(3)_F=\mathfrak k\oplus\mathfrak p,
+\qquad
+\dim\mathfrak k=3,
+\quad
+\dim\mathfrak p=5.
+\]
+
+Using the exact Stage-55 Casimir projectors on the traceless Stage-42 operators \(D_0\) and \(C_0\), the current validator reproduces
+
+\[
+\|P_{\mathfrak p}D_0\|_F^2
+=
+\frac7{135}-\frac{\sqrt5}{45}>0,
+\]
+
+and
+
+\[
+\|P_{\mathfrak p}C_0\|_F^2
+=
+\frac{28}{405}+\frac{2\sqrt5}{135}>0.
+\]
+
+Thus neither member of the minimal D/C pair lies wholly inside the Stage-52 compact spin-one subgroup.
+
+Status:
+
+`NO_GO_COMPACT_SPIN1_SUBGROUP_ALONE_CANNOT_GENERATE_DC_PAIR`.
+
+The missing branch-to-family map must therefore inject nonzero content into the symmetric-space complement \(\mathfrak p\cong T(SU(3)/SO(3))\), or provide an equivalent mixed \(\mathfrak k\oplus\mathfrak p\) dynamics.
+
+Status:
+
+`OPEN_BRANCH_TO_SU3_OVER_SO3_COMPLEMENT_INJECTION_OR_EQUIVALENT_MIXED_KP_DYNAMICS`.
+
+This is consistent with Stage 53: the compact spin-one subgroup alone has rephasing-invariant \(J=0\), while leaving it is necessary for a nontrivial family CP structure.
+
+The result does not select the remaining E/O to D/C Z2 assignment and does not promote the geometric rhythm candidate to the physical Hamiltonian rhythm.
+
+Current frontier:
+
+`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__SPECTRAL_Z2_SELECTION_REFUTED__SPIN1_ONLY_DC_GENERATION_REFUTED__BRANCH_TO_COMPLEMENT_INJECTION_EO_Z2_AND_RHO_PHYSICAL_BINDING_OPEN`.
