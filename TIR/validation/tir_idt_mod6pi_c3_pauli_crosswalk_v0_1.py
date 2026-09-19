@@ -1593,6 +1593,9 @@ def main() -> None:
     terminal_trace_imag_residual = abs(
         terminal_loop_trace.imag - terminal_trace_imag_exact
     )
+    terminal_spin1_unit_eigenvalue_exclusion = abs(
+        np.linalg.det(U_terminal - np.eye(3))
+    )
 
     # Conjugacy-class invariants under a nontrivial F3 basis change.
     U_terminal_gauge = F3.conj().T @ U_terminal @ F3
@@ -2295,6 +2298,15 @@ def main() -> None:
             terminal_loop_trace.imag > 1.0e-6
             and terminal_trace_imag_exact > 1.0e-6
         ),
+        "terminal_collatz_cycle_has_no_spin1_forced_unit_eigenvalue": (
+            terminal_spin1_unit_eigenvalue_exclusion > 1.0e-6
+        ),
+        "terminal_collatz_cycle_outside_every_conjugate_spin1_su2_subgroup": (
+            terminal_loop_trace.imag > 1.0e-6
+            and terminal_spin1_unit_eigenvalue_exclusion > 1.0e-6
+            and "STAGE_53_SPIN1_CP_NOGO_AND_SU3_3PLUS5_DECOMPOSITION_PASS"
+            in stage53
+        ),
         "terminal_collatz_cycle_conjugacy_invariants_gauge_stable": (
             terminal_gauge_trace_residual < TOL
             and terminal_gauge_trace2_residual < TOL
@@ -2695,7 +2707,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_VALIDATED__COMMON_TARGET_WIJ_FLAT__TERMINAL_COLLATZ_CYCLE_NONFLAT_SU3_LOOP_RETROSPECTIVE_PASS__PHYSICAL_RHO_TEMPORAL_FAMILY_CP_AND_CKM_PROMOTION_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_VALIDATED__COMMON_TARGET_WIJ_FLAT__TERMINAL_COLLATZ_CYCLE_NONFLAT_SU3_LOOP_OUTSIDE_SPIN1_RETROSPECTIVE_PASS__PHYSICAL_RHO_TEMPORAL_FAMILY_CP_AND_CKM_PROMOTION_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2825,6 +2837,16 @@ def main() -> None:
         ),
         "terminal_cycle_nonflat_source_status": (
             "TERMINAL_CYCLE_SUPPLIES_NONFLAT_SOURCE_DERIVED_LOOP_CANDIDATE"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_cycle_spin1_exclusion_status": (
+            "TERMINAL_LOOP_OUTSIDE_EVERY_CONJUGATE_SPIN1_SU2_SUBGROUP"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_cycle_full_su3_direction_status": (
+            "TERMINAL_LOOP_REQUIRES_DIRECTIONS_BEYOND_COMPACT_SPIN1_SUBGROUP"
             if passed
             else "FAILED"
         ),
@@ -3188,6 +3210,10 @@ def main() -> None:
             "trace_formula_residual": terminal_trace_formula_residual,
             "trace_imag_exact": terminal_trace_imag_exact,
             "trace_imag_residual": terminal_trace_imag_residual,
+            "spin1_character_expected_form": "1+2*cos(theta) is real",
+            "spin1_forced_eigenvalue": 1,
+            "det_U_minus_I_abs": float(terminal_spin1_unit_eigenvalue_exclusion),
+            "outside_every_conjugate_spin1_su2": True,
             "eigenphases_rad": terminal_loop_eigenphases,
             "F3_conjugacy_trace_residual": terminal_gauge_trace_residual,
             "F3_conjugacy_trace2_residual": terminal_gauge_trace2_residual,
@@ -3575,6 +3601,8 @@ def main() -> None:
             "stage52_complexification_bridge_is_not_a_direct_real_form_homomorphism": True,
             "remaining_branch_map_must_not_be_claimed_as_continuous_psl2r_representation": True,
             "stage40_full_ckm_shape_failure_is_retained": True,
+            "terminal_loop_outside_spin1_is_not_by_itself_a_physical_cp_observable": True,
+            "nonreal_trace_is_used_only_as_conjugacy_subgroup_exclusion_witness": True,
             "branch_symbol_to_split_real_operator_is_closed_but_not_physical_family_map": True,
             "legacy_eta_0_35_rhythm_is_model_choice_not_current_input": True,
             "exact_geometric_branch_length_alphabet_is_closed": True,
