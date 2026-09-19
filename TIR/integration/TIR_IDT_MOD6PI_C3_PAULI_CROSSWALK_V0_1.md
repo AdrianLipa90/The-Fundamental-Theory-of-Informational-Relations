@@ -5210,3 +5210,147 @@ temporal C3 = physical flavour C3
 Those remain separate physical-binding gates.
 
 The candidate is frozen solely as the minimal parameter-free state-dependent operator scaffold compatible with the current exact mathematical parents.
+
+---
+
+## Appendix AK — NEW 2026-09-19 — Hosted validation of the signed-geometric state-dependent SU(3) step
+
+### AK.1 Validation provenance
+
+The Appendix-AJ candidate was frozen before validation. It has now been tested on the exact GitHub Actions checkout
+
+`46e1ed199a5467d114877e41202cdd94f983a3eb`
+
+with workflow
+
+`TIR IDT mod6pi C3 Pauli crosswalk`
+
+run `#193`, run id `35443884068`, job id `105899384839`.
+
+The hosted job conclusion is `success`.
+
+Status:
+
+`PASS_MATH_PROVENANCE__PHYSICAL_PROMOTION_OPEN`.
+
+### AK.2 Algebraic type checks
+
+For every branch/frame combination
+
+\[
+K_{geo}(n)=\sigma_{b(n)}A_{(-L(n))\bmod3}
+\]
+
+the hosted validator obtains
+
+```text
+Hermiticity residual = 0
+trace residual       = 0
+```
+
+and for
+
+\[
+U_{geo}(n)=e^{-iK_{geo}(n)}
+\]
+
+it obtains
+
+```text
+max unitarity residual   = 3.3306690738754696e-16
+max determinant residual = 3.3388414414438688e-16
+```
+
+so every frozen step is an (SU(3))-typed matrix to floating-point tolerance.
+
+Status:
+
+`SOURCE_DERIVED_PARAMETER_FREE_SU3_STEP_SCAFFOLD_VALIDATED`.
+
+### AK.3 Ordered branch sensitivity
+
+The state-dependent rotating (C_3) axis prevents the equal-count words `EO` and `OE` from collapsing to the same step product.
+
+For all three starting (C_3) indices the hosted separation is
+
+\[
+\boxed{
+\|U_{EO}-U_{OE}\|_{\max}
+=
+0.8617726992906661.
+}
+\]
+
+Thus exact branch order survives even though `EO` and `OE` contain the same number of odd and even steps.
+
+Status:
+
+`EQUAL_COUNT_EO_OE_ORDER_DISTINGUISHED_ON_ROTATING_C3_AXES`.
+
+### AK.4 Three-step Lie accessibility
+
+For every starting (C_3) frame (r=0,1,2) and every three-step branch word
+
+```text
+EEE EEO EOE EOO OEE OEO OOE OOO
+```
+
+the three selected Stage-66 orbit generators have
+
+\[
+\boxed{\dim_{\mathbb R}\operatorname{Lie}=8}
+\]
+
+with reported Lie-closure residual `0.0` in all (3\times8=24) cases.
+
+Hence every three consecutive state-selected axes has access to the full family algebra
+
+\[
+\boxed{\mathfrak{su}(3)_F.}
+\]
+
+Status:
+
+`EVERY_THREE_CONSECUTIVE_C3_AXES_LIE_GENERATE_SU3F`.
+
+### AK.5 Provenance result
+
+The validated scaffold uses only
+
+```text
+Collatz parity branch E/O
+exact stopping-depth mod-3 state index
+Stage-66 C3 orbit generators
+ln(2), ln(3) from exact Poincare branch lengths
+signed log-Jacobian branch orientation
+```
+
+and the hosted receipt reports
+
+```text
+uses observed CKM          = false
+uses observed PMNS         = false
+uses observed masses       = false
+uses fitted coefficients   = false
+```
+
+### AK.6 Promotion boundary
+
+The validation closes the mathematical scaffold. It does not establish
+
+```text
+physical Hamiltonian = K_geo
+physical rho_s(k) = signed geometric branch scale
+temporal C3 = physical flavour-generation dynamics
+physical CKM/PMNS = ordered product of U_geo
+```
+
+Those remain separate physical-binding gates.
+
+Status:
+
+`NOT_PROMOTED_PHYSICAL_HAMILTONIAN_BINDING_OPEN`.
+
+Current frontier:
+
+`SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_VALIDATED__PHYSICAL_RHO_TEMPORAL_FAMILY_AND_CKM_PROMOTION_OPEN`.
