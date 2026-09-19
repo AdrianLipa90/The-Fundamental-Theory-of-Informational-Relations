@@ -1570,3 +1570,29 @@ Status:
 `EVERY_THREE_CONSECUTIVE_C3_AXES_LIE_GENERATE_SU3F`.
 
 Physical Hamiltonian/rhythm/CKM promotion remains OPEN.
+
+### Appendix AL update — Collatz–Poincare branch rhythm validated
+
+The parameter-free positive branch-local candidate
+
+\[
+\rho_E=\ln2,
+\qquad
+\rho_O=\ln3
+\]
+
+has passed its separate hosted mathematical/provenance gate.
+
+Status:
+
+`PASS_CANDIDATE_MATHEMATICAL_AND_PROVENANCE_VALIDATION__PHYSICAL_RHYTHM_NOT_PROMOTED`.
+
+The candidate is source-derived and target-free, but physical uniqueness and the Hamiltonian identification
+
+\[
+\rho_s(k)=\rho_{geo}(b_k)
+\]
+
+remain OPEN.
+
+`BRANCH_LOCAL_GEOMETRIC_RHYTHM_VALIDATED__PHYSICAL_UNIQUENESS_AND_HAMILTONIAN_BINDING_OPEN`.
