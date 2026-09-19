@@ -181,3 +181,73 @@ Because the two global geometry inputs are externally/source-input gated, the ne
 ## 7. Epistemic boundary
 
 Closing parent-expression evaluation does not convert the charged-lepton mass formulas into empirical PASS. Their current retrospective/precision evidence statuses remain unchanged. It also does not prove that the historical parent packets are uniquely selected by the physical transition geometry.
+
+
+---
+
+## NEW — 2026-09-19 — IDT periodic 6pi C3 / Pauli representation crosswalk
+
+This additive entry does not rewrite or silently reclassify the historical frontier above.
+
+The IDT (N=3) half-frame open cut is
+
+[
+|1|12|23|3|
+]
+
+with path topology (P_4). Under the explicit periodic phase condition
+
+[
+ThetasimTheta+6pi,
+qquad
+v_0sim v_3,
+]
+
+the quotient closes exactly to
+
+[
+oxed{P_4/(v_0sim v_3)cong C_3.}
+]
+
+On the ordered frame basis, the regular cyclic shift (P_3) is diagonalized by the same (F_3) character matrix already used by the Stage-38 family-space branch.
+
+The real ordered triad admits the Hilbert-Schmidt isometric map
+
+[
+e_1mapstosigma_x,qquad
+e_2mapstosigma_y,qquad
+e_3mapstosigma_z,
+]
+
+and is (C_3)-equivariant under
+
+[
+U_3=
+exp!left[
+-rac{ipi}{3}
+rac{sigma_x+sigma_y+sigma_z}{sqrt3}
+ight]in SU(2),
+]
+
+with
+
+[
+operatorname{Ad}_{U_3}:
+sigma_x	osigma_y	osigma_z	osigma_x.
+]
+
+Therefore the former abstract triad-to-Pauli **representation seam** is closed.
+
+Status:
+
+`REPRESENTATION_CROSSWALK_CLOSED / TEMPORAL_SPATIAL_PHYSICAL_BINDING_OPEN / TEMPORAL_FLAVOUR_PHYSICAL_BINDING_OPEN`.
+
+This is a representation-level theorem only. It does not identify the IDT temporal carrier with the physical TIR tangent bundle or physical flavour carrier, and it does not by itself promote CKM/PMNS or gravitational claims.
+
+Canonical integration source:
+
+`TIR/integration/TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1.md`
+
+Validator:
+
+`TIR/validation/tir_idt_mod6pi_c3_pauli_crosswalk_v0_1.py`
