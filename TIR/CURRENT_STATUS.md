@@ -1527,3 +1527,46 @@ Status:
 `STATE_DEPENDENT_SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_FROZEN_PREVALIDATION`.
 
 No CKM, PMNS, mass, or fitted coefficient is used. Physical promotion is not claimed.
+
+### Appendix AK update — signed-geometric SU(3) step validated
+
+The Appendix-AJ state-dependent step
+
+\[
+K_{geo}(n)=\sigma_{b(n)}A_{(-L(n))\bmod3},
+\qquad
+U_{geo}(n)=e^{-iK_{geo}(n)}
+\]
+
+has passed hosted exact-head validation.
+
+Hosted provenance:
+
+```text
+validated head : 46e1ed199a5467d114877e41202cdd94f983a3eb
+workflow run   : #193 / 35443884068
+job            : 105899384839
+conclusion     : success
+```
+
+Results:
+
+```text
+Hermiticity residual            = 0
+trace residual                  = 0
+max unitarity residual          = 3.3306690738754696e-16
+max determinant residual        = 3.3388414414438688e-16
+EO/OE separation, each C3 frame = 0.8617726992906661
+3-step Lie dimension            = 8 for all 24 tested windows
+3-step Lie residual             = 0 for all 24 tested windows
+```
+
+Status:
+
+`PASS_MATH_PROVENANCE__PHYSICAL_PROMOTION_OPEN`
+
+`SOURCE_DERIVED_PARAMETER_FREE_SU3_STEP_SCAFFOLD_VALIDATED`
+
+`EVERY_THREE_CONSECUTIVE_C3_AXES_LIE_GENERATE_SU3F`.
+
+Physical Hamiltonian/rhythm/CKM promotion remains OPEN.
