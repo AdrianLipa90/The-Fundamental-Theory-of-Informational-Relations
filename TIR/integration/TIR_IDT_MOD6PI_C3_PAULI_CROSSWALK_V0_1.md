@@ -3003,3 +3003,167 @@ Current split-real/unitary status:
 Current aggregate family-dynamics frontier:
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__RHO_BINDING_AND_BRANCHWISE_COMPACT_LIFT_OPEN\`.
+
+
+---
+
+## Appendix Q — NEW 2026-09-19 — Canonical polar compactification no-go
+
+### Q.1 Why test the polar factor
+
+Stage 30 already uses the unique orthogonal polar factor as a canonical mathematical diagnostic for a nonsingular structural overlap matrix, while explicitly refusing to promote that diagnostic to a physical family-mixing operator without an independent rule.
+
+Apply the same canonical diagnostic to the exact Stage-49 branch generators before introducing any new compactification ansatz.
+
+For a real \(2\times2\) matrix with positive determinant,
+
+\[
+M=QP,
+\qquad
+Q\in SO(2),
+\qquad
+P=P^T>0,
+\]
+
+is the unique polar decomposition.
+
+### Q.2 Exact compact factors of the two branch generators
+
+For the even branch,
+
+\[
+\widehat M_E=
+\begin{pmatrix}
+1/\sqrt2&0\\
+0&\sqrt2
+\end{pmatrix}
+\]
+
+is already positive symmetric. Hence
+
+\[
+\boxed{
+Q_E=I_2.
+}
+\]
+
+For the odd branch,
+
+\[
+\widehat M_O=
+\frac1{\sqrt3}
+\begin{pmatrix}
+3&1\\
+0&1
+\end{pmatrix},
+\]
+
+the exact orthogonal polar factor is
+
+\[
+\boxed{
+Q_O=
+\frac1{\sqrt{17}}
+\begin{pmatrix}
+4&1\\
+-1&4
+\end{pmatrix}
+\in SO(2).
+}
+\]
+
+### Q.3 Generator-wise polar assignment loses branch order
+
+If one defines a compact generator assignment by
+
+\[
+E\mapsto Q_E,
+\qquad
+O\mapsto Q_O,
+\]
+
+then \(Q_E=I\). Consequently
+
+\[
+Q_EQ_O=Q_OQ_E=Q_O.
+\]
+
+Thus the two distinct ordered words
+
+\[
+EO
+\qquad\text{and}\qquad
+OE
+\]
+
+become identical after generator-wise polar compactification.
+
+Therefore this map destroys exactly the ordering information that the Collatz branch monoid carries.
+
+Status:
+
+\`GENERATORWISE_POLAR_COMPACTIFICATION_ORDER_BLIND\`.
+
+### Q.4 Word-wise polar factor is not a representation
+
+One may instead take the polar factor only after composing the split-real word.
+
+For the two words,
+
+\[
+Q(\widehat M_E\widehat M_O)
+\neq
+Q(\widehat M_O\widehat M_E),
+\]
+
+so word order is then retained.
+
+However,
+
+\[
+\boxed{
+Q(M_1M_2)
+\neq
+Q(M_1)Q(M_2)
+}
+\]
+
+already for the branch generators. Therefore the word-wise polar-factor operation is not a monoid representation of the Collatz branch alphabet.
+
+It cannot replace the required branch-symbol operator map.
+
+### Q.5 Consequence
+
+The most immediate canonical compactification route is therefore excluded in both natural forms:
+
+\`\`\`text
+generator-wise polar compact factors
+    = representation-like product rule
+    = loses E positions/order
+
+word-wise polar compact factor
+    = preserves some order information
+    = not a branch-monoid homomorphism
+\`\`\`
+
+Status:
+
+\`CANONICAL_POLAR_COMPACTIFICATION_REFUTED_AS_SUFFICIENT_BRANCH_LIFT\`.
+
+This does not refute every possible split-real-to-compact dynamical map. It refutes only the canonical polar-factor shortcut.
+
+The remaining compact-family gate is therefore narrower:
+
+\[
+\boxed{
+R_E,R_O
+\stackrel{?}{\longrightarrow}
+U_E,U_O\in SU(3)_F
+}
+\]
+
+through a non-polar mechanism that preserves ordered branch composition and can access the full \(\mathbf3\oplus\mathbf5\) family algebra.
+
+Current frontier:
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__CANONICAL_POLAR_LIFT_REFUTED__RHO_BINDING_AND_NONPOLAR_COMPACT_LIFT_OPEN\`.
