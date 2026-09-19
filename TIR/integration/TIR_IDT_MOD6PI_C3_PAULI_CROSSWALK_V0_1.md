@@ -5449,3 +5449,96 @@ physical Hamiltonian identification rho_s = rho_geo
 Status:
 
 `BRANCH_LOCAL_GEOMETRIC_RHYTHM_VALIDATED__PHYSICAL_UNIQUENESS_AND_HAMILTONIAN_BINDING_OPEN`.
+
+---
+
+## Appendix AM — NEW 2026-09-19 — Freeze of the common-target family path-holonomy candidate
+
+Status: `COMMON_TARGET_FAMILY_PATH_HOLONOMY_CANDIDATE_FROZEN_PREVALIDATION`.
+
+Freeze date: `2026-09-19`.
+
+### AM.1 Frozen parent objects
+
+The candidate uses only already-frozen objects:
+
+```text
+Stage-47 scalar seeds: n1=15, n2=35, n3=143
+Stage-47 unique common forward-reachable seed: n*=35
+Stage-48 exact branch words w1=OEOE, w2=epsilon, w3=(90-step frozen word)
+Appendix-AI state index r_C(n)=(-L(n)) mod 3
+Appendix-AJ validated step U_geo(n)=exp[-i sigma_b A_r]
+```
+
+No CKM, PMNS, fermion mass, fitted coefficient, or target matrix enters this freeze.
+
+### AM.2 Ordered path propagators
+
+For seed (n_i), let
+
+\[
+n_i=n_{i,0}\to n_{i,1}\to\cdots\to n_{i,m_i}=35
+\]
+
+be its exact Stage-48 Collatz path, with branch symbols (b_{i,k}\).
+
+Define the ordered propagator from the seed to the common target by
+
+\[
+\boxed{
+G_i
+=
+U_{geo}(n_{i,m_i-1})\cdots U_{geo}(n_{i,1})U_{geo}(n_{i,0}).
+}
+\]
+
+The later Collatz step multiplies on the left, matching the existing ordered-propagator convention.
+
+For the middle seed, the path is empty and
+
+\[
+\boxed{G_2=I_3.}
+\]
+
+### AM.3 Pairwise family transport candidate
+
+Use the generic (W_{ij}) convention in which (W_{ij}) maps the (j)-frame into the (i)-frame. Define
+
+\[
+\boxed{
+W^F_{ij}=G_i^\dagger G_j.
+}
+\]
+
+This is a source-derived candidate family transport built from path-local Collatz state data rather than endpoint fitting.
+
+### AM.4 Prospective validation gates
+
+After this freeze, validate without changing the construction:
+
+1. Every (G_i\in SU(3)).
+2. Every (W^F_{ij}\in SU(3)).
+3. Reversal: (W^F_{ji}=(W^F_{ij})^\dagger).
+4. Composition: (W^F_{ij}W^F_{jk}=W^F_{ik}).
+5. The triangular Wilson product (W^F_{12}W^F_{23}W^F_{31}).
+6. Whether the common-target construction is flat/pure-gauge or carries nontrivial loop holonomy.
+7. No target data or fitted coefficient enters the result.
+
+### AM.5 Promotion boundary
+
+If the triangular Wilson product is identity, the result will be retained as a flat groupoid/path-frame scaffold and will **not** be promoted as a CP source.
+
+If it is nontrivial, its gauge-invariant content will be recorded before any CKM/PMNS comparison.
+
+This freeze does not claim
+
+```text
+W^F_ij = physical flavour connection
+common target 35 = physical preferred generation
+path propagators = physical CKM/PMNS
+flatness or non-flatness in advance
+```
+
+Status remains:
+
+`COMMON_TARGET_FAMILY_PATH_HOLONOMY_CANDIDATE_FROZEN_PREVALIDATION`.
