@@ -15,7 +15,9 @@ No physical identification of temporal, spatial, or flavour sectors is made.
 """
 from __future__ import annotations
 
+import csv
 import hashlib
+import io
 import itertools
 import json
 import math
@@ -176,11 +178,15 @@ def main() -> None:
     archive_projection_blob = git_blob_sha(archive_projection_bytes)
     archive_projection_csv_blob = git_blob_sha(archive_projection_csv_bytes)
 
-    archive_csv_has_stale_up_quark_id = (
-        'nu_L,up_quark,"T3=1/2, pole=north/+"' in archive_projection_csv
+    archive_csv_rows = list(csv.reader(io.StringIO(archive_projection_csv)))
+    archive_csv_data_rows = archive_csv_rows[1:]
+    archive_csv_has_stale_up_quark_id = any(
+        len(row) >= 2 and row[0] == "nu_L" and row[1] == "up_quark"
+        for row in archive_csv_data_rows
     )
-    archive_csv_has_corrected_up_quark_id = (
-        'u_L,up_quark,"T3=1/2, pole=north/+"' in archive_projection_csv
+    archive_csv_has_corrected_up_quark_id = any(
+        len(row) >= 2 and row[0] == "u_L" and row[1] == "up_quark"
+        for row in archive_csv_data_rows
     )
     if archive_csv_has_stale_up_quark_id and not archive_csv_has_corrected_up_quark_id:
         archive_csv_state = "STALE_UP_QUARK_PARTICLE_ID"
@@ -823,6 +829,12 @@ def main() -> None:
         "legacy_generated_csv_up_quark_row_auditable": (
             archive_csv_has_stale_up_quark_id
             or archive_csv_has_corrected_up_quark_id
+        ),
+        "legacy_generated_csv_pinned_blob_has_stale_up_quark_id": (
+            archive_projection_csv_blob == "3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1"
+            and archive_csv_has_stale_up_quark_id
+            and not archive_csv_has_corrected_up_quark_id
+            and archive_csv_state == "STALE_UP_QUARK_PARTICLE_ID"
         ),
         "legacy_axis_v18_declares_universal_weak_axis_ansatz": (
             "The weak doublet uses one universal weak-isospin axis." in archive_axis_v18
