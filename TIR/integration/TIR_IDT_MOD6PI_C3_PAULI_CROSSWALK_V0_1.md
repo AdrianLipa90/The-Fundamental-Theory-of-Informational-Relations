@@ -6799,3 +6799,121 @@ The number 12 here is the order of the generated symmetry group.
 It is not asserted to be a particle count, a spacetime dimension, a fermion count, or an experimental observable.
 
 Likewise the orientation reflection is not promoted to physical parity or CP.
+
+---
+
+## Appendix AZ — NEW 2026-09-19 — Real \(D_3\) family representation: \(\mathbf3=\mathbf1\oplus\mathbf2\)
+
+### AZ.1 Invariant singlet
+
+On the three family labels, the permutation representation has the normalized invariant vector
+
+\[
+\boxed{
+|s\rangle
+=
+\frac1{\sqrt3}(1,1,1)^T.
+}
+\]
+
+It is fixed by both the family cycle \(P_3\) and the orientation reflection \(R\):
+
+\[
+P_3|s\rangle=|s\rangle,
+\qquad
+R|s\rangle=|s\rangle.
+\]
+
+### AZ.2 Standard real two-dimensional plane
+
+The orthogonal complement is
+
+\[
+\boxed{
+\Pi_2
+=
+\{(x,y,z)\in\mathbb R^3:x+y+z=0\}.
+}
+\]
+
+A convenient orthonormal basis is
+
+\[
+e_a=\frac1{\sqrt2}(1,-1,0)^T,
+\qquad
+e_b=\frac1{\sqrt6}(1,1,-2)^T.
+\]
+
+On this plane, the restricted \(C_3\) generator has
+
+\[
+\operatorname{tr}P_{\Pi_2}=-1,
+\qquad
+\det P_{\Pi_2}=1,
+\qquad
+P_{\Pi_2}^3=I_2,
+\]
+
+so it is a real rotation by \(\pm 120^\circ\).
+
+The restricted orientation involution obeys
+
+\[
+R_{\Pi_2}^2=I_2,
+\qquad
+\det R_{\Pi_2}=-1,
+\qquad
+R_{\Pi_2}P_{\Pi_2}R_{\Pi_2}=P_{\Pi_2}^{-1}.
+\]
+
+Hence
+
+\[
+\boxed{
+\mathbf3_{\rm perm}
+=
+\mathbf1\oplus\mathbf2
+}
+\]
+
+as a real \(D_3\cong S_3\) representation.
+
+Status:
+
+`D3_FAMILY_PERMUTATION_REP_REAL_3_DECOMPOSES_AS_1_PLUS_2`.
+
+### AZ.3 Complex character form
+
+In the \(F_3\) character basis, the invariant singlet is the trivial character column
+
+\[
+\chi_0=\frac1{\sqrt3}(1,1,1)^T.
+\]
+
+The other two columns satisfy
+
+\[
+\chi_{\omega^2}=\chi_\omega^*,
+\]
+
+and their rank-two projector equals the real plane projector onto \(\Pi_2\).
+
+Therefore the real standard doublet complexifies as
+
+\[
+\boxed{
+\mathbf2_{\mathbb R}\otimes\mathbb C
+=
+\chi_\omega\oplus\chi_{\omega^2}.
+}
+\]
+
+Status:
+
+`F3_TRIVIAL_SINGLET_PLUS_CONJUGATE_CHARACTER_PAIR_COMPLEXIFIES_REAL_1_PLUS_2`.
+
+### AZ.4 Firewall
+
+The dimensions \(1+2=3\) here are representation dimensions of the family-label symmetry.
+
+They are not identified with one time plus two spatial dimensions, three-dimensional physical space, or any spacetime dimension count.
