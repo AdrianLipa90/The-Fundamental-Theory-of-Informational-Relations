@@ -885,3 +885,36 @@ The Stage-52 bridge remains valid because it changes real form only after common
 Remaining branch map:
 
 \`OPEN_DISCRETE_OR_HOLONOMIC_NONPOLAR_BRANCHWISE_SU3F_LIFT\`.
+
+
+### Appendix T update — scalar \(q_C\) cannot by itself source family CP
+
+For the active exact IDT phase vertices
+
+\[
+q_C(4)=\frac17,\qquad
+q_C(6)=\frac{141}{448},\qquad
+q_C(12)=\frac{141}{896},
+\]
+
+the natural vertex-difference law
+
+\[
+\phi_{ij}=2\pi(q_i-q_j)
+\]
+
+is a separable coboundary. Every rephasing-invariant \(2\times2\) plaquette phase vanishes exactly.
+
+Status:
+
+\`SCALAR_VERTEX_QC_PHASE_DIFFERENCE_CP_NO_GO\`.
+
+Therefore Stage-36-type nonzero CP requires a genuinely pair-dependent, nonseparable phase source.
+
+Status:
+
+\`NONSEPARABLE_PAIR_DEPENDENT_HOLONOMY_REQUIRED_FOR_NONZERO_PLAQUETTE_PHASE\`.
+
+Remaining source-map gate:
+
+\`OPEN_CLEAN_NONSEPARABLE_COLLATZ_POINCARE_TO_COMPLEX_FAMILY_HOLONOMY_MAP\`.
