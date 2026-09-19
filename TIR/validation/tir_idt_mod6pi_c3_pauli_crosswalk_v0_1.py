@@ -1701,6 +1701,41 @@ def main() -> None:
         - 2.0 * abs(terminal_orientation_odd_witness)
     )
 
+    U_terminal_conjugate = np.conj(U_terminal_base1)
+    terminal_complex_conjugation_involution_residual = float(
+        np.max(np.abs(np.conj(U_terminal_conjugate) - U_terminal_base1))
+    )
+    terminal_conjugate_unitarity_residual = float(
+        np.max(
+            np.abs(
+                U_terminal_conjugate.conj().T
+                @ U_terminal_conjugate
+                - np.eye(3)
+            )
+        )
+    )
+    terminal_conjugate_determinant_residual = float(
+        abs(np.linalg.det(U_terminal_conjugate) - 1.0)
+    )
+    terminal_conjugate_trace_residual = abs(
+        np.trace(U_terminal_conjugate) - np.conj(np.trace(U_terminal_base1))
+    )
+    terminal_conjugate_vs_inverse_charpoly_residual = float(
+        np.max(
+            np.abs(
+                np.poly(U_terminal_conjugate)
+                - np.poly(U_terminal_reverse)
+            )
+        )
+    )
+    terminal_outer_class_trace_separation = abs(
+        np.trace(U_terminal_conjugate) - np.trace(U_terminal_base1)
+    )
+    terminal_outer_class_trace_separation_identity_residual = abs(
+        terminal_outer_class_trace_separation
+        - 2.0 * abs(terminal_orientation_odd_witness)
+    )
+
     terminal_pairwise_eigenvalue_separations = [
         float(abs(terminal_loop_eigenvalues[i] - terminal_loop_eigenvalues[j]))
         for i in range(3)
@@ -2435,6 +2470,22 @@ def main() -> None:
             terminal_inverse_trace_gap > 1.0e-6
             and terminal_trace_det_identity_residual < 1.0e-12
         ),
+        "terminal_complex_conjugation_is_involutive_su3_map": (
+            terminal_complex_conjugation_involution_residual < TOL
+            and terminal_conjugate_unitarity_residual < TOL
+            and terminal_conjugate_determinant_residual < TOL
+        ),
+        "terminal_complex_conjugate_has_conjugate_trace": (
+            terminal_conjugate_trace_residual < TOL
+        ),
+        "terminal_complex_conjugate_and_reverse_share_conjugacy_class": (
+            terminal_conjugate_vs_inverse_charpoly_residual < 1.0e-12
+        ),
+        "terminal_forward_and_outer_conjugate_classes_are_distinct": (
+            terminal_outer_class_trace_separation > 1.0e-6
+            and terminal_outer_class_trace_separation_identity_residual
+            < 1.0e-12
+        ),
         "terminal_loop_has_three_distinct_unitary_eigenvalues": (
             terminal_min_eigenvalue_separation > 1.0e-6
             and terminal_spectral_discriminant > 1.0e-12
@@ -3024,6 +3075,21 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "terminal_cycle_outer_conjugation_status": (
+            "COMPLEX_CONJUGATION_MAPS_TERMINAL_FORWARD_CLASS_TO_REVERSE_CLASS"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_cycle_outer_z2_status": (
+            "TERMINAL_FORWARD_REVERSE_CLASSES_FORM_INVOLUTIVE_OUTER_Z2_PAIR"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_cycle_outer_inner_distinction_status": (
+            "COMPLEX_CONJUGATION_NOT_INNER_ON_TERMINAL_CLASS_WITNESS"
+            if passed
+            else "FAILED"
+        ),
         "terminal_cycle_regular_class_status": (
             "TERMINAL_LOOP_REGULAR_SU3_CONJUGACY_CLASS"
             if passed
@@ -3452,6 +3518,24 @@ def main() -> None:
                 "centralizer": "MAXIMAL_TORUS_U1_X_U1",
                 "cartan_rank": 2,
             },
+            "outer_complex_conjugation": {
+                "involution_residual": terminal_complex_conjugation_involution_residual,
+                "unitarity_residual": terminal_conjugate_unitarity_residual,
+                "determinant_residual": terminal_conjugate_determinant_residual,
+                "trace_conjugation_residual": terminal_conjugate_trace_residual,
+                "conjugate_vs_reverse_charpoly_residual": (
+                    terminal_conjugate_vs_inverse_charpoly_residual
+                ),
+                "forward_vs_conjugate_trace_separation": float(
+                    terminal_outer_class_trace_separation
+                ),
+                "trace_separation_equals_2absImTrace_residual": (
+                    terminal_outer_class_trace_separation_identity_residual
+                ),
+                "classification": (
+                    "FORWARD_AND_REVERSE_CLASSES_EXCHANGED_BY_INVOLUTIVE_COMPLEX_CONJUGATION"
+                ),
+            },
             "orientation_reversal": {
                 "inverse_residual": terminal_reverse_inverse_residual,
                 "trace_conjugacy_residual": float(
@@ -3859,6 +3943,8 @@ def main() -> None:
             "nonreal_trace_is_used_only_as_conjugacy_subgroup_exclusion_witness": True,
             "orientation_odd_imaginary_trace_is_not_identified_with_physical_cp": True,
             "orientation_reversal_not_inner_conjugate_is_group_theoretic_not_yet_cp_identification": True,
+            "complex_conjugation_outer_z2_pair_is_not_identified_with_physical_charge_conjugation": True,
+            "outer_automorphism_structure_is_not_by_itself_a_cp_symmetry_statement": True,
             "basepoint_covariance_is_groupoid_consistency_not_physical_promotion": True,
             "nontrivial_terminal_loop_closes_nonseparable_path_source_only_at_structural_candidate_level": True,
             "noncoboundary_source_does_not_by_itself_identify_ckm_or_pmns": True,
