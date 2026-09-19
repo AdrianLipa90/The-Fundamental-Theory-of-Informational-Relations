@@ -15,6 +15,7 @@ No physical identification of temporal, spatial, or flavour sectors is made.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -76,6 +77,12 @@ def lie_closure_dimension(hermitians: list[np.ndarray]) -> tuple[int, float]:
     return len(mats), residual
 
 
+def git_blob_sha(text: str) -> str:
+    data = text.encode("utf-8")
+    header = f"blob {len(data)}\0".encode("ascii")
+    return hashlib.sha1(header + data).hexdigest()
+
+
 def jarlskog(V: np.ndarray) -> float:
     return float(
         np.imag(
@@ -88,6 +95,35 @@ def jarlskog(V: np.ndarray) -> float:
 
 
 def main() -> None:
+    archive_projection_path = (
+        ROOT
+        / "archive/v7.9/full/28_debt11_chiral_representation_projection_v3_0/"
+        "scripts/debt11_chiral_representation_projection_v3_0.py"
+    )
+    archive_projection_csv_path = (
+        ROOT
+        / "archive/v7.9/full/28_debt11_chiral_representation_projection_v3_0/"
+        "results/projection_channel_table_v3_0.csv"
+    )
+    archive_axis_v18_path = (
+        ROOT
+        / "archive/v7.9/full/16_debt_axis_selection_berry_weak_twinprime_v1_8/"
+        "METATIME_SM_AXIS_SELECTION_DEBT_v1_8.md"
+    )
+    archive_axis_v23_path = (
+        ROOT
+        / "archive/v7.9/full/21_debt8_source_axis_candidate_grammar_v2_3/"
+        "METATIME_SM_DEBT8_SOURCE_AXIS_CANDIDATE_GRAMMAR_v2_3.md"
+    )
+
+    archive_projection = archive_projection_path.read_text(encoding="utf-8")
+    archive_projection_csv = archive_projection_csv_path.read_text(encoding="utf-8")
+    archive_axis_v18 = archive_axis_v18_path.read_text(encoding="utf-8")
+    archive_axis_v23 = archive_axis_v23_path.read_text(encoding="utf-8")
+
+    archive_projection_blob = git_blob_sha(archive_projection)
+    archive_projection_csv_blob = git_blob_sha(archive_projection_csv)
+
     stage15 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -253,11 +289,56 @@ def main() -> None:
         [D_temporal, C_temporal]
     )
 
+    # Recovered legacy orientation anchor for the two-pole weak-doublet map.
+    # Current Stage-15/16/23 provide compatible two-state structural parents;
+    # the N/S -> T3 +/- 1/2 orientation itself is recovered from the archived
+    # v3.0 projection source and is not promoted as a new first-principles
+    # physical theorem here.
+    J_weak = np.array([[0.0, 1.0], [1.0, 0.0]], dtype=complex)
+    F_chi_weak = np.eye(2, dtype=complex)
+    chirality_weak_intertwiner_residual = float(
+        np.max(np.abs(F_chi_weak @ J_chi - J_weak @ F_chi_weak))
+    )
+    M6_weak = np.kron(M_tf, F_chi_weak)
+    G6_weak = np.kron(P_family, J_weak)
+    six_weak_intertwiner_residual = float(
+        np.max(np.abs(M6_weak @ G6_temporal - G6_weak @ M6_weak))
+    )
+
     family_dimension = len(set(temporal_orbit))
     weak_doublet_dimension = 2
     family_x_weak_dimension = family_dimension * weak_doublet_dimension
 
     checks = {
+        "legacy_projection_source_blob_pinned": (
+            archive_projection_blob == "01b9be380f095b613a731ba258865bc617d8e854"
+        ),
+        "legacy_projection_csv_blob_pinned": (
+            archive_projection_csv_blob == "3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1"
+        ),
+        "legacy_projection_source_has_correct_up_quark_row": (
+            'Channel("u_L", "up_quark", "L", "weak_doublet", "north/+", Fraction(1,2)' in archive_projection
+        ),
+        "legacy_projection_source_has_down_quark_row": (
+            'Channel("d_L", "down_quark", "L", "weak_doublet", "south/-", Fraction(-1,2)' in archive_projection
+        ),
+        "legacy_projection_source_has_lepton_pole_pair": (
+            'Channel("nu_L", "neutrino", "L", "weak_doublet", "north/+", Fraction(1,2)' in archive_projection
+            and 'Channel("e_L", "charged_lepton", "L", "weak_doublet", "south/-", Fraction(-1,2)' in archive_projection
+        ),
+        "legacy_generated_csv_stale_up_quark_row_detected": (
+            'nu_L,up_quark,"T3=1/2, pole=north/+"' in archive_projection_csv
+            and 'u_L,up_quark,"T3=1/2, pole=north/+"' not in archive_projection_csv
+        ),
+        "legacy_axis_v18_declares_universal_weak_axis_ansatz": (
+            "The weak doublet uses one universal weak-isospin axis." in archive_axis_v18
+            and "conditionally closed as a canonical working ansatz" in archive_axis_v18
+        ),
+        "legacy_axis_v23_source_derived_cp1_before_weak_naming": (
+            "SOURCE_DERIVED_CHIRAL_CP1_AXIS" in archive_axis_v23
+            and "weak isospin is the SM realization of that axis" in archive_axis_v23
+            and "CONDITIONALLY_CLOSED_STRUCTURAL_ENUMERATION" in archive_axis_v23
+        ),
         "stage15_sm_subalgebra_parent_pass_present": (
             "STAGE_15_PURE_LIE_ALGEBRA_PASS" in stage15
             and "su}(2)" in stage15
@@ -346,6 +427,12 @@ def main() -> None:
         ),
         "family_transitive_orbit_has_three_labels": (
             len(set(family_orbit)) == 3
+        ),
+        "chirality_to_weak_z2_intertwiner_exact_under_recovered_anchor": (
+            chirality_weak_intertwiner_residual < TOL
+        ),
+        "temporal_family_weak_six_state_intertwiner_exact_under_recovered_anchor": (
+            six_weak_intertwiner_residual < TOL
         ),
         "weak_doublet_dimension_is_two": weak_doublet_dimension == 2,
         "family_x_weak_dimension_is_six": family_x_weak_dimension == 6,
@@ -448,14 +535,30 @@ def main() -> None:
             if passed
             else "NOT_ESTABLISHED"
         ),
+        "legacy_weak_pole_orientation_audit": (
+            "ARCHIVAL_SOURCE_RECOVERED_CURRENT_PROMOTION_CONDITIONAL"
+        ),
+        "chirality_to_weak_label_intertwiner": (
+            "CLOSED_CONDITIONAL_ON_RECOVERED_NORTH_SOUTH_T3_ORIENTATION_ANCHOR"
+            if passed
+            else "FAILED"
+        ),
+        "six_cycle_weak_family_label_operator": (
+            "CLOSED_CONDITIONAL_ON_RECOVERED_WEAK_ORIENTATION_ANCHOR"
+            if passed
+            else "FAILED"
+        ),
         "six_cycle_physical_flavour_operator": (
-            "OPEN_REQUIRES_CHIRALITY_Z2_TO_WEAK_ISOSPIN_DOUBLET_BINDING"
+            "NOT_FULLY_PROMOTED_FIRST_PRINCIPLES_WEAK_AXIS_SELECTION_REMAINS_OPEN"
         ),
         "physical_sector_binding": "OPEN",
         "idt_parent": "02JN periodic P4 endpoint quotient at N=3",
         "tir_pauli_parent": "TIR_RELATIONAL_GENERATOR_SPACE_V0_1",
         "tir_weak_subalgebra_parent": "TIR_POLYGONAL_STAGE15_EXCEPTIONAL_SM_SUBALGEBRA_V0_1",
         "tir_hypercharge_representation_parent": "TIR_POLYGONAL_STAGE16_EXCEPTIONAL_HYPERCHARGE_MATCH_V0_1",
+        "legacy_weak_projection_source": "archive/v7.9/full/28_debt11_chiral_representation_projection_v3_0/scripts/debt11_chiral_representation_projection_v3_0.py",
+        "legacy_weak_projection_source_blob": archive_projection_blob,
+        "legacy_generated_projection_csv_blob": archive_projection_csv_blob,
         "tir_family_order_parent": "TIR_POLYGONAL_STAGE22_SEED_PRECEDENCE_V0_1",
         "tir_chirality_parent": "TIR_POLYGONAL_STAGE23_CHIRALITY_INTERTWINER_V0_1",
         "tir_family_cycle_parent": "TIR_POLYGONAL_STAGE24_TIR_SEED_CHIRALITY_E8_INTERTWINER_V0_1",
@@ -469,6 +572,8 @@ def main() -> None:
             "family_lie_structure": residual_family,
             "temporal_pullback_lie_structure": residual_temporal,
             "six_state_intertwiner": six_state_intertwiner_residual,
+            "chirality_weak_intertwiner": chirality_weak_intertwiner_residual,
+            "six_weak_intertwiner": six_weak_intertwiner_residual,
             "jarlskog_exact": abs(J - J_exact),
         },
         "orbit_cardinalities": {
@@ -494,9 +599,12 @@ def main() -> None:
             "physical_ckm_assignment": "OPEN",
             "physical_pmns_assignment": "OPEN",
             "family_count_is_conditional_on_sector_binding": True,
-            "six_state_family_x_chirality_is_not_yet_the_physical_flavour_operator": True,
+            "legacy_generated_csv_contains_stale_up_quark_particle_id": True,
+            "legacy_projection_script_is_authoritative_over_stale_generated_csv": True,
+            "chirality_to_weak_label_map_uses_recovered_orientation_anchor": True,
+            "weak_axis_first_principles_selection_is_not_promoted": True,
             "six_weak_family_component_count_is_conditional_on_family_binding": True,
-            "required_next_gate_for_operator_identity": "CHIRALITY_Z2_TO_WEAK_ISOSPIN_DOUBLET_BINDING",
+            "remaining_physical_gate": "FIRST_PRINCIPLES_WEAK_AXIS_SELECTION_AND_FULL_FLAVOUR_SPECTRUM_BINDING",
         },
     }
     print(json.dumps(payload, indent=2, sort_keys=True))
