@@ -4344,3 +4344,107 @@ Status:
 Current frontier:
 
 `CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__RHO_BINDING_AND_COEFFICIENT_FREE_HOLONOMIC_ASSIGNMENT_OPEN`.
+
+---
+
+## Appendix Z — NEW 2026-09-19 — Path-local (W_{ij}) location of the remaining family selector
+
+### Z.1 Generic path-holonomy grammar is already current
+
+The current (W_{ij}) crosswalk defines the common transport object
+
+\[
+\boxed{
+W_{ij}^{(G,R)}
+=
+\mathcal P\exp\!\left(\int_{\gamma_{ij}}A_R\right).
+}
+\]
+
+It obeys path reversal
+
+\[
+W_{ji}=W_{ij}^{-1}=W_{ij}^\dagger
+\]
+
+in unitary representations and local-frame covariance
+
+\[
+W_{ij}\mapsto G_iW_{ij}G_j^{-1}.
+\]
+
+Status:
+
+`GENERIC_WIJ_PATH_HOLONOMY_GRAMMAR_TYPED_CURRENT`.
+
+### Z.2 Existing explicit sector instances
+
+The source-bound crosswalk currently gives explicit path transports for
+
+```text
+White-Thread phase    : W_ij^WT in U(1)
+spatial spin frame    : W_ij^X  in SU(2)
+colour/gluon sector   : W_ij^c  in SU(3)
+```
+
+The word “family” in the title of the generic (W_{ij}) crosswalk denotes a typed family of transport objects. It does not itself provide a flavour-family connection
+
+\[
+W_{ij}^{F}\in SU(3)_F.
+\]
+
+No explicit current source-bound (W_{ij}^{F}) path transport is present in that crosswalk.
+
+Status:
+
+`OPEN_FAMILY_SPECIFIC_WIJ_PATH_LOCAL_SOURCE_BINDING`.
+
+### Z.3 Why the selector must live upstream of endpoint reduction
+
+The coefficient-cocycle theorem proves that a composition-preserving endpoint map
+
+\[
+\Phi:SU(3)\to\mathbb Z^4
+\]
+
+must be trivial because (SU(3)) is perfect.
+
+Therefore the nonzero coefficient selector cannot be recovered solely by abelianizing the endpoint holonomy.
+
+A viable family/sector selector must retain additional path-local information before endpoint reduction, such as
+
+```text
+path-local cochain
+seed/path position
+projective pair phase
+curvature/path integral
+state-dependent transition datum
+```
+
+or an equivalent source-derived object.
+
+Status:
+
+`SELECTOR_MUST_RETAIN_PATH_LOCAL_DATA_UPSTREAM_OF_ENDPOINT_SU3_REDUCTION`.
+
+### Z.4 Exact remaining source object
+
+Combining Appendices V–Y with the generic holonomy grammar narrows the missing object to
+
+\[
+\boxed{
+\text{Collatz/Poincare/IDT source path data}
+\longrightarrow
+W_{ij}^{F}\text{ or equivalent pair-dependent projective holonomy}
+\longrightarrow
+\text{Stage-39 sector assignment}
+}
+\]
+
+with path composition and gauge covariance preserved and without CKM/mass targets on the parent side.
+
+This is precisely upstream of the already-known compact endpoint (SU(3)_F).
+
+Current frontier:
+
+`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__FAMILY_WIJ_PATH_SOURCE_AND_RHO_BINDING_OPEN`.
