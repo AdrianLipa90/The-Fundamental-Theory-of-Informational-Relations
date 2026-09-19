@@ -1206,3 +1206,39 @@ Status:
 The remaining gate is physical sector-frame binding, not the existence of the projective frames:
 
 `REPRESENTATION_LEVEL_C3_FRAMES_DERIVED__PHYSICAL_SECTOR_FRAME_BINDING_OPEN`.
+
+### Appendix X update — Stage-39 structural sector frames
+
+Stage 39 freezes
+
+\[
+H(\alpha)=D+\alpha F_3DF_3^\dagger
+\]
+
+with the Stage-33 endpoint ratios
+
+\[
+a=2/7,
+\qquad
+b=2/9,
+\]
+
+before target comparison and without observed CKM entries, masses, or fitted coefficients.
+
+The two retained assignments generate noncommuting Hermitian sector operators and a relative (SU(3)) transformation with
+
+\[
+|J|\approx2.01742207300684\times10^{-5},
+\]
+
+while swapping (a\leftrightarrow b) reverses the sign of (J).
+
+Status:
+
+`TWO_HERMITIAN_SECTOR_EIGENFRAMES_FROZEN_STRUCTURAL_CANDIDATE`
+
+`NONZERO_CP_UNITARY_RELATIVE_TRANSFORMATION_REPRODUCED_NO_TARGET_FIT`.
+
+Physical up/down assignment remains OPEN and Stage-40 full CKM-shape failure is retained:
+
+`STAGE40_FULL_CKM_SHAPE_FAIL_RETAINED`.
