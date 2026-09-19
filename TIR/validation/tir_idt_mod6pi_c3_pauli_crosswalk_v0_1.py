@@ -251,6 +251,10 @@ def main() -> None:
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE25_COLOR_FAMILY_FACTORISATION_V0_1.md"
     ).read_text(encoding="utf-8")
+    flavour_normalization = (
+        ROOT
+        / "TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md"
+    ).read_text(encoding="utf-8")
     stage38 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -975,6 +979,16 @@ def main() -> None:
             and "SU(3)_F" in stage25
             and "two independent commuting SU(3) factors" in stage25
         ),
+        "current_family_carrier_is_complex_three_and_special_unitary": (
+            "V_F\\cong\\mathbb C^3" in flavour_normalization
+            and "U_F\\in SU(3)_F" in flavour_normalization
+            and "EXACT_TIR_INTERNAL_FLAVOUR_MIXING_NORMALIZATION_DERIVATION"
+            in flavour_normalization
+        ),
+        "stage25_family_action_is_explicit_su3f_endpoint": (
+            "U_F\\in SU(3)_F" in stage25
+            and "I_3\\otimes I_2\\otimes U_F" in stage25
+        ),
         "stage38_c3_cp_parent_pass_present": (
             "STAGE_38_C3_CHARACTER_BASIS_CP_MATH_PASS" in stage38
         ),
@@ -1372,8 +1386,18 @@ def main() -> None:
         "exact_rhythm_status": (
             "EXACT_GEOMETRIC_BRANCH_LENGTH_ALPHABET_CLOSED__HAMILTONIAN_RHO_BINDING_OPEN"
         ),
+        "family_endpoint_class_status": (
+            "CURRENT_FAMILY_ENDPOINT_COMPACT_SU3F_REQUIRED"
+            if passed
+            else "FAILED"
+        ),
+        "real_form_endpoint_status": (
+            "COMPACT_ENDPOINT_CLASS_FIXED__DYNAMICAL_BRANCHWISE_LIFT_OPEN"
+            if passed
+            else "FAILED"
+        ),
         "compact_family_branch_operator_status": (
-            "OPEN_COMPACT_REAL_FORM_AND_FAMILY_OPERATOR_BINDING"
+            "OPEN_BRANCHWISE_SPLIT_REAL_TO_COMPACT_SU3F_LIFT"
         ),
         "binary_to_three_carrier_status": (
             "SYM2_TWO_TO_THREE_CARRIER_CLOSED"
@@ -1381,7 +1405,7 @@ def main() -> None:
             else "FAILED"
         ),
         "split_real_to_family_unitary_status": (
-            "DIRECT_UNITARIZATION_REFUTED_COMPACT_REAL_FORM_BRIDGE_AVAILABLE_SELECTION_OPEN"
+            "DIRECT_UNITARIZATION_REFUTED__COMPACT_SU3F_ENDPOINT_REQUIRED__BRANCHWISE_REALFORM_LIFT_OPEN"
             if passed
             else "FAILED"
         ),
@@ -1414,7 +1438,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__RHO_BINDING_AND_COMPACT_FAMILY_MAP_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__RHO_BINDING_AND_BRANCHWISE_COMPACT_LIFT_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -1587,6 +1611,15 @@ def main() -> None:
             "lie_closure_dimension": 8,
             "physical_family_dynamics_selector": "OPEN",
         },
+        "compact_family_endpoint_audit": {
+            "family_carrier": "C^3",
+            "family_group": "SU(3)_F",
+            "positive_definite_unitary_endpoint": True,
+            "direct_split_real_similarity_unitarization": "REFUTED",
+            "complexification_real_form_bridge": "AVAILABLE",
+            "compact_endpoint_class": "FIXED_BY_CURRENT_FAMILY_CARRIER",
+            "branchwise_split_real_to_compact_lift": "OPEN",
+        },
         "branch_operator_rhythm_audit": {
             "split_real_E_operator": RE.tolist(),
             "split_real_O_operator": RO.tolist(),
@@ -1604,7 +1637,8 @@ def main() -> None:
             "w1_signed_scale_log_slope_residual": w1_slope_residual,
             "w3_signed_scale_log_slope_residual": w3_slope_residual,
             "split_real_branch_operator": "CLOSED",
-            "compact_family_branch_operator": "OPEN",
+            "compact_family_endpoint_class": "SU3F_REQUIRED",
+            "compact_family_branch_operator": "OPEN_BRANCHWISE_LIFT",
             "legacy_bounded_rhythm_eta": 0.35,
             "legacy_bounded_rhythm_classification": "MODEL_CHOICE_NOT_PROMOTED",
             "exact_rho_s": "OPEN_DERIVATION_DEBT",
@@ -1670,6 +1704,9 @@ def main() -> None:
             "sym2_two_to_three_is_representation_carrier_not_physical_xyz_claim": True,
             "split_real_three_carrier_is_not_identified_directly_with_SU3F": True,
             "compact_real_form_bridge_availability_is_not_dynamical_selection": True,
+            "current_family_unitarity_fixes_endpoint_class_not_branchwise_lift": True,
+            "su3f_endpoint_requirement_does_not_override_stage51_similarity_nogo": True,
+            "branchwise_realform_lift_requires_additional_dynamics": True,
             "branch_symbol_to_split_real_operator_is_closed_but_not_physical_family_map": True,
             "legacy_eta_0_35_rhythm_is_model_choice_not_current_input": True,
             "exact_geometric_branch_length_alphabet_is_closed": True,
