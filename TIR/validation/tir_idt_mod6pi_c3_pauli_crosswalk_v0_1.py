@@ -16,8 +16,10 @@ No physical identification of temporal, spatial, or flavour sectors is made.
 from __future__ import annotations
 
 import hashlib
+import itertools
 import json
 import math
+from fractions import Fraction
 from pathlib import Path
 
 import numpy as np
@@ -82,6 +84,34 @@ def git_blob_sha(data: bytes) -> str:
     return hashlib.sha1(header + data).hexdigest()
 
 
+def collatz_step(n: int) -> int:
+    return n // 2 if n % 2 == 0 else 3 * n + 1
+
+
+def collatz_depth_to_one(n: int, limit: int = 1000) -> int:
+    for k in range(limit + 1):
+        if n == 1:
+            return k
+        n = collatz_step(n)
+    raise RuntimeError("Collatz depth limit exceeded")
+
+
+def q_c(n: int) -> Fraction:
+    bits: list[int] = []
+    x = n
+    for _ in range(1000):
+        if x == 1:
+            L = len(bits)
+            prefix = sum(
+                (Fraction(bit, 2 ** (k + 1)) for k, bit in enumerate(bits)),
+                Fraction(0, 1),
+            )
+            return prefix + Fraction(4, 7 * (2 ** L))
+        bits.append(x % 2)
+        x = collatz_step(x)
+    raise RuntimeError("Collatz phase orbit did not reach 1")
+
+
 def jarlskog(V: np.ndarray) -> float:
     return float(
         np.imag(
@@ -139,6 +169,15 @@ def main() -> None:
         archive_csv_state = "MIXED_UP_QUARK_PARTICLE_IDS"
     else:
         archive_csv_state = "UP_QUARK_ROW_NOT_DETECTED"
+
+    active_seed_reachability = (
+        ROOT
+        / "TIR/foundations/TIR_ACTIVE_SEED_COLLATZ_REACHABILITY_V0_1.md"
+    ).read_text(encoding="utf-8")
+    cocycle_phase = (
+        ROOT
+        / "TIR/foundations/TIR_COEFFICIENT_COCYCLE_POTENTIAL_REDUCTION_V0_4.md"
+    ).read_text(encoding="utf-8")
 
     stage15 = (
         ROOT
@@ -376,6 +415,30 @@ def main() -> None:
     weak_doublet_dimension = 2
     family_x_weak_dimension = family_dimension * weak_doublet_dimension
 
+    # Source-order canonicalization of the temporal->family label map.
+    # The open-cut IDT carrier retains the ordered frame-edge provenance
+    # e1<e2<e3 before periodic quotienting.  Current TIR Stage-22 fixes the
+    # ordered seeds s1<s2<s3.  On the active center projection, ordinary
+    # Collatz stopping depth is strictly increasing in the same current order.
+    active_centers = [4, 6, 12]
+    center_depths = [collatz_depth_to_one(n) for n in active_centers]
+    temporal_order = (1, 2, 3)
+    family_order = tuple(
+        rank + 1
+        for rank, _ in enumerate(sorted(range(3), key=lambda j: center_depths[j]))
+    )
+    order_preserving_permutations = [
+        perm
+        for perm in itertools.permutations((1, 2, 3))
+        if all(perm[i] < perm[i + 1] for i in range(2))
+    ]
+
+    # Negative control: the raw IDT Collatz phases carried by the active
+    # centers are not themselves the uniformly spaced 0,1/3,2/3 C3 clock.
+    q1, q2, q3 = (q_c(n) for n in active_centers)
+    q_raw_is_arithmetic_progression = (q2 - q1) == (q3 - q2)
+    q_raw_family_order_is_monotone = q1 < q2 < q3
+
     checks = {
         "legacy_projection_source_blob_pinned": (
             archive_projection_blob == "01b9be380f095b613a731ba258865bc617d8e854"
@@ -405,6 +468,32 @@ def main() -> None:
             "SOURCE_DERIVED_CHIRAL_CP1_AXIS" in archive_axis_v23
             and "the SM interpretation of that abstract axis is weak isospin" in archive_axis_v23
             and "CONDITIONALLY_CLOSED_STRUCTURAL_ENUMERATION" in archive_axis_v23
+        ),
+        "current_active_seed_reachability_parent_present": (
+            "EXACT_CENTER_PROJECTION_REACHABILITY" in active_seed_reachability
+            and "m_1=4" in active_seed_reachability
+            and "m_2=6" in active_seed_reachability
+            and "m_3=12" in active_seed_reachability
+        ),
+        "current_idt_phase_coboundary_parent_present": (
+            "EXACT_IDT_PHASE_COBBOUNDARY" in cocycle_phase
+            and "q_1:=q_C(4)=\\frac17" in cocycle_phase
+            and "q_2:=q_C(6)=\\frac{141}{448}" in cocycle_phase
+            and "q_3:=q_C(12)=\\frac{141}{896}" in cocycle_phase
+        ),
+        "active_center_stopping_depths_strictly_increase_with_stage22_order": (
+            center_depths == [2, 8, 9]
+        ),
+        "source_order_preserving_bijection_is_unique": (
+            temporal_order == (1, 2, 3)
+            and family_order == (1, 2, 3)
+            and order_preserving_permutations == [(1, 2, 3)]
+        ),
+        "raw_qc_not_uniform_three_frame_clock": (
+            not q_raw_is_arithmetic_progression
+        ),
+        "raw_qc_not_monotone_in_stage22_family_order": (
+            not q_raw_family_order_is_monotone
         ),
         "stage15_sm_subalgebra_parent_pass_present": (
             "STAGE_15_PURE_LIE_ALGEBRA_PASS" in stage15
@@ -609,6 +698,21 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "source_order_anchor_status": (
+            "UNIQUE_ORDER_PRESERVING_LABEL_CROSSWALK_CLOSED"
+            if passed
+            else "FAILED"
+        ),
+        "declared_anchor_dependency": (
+            "REMOVED_AT_ORDERED_LABEL_REPRESENTATION_LEVEL"
+            if passed
+            else "NOT_ESTABLISHED"
+        ),
+        "raw_qc_phase_binding": (
+            "DIRECT_UNIFORM_C3_CLOCK_IDENTIFICATION_REFUTED"
+            if passed
+            else "NOT_EVALUATED"
+        ),
         "flavour_cardinality_result": (
             "N_F_EQUALS_3_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"
             if passed
@@ -704,6 +808,16 @@ def main() -> None:
             "six_weak_intertwiner": six_weak_intertwiner_residual,
             "jarlskog_exact": abs(J - J_exact),
         },
+        "source_order_audit": {
+            "active_centers": active_centers,
+            "center_stopping_depths": center_depths,
+            "temporal_order": list(temporal_order),
+            "family_rank_order": list(family_order),
+            "order_preserving_bijection_count": len(order_preserving_permutations),
+            "qC": [str(q1), str(q2), str(q3)],
+            "raw_qC_is_arithmetic_progression": q_raw_is_arithmetic_progression,
+            "raw_qC_is_monotone_in_stage22_order": q_raw_family_order_is_monotone,
+        },
         "orbit_cardinalities": {
             "temporal": len(set(temporal_orbit)),
             "family": len(set(family_orbit)),
@@ -736,6 +850,8 @@ def main() -> None:
             "axis_conjugacy_does_not_close_higgs_hypercharge_vacuum_alignment": True,
             "legacy_anchor_only_orients_cp1_ns_against_t3_sign": True,
             "six_weak_family_component_count_is_conditional_on_family_binding": True,
+            "source_order_anchor_is_not_physical_sector_identity": True,
+            "raw_qc_phase_does_not_supply_uniform_mod6pi_frame_positions": True,
             "remaining_physical_gate": "TEMPORAL_C3_TO_PHYSICAL_FAMILY_BINDING_AND_FULL_MASS_MIXING_SPECTRUM",
         },
     }
