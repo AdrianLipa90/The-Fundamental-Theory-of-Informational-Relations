@@ -1617,6 +1617,77 @@ def main() -> None:
         float(np.angle(z)) for z in terminal_loop_eigenvalues
     )
 
+    # Appendix-AR: basepoint covariance and orientation reversal on the
+    # terminal Collatz cycle.  Step matrices follow the source path
+    # 1 --O--> 4 --E--> 2 --E--> 1.
+    U_1_to_4 = candidate_step[("O", 0)]["U"]
+    U_4_to_2 = candidate_step[("E", 1)]["U"]
+    U_2_to_1 = candidate_step[("E", 2)]["U"]
+
+    U_terminal_base1 = U_2_to_1 @ U_4_to_2 @ U_1_to_4
+    U_terminal_base4 = U_1_to_4 @ U_2_to_1 @ U_4_to_2
+    U_terminal_base2 = U_4_to_2 @ U_1_to_4 @ U_2_to_1
+
+    terminal_base1_match_residual = float(
+        np.max(np.abs(U_terminal_base1 - U_terminal))
+    )
+    terminal_base4_conjugacy_residual = float(
+        np.max(
+            np.abs(
+                U_terminal_base4
+                - U_1_to_4 @ U_terminal_base1 @ U_1_to_4.conj().T
+            )
+        )
+    )
+    U_1_to_2 = U_4_to_2 @ U_1_to_4
+    terminal_base2_conjugacy_residual = float(
+        np.max(
+            np.abs(
+                U_terminal_base2
+                - U_1_to_2 @ U_terminal_base1 @ U_1_to_2.conj().T
+            )
+        )
+    )
+    terminal_basepoint_trace_residual = max(
+        abs(np.trace(U_terminal_base4) - np.trace(U_terminal_base1)),
+        abs(np.trace(U_terminal_base2) - np.trace(U_terminal_base1)),
+    )
+    terminal_basepoint_charpoly_residual = max(
+        float(
+            np.max(
+                np.abs(
+                    np.poly(U_terminal_base4) - np.poly(U_terminal_base1)
+                )
+            )
+        ),
+        float(
+            np.max(
+                np.abs(
+                    np.poly(U_terminal_base2) - np.poly(U_terminal_base1)
+                )
+            )
+        ),
+    )
+
+    U_terminal_reverse = U_terminal_base1.conj().T
+    terminal_reverse_inverse_residual = float(
+        np.max(
+            np.abs(
+                U_terminal_reverse @ U_terminal_base1 - np.eye(3)
+            )
+        )
+    )
+    terminal_reverse_trace_conjugacy_residual = abs(
+        np.trace(U_terminal_reverse) - np.conj(np.trace(U_terminal_base1))
+    )
+    terminal_orientation_odd_imag_sum_residual = abs(
+        np.trace(U_terminal_reverse).imag + np.trace(U_terminal_base1).imag
+    )
+    terminal_orientation_even_real_diff_residual = abs(
+        np.trace(U_terminal_reverse).real - np.trace(U_terminal_base1).real
+    )
+    terminal_orientation_odd_witness = float(np.trace(U_terminal_base1).imag)
+
     # Single-axis branch-map no-go.  The Stage-66 selected tangent is the
     # P3 image of A_seed, i.e. the symmetric 23 channel.  Any two branch
     # generators that are merely scalar multiples of this one tangent commute,
@@ -2307,6 +2378,22 @@ def main() -> None:
             and "STAGE_53_SPIN1_CP_NOGO_AND_SU3_3PLUS5_DECOMPOSITION_PASS"
             in stage53
         ),
+        "terminal_loop_basepoint_change_is_conjugacy_exact": (
+            terminal_base1_match_residual < TOL
+            and terminal_base4_conjugacy_residual < TOL
+            and terminal_base2_conjugacy_residual < TOL
+            and terminal_basepoint_trace_residual < TOL
+            and terminal_basepoint_charpoly_residual < 1.0e-12
+        ),
+        "terminal_loop_reverse_orientation_is_inverse_exact": (
+            terminal_reverse_inverse_residual < TOL
+            and terminal_reverse_trace_conjugacy_residual < TOL
+        ),
+        "terminal_loop_imaginary_trace_is_orientation_odd": (
+            abs(terminal_orientation_odd_witness) > 1.0e-6
+            and terminal_orientation_odd_imag_sum_residual < TOL
+            and terminal_orientation_even_real_diff_residual < TOL
+        ),
         "terminal_collatz_cycle_conjugacy_invariants_gauge_stable": (
             terminal_gauge_trace_residual < TOL
             and terminal_gauge_trace2_residual < TOL
@@ -2850,6 +2937,16 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "terminal_cycle_basepoint_status": (
+            "TERMINAL_LOOP_CONJUGACY_CLASS_BASEPOINT_COVARIANT"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_cycle_orientation_status": (
+            "TERMINAL_LOOP_IMAGINARY_TRACE_ORIENTATION_ODD_CLASS_WITNESS"
+            if passed
+            else "FAILED"
+        ),
         "terminal_cycle_cp_status": (
             "NONTRIVIAL_WILSON_LOOP_NOT_YET_PHYSICAL_CP_OR_SECTOR_BINDING"
         ),
@@ -3214,6 +3311,29 @@ def main() -> None:
             "spin1_forced_eigenvalue": 1,
             "det_U_minus_I_abs": float(terminal_spin1_unit_eigenvalue_exclusion),
             "outside_every_conjugate_spin1_su2": True,
+            "basepoint_conjugacy": {
+                "base1_match_residual": terminal_base1_match_residual,
+                "base4_conjugacy_residual": terminal_base4_conjugacy_residual,
+                "base2_conjugacy_residual": terminal_base2_conjugacy_residual,
+                "trace_residual": float(terminal_basepoint_trace_residual),
+                "charpoly_residual": terminal_basepoint_charpoly_residual,
+            },
+            "orientation_reversal": {
+                "inverse_residual": terminal_reverse_inverse_residual,
+                "trace_conjugacy_residual": float(
+                    terminal_reverse_trace_conjugacy_residual
+                ),
+                "imaginary_part_sum_residual": float(
+                    terminal_orientation_odd_imag_sum_residual
+                ),
+                "real_part_difference_residual": float(
+                    terminal_orientation_even_real_diff_residual
+                ),
+                "forward_imaginary_trace": terminal_orientation_odd_witness,
+                "reverse_imaginary_trace": float(
+                    np.trace(U_terminal_reverse).imag
+                ),
+            },
             "eigenphases_rad": terminal_loop_eigenphases,
             "F3_conjugacy_trace_residual": terminal_gauge_trace_residual,
             "F3_conjugacy_trace2_residual": terminal_gauge_trace2_residual,
@@ -3603,6 +3723,8 @@ def main() -> None:
             "stage40_full_ckm_shape_failure_is_retained": True,
             "terminal_loop_outside_spin1_is_not_by_itself_a_physical_cp_observable": True,
             "nonreal_trace_is_used_only_as_conjugacy_subgroup_exclusion_witness": True,
+            "orientation_odd_imaginary_trace_is_not_identified_with_physical_cp": True,
+            "basepoint_covariance_is_groupoid_consistency_not_physical_promotion": True,
             "branch_symbol_to_split_real_operator_is_closed_but_not_physical_family_map": True,
             "legacy_eta_0_35_rhythm_is_model_choice_not_current_input": True,
             "exact_geometric_branch_length_alphabet_is_closed": True,
