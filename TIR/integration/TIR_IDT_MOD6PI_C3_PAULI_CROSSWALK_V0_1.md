@@ -3974,3 +3974,139 @@ source-derived family overlap frames
 Remaining source gate:
 
 `OVERLAP_REALIZATION_CONDITIONAL__SOURCE_STATES_NOT_YET_DERIVED`.
+
+---
+
+## Appendix W — NEW 2026-09-19 — (C_3) label/character projective frames and the (F_3) Bargmann plaquette
+
+### W.1 Two exact projective frames are already present
+
+Let the ordered Stage-22 family-seed basis be
+
+\[
+\{|s_1\rangle,|s_2\rangle,|s_3\rangle\}.
+\]
+
+The regular family cycle (P_3) has the exact character eigenbasis
+
+\[
+\{|\chi_0\rangle,|\chi_1\rangle,|\chi_2\rangle\}
+\]
+
+with overlap matrix
+
+\[
+\boxed{
+\langle s_i|\chi_j\rangle=(F_3)_{ij}.
+}
+\]
+
+Thus the two projective frames required by Appendix V already exist at the representation level.
+
+Status:
+
+`C3_LABEL_AND_CHARACTER_PROJECTIVE_FRAMES_CURRENT_EXACT`.
+
+### W.2 A nonzero Bargmann quadrilateral is built into (F_3)
+
+Take the plaquette formed by rows (1,2) and columns (1,2):
+
+\[
+\Pi
+=
+(F_3)_{11}(F_3)_{21}^*(F_3)_{22}(F_3)_{12}^*.
+\]
+
+With
+
+\[
+\omega=e^{2\pi i/3},
+\]
+
+one obtains
+
+\[
+\boxed{\Pi=\frac{\omega}{9}.}
+\]
+
+Therefore
+
+\[
+\boxed{\arg\Pi=\frac{2\pi}{3}}
+\]
+
+and
+
+\[
+\boxed{
+\operatorname{Im}\Pi
+=
+\frac{1}{6\sqrt3}
+=
+J(F_3).
+}
+\]
+
+By Appendix V this plaquette is exactly the Bargmann quadrilateral
+
+\[
+\langle s_1|\chi_0\rangle
+\langle \chi_0|s_2\rangle
+\langle s_2|\chi_1\rangle
+\langle \chi_1|s_1\rangle.
+\]
+
+Status:
+
+`F3_NONZERO_BARGMANN_PLAQUETTE_AND_JARLSKOG_CURRENT_EXACT`.
+
+### W.3 What has been closed
+
+The earlier Appendix-V source statement
+
+`OVERLAP_REALIZATION_CONDITIONAL__SOURCE_STATES_NOT_YET_DERIVED`
+
+is now narrowed.
+
+At the (C_3) representation level:
+
+```text
+ordered label frame
+    = DERIVED / CURRENT
+
+C3 character frame
+    = DERIVED / CURRENT
+
+overlap matrix
+    = F3 EXACT
+
+Bargmann plaquette
+    = NONZERO EXACT
+
+J(F3)
+    = 1/(6 sqrt(3)) EXACT
+```
+
+### W.4 Remaining physical sector gate
+
+The unresolved step is not the existence of projective frames or a nonzero geometric plaquette phase.
+
+It is the physical identification of the two exact (C_3) frames with the dynamical sector eigenframes that would enter a physical CKM- or PMNS-type relative transformation.
+
+Thus
+
+\[
+\boxed{
+\text{C3 label/character frames}
+\stackrel{?}{\longrightarrow}
+\text{physical sector frames}
+}
+\]
+
+remains OPEN.
+
+Status:
+
+`REPRESENTATION_LEVEL_C3_FRAMES_DERIVED__PHYSICAL_SECTOR_FRAME_BINDING_OPEN`.
+
+This does not promote (F_3) itself to the observed CKM or PMNS matrix.
