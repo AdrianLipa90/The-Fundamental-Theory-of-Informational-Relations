@@ -1,0 +1,176 @@
+name: TIR IDT mod6pi C3 Pauli crosswalk
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mod6pi-c3-pauli-crosswalk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact event head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
+      - name: Verify exact PR head and clean diff
+        if: github.event_name == 'pull_request'
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+          git diff --check
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install validator dependency
+        run: python -m pip install --disable-pip-version-check numpy
+
+      - name: Run mod6pi C3 Pauli representation validator
+        run: |
+          set -euo pipefail
+          python3 TIR/validation/tir_idt_mod6pi_c3_pauli_crosswalk_v0_1.py | tee mod6pi-c3-pauli-receipt.json
+          grep -Fq '"technical_status": "PASS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"representation_status": "TEMPORAL_C3_TO_PAULI_AND_ORDERED_FAMILY_C3_CROSSWALK_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"temporal_family_label_binding": "ANCHORED_EQUIVARIANT_LABEL_INTERTWINER_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_precedence_binding": "TEMPORAL_C3_TO_ACTIVE_STAGE22_FAMILY_SEED_ORDER_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"independent_family_multiplicity_status": "STAGE21_E8_THREEFOLD_MULTIPLICITY_3_CURRENT_PASS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"seed_exceptional_triplet_binding_status": "STAGE24_ORDERED_SEED_TO_E8_TRIPLET_INTERTWINER_CURRENT_PASS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"temporal_c3_family_role": "INDEPENDENT_C3_CROSSWALK_TO_EXISTING_MULTIPLICITY3_FAMILY_CARRIER"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"raw_product_seed_cycle_status": "ORDINARY_PRODUCT_SEED_COLLATZ_C3_CYCLE_REFUTED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"distance_amplitude_status": "CANONICAL_PATH_COST_TO_AMPLITUDE_RULE_NOT_FOUND"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"oriented_family_generator_status": "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"icosahedral_family_embedding_status": "STAGE61_62_C3_COMPATIBLE_RIGID_EMBEDDING_CURRENT_PASS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"seed_dynamical_cycle_status": "OPEN_RICHER_POINCARE_HOLONOMY_OPERATOR_REQUIRED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"collatz_poincare_operator_chain_status": "BRANCH_WORD_TO_PSL2R_TO_SYM2_THREE_CARRIER_CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"binary_to_three_carrier_status": "SYM2_TWO_TO_THREE_CARRIER_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"split_real_to_family_unitary_status": "DIRECT_UNITARIZATION_REFUTED__COMPACT_SU3F_ENDPOINT_REQUIRED__BRANCHWISE_REALFORM_LIFT_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"spin1_cp_status": "COMPACT_SPIN1_SUBGROUP_JARLSKOG_ZERO_FULL_SU3_COMPLEMENT_REQUIRED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"su3_so3_complement_status": "FIVE_DIMENSIONAL_SU3_OVER_SO3_SPIN2_COMPLEMENT_CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"n5_icosahedral_complement_status": "N5_A5_IRREDUCIBLE_FIVE_CARRIER_CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"icosahedral_su3_generation_status": "SIX_ICOSAHEDRAL_QUADRUPOLES_GENERATE_FULL_SU3_CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"cubic_complement_selector_status": "STAGE66_UNIQUE_STATIONARY_CUBIC_SELECTOR_CLOSED_SADDLE"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"cubic_complement_selector_eta_exact": "-75*(59+21*sqrt(5))/638"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"branch_symbol_split_real_operator_status": "BRANCH_SYMBOL_TO_SPLIT_REAL_THREE_OPERATOR_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"legacy_rhythm_status": "LEGACY_BOUNDED_RHYTHM_MODEL_CHOICE_NOT_PROMOTED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"poincare_branch_translation_length_status": "POINCARE_BRANCH_TRANSLATION_LENGTH_ALPHABET_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"branch_scale_cocycle_status": "SIGNED_LOG_JACOBIAN_COCYCLE_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"geometric_rhythm_alphabet_status": "CANONICAL_GEOMETRIC_RHYTHM_ALPHABET_AVAILABLE"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"exact_rhythm_status": "EXACT_GEOMETRIC_BRANCH_LENGTH_ALPHABET_CLOSED__HAMILTONIAN_RHO_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_endpoint_class_status": "CURRENT_FAMILY_ENDPOINT_COMPACT_SU3F_REQUIRED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"real_form_endpoint_status": "COMPACT_ENDPOINT_CLASS_FIXED__DYNAMICAL_BRANCHWISE_LIFT_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"canonical_polar_compactification_status": "CANONICAL_POLAR_COMPACTIFICATION_REFUTED_AS_SUFFICIENT_BRANCH_LIFT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"complex_holonomy_cp_mechanism_status": "NONPOLAR_COMPLEX_HOLONOMY_CP_MECHANISM_EXISTS_SOURCE_QUARANTINED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"scalar_qc_cp_status": "SCALAR_VERTEX_QC_PHASE_DIFFERENCE_CP_NO_GO"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"cp_phase_source_requirement": "NONSEPARABLE_PAIR_DEPENDENT_HOLONOMY_REQUIRED_FOR_NONZERO_PLAQUETTE_PHASE"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"equatorial_qc_bargmann_status": "ACTIVE_SCALAR_QC_EQUATORIAL_BARGMANN_PHASE_ZERO"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"overlap_bargmann_crosswalk_status": "PLAQUETTE_PHASE_EQUALS_BARGMANN_QUADRILATERAL_UNDER_OVERLAP_REALIZATION"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"c3_projective_frame_status": "C3_LABEL_AND_CHARACTER_PROJECTIVE_FRAMES_CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"f3_bargmann_cp_status": "F3_NONZERO_BARGMANN_PLAQUETTE_AND_JARLSKOG_CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"stage39_sector_frame_status": "TWO_HERMITIAN_SECTOR_EIGENFRAMES_FROZEN_STRUCTURAL_CANDIDATE"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"stage39_relative_family_status": "NONZERO_CP_UNITARY_RELATIVE_TRANSFORMATION_REPRODUCED_NO_TARGET_FIT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"physical_sector_assignment_status": "OPEN_STAGE39_A_B_ASSIGNMENT_NOT_SELECTED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"coefficient_orientation_sector_assignment_status": "COEFFICIENT_ORIENTATION_DOES_NOT_YET_SELECT_STAGE39_SECTOR_ASSIGNMENT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"cp_sign_selection_firewall": "OBSERVED_CP_SIGN_SELECTION_FORBIDDEN_AS_TARGET_LEAKAGE"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"ckm_closure_status": "OPEN_COEFFICIENT_FREE_HOLONOMIC_SECTOR_ASSIGNMENT_THEOREM"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"generic_wij_holonomy_status": "GENERIC_WIJ_PATH_HOLONOMY_GRAMMAR_TYPED_CURRENT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"selector_location_status": "SELECTOR_MUST_RETAIN_PATH_LOCAL_DATA_UPSTREAM_OF_ENDPOINT_SU3_REDUCTION"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"directed_stationary_family_tangent_status": "STAGE24_ORIENTATION_PLUS_STAGE66_SELECTS_DIRECTED_2_TO_3_TANGENT_AT_REPRESENTATION_LEVEL"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"ordered_family_step_map_status": "OPEN_COLLATZ_BRANCH_TO_DIRECTED_FAMILY_GENERATOR_AND_EXACT_RHO_BINDING"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"single_axis_branch_map_status": "NO_GO_SINGLE_STAGE66_TANGENT_CANNOT_PRESERVE_COLLATZ_BRANCH_ORDER"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_branch_operator_requirement": "AT_LEAST_TWO_NONCOMMUTING_GENERATORS_OR_STATE_DEPENDENT_CONJUGATION_REQUIRED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"minimal_dc_branch_map_status": "TWO_NONCOMMUTING_DC_ASSIGNMENTS_EXIST_WITH_BRANCH_SWAP_SIGN_REVERSAL"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"branch_generator_assignment_status": "OPEN_Z2_EO_TO_DC_ASSIGNMENT_NOT_SOURCE_SELECTED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"dc_spectral_assignment_status": "NO_GO_SINGLE_GENERATOR_SPECTRAL_INVARIANTS_CANNOT_SELECT_EO_TO_DC_Z2"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"dc_basis_appearance_status": "DIAGONAL_VS_MIXED_APPEARANCE_NOT_INVARIANT_WITHOUT_DERIVED_REAL_FORM_INTERTWINER"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"stage52_dc_generation_status": "NO_GO_COMPACT_SPIN1_SUBGROUP_ALONE_CANNOT_GENERATE_DC_PAIR"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"stage66_c3_orbit_generator_status": "STAGE66_C3_ORBIT_GENERATES_FULL_SU3F_LIE_ALGEBRA"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"stage24_66_forward_pair_status": "ORIENTED_A1_TO_A2_NONCOMMUTING_PAIR_WITH_EXPLICIT_COMPLEMENT_INJECTION"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_complement_injection_status": "CLOSED_AT_STAGE66_C3_ORBIT_GENERATOR_SET_LEVEL__BRANCH_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"stage66_branch_assignment_status": "STATIC_EO_TO_TWO_STAGE66_ORBIT_GENERATORS_REFUTED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"collatz_temporal_c3_frame_status": "STOPPING_DEPTH_MOD3_COLLATZ_TO_TEMPORAL_C3_EQUIVARIANT_BINDING_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"stage66_state_dependent_orbit_binding_status": "CLOSED_REPRESENTATION_LEVEL_VIA_NEGATIVE_STOPPING_DEPTH_MOD3"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"collatz_state_family_generator_index_status": "G_N_EQUALS_A_MINUS_L_MOD3_C3_EQUIVARIANT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"signed_geometric_step_candidate_status": "PASS_MATH_PROVENANCE__PHYSICAL_PROMOTION_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"state_dependent_su3_step_status": "SOURCE_DERIVED_PARAMETER_FREE_SU3_STEP_SCAFFOLD_VALIDATED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"common_target_family_path_holonomy_status": "PASS_SU3_GROUPOID_FLAT_PURE_GAUGE"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"common_target_family_wij_status": "SOURCE_DERIVED_COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"common_target_wilson_loop_status": "TRIANGULAR_WILSON_LOOP_IDENTITY"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"common_target_cp_holonomy_status": "NO_GO_COMMON_TARGET_COBoundARY_TRANSPORT_ALONE_CANNOT_SOURCE_NONZERO_LOOP_HOLONOMY"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"physical_family_connection_status": "NONFLAT_TERMINAL_CYCLE_CANDIDATE_EXISTS__PHYSICAL_FAMILY_CONNECTION_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_holonomy_status": "TERMINAL_COLLATZ_CYCLE_NONTRIVIAL_SU3_HOLONOMY_RETROSPECTIVE_STRUCTURAL_PASS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_nonflat_source_status": "TERMINAL_CYCLE_SUPPLIES_NONFLAT_SOURCE_DERIVED_LOOP_CANDIDATE"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_spin1_exclusion_status": "TERMINAL_LOOP_OUTSIDE_EVERY_CONJUGATE_SPIN1_SU2_SUBGROUP"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_full_su3_direction_status": "TERMINAL_LOOP_REQUIRES_DIRECTIONS_BEYOND_COMPACT_SPIN1_SUBGROUP"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_basepoint_status": "TERMINAL_LOOP_CONJUGACY_CLASS_BASEPOINT_COVARIANT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_orientation_status": "TERMINAL_LOOP_IMAGINARY_TRACE_ORIENTATION_ODD_CLASS_WITNESS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_trace_fixedpoint_identity_status": "SU3_DET_U_MINUS_I_EQUALS_2I_IM_TRACE_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_inverse_conjugacy_status": "TERMINAL_LOOP_AND_ORIENTATION_REVERSE_ARE_DISTINCT_SU3_CONJUGACY_CLASSES"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_inner_symmetry_status": "ORIENTATION_REVERSAL_NOT_REMOVABLE_BY_INNER_SU3_CONJUGATION"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_outer_conjugation_status": "COMPLEX_CONJUGATION_MAPS_TERMINAL_FORWARD_CLASS_TO_REVERSE_CLASS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_outer_z2_status": "TERMINAL_FORWARD_REVERSE_CLASSES_FORM_INVOLUTIVE_OUTER_Z2_PAIR"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_outer_inner_distinction_status": "COMPLEX_CONJUGATION_NOT_INNER_ON_TERMINAL_CLASS_WITNESS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_coboundary_status": "NONTRIVIAL_TERMINAL_WILSON_LOOP_REFUTES_GLOBAL_GI_DAGGER_GJ_FACTORIZATION"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"nonseparable_path_holonomy_status": "SOURCE_DERIVED_NONSEPARABLE_PATH_HOLONOMY_CANDIDATE_EXISTS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_regular_class_status": "TERMINAL_LOOP_REGULAR_SU3_CONJUGACY_CLASS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_centralizer_status": "TERMINAL_LOOP_CENTRALIZER_IS_MAXIMAL_TORUS_U1_X_U1"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_cartan_rank_status": "TERMINAL_LOOP_SUPPLIES_TWO_INDEPENDENT_CARTAN_EIGENPHASE_COORDINATES"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_cp_status": "NONTRIVIAL_WILSON_LOOP_NOT_YET_PHYSICAL_CP_OR_SECTOR_BINDING"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_prospective_status": "RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_wij_source_binding_status": "COMMON_TARGET_FLAT_COBoundARY_SCAFFOLD_CLOSED__TERMINAL_COLLATZ_NONCOBOUNDARY_NONSEPARABLE_SU3_HOLONOMY_CANDIDATE_EXISTS__PHYSICAL_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"signed_geometric_order_status": "EQUAL_COUNT_EO_OE_ORDER_DISTINGUISHED_ON_ROTATING_C3_AXES"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"three_step_lie_access_status": "EVERY_THREE_CONSECUTIVE_C3_AXES_LIE_GENERATE_SU3F"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"physical_signed_geometric_step_status": "NOT_PROMOTED_PHYSICAL_HAMILTONIAN_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"stage66_full_orbit_access_requirement": "FULL_SU3F_FROM_STAGE66_REQUIRES_ALL_THREE_ORBIT_GENERATORS_OR_EQUIVALENT_EXTRA_DIRECTION"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"ckm_quantitative_status": "STAGE40_FULL_CKM_SHAPE_FAIL_RETAINED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"projective_holonomy_source_status": "C3_PROJECTIVE_FRAMES_AND_STAGE39_STRUCTURAL_SECTOR_FRAMES_DERIVED__PHYSICAL_ASSIGNMENT_AND_CKM_PROMOTION_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"geometric_cp_source_requirement": "ADDITIONAL_NONSEPARABLE_CONNECTION_OR_NON_EQUATORIAL_MULTI_RAY_GEOMETRY_REQUIRED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"branch_to_complex_holonomy_status": "SOURCE_DERIVED_STATE_DEPENDENT_NONSEPARABLE_SU3_HOLONOMY_MAP_CANDIDATE_EXISTS__PHYSICAL_FAMILY_CP_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"stage39_40_status": "TWO_OPERATOR_MECHANISM_RETAINED_FULL_CKM_SHAPE_FAIL"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"continuous_real_lie_lift_status": "NONTRIVIAL_CONTINUOUS_PSL2R_TO_SU3F_LIE_HOMOMORPHIC_LIFT_REFUTED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"compact_family_branch_operator_status": "OPEN_DISCRETE_OR_HOLONOMIC_NONPOLAR_BRANCHWISE_SU3F_LIFT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_dynamics_selector_status": "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_VALIDATED__COMMON_TARGET_WIJ_FLAT__TERMINAL_COLLATZ_NONCOBOUNDARY_NONSEPARABLE_SU3_LOOP_OUTSIDE_SPIN1_RETROSPECTIVE_PASS__PHYSICAL_RHO_TEMPORAL_FAMILY_CP_AND_CKM_PROMOTION_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"historical_generation_numbering_status": "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"source_order_anchor_status": "UNIQUE_ORDER_PRESERVING_LABEL_CROSSWALK_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"declared_anchor_dependency": "REMOVED_AT_ORDERED_LABEL_REPRESENTATION_LEVEL"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"raw_qc_phase_binding": "DIRECT_UNIFORM_C3_CLOCK_IDENTIFICATION_REFUTED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"flavour_cardinality_result": "N_F_EQUALS_3_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"cp_character_transfer": "F3_JARLSKOG_MATH_TRANSFER_CLOSED_PHYSICAL_CP_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"su3f_transfer": "LIE_DIMENSION_8_PRESERVED_UNDER_ORDERED_INTERTWINER"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_state_product_binding": "C3_X_CHIRALITY_Z2_SIX_STATE_INTERTWINER_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"weak_family_cardinality": "DIMENSION_3_X_2_EQUALS_6_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_quark_flavour_cardinality": "CONDITIONAL_LABEL_COUNT_SIX_NOT_FULL_PHYSICAL_SPECTRUM_DERIVATION"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"legacy_weak_pole_orientation_audit": "ARCHIVAL_SOURCE_RECOVERED_CURRENT_PROMOTION_CONDITIONAL"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"legacy_generated_projection_csv_state": "CORRECTED_UP_QUARK_PARTICLE_ID"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"legacy_generated_projection_csv_up_quark_particle_ids": [' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"chirality_to_weak_label_intertwiner": "CLOSED_CONDITIONAL_ON_RECOVERED_NORTH_SOUTH_T3_ORIENTATION_ANCHOR"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_cycle_weak_family_label_operator": "CLOSED_CONDITIONAL_ON_RECOVERED_WEAK_ORIENTATION_ANCHOR"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"weak_a1_weyl_z2_status": "CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"weak_axis_conjugacy_status": "A1_CARTAN_ORIENTATION_SU2_CONJUGACY_CLASS_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"electroweak_vacuum_alignment_status": "OPEN_HIGGS_HYPERCHARGE_ALIGNMENT_NOT_CLOSED_BY_AXIS_CONJUGACY"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_x_weak_six_cycle": "CURRENT_C3_X_A1_WEYL_Z2_C6_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"orientation_c3_z2_extension_status": "C3_SEMIDIRECT_Z2_INVERSION_IS_D3_ISOMORPHIC_S3"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"sixfold_symmetry_distinction_status": "ABELIAN_C6_WEAK_PRODUCT_DISTINCT_FROM_NONABELIAN_D3_ORIENTATION_EXTENSION"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"twelvefold_dihedral_extension_status": "C6_SEMIDIRECT_Z2_INVERSION_IS_HEXAGON_DIHEDRAL_GROUP_ORDER12"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"mod6pi_six_to_twelve_group_status": "SIX_STATE_C6_ROTATION_EXTENDS_TO_TWELVE_ELEMENT_ORIENTATION_DIHEDRAL_SYMMETRY"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"d3_real_rep_decomposition_status": "D3_FAMILY_PERMUTATION_REP_REAL_3_DECOMPOSES_AS_1_PLUS_2"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"f3_character_decomposition_status": "F3_TRIVIAL_SINGLET_PLUS_CONJUGATE_CHARACTER_PAIR_COMPLEXIFIES_REAL_1_PLUS_2"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_state_c6_character_spectrum_status": "WEAK_FAMILY_C6_REGULAR_CHARACTER_SPECTRUM_ALL_SIXTH_ROOTS_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_state_d6_real_mode_decomposition_status": "D6_SIX_STATE_REAL_REP_DECOMPOSES_AS_1_PLUS_1_PLUS_2_PLUS_2"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_weak_component_label_count": "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_cycle_physical_flavour_operator": "CURRENT_WEAK_FAMILY_REPRESENTATION_EXACT_PHYSICAL_GENERATION_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"physical_sector_binding": "OPEN"' mod6pi-c3-pauli-receipt.json
+
+      - name: Upload receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: tir-idt-mod6pi-c3-pauli-${{ github.event.pull_request.head.sha || github.sha }}
+          path: mod6pi-c3-pauli-receipt.json

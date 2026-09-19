@@ -1,0 +1,180 @@
+{
+  "schema": "TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1",
+  "date": "2026-09-19",
+  "branch": "feat/idt-mod6pi-c3-pauli-crosswalk-v0.1",
+  "formalism": "TIR/integration/TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1.md",
+  "validator": "TIR/validation/tir_idt_mod6pi_c3_pauli_crosswalk_v0_1.py",
+  "validation_semantics": {
+    "validated_head": "f5f9f1952b443678381a40d437a3e6365a9d803e",
+    "validated_scope": "exact GitHub Actions checkout of PR head including Appendices A-AP and the current crosswalk/workflow implementation",
+    "receipt_is_self_validating": false,
+    "note": "This committed receipt points to the exact hosted predecessor head. Writing the receipt necessarily creates a later Git commit and therefore does not claim to validate its own writeback commit."
+  },
+  "hosted_validation": {
+    "workflow": "TIR IDT mod6pi C3 Pauli crosswalk",
+    "run_id": 35447059908,
+    "run_number": 216,
+    "job_id": 105907701127,
+    "conclusion": "success",
+    "artifact_id": 10586110360,
+    "artifact_name": "tir-idt-mod6pi-c3-pauli-f5f9f1952b443678381a40d437a3e6365a9d803e",
+    "artifact_digest": "sha256:cac420ce0d436e2d290ab8c5de51d1706cc408654b74d836218688d158c5e043"
+  },
+  "technical_status": "PASS_HOSTED_EXACT_CODE_HEAD",
+  "representation_status": "TEMPORAL_C3_TO_PAULI_AND_ORDERED_FAMILY_C3_CROSSWALK_CLOSED",
+  "family_precedence_binding": "TEMPORAL_C3_TO_ACTIVE_STAGE22_FAMILY_SEED_ORDER_CLOSED",
+  "historical_generation_numbering_status": "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR",
+  "source_order_anchor_status": "UNIQUE_ORDER_PRESERVING_LABEL_CROSSWALK_CLOSED",
+  "declared_anchor_dependency": "REMOVED_AT_ORDERED_LABEL_REPRESENTATION_LEVEL",
+  "raw_qc_phase_binding": "DIRECT_UNIFORM_C3_CLOCK_IDENTIFICATION_REFUTED",
+  "independent_family_multiplicity_status": "STAGE21_E8_THREEFOLD_MULTIPLICITY_3_CURRENT_PASS",
+  "seed_exceptional_triplet_binding_status": "STAGE24_ORDERED_SEED_TO_E8_TRIPLET_INTERTWINER_CURRENT_PASS",
+  "temporal_c3_family_role": "INDEPENDENT_C3_CROSSWALK_TO_EXISTING_MULTIPLICITY3_FAMILY_CARRIER",
+  "cp_character_transfer": "F3_JARLSKOG_MATH_TRANSFER_CLOSED_PHYSICAL_CP_BINDING_OPEN",
+  "su3f_transfer": "LIE_DIMENSION_8_PRESERVED_UNDER_ORDERED_INTERTWINER",
+  "six_state_product_binding": "C3_X_CHIRALITY_Z2_SIX_STATE_INTERTWINER_CLOSED",
+  "weak_a1_weyl_z2_status": "CURRENT_EXACT",
+  "weak_axis_conjugacy_status": "A1_CARTAN_ORIENTATION_SU2_CONJUGACY_CLASS_CLOSED",
+  "electroweak_vacuum_alignment_status": "OPEN_HIGGS_HYPERCHARGE_ALIGNMENT_NOT_CLOSED_BY_AXIS_CONJUGACY",
+  "family_x_weak_six_cycle": "CURRENT_C3_X_A1_WEYL_Z2_C6_EXACT",
+  "weak_family_cardinality": "DIMENSION_3_X_2_EQUALS_6_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING",
+  "six_weak_component_label_count": "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING",
+  "six_quark_flavour_cardinality": "CONDITIONAL_LABEL_COUNT_SIX_NOT_FULL_PHYSICAL_SPECTRUM_DERIVATION",
+  "six_cycle_physical_flavour_operator": "CURRENT_WEAK_FAMILY_REPRESENTATION_EXACT_PHYSICAL_GENERATION_BINDING_OPEN",
+  "source_order_audit": {
+    "active_centers": [
+      4,
+      6,
+      12
+    ],
+    "center_stopping_depths": [
+      2,
+      8,
+      9
+    ],
+    "temporal_order": [
+      1,
+      2,
+      3
+    ],
+    "family_rank_order": [
+      1,
+      2,
+      3
+    ],
+    "order_preserving_bijection_count": 1,
+    "qC": [
+      "1/7",
+      "141/448",
+      "141/896"
+    ],
+    "raw_qC_is_arithmetic_progression": false,
+    "raw_qC_is_monotone_in_stage22_order": false
+  },
+  "exact_math_receipt": {
+    "pauli_c3_equivariance_residual": 1.5700924586837752e-16,
+    "generic_axis_conjugacy_residual": 1.1109668836762344e-16,
+    "generic_axis_weyl_involution_residual": 4.504974924470746e-16,
+    "generic_axis_weyl_flip_residual": 2.7805993540640707e-16,
+    "family_lie_dimension": 8,
+    "temporal_pullback_lie_dimension": 8,
+    "jarlskog_F3": "1/(6*sqrt(3))",
+    "family_dimension": 3,
+    "weak_doublet_dimension": 2,
+    "family_x_weak_dimension": 6
+  },
+  "archive_provenance": {
+    "legacy_projection_source_blob": "01b9be380f095b613a731ba258865bc617d8e854",
+    "legacy_generated_projection_csv_blob": "3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1",
+    "generated_csv_state": "SOURCE_AND_GENERATED_CSV_CONSISTENT",
+    "source_script_is_provenance_authority": true,
+    "source_and_generated_csv_up_quark_row": "u_L,up_quark",
+    "conflicting_nu_L_up_quark_row_present": false
+  },
+  "physical_firewall": {
+    "temporal_to_physical_family_dynamics": "OPEN",
+    "higgs_hypercharge_vacuum_alignment": "OPEN",
+    "physical_ckm_assignment": "OPEN",
+    "physical_pmns_assignment": "OPEN",
+    "mass_yukawa_derivation": "OPEN",
+    "full_particle_spectrum_binding": "OPEN",
+    "gravitational_metric_source_binding": "OPEN",
+    "physical_hamiltonian_binding": "OPEN",
+    "physical_rhythm_uniqueness": "OPEN",
+    "physical_family_connection_binding": "OPEN",
+    "terminal_cycle_nontrivial_holonomy_is_not_physical_cp": true,
+    "stage40_full_ckm_shape_failure_retained": true
+  },
+  "branch_rhythm_hosted_validation": {
+    "workflow": "TIR Collatz Poincare branch rhythm v0.1",
+    "run_id": 35447060000,
+    "run_number": 65,
+    "job_id": 105907701042,
+    "conclusion": "success",
+    "validated_head": "f5f9f1952b443678381a40d437a3e6365a9d803e",
+    "status": "PASS_CANDIDATE_MATHEMATICAL_AND_PROVENANCE_VALIDATION__PHYSICAL_RHYTHM_NOT_PROMOTED",
+    "rho_E_exact": "ln(2)",
+    "rho_O_exact": "ln(3)",
+    "physical_rhythm_promoted": false
+  },
+  "signed_geometric_step_candidate_status": "PASS_MATH_PROVENANCE__PHYSICAL_PROMOTION_OPEN",
+  "state_dependent_su3_step_status": "SOURCE_DERIVED_PARAMETER_FREE_SU3_STEP_SCAFFOLD_VALIDATED",
+  "signed_geometric_order_status": "EQUAL_COUNT_EO_OE_ORDER_DISTINGUISHED_ON_ROTATING_C3_AXES",
+  "three_step_lie_access_status": "EVERY_THREE_CONSECUTIVE_C3_AXES_LIE_GENERATE_SU3F",
+  "common_target_family_path_holonomy_status": "PASS_SU3_GROUPOID_FLAT_PURE_GAUGE",
+  "common_target_family_wij_status": "SOURCE_DERIVED_COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_CLOSED",
+  "common_target_wilson_loop_status": "TRIANGULAR_WILSON_LOOP_IDENTITY",
+  "common_target_cp_holonomy_status": "NO_GO_COMMON_TARGET_COBoundARY_TRANSPORT_ALONE_CANNOT_SOURCE_NONZERO_LOOP_HOLONOMY",
+  "terminal_cycle_holonomy_status": "TERMINAL_COLLATZ_CYCLE_NONTRIVIAL_SU3_HOLONOMY_RETROSPECTIVE_STRUCTURAL_PASS",
+  "terminal_cycle_nonflat_source_status": "TERMINAL_CYCLE_SUPPLIES_NONFLAT_SOURCE_DERIVED_LOOP_CANDIDATE",
+  "terminal_cycle_cp_status": "NONTRIVIAL_WILSON_LOOP_NOT_YET_PHYSICAL_CP_OR_SECTOR_BINDING",
+  "terminal_cycle_prospective_status": "RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST",
+  "family_wij_source_binding_status": "COMMON_TARGET_FAMILY_WIJ_FLAT_SCAFFOLD_CLOSED__TERMINAL_COLLATZ_NONFLAT_LOOP_CANDIDATE_EXISTS__PHYSICAL_BINDING_OPEN",
+  "physical_family_connection_status": "NONFLAT_TERMINAL_CYCLE_CANDIDATE_EXISTS__PHYSICAL_FAMILY_CONNECTION_BINDING_OPEN",
+  "exact_rhythm_status": "EXACT_GEOMETRIC_BRANCH_LENGTH_ALPHABET_CLOSED__HAMILTONIAN_RHO_BINDING_OPEN",
+  "family_dynamics_selector_status": "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_VALIDATED__COMMON_TARGET_WIJ_FLAT__TERMINAL_COLLATZ_CYCLE_NONFLAT_SU3_LOOP_RETROSPECTIVE_PASS__PHYSICAL_RHO_TEMPORAL_FAMILY_CP_AND_CKM_PROMOTION_OPEN",
+  "current_validation_highlights": {
+    "signed_geometric_step": {
+      "max_unitarity_residual": 3.3306690738754696e-16,
+      "max_determinant_residual": 3.3388414414438688e-16,
+      "equal_count_EO_OE_separation": 0.8617726992906661,
+      "three_step_windows_tested": 24,
+      "all_three_step_lie_dimensions": 8
+    },
+    "common_target_family_wij": {
+      "path_lengths": [
+        4,
+        0,
+        90
+      ],
+      "edge_nontriviality": 1.521891036749805,
+      "edge_commutator_max_abs": 0.8527092175626987,
+      "triangle_wilson_residual": 2.1094300329942488e-14,
+      "classification": "FLAT_PURE_GAUGE_COMMON_TARGET_GROUPOID"
+    },
+    "terminal_collatz_cycle": {
+      "states": [
+        1,
+        4,
+        2
+      ],
+      "branches": [
+        "O",
+        "E",
+        "E"
+      ],
+      "frames": [
+        0,
+        1,
+        2
+      ],
+      "nonidentity_max_abs": 0.5008161081115994,
+      "trace_real": 2.4889716929998738,
+      "trace_imag": 0.06023967414631505,
+      "trace_formula_residual": 8.884223316973178e-16,
+      "unitarity_residual": 6.661338147750939e-16,
+      "determinant_residual": 9.994535692500799e-16,
+      "classification": "RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST"
+    }
+  }
+}
