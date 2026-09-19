@@ -934,3 +934,54 @@ Remaining:
 Aggregate frontier:
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__RHYTHM_AND_COMPACT_FAMILY_MAP_OPEN\`.
+
+
+### Appendix O update — exact Poincare branch-length alphabet
+
+For the exact Stage-49 branch generators,
+
+\[
+\ell_E=\ln2,
+\qquad
+\ell_O=\ln3
+\]
+
+under the standard curvature-\(-1\) Poincare metric.
+
+The signed local scale cocycle is
+
+\[
+\chi(E)=-\ln2,
+\qquad
+\chi(O)=+\ln3,
+\]
+
+and reproduces the exact logarithmic slope of every frozen branch word.
+
+The canonical information scale obeys
+
+\[
+\boxed{
+\kappa=\frac{\ell_E}{24\pi}.
+}
+\]
+
+Status:
+
+\`POINCARE_BRANCH_TRANSLATION_LENGTH_ALPHABET_CLOSED\`
+
+\`SIGNED_LOG_JACOBIAN_COCYCLE_CLOSED\`
+
+\`CANONICAL_GEOMETRIC_RHYTHM_ALPHABET_AVAILABLE\`.
+
+The Hamiltonian identification
+
+\[
+\rho_s(k)=\ell(\widehat M_{b_k})
+\]
+
+is not yet promoted.
+
+Remaining frontier:
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__RHO_BINDING_AND_COMPACT_FAMILY_MAP_OPEN\`.
