@@ -1688,6 +1688,23 @@ def main() -> None:
     )
     terminal_orientation_odd_witness = float(np.trace(U_terminal_base1).imag)
 
+    terminal_pairwise_eigenvalue_separations = [
+        float(abs(terminal_loop_eigenvalues[i] - terminal_loop_eigenvalues[j]))
+        for i in range(3)
+        for j in range(i + 1, 3)
+    ]
+    terminal_min_eigenvalue_separation = min(
+        terminal_pairwise_eigenvalue_separations
+    )
+    terminal_eigenphase_sum = float(sum(terminal_loop_eigenphases))
+    terminal_eigenphase_sum_residual = abs(terminal_eigenphase_sum)
+    terminal_spectral_discriminant = 1.0
+    for i in range(3):
+        for j in range(i + 1, 3):
+            terminal_spectral_discriminant *= abs(
+                terminal_loop_eigenvalues[i] - terminal_loop_eigenvalues[j]
+            ) ** 2
+
     # Single-axis branch-map no-go.  The Stage-66 selected tangent is the
     # P3 image of A_seed, i.e. the symmetric 23 channel.  Any two branch
     # generators that are merely scalar multiples of this one tangent commute,
@@ -2394,6 +2411,18 @@ def main() -> None:
             and terminal_orientation_odd_imag_sum_residual < TOL
             and terminal_orientation_even_real_diff_residual < TOL
         ),
+        "terminal_loop_has_three_distinct_unitary_eigenvalues": (
+            terminal_min_eigenvalue_separation > 1.0e-6
+            and terminal_spectral_discriminant > 1.0e-12
+        ),
+        "terminal_loop_principal_eigenphases_sum_to_zero": (
+            terminal_eigenphase_sum_residual < 1.0e-12
+        ),
+        "terminal_loop_is_regular_rank2_su3_conjugacy_class": (
+            terminal_min_eigenvalue_separation > 1.0e-6
+            and terminal_loop_determinant_residual < TOL
+            and terminal_eigenphase_sum_residual < 1.0e-12
+        ),
         "nontrivial_terminal_wilson_loop_refutes_global_coboundary_factorization": (
             terminal_loop_nonidentity > 1.0e-6
             and common_target_triangle_residual < TOL
@@ -2956,6 +2985,21 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "terminal_cycle_regular_class_status": (
+            "TERMINAL_LOOP_REGULAR_SU3_CONJUGACY_CLASS"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_cycle_centralizer_status": (
+            "TERMINAL_LOOP_CENTRALIZER_IS_MAXIMAL_TORUS_U1_X_U1"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_cycle_cartan_rank_status": (
+            "TERMINAL_LOOP_SUPPLIES_TWO_INDEPENDENT_CARTAN_EIGENPHASE_COORDINATES"
+            if passed
+            else "FAILED"
+        ),
         "terminal_cycle_coboundary_status": (
             "NONTRIVIAL_TERMINAL_WILSON_LOOP_REFUTES_GLOBAL_GI_DAGGER_GJ_FACTORIZATION"
             if passed
@@ -3348,6 +3392,15 @@ def main() -> None:
                 "base2_conjugacy_residual": terminal_base2_conjugacy_residual,
                 "trace_residual": float(terminal_basepoint_trace_residual),
                 "charpoly_residual": terminal_basepoint_charpoly_residual,
+            },
+            "regular_su3_class": {
+                "pairwise_eigenvalue_separations": terminal_pairwise_eigenvalue_separations,
+                "minimum_eigenvalue_separation": terminal_min_eigenvalue_separation,
+                "spectral_discriminant": float(terminal_spectral_discriminant),
+                "principal_eigenphase_sum": terminal_eigenphase_sum,
+                "principal_eigenphase_sum_residual": terminal_eigenphase_sum_residual,
+                "centralizer": "MAXIMAL_TORUS_U1_X_U1",
+                "cartan_rank": 2,
             },
             "orientation_reversal": {
                 "inverse_residual": terminal_reverse_inverse_residual,
@@ -3758,6 +3811,8 @@ def main() -> None:
             "basepoint_covariance_is_groupoid_consistency_not_physical_promotion": True,
             "nontrivial_terminal_loop_closes_nonseparable_path_source_only_at_structural_candidate_level": True,
             "noncoboundary_source_does_not_by_itself_identify_ckm_or_pmns": True,
+            "regular_su3_conjugacy_class_is_not_a_ckm_rephasing_class": True,
+            "two_cartan_eigenphases_are_structural_loop_invariants_not_observed_mixing_angles": True,
             "branch_symbol_to_split_real_operator_is_closed_but_not_physical_family_map": True,
             "legacy_eta_0_35_rhythm_is_model_choice_not_current_input": True,
             "exact_geometric_branch_length_alphabet_is_closed": True,
