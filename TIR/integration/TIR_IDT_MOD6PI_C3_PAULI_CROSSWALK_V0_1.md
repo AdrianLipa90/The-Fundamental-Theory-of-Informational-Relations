@@ -846,19 +846,25 @@ is pinned by blob SHA
 
 \`3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1\`.
 
-Its up-quark weak-doublet row is consistent with the source generator:
+The archived source generator contains the corrected row
 
 \`\`\`text
 u_L,up_quark,"T3=1/2, pole=north/+"
 \`\`\`
 
-and no conflicting \`nu_L,up_quark\` row is present.
+whereas the preserved generated CSV contains the historical stale identifier
 
-Thus the archived source generator and its generated projection CSV agree on the relevant north-pole up-quark label.
+\`\`\`text
+nu_L,up_quark,"T3=1/2, pole=north/+"
+\`\`\`
+
+for the same up-quark weak-doublet row.
+
+Therefore the archived source generator is the provenance authority for the particle identifier. The generated CSV is retained as a historical artifact, and its stale identifier is diagnostic only; it does not gate the representation theorem.
 
 Status:
 
-\`ARCHIVAL_SOURCE_AND_GENERATED_CSV_CONSISTENT\`.
+\`ARCHIVAL_GENERATED_CSV_STALE_UP_QUARK_ID_DETECTED / SOURCE_SCRIPT_AUTHORITATIVE\`.
 
 ### D.3 Historical axis status
 
