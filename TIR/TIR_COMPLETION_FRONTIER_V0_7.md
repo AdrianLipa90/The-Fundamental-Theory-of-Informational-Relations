@@ -130,11 +130,17 @@ Downstream particle-sector gates must depend on the selector rather than pretend
 ### Global geometry / spacetime
 
 ```text
-PRODUCTION_GLOBAL_SPATIAL_COMPLEX_INPUT    OPEN INPUT
-PRODUCTION_INTERLEAF_MATCHING_FIELD_INPUT  OPEN INPUT
-GLOBAL_TIR_IDT_RFC_SPACETIME_ADM_JOIN      OPEN
-EINSTEIN_CONSTRAINT_EVOLUTION_CLOSURE      OPEN
+PRODUCTION_GLOBAL_SPATIAL_CAPTURE           OPEN INPUT
+PRODUCTION_INTERLEAF_MATCHING_CAPTURE       OPEN INPUT
+SAME_PHYSICAL_REALIZATION_ID_AND_RECEIPT    REQUIRED
+TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2 ASSEMBLER CLOSED / INPUTS OPEN
+GLOBAL_TIR_IDT_RFC_SPACETIME_ADM_JOIN       OPEN
+EINSTEIN_CONSTRAINT_EVOLUTION_CLOSURE       OPEN
 ```
+
+`TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2` is implemented by
+`TIR/foundations/validation/tir_production_realization_binding_v0_2.py`.
+It reuses the existing GSC-1/A5 and inter-leaf validators and refuses PNCS Phase36 realization identifiers as physical-realization identifiers. The remaining blocker is source evidence: no production spatial/matching bundle with a common physical realization receipt is present on `main`.
 
 ### Gauge / Standard Model dynamics
 
@@ -174,7 +180,7 @@ Because the two global geometry inputs are externally/source-input gated, the ne
 2. derive W_ij -> continuum gauge connection/curvature normalization;
 3. propagate those results into quark/EW/Higgs/meson/strong-CP gates;
 4. repair neutrino absolute action and cosmological dimensionful binding in parallel;
-5. when production spatial + inter-leaf inputs exist, run A5/global spacetime/ADM/Einstein gates;
+5. obtain source-owned production spatial + matching captures for one physical realization, certify the v0.2 bundle, then run global spacetime/ADM/Einstein gates;
 6. keep Li/Weil/RH as a separate analytic programme with RH=false in closure until genuinely proved.
 ```
 
