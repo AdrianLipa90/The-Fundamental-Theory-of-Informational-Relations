@@ -3323,3 +3323,177 @@ Status:
 The current aggregate frontier is
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__POLAR_LIFT_REFUTED__COMPLEX_HOLONOMY_MECHANISM_EXISTS__RHO_BINDING_AND_CLEAN_BRANCH_TO_COMPLEX_HOLONOMY_MAP_OPEN\`.
+
+
+---
+
+## Appendix S — NEW 2026-09-19 — Continuous \(PSL(2,\mathbb R)\to SU(3)_F\) real-Lie lift no-go
+
+### S.1 Source algebra is simple and noncompact
+
+Use the standard basis of
+
+\[
+\mathfrak{sl}(2,\mathbb R)
+\]
+
+given by
+
+\[
+H=
+\begin{pmatrix}
+1&0\\0&-1
+\end{pmatrix},
+\qquad
+E=
+\begin{pmatrix}
+0&1\\0&0
+\end{pmatrix},
+\qquad
+F=
+\begin{pmatrix}
+0&0\\1&0
+\end{pmatrix}.
+\]
+
+The Killing-form matrix in the ordered basis \((H,E,F)\) is
+
+\[
+\boxed{
+B_{\mathfrak{sl}_2}
+=
+\begin{pmatrix}
+8&0&0\\
+0&0&4\\
+0&4&0
+\end{pmatrix}
+}
+\]
+
+with eigenvalues
+
+\[
+\boxed{
+8,\ 4,\ -4.
+}
+\]
+
+Hence its real signature is
+
+\[
+\boxed{(2,1)}.
+\]
+
+This is the noncompact real form.
+
+### S.2 No nonzero real-Lie embedding into compact \(\mathfrak{su}(3)\)
+
+The real Lie algebra
+
+\[
+\mathfrak{sl}(2,\mathbb R)
+\]
+
+is simple. Therefore the kernel of any real Lie-algebra homomorphism
+
+\[
+\varphi:
+\mathfrak{sl}(2,\mathbb R)
+\to
+\mathfrak{su}(3)
+\]
+
+is either the full algebra or zero.
+
+If \(\varphi\neq0\), it must therefore be injective.
+
+But every real Lie subalgebra of the compact algebra \(\mathfrak{su}(3)\) is of compact type; it inherits a positive-definite invariant inner product from the compact target. The noncompact simple algebra \(\mathfrak{sl}(2,\mathbb R)\), with indefinite Killing form, cannot be isomorphic to such a compact subalgebra.
+
+Therefore
+
+\[
+\boxed{
+\operatorname{Hom}_{\rm Lie,\mathbb R}
+\big(
+\mathfrak{sl}(2,\mathbb R),
+\mathfrak{su}(3)
+\big)
+=
+\{0\}.
+}
+\]
+
+Equivalently, there is no nontrivial continuous Lie-group representation
+
+\[
+PSL(2,\mathbb R)
+\longrightarrow
+SU(3)
+\]
+
+whose differential realizes the Stage-49 split-real algebra as a compact family subalgebra.
+
+Status:
+
+\`NONTRIVIAL_CONTINUOUS_PSL2R_TO_SU3F_LIE_HOMOMORPHIC_LIFT_REFUTED\`.
+
+### S.3 Relation to Stage 52
+
+This does not contradict Stage 52.
+
+Stage 52 uses the shared complexification
+
+\[
+\mathfrak{sl}(2,\mathbb R)\otimes\mathbb C
+\cong
+\mathfrak{sl}(2,\mathbb C)
+\cong
+\mathfrak{su}(2)\otimes\mathbb C
+\]
+
+and then changes real form before applying the compact symmetric square.
+
+Thus
+
+\[
+\mathfrak{sl}(2,\mathbb R)
+\to
+\mathfrak{sl}(2,\mathbb C)
+\leftarrow
+\mathfrak{su}(2)
+\]
+
+is not a direct homomorphism from the split real form into the compact real form. The arrows meet only after complexification.
+
+### S.4 Consequence for the remaining family map
+
+Together with Appendix Q, two simple compactification routes are now excluded:
+
+\`\`\`text
+canonical polar factor
+    = REFUTED AS SUFFICIENT
+
+continuous real-Lie homomorphism PSL(2,R) -> SU(3)_F
+    = REFUTED
+\`\`\`
+
+Therefore a nontrivial branch-to-family map must use additional structure.
+
+Admissible remaining classes include:
+
+\`\`\`text
+discrete branch-monoid representation
+complex holonomy
+state-dependent operator map
+complexification + independently derived dynamical selector
+\`\`\`
+
+The current Stage-36 complex-holonomy mechanism is structurally of the required non-polar/non-real-homomorphic type, but its Collatz/Poincare source map remains open.
+
+The remaining operator gate is therefore
+
+\`OPEN_DISCRETE_OR_HOLONOMIC_NONPOLAR_BRANCHWISE_SU3F_LIFT\`.
+
+Current aggregate frontier:
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN\`.
