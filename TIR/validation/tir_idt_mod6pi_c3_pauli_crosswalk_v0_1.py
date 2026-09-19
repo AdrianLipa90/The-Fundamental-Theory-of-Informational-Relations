@@ -979,6 +979,58 @@ def main() -> None:
             )
         )
     )
+
+    G6_rotation = weak_family_c3 @ weak_family_z2
+    R6_orientation = np.kron(
+        R_orient, np.eye(2, dtype=complex)
+    )
+    G6_order6_residual = float(
+        np.max(
+            np.abs(
+                np.linalg.matrix_power(G6_rotation, 6)
+                - np.eye(6)
+            )
+        )
+    )
+    G6_lower_power_nonidentity = min(
+        float(
+            np.max(
+                np.abs(
+                    np.linalg.matrix_power(G6_rotation, k)
+                    - np.eye(6)
+                )
+            )
+        )
+        for k in range(1, 6)
+    )
+    R6_involution_residual = float(
+        np.max(
+            np.abs(
+                R6_orientation @ R6_orientation
+                - np.eye(6)
+            )
+        )
+    )
+    D6_inversion_relation_residual = float(
+        np.max(
+            np.abs(
+                R6_orientation @ G6_rotation @ R6_orientation
+                - np.linalg.matrix_power(G6_rotation, 5)
+            )
+        )
+    )
+    D6_elements = [
+        np.linalg.matrix_power(G6_rotation, k)
+        for k in range(6)
+    ] + [
+        R6_orientation @ np.linalg.matrix_power(G6_rotation, k)
+        for k in range(6)
+    ]
+    D6_element_keys = {
+        tuple(np.rint(np.real(M)).astype(int).reshape(-1).tolist())
+        for M in D6_elements
+    }
+    D6_unique_element_count = len(D6_element_keys)
     temporal_forward_edge = tuple(
         np.rint(np.real(P_forward @ e1)).astype(int)
     )
@@ -2664,6 +2716,19 @@ def main() -> None:
         "weak_family_c3_and_weyl_z2_commute": (
             weak_family_commutator_residual < TOL
         ),
+        "weak_family_combined_generator_has_exact_order_six": (
+            G6_order6_residual < TOL
+            and G6_lower_power_nonidentity > TOL
+        ),
+        "six_state_orientation_reflection_is_involution": (
+            R6_involution_residual < TOL
+        ),
+        "six_state_orientation_reflection_inverts_c6_rotation": (
+            D6_inversion_relation_residual < TOL
+        ),
+        "six_state_dihedral_extension_has_twelve_distinct_elements": (
+            D6_unique_element_count == 12
+        ),
         "oriented_temporal_c3_selects_family_p3_equivariantly": (
             oriented_generator_residual < TOL
         ),
@@ -3350,6 +3415,16 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "twelvefold_dihedral_extension_status": (
+            "C6_SEMIDIRECT_Z2_INVERSION_IS_HEXAGON_DIHEDRAL_GROUP_ORDER12"
+            if passed
+            else "FAILED"
+        ),
+        "mod6pi_six_to_twelve_group_status": (
+            "SIX_STATE_C6_ROTATION_EXTENDS_TO_TWELVE_ELEMENT_ORIENTATION_DIHEDRAL_SYMMETRY"
+            if passed
+            else "FAILED"
+        ),
         "six_weak_component_label_count": (
             "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"
             if passed
@@ -3402,6 +3477,9 @@ def main() -> None:
             "orientation_inversion_action": orientation_inversion_action_residual,
             "orientation_extension_noncommutativity": orientation_extension_noncommutativity,
             "weak_family_c3_z2_commutator": weak_family_commutator_residual,
+            "six_state_c6_order6": G6_order6_residual,
+            "six_state_orientation_z2": R6_involution_residual,
+            "six_state_dihedral_inversion": D6_inversion_relation_residual,
             "sym2_branch_homomorphism": sym2_homomorphism_residual,
             "split_branch_noncommutativity": split_branch_noncommutativity,
             "poincare_length_E_ln2": ell_E_residual,
@@ -3950,6 +4028,14 @@ def main() -> None:
             "weak_family_commutator_residual": weak_family_commutator_residual,
             "weak_extension_group": "C3 x Z2 ~= C6",
             "weak_extension_abelian": True,
+            "c6_rotation_generator_order": 6,
+            "orientation_reflection_inverts_c6_rotation": True,
+            "full_six_state_orientation_extension_unique_elements": (
+                D6_unique_element_count
+            ),
+            "full_six_state_orientation_extension_group": (
+                "C6 semidirect Z2 inversion = dihedral symmetry of hexagon, order 12"
+            ),
             "same_order_does_not_mean_same_group": True,
         },
         "source_order_audit": {
@@ -4032,6 +4118,8 @@ def main() -> None:
             "orientation_reversal_not_inner_conjugate_is_group_theoretic_not_yet_cp_identification": True,
             "weak_z2_and_orientation_z2_are_distinct_actions": True,
             "c6_and_d3_both_have_six_elements_but_are_not_identified": True,
+            "twelve_element_dihedral_extension_is_group_structure_not_particle_count": True,
+            "orientation_reflection_is_not_promoted_to_physical_parity_or_cp": True,
             "complex_conjugation_outer_z2_pair_is_not_identified_with_physical_charge_conjugation": True,
             "outer_automorphism_structure_is_not_by_itself_a_cp_symmetry_statement": True,
             "basepoint_covariance_is_groupoid_consistency_not_physical_promotion": True,
