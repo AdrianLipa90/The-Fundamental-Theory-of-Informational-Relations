@@ -933,6 +933,52 @@ def main() -> None:
     # orientation-preserving order-3 permutation generators P3 and P3^{-1}.
     P_forward = P_temporal
     P_reverse = np.linalg.matrix_power(P_temporal, 2)
+
+    # Orientation-reflection extension of C3.  This Z2 acts by inversion,
+    # unlike the commuting weak Weyl Z2 used in the six-state C6 product.
+    R_orient = np.array(
+        [[1.0, 0.0, 0.0], [0.0, 0.0, 1.0], [0.0, 1.0, 0.0]],
+        dtype=complex,
+    )
+    orientation_reflection_involution_residual = float(
+        np.max(np.abs(R_orient @ R_orient - np.eye(3)))
+    )
+    orientation_inversion_action_residual = float(
+        np.max(
+            np.abs(
+                R_orient @ P_family @ R_orient
+                - np.linalg.matrix_power(P_family, 2)
+            )
+        )
+    )
+    orientation_extension_noncommutativity = float(
+        np.max(np.abs(R_orient @ P_family - P_family @ R_orient))
+    )
+
+    d3_elements = [
+        np.eye(3, dtype=complex),
+        P_family,
+        np.linalg.matrix_power(P_family, 2),
+        R_orient,
+        R_orient @ P_family,
+        R_orient @ np.linalg.matrix_power(P_family, 2),
+    ]
+    d3_element_keys = {
+        tuple(np.rint(np.real(M)).astype(int).reshape(-1).tolist())
+        for M in d3_elements
+    }
+    d3_unique_element_count = len(d3_element_keys)
+
+    weak_family_c3 = np.kron(P_family, np.eye(2, dtype=complex))
+    weak_family_z2 = np.kron(np.eye(3, dtype=complex), J_weak)
+    weak_family_commutator_residual = float(
+        np.max(
+            np.abs(
+                weak_family_c3 @ weak_family_z2
+                - weak_family_z2 @ weak_family_c3
+            )
+        )
+    )
     temporal_forward_edge = tuple(
         np.rint(np.real(P_forward @ e1)).astype(int)
     )
@@ -2603,6 +2649,21 @@ def main() -> None:
         "forward_and_inverse_c3_generators_are_distinct": (
             inverse_generator_separation > 0.0
         ),
+        "orientation_reflection_is_z2_involution": (
+            orientation_reflection_involution_residual < TOL
+        ),
+        "orientation_reflection_inverts_c3_generator": (
+            orientation_inversion_action_residual < TOL
+        ),
+        "orientation_c3_z2_extension_is_nonabelian": (
+            orientation_extension_noncommutativity > TOL
+        ),
+        "orientation_c3_z2_extension_has_six_distinct_elements": (
+            d3_unique_element_count == 6
+        ),
+        "weak_family_c3_and_weyl_z2_commute": (
+            weak_family_commutator_residual < TOL
+        ),
         "oriented_temporal_c3_selects_family_p3_equivariantly": (
             oriented_generator_residual < TOL
         ),
@@ -3279,6 +3340,16 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "orientation_c3_z2_extension_status": (
+            "C3_SEMIDIRECT_Z2_INVERSION_IS_D3_ISOMORPHIC_S3"
+            if passed
+            else "FAILED"
+        ),
+        "sixfold_symmetry_distinction_status": (
+            "ABELIAN_C6_WEAK_PRODUCT_DISTINCT_FROM_NONABELIAN_D3_ORIENTATION_EXTENSION"
+            if passed
+            else "FAILED"
+        ),
         "six_weak_component_label_count": (
             "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"
             if passed
@@ -3327,6 +3398,10 @@ def main() -> None:
             "temporal_family_intertwiner": intertwiner_residual,
             "oriented_temporal_generator": oriented_generator_residual,
             "forward_inverse_generator_separation": inverse_generator_separation,
+            "orientation_reflection_involution": orientation_reflection_involution_residual,
+            "orientation_inversion_action": orientation_inversion_action_residual,
+            "orientation_extension_noncommutativity": orientation_extension_noncommutativity,
+            "weak_family_c3_z2_commutator": weak_family_commutator_residual,
             "sym2_branch_homomorphism": sym2_homomorphism_residual,
             "split_branch_noncommutativity": split_branch_noncommutativity,
             "poincare_length_E_ln2": ell_E_residual,
@@ -3865,6 +3940,18 @@ def main() -> None:
             "temporal_forward_e1_image": temporal_forward_edge,
             "temporal_inverse_e1_image": temporal_reverse_edge,
         },
+        "sixfold_group_structure_audit": {
+            "family_generator": "P3",
+            "orientation_reflection_matrix": np.real(R_orient).astype(int).tolist(),
+            "orientation_relation": "R*P3*R = P3^-1",
+            "orientation_extension_unique_elements": d3_unique_element_count,
+            "orientation_extension_group": "D3 ~= S3",
+            "orientation_extension_abelian": False,
+            "weak_family_commutator_residual": weak_family_commutator_residual,
+            "weak_extension_group": "C3 x Z2 ~= C6",
+            "weak_extension_abelian": True,
+            "same_order_does_not_mean_same_group": True,
+        },
         "source_order_audit": {
             "active_centers": active_centers,
             "center_stopping_depths": center_depths,
@@ -3943,6 +4030,8 @@ def main() -> None:
             "nonreal_trace_is_used_only_as_conjugacy_subgroup_exclusion_witness": True,
             "orientation_odd_imaginary_trace_is_not_identified_with_physical_cp": True,
             "orientation_reversal_not_inner_conjugate_is_group_theoretic_not_yet_cp_identification": True,
+            "weak_z2_and_orientation_z2_are_distinct_actions": True,
+            "c6_and_d3_both_have_six_elements_but_are_not_identified": True,
             "complex_conjugation_outer_z2_pair_is_not_identified_with_physical_charge_conjugation": True,
             "outer_automorphism_structure_is_not_by_itself_a_cp_symmetry_statement": True,
             "basepoint_covariance_is_groupoid_consistency_not_physical_promotion": True,
