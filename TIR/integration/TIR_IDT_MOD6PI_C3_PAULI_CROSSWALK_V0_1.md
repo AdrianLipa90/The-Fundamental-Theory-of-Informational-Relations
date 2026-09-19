@@ -836,7 +836,7 @@ d_L:
 
 No observed masses are used by that archived source.
 
-### D.2 Stale generated artifact
+### D.2 Generated-artifact consistency audit
 
 The archived generated CSV
 
@@ -846,23 +846,19 @@ is pinned by blob SHA
 
 \`3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1\`.
 
-It contains a stale row identifier:
+Its up-quark weak-doublet row is consistent with the source generator:
 
 \`\`\`text
-nu_L,up_quark,"T3=1/2, pole=north/+"
+u_L,up_quark,"T3=1/2, pole=north/+"
 \`\`\`
 
-whereas the source generator contains the corrected identifier
+and no conflicting \`nu_L,up_quark\` row is present.
 
-\`\`\`text
-u_L,up_quark,"L","weak_doublet","north/+",Fraction(1,2),...
-\`\`\`
-
-Therefore this Appendix treats the archived source generator as authoritative and the stale generated CSV as a preserved historical artifact, not as the promotion source.
+Thus the archived source generator and its generated projection CSV agree on the relevant north-pole up-quark label.
 
 Status:
 
-\`ARCHIVAL_GENERATED_CSV_STALE_ROW_ID_DETECTED / SOURCE_SCRIPT_AUTHORITATIVE\`.
+\`ARCHIVAL_SOURCE_AND_GENERATED_CSV_CONSISTENT\`.
 
 ### D.3 Historical axis status
 
