@@ -96,6 +96,19 @@ def collatz_depth_to_one(n: int, limit: int = 1000) -> int:
     raise RuntimeError("Collatz depth limit exceeded")
 
 
+def collatz_first_hit(start: int, target: int, limit: int = 10000) -> int | None:
+    x = start
+    seen: set[int] = set()
+    for k in range(limit + 1):
+        if x == target:
+            return k
+        if x in seen:
+            return None
+        seen.add(x)
+        x = collatz_step(x)
+    raise RuntimeError("Collatz first-hit limit exceeded")
+
+
 def q_c(n: int) -> Fraction:
     bits: list[int] = []
     x = n
@@ -233,6 +246,26 @@ def main() -> None:
         ROOT
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE42_FAMILY_LIE_CLOSURE_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage44 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE44_COLLATZ_PRODUCT_SEED_INTERSECTION_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage45 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE45_DISTANCE_AMPLITUDE_PROVENANCE_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage61 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE61_C3_ICOSAHEDRAL_FAMILY_INTERTWINER_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage62 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE62_FAMILY_ICOSAHEDRAL_EMBEDDING_RIGIDITY_V0_1.md"
     ).read_text(encoding="utf-8")
 
     omega = np.exp(2j * math.pi / 3.0)
@@ -459,6 +492,53 @@ def main() -> None:
     q_raw_is_arithmetic_progression = (q2 - q1) == (q3 - q2)
     q_raw_family_order_is_monotone = q1 < q2 < q3
 
+    # Raw product-seed Collatz dynamics: exact directed reachability among
+    # n=(15,35,143).  This is a negative control for deriving the Stage-24 C3
+    # cycle directly from ordinary Collatz dynamics.
+    product_seeds = [15, 35, 143]
+    product_reachability = np.array(
+        [
+            [
+                0 if i == j else (
+                    -1
+                    if collatz_first_hit(a, b) is None
+                    else collatz_first_hit(a, b)
+                )
+                for j, b in enumerate(product_seeds)
+            ]
+            for i, a in enumerate(product_seeds)
+        ],
+        dtype=int,
+    )
+    product_directed_cycle_exists = (
+        product_reachability[0, 1] > 0
+        and product_reachability[1, 2] > 0
+        and product_reachability[2, 0] > 0
+    ) or (
+        product_reachability[0, 2] > 0
+        and product_reachability[2, 1] > 0
+        and product_reachability[1, 0] > 0
+    )
+
+    # The oriented temporal generator distinguishes the two nontrivial
+    # orientation-preserving order-3 permutation generators P3 and P3^{-1}.
+    P_forward = P_temporal
+    P_reverse = np.linalg.matrix_power(P_temporal, 2)
+    temporal_forward_edge = tuple(
+        np.rint(np.real(P_forward @ e1)).astype(int)
+    )
+    temporal_reverse_edge = tuple(
+        np.rint(np.real(P_reverse @ e1)).astype(int)
+    )
+    e2_tuple = (0, 1, 0)
+    e3_tuple = (0, 0, 1)
+    oriented_generator_residual = float(
+        np.max(np.abs(M_tf @ P_forward - P_family @ M_tf))
+    )
+    inverse_generator_separation = float(
+        np.max(np.abs(P_forward - P_reverse))
+    )
+
     checks = {
         "legacy_projection_source_blob_pinned": (
             archive_projection_blob == "01b9be380f095b613a731ba258865bc617d8e854"
@@ -586,6 +666,43 @@ def main() -> None:
         ),
         "stage42_su3f_parent_pass_present": (
             "STAGE_42_SU3F_LIE_CLOSURE_PASS" in stage42
+        ),
+        "stage44_product_seed_parent_pass_present": (
+            "STAGE_44_COLLATZ_PRODUCT_SEED_INTERSECTION_PASS" in stage44
+            and "n_1=15" in stage44
+            and "n_2=35" in stage44
+            and "n_3=143" in stage44
+        ),
+        "stage45_distance_to_amplitude_provenance_nogo_present": (
+            "STAGE_45_CANONICAL_DISTANCE_TO_AMPLITUDE_MAP_NOT_FOUND__PROVENANCE_NOGO_PASS"
+            in stage45
+            and "canonical distance/path-cost -> amplitude rule: NOT FOUND"
+            in stage45
+        ),
+        "stage61_c3_icosahedral_parent_pass_present": (
+            "STAGE_61_C3_ICOSAHEDRAL_FAMILY_INTERTWINER_PASS" in stage61
+            and "P3 acts as icosahedral order-3 symmetry: PASS" in stage61
+        ),
+        "stage62_embedding_rigidity_parent_pass_present": (
+            "STAGE_62_FAMILY_ICOSAHEDRAL_EMBEDDING_RIGIDITY_PASS" in stage62
+            and "residual C3 label freedom after fixed A_seed: NONE" in stage62
+        ),
+        "raw_product_seed_collatz_c3_cycle_refuted": (
+            not product_directed_cycle_exists
+            and product_reachability.tolist()
+            == [[0, 4, -1], [-1, 0, -1], [-1, 90, 0]]
+        ),
+        "temporal_forward_generator_maps_e1_to_e2": (
+            temporal_forward_edge == e2_tuple
+        ),
+        "temporal_inverse_generator_maps_e1_to_e3": (
+            temporal_reverse_edge == e3_tuple
+        ),
+        "forward_and_inverse_c3_generators_are_distinct": (
+            inverse_generator_separation > 0.0
+        ),
+        "oriented_temporal_c3_selects_family_p3_equivariantly": (
+            oriented_generator_residual < TOL
         ),
         "c3_shift_order_three": bool(
             np.allclose(
@@ -773,6 +890,29 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "raw_product_seed_cycle_status": (
+            "ORDINARY_PRODUCT_SEED_COLLATZ_C3_CYCLE_REFUTED"
+            if passed
+            else "NOT_ESTABLISHED"
+        ),
+        "distance_amplitude_status": (
+            "CANONICAL_PATH_COST_TO_AMPLITUDE_RULE_NOT_FOUND"
+            if passed
+            else "NOT_ESTABLISHED"
+        ),
+        "oriented_family_generator_status": (
+            "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
+            if passed
+            else "FAILED"
+        ),
+        "icosahedral_family_embedding_status": (
+            "STAGE61_62_C3_COMPATIBLE_RIGID_EMBEDDING_CURRENT_PASS"
+            if passed
+            else "FAILED"
+        ),
+        "seed_dynamical_cycle_status": (
+            "OPEN_RICHER_POINCARE_HOLONOMY_OPERATOR_REQUIRED"
+        ),
         "historical_generation_numbering_status": (
             "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR"
         ),
@@ -874,6 +1014,8 @@ def main() -> None:
         "residuals": {
             "pauli_c3_equivariance": pauli_cycle_residual,
             "temporal_family_intertwiner": intertwiner_residual,
+            "oriented_temporal_generator": oriented_generator_residual,
+            "forward_inverse_generator_separation": inverse_generator_separation,
             "anchor": anchor_residual,
             "family_lie_structure": residual_family,
             "temporal_pullback_lie_structure": residual_temporal,
@@ -885,6 +1027,14 @@ def main() -> None:
             "chirality_weak_intertwiner": chirality_weak_intertwiner_residual,
             "six_weak_intertwiner": six_weak_intertwiner_residual,
             "jarlskog_exact": abs(J - J_exact),
+        },
+        "dynamical_cycle_audit": {
+            "product_seeds": product_seeds,
+            "directed_first_hit_matrix_minus1_for_absent": product_reachability.tolist(),
+            "ordinary_product_seed_collatz_c3_cycle_exists": product_directed_cycle_exists,
+            "stage45_canonical_path_cost_to_amplitude_rule": "NOT_FOUND",
+            "temporal_forward_e1_image": temporal_forward_edge,
+            "temporal_inverse_e1_image": temporal_reverse_edge,
         },
         "source_order_audit": {
             "active_centers": active_centers,
@@ -920,6 +1070,10 @@ def main() -> None:
             "active_stage22_seed_precedence_is_not_historical_generation_numbering": True,
             "family_multiplicity_three_already_has_independent_e8_parent": True,
             "temporal_c3_is_not_claimed_as_the_sole_origin_of_family_multiplicity": True,
+            "ordinary_center_collatz_does_not_generate_stage24_cycle": True,
+            "ordinary_product_seed_collatz_does_not_generate_stage24_cycle": True,
+            "stage44_distance_geometry_is_not_converted_to_amplitude_without_new_law": True,
+            "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
             "physical_ckm_assignment": "OPEN",
             "physical_pmns_assignment": "OPEN",
