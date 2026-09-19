@@ -4532,3 +4532,67 @@ The directed (2\to3) tangent is also not an up/down-sector assignment and theref
 Current frontier:
 
 `CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__COLLATZ_BRANCH_OPERATOR_AND_RHO_BINDING_OPEN`.
+
+---
+
+## Appendix AC — NEW 2026-09-19 — Single-axis branch-map order-loss no-go
+
+Stage 66 selects the symmetric (23) tangent
+
+\[
+T_{23}\propto P_3A_{seed}P_3^T.
+\]
+
+Suppose both Collatz branch operators were generated only by this one tangent:
+
+\[
+U_E=\exp(-iaT_{23}),
+\qquad
+U_O=\exp(-ibT_{23}).
+\]
+
+Because both generators are scalar multiples of the same matrix,
+
+\[
+[aT_{23},bT_{23}]=0
+\]
+
+and therefore
+
+\[
+\boxed{U_EU_O=U_OU_E}.
+\]
+
+Any word built from these two operators would depend only on branch counts, not branch order.
+
+By contrast, the exact Stage-49 Collatz Möbius generators satisfy
+
+\[
+\boxed{M_EM_O\ne M_OM_E}.
+\]
+
+The exact affine translation term retains branch ordering, and the Stage-50 symmetric-square lift likewise remains noncommutative.
+
+Hence a single fixed Stage-66 tangent cannot be the complete branch-symbol-to-family-operator source map.
+
+Status:
+
+`NO_GO_SINGLE_STAGE66_TANGENT_CANNOT_PRESERVE_COLLATZ_BRANCH_ORDER`.
+
+A surviving family branch map therefore requires at least
+
+```text
+two noncommuting family generators
+or
+state/path-dependent conjugation that preserves branch-order information.
+```
+
+Status:
+
+`AT_LEAST_TWO_NONCOMMUTING_GENERATORS_OR_STATE_DEPENDENT_CONJUGATION_REQUIRED`.
+
+This no-go does not invalidate the Stage-66 selected tangent; it only prevents using that one axis for both branch generators.
+
+Current frontier:
+
+`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__NONCOMMUTING_BRANCH_OPERATOR_AND_RHO_BINDING_OPEN`.
