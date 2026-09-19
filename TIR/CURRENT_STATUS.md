@@ -1792,3 +1792,23 @@ Status:
 `SOURCE_DERIVED_NONSEPARABLE_PATH_HOLONOMY_CANDIDATE_EXISTS`.
 
 The structural Collatz/Poincare-to-nonseparable-SU(3) map now exists at candidate level; physical family/CP binding remains OPEN.
+
+---
+
+### Appendix AT update — hosted non-coboundary path-source gate PASS
+
+Exact-head hosted validation at
+
+```text
+af3e03fda49d588e25c324cde750d51faacd46b3
+```
+
+with crosswalk run `35447439621` / #225 returned `success`.
+
+The same gate verifies a flat common-target coboundary scaffold and a nonidentity terminal Collatz Wilson loop. Hence the terminal edge transport cannot be globally factorized as (W_{ij}=G_i^\dagger G_j).
+
+Status:
+
+`HOSTED_NONSEPARABLE_TERMINAL_PATH_SOURCE_GATE_PASS`.
+
+Physical family/CKM/CP binding remains OPEN.
