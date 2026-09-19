@@ -1119,6 +1119,46 @@ def main() -> None:
             )
         )
     )
+
+    # Six-state C6 character spectrum from C3 x Z2.
+    F2 = np.array(
+        [[1.0, 1.0], [1.0, -1.0]],
+        dtype=complex,
+    ) / math.sqrt(2.0)
+    F6_tensor = np.kron(F3, F2)
+    G6_character = F6_tensor.conj().T @ G6_rotation @ F6_tensor
+    G6_character_offdiag_residual = float(
+        np.max(
+            np.abs(
+                G6_character
+                - np.diag(np.diag(G6_character))
+            )
+        )
+    )
+    G6_character_eigenvalues = np.diag(G6_character)
+    sixth_roots = np.array(
+        [
+            np.exp(2.0j * math.pi * k / 6.0)
+            for k in range(6)
+        ],
+        dtype=complex,
+    )
+    unmatched = list(sixth_roots)
+    G6_sixth_root_match_residuals = []
+    for z in G6_character_eigenvalues:
+        j = min(range(len(unmatched)), key=lambda q: abs(z - unmatched[q]))
+        G6_sixth_root_match_residuals.append(abs(z - unmatched[j]))
+        unmatched.pop(j)
+    G6_sixth_root_match_residual = max(G6_sixth_root_match_residuals)
+
+    G6_real_eigenvalue_count = sum(
+        abs(float(np.imag(z))) < TOL for z in G6_character_eigenvalues
+    )
+    G6_nonreal_eigenvalue_count = 6 - G6_real_eigenvalue_count
+    G6_conjugate_pair_residual = max(
+        min(abs(np.conj(z) - w) for w in G6_character_eigenvalues)
+        for z in G6_character_eigenvalues
+    )
     temporal_forward_edge = tuple(
         np.rint(np.real(P_forward @ e1)).astype(int)
     )
@@ -2842,6 +2882,18 @@ def main() -> None:
             f3_nontrivial_character_conjugacy_residual < TOL
             and f3_character_plane_projector_residual < TOL
         ),
+        "tensor_character_basis_diagonalizes_six_state_c6": (
+            G6_character_offdiag_residual < TOL
+        ),
+        "six_state_c6_spectrum_is_all_sixth_roots_once": (
+            G6_sixth_root_match_residual < TOL
+            and len(unmatched) == 0
+        ),
+        "six_state_c6_has_two_real_modes_and_two_conjugate_pairs": (
+            G6_real_eigenvalue_count == 2
+            and G6_nonreal_eigenvalue_count == 4
+            and G6_conjugate_pair_residual < TOL
+        ),
         "oriented_temporal_c3_selects_family_p3_equivariantly": (
             oriented_generator_residual < TOL
         ),
@@ -3548,6 +3600,16 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "six_state_c6_character_spectrum_status": (
+            "WEAK_FAMILY_C6_REGULAR_CHARACTER_SPECTRUM_ALL_SIXTH_ROOTS_EXACT"
+            if passed
+            else "FAILED"
+        ),
+        "six_state_d6_real_mode_decomposition_status": (
+            "D6_SIX_STATE_REAL_REP_DECOMPOSES_AS_1_PLUS_1_PLUS_2_PLUS_2"
+            if passed
+            else "FAILED"
+        ),
         "six_weak_component_label_count": (
             "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"
             if passed
@@ -3608,6 +3670,9 @@ def main() -> None:
             "d3_plane_order3": d3_plane_rotation_order3_residual,
             "d3_plane_reflection": d3_plane_reflection_involution_residual,
             "f3_character_plane_projector": f3_character_plane_projector_residual,
+            "six_state_c6_character_offdiag": G6_character_offdiag_residual,
+            "six_state_c6_sixth_root_match": G6_sixth_root_match_residual,
+            "six_state_c6_conjugate_pair": G6_conjugate_pair_residual,
             "sym2_branch_homomorphism": sym2_homomorphism_residual,
             "split_branch_noncommutativity": split_branch_noncommutativity,
             "poincare_length_E_ln2": ell_E_residual,
@@ -4146,6 +4211,20 @@ def main() -> None:
             "temporal_forward_e1_image": temporal_forward_edge,
             "temporal_inverse_e1_image": temporal_reverse_edge,
         },
+        "six_state_character_spectrum_audit": {
+            "diagonalizer": "F3 tensor F2",
+            "offdiagonal_residual": G6_character_offdiag_residual,
+            "eigenvalues": [
+                {"real": float(np.real(z)), "imag": float(np.imag(z))}
+                for z in G6_character_eigenvalues
+            ],
+            "expected_spectrum": "all sixth roots of unity once",
+            "sixth_root_match_residual": float(G6_sixth_root_match_residual),
+            "real_character_modes": G6_real_eigenvalue_count,
+            "nonreal_character_modes": G6_nonreal_eigenvalue_count,
+            "real_decomposition": "1 + 1 + 2 + 2",
+            "physical_particle_or_spacetime_claimed": False,
+        },
         "d3_one_plus_two_representation_audit": {
             "real_decomposition": "R^3 = invariant 1 + standard 2",
             "singlet_vector": d3_singlet.tolist(),
@@ -4264,6 +4343,8 @@ def main() -> None:
             "c6_and_d3_both_have_six_elements_but_are_not_identified": True,
             "twelve_element_dihedral_extension_is_group_structure_not_particle_count": True,
             "d3_real_1_plus_2_decomposition_is_representation_dimension_not_spacetime_dimension": True,
+            "d6_real_1_plus_1_plus_2_plus_2_is_representation_decomposition_not_particle_multiplicity": True,
+            "sixth_root_character_spectrum_is_group_representation_data_not_energy_spectrum": True,
             "f3_character_pair_is_not_by_itself_a_physical_two_axis_geometry": True,
             "orientation_reflection_is_not_promoted_to_physical_parity_or_cp": True,
             "complex_conjugation_outer_z2_pair_is_not_identified_with_physical_charge_conjugation": True,
