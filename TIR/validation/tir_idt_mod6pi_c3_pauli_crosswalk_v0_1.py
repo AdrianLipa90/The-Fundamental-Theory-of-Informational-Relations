@@ -424,8 +424,8 @@ def main() -> None:
     center_depths = [collatz_depth_to_one(n) for n in active_centers]
     temporal_order = (1, 2, 3)
     family_order = tuple(
-        rank + 1
-        for rank, _ in enumerate(sorted(range(3), key=lambda j: center_depths[j]))
+        j + 1
+        for j in sorted(range(3), key=lambda j: center_depths[j])
     )
     order_preserving_permutations = [
         perm
