@@ -6570,3 +6570,109 @@ The symbol \(\mathcal C_{\rm out}\) denotes complex conjugation as a group autom
 It is not identified here with physical charge conjugation, parity, CP, or any experimental discrete symmetry operator.
 
 The result is an exact outer/inner group-theoretic statement about the source-derived terminal holonomy.
+
+---
+
+## Appendix AX — NEW 2026-09-19 — Two inequivalent six-element closures: \(C_6\) versus \(D_3\cong S_3\)
+
+### AX.1 Commuting weak extension
+
+The current family generator is the order-three cycle
+
+\[
+P_3^3=I.
+\]
+
+The weak Weyl involution acts on a separate two-state tensor factor and commutes with the family action.
+
+Therefore
+
+\[
+\boxed{
+C_3^{\rm family}\times Z_2^{\rm weak}
+\cong
+C_6.
+}
+\]
+
+This is the already-validated abelian six-state weak-family product.
+
+Status:
+
+`CURRENT_C3_X_A1_WEYL_Z2_C6_EXACT`.
+
+### AX.2 Orientation-reflection extension
+
+Define the label reflection
+
+\[
+R=
+\begin{pmatrix}
+1&0&0\\
+0&0&1\\
+0&1&0
+\end{pmatrix}.
+\]
+
+It obeys
+
+\[
+R^2=I
+\]
+
+and
+
+\[
+\boxed{RP_3R=P_3^{-1}.}
+\]
+
+Hence the orientation involution does not commute with the \(C_3\) generator.
+
+The six matrices
+
+\[
+I,\ P_3,\ P_3^2,\ R,\ RP_3,\ RP_3^2
+\]
+
+are pairwise distinct.
+
+Therefore
+
+\[
+\boxed{
+C_3\rtimes_{\rm inversion}Z_2
+\cong
+D_3
+\cong
+S_3.
+}
+\]
+
+Status:
+
+`C3_SEMIDIRECT_Z2_INVERSION_IS_D3_ISOMORPHIC_S3`.
+
+### AX.3 Same cardinality, different algebra
+
+Both structures have six elements, but
+
+```text
+C3 x Z2_weak  ~= C6    = abelian
+C3 ⋊ Z2_orient ~= D3   = nonabelian
+```
+
+so they must not be identified merely because both have cardinality six.
+
+Status:
+
+`ABELIAN_C6_WEAK_PRODUCT_DISTINCT_FROM_NONABELIAN_D3_ORIENTATION_EXTENSION`.
+
+### AX.4 Physical firewall
+
+The orientation reflection used here is the abstract inversion automorphism of the ordered \(C_3\) carrier.
+
+It is not identified with physical parity or CP.
+
+Likewise the weak Weyl involution is a separate current \(A_1\) representation action.
+
+The Appendix records the exact group-theoretic distinction only.
