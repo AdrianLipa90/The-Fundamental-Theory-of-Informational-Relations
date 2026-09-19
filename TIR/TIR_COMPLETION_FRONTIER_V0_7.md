@@ -378,9 +378,10 @@ S/- \leftrightarrow T_3=-\frac12 \leftrightarrow \text{lower weak-doublet compon
 
 including \(u_L\) and \(d_L\).
 
-The preserved generated CSV at blob SHA
-\`3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1\`
-contains the historical stale identifier \`nu_L,up_quark\`, while the archived source generator contains the corrected \`u_L,up_quark\` row. The source generator is the provenance authority; CSV staleness is diagnostic only and does not gate the representation theorem.
+The preserved generated CSV is pinned at blob SHA
+`3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1`.
+
+An earlier connector-facing retrieval rendered historical `nu_L/nu_R` up-quark identifiers. That view is superseded for repository provenance by the exact GitHub Actions checkout, where `git ls-tree` and `git cat-file` verify the same pinned HEAD blob, working-tree/object equality, and parsed up-quark particle IDs `["u_L","u_R"]`. The authoritative hosted Git-object state is `CORRECTED_UP_QUARK_PARTICLE_ID`; the contradictory connector rendering is quarantined as a retrieval-layer discrepancy.
 
 With the recovered orientation anchor, the current Stage-23 pole-exchange \(Z_2\) and the weak-doublet component-exchange \(Z_2\) are exactly intertwined, and the six-state map lifts as
 
