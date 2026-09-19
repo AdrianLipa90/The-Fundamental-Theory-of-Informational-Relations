@@ -1130,3 +1130,24 @@ Therefore:
 and the surviving operator map requires
 
 `AT_LEAST_TWO_NONCOMMUTING_GENERATORS_OR_STATE_DEPENDENT_CONJUGATION_REQUIRED`.
+
+### Appendix AD update — minimal D/C branch map has only a Z2 assignment ambiguity
+
+With \(D\) and \(C=F_3DF_3^\dagger\), both minimal assignments
+
+```text
+A: E -> D, O -> C
+B: E -> C, O -> D
+```
+
+are noncommuting. Their Lie commutators are equal in magnitude and opposite in orientation.
+
+Status:
+
+`TWO_NONCOMMUTING_DC_ASSIGNMENTS_EXIST_WITH_BRANCH_SWAP_SIGN_REVERSAL`.
+
+No current source theorem selects A versus B:
+
+`OPEN_Z2_EO_TO_DC_ASSIGNMENT_NOT_SOURCE_SELECTED`.
+
+Target-sign selection is forbidden.
