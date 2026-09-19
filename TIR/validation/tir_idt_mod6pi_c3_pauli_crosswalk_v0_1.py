@@ -189,6 +189,11 @@ def main() -> None:
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE16_EXCEPTIONAL_HYPERCHARGE_MATCH_V0_1.md"
     ).read_text(encoding="utf-8")
+    stage21 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE21_E8_THREEFOLD_SM_CARRIER_V0_1.md"
+    ).read_text(encoding="utf-8")
     stage22 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -213,6 +218,11 @@ def main() -> None:
         ROOT
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE24_TIR_SEED_CHIRALITY_E8_INTERTWINER_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage25 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE25_COLOR_FAMILY_FACTORISATION_V0_1.md"
     ).read_text(encoding="utf-8")
     stage38 = (
         ROOT
@@ -516,6 +526,17 @@ def main() -> None:
             "Y = -1/2   multiplicity 2" in stage16
             and "L   : 2 states, Y = -1/2" in stage16
         ),
+        "stage21_e8_threefold_family_multiplicity_pass_present": (
+            "STAGE_21_THREEFOLD_HYPERCHARGE_CARRIER_PASS" in stage21
+            and "16\\cdot3=48" in stage21
+            and "multiplicity factor of three" in stage21
+        ),
+        "stage21_declares_seed_triplet_bijection_as_next_gate": (
+            "bijection between the three SU(3) triplet weights"
+            in stage21
+            and "three previously frozen TIR structural generation channels/seeds"
+            in stage21
+        ),
         "stage22_active_order_is_frozen": all(
             token in stage22
             for token in (
@@ -550,6 +571,15 @@ def main() -> None:
                 "P_s|s_2\\rangle=|s_3\\rangle",
                 "P_s|s_3\\rangle=|s_1\\rangle",
             )
+        ),
+        "stage24_seed_to_exceptional_triplet_intertwiner_pass_present": (
+            "STAGE_24_SIX_STATE_LABEL_INTERTWINER_PASS" in stage24
+            and "M_sP_s=P_3M_s" in stage24
+        ),
+        "stage25_color_family_factorisation_pass_present": (
+            "STAGE_25_COLOR_FAMILY_FACTORISATION_PASS" in stage25
+            and "SU(3)_F" in stage25
+            and "two independent commuting SU(3) factors" in stage25
         ),
         "stage38_c3_cp_parent_pass_present": (
             "STAGE_38_C3_CHARACTER_BASIS_CP_MATH_PASS" in stage38
@@ -728,6 +758,21 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "independent_family_multiplicity_status": (
+            "STAGE21_E8_THREEFOLD_MULTIPLICITY_3_CURRENT_PASS"
+            if passed
+            else "FAILED"
+        ),
+        "seed_exceptional_triplet_binding_status": (
+            "STAGE24_ORDERED_SEED_TO_E8_TRIPLET_INTERTWINER_CURRENT_PASS"
+            if passed
+            else "FAILED"
+        ),
+        "temporal_c3_family_role": (
+            "INDEPENDENT_C3_CROSSWALK_TO_EXISTING_MULTIPLICITY3_FAMILY_CARRIER"
+            if passed
+            else "FAILED"
+        ),
         "historical_generation_numbering_status": (
             "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR"
         ),
@@ -873,6 +918,8 @@ def main() -> None:
             "representation_equivalence_is_not_physical_sector_identity": True,
             "physical_temporal_to_flavour_binding": "OPEN",
             "active_stage22_seed_precedence_is_not_historical_generation_numbering": True,
+            "family_multiplicity_three_already_has_independent_e8_parent": True,
+            "temporal_c3_is_not_claimed_as_the_sole_origin_of_family_multiplicity": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
             "physical_ckm_assignment": "OPEN",
             "physical_pmns_assignment": "OPEN",
