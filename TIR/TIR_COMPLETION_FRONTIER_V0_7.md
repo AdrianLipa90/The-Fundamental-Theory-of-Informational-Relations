@@ -1612,3 +1612,37 @@ Status:
 `HOSTED_NONSEPARABLE_TERMINAL_PATH_SOURCE_GATE_PASS`.
 
 Physical family/CKM/CP binding remains OPEN.
+
+### Appendix AU update — terminal loop and inverse are distinct \(SU(3)\) classes
+
+For \(U\in SU(3)\),
+
+\[
+\det(U-I)=2i\,\operatorname{Im}\operatorname{tr}U.
+\]
+
+The terminal Collatz loop has nonzero imaginary trace, so \(1\) is not an eigenvalue and
+
+\[
+\operatorname{tr}U_\circ^{-1}
+\neq
+\operatorname{tr}U_\circ.
+\]
+
+Hence
+
+\[
+U_\circ\not\sim U_\circ^{-1}
+\]
+
+under inner \(SU(3)\) conjugation.
+
+Status:
+
+`SU3_DET_U_MINUS_I_EQUALS_2I_IM_TRACE_EXACT`
+
+`TERMINAL_LOOP_AND_ORIENTATION_REVERSE_ARE_DISTINCT_SU3_CONJUGACY_CLASSES`
+
+`ORIENTATION_REVERSAL_NOT_REMOVABLE_BY_INNER_SU3_CONJUGATION`.
+
+This remains a group-theoretic orientation result, not a physical CP identification.
