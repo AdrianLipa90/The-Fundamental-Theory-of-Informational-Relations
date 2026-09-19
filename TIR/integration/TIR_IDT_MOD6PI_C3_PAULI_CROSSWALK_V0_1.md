@@ -662,3 +662,125 @@ but
 \`SIX_QUARK_FLAVOURS_FROM_3_X_2 = OPEN_PENDING_CHIRALITY_TO_WEAK_DOUBLET_BINDING\`.
 
 This is the next minimal physical gate.
+
+
+---
+
+## Appendix C — NEW 2026-09-19 — Weak-family cardinality versus six-cycle operator identity
+
+### C.1 Current weak-doublet parent
+
+Stage 15 contains an exact
+
+\[
+\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)
+\]
+
+subalgebra witness, while Stage 16 reproduces the one-generation weak-doublet hypercharge multiplicities. In particular the weak carrier has dimension
+
+\[
+\boxed{\dim V_W=2.}
+\]
+
+The ordered family carrier has
+
+\[
+\boxed{\dim V_F=3}
+\]
+
+under the Appendix-A temporal-family binding theorem.
+
+Therefore
+
+\[
+\boxed{
+\dim(V_F\otimes V_W)
+=
+3\times2
+=
+6.
+}
+\]
+
+This is an exact dimension statement once the physical temporal-to-family binding premise is admitted.
+
+Status:
+
+\`DIMENSION_3_X_2_EQUALS_6_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING\`.
+
+### C.2 What is already forced and what is not
+
+The current chain therefore distinguishes two separate results.
+
+First, cardinality:
+
+\[
+\boxed{
+N_F=3,\quad
+\dim V_W=2
+\quad\Longrightarrow\quad
+\dim(V_F\otimes V_W)=6.
+}
+\]
+
+Thus a three-family weak-doublet carrier has six family×weak component labels.
+
+Second, operator identity:
+
+Appendix B produces an exact six-cycle on
+
+\[
+V_F\otimes V_\chi
+\]
+
+using the Stage-23 chirality involution. The physical weak carrier is
+
+\[
+V_F\otimes V_W.
+\]
+
+The equality of these two binary factors is not yet established:
+
+\[
+\boxed{
+V_\chi
+\stackrel{?}{\cong}
+V_W.
+}
+\]
+
+Therefore the six-label cardinality does not by itself prove that the exact Appendix-B six-cycle is the physical quark-flavour operator.
+
+### C.3 Physical interpretation firewall
+
+At the current frontier:
+
+\`\`\`text
+three-family cardinality from temporal C3
+    = CONDITIONAL ON PHYSICAL TEMPORAL-FAMILY BINDING
+
+weak-doublet dimension 2
+    = CURRENT STRUCTURAL PARENT
+
+3 x 2 = 6 weak-family component labels
+    = CONDITIONAL EXACT CARDINALITY
+
+C3 x Z2_chirality exact six-cycle
+    = CLOSED
+
+Z2_chirality <-> Z2_weak operator identity
+    = OPEN
+
+six physical quark flavours as the exact Stage-24 six-cycle
+    = OPEN
+\`\`\`
+
+The minimal remaining operator gate is
+
+\[
+\boxed{
+\texttt{CHIRALITY\_Z2\_TO\_WEAK\_ISOSPIN\_DOUBLET\_BINDING}.
+}
+\]
+
+A legacy implementation exists in the archived chiral-projection line, where north/south CP1 poles were associated with \(T_3=\pm\tfrac12\) upper/lower weak-doublet components, but that archived mapping is not promoted here as a current theorem.
