@@ -399,3 +399,66 @@ Status:
 \`SIX_WEAK_FAMILY_LABEL_OPERATOR_CLOSED_CONDITIONAL_ON_RECOVERED_WEAK_ORIENTATION_ANCHOR\`.
 
 The historical weak-axis selection itself remained conditional/ansatz-level before the later source-grammar strengthening. Therefore the first-principles physical weak-axis selection and the full physical six-quark spectrum remain OPEN.
+
+
+### Appendix E update — current \(A_1\) Weyl six-state weak-family carrier
+
+The weak binary factor is now available without using the recovered chirality orientation.
+
+Current Stage 15 supplies
+
+\[
+A_1\cong\mathfrak{su}(2),
+\]
+
+and Stage 16 supplies the weak-doublet representation. In its \(T_3=\pm\frac12\) weight basis, the nontrivial Weyl element is
+
+\[
+J_W=
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix},
+\qquad
+J_W^2=I_2,
+\qquad
+J_WT_3J_W^{-1}=-T_3.
+\]
+
+Combining this current weak \(Z_2\) with the ordered family cycle gives
+
+\[
+G_{FW}=P_F\otimes J_W,
+\qquad
+G_{FW}^6=I_6,
+\qquad
+G_{FW}^3\neq I_6,
+\]
+
+with one transitive six-state orbit and characteristic polynomial
+
+\[
+\lambda^6-1.
+\]
+
+Status:
+
+\`CURRENT_A1_WEYL_Z2_EXACT\`
+
+\`CURRENT_C3_X_A1_WEYL_Z2_C6_EXACT\`.
+
+Thus, conditional only on promotion of the temporal \(C_3\) carrier to the physical family index,
+
+\[
+3_{\rm family}\times2_{\rm weak}=6
+\]
+
+is forced at label-cardinality level.
+
+The chirality six-cycle remains a distinct parallel carrier. The recovered legacy north/south orientation is useful for crosswalking labels but is not required for the current weak-family six-state theorem.
+
+Remaining principal seam:
+
+\`TEMPORAL_C3_TO_PHYSICAL_FAMILY_BINDING = OPEN\`.
+
+Masses, Yukawa structure, CKM/PMNS and full physical spectrum remain separately open.
