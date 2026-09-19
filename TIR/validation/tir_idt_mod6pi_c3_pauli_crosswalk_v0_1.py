@@ -1211,6 +1211,61 @@ def main() -> None:
         else 0.0
     )
 
+    # Full Stage-66 C3 orbit as a source-derived family-generator set.
+    # Any pair closes only a 3D subalgebra, while all three orbit members
+    # generate the full 8D su(3)_F algebra.
+    selector_pair_dims = {}
+    selector_pair_residuals = {}
+    for ia, ib in ((0, 1), (1, 2), (2, 0)):
+        dim_pair, res_pair = lie_closure_dimension(
+            [selector_orbit[ia], selector_orbit[ib]]
+        )
+        selector_pair_dims[f"{ia}{ib}"] = dim_pair
+        selector_pair_residuals[f"{ia}{ib}"] = res_pair
+
+    selector_orbit_lie_dim, selector_orbit_lie_residual = lie_closure_dimension(
+        selector_orbit
+    )
+
+    selector_orbit_kp = []
+    for A in selector_orbit:
+        Ak = stage55_Pk(A)
+        Ap = stage55_Pp(A)
+        selector_orbit_kp.append(
+            {
+                "k_norm2": float(np.linalg.norm(Ak, "fro") ** 2),
+                "p_norm2": float(np.linalg.norm(Ap, "fro") ** 2),
+                "reconstruction_residual": float(np.max(np.abs(Ak + Ap - A))),
+            }
+        )
+
+    selector_orbit_kp_expected = [
+        {"k_norm2": 0.25, "p_norm2": 0.25},
+        {"k_norm2": 0.25, "p_norm2": 0.25},
+        {"k_norm2": 0.0, "p_norm2": 0.5},
+    ]
+    selector_orbit_kp_residual = max(
+        abs(selector_orbit_kp[i][key] - selector_orbit_kp_expected[i][key])
+        for i in range(3)
+        for key in ("k_norm2", "p_norm2")
+    )
+    selector_orbit_kp_reconstruction_residual = max(
+        x["reconstruction_residual"] for x in selector_orbit_kp
+    )
+
+    selector_forward_A1 = selector_orbit[1]
+    selector_forward_A2 = selector_orbit[2]
+    selector_forward_commutator = (
+        selector_forward_A1 @ selector_forward_A2
+        - selector_forward_A2 @ selector_forward_A1
+    )
+    selector_forward_commutator_max = float(
+        np.max(np.abs(selector_forward_commutator))
+    )
+    selector_forward_commutator_norm2 = float(
+        np.linalg.norm(selector_forward_commutator, "fro") ** 2
+    )
+
     # Single-axis branch-map no-go.  The Stage-66 selected tangent is the
     # P3 image of A_seed, i.e. the symmetric 23 channel.  Any two branch
     # generators that are merely scalar multiples of this one tangent commute,
@@ -1773,6 +1828,25 @@ def main() -> None:
             and selector_negative_best_orbit_index == 1
             and abs(selector_negative_best_alignment - 1.0) < 1.0e-10
         ),
+        "stage66_each_c3_orbit_pair_closes_only_three_dimensional_subalgebra": (
+            selector_pair_dims == {"01": 3, "12": 3, "20": 3}
+        ),
+        "stage66_full_c3_orbit_generates_su3f_dimension_eight": (
+            selector_orbit_lie_dim == 8
+            and selector_orbit_lie_residual < 1.0e-10
+        ),
+        "stage66_c3_orbit_has_exact_mixed_kp_projection_pattern": (
+            selector_orbit_kp_residual < TOL
+            and selector_orbit_kp_reconstruction_residual < TOL
+        ),
+        "stage24_66_forward_A1_A2_pair_noncommutes": (
+            selector_forward_commutator_max > TOL
+            and abs(selector_forward_commutator_norm2 - 0.125) < TOL
+        ),
+        "stage24_66_forward_successor_A2_is_pure_complement": (
+            selector_orbit_kp[2]["k_norm2"] < TOL
+            and abs(selector_orbit_kp[2]["p_norm2"] - 0.5) < TOL
+        ),
         "single_stage66_axis_branch_generators_commute_exactly": (
             single_axis_generator_commutator < TOL
         ),
@@ -2167,7 +2241,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__SPECTRAL_Z2_SELECTION_REFUTED__SPIN1_ONLY_DC_GENERATION_REFUTED__BRANCH_TO_COMPLEMENT_INJECTION_EO_Z2_AND_RHO_PHYSICAL_BINDING_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__ORIENTED_A1_A2_COMPLEMENT_PAIR_CLOSED__EO_TO_ORBIT_PAIR_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2211,8 +2285,23 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "stage66_c3_orbit_generator_status": (
+            "STAGE66_C3_ORBIT_GENERATES_FULL_SU3F_LIE_ALGEBRA"
+            if passed
+            else "FAILED"
+        ),
+        "stage24_66_forward_pair_status": (
+            "ORIENTED_A1_TO_A2_NONCOMMUTING_PAIR_WITH_EXPLICIT_COMPLEMENT_INJECTION"
+            if passed
+            else "FAILED"
+        ),
         "family_complement_injection_status": (
-            "OPEN_BRANCH_TO_SU3_OVER_SO3_COMPLEMENT_INJECTION_OR_EQUIVALENT_MIXED_KP_DYNAMICS"
+            "CLOSED_AT_STAGE66_C3_ORBIT_GENERATOR_SET_LEVEL__BRANCH_BINDING_OPEN"
+            if passed
+            else "FAILED"
+        ),
+        "stage66_branch_assignment_status": (
+            "OPEN_EO_TO_ORIENTED_STAGE66_GENERATOR_PAIR_ASSIGNMENT"
         ),
         "icosahedral_family_embedding_status": (
             "STAGE61_62_C3_COMPATIBLE_RIGID_EMBEDDING_CURRENT_PASS"
@@ -2447,6 +2536,9 @@ def main() -> None:
             "stage39_J_sign_flip": stage39_J_sign_flip_residual,
             "stage39_abs_transpose": stage39_abs_transpose_residual,
             "jarlskog_exact": abs(J - J_exact),
+            "stage66_c3_orbit_lie_closure": selector_orbit_lie_residual,
+            "stage66_c3_orbit_kp_projection": selector_orbit_kp_residual,
+            "stage66_c3_orbit_kp_reconstruction": selector_orbit_kp_reconstruction_residual,
         },
         "stationary_cubic_selector_audit": {
             "eta": float(eta_selector),
@@ -2516,6 +2608,21 @@ def main() -> None:
                 "state_dependent_map",
                 "complexification_plus_additional_dynamics",
             ],
+        },
+        "stage66_c3_orbit_generator_audit": {
+            "orbit_labels": ["A0_12", "A1_23", "A2_13"],
+            "negative_mode_orbit_index": selector_negative_best_orbit_index,
+            "negative_mode_alignment": selector_negative_best_alignment,
+            "pair_lie_dimensions": selector_pair_dims,
+            "pair_lie_residuals": selector_pair_residuals,
+            "full_orbit_lie_dimension": selector_orbit_lie_dim,
+            "full_orbit_lie_residual": selector_orbit_lie_residual,
+            "stage55_kp_projection": selector_orbit_kp,
+            "forward_pair": ["A1_23", "A2_13"],
+            "forward_pair_commutator_max_abs": selector_forward_commutator_max,
+            "forward_pair_commutator_norm2": selector_forward_commutator_norm2,
+            "forward_successor_A2_pure_complement": True,
+            "branch_symbol_assignment": "OPEN_EO_Z2",
         },
         "family_wij_source_audit": {
             "generic_transport": "W_ij^(G,R)=Pexp(int_gamma A_R)",
@@ -2826,6 +2933,9 @@ def main() -> None:
             "stage52_real_form_bridge_availability_does_not_supply_dynamic_intertwiner_selection": True,
             "stage52_compact_spin1_branch_alone_cannot_reproduce_D_or_C_exactly": True,
             "family_branch_map_requires_nonzero_su3_over_so3_complement_content": True,
+            "stage66_full_c3_orbit_already_supplies_full_su3f_generator_set": True,
+            "stage66_full_orbit_generation_does_not_select_EO_generator_assignment": True,
+            "stage24_66_forward_pair_is_representation_level_not_physical_branch_map": True,
             "Aseed_was_not_used_to_fit_eta": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
