@@ -1151,3 +1151,23 @@ No current source theorem selects A versus B:
 `OPEN_Z2_EO_TO_DC_ASSIGNMENT_NOT_SOURCE_SELECTED`.
 
 Target-sign selection is forbidden.
+
+### Appendix AE update — spectral data cannot select E/O -> D/C
+
+Because
+
+\[
+C=F_3DF_3^\dagger,
+\]
+
+(D) and (C) are unitarily conjugate and share all single-generator spectral invariants.
+
+Therefore:
+
+`NO_GO_SINGLE_GENERATOR_SPECTRAL_INVARIANTS_CANNOT_SELECT_EO_TO_DC_Z2`.
+
+The diagonal appearance of (D) versus the character-mixed appearance of (C) is basis-dependent, while Stage 52 leaves the compact-real-form selection open.
+
+`DIAGONAL_VS_MIXED_APPEARANCE_NOT_INVARIANT_WITHOUT_DERIVED_REAL_FORM_INTERTWINER`.
+
+The remaining branch assignment must be selected, if possible, by a genuinely relational/path-oriented invariant.
