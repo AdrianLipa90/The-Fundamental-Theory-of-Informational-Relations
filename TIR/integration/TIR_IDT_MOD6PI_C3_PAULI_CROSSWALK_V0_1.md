@@ -6474,3 +6474,99 @@ Status:
 `TERMINAL_LOOP_SUPPLIES_TWO_INDEPENDENT_CARTAN_EIGENPHASE_COORDINATES`.
 
 This is a Wilson-loop conjugacy statement. The two eigenphase coordinates are not identified with CKM/PMNS mixing angles or a measured CP phase.
+
+---
+
+## Appendix AW — NEW 2026-09-19 — Terminal orientation pair under the complex-conjugation involution
+
+### AW.1 Involutive map
+
+Consider the group automorphism
+
+\[
+\mathcal C_{\rm out}:SU(3)\to SU(3),
+\qquad
+\mathcal C_{\rm out}(U)=U^*.
+\]
+
+It is involutive:
+
+\[
+\boxed{\mathcal C_{\rm out}^2(U)=U.}
+\]
+
+The terminal-loop validator confirms that \(U_\circ^*\) remains unitary with determinant one.
+
+### AW.2 Complex conjugate class equals the reverse-loop class
+
+For unitary \(U\), the eigenvalues of \(U^*\) are the complex conjugates of the eigenvalues of \(U\), which are also the eigenvalues of \(U^{-1}\).
+
+The validator independently checks that
+
+\[
+\boxed{
+\operatorname{charpoly}(U_\circ^*)
+=
+\operatorname{charpoly}(U_\circ^{-1}).
+}
+\]
+
+Hence the complex-conjugated terminal loop and the orientation-reversed terminal loop belong to the same \(SU(3)\) conjugacy class.
+
+Status:
+
+`COMPLEX_CONJUGATION_MAPS_TERMINAL_FORWARD_CLASS_TO_REVERSE_CLASS`.
+
+### AW.3 The two classes are distinct
+
+Appendix AU established
+
+\[
+\operatorname{tr}U_\circ
+\neq
+\operatorname{tr}U_\circ^{-1}.
+\]
+
+Since
+
+\[
+\operatorname{tr}U_\circ^*
+=
+\overline{\operatorname{tr}U_\circ},
+\]
+
+the forward class and its complex-conjugated class are distinct.
+
+Thus the involution exchanges two different inner-conjugacy classes:
+
+\[
+\boxed{
+[U_\circ]
+\xleftrightarrow{\ U\mapsto U^*\ }
+[U_\circ^{-1}].
+}
+\]
+
+Status:
+
+`TERMINAL_FORWARD_REVERSE_CLASSES_FORM_INVOLUTIVE_OUTER_Z2_PAIR`.
+
+### AW.4 Inner versus outer distinction
+
+If complex conjugation acted as an inner transformation on the terminal class, \(U_\circ\) and \(U_\circ^*\) would have the same trace and lie in the same inner-conjugacy class.
+
+They do not.
+
+Therefore this terminal loop is an explicit witness that the involution is not removable by inner \(SU(3)\) conjugation on this class.
+
+Status:
+
+`COMPLEX_CONJUGATION_NOT_INNER_ON_TERMINAL_CLASS_WITNESS`.
+
+### AW.5 Physical firewall
+
+The symbol \(\mathcal C_{\rm out}\) denotes complex conjugation as a group automorphism only.
+
+It is not identified here with physical charge conjugation, parity, CP, or any experimental discrete symmetry operator.
+
+The result is an exact outer/inner group-theoretic statement about the source-derived terminal holonomy.
