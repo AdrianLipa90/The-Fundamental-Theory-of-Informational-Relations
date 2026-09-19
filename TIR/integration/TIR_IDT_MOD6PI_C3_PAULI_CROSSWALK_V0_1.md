@@ -1253,3 +1253,163 @@ six-state cardinality after physical family binding
 masses / Yukawa / CKM / full physical spectrum
     OPEN
 \`\`\`
+
+
+---
+
+## Appendix F — NEW 2026-09-19 — \(A_1\) Cartan-axis conjugacy and gauge-orientation firewall
+
+### F.1 Current weak parent
+
+Stage 15 supplies the current exact \(A_1\cong\mathfrak{su}(2)\) weak factor and Stage 16 supplies the current two-state weak-doublet representation.
+
+Choose the conventional Cartan representative
+
+\[
+T_3=\frac12\sigma_z.
+\]
+
+For any unit vector
+
+\[
+\hat n=(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta),
+\]
+
+define
+
+\[
+U(\hat n)
+=
+e^{-i\phi\sigma_z/2}
+e^{-i\theta\sigma_y/2}
+\in SU(2).
+\]
+
+Then
+
+\[
+\boxed{
+U(\hat n)\,T_3\,U(\hat n)^\dagger
+=
+\frac12\,\hat n\cdot\boldsymbol{\sigma}.
+}
+\]
+
+Thus all normalized \(A_1\) Cartan-axis representatives lie in one \(SU(2)\) conjugacy class.
+
+Status:
+
+\`A1_CARTAN_ORIENTATION_SU2_CONJUGACY_CLASS_CLOSED\`.
+
+### F.2 Weyl \(Z_2\) is conjugacy-covariant
+
+In the reference basis use
+
+\[
+J_W=\sigma_x,
+\qquad
+J_W^2=I_2,
+\qquad
+J_WT_3J_W^\dagger=-T_3.
+\]
+
+Transport the reflection together with the axis:
+
+\[
+J_{\hat n}
+=
+U(\hat n)J_WU(\hat n)^\dagger.
+\]
+
+Then
+
+\[
+J_{\hat n}^2=I_2
+\]
+
+and
+
+\[
+\boxed{
+J_{\hat n}
+\left(\frac12\hat n\cdot\boldsymbol{\sigma}\right)
+J_{\hat n}^\dagger
+=
+-\frac12\hat n\cdot\boldsymbol{\sigma}.
+}
+\]
+
+Therefore the binary weak carrier and its Weyl exchange do not depend on an absolute external orientation of the \(A_1\) axis.
+
+The validator checks this explicitly on the non-axis-aligned deterministic direction
+
+\[
+\hat n=\frac{(1,2,3)}{\sqrt{14}}.
+\]
+
+### F.3 Consequence for the historical weak-axis debt
+
+The old question
+
+\[
+\text{“which absolute Bloch/weak axis is the physical one?”}
+\]
+
+is too strong as a pre-breaking representation gate. Within the current \(SU(2)\) carrier, a change of normalized Cartan orientation is implemented by conjugation.
+
+Accordingly, the legacy north/south anchor remains useful to fix an orientation convention,
+
+\[
+N/S\leftrightarrow \operatorname{sign}(T_3),
+\]
+
+but it is not required for the existence of the two-state weak representation or its Weyl \(Z_2\).
+
+The current exact status is therefore:
+
+\`\`\`text
+A1 weak carrier
+    = CLOSED
+
+normalized Cartan-axis conjugacy class
+    = CLOSED
+
+Weyl Z2 on any conjugate axis
+    = CLOSED
+
+absolute pre-breaking axis orientation as an independent observable
+    = NOT REQUIRED BY THE REPRESENTATION THEOREM
+\`\`\`
+
+### F.4 What remains physically open
+
+Axis conjugacy does not by itself determine electroweak vacuum alignment.
+
+The stronger physical problem is to bind the internal \(SU(2)\) carrier, the hypercharge carrier and the symmetry-breaking/vacuum structure so that the unbroken electromagnetic direction and physical component assignments follow from the source dynamics.
+
+Current status:
+
+\`OPEN_HIGGS_HYPERCHARGE_ALIGNMENT_NOT_CLOSED_BY_AXIS_CONJUGACY\`.
+
+This is distinct from the already closed representation results
+
+\[
+C_3^{\rm family}\times W(A_1)^{\rm weak}
+\cong C_6
+\]
+
+and
+
+\[
+\dim(V_F\otimes V_W)=3\times2=6.
+\]
+
+The principal family-side physical gate remains
+
+\[
+C_3^{\rm temporal}
+\stackrel{?}{\longrightarrow}
+C_3^{\rm physical\ family},
+\]
+
+while the electroweak-side gate is vacuum/hypercharge alignment rather than an absolute \(T_3\)-axis selection.
