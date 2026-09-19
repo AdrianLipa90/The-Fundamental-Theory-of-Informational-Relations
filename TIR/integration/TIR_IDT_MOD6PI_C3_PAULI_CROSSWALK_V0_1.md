@@ -6282,3 +6282,57 @@ It does not establish that this terminal-cycle loop is the physical family conne
 Current status:
 
 `SOURCE_DERIVED_STATE_DEPENDENT_NONSEPARABLE_SU3_HOLONOMY_MAP_CANDIDATE_EXISTS__PHYSICAL_FAMILY_CP_BINDING_OPEN`.
+
+---
+
+## Appendix AT — NEW 2026-09-19 — Hosted validation of the non-coboundary terminal path source
+
+The Appendix-AS consequence has now passed the exact-head hosted crosswalk gate.
+
+Validated branch head:
+
+```text
+af3e03fda49d588e25c324cde750d51faacd46b3
+```
+
+Hosted workflow:
+
+```text
+TIR IDT mod6pi C3 Pauli crosswalk
+run_id = 35447439621
+run_number = 225
+conclusion = success
+```
+
+The hosted validator simultaneously verifies
+
+```text
+common-target triangle Wilson loop = identity
+terminal Collatz-cycle holonomy    != identity
+terminal-loop basepoint change     = conjugacy
+reverse orientation                = inverse
+Im tr(U_circle)                    = orientation odd
+terminal loop outside spin-one SU(2)
+```
+
+Therefore the flat common-target endpoint-frame scaffold and the nonflat terminal path source are not the same transport class.
+
+The exact implication is
+
+\[
+\boxed{
+U_\circ\neq I
+\Longrightarrow
+\text{no global }W_{ij}=G_i^\dagger G_j\text{ factorization on the terminal cycle}.
+}
+\]
+
+Status:
+
+`HOSTED_NONSEPARABLE_TERMINAL_PATH_SOURCE_GATE_PASS`.
+
+This closes the existence gate for a source-derived path-local non-coboundary (SU(3)) candidate. It does not identify that candidate with the physical family connection, CKM CP phase, or observed flavour data.
+
+Remaining physical gate:
+
+`OPEN_TERMINAL_PATH_SOURCE_TO_PHYSICAL_FAMILY_CONNECTION_BINDING`.
