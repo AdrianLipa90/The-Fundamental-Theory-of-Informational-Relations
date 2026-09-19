@@ -1,0 +1,90 @@
+{
+  "schema": "TIR_W_SEMANTIC_HOLONOMY_CROSS_REPO_VALIDATION_RECEIPT_V0_1",
+  "date": "2026-09-19",
+  "epistemic": "CHYBA",
+  "canon_allowed": false,
+  "scope": "W_sem semantic U(1) holonomy only",
+  "source_clarification": "W_sem is nonlocal semantic coupling / phase holonomy derived from local semantic connection A_sem.",
+  "definition": {
+    "local_connection": "A_sem",
+    "nonlocal_transport": "W_sem[gamma] = exp(i integral_gamma A_sem)",
+    "semantic_coupling": "C_ij[gamma] = W_sem[gamma] z_ij",
+    "group": "U(1)"
+  },
+  "tir_main_binding": {
+    "main_sha": "d5dcd42211dc4d872971ca4afab97a4335b3ac1c",
+    "formalism_blob": "079ca05d2289bef1047e52d3ef53f50bda7fb622",
+    "validator_blob": "bccc5a248ec7c6d88bc93eeb170b24814374d47b",
+    "provenance_blob": "bbddf4df1fe6569a33eea38c63e7067f51e5cff3",
+    "identity_with_validated_feature_branch": true,
+    "validated_feature_head": "04d19859c7fab3959e09998c1d257c991b811975",
+    "dedicated_gate": {
+      "name": "TIR semantic U1 holonomy v0.1",
+      "run_id": 35468448126,
+      "conclusion": "success"
+    }
+  },
+  "repositories": [
+    {
+      "repo": "AdrianLipa90/The-Consciousness-Dictionary",
+      "pr": 8,
+      "head": "6f7d4ed2d4b5c469181e1d5ee16942997d1e05b5",
+      "dedicated_gate": {
+        "name": "Consciousness Dictionary semantic U1 holonomy",
+        "run_id": 35469166948,
+        "conclusion": "success"
+      },
+      "general_ci": {
+        "name": "CI",
+        "run_id": 35469166784,
+        "conclusion": "success"
+      },
+      "integration_state": "PR_ONLY"
+    },
+    {
+      "repo": "AdrianLipa90/noema-phasenav-core",
+      "pr": 32,
+      "head": "9a697b38d0a12db64cdad15cb34fae2ed1ab66e1",
+      "dedicated_gate": {
+        "name": "PhaseNav semantic U1 holonomy",
+        "run_id": 35468474044,
+        "conclusion": "success"
+      },
+      "repository_wide_status": "MIXED",
+      "failure_scope_overlap_with_w_sem_diff": false,
+      "integration_state": "PR_ONLY"
+    },
+    {
+      "repo": "AdrianLipa90/PhaseNav-Natural-Coding-System",
+      "pr": 69,
+      "head": "ad275eabaf065b9fc3cde05be5ef7c60dca544f3",
+      "dedicated_gate": {
+        "name": "PNCS semantic U1 holonomy v0.1",
+        "run_id": 35468719409,
+        "conclusion": "success"
+      },
+      "additional_green": [
+        {
+          "name": "PNCS Round28 relation lowering v0.4 gauntlet",
+          "run_id": 35468719431
+        },
+        {
+          "name": "PNCS golden-mean post-v1 quarantine v0.1",
+          "run_id": 35468719414
+        }
+      ],
+      "repository_wide_status": "MIXED",
+      "failure_scope_overlap_with_w_sem_diff": false,
+      "integration_state": "PR_ONLY"
+    }
+  ],
+  "verdict": {
+    "w_sem_scoped_validation": "PASS",
+    "all_four_dedicated_gates_green": true,
+    "repository_wide_global_status": "MIXED",
+    "physical_gauge_field_established": false,
+    "physical_nonlocal_signalling_established": false,
+    "hypercharge_identification_established": false,
+    "weak_boson_identification_established": false
+  }
+}
