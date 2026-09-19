@@ -157,6 +157,8 @@ jobs:
           grep -Fq '"weak_axis_conjugacy_status": "A1_CARTAN_ORIENTATION_SU2_CONJUGACY_CLASS_CLOSED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"electroweak_vacuum_alignment_status": "OPEN_HIGGS_HYPERCHARGE_ALIGNMENT_NOT_CLOSED_BY_AXIS_CONJUGACY"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"family_x_weak_six_cycle": "CURRENT_C3_X_A1_WEYL_Z2_C6_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"orientation_c3_z2_extension_status": "C3_SEMIDIRECT_Z2_INVERSION_IS_D3_ISOMORPHIC_S3"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"sixfold_symmetry_distinction_status": "ABELIAN_C6_WEAK_PRODUCT_DISTINCT_FROM_NONABELIAN_D3_ORIENTATION_EXTENSION"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"six_weak_component_label_count": "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"six_cycle_physical_flavour_operator": "CURRENT_WEAK_FAMILY_REPRESENTATION_EXACT_PHYSICAL_GENERATION_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"physical_sector_binding": "OPEN"' mod6pi-c3-pauli-receipt.json
