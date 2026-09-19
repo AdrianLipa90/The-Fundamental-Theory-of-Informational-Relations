@@ -2499,3 +2499,158 @@ Therefore the corrected remaining gate is
 \`CUBIC_SELECTOR_CLOSED__BRANCH_OPERATOR_RHYTHM_AND_REALFORM_SELECTION_OPEN\`.
 
 The selector closure is mathematical. It does not by itself identify the saddle mode with a physical fermion generation or derive CKM/PMNS/masses.
+
+
+---
+
+## Appendix N — NEW 2026-09-19 — Exact split-real branch operators and rhythm provenance firewall
+
+### N.1 Stage-43 ordering principle versus weight map
+
+Stage 43 already distinguishes two statements:
+
+\`\`\`text
+ordered Collatz-step accumulation
+    = PRESENT
+
+exact rho_s(k)
+    = OPEN DERIVATION DEBT
+\`\`\`
+
+The archived reference simulation
+
+\`archive/v7.9/full/01_foundational_formal_notes/phase_hamiltonian_english_derivations/scripts/collatz_phase_sim.py\`
+
+at Git blob SHA
+
+\`7a06e83f70a7061678752773f4fc3e5868fe6d08\`
+
+states explicitly:
+
+\`\`\`text
+The exact rhythm map is a model choice.
+\`\`\`
+
+Its default
+
+\[
+\eta_{\rm legacy}=0.35
+\]
+
+is therefore not a current derivation and is not promoted here.
+
+Status:
+
+\`LEGACY_BOUNDED_RHYTHM_MODEL_CHOICE_NOT_PROMOTED\`.
+
+### N.2 Branch symbols already have exact split-real operators
+
+Stage 49 supplies the determinant-one two-component branch operators
+
+\[
+E\mapsto \widehat M_E,
+\qquad
+O\mapsto \widehat M_O,
+\]
+
+and Stage 50 supplies the symmetric-square representation
+
+\[
+\rho_2:
+SL(2,\mathbb R)\to SL(3,\mathbb R).
+\]
+
+Hence the branch symbols have exact three-component operators
+
+\[
+\boxed{
+E\mapsto R_E=\rho_2(\widehat M_E),
+\qquad
+O\mapsto R_O=\rho_2(\widehat M_O).
+}
+\]
+
+The representation law is exact:
+
+\[
+\boxed{
+\rho_2(M_1M_2)
+=
+\rho_2(M_1)\rho_2(M_2).
+}
+\]
+
+The current validator checks this independently for both ordered products \(EO\) and \(OE\).
+
+Moreover,
+
+\[
+R_ER_O\neq R_OR_E,
+\]
+
+so branch-word ordering survives faithfully in the three-component carrier.
+
+Status:
+
+\`BRANCH_SYMBOL_TO_SPLIT_REAL_THREE_OPERATOR_CLOSED\`.
+
+### N.3 What remains open
+
+The exact operators \(R_E,R_O\) live in the split-real carrier
+
+\[
+SL(3,\mathbb R),
+\]
+
+not directly in the compact physical-family carrier \(SU(3)_F\).
+
+Stage 51 forbids a fixed direct unitarization, while Stage 52 supplies only the existence of a compact-real-form bridge.
+
+Therefore
+
+\[
+\boxed{
+E/O\to R_E/R_O
+}
+\]
+
+is closed, but
+
+\[
+\boxed{
+E/O\stackrel{?}{\longrightarrow}U_E/U_O\in SU(3)_F
+}
+\]
+
+remains open.
+
+Separately, the Hamiltonian weighting
+
+\[
+\rho_s(k)
+\]
+
+remains an exact derivation debt. Word length/order and Hamiltonian time/rhythm are not identified.
+
+Current status:
+
+\`\`\`text
+branch symbol -> split-real 3x3 operator
+    = CLOSED
+
+branch-word noncommutativity/order
+    = CLOSED
+
+legacy bounded rhythm eta=0.35
+    = MODEL CHOICE / NOT PROMOTED
+
+exact rho_s(k)
+    = OPEN
+
+split-real branch operator -> compact SU(3)_F operator
+    = OPEN
+\`\`\`
+
+The corrected aggregate frontier is
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__RHYTHM_AND_COMPACT_FAMILY_MAP_OPEN\`.
