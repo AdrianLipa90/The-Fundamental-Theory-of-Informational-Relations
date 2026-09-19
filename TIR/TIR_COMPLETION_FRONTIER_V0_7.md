@@ -309,3 +309,48 @@ su(3)_F Lie-dimension transfer                   = CLOSED
 physical temporal <-> flavour identity           = OPEN
 physical CKM / PMNS assignment                   = OPEN
 \`\`\`
+
+
+### Appendix B update — exact six-state \(C_3\times Z_2\) lift
+
+Stage 23 supplies the independent CP1/chirality involution
+
+\[
+J_\chi^2=I_2.
+\]
+
+With the periodic temporal three-cycle,
+
+\[
+G_T=P_T\otimes J_\chi
+\]
+
+has
+
+\[
+G_T^3=I_3\otimes J_\chi\neq I_6,
+\qquad
+G_T^6=I_6,
+\]
+
+and a single transitive six-state orbit. The Appendix-A intertwiner lifts as
+
+\[
+M_6=M_{TF}\otimes I_2,
+\qquad
+M_6G_T=G_FM_6.
+\]
+
+Status:
+
+\`C3_X_CHIRALITY_Z2_SIX_STATE_INTERTWINER_CLOSED\`.
+
+This closes \(3\times2=6\) for family×chirality labels. It does **not** yet identify the binary factor with the physical weak-isospin \(u/d\)-type doublet.
+
+Remaining gate:
+
+\`CHIRALITY_Z2_TO_WEAK_ISOSPIN_DOUBLET_BINDING = OPEN\`.
+
+Therefore:
+
+\`SIX_QUARK_FLAVOURS_FROM_3_X_2 = OPEN_PENDING_WEAK_DOUBLET_BINDING\`.
