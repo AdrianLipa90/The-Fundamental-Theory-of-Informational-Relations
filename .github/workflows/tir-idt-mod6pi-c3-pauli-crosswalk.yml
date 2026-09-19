@@ -110,6 +110,8 @@ jobs:
           grep -Fq '"terminal_cycle_nonflat_source_status": "TERMINAL_CYCLE_SUPPLIES_NONFLAT_SOURCE_DERIVED_LOOP_CANDIDATE"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"terminal_cycle_spin1_exclusion_status": "TERMINAL_LOOP_OUTSIDE_EVERY_CONJUGATE_SPIN1_SU2_SUBGROUP"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"terminal_cycle_full_su3_direction_status": "TERMINAL_LOOP_REQUIRES_DIRECTIONS_BEYOND_COMPACT_SPIN1_SUBGROUP"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_basepoint_status": "TERMINAL_LOOP_CONJUGACY_CLASS_BASEPOINT_COVARIANT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_orientation_status": "TERMINAL_LOOP_IMAGINARY_TRACE_ORIENTATION_ODD_CLASS_WITNESS"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"terminal_cycle_cp_status": "NONTRIVIAL_WILSON_LOOP_NOT_YET_PHYSICAL_CP_OR_SECTOR_BINDING"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"terminal_cycle_prospective_status": "RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"family_wij_source_binding_status": "COMMON_TARGET_FAMILY_WIJ_FLAT_SCAFFOLD_CLOSED__TERMINAL_COLLATZ_NONFLAT_LOOP_CANDIDATE_EXISTS__PHYSICAL_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
