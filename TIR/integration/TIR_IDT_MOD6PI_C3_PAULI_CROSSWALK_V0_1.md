@@ -6917,3 +6917,107 @@ Status:
 The dimensions \(1+2=3\) here are representation dimensions of the family-label symmetry.
 
 They are not identified with one time plus two spatial dimensions, three-dimensional physical space, or any spacetime dimension count.
+
+---
+
+## Appendix BA — NEW 2026-09-19 — Six-state \(C_6\) character spectrum and real \(D_6\) mode decomposition
+
+### BA.1 Tensor character basis
+
+The six-state rotation generator is
+
+\[
+G_6=P_3\otimes J_W.
+\]
+
+The family factor is diagonalized by \(F_3\), while the weak involution is diagonalized by
+
+\[
+F_2=\frac1{\sqrt2}
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}.
+\]
+
+Therefore the tensor character basis
+
+\[
+\boxed{F_3\otimes F_2}
+\]
+
+diagonalizes the six-state cyclic generator.
+
+### BA.2 Exact sixth-root spectrum
+
+The eigenvalues are all products
+
+\[
+\{1,\omega,\omega^2\}\times\{+1,-1\},
+\qquad
+\omega=e^{2\pi i/3}.
+\]
+
+This set is exactly
+
+\[
+\boxed{
+\{e^{2\pi ik/6}:k=0,1,2,3,4,5\}.
+}
+\]
+
+Every sixth root occurs exactly once.
+
+Status:
+
+`WEAK_FAMILY_C6_REGULAR_CHARACTER_SPECTRUM_ALL_SIXTH_ROOTS_EXACT`.
+
+### BA.3 Real \(D_6\) mode decomposition
+
+Among the six character modes, two are self-conjugate:
+
+\[
++1,\qquad -1.
+\]
+
+The remaining four form two conjugate pairs:
+
+\[
+e^{\pm i\pi/3},
+\qquad
+e^{\pm i2\pi/3}.
+\]
+
+Under the orientation reflection these conjugate modes are paired into real two-dimensional dihedral representations.
+
+Hence the real six-state representation decomposes as
+
+\[
+\boxed{
+\mathbf6_{\mathbb R}
+=
+\mathbf1\oplus\mathbf1\oplus\mathbf2\oplus\mathbf2.
+}
+\]
+
+Status:
+
+`D6_SIX_STATE_REAL_REP_DECOMPOSES_AS_1_PLUS_1_PLUS_2_PLUS_2`.
+
+### BA.4 Relation to previous decompositions
+
+The nested character structure is therefore
+
+```text
+family C3 real carrier       : 3 = 1 + 2
+weak-family C6 real carrier : 6 = 1 + 1 + 2 + 2
+full orientation extension  : dihedral group of order 12
+```
+
+These are exact representation-theory statements.
+
+### BA.5 Firewall
+
+The sixth-root spectrum is a character spectrum of the finite symmetry action.
+
+It is not an energy spectrum, particle-mass spectrum, physical frequency spectrum, or spacetime-dimension statement.
