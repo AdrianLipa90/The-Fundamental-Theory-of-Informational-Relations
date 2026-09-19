@@ -1714,3 +1714,211 @@ Therefore
 \]
 
 This six-state carrier is a representation-level consequence of the already-current family and weak parents. Masses, Yukawa couplings, physical CKM/PMNS values and full spectrum dynamics remain separate open gates.
+
+
+---
+
+## Appendix J — NEW 2026-09-19 — Raw seed-dynamics no-go and temporal orientation selection
+
+### J.1 Ordinary center Collatz remains a no-go for the Stage-24 cycle
+
+The active center projection
+
+\[
+(4,6,12)
+\]
+
+has the exact directed reachability chain
+
+\[
+12\to6\to4,
+\]
+
+while \(4\nrightarrow6\) and \(6\nrightarrow12\) under the ordinary forward Collatz map.
+
+Therefore
+
+\[
+\boxed{
+P_s\neq C
+}
+\]
+
+on the active center projection.
+
+Status:
+
+\`ORDINARY_CENTER_COLLATZ_STAGE24_C3_CYCLE_REFUTED\`.
+
+### J.2 Product-seed Collatz also does not generate a three-cycle
+
+Stage 44 uses the pre-existing scalar-seed rule
+
+\[
+n_0=p(p+2)
+\]
+
+for the active family labels, giving
+
+\[
+n_1=15,\qquad n_2=35,\qquad n_3=143.
+\]
+
+Direct first-hit reachability among these three scalar seeds is
+
+\[
+15\to35\quad\text{in }4\text{ steps},
+\]
+
+\[
+143\to35\quad\text{in }90\text{ steps},
+\]
+
+with no other directed hit between distinct members of the set.
+
+Writing absent directed hits as \(-1\), the exact first-hit matrix is
+
+\[
+\boxed{
+R_C=
+\begin{pmatrix}
+0&4&-1\\
+-1&0&-1\\
+-1&90&0
+\end{pmatrix}.
+}
+\]
+
+This directed graph contains no three-cycle.
+
+Status:
+
+\`ORDINARY_PRODUCT_SEED_COLLATZ_C3_CYCLE_REFUTED\`.
+
+The Stage-44 symmetric meeting geometry
+
+\[
+D_C=
+\begin{pmatrix}
+0&4&88\\
+4&0&90\\
+88&90&0
+\end{pmatrix}
+\]
+
+remains an exact structural object, but it is not itself a directed cycle.
+
+### J.3 No canonical path-cost-to-amplitude law is available
+
+Stage 45 explicitly finds
+
+\[
+\boxed{
+\text{canonical distance/path-cost}\to\text{amplitude rule: NOT FOUND}.
+}
+\]
+
+Therefore \(D_C\), \(1/D_C\), \(e^{-D_C}\), or \(e^{-\kappa D_C}\) cannot be inserted as though they were already-derived TIR dynamics.
+
+Status:
+
+\`CANONICAL_PATH_COST_TO_AMPLITUDE_RULE_NOT_FOUND\`.
+
+This blocks retrospective conversion of Stage-44 proximity into a physical transition operator.
+
+### J.4 Icosahedral geometry supplies a rigid \(C_3\)-compatible carrier
+
+Stage 61 establishes that the frozen family generator
+
+\[
+P_3=
+\begin{pmatrix}
+0&0&1\\
+1&0&0\\
+0&1&0
+\end{pmatrix}
+\]
+
+is an orientation-preserving order-three icosahedral symmetry and embeds the frozen family operators into the five-dimensional quadrupole carrier.
+
+Stage 62 then removes the continuous orientation freedom. With the frozen ordered axis and seed-incidence operator imposed, the labelled embedding is rigid.
+
+Status:
+
+\`STAGE61_62_C3_COMPATIBLE_RIGID_EMBEDDING_CURRENT_PASS\`.
+
+These stages establish compatibility and rigidity. They do not derive \(P_3\) from raw Collatz seed evolution.
+
+### J.5 Temporal orientation selects \(P_3\) against its inverse
+
+The periodic IDT carrier is oriented:
+
+\[
+e_1\to e_2\to e_3\to e_1.
+\]
+
+There are two nontrivial orientation-preserving order-three permutation generators on the same ordered triplet:
+
+\[
+P_3
+\qquad\text{and}\qquad
+P_3^{-1}=P_3^2.
+\]
+
+They differ already on the first basis vector:
+
+\[
+P_3e_1=e_2,
+\qquad
+P_3^{-1}e_1=e_3.
+\]
+
+Under the exact ordered temporal-family intertwiner \(M_{TF}\),
+
+\[
+M_{TF}P_T=P_3M_{TF}.
+\]
+
+Hence the forward temporal orientation selects \(P_3\), while reversing the temporal orientation selects \(P_3^{-1}\).
+
+Status:
+
+\`TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL\`.
+
+This is an orientation theorem for the representation. It is not a claim that ordinary Collatz trajectories dynamically cycle the three physical families.
+
+### J.6 Correct remaining dynamical gate
+
+The old broad gate
+
+\[
+\text{“derive }P_s\text{ from Collatz/Poincare”}
+\]
+
+now decomposes as
+
+\`\`\`text
+raw center Collatz C3 cycle
+    = REFUTED
+
+raw product-seed Collatz C3 cycle
+    = REFUTED
+
+Stage-44 distance -> amplitude law
+    = NOT FOUND
+
+C3-compatible rigid family geometry
+    = CLOSED
+
+orientation P3 vs P3^-1 from temporal direction
+    = CLOSED AT REPRESENTATION LEVEL
+
+physical seed/family transition dynamics
+    = OPEN
+\`\`\`
+
+The remaining positive route therefore requires a richer Poincare/holonomy/action operator, specified independently before any CKM or mass comparison.
+
+Status:
+
+\`OPEN_RICHER_POINCARE_HOLONOMY_OPERATOR_REQUIRED\`.
