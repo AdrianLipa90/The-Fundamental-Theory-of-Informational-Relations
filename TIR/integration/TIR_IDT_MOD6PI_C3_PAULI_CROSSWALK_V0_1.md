@@ -4961,3 +4961,160 @@ The separately frozen Poincare rhythm remains a validated mathematical candidate
 Current frontier:
 
 `CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__STATE_DEPENDENT_ORBIT_INDEX_AND_RHO_PHYSICAL_BINDING_OPEN`.
+
+---
+
+## Appendix AI — NEW 2026-09-19 — Collatz stopping-depth modulo three as an exact temporal-C3 state index
+
+Let
+
+\[
+L(n)
+\]
+
+be the first-hit stopping depth from the positive integer state \(n\) to \(1\), on the admitted finite-stopping basin.
+
+Define
+
+\[
+\boxed{
+r_C(n)=(-L(n))\bmod3.
+}
+\]
+
+### AI.1 Exact one-step equivariance
+
+For every nonterminal state before the first hit of 1,
+
+\[
+L(Tn)=L(n)-1.
+\]
+
+Hence
+
+\[
+r_C(Tn)
+=
+-(L(n)-1)
+=
+r_C(n)+1
+\pmod3.
+\]
+
+For the terminal step \(1\to4\),
+
+\[
+L(1)=0,
+\qquad
+L(4)=2\equiv-1\pmod3,
+\]
+
+so the same modular relation holds.
+
+Therefore
+
+\[
+\boxed{
+r_C(Tn)=r_C(n)+1\pmod3
+}
+\]
+
+throughout the admitted basin.
+
+Status:
+
+`STOPPING_DEPTH_MOD3_COLLATZ_TO_TEMPORAL_C3_EQUIVARIANT_BINDING_CLOSED`.
+
+### AI.2 Terminal-cycle anchor and qC agreement
+
+The terminal Collatz cycle is
+
+\[
+1\to4\to2\to1.
+\]
+
+Its stopping depths are
+
+\[
+(L(1),L(4),L(2))=(0,2,1),
+\]
+
+so
+
+\[
+(r_C(1),r_C(4),r_C(2))=(0,1,2).
+\]
+
+The exact IDT Collatz-FS phases are
+
+\[
+q_C(1)=\frac47,
+\qquad
+q_C(4)=\frac17,
+\qquad
+q_C(2)=\frac27.
+\]
+
+Under one Collatz step
+
+\[
+q_C(Tn)=2q_C(n)\pmod1,
+\]
+
+and on the terminal cycle this gives
+
+\[
+\frac47\to\frac17\to\frac27\to\frac47.
+\]
+
+Thus the stopping-depth C3 index and the IDT terminal phase cycle have the same orientation.
+
+### AI.3 State-dependent Stage-66 generator index
+
+Using the Stage-66 orbit
+
+\[
+(A_0,A_1,A_2)
+=
+(12,23,13)
+\]
+
+define the representation-level state-selected generator
+
+\[
+\boxed{
+G_C(n)=A_{r_C(n)}.
+}
+\]
+
+Because
+
+\[
+A_{r+1}=P_3A_rP_3^T,
+\]
+
+one obtains
+
+\[
+\boxed{
+G_C(Tn)=P_3G_C(n)P_3^T.
+}
+\]
+
+The current validator checks the stopping-depth relation for every \(1\le n\le10000\), with zero failures, and independently checks the matrix equivariance.
+
+Status:
+
+`CLOSED_REPRESENTATION_LEVEL_VIA_NEGATIVE_STOPPING_DEPTH_MOD3`
+
+`G_N_EQUALS_A_MINUS_L_MOD3_C3_EQUIVARIANT`.
+
+### AI.4 Boundary
+
+This closes the previously open state/path-to-C3-orbit-index problem on the finite-stopping basin.
+
+It does not prove that the temporal C3 carrier is physically identical to the quark-family carrier, and it does not promote the frozen geometric rhythm candidate to the unique physical Hamiltonian rhythm.
+
+Current frontier:
+
+`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__RHO_PHYSICAL_AND_TEMPORAL_FAMILY_PROMOTION_OPEN`.
