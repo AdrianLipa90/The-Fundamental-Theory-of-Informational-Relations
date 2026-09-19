@@ -331,6 +331,13 @@ def main() -> None:
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE38_C3_CHARACTER_BASIS_CP_V0_1.md"
     ).read_text(encoding="utf-8")
+    stage33_receipt = json.loads(
+        (
+            ROOT
+            / "TIR/frozen_predictions/validation/results/"
+            "TIR_POLYGONAL_STAGE33_MCKAY_ENDPOINT_CKM_DICTIONARY_RECEIPT_V0_1.json"
+        ).read_text(encoding="utf-8")
+    )
     stage39 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -603,6 +610,42 @@ def main() -> None:
     C_family = F3 @ D_family @ F3.conj().T
     D_temporal = M_tf.conj().T @ D_family @ M_tf
     C_temporal = M_tf.conj().T @ C_family @ M_tf
+
+    # Stage-39 two-sector structural candidate, frozen before target comparison.
+    alpha_a = 2.0 / 7.0
+    alpha_b = 2.0 / 9.0
+
+    def stage39_relative(alpha_u: float, alpha_d: float):
+        H_u = D_family + alpha_u * C_family
+        H_d = D_family + alpha_d * C_family
+        _, U_u = np.linalg.eigh(H_u)
+        _, U_d = np.linalg.eigh(H_d)
+        V_raw = U_u.conj().T @ U_d
+        V = V_raw * np.exp(-1j * np.angle(np.linalg.det(V_raw)) / 3.0)
+        comm = H_u @ H_d - H_d @ H_u
+        return {
+            "H_u": H_u,
+            "H_d": H_d,
+            "V": V,
+            "J": jarlskog(V),
+            "commutator_max_abs": float(np.max(np.abs(comm))),
+            "unitarity_residual": float(
+                np.max(np.abs(V.conj().T @ V - np.eye(3)))
+            ),
+            "determinant_residual": float(abs(np.linalg.det(V) - 1.0)),
+            "absV": np.abs(V),
+        }
+
+    stage39_A = stage39_relative(alpha_a, alpha_b)
+    stage39_B = stage39_relative(alpha_b, alpha_a)
+    stage39_J_expected = 2.0174220730068447e-5
+    stage39_J_A_abs_residual = abs(abs(stage39_A["J"]) - stage39_J_expected)
+    stage39_J_B_abs_residual = abs(abs(stage39_B["J"]) - stage39_J_expected)
+    stage39_J_sign_flip_residual = abs(stage39_A["J"] + stage39_B["J"])
+    stage39_abs_transpose_residual = float(
+        np.max(np.abs(stage39_A["absV"] - stage39_B["absV"].T))
+    )
+
     dim_family, residual_family = lie_closure_dimension([D_family, C_family])
     dim_temporal, residual_temporal = lie_closure_dimension(
         [D_temporal, C_temporal]
@@ -1374,9 +1417,36 @@ def main() -> None:
         "stage38_c3_cp_parent_pass_present": (
             "STAGE_38_C3_CHARACTER_BASIS_CP_MATH_PASS" in stage38
         ),
+        "stage33_endpoint_ratios_parent_pass_present": (
+            stage33_receipt.get("status") == "PASS"
+            and stage33_receipt.get("ratios", {}).get("a") == "2/7"
+            and stage33_receipt.get("ratios", {}).get("b") == "2/9"
+            and stage33_receipt.get("CKM_reference_used_for_reconstruction") is False
+            and stage33_receipt.get("mass_reference_used") is False
+        ),
         "stage39_two_operator_candidate_frozen_present": (
             "STAGE_39_STRUCTURAL_CANDIDATE_FROZEN" in stage39
             and "H(\\alpha)=D+\\alpha C" in stage39
+            and "No observed CKM entries, observed masses, or fitted coefficients"
+            in stage39
+        ),
+        "stage39_two_sector_frames_noncommuting": (
+            stage39_A["commutator_max_abs"] > 1.0e-9
+            and stage39_B["commutator_max_abs"] > 1.0e-9
+        ),
+        "stage39_relative_transformations_are_su3": (
+            stage39_A["unitarity_residual"] < TOL
+            and stage39_B["unitarity_residual"] < TOL
+            and stage39_A["determinant_residual"] < TOL
+            and stage39_B["determinant_residual"] < TOL
+        ),
+        "stage39_nonzero_cp_reproduced_without_target_fit": (
+            stage39_J_A_abs_residual < 1.0e-12
+            and stage39_J_B_abs_residual < 1.0e-12
+        ),
+        "stage39_assignment_swap_flips_cp_orientation": (
+            stage39_J_sign_flip_residual < 1.0e-12
+            and stage39_abs_transpose_residual < 1.0e-12
         ),
         "stage40_full_ckm_shape_fail_mechanism_retained_present": (
             "STAGE_40_FULL_CKM_SHAPE_FAIL__MECHANISM_RETAINED" in stage40
@@ -1878,7 +1948,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_PROJECTIVE_FRAMES_CLOSED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_PHYSICAL_SECTOR_FRAME_BRANCH_MAP_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_PHYSICAL_ASSIGNMENT_BRANCH_MAP_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -1926,8 +1996,24 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "stage39_sector_frame_status": (
+            "TWO_HERMITIAN_SECTOR_EIGENFRAMES_FROZEN_STRUCTURAL_CANDIDATE"
+            if passed
+            else "FAILED"
+        ),
+        "stage39_relative_family_status": (
+            "NONZERO_CP_UNITARY_RELATIVE_TRANSFORMATION_REPRODUCED_NO_TARGET_FIT"
+            if passed
+            else "FAILED"
+        ),
+        "physical_sector_assignment_status": (
+            "OPEN_STAGE39_A_B_ASSIGNMENT_NOT_SELECTED"
+        ),
+        "ckm_quantitative_status": (
+            "STAGE40_FULL_CKM_SHAPE_FAIL_RETAINED"
+        ),
         "projective_holonomy_source_status": (
-            "REPRESENTATION_LEVEL_C3_FRAMES_DERIVED__PHYSICAL_SECTOR_FRAME_BINDING_OPEN"
+            "C3_PROJECTIVE_FRAMES_AND_STAGE39_STRUCTURAL_SECTOR_FRAMES_DERIVED__PHYSICAL_ASSIGNMENT_AND_CKM_PROMOTION_OPEN"
         ),
         "scalar_qc_cp_status": (
             "SCALAR_VERTEX_QC_PHASE_DIFFERENCE_CP_NO_GO"
@@ -2077,6 +2163,10 @@ def main() -> None:
             "f3_bargmann_identity": f3_bargmann_residual,
             "f3_bargmann_phase": f3_bargmann_phase_residual,
             "f3_plaquette_jarlskog": f3_plaquette_j_residual,
+            "stage39_J_A_abs": stage39_J_A_abs_residual,
+            "stage39_J_B_abs": stage39_J_B_abs_residual,
+            "stage39_J_sign_flip": stage39_J_sign_flip_residual,
+            "stage39_abs_transpose": stage39_abs_transpose_residual,
             "jarlskog_exact": abs(J - J_exact),
         },
         "stationary_cubic_selector_audit": {
@@ -2137,6 +2227,32 @@ def main() -> None:
                 "state_dependent_map",
                 "complexification_plus_additional_dynamics",
             ],
+        },
+        "stage39_sector_frame_audit": {
+            "endpoint_ratios": {"a": "2/7", "b": "2/9"},
+            "assignment_A": {
+                "alpha_u": alpha_a,
+                "alpha_d": alpha_b,
+                "J": stage39_A["J"],
+                "commutator_max_abs": stage39_A["commutator_max_abs"],
+                "unitarity_residual": stage39_A["unitarity_residual"],
+                "determinant_residual": stage39_A["determinant_residual"],
+                "absV": stage39_A["absV"].tolist(),
+            },
+            "assignment_B": {
+                "alpha_u": alpha_b,
+                "alpha_d": alpha_a,
+                "J": stage39_B["J"],
+                "commutator_max_abs": stage39_B["commutator_max_abs"],
+                "unitarity_residual": stage39_B["unitarity_residual"],
+                "determinant_residual": stage39_B["determinant_residual"],
+                "absV": stage39_B["absV"].tolist(),
+            },
+            "both_assignments_retained": True,
+            "uses_observed_CKM": False,
+            "uses_observed_masses": False,
+            "uses_fitted_coefficients": False,
+            "stage40_full_ckm_shape": "FAIL_RETAINED",
         },
         "c3_character_bargmann_audit": {
             "label_frame": "ordered Stage22 family-seed basis",
@@ -2333,7 +2449,10 @@ def main() -> None:
             "gremlin_xfi02_candidate_is_not_promoted_by_this_crosswalk": True,
             "generic_projective_overlap_geometry_does_not_derive_physical_sector_frames_by_itself": True,
             "c3_representation_does_derive_label_and_character_projective_frames": True,
-            "c3_label_character_frames_are_not_yet_physical_up_down_sector_eigenframes": True,
+            "c3_label_character_frames_are_not_by_themselves_physical_up_down_sector_eigenframes": True,
+            "stage39_does_supply_two_structural_sector_eigenframes_without_target_fit": True,
+            "stage39_physical_up_down_assignment_remains_open": True,
+            "stage40_full_ckm_shape_failure_blocks_quantitative_promotion": True,
             "additional_nonseparable_or_non_equatorial_structure_required_for_cp": True,
             "no_nontrivial_continuous_real_lie_homomorphism_psl2r_to_su3f": True,
             "stage52_complexification_bridge_is_not_a_direct_real_form_homomorphism": True,
