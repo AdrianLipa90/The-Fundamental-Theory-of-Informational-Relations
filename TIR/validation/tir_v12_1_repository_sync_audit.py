@@ -43,7 +43,7 @@ def main() -> None:
         "current_l_constants_merged": "TIR_L_CONSTANTS = CLOSED_INTERNAL_PLATONIC_COSET_DERIVATION / MERGED_MAIN" in current,
         "current_cartan_updated": "TIR_CARTAN_REFINEMENT_A2 = CLOSED_CONDITIONAL_LOCAL_REFINEMENT" in current,
         "current_a5_input_firewall": "TIR_GLOBAL_3MANIFOLD_A5 = CERTIFIER_CLOSED / PRODUCTION_INPUT_OPEN" in current,
-        "dependency_export_baseline": dep.get("source_commit") == "bc22bf7dc9e02b912656e2f229a8efee39c2bbc9",
+        "dependency_export_baseline": dep.get("source_commit") == "5107a917a3bbe4ea6dc95e25910f94ff69462b92",
         "dependency_export_l_constants": any(c.get("claim_id") == "TIR.L_CONSTANTS.PLATONIC_CLOSURE" for c in dep.get("claims", [])),
         "dependency_export_phase_interface": any(c.get("claim_id") == "TIR.COLLATZ_FS.RELATIONAL_PHASE_INTERFACE" for c in dep.get("claims", [])),
     }
