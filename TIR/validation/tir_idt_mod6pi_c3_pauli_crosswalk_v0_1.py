@@ -252,6 +252,10 @@ def main() -> None:
         ROOT
         / "TIR/foundations/TIR_WIJ_HOLONOMY_CROSSWALK_V0_1.md"
     ).read_text(encoding="utf-8")
+    idt_c3_crosswalk_doc = (
+        ROOT
+        / "TIR/integration/TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1.md"
+    ).read_text(encoding="utf-8")
     collatz_fs_phase_interface = (
         ROOT
         / "TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md"
@@ -1318,6 +1322,78 @@ def main() -> None:
         for r in range(3)
     )
 
+    # Prospectively frozen Appendix-AJ signed-geometric SU(3) step candidate.
+    # Branch symbol controls only the exact signed scalar; stopping-depth C3
+    # state controls the orbit axis.
+    candidate_sigma = {
+        "E": -ell_E_exact,
+        "O": ell_O_exact,
+    }
+
+    def exp_minus_i_hermitian(H: np.ndarray) -> np.ndarray:
+        vals, vecs = np.linalg.eigh(H)
+        return vecs @ np.diag(np.exp(-1j * vals)) @ vecs.conj().T
+
+    candidate_step = {}
+    candidate_hermiticity_residual = 0.0
+    candidate_trace_residual = 0.0
+    candidate_unitarity_residual = 0.0
+    candidate_determinant_residual = 0.0
+    for branch in ("E", "O"):
+        for r in range(3):
+            K = candidate_sigma[branch] * selector_orbit[r]
+            U = exp_minus_i_hermitian(K)
+            candidate_step[(branch, r)] = {"K": K, "U": U}
+            candidate_hermiticity_residual = max(
+                candidate_hermiticity_residual,
+                float(np.max(np.abs(K - K.conj().T))),
+            )
+            candidate_trace_residual = max(
+                candidate_trace_residual,
+                float(abs(np.trace(K))),
+            )
+            candidate_unitarity_residual = max(
+                candidate_unitarity_residual,
+                float(np.max(np.abs(U.conj().T @ U - np.eye(3)))),
+            )
+            candidate_determinant_residual = max(
+                candidate_determinant_residual,
+                float(abs(np.linalg.det(U) - 1.0)),
+            )
+
+    # Same branch counts but reversed branch order on the same two consecutive
+    # C3 edges must remain distinguishable.
+    candidate_two_step_order_separations = []
+    for r in range(3):
+        U_EO = (
+            candidate_step[("O", (r + 1) % 3)]["U"]
+            @ candidate_step[("E", r)]["U"]
+        )
+        U_OE = (
+            candidate_step[("E", (r + 1) % 3)]["U"]
+            @ candidate_step[("O", r)]["U"]
+        )
+        candidate_two_step_order_separations.append(
+            float(np.max(np.abs(U_EO - U_OE)))
+        )
+
+    # Every three consecutive C3 axes contain the full Stage-66 orbit, so any
+    # nonzero E/O signed-scalar sequence across a three-step window has full
+    # su(3)_F Lie accessibility.
+    candidate_three_step_dims = {}
+    candidate_three_step_residuals = {}
+    for r0 in range(3):
+        for word_tuple in itertools.product(("E", "O"), repeat=3):
+            key = f"{r0}:" + "".join(word_tuple)
+            Hs = [
+                candidate_sigma[word_tuple[j]]
+                * selector_orbit[(r0 + j) % 3]
+                for j in range(3)
+            ]
+            dim3, res3 = lie_closure_dimension(Hs)
+            candidate_three_step_dims[key] = dim3
+            candidate_three_step_residuals[key] = res3
+
     # Single-axis branch-map no-go.  The Stage-66 selected tangent is the
     # P3 image of A_seed, i.e. the symmetric 23 channel.  Any two branch
     # generators that are merely scalar multiples of this one tangent commute,
@@ -1915,6 +1991,27 @@ def main() -> None:
         "collatz_state_selected_stage66_generator_is_c3_equivariant": (
             state_generator_equivariance_residual < TOL
         ),
+        "appendix_aj_candidate_freeze_precedes_validation": (
+            "STATE_DEPENDENT_SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_FROZEN_PREVALIDATION"
+            in idt_c3_crosswalk_doc
+            and "No observed CKM, PMNS, mass, PDG, or fitted coefficient"
+            in idt_c3_crosswalk_doc
+        ),
+        "signed_geometric_candidate_generators_are_hermitian_traceless": (
+            candidate_hermiticity_residual < TOL
+            and candidate_trace_residual < TOL
+        ),
+        "signed_geometric_candidate_steps_are_su3": (
+            candidate_unitarity_residual < TOL
+            and candidate_determinant_residual < TOL
+        ),
+        "signed_geometric_candidate_distinguishes_EO_from_OE_equal_counts": (
+            min(candidate_two_step_order_separations) > TOL
+        ),
+        "every_three_step_c3_window_has_full_su3f_lie_access": (
+            set(candidate_three_step_dims.values()) == {8}
+            and max(candidate_three_step_residuals.values()) < 1.0e-10
+        ),
         "single_stage66_axis_branch_generators_commute_exactly": (
             single_axis_generator_commutator < TOL
         ),
@@ -2309,7 +2406,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__RHO_PHYSICAL_AND_TEMPORAL_FAMILY_PROMOTION_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_VALIDATED__PHYSICAL_RHO_TEMPORAL_FAMILY_AND_CKM_PROMOTION_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2385,6 +2482,29 @@ def main() -> None:
             "G_N_EQUALS_A_MINUS_L_MOD3_C3_EQUIVARIANT"
             if passed
             else "FAILED"
+        ),
+        "signed_geometric_step_candidate_status": (
+            "PASS_MATH_PROVENANCE__PHYSICAL_PROMOTION_OPEN"
+            if passed
+            else "FAILED"
+        ),
+        "state_dependent_su3_step_status": (
+            "SOURCE_DERIVED_PARAMETER_FREE_SU3_STEP_SCAFFOLD_VALIDATED"
+            if passed
+            else "FAILED"
+        ),
+        "signed_geometric_order_status": (
+            "EQUAL_COUNT_EO_OE_ORDER_DISTINGUISHED_ON_ROTATING_C3_AXES"
+            if passed
+            else "FAILED"
+        ),
+        "three_step_lie_access_status": (
+            "EVERY_THREE_CONSECUTIVE_C3_AXES_LIE_GENERATE_SU3F"
+            if passed
+            else "FAILED"
+        ),
+        "physical_signed_geometric_step_status": (
+            "NOT_PROMOTED_PHYSICAL_HAMILTONIAN_BINDING_OPEN"
         ),
         "stage66_full_orbit_access_requirement": (
             "FULL_SU3F_FROM_STAGE66_REQUIRES_ALL_THREE_ORBIT_GENERATORS_OR_EQUIVALENT_EXTRA_DIRECTION"
@@ -2626,6 +2746,10 @@ def main() -> None:
             "stage66_c3_orbit_kp_projection": selector_orbit_kp_residual,
             "stage66_c3_orbit_kp_reconstruction": selector_orbit_kp_reconstruction_residual,
             "collatz_state_generator_c3_equivariance": state_generator_equivariance_residual,
+            "signed_geo_candidate_hermiticity": candidate_hermiticity_residual,
+            "signed_geo_candidate_trace": candidate_trace_residual,
+            "signed_geo_candidate_unitarity": candidate_unitarity_residual,
+            "signed_geo_candidate_determinant": candidate_determinant_residual,
         },
         "stationary_cubic_selector_audit": {
             "eta": float(eta_selector),
@@ -2695,6 +2819,25 @@ def main() -> None:
                 "state_dependent_map",
                 "complexification_plus_additional_dynamics",
             ],
+        },
+        "signed_geometric_step_candidate_audit": {
+            "freeze_status": "FROZEN_PREVALIDATION_BEFORE_THIS_VALIDATOR_COMMIT",
+            "definition": "K_geo(n)=sigma_b(n)*A_{(-L(n)) mod 3}",
+            "sigma_E": "-ln(2)",
+            "sigma_O": "+ln(3)",
+            "step_unitary": "U_geo(n)=exp(-i*K_geo(n))",
+            "hermiticity_residual": candidate_hermiticity_residual,
+            "trace_residual": candidate_trace_residual,
+            "unitarity_residual": candidate_unitarity_residual,
+            "determinant_residual": candidate_determinant_residual,
+            "two_step_EO_vs_OE_separations": candidate_two_step_order_separations,
+            "three_step_lie_dimensions": candidate_three_step_dims,
+            "three_step_lie_residuals": candidate_three_step_residuals,
+            "uses_observed_CKM": False,
+            "uses_observed_PMNS": False,
+            "uses_observed_masses": False,
+            "uses_fitted_coefficients": False,
+            "physical_promotion": False,
         },
         "collatz_c3_state_index_audit": {
             "definition": "r_C(n)=(-L(n)) mod 3",
@@ -3046,6 +3189,9 @@ def main() -> None:
             "stopping_depth_mod3_supplies_representation_level_collatz_c3_index": True,
             "stopping_depth_mod3_binding_is_conditional_on_finite_stopping_depth": True,
             "representation_level_collatz_c3_index_is_not_physical_temporal_family_identification": True,
+            "signed_geometric_step_candidate_was_frozen_before_validation": True,
+            "signed_geometric_step_candidate_is_not_promoted_to_physical_hamiltonian": True,
+            "candidate_validation_uses_no_ckm_pmns_mass_or_fitted_coefficient_targets": True,
             "Aseed_was_not_used_to_fit_eta": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
