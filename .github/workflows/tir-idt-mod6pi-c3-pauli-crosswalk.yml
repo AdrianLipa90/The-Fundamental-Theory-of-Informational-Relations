@@ -114,6 +114,9 @@ jobs:
           grep -Fq '"terminal_cycle_orientation_status": "TERMINAL_LOOP_IMAGINARY_TRACE_ORIENTATION_ODD_CLASS_WITNESS"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"terminal_cycle_coboundary_status": "NONTRIVIAL_TERMINAL_WILSON_LOOP_REFUTES_GLOBAL_GI_DAGGER_GJ_FACTORIZATION"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"nonseparable_path_holonomy_status": "SOURCE_DERIVED_NONSEPARABLE_PATH_HOLONOMY_CANDIDATE_EXISTS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_regular_class_status": "TERMINAL_LOOP_REGULAR_SU3_CONJUGACY_CLASS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_centralizer_status": "TERMINAL_LOOP_CENTRALIZER_IS_MAXIMAL_TORUS_U1_X_U1"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_cartan_rank_status": "TERMINAL_LOOP_SUPPLIES_TWO_INDEPENDENT_CARTAN_EIGENPHASE_COORDINATES"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"terminal_cycle_cp_status": "NONTRIVIAL_WILSON_LOOP_NOT_YET_PHYSICAL_CP_OR_SECTOR_BINDING"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"terminal_cycle_prospective_status": "RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"family_wij_source_binding_status": "COMMON_TARGET_FLAT_COBoundARY_SCAFFOLD_CLOSED__TERMINAL_COLLATZ_NONCOBOUNDARY_NONSEPARABLE_SU3_HOLONOMY_CANDIDATE_EXISTS__PHYSICAL_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
