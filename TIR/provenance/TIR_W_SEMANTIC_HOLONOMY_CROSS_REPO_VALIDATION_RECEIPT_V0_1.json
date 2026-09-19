@@ -1,0 +1,113 @@
+{
+  "schema": "TIR_W_SEMANTIC_HOLONOMY_CROSS_REPO_VALIDATION_RECEIPT_V0_1",
+  "date": "2026-09-19",
+  "epistemic": "CHYBA",
+  "canon_allowed": false,
+  "scope": "W_sem semantic U(1) holonomy only",
+  "definition": {
+    "local_connection": "A_sem",
+    "nonlocal_transport": "W_sem[gamma] = exp(i integral_gamma A_sem)",
+    "semantic_coupling": "C_ij[gamma] = W_sem[gamma] z_ij",
+    "group": "U(1)"
+  },
+  "repos": [
+    {
+      "repo": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+      "pr": 162,
+      "head": "04d19859c7fab3959e09998c1d257c991b811975",
+      "dedicated_gate": {
+        "name": "TIR semantic U1 holonomy v0.1",
+        "run_id": 35468448126,
+        "conclusion": "success"
+      },
+      "repo_wide_status": "PASS_AT_CAPTURE"
+    },
+    {
+      "repo": "AdrianLipa90/The-Consciousness-Dictionary",
+      "pr": 8,
+      "head": "6f7d4ed2d4b5c469181e1d5ee16942997d1e05b5",
+      "dedicated_gate": {
+        "name": "Consciousness Dictionary semantic U1 holonomy",
+        "run_id": 35469166948,
+        "conclusion": "success"
+      },
+      "general_ci": {
+        "name": "CI",
+        "run_id": 35469166784,
+        "conclusion": "success"
+      },
+      "repo_wide_status": "PASS_AT_CAPTURE"
+    },
+    {
+      "repo": "AdrianLipa90/noema-phasenav-core",
+      "pr": 32,
+      "head": "9a697b38d0a12db64cdad15cb34fae2ed1ab66e1",
+      "dedicated_gate": {
+        "name": "PhaseNav semantic U1 holonomy",
+        "run_id": 35468474044,
+        "conclusion": "success"
+      },
+      "repo_wide_status": "MIXED",
+      "unrelated_failures": [
+        "tests/test_atomic_orbital_cayley.py",
+        "tests/test_phasenav_canon.py",
+        "tests/test_reciprocal_regularization.py"
+      ],
+      "w_sem_pr_files": [
+        ".github/workflows/phasenav-semantic-u1-holonomy.yml",
+        "CHANGELOG_APPEND_ONLY.md",
+        "docs/semantic_u1_holonomy.md",
+        "src/ciel_geometry/phasenav/__init__.py",
+        "src/ciel_geometry/phasenav/canon/__init__.py",
+        "src/ciel_geometry/phasenav/canon/semantic_holonomy.py",
+        "tests/test_semantic_holonomy.py"
+      ],
+      "failure_scope_overlap_with_w_sem_diff": false
+    },
+    {
+      "repo": "AdrianLipa90/PhaseNav-Natural-Coding-System",
+      "pr": 69,
+      "head": "ad275eabaf065b9fc3cde05be5ef7c60dca544f3",
+      "dedicated_gate": {
+        "name": "PNCS semantic U1 holonomy v0.1",
+        "run_id": 35468719409,
+        "conclusion": "success"
+      },
+      "additional_green": [
+        {
+          "name": "PNCS Round28 relation lowering v0.4 gauntlet",
+          "run_id": 35468719431
+        },
+        {
+          "name": "PNCS golden-mean post-v1 quarantine v0.1",
+          "run_id": 35468719414
+        }
+      ],
+      "repo_wide_status": "MIXED",
+      "unrelated_failure_examples": [
+        "tests/test_crypto_algebra_v01.py historical /mnt/data dependency",
+        "DOUBLE_COVER_LIFT_OF missing explicit opcode binding",
+        "existing source-holonomy exception-type mismatch",
+        "existing gauge-pullback tolerance ordering"
+      ],
+      "w_sem_pr_files": [
+        ".github/workflows/pncs-semantic-u1-holonomy-v01.yml",
+        "native/PNCS_NONLOCAL_SEMANTIC_U1_HOLONOMY_V0_1.pnv",
+        "provenance/receipts/PNCS_NONLOCAL_SEMANTIC_U1_HOLONOMY_V0_1.json",
+        "spec/PNCS_NONLOCAL_SEMANTIC_U1_HOLONOMY_V0_1.md",
+        "src/phasenav_natural_code/semantic_u1_holonomy_v01.py",
+        "tests/test_semantic_u1_holonomy_v01.py"
+      ],
+      "failure_scope_overlap_with_w_sem_diff": false
+    }
+  ],
+  "verdict": {
+    "w_sem_scoped_validation": "PASS",
+    "all_four_dedicated_gates_green": true,
+    "repository_wide_global_status": "MIXED",
+    "physical_gauge_field_established": false,
+    "physical_nonlocal_signalling_established": false,
+    "hypercharge_identification_established": false,
+    "weak_boson_identification_established": false
+  }
+}
