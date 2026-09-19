@@ -1714,3 +1714,35 @@ Status:
 `ABELIAN_C6_WEAK_PRODUCT_DISTINCT_FROM_NONABELIAN_D3_ORIENTATION_EXTENSION`.
 
 The two six-element structures are distinct and are not physically identified.
+
+### Appendix AY update — twelve-element dihedral extension
+
+The six-state weak-family generator
+
+\[
+G_6=P_3\otimes J_W
+\]
+
+has exact order six.
+
+The lifted orientation reflection
+
+\[
+R_6=R_{\rm orient}\otimes I_2
+\]
+
+obeys
+
+\[
+R_6G_6R_6=G_6^{-1}.
+\]
+
+Therefore the six-state rotation extends to a 12-element dihedral symmetry group.
+
+Status:
+
+`C6_SEMIDIRECT_Z2_INVERSION_IS_HEXAGON_DIHEDRAL_GROUP_ORDER12`
+
+`SIX_STATE_C6_ROTATION_EXTENDS_TO_TWELVE_ELEMENT_ORIENTATION_DIHEDRAL_SYMMETRY`.
+
+The 12 is a group order only; no particle/dimension identification is made.
