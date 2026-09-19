@@ -295,13 +295,34 @@ def main() -> None:
     # the N/S -> T3 +/- 1/2 orientation itself is recovered from the archived
     # v3.0 projection source and is not promoted as a new first-principles
     # physical theorem here.
+    # Current A1 weak-doublet Weyl action. In the T3 weight basis the
+    # nontrivial Weyl element exchanges +/- 1/2 and squares to identity.
+    T3_weak = np.diag([0.5, -0.5]).astype(complex)
     J_weak = np.array([[0.0, 1.0], [1.0, 0.0]], dtype=complex)
+    weak_weyl_flip_residual = float(
+        np.max(np.abs(J_weak @ T3_weak @ J_weak.conj().T + T3_weak))
+    )
+
     F_chi_weak = np.eye(2, dtype=complex)
     chirality_weak_intertwiner_residual = float(
         np.max(np.abs(F_chi_weak @ J_chi - J_weak @ F_chi_weak))
     )
     M6_weak = np.kron(M_tf, F_chi_weak)
     G6_weak = np.kron(P_family, J_weak)
+    weak_family_seed = np.kron(
+        np.array([1.0, 0.0, 0.0], dtype=complex),
+        np.array([1.0, 0.0], dtype=complex),
+    )
+    weak_family_orbit = [
+        tuple(
+            np.rint(
+                np.real(np.linalg.matrix_power(G6_weak, k) @ weak_family_seed)
+            ).astype(int)
+        )
+        for k in range(6)
+    ]
+    weak_family_charpoly = np.poly(G6_weak)
+
     six_weak_intertwiner_residual = float(
         np.max(np.abs(M6_weak @ G6_temporal - G6_weak @ M6_weak))
     )
@@ -429,6 +450,34 @@ def main() -> None:
         "family_transitive_orbit_has_three_labels": (
             len(set(family_orbit)) == 3
         ),
+        "current_weak_a1_weyl_z2_involution_exact": bool(
+            np.allclose(J_weak @ J_weak, np.eye(2), atol=TOL)
+        ),
+        "current_weak_a1_weyl_reflection_flips_t3": (
+            weak_weyl_flip_residual < TOL
+        ),
+        "current_family_x_weak_generator_order_six": bool(
+            np.allclose(
+                np.linalg.matrix_power(G6_weak, 6),
+                np.eye(6),
+                atol=TOL,
+            )
+            and not np.allclose(
+                np.linalg.matrix_power(G6_weak, 3),
+                np.eye(6),
+                atol=TOL,
+            )
+        ),
+        "current_family_x_weak_single_six_cycle": (
+            len(set(weak_family_orbit)) == 6
+        ),
+        "current_family_x_weak_charpoly_lambda6_minus_1": bool(
+            np.allclose(
+                weak_family_charpoly,
+                expected_g6_charpoly,
+                atol=1.0e-10,
+            )
+        ),
         "chirality_to_weak_z2_intertwiner_exact_under_recovered_anchor": (
             chirality_weak_intertwiner_residual < TOL
         ),
@@ -536,6 +585,17 @@ def main() -> None:
             if passed
             else "NOT_ESTABLISHED"
         ),
+        "weak_a1_weyl_z2_status": "CURRENT_EXACT",
+        "family_x_weak_six_cycle": (
+            "CURRENT_C3_X_A1_WEYL_Z2_C6_EXACT"
+            if passed
+            else "FAILED"
+        ),
+        "six_weak_component_label_count": (
+            "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"
+            if passed
+            else "NOT_ESTABLISHED"
+        ),
         "legacy_weak_pole_orientation_audit": (
             "ARCHIVAL_SOURCE_RECOVERED_CURRENT_PROMOTION_CONDITIONAL"
         ),
@@ -550,7 +610,7 @@ def main() -> None:
             else "FAILED"
         ),
         "six_cycle_physical_flavour_operator": (
-            "NOT_FULLY_PROMOTED_FIRST_PRINCIPLES_WEAK_AXIS_SELECTION_REMAINS_OPEN"
+            "CURRENT_WEAK_FAMILY_REPRESENTATION_EXACT_PHYSICAL_GENERATION_BINDING_OPEN"
         ),
         "physical_sector_binding": "OPEN",
         "idt_parent": "02JN periodic P4 endpoint quotient at N=3",
@@ -573,6 +633,7 @@ def main() -> None:
             "family_lie_structure": residual_family,
             "temporal_pullback_lie_structure": residual_temporal,
             "six_state_intertwiner": six_state_intertwiner_residual,
+            "weak_weyl_t3_flip": weak_weyl_flip_residual,
             "chirality_weak_intertwiner": chirality_weak_intertwiner_residual,
             "six_weak_intertwiner": six_weak_intertwiner_residual,
             "jarlskog_exact": abs(J - J_exact),
@@ -586,6 +647,7 @@ def main() -> None:
             "family": family_dimension,
             "weak_doublet": weak_doublet_dimension,
             "family_x_weak": family_x_weak_dimension,
+            "family_x_weak_orbit": len(set(weak_family_orbit)),
             "family_x_chirality": len(set(six_state_orbit)),
         },
         "lie_dimensions": {
@@ -603,9 +665,10 @@ def main() -> None:
             "legacy_generated_csv_contains_stale_up_quark_particle_id": True,
             "legacy_projection_script_is_authoritative_over_stale_generated_csv": True,
             "chirality_to_weak_label_map_uses_recovered_orientation_anchor": True,
-            "weak_axis_first_principles_selection_is_not_promoted": True,
+            "weak_a1_weyl_z2_does_not_require_legacy_orientation_anchor": True,
+            "legacy_anchor_only_orients_cp1_ns_against_t3_sign": True,
             "six_weak_family_component_count_is_conditional_on_family_binding": True,
-            "remaining_physical_gate": "FIRST_PRINCIPLES_WEAK_AXIS_SELECTION_AND_FULL_FLAVOUR_SPECTRUM_BINDING",
+            "remaining_physical_gate": "TEMPORAL_C3_TO_PHYSICAL_FAMILY_BINDING_AND_FULL_MASS_MIXING_SPECTRUM",
         },
     }
     print(json.dumps(payload, indent=2, sort_keys=True))
