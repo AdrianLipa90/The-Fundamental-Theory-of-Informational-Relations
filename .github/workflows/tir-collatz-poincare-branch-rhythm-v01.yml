@@ -1,0 +1,36 @@
+name: TIR Collatz Poincare branch rhythm v0.1
+
+on:
+  push:
+    paths:
+      - 'TIR/frozen_predictions/TIR_COLLATZ_POINCARE_BRANCH_RHYTHM_FREEZE_V0_1.md'
+      - 'TIR/validation/tir_collatz_poincare_branch_rhythm_v0_1.py'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE48_COLLATZ_BRANCH_WORD_OPERATOR_INTERFACE_V0_1.md'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE49_COLLATZ_MOBIUS_POINCARE_LIFT_V0_1.md'
+      - '.github/workflows/tir-collatz-poincare-branch-rhythm-v01.yml'
+  pull_request:
+    paths:
+      - 'TIR/frozen_predictions/TIR_COLLATZ_POINCARE_BRANCH_RHYTHM_FREEZE_V0_1.md'
+      - 'TIR/validation/tir_collatz_poincare_branch_rhythm_v0_1.py'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE48_COLLATZ_BRANCH_WORD_OPERATOR_INTERFACE_V0_1.md'
+      - 'TIR/frozen_predictions/validation/TIR_POLYGONAL_EXCITATION_STAGE49_COLLATZ_MOBIUS_POINCARE_LIFT_V0_1.md'
+      - '.github/workflows/tir-collatz-poincare-branch-rhythm-v01.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-branch-rhythm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate frozen branch-rhythm candidate
+        run: python TIR/validation/tir_collatz_poincare_branch_rhythm_v0_1.py
+      - name: Assert candidate-only status
+        run: |
+          grep -Fq '"status": "PASS_CANDIDATE_MATHEMATICAL_AND_PROVENANCE_VALIDATION__PHYSICAL_RHYTHM_NOT_PROMOTED"' TIR/validation/results/TIR_COLLATZ_POINCARE_BRANCH_RHYTHM_RECEIPT_V0_1.json
+          grep -Fq '"physical_rhythm_promoted": false' TIR/validation/results/TIR_COLLATZ_POINCARE_BRANCH_RHYTHM_RECEIPT_V0_1.json
+          grep -Fq '"branch_to_family_operator_status": "OPEN"' TIR/validation/results/TIR_COLLATZ_POINCARE_BRANCH_RHYTHM_RECEIPT_V0_1.json
