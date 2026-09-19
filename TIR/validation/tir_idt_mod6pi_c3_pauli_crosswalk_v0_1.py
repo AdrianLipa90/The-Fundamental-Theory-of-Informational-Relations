@@ -257,6 +257,41 @@ def main() -> None:
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE45_DISTANCE_AMPLITUDE_PROVENANCE_V0_1.md"
     ).read_text(encoding="utf-8")
+    stage48 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE48_COLLATZ_BRANCH_WORD_OPERATOR_INTERFACE_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage49 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE49_COLLATZ_MOBIUS_POINCARE_LIFT_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage50 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE50_SYM2_POLYNOMIAL_THREE_CARRIER_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage51 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE51_SYM2_UNITARIZATION_NO_GO_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage52 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE52_COMPACT_REAL_FORM_SYM2_SU2_SU3_BRIDGE_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage53 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE53_SPIN1_SUBGROUP_CP_NOGO_3PLUS5_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage64 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE64_SELECTOR_PROVENANCE_GATE_V0_1.md"
+    ).read_text(encoding="utf-8")
     stage61 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -539,6 +574,41 @@ def main() -> None:
         np.max(np.abs(P_forward - P_reverse))
     )
 
+    # Canonical 2->3 Sym^2 carrier audit from Stage 49/50.
+    ME = np.array(
+        [[1.0 / math.sqrt(2.0), 0.0], [0.0, math.sqrt(2.0)]],
+        dtype=float,
+    )
+    MO = np.array(
+        [[math.sqrt(3.0), 1.0 / math.sqrt(3.0)], [0.0, 1.0 / math.sqrt(3.0)]],
+        dtype=float,
+    )
+
+    def sym2(M: np.ndarray) -> np.ndarray:
+        a, b = M[0, 0], M[0, 1]
+        cc, d = M[1, 0], M[1, 1]
+        return np.array(
+            [
+                [a * a, 2.0 * a * b, b * b],
+                [a * cc, a * d + b * cc, b * d],
+                [cc * cc, 2.0 * cc * d, d * d],
+            ],
+            dtype=float,
+        )
+
+    RE = sym2(ME)
+    RO = sym2(MO)
+    J_split = np.array(
+        [[0.0, 0.0, 0.5], [0.0, -1.0, 0.0], [0.5, 0.0, 0.0]],
+        dtype=float,
+    )
+    split_invariant_residual = max(
+        float(np.max(np.abs(RE.T @ J_split @ RE - J_split))),
+        float(np.max(np.abs(RO.T @ J_split @ RO - J_split))),
+    )
+    sym2_dimension = 2 * (2 + 1) // 2
+    re_eigen_moduli = sorted(abs(x) for x in np.linalg.eigvals(RE))
+
     checks = {
         "legacy_projection_source_blob_pinned": (
             archive_projection_blob == "01b9be380f095b613a731ba258865bc617d8e854"
@@ -678,6 +748,53 @@ def main() -> None:
             in stage45
             and "canonical distance/path-cost -> amplitude rule: NOT FOUND"
             in stage45
+        ),
+        "stage48_branch_word_interface_parent_pass_present": (
+            "STAGE_48_BRANCH_WORD_INTERFACE_PASS_OPERATOR_ASSIGNMENT_OPEN" in stage48
+            and "branch symbol -> family-space operator" in stage48
+            and "exact per-step rhythm/weight" in stage48
+        ),
+        "stage49_collatz_mobius_poincare_lift_pass_present": (
+            "STAGE_49_COLLATZ_MOBIUS_POINCARE_LIFT_PASS" in stage49
+            and "{E,O}^*" in stage49
+            and "PSL(2,\\mathbb R)" in stage49
+        ),
+        "stage50_sym2_three_carrier_pass_present": (
+            "STAGE_50_SYM2_POLYNOMIAL_THREE_CARRIER_PASS_WITH_SIGNATURE_SEPARATION"
+            in stage50
+            and "SL(2,\\mathbb R)" in stage50
+            and "SL(3,\\mathbb R)" in stage50
+        ),
+        "stage51_direct_unitarization_nogo_present": (
+            "STAGE_51_POSITIVE_HERMITIAN_UNITARIZATION_NO_GO_PASS" in stage51
+            and "cannot be conjugated into `SU(3)`" in stage51
+        ),
+        "stage52_compact_real_form_bridge_pass_selection_open": (
+            "STAGE_52_COMPACT_REAL_FORM_SYM2_BRIDGE_PASS_SELECTION_OPEN" in stage52
+            and "Sym^2(SU(2))" in stage52
+            and "current TIR branch does not yet contain a derived rule selecting the compact real form"
+            in stage52
+        ),
+        "stage53_spin1_cp_nogo_and_3plus5_parent_pass": (
+            "STAGE_53_SPIN1_CP_NOGO_AND_SU3_3PLUS5_DECOMPOSITION_PASS" in stage53
+            and "\\boxed{J=0}" in stage53
+            and "\\mathbf 3\\oplus\\mathbf 5" in stage53
+        ),
+        "stage64_selector_provenance_open_parent_present": (
+            "STAGE_64_CANONICAL_SCALAR_SELECTOR_REMAINS_OPEN_PASS" in stage64
+            and "branch symbol -> family-space operator" in stage64
+            and "canonical_scalar_selector_status: OPEN" in stage64
+        ),
+        "sym2_binary_to_three_dimension_exact": sym2_dimension == 3,
+        "sym2_branch_generators_have_det_one": (
+            abs(np.linalg.det(RE) - 1.0) < TOL
+            and abs(np.linalg.det(RO) - 1.0) < TOL
+        ),
+        "sym2_split_real_invariant_preserved": split_invariant_residual < TOL,
+        "split_real_even_generator_not_unitary_spectrum": (
+            abs(re_eigen_moduli[0] - 0.5) < TOL
+            and abs(re_eigen_moduli[1] - 1.0) < TOL
+            and abs(re_eigen_moduli[2] - 2.0) < TOL
         ),
         "stage61_c3_icosahedral_parent_pass_present": (
             "STAGE_61_C3_ICOSAHEDRAL_FAMILY_INTERTWINER_PASS" in stage61
@@ -900,6 +1017,29 @@ def main() -> None:
             if passed
             else "NOT_ESTABLISHED"
         ),
+        "collatz_poincare_operator_chain_status": (
+            "BRANCH_WORD_TO_PSL2R_TO_SYM2_THREE_CARRIER_CURRENT_EXACT"
+            if passed
+            else "FAILED"
+        ),
+        "binary_to_three_carrier_status": (
+            "SYM2_TWO_TO_THREE_CARRIER_CLOSED"
+            if passed
+            else "FAILED"
+        ),
+        "split_real_to_family_unitary_status": (
+            "DIRECT_UNITARIZATION_REFUTED_COMPACT_REAL_FORM_BRIDGE_AVAILABLE_SELECTION_OPEN"
+            if passed
+            else "FAILED"
+        ),
+        "spin1_cp_status": (
+            "COMPACT_SPIN1_SUBGROUP_JARLSKOG_ZERO_FULL_SU3_COMPLEMENT_REQUIRED"
+            if passed
+            else "FAILED"
+        ),
+        "family_dynamics_selector_status": (
+            "OPEN_BRANCH_OPERATOR_RHYTHM_REALFORM_AND_COMPLEMENT_SELECTION"
+        ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
             if passed
@@ -1028,6 +1168,19 @@ def main() -> None:
             "six_weak_intertwiner": six_weak_intertwiner_residual,
             "jarlskog_exact": abs(J - J_exact),
         },
+        "collatz_poincare_three_carrier_audit": {
+            "input_carrier_dimension": 2,
+            "sym2_carrier_dimension": sym2_dimension,
+            "RE": RE.tolist(),
+            "RO": RO.tolist(),
+            "split_invariant_signature": "(1,2) up to overall sign convention",
+            "split_invariant_residual": split_invariant_residual,
+            "RE_eigenvalue_moduli": re_eigen_moduli,
+            "direct_fixed_similarity_to_SU3": "REFUTED",
+            "compact_real_form_bridge": "AVAILABLE_SELECTION_OPEN",
+            "spin1_subgroup_CP": "J_EQUALS_ZERO",
+            "full_su3_complement": "3_PLUS_5",
+        },
         "dynamical_cycle_audit": {
             "product_seeds": product_seeds,
             "directed_first_hit_matrix_minus1_for_absent": product_reachability.tolist(),
@@ -1073,6 +1226,10 @@ def main() -> None:
             "ordinary_center_collatz_does_not_generate_stage24_cycle": True,
             "ordinary_product_seed_collatz_does_not_generate_stage24_cycle": True,
             "stage44_distance_geometry_is_not_converted_to_amplitude_without_new_law": True,
+            "sym2_two_to_three_is_representation_carrier_not_physical_xyz_claim": True,
+            "split_real_three_carrier_is_not_identified_directly_with_SU3F": True,
+            "compact_real_form_bridge_availability_is_not_dynamical_selection": True,
+            "spin1_compact_subgroup_alone_cannot_supply_nonzero_CP": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
             "physical_ckm_assignment": "OPEN",
