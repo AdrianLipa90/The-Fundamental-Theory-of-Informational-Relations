@@ -801,6 +801,17 @@ def main() -> None:
         float(np.max(np.abs(Q_OE_word - QO @ QE))),
     )
 
+    # Real-Lie homomorphism no-go: sl(2,R) is simple noncompact.
+    # In the standard H,E,F basis its Killing form has signature (2,1).
+    sl2_killing = np.array(
+        [[8.0, 0.0, 0.0], [0.0, 0.0, 4.0], [0.0, 4.0, 0.0]],
+        dtype=float,
+    )
+    sl2_killing_eigenvalues = np.linalg.eigvalsh(sl2_killing)
+    sl2_killing_negative = int(np.sum(sl2_killing_eigenvalues < -TOL))
+    sl2_killing_positive = int(np.sum(sl2_killing_eigenvalues > TOL))
+    sl2_killing_zero = int(np.sum(np.abs(sl2_killing_eigenvalues) <= TOL))
+
     J_split = np.array(
         [[0.0, 0.0, 0.5], [0.0, -1.0, 0.0], [0.5, 0.0, 0.0]],
         dtype=float,
@@ -1189,6 +1200,17 @@ def main() -> None:
             and "current TIR branch does not yet contain a derived rule selecting the compact real form"
             in stage52
         ),
+        "sl2r_killing_form_signature_is_noncompact_2_1": (
+            sl2_killing_positive == 2
+            and sl2_killing_negative == 1
+            and sl2_killing_zero == 0
+        ),
+        "stage52_uses_shared_complexification_not_direct_real_homomorphism": (
+            "same complexification" in stage52
+            and "change of real form" in stage52
+            and "not a change of basis inside the original real representation"
+            in stage52
+        ),
         "stage53_spin1_cp_nogo_and_3plus5_parent_pass": (
             "STAGE_53_SPIN1_CP_NOGO_AND_SU3_3PLUS5_DECOMPOSITION_PASS" in stage53
             and "\\boxed{J=0}" in stage53
@@ -1559,13 +1581,18 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "continuous_real_lie_lift_status": (
+            "NONTRIVIAL_CONTINUOUS_PSL2R_TO_SU3F_LIE_HOMOMORPHIC_LIFT_REFUTED"
+            if passed
+            else "FAILED"
+        ),
         "canonical_polar_compactification_status": (
             "CANONICAL_POLAR_COMPACTIFICATION_REFUTED_AS_SUFFICIENT_BRANCH_LIFT"
             if passed
             else "FAILED"
         ),
         "compact_family_branch_operator_status": (
-            "OPEN_NONPOLAR_BRANCHWISE_SPLIT_REAL_TO_COMPACT_SU3F_LIFT"
+            "OPEN_DISCRETE_OR_HOLONOMIC_NONPOLAR_BRANCHWISE_SU3F_LIFT"
         ),
         "binary_to_three_carrier_status": (
             "SYM2_TWO_TO_THREE_CARRIER_CLOSED"
@@ -1606,7 +1633,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__POLAR_LIFT_REFUTED__COMPLEX_HOLONOMY_MECHANISM_EXISTS__RHO_BINDING_AND_CLEAN_BRANCH_TO_COMPLEX_HOLONOMY_MAP_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -1802,6 +1829,28 @@ def main() -> None:
             "lie_closure_dimension": 8,
             "physical_family_dynamics_selector": "OPEN",
         },
+        "real_lie_lift_nogo_audit": {
+            "source_algebra": "sl(2,R)",
+            "source_killing_matrix_HEF": sl2_killing.tolist(),
+            "source_killing_eigenvalues": sl2_killing_eigenvalues.tolist(),
+            "source_killing_signature": {
+                "positive": sl2_killing_positive,
+                "negative": sl2_killing_negative,
+                "zero": sl2_killing_zero,
+            },
+            "source_simple": True,
+            "target_algebra": "su(3)",
+            "target_compact": True,
+            "nonzero_real_lie_homomorphism_would_be_injective": True,
+            "injective_embedding_into_compact_target": False,
+            "continuous_PSL2R_to_SU3_nontrivial_lift": False,
+            "allowed_remaining_routes": [
+                "discrete_branch_monoid_map",
+                "complex_holonomy",
+                "state_dependent_map",
+                "complexification_plus_additional_dynamics",
+            ],
+        },
         "complex_holonomy_provenance_audit": {
             "real_family_pair_stage35": "J_EQUALS_ZERO",
             "complex_holonomy_stage36": "J_NONZERO_MECHANISM_PASS",
@@ -1927,6 +1976,9 @@ def main() -> None:
             "polar_compact_factor_is_diagnostic_not_physical_family_operator": True,
             "stage36_complex_holonomy_mechanism_is_not_promoted_from_quarantined_rows": True,
             "nonzero_cp_mechanism_does_not_supply_collatz_branch_source_map": True,
+            "no_nontrivial_continuous_real_lie_homomorphism_psl2r_to_su3f": True,
+            "stage52_complexification_bridge_is_not_a_direct_real_form_homomorphism": True,
+            "remaining_branch_map_must_not_be_claimed_as_continuous_psl2r_representation": True,
             "stage40_full_ckm_shape_failure_is_retained": True,
             "branch_symbol_to_split_real_operator_is_closed_but_not_physical_family_map": True,
             "legacy_eta_0_35_rhythm_is_model_choice_not_current_input": True,
