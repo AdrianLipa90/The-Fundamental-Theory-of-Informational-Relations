@@ -57,7 +57,9 @@ jobs:
           grep -Fq '"su3_so3_complement_status": "FIVE_DIMENSIONAL_SU3_OVER_SO3_SPIN2_COMPLEMENT_CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"n5_icosahedral_complement_status": "N5_A5_IRREDUCIBLE_FIVE_CARRIER_CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"icosahedral_su3_generation_status": "SIX_ICOSAHEDRAL_QUADRUPOLES_GENERATE_FULL_SU3_CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
-          grep -Fq '"family_dynamics_selector_status": "OPEN_BRANCH_OPERATOR_RHYTHM_REALFORM_AND_COMPLEMENT_SELECTION"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"cubic_complement_selector_status": "STAGE66_UNIQUE_STATIONARY_CUBIC_SELECTOR_CLOSED_SADDLE"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"cubic_complement_selector_eta_exact": "-75*(59+21*sqrt(5))/638"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_dynamics_selector_status": "CUBIC_SELECTOR_CLOSED__BRANCH_OPERATOR_RHYTHM_AND_REALFORM_SELECTION_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"historical_generation_numbering_status": "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"source_order_anchor_status": "UNIQUE_ORDER_PRESERVING_LABEL_CROSSWALK_CLOSED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"declared_anchor_dependency": "REMOVED_AT_ORDERED_LABEL_REPRESENTATION_LEVEL"' mod6pi-c3-pauli-receipt.json
