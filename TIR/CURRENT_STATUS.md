@@ -1395,3 +1395,41 @@ Therefore the Stage-52 compact spin-one \(SO(3)\) bridge alone cannot generate t
 Remaining source gate:
 
 `OPEN_BRANCH_TO_SU3_OVER_SO3_COMPLEMENT_INJECTION_OR_EQUIVALENT_MIXED_KP_DYNAMICS`.
+
+### Appendix AG update — Stage-66 C3 orbit closes the full family generator set
+
+The complete Stage-66 orbit
+
+\[
+A_0,\ A_1=P_3A_0P_3^T,\ A_2=P_3^2A_0(P_3^T)^2
+\]
+
+has pairwise Lie-closure dimension 3, but all three together generate
+
+\[
+\boxed{\mathfrak{su}(3)_F}
+\]
+
+with real dimension 8.
+
+Under the Stage-55 decomposition, A0 and A1 are mixed k/p while A2 is purely in the five-dimensional complement.
+
+Stage-24 orientation plus the Stage-66 negative-mode selection therefore yields the noncommuting forward pair
+
+\[
+A_1(23)\to A_2(13),
+\]
+
+with explicit complement injection.
+
+Status:
+
+`STAGE66_C3_ORBIT_GENERATES_FULL_SU3F_LIE_ALGEBRA`
+
+`ORIENTED_A1_TO_A2_NONCOMMUTING_PAIR_WITH_EXPLICIT_COMPLEMENT_INJECTION`.
+
+Remaining:
+
+`OPEN_EO_TO_ORIENTED_STAGE66_GENERATOR_PAIR_ASSIGNMENT`
+
+plus physical promotion of the already-frozen branch-rhythm candidate.
