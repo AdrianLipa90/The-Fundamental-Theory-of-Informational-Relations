@@ -810,3 +810,30 @@ Status:
 \`TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL\`
 
 \`OPEN_RICHER_POINCARE_HOLONOMY_OPERATOR_REQUIRED\`.
+
+
+### Appendix K update — canonical Collatz/Poincare \(2\to3\) carrier
+
+The Stage-48→53 chain supplies
+\[
+\{E,O\}^*
+\to
+PSL(2,\mathbb R)
+\xrightarrow{\operatorname{Sym}^2}
+SL(3,\mathbb R),
+\]
+so the exact Collatz/Poincare dynamics has a canonical three-component polynomial carrier.
+
+Status:
+
+\`BRANCH_WORD_TO_PSL2R_TO_SYM2_THREE_CARRIER_CURRENT_EXACT\`
+
+\`SYM2_TWO_TO_THREE_CARRIER_CLOSED\`.
+
+Direct fixed-similarity unitarization into \(SU(3)_F\) is refuted. A compact real-form bridge through \(\mathfrak{sl}(2,\mathbb C)\) exists, but its dynamical selection remains OPEN.
+
+The compact spin-one subgroup alone has \(J=0\); nonzero family CP requires complementary directions of the full \(\mathfrak{su}(3)\).
+
+Remaining gate:
+
+\`OPEN_BRANCH_OPERATOR_RHYTHM_REALFORM_AND_COMPLEMENT_SELECTION\`.
