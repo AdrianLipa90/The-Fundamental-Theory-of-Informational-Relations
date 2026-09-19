@@ -7194,3 +7194,156 @@ fixed classes
 It does **not** identify the outer involution with physical charge conjugation, parity, or CP, and it does not treat \(|\operatorname{Im}t|\) as an observed CP-violation parameter.
 
 The result is purely group/conjugacy-class geometry.
+
+---
+
+## Appendix BC — NEW 2026-09-19 — Outer-fixed (SU(3)) classes as the compact spin-one/(SO(3)) locus
+
+### BC.1 Fixed-class criterion
+
+For (U\in SU(3)), Appendix BB gives
+
+\[
+p_U(\lambda)=\lambda^3-t\lambda^2+\bar t\lambda-1,
+\qquad
+t=\operatorname{tr}U.
+\]
+
+The exact identity already validated on the terminal class is the general (SU(3)) relation
+
+\[
+\boxed{
+\det(U-I)=2i\,\operatorname{Im}\operatorname{tr}U.
+}
+\]
+
+Therefore
+
+\[
+\operatorname{Im}\operatorname{tr}U=0
+\iff
+\det(U-I)=0
+\iff
+1\in\operatorname{spec}(U).
+\]
+
+If (1\) is an eigenvalue, determinant one and unitarity force the remaining pair to be
+
+\[
+e^{i\theta},e^{-i\theta}.
+\]
+
+Hence the class is conjugate to a real three-dimensional rotation.
+
+Thus
+
+\[
+\boxed{
+\text{outer-fixed conjugacy class}
+\iff
+\text{class intersects a conjugate }SO(3)\subset SU(3).
+}
+\]
+
+Status:
+
+`OUTER_FIXED_CLASS_LOCUS_EQUALS_CONJUGATE_SPIN1_SO3_CLASS_LOCUS`.
+
+### BC.2 Stage-55 symmetric pair is the Lie-algebra form of the same involution
+
+Stage 55 already establishes
+
+\[
+\boxed{
+(\mathfrak{su}(3),\mathfrak{so}(3))
+}
+\]
+
+and
+
+\[
+\mathfrak{su}(3)=\mathfrak k\oplus\mathfrak p,
+\qquad
+\dim\mathfrak k=3,
+\qquad
+\dim\mathfrak p=5,
+\]
+
+with
+
+\[
+[\mathfrak k,\mathfrak k]\subset\mathfrak k,
+\qquad
+[\mathfrak k,\mathfrak p]\subset\mathfrak p,
+\qquad
+[\mathfrak p,\mathfrak p]\subset\mathfrak k.
+\]
+
+For the outer conjugation involution, the fixed Lie algebra is a conjugate copy of
+
+\[
+\mathfrak{so}(3),
+\]
+
+while the anti-fixed tangent is the five-dimensional symmetric-traceless complement.
+
+Status:
+
+`OUTER_INVOLUTION_LIE_SPLIT_SU3_EQUALS_SO3_PLUS_FIVE_COMPLEMENT`.
+
+### BC.3 Terminal loop is an off-fixed class
+
+The terminal holonomy satisfies
+
+\[
+\operatorname{Im}\operatorname{tr}U_\circ\neq0
+\]
+
+and
+
+\[
+\det(U_\circ-I)\neq0.
+\]
+
+Hence it has no forced unit eigenvalue and cannot be conjugated into any compact spin-one (SO(3)) subgroup.
+
+This agrees with the independently validated terminal spin-one exclusion.
+
+Therefore the terminal class necessarily uses directions outside the fixed (SO(3)) sector, i.e. the (SU(3)/SO(3)) complement.
+
+Status:
+
+`TERMINAL_OFF_FIXED_CLASS_REQUIRES_SU3_OVER_SO3_COMPLEMENT_DIRECTIONS`.
+
+### BC.4 Geometric meaning of the compact quotient
+
+Appendix BB showed that the outer quotient of the compact class deltoid is a compact half-deltoid.
+
+Appendix BC now identifies its fixed boundary intrinsically:
+
+```text
+fixed boundary of outer quotient
+    = conjugacy classes intersecting compact SO(3)
+
+interior paired classes
+    = classes not self-conjugate under outer Z2
+
+transverse Lie directions
+    = five-dimensional SU(3)/SO(3) complement
+```
+
+This is the exact group-geometric sense in which a compact fixed symmetry and its non-fixed paired classes coexist.
+
+### BC.5 Interpretation firewall
+
+This result does not identify
+
+```text
+outer complex conjugation = physical C
+SO(3) fixed locus         = physical CP-conserving sector
+five-dimensional p       = observed CP-violation field
+```
+
+without an additional physical sector-binding theorem.
+
+The result is a symmetric-pair/conjugacy-class theorem only.
