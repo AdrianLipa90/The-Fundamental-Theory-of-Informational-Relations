@@ -2241,7 +2241,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__ORIENTED_A1_A2_COMPLEMENT_PAIR_CLOSED__EO_TO_ORBIT_PAIR_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__STATE_DEPENDENT_ORBIT_INDEX_AND_RHO_PHYSICAL_BINDING_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2301,7 +2301,13 @@ def main() -> None:
             else "FAILED"
         ),
         "stage66_branch_assignment_status": (
-            "OPEN_EO_TO_ORIENTED_STAGE66_GENERATOR_PAIR_ASSIGNMENT"
+            "STATIC_EO_TO_TWO_STAGE66_ORBIT_GENERATORS_REFUTED"
+        ),
+        "stage66_state_dependent_orbit_binding_status": (
+            "OPEN_COLLATZ_STATE_OR_PATH_TO_STAGE66_C3_ORBIT_INDEX_BINDING"
+        ),
+        "stage66_full_orbit_access_requirement": (
+            "FULL_SU3F_FROM_STAGE66_REQUIRES_ALL_THREE_ORBIT_GENERATORS_OR_EQUIVALENT_EXTRA_DIRECTION"
         ),
         "icosahedral_family_embedding_status": (
             "STAGE61_62_C3_COMPATIBLE_RIGID_EMBEDDING_CURRENT_PASS"
@@ -2936,6 +2942,9 @@ def main() -> None:
             "stage66_full_c3_orbit_already_supplies_full_su3f_generator_set": True,
             "stage66_full_orbit_generation_does_not_select_EO_generator_assignment": True,
             "stage24_66_forward_pair_is_representation_level_not_physical_branch_map": True,
+            "any_static_EO_map_to_two_stage66_orbit_axes_has_only_three_dimensional_lie_closure": True,
+            "full_stage66_su3f_access_requires_state_dependent_or_three_axis_traversal": True,
+            "collatz_step_to_temporal_c3_orbit_index_binding_not_found_current": True,
             "Aseed_was_not_used_to_fit_eta": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
