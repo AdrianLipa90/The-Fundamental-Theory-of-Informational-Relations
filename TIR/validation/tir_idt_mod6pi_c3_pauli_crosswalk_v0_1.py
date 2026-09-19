@@ -244,6 +244,10 @@ def main() -> None:
         ROOT
         / "TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md"
     ).read_text(encoding="utf-8")
+    hexahedral_bloch = (
+        ROOT
+        / "TIR/integration/TIR_HEXAHEDRAL_BLOCH_DUAL_FRAME_V0_1.md"
+    ).read_text(encoding="utf-8")
 
     stage15 = (
         ROOT
@@ -685,6 +689,39 @@ def main() -> None:
         qc_pair_phase_turns[i][i] == 0 for i in range(3)
     )
 
+    # Equatorial CP1/Bargmann no-go for scalar q_C alone.
+    # For |psi(q)>=(|0>+exp(2*pi*i*q)|1>)/sqrt(2),
+    # <psi_i|psi_j>=exp(i*pi*(q_j-q_i))*cos(pi*(q_j-q_i)).
+    # The three overlap phases telescope exactly around a closed triple.
+    qc_bargmann_turn_sum = (
+        (q2 - q1) + (q3 - q2) + (q1 - q3)
+    )
+    qc_pair_distances = (
+        abs(q2 - q1),
+        abs(q3 - q2),
+        abs(q1 - q3),
+    )
+    qc_pair_distances_lt_half = all(
+        d < Fraction(1, 2) for d in qc_pair_distances
+    )
+    qc_equatorial_states = []
+    for q in q_vertices:
+        theta = 2.0 * math.pi * float(q)
+        qc_equatorial_states.append(
+            np.array([1.0, np.exp(1j * theta)], dtype=complex) / math.sqrt(2.0)
+        )
+    qc_bargmann = (
+        np.vdot(qc_equatorial_states[0], qc_equatorial_states[1])
+        * np.vdot(qc_equatorial_states[1], qc_equatorial_states[2])
+        * np.vdot(qc_equatorial_states[2], qc_equatorial_states[0])
+    )
+    qc_bargmann_imag_residual = abs(float(np.imag(qc_bargmann)))
+    qc_bargmann_real = float(np.real(qc_bargmann))
+    qc_bargmann_phase = math.atan2(
+        float(np.imag(qc_bargmann)),
+        float(np.real(qc_bargmann)),
+    )
+
     # Raw product-seed Collatz dynamics: exact directed reachability among
     # n=(15,35,143).  This is a negative control for deriving the Stage-24 C3
     # cycle directly from ordinary Collatz dynamics.
@@ -1071,6 +1108,23 @@ def main() -> None:
         "scalar_qc_difference_phase_is_pure_vertex_coboundary": (
             qc_pair_phase_antisymmetric
             and qc_pair_phase_diagonal_zero
+        ),
+        "hexahedral_bloch_parent_has_nonzero_bargmann_triangle": (
+            "Berry/Bargmann face invariants" in hexahedral_bloch
+            and "|\\gamma_{B,\\rm oct}|=\\frac{\\Omega_{\\rm oct}}2=\\frac\\pi4"
+            in hexahedral_bloch
+            and "\\langle +x|+y\\rangle" in hexahedral_bloch
+        ),
+        "active_qc_equatorial_bargmann_turn_sum_zero_exact": (
+            qc_bargmann_turn_sum == 0
+        ),
+        "active_qc_equatorial_pair_distances_below_half_turn": (
+            qc_pair_distances_lt_half
+        ),
+        "active_qc_equatorial_bargmann_phase_zero": (
+            qc_bargmann_imag_residual < TOL
+            and qc_bargmann_real > 0.0
+            and abs(qc_bargmann_phase) < TOL
         ),
         "active_center_stopping_depths_strictly_increase_with_stage22_order": (
             center_depths == [2, 8, 9]
@@ -1682,7 +1736,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_NONSEPARABLE_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_SEPARABLE_AND_EQUATORIAL_BARGMANN_CP_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_NONSEPARABLE_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -1722,6 +1776,16 @@ def main() -> None:
         ),
         "cp_phase_source_requirement": (
             "NONSEPARABLE_PAIR_DEPENDENT_HOLONOMY_REQUIRED_FOR_NONZERO_PLAQUETTE_PHASE"
+            if passed
+            else "FAILED"
+        ),
+        "equatorial_qc_bargmann_status": (
+            "ACTIVE_SCALAR_QC_EQUATORIAL_BARGMANN_PHASE_ZERO"
+            if passed
+            else "FAILED"
+        ),
+        "geometric_cp_source_requirement": (
+            "ADDITIONAL_NONSEPARABLE_CONNECTION_OR_NON_EQUATORIAL_MULTI_RAY_GEOMETRY_REQUIRED"
             if passed
             else "FAILED"
         ),
@@ -1910,6 +1974,19 @@ def main() -> None:
                 "complexification_plus_additional_dynamics",
             ],
         },
+        "equatorial_qc_bargmann_audit": {
+            "carrier": "S1_SUBSET_CP1_EQUATOR",
+            "qC": [str(q) for q in q_vertices],
+            "closed_overlap_phase_turn_sum": str(qc_bargmann_turn_sum),
+            "pair_q_distances": [str(d) for d in qc_pair_distances],
+            "all_pair_q_distances_lt_half": qc_pair_distances_lt_half,
+            "bargmann_product_real": qc_bargmann_real,
+            "bargmann_product_imag": float(np.imag(qc_bargmann)),
+            "bargmann_phase_rad": qc_bargmann_phase,
+            "active_triplet_phase_class": "ZERO",
+            "hexahedral_multi_ray_parent_has_nonzero_triangle_phase": True,
+            "scalar_qC_equator_sufficient_for_family_CP": False,
+        },
         "scalar_qc_cp_nogo_audit": {
             "active_centers": active_centers,
             "qC": [str(q) for q in q_vertices],
@@ -2055,6 +2132,9 @@ def main() -> None:
             "scalar_qc_vertex_phase_cannot_generate_nonzero_plaquette_cp": True,
             "pair_dependent_relational_phase_is_not_derived_from_scalar_qc_by_subtraction": True,
             "collatz_fs_relational_phase_interface_does_not_itself_supply_family_cp_operator": True,
+            "equatorial_scalar_qc_bargmann_phase_is_zero_for_active_triplet": True,
+            "nonzero_hexahedral_bargmann_phase_is_not_reassigned_to_family_sector": True,
+            "additional_nonseparable_or_non_equatorial_structure_required_for_cp": True,
             "no_nontrivial_continuous_real_lie_homomorphism_psl2r_to_su3f": True,
             "stage52_complexification_bridge_is_not_a_direct_real_form_homomorphism": True,
             "remaining_branch_map_must_not_be_claimed_as_continuous_psl2r_representation": True,
