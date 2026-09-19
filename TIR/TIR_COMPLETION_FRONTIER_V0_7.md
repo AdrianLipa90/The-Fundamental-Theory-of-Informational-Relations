@@ -1686,3 +1686,31 @@ Status:
 `COMPLEX_CONJUGATION_NOT_INNER_ON_TERMINAL_CLASS_WITNESS`.
 
 This is a group-automorphism result only; no physical C/P/CP identification is made.
+
+### Appendix AX update — abelian \(C_6\) versus nonabelian \(D_3\)
+
+The weak Weyl involution commutes with family \(C_3\), giving
+
+\[
+C_3\times Z_2^{\rm weak}\cong C_6.
+\]
+
+The orientation involution instead obeys
+
+\[
+RP_3R=P_3^{-1},
+\]
+
+so
+
+\[
+C_3\rtimes Z_2^{\rm orient}\cong D_3\cong S_3.
+\]
+
+Status:
+
+`C3_SEMIDIRECT_Z2_INVERSION_IS_D3_ISOMORPHIC_S3`
+
+`ABELIAN_C6_WEAK_PRODUCT_DISTINCT_FROM_NONABELIAN_D3_ORIENTATION_EXTENSION`.
+
+The two six-element structures are distinct and are not physically identified.
