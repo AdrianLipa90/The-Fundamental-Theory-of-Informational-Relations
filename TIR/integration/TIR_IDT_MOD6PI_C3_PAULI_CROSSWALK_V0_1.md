@@ -3179,3 +3179,147 @@ through a non-polar mechanism that preserves ordered branch composition and can 
 Current frontier:
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__CANONICAL_POLAR_LIFT_REFUTED__RHO_BINDING_AND_NONPOLAR_COMPACT_LIFT_OPEN\`.
+
+
+---
+
+## Appendix R — NEW 2026-09-19 — Complex-holonomy mechanism versus clean branch-source map
+
+### R.1 Real family misalignment is CP-trivial
+
+Stage 35 constructs the Hermitian pair
+
+\[
+H_u=OO^T,
+\qquad
+H_d=O^TO
+\]
+
+from the pre-CKM real cross-sector map.
+
+The operators do not commute and therefore produce nontrivial family-frame misalignment, but the relative transformation remains real:
+
+\[
+V_{\rm rel}\in SO(3)\subset SU(3)_F.
+\]
+
+Hence
+
+\[
+\boxed{J(V_{\rm rel})=0.}
+\]
+
+Status:
+
+\`STAGE35_REAL_FAMILY_MISALIGNMENT_CP_TRIVIAL\`.
+
+### R.2 A non-polar complex mechanism already exists
+
+Stage 36 uses the pre-existing complex open-holonomy data
+
+\[
+a_{ij},
+\qquad
+\phi_{ij},
+\]
+
+through the coefficient-free lift
+
+\[
+\boxed{
+W^\mathbb C_{ij}
+=
+a_{ij}e^{i\phi_{ij}}.
+}
+\]
+
+The resulting Hermitian pair
+
+\[
+H_u=WW^\dagger,
+\qquad
+H_d=W^\dagger W
+\]
+
+is noncommuting, and its relative family transformation lies in \(SU(3)_F\) after removal of the global determinant phase.
+
+Stage 36 obtains a non-removable rephasing-invariant plaquette phase and
+
+\[
+\boxed{
+J_F\neq0.
+}
+\]
+
+Therefore a non-polar complex-holonomy route into CP-capable family dynamics already exists at mechanism level.
+
+Status:
+
+\`NONPOLAR_COMPLEX_HOLONOMY_CP_MECHANISM_EXISTS_SOURCE_QUARANTINED\`.
+
+### R.3 Provenance quarantine remains active
+
+The Stage-36 heavy-family source rows retain their historical quarantine classification.
+
+Accordingly, the Stage-36 result establishes
+
+\[
+\text{mechanism feasibility}
+\]
+
+but does not supply a clean source-derived family operator for physical promotion.
+
+No CKM phase or observed mass is inserted by the Stage-36 construction, but the quarantined heavy-family bridge rows prevent promotion.
+
+### R.4 Later stages do not remove this source debt
+
+Stage 37 proves that two sector operators that are merely scalar functions of one common normal family axis commute and cannot produce nontrivial family mixing.
+
+Stage 38 gives an exact CP-capable \(C_3/F_3\) character mechanism.
+
+Stage 39 freezes a minimal two-operator family candidate.
+
+Stage 40 retains the mechanism but records
+
+\`STAGE_40_FULL_CKM_SHAPE_FAIL__MECHANISM_RETAINED\`
+
+without retuning.
+
+Thus none of these stages creates the missing source map
+
+\[
+\boxed{
+\text{Collatz/Poincare branch dynamics}
+\stackrel{?}{\longrightarrow}
+W^\mathbb C_{\rm family}.
+}
+\]
+
+### R.5 Correct remaining non-polar gate
+
+The current situation is therefore:
+
+\`\`\`text
+real family misalignment
+    = CLOSED / J=0
+
+complex open-holonomy CP mechanism
+    = CLOSED AT MECHANISM LEVEL / J!=0
+
+Stage-36 source provenance
+    = QUARANTINED
+
+canonical polar compactification
+    = REFUTED AS SUFFICIENT
+
+clean Collatz/Poincare -> complex family holonomy source map
+    = OPEN
+\`\`\`
+
+Status:
+
+\`OPEN_CLEAN_COLLATZ_POINCARE_TO_COMPLEX_FAMILY_HOLONOMY_SOURCE_MAP\`.
+
+The current aggregate frontier is
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__POLAR_LIFT_REFUTED__COMPLEX_HOLONOMY_MECHANISM_EXISTS__RHO_BINDING_AND_CLEAN_BRANCH_TO_COMPLEX_HOLONOMY_MAP_OPEN\`.
