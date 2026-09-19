@@ -194,6 +194,16 @@ def main() -> None:
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE22_SEED_PRECEDENCE_V0_1.md"
     ).read_text(encoding="utf-8")
+    atomic_assignment = (
+        ROOT
+        / "TIR/integration/tir_half_foundation_v0_6_0/"
+        "ATOMIC_ASSIGNMENT_CANONIZATION.md"
+    ).read_text(encoding="utf-8")
+    precedence_falsification = (
+        ROOT
+        / "TIR/foundations/"
+        "TIR_COEFFICIENT_TRANSITION_SELECTOR_PRECEDENCE_FALSIFICATION_V0_2.md"
+    ).read_text(encoding="utf-8")
     stage23 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -514,6 +524,21 @@ def main() -> None:
                 "(11,13)\\to3",
             )
         ),
+        "historical_generation_order_is_preserved_separately": all(
+            token in atomic_assignment
+            for token in (
+                "generation 1: `(3,5)`",
+                "generation 2: `(11,13)`",
+                "generation 3: `(5,7)`",
+            )
+        ),
+        "active_stage22_order_explicitly_supersedes_historical_order_for_validation": (
+            "explicitly supersedes the early v0.5 generation ordering"
+            in precedence_falsification
+            and "(3,5)\\to1" in precedence_falsification
+            and "(5,7)\\to2" in precedence_falsification
+            and "(11,13)\\to3" in precedence_falsification
+        ),
         "stage23_chirality_z2_parent_pass_present": (
             "STAGE_23_Z2_INTERTWINER_PASS_WITH_ORIENTATION_CONVENTION"
             in stage23
@@ -698,6 +723,14 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "family_precedence_binding": (
+            "TEMPORAL_C3_TO_ACTIVE_STAGE22_FAMILY_SEED_ORDER_CLOSED"
+            if passed
+            else "FAILED"
+        ),
+        "historical_generation_numbering_status": (
+            "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR"
+        ),
         "source_order_anchor_status": (
             "UNIQUE_ORDER_PRESERVING_LABEL_CROSSWALK_CLOSED"
             if passed
@@ -839,6 +872,8 @@ def main() -> None:
         "firewall": {
             "representation_equivalence_is_not_physical_sector_identity": True,
             "physical_temporal_to_flavour_binding": "OPEN",
+            "active_stage22_seed_precedence_is_not_historical_generation_numbering": True,
+            "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
             "physical_ckm_assignment": "OPEN",
             "physical_pmns_assignment": "OPEN",
             "family_count_is_conditional_on_sector_binding": True,
