@@ -1541,6 +1541,79 @@ def main() -> None:
         )
     )
 
+    # Appendix-AO retrospective structural candidate: the actual closed
+    # terminal Collatz cycle 1->4->2->1.  Its nontriviality was observed in
+    # exploratory dry-run before formalization, so it is explicitly NOT a
+    # prospective/blind test.  The repository validator independently
+    # reproduces the algebraic result without physical targets.
+    terminal_loop_states = [1, 4, 2]
+    terminal_loop_branches = [
+        "O" if n % 2 else "E" for n in terminal_loop_states
+    ]
+    terminal_loop_frames = [
+        (-collatz_depth_to_one(n)) % 3 for n in terminal_loop_states
+    ]
+    terminal_loop_next_states = [collatz_step(n) for n in terminal_loop_states]
+
+    U_terminal = np.eye(3, dtype=complex)
+    for n, branch, r in zip(
+        terminal_loop_states, terminal_loop_branches, terminal_loop_frames
+    ):
+        U_terminal = candidate_step[(branch, r)]["U"] @ U_terminal
+
+    terminal_loop_unitarity_residual = float(
+        np.max(np.abs(U_terminal.conj().T @ U_terminal - np.eye(3)))
+    )
+    terminal_loop_determinant_residual = float(
+        abs(np.linalg.det(U_terminal) - 1.0)
+    )
+    terminal_loop_nonidentity = float(
+        np.max(np.abs(U_terminal - np.eye(3)))
+    )
+    terminal_loop_trace = complex(np.trace(U_terminal))
+
+    terminal_a = ell_O_exact
+    terminal_b = ell_E_exact
+    terminal_trace_exact = (
+        2.0
+        * math.cos(terminal_a / 2.0)
+        * math.cos(terminal_b / 2.0)
+        + math.cos(terminal_b / 2.0) ** 2
+        + 1j
+        * math.sin(terminal_a / 2.0)
+        * math.sin(terminal_b / 2.0) ** 2
+    )
+    terminal_trace_formula_residual = abs(
+        terminal_loop_trace - terminal_trace_exact
+    )
+    terminal_trace_imag_exact = (
+        math.sin(math.log(3.0) / 2.0)
+        * math.sin(math.log(2.0) / 2.0) ** 2
+    )
+    terminal_trace_imag_residual = abs(
+        terminal_loop_trace.imag - terminal_trace_imag_exact
+    )
+
+    # Conjugacy-class invariants under a nontrivial F3 basis change.
+    U_terminal_gauge = F3.conj().T @ U_terminal @ F3
+    terminal_gauge_trace_residual = abs(
+        np.trace(U_terminal_gauge) - np.trace(U_terminal)
+    )
+    terminal_gauge_trace2_residual = abs(
+        np.trace(U_terminal_gauge @ U_terminal_gauge)
+        - np.trace(U_terminal @ U_terminal)
+    )
+    terminal_gauge_det_residual = abs(
+        np.linalg.det(U_terminal_gauge) - np.linalg.det(U_terminal)
+    )
+    terminal_charpoly_residual = float(
+        np.max(np.abs(np.poly(U_terminal_gauge) - np.poly(U_terminal)))
+    )
+    terminal_loop_eigenvalues = np.linalg.eigvals(U_terminal)
+    terminal_loop_eigenphases = sorted(
+        float(np.angle(z)) for z in terminal_loop_eigenvalues
+    )
+
     # Single-axis branch-map no-go.  The Stage-66 selected tangent is the
     # P3 image of A_seed, i.e. the symmetric 23 channel.  Any two branch
     # generators that are merely scalar multiples of this one tangent commute,
@@ -2195,6 +2268,39 @@ def main() -> None:
         "common_target_transport_edges_are_nontrivial_despite_flat_loop": (
             common_target_edge_nontriviality > TOL
         ),
+        "appendix_ao_retrospective_status_disclosed_before_repository_validation": (
+            "RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST"
+            in idt_c3_crosswalk_doc
+            and "exploratory dry-run before this Appendix was formalized"
+            in idt_c3_crosswalk_doc
+        ),
+        "terminal_collatz_cycle_states_frames_and_branches_exact": (
+            terminal_loop_states == [1, 4, 2]
+            and terminal_loop_next_states == [4, 2, 1]
+            and terminal_loop_frames == [0, 1, 2]
+            and terminal_loop_branches == ["O", "E", "E"]
+        ),
+        "terminal_collatz_cycle_step_product_is_su3": (
+            terminal_loop_unitarity_residual < TOL
+            and terminal_loop_determinant_residual < TOL
+        ),
+        "terminal_collatz_cycle_holonomy_is_nonidentity": (
+            terminal_loop_nonidentity > 1.0e-6
+        ),
+        "terminal_collatz_cycle_trace_formula_exact": (
+            terminal_trace_formula_residual < TOL
+            and terminal_trace_imag_residual < TOL
+        ),
+        "terminal_collatz_cycle_trace_has_strictly_nonzero_imaginary_part": (
+            terminal_loop_trace.imag > 1.0e-6
+            and terminal_trace_imag_exact > 1.0e-6
+        ),
+        "terminal_collatz_cycle_conjugacy_invariants_gauge_stable": (
+            terminal_gauge_trace_residual < TOL
+            and terminal_gauge_trace2_residual < TOL
+            and terminal_gauge_det_residual < TOL
+            and terminal_charpoly_residual < 1.0e-12
+        ),
         "single_stage66_axis_branch_generators_commute_exactly": (
             single_axis_generator_commutator < TOL
         ),
@@ -2589,7 +2695,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_CANDIDATE_VALIDATED__COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_FLAT_PURE_GAUGE__PHYSICAL_RHO_NONFLAT_CONNECTION_TEMPORAL_FAMILY_AND_CKM_PROMOTION_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__COLLATZ_STOPPING_DEPTH_MOD3_TO_C3_ORBIT_INDEX_CLOSED__SIGNED_GEOMETRIC_SU3_STEP_VALIDATED__COMMON_TARGET_WIJ_FLAT__TERMINAL_COLLATZ_CYCLE_NONFLAT_SU3_LOOP_RETROSPECTIVE_PASS__PHYSICAL_RHO_TEMPORAL_FAMILY_CP_AND_CKM_PROMOTION_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2710,7 +2816,23 @@ def main() -> None:
             else "FAILED"
         ),
         "physical_family_connection_status": (
-            "OPEN_NONFLAT_PATH_DEPENDENT_EXTENSION_OR_ADDITIONAL_CONNECTION"
+            "NONFLAT_TERMINAL_CYCLE_CANDIDATE_EXISTS__PHYSICAL_FAMILY_CONNECTION_BINDING_OPEN"
+        ),
+        "terminal_cycle_holonomy_status": (
+            "TERMINAL_COLLATZ_CYCLE_NONTRIVIAL_SU3_HOLONOMY_RETROSPECTIVE_STRUCTURAL_PASS"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_cycle_nonflat_source_status": (
+            "TERMINAL_CYCLE_SUPPLIES_NONFLAT_SOURCE_DERIVED_LOOP_CANDIDATE"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_cycle_cp_status": (
+            "NONTRIVIAL_WILSON_LOOP_NOT_YET_PHYSICAL_CP_OR_SECTOR_BINDING"
+        ),
+        "terminal_cycle_prospective_status": (
+            "RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST"
         ),
         "stage66_full_orbit_access_requirement": (
             "FULL_SU3F_FROM_STAGE66_REQUIRES_ALL_THREE_ORBIT_GENERATORS_OR_EQUIVALENT_EXTRA_DIRECTION"
@@ -2784,7 +2906,7 @@ def main() -> None:
             else "FAILED"
         ),
         "family_wij_source_binding_status": (
-            "COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_SOURCE_DERIVED_FLAT__NONFLAT_PHYSICAL_CONNECTION_OPEN"
+            "COMMON_TARGET_FAMILY_WIJ_FLAT_SCAFFOLD_CLOSED__TERMINAL_COLLATZ_NONFLAT_LOOP_CANDIDATE_EXISTS__PHYSICAL_BINDING_OPEN"
         ),
         "selector_location_status": (
             "SELECTOR_MUST_RETAIN_PATH_LOCAL_DATA_UPSTREAM_OF_ENDPOINT_SU3_REDUCTION"
@@ -2966,6 +3088,15 @@ def main() -> None:
             "common_target_reverse_triangle_wilson": (
                 common_target_reverse_triangle_residual
             ),
+            "terminal_cycle_unitarity": terminal_loop_unitarity_residual,
+            "terminal_cycle_determinant": terminal_loop_determinant_residual,
+            "terminal_cycle_nonidentity": terminal_loop_nonidentity,
+            "terminal_cycle_trace_formula": terminal_trace_formula_residual,
+            "terminal_cycle_trace_imag": terminal_trace_imag_residual,
+            "terminal_cycle_gauge_trace": terminal_gauge_trace_residual,
+            "terminal_cycle_gauge_trace2": terminal_gauge_trace2_residual,
+            "terminal_cycle_gauge_det": terminal_gauge_det_residual,
+            "terminal_cycle_gauge_charpoly": terminal_charpoly_residual,
         },
         "stationary_cubic_selector_audit": {
             "eta": float(eta_selector),
@@ -3035,6 +3166,39 @@ def main() -> None:
                 "state_dependent_map",
                 "complexification_plus_additional_dynamics",
             ],
+        },
+        "terminal_collatz_cycle_holonomy_audit": {
+            "classification": "RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST",
+            "states": terminal_loop_states,
+            "next_states": terminal_loop_next_states,
+            "branches": terminal_loop_branches,
+            "frames": terminal_loop_frames,
+            "definition": "U_circle=U_E(A2)*U_E(A1)*U_O(A0)",
+            "unitarity_residual": terminal_loop_unitarity_residual,
+            "determinant_residual": terminal_loop_determinant_residual,
+            "nonidentity_max_abs": terminal_loop_nonidentity,
+            "trace": {
+                "real": float(terminal_loop_trace.real),
+                "imag": float(terminal_loop_trace.imag),
+            },
+            "trace_formula": (
+                "2*cos(ln3/2)*cos(ln2/2)+cos(ln2/2)^2"
+                "+i*sin(ln3/2)*sin(ln2/2)^2"
+            ),
+            "trace_formula_residual": terminal_trace_formula_residual,
+            "trace_imag_exact": terminal_trace_imag_exact,
+            "trace_imag_residual": terminal_trace_imag_residual,
+            "eigenphases_rad": terminal_loop_eigenphases,
+            "F3_conjugacy_trace_residual": terminal_gauge_trace_residual,
+            "F3_conjugacy_trace2_residual": terminal_gauge_trace2_residual,
+            "F3_conjugacy_determinant_residual": terminal_gauge_det_residual,
+            "F3_conjugacy_charpoly_residual": terminal_charpoly_residual,
+            "uses_observed_CKM": False,
+            "uses_observed_PMNS": False,
+            "uses_observed_masses": False,
+            "uses_fitted_coefficients": False,
+            "physical_cp_claimed": False,
+            "physical_family_connection_claimed": False,
         },
         "common_target_family_path_holonomy_audit": {
             "target": common_target,
@@ -3452,6 +3616,10 @@ def main() -> None:
             "common_target_wij_scaffold_is_not_promoted_to_physical_family_connection": True,
             "common_target_coboundary_transport_is_flat_and_cannot_supply_nonzero_loop_holonomy": True,
             "nonflat_cp_capable_family_connection_requires_additional_path_dependent_structure": True,
+            "terminal_cycle_nontriviality_was_seen_before_formalization_so_not_prospective": True,
+            "terminal_cycle_nontrivial_wilson_loop_is_not_equated_with_physical_cp": True,
+            "terminal_cycle_loop_is_not_promoted_to_ckm_or_pmns": True,
+            "terminal_cycle_family_interpretation_remains_conditional_on_physical_binding": True,
             "Aseed_was_not_used_to_fit_eta": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
