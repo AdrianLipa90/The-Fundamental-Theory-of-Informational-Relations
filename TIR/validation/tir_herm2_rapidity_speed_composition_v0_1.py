@@ -14,9 +14,6 @@ def sha(obj):
     ).hexdigest()
 
 
-def canon_exp(expr):
-    return sp.simplify(sp.expand(expr.rewrite(sp.exp)))
-
 
 def main():
     u, beta = sp.symbols("u beta", real=True)
@@ -46,7 +43,7 @@ def main():
     beta2 = sp.tanh(chi2)
     beta12 = sp.tanh(chi1 + chi2)
     beta_comp = (beta1 + beta2) / (1 + beta1 * beta2)
-    beta_addition_exact = canon_exp(beta12 - beta_comp) == 0
+    beta_addition_exact = sp.simplify(sp.expand_trig(beta12) - beta_comp) == 0
 
     beta_chi = sp.tanh(chi)
     gamma = sp.cosh(chi)
