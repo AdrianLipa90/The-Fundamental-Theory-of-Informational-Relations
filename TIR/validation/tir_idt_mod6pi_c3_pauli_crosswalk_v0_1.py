@@ -255,6 +255,16 @@ def main() -> None:
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE42_FAMILY_LIE_CLOSURE_V0_1.md"
     ).read_text(encoding="utf-8")
+    stage43 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE43_FAMILY_ORDERING_PROVENANCE_V0_1.md"
+    ).read_text(encoding="utf-8")
+    legacy_collatz_phase_sim = (
+        ROOT
+        / "archive/v7.9/full/01_foundational_formal_notes/"
+        "phase_hamiltonian_english_derivations/scripts/collatz_phase_sim.py"
+    ).read_text(encoding="utf-8")
     stage44 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -636,6 +646,11 @@ def main() -> None:
 
     RE = sym2(ME)
     RO = sym2(MO)
+    sym2_homomorphism_residual = max(
+        float(np.max(np.abs(sym2(ME @ MO) - RE @ RO))),
+        float(np.max(np.abs(sym2(MO @ ME) - RO @ RE))),
+    )
+    split_branch_noncommutativity = float(np.max(np.abs(RE @ RO - RO @ RE)))
     J_split = np.array(
         [[0.0, 0.0, 0.5], [0.0, -1.0, 0.0], [0.5, 0.0, 0.0]],
         dtype=float,
@@ -916,6 +931,15 @@ def main() -> None:
         "stage42_su3f_parent_pass_present": (
             "STAGE_42_SU3F_LIE_CLOSURE_PASS" in stage42
         ),
+        "stage43_ordering_principle_parent_pass_present": (
+            "STAGE_43_ORDERING_PRINCIPLE_FOUND__EXACT_WEIGHT_MAP_OPEN" in stage43
+            and "exact rho_s(k) formula: OPEN DERIVATION DEBT" in stage43
+            and "reference eta=0.35: MODEL-CHOICE INPUT" in stage43
+        ),
+        "legacy_bounded_rhythm_declares_model_choice": (
+            "The exact rhythm map is a model choice" in legacy_collatz_phase_sim
+            and "eta: float = 0.35" in legacy_collatz_phase_sim
+        ),
         "stage44_product_seed_parent_pass_present": (
             "STAGE_44_COLLATZ_PRODUCT_SEED_INTERSECTION_PASS" in stage44
             and "n_1=15" in stage44
@@ -1014,6 +1038,12 @@ def main() -> None:
             and abs(selector_negative_best_alignment - 1.0) < 1.0e-10
         ),
         "sym2_binary_to_three_dimension_exact": sym2_dimension == 3,
+        "split_real_branch_operator_homomorphism_exact": (
+            sym2_homomorphism_residual < TOL
+        ),
+        "split_real_branch_operators_noncommute": (
+            split_branch_noncommutativity > TOL
+        ),
         "sym2_branch_generators_have_det_one": bool(
             abs(np.linalg.det(RE) - 1.0) < TOL
             and abs(np.linalg.det(RO) - 1.0) < TOL
@@ -1250,6 +1280,20 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "branch_symbol_split_real_operator_status": (
+            "BRANCH_SYMBOL_TO_SPLIT_REAL_THREE_OPERATOR_CLOSED"
+            if passed
+            else "FAILED"
+        ),
+        "legacy_rhythm_status": (
+            "LEGACY_BOUNDED_RHYTHM_MODEL_CHOICE_NOT_PROMOTED"
+        ),
+        "exact_rhythm_status": (
+            "OPEN_EXACT_COLLATZ_TWIN_PRIME_RHO_S_DERIVATION"
+        ),
+        "compact_family_branch_operator_status": (
+            "OPEN_COMPACT_REAL_FORM_AND_FAMILY_OPERATOR_BINDING"
+        ),
         "binary_to_three_carrier_status": (
             "SYM2_TWO_TO_THREE_CARRIER_CLOSED"
             if passed
@@ -1289,7 +1333,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__BRANCH_OPERATOR_RHYTHM_AND_REALFORM_SELECTION_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__RHYTHM_AND_COMPACT_FAMILY_MAP_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -1407,6 +1451,8 @@ def main() -> None:
             "temporal_family_intertwiner": intertwiner_residual,
             "oriented_temporal_generator": oriented_generator_residual,
             "forward_inverse_generator_separation": inverse_generator_separation,
+            "sym2_branch_homomorphism": sym2_homomorphism_residual,
+            "split_branch_noncommutativity": split_branch_noncommutativity,
             "anchor": anchor_residual,
             "family_lie_structure": residual_family,
             "temporal_pullback_lie_structure": residual_temporal,
@@ -1455,6 +1501,17 @@ def main() -> None:
             "commutator_span_dimension": 3,
             "lie_closure_dimension": 8,
             "physical_family_dynamics_selector": "OPEN",
+        },
+        "branch_operator_rhythm_audit": {
+            "split_real_E_operator": RE.tolist(),
+            "split_real_O_operator": RO.tolist(),
+            "sym2_homomorphism_residual": sym2_homomorphism_residual,
+            "branch_operator_noncommutativity_residual": split_branch_noncommutativity,
+            "split_real_branch_operator": "CLOSED",
+            "compact_family_branch_operator": "OPEN",
+            "legacy_bounded_rhythm_eta": 0.35,
+            "legacy_bounded_rhythm_classification": "MODEL_CHOICE_NOT_PROMOTED",
+            "exact_rho_s": "OPEN_DERIVATION_DEBT",
         },
         "collatz_poincare_three_carrier_audit": {
             "input_carrier_dimension": 2,
@@ -1517,6 +1574,9 @@ def main() -> None:
             "sym2_two_to_three_is_representation_carrier_not_physical_xyz_claim": True,
             "split_real_three_carrier_is_not_identified_directly_with_SU3F": True,
             "compact_real_form_bridge_availability_is_not_dynamical_selection": True,
+            "branch_symbol_to_split_real_operator_is_closed_but_not_physical_family_map": True,
+            "legacy_eta_0_35_rhythm_is_model_choice_not_current_input": True,
+            "exact_rho_s_remains_open": True,
             "spin1_compact_subgroup_alone_cannot_supply_nonzero_CP": True,
             "five_dimensional_complement_is_lie_tangent_not_five_physical_spatial_dimensions": True,
             "a5_icosahedral_five_carrier_is_not_equated_with_su3f_without_dynamics": True,
