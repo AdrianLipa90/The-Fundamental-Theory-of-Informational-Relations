@@ -556,8 +556,45 @@ def main() -> None:
         dtype=complex,
     )
 
+    # The C3 label basis and its character eigenbasis form two exact
+    # projective frames with overlap matrix F3.
+    label_frame = [
+        np.array([1.0, 0.0, 0.0], dtype=complex),
+        np.array([0.0, 1.0, 0.0], dtype=complex),
+        np.array([0.0, 0.0, 1.0], dtype=complex),
+    ]
+    character_frame = [F3[:, j] for j in range(3)]
+    F3_overlap = np.array(
+        [[np.vdot(s, chi) for chi in character_frame] for s in label_frame],
+        dtype=complex,
+    )
+    f3_overlap_residual = float(np.max(np.abs(F3_overlap - F3)))
+
+    f3_plaquette = (
+        F3_overlap[0, 0]
+        * np.conj(F3_overlap[1, 0])
+        * F3_overlap[1, 1]
+        * np.conj(F3_overlap[0, 1])
+    )
+    f3_bargmann = (
+        np.vdot(label_frame[0], character_frame[0])
+        * np.vdot(character_frame[0], label_frame[1])
+        * np.vdot(label_frame[1], character_frame[1])
+        * np.vdot(character_frame[1], label_frame[0])
+    )
+    f3_bargmann_residual = abs(f3_plaquette - f3_bargmann)
+    f3_bargmann_phase = math.atan2(
+        float(np.imag(f3_bargmann)),
+        float(np.real(f3_bargmann)),
+    )
+    f3_bargmann_phase_expected = 2.0 * math.pi / 3.0
+    f3_bargmann_phase_residual = abs(
+        f3_bargmann_phase - f3_bargmann_phase_expected
+    )
+
     J = jarlskog(F3)
     J_exact = 1.0 / (6.0 * math.sqrt(3.0))
+    f3_plaquette_j_residual = abs(float(np.imag(f3_plaquette)) - J_exact)
 
     # Stage-42 family Lie closure and its pullback through M_tf.
     D_family = np.diag(
@@ -1683,6 +1720,18 @@ def main() -> None:
         "temporal_family_six_state_intertwining": (
             six_state_intertwiner_residual < TOL
         ),
+        "c3_label_character_overlap_matrix_is_f3": (
+            f3_overlap_residual < TOL
+        ),
+        "f3_plaquette_equals_bargmann_quadrilateral": (
+            f3_bargmann_residual < TOL
+        ),
+        "f3_bargmann_phase_is_two_pi_over_three": (
+            f3_bargmann_phase_residual < TOL
+        ),
+        "f3_jarlskog_is_imaginary_part_of_bargmann_plaquette": (
+            f3_plaquette_j_residual < TOL
+        ),
         "shared_character_jarlskog_exact": abs(J - J_exact) < TOL,
         "family_stage42_lie_dimension_is_eight": dim_family == 8,
         "pulled_temporal_lie_dimension_is_eight": dim_temporal == 8,
@@ -1829,7 +1878,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_SEPARABLE_AND_EQUATORIAL_BARGMANN_CP_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_NONSEPARABLE_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_PROJECTIVE_FRAMES_CLOSED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_PHYSICAL_SECTOR_FRAME_BRANCH_MAP_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -1867,8 +1916,18 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "c3_projective_frame_status": (
+            "C3_LABEL_AND_CHARACTER_PROJECTIVE_FRAMES_CURRENT_EXACT"
+            if passed
+            else "FAILED"
+        ),
+        "f3_bargmann_cp_status": (
+            "F3_NONZERO_BARGMANN_PLAQUETTE_AND_JARLSKOG_CURRENT_EXACT"
+            if passed
+            else "FAILED"
+        ),
         "projective_holonomy_source_status": (
-            "OVERLAP_REALIZATION_CONDITIONAL__SOURCE_STATES_NOT_YET_DERIVED"
+            "REPRESENTATION_LEVEL_C3_FRAMES_DERIVED__PHYSICAL_SECTOR_FRAME_BINDING_OPEN"
         ),
         "scalar_qc_cp_status": (
             "SCALAR_VERTEX_QC_PHASE_DIFFERENCE_CP_NO_GO"
@@ -2014,6 +2073,10 @@ def main() -> None:
             "generic_axis_weyl_flip": axis_weyl_flip_residual,
             "chirality_weak_intertwiner": chirality_weak_intertwiner_residual,
             "six_weak_intertwiner": six_weak_intertwiner_residual,
+            "c3_label_character_overlap_f3": f3_overlap_residual,
+            "f3_bargmann_identity": f3_bargmann_residual,
+            "f3_bargmann_phase": f3_bargmann_phase_residual,
+            "f3_plaquette_jarlskog": f3_plaquette_j_residual,
             "jarlskog_exact": abs(J - J_exact),
         },
         "stationary_cubic_selector_audit": {
@@ -2074,6 +2137,25 @@ def main() -> None:
                 "state_dependent_map",
                 "complexification_plus_additional_dynamics",
             ],
+        },
+        "c3_character_bargmann_audit": {
+            "label_frame": "ordered Stage22 family-seed basis",
+            "character_frame": "F3 C3 eigenbasis",
+            "overlap_matrix": "F3",
+            "overlap_matrix_residual": f3_overlap_residual,
+            "selected_plaquette": [0, 1, 0, 1],
+            "plaquette": {
+                "real": float(np.real(f3_plaquette)),
+                "imag": float(np.imag(f3_plaquette)),
+            },
+            "bargmann_identity_residual": f3_bargmann_residual,
+            "bargmann_phase_rad": f3_bargmann_phase,
+            "bargmann_phase_exact": "2*pi/3",
+            "phase_residual": f3_bargmann_phase_residual,
+            "J_F3": J,
+            "J_exact": "1/(6*sqrt(3))",
+            "plaquette_imaginary_part_equals_J_residual": f3_plaquette_j_residual,
+            "physical_up_down_sector_frame_binding": "OPEN",
         },
         "overlap_bargmann_audit": {
             "condition": "W_ij = <u_i|d_j>",
@@ -2249,7 +2331,9 @@ def main() -> None:
             "nonzero_hexahedral_bargmann_phase_is_not_reassigned_to_family_sector": True,
             "bargmann_quadrilateral_identity_is_conditional_on_overlap_realization": True,
             "gremlin_xfi02_candidate_is_not_promoted_by_this_crosswalk": True,
-            "projective_overlap_geometry_does_not_derive_family_frames_by_itself": True,
+            "generic_projective_overlap_geometry_does_not_derive_physical_sector_frames_by_itself": True,
+            "c3_representation_does_derive_label_and_character_projective_frames": True,
+            "c3_label_character_frames_are_not_yet_physical_up_down_sector_eigenframes": True,
             "additional_nonseparable_or_non_equatorial_structure_required_for_cp": True,
             "no_nontrivial_continuous_real_lie_homomorphism_psl2r_to_su3f": True,
             "stage52_complexification_bridge_is_not_a_direct_real_form_homomorphism": True,
