@@ -956,11 +956,15 @@ def main() -> None:
             archive_csv_has_stale_up_quark_id
             or archive_csv_has_corrected_up_quark_id
         ),
-        "legacy_generated_csv_pinned_blob_has_stale_up_quark_id": (
+        "legacy_generated_csv_pinned_blob_has_corrected_up_quark_ids": (
             archive_projection_csv_blob == "3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1"
-            and archive_csv_has_stale_up_quark_id
-            and not archive_csv_has_corrected_up_quark_id
-            and archive_csv_state == "STALE_UP_QUARK_PARTICLE_ID"
+            and archive_projection_csv_tree_blob
+            == "3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1"
+            and archive_projection_csv_worktree_matches_object
+            and archive_csv_up_quark_particle_ids == ["u_L", "u_R"]
+            and archive_csv_has_corrected_up_quark_id
+            and not archive_csv_has_stale_up_quark_id
+            and archive_csv_state == "CORRECTED_UP_QUARK_PARTICLE_ID"
         ),
         "legacy_axis_v18_declares_universal_weak_axis_ansatz": (
             "The weak doublet uses one universal weak-isospin axis." in archive_axis_v18
