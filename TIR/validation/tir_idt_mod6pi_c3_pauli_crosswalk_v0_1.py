@@ -240,6 +240,14 @@ def main() -> None:
         ROOT
         / "TIR/foundations/TIR_COEFFICIENT_COCYCLE_POTENTIAL_REDUCTION_V0_4.md"
     ).read_text(encoding="utf-8")
+    coefficient_orientation = (
+        ROOT
+        / "TIR/foundations/TIR_COEFFICIENT_ROLE_ORIENTATION_FORCING_V0_1.md"
+    ).read_text(encoding="utf-8")
+    sm_reconciliation = (
+        ROOT
+        / "TIR/standard_model/TIR_SM_RECONCILIATION_LEDGER_V0_1.md"
+    ).read_text(encoding="utf-8")
     collatz_fs_phase_interface = (
         ROOT
         / "TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md"
@@ -1448,6 +1456,32 @@ def main() -> None:
             stage39_J_sign_flip_residual < 1.0e-12
             and stage39_abs_transpose_residual < 1.0e-12
         ),
+        "stage39_explicitly_retains_both_assignments_without_target_selection": (
+            "Both sector assignments are retained" in stage39
+            and "No assignment is selected by comparison to a target matrix."
+            in stage39
+        ),
+        "coefficient_orientation_theorem_does_not_define_stage39_alpha_assignment": (
+            "EXACT_ROLE_AND_SIGN_FORCING_THEOREM_CANDIDATE"
+            in coefficient_orientation
+            and "alpha_u" not in coefficient_orientation
+            and "alpha_d" not in coefficient_orientation
+            and "R_a\\leftrightarrow a" in coefficient_orientation
+            and "R_b\\leftrightarrow b" in coefficient_orientation
+            and "R_c\\leftrightarrow c" in coefficient_orientation
+        ),
+        "qc_bc_orientation_binding_remains_open_not_sector_assignment": (
+            "q_phase_to_b_c_orientation_binding = OPEN" in cocycle_phase
+            and "fixed_linear_q_to_Z4_coefficient_map = IMPOSSIBLE"
+            in cocycle_phase
+        ),
+        "sm_ledger_declares_full_ckm_holonomic_orientation_binding_as_next_closure": (
+            "bind the full CKM matrix to the same coefficient-free holonomic/orientation forcing theorem"
+            in sm_reconciliation
+        ),
+        "stage40_does_not_select_assignment_by_fit": (
+            "No assignment is selected by fit." in stage40
+        ),
         "stage40_full_ckm_shape_fail_mechanism_retained_present": (
             "STAGE_40_FULL_CKM_SHAPE_FAIL__MECHANISM_RETAINED" in stage40
             and "No assignment is selected by fit." in stage40
@@ -1948,7 +1982,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_PHYSICAL_ASSIGNMENT_BRANCH_MAP_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__RHO_BINDING_AND_COEFFICIENT_FREE_HOLONOMIC_ASSIGNMENT_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2008,6 +2042,15 @@ def main() -> None:
         ),
         "physical_sector_assignment_status": (
             "OPEN_STAGE39_A_B_ASSIGNMENT_NOT_SELECTED"
+        ),
+        "coefficient_orientation_sector_assignment_status": (
+            "COEFFICIENT_ORIENTATION_DOES_NOT_YET_SELECT_STAGE39_SECTOR_ASSIGNMENT"
+        ),
+        "cp_sign_selection_firewall": (
+            "OBSERVED_CP_SIGN_SELECTION_FORBIDDEN_AS_TARGET_LEAKAGE"
+        ),
+        "ckm_closure_status": (
+            "OPEN_COEFFICIENT_FREE_HOLONOMIC_SECTOR_ASSIGNMENT_THEOREM"
         ),
         "ckm_quantitative_status": (
             "STAGE40_FULL_CKM_SHAPE_FAIL_RETAINED"
@@ -2227,6 +2270,20 @@ def main() -> None:
                 "state_dependent_map",
                 "complexification_plus_additional_dynamics",
             ],
+        },
+        "sector_assignment_provenance_audit": {
+            "stage39_assignments": {
+                "A": {"alpha_u": "2/7", "alpha_d": "2/9"},
+                "B": {"alpha_u": "2/9", "alpha_d": "2/7"},
+            },
+            "assignment_selected_by_stage39": False,
+            "assignment_selected_by_stage40_fit": False,
+            "coefficient_role_orientation_theorem_defines_alpha_u_alpha_d_map": False,
+            "qc_phase_bc_sign_binding": "OPEN",
+            "observed_J_sign_allowed_as_assignment_selector": False,
+            "next_closure_from_sm_ledger": (
+                "coefficient-free holonomic/orientation binding of full CKM"
+            ),
         },
         "stage39_sector_frame_audit": {
             "endpoint_ratios": {"a": "2/7", "b": "2/9"},
@@ -2452,6 +2509,10 @@ def main() -> None:
             "c3_label_character_frames_are_not_by_themselves_physical_up_down_sector_eigenframes": True,
             "stage39_does_supply_two_structural_sector_eigenframes_without_target_fit": True,
             "stage39_physical_up_down_assignment_remains_open": True,
+            "coefficient_role_sign_forcing_is_not_stage39_sector_assignment": True,
+            "qc_bc_orientation_sign_correlation_is_not_alpha_u_alpha_d_map": True,
+            "observed_ckm_j_sign_must_not_select_stage39_assignment": True,
+            "sector_assignment_requires_coefficient_free_holonomic_source_theorem": True,
             "stage40_full_ckm_shape_failure_blocks_quantitative_promotion": True,
             "additional_nonseparable_or_non_equatorial_structure_required_for_cp": True,
             "no_nontrivial_continuous_real_lie_homomorphism_psl2r_to_su3f": True,
