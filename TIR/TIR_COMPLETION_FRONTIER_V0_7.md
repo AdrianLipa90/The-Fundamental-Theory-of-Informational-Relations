@@ -1834,3 +1834,37 @@ The terminal forward/reverse loop classes have conjugate nonreal traces and form
 `TERMINAL_FORWARD_REVERSE_PAIR_IDENTIFIED_AS_ONE_OFF_FIXED_LOCUS_QUOTIENT_POINT`.
 
 No physical CP identification is made.
+
+### Appendix BC update — outer fixed classes equal the spin-one/(SO(3)) class locus
+
+For (U\in SU(3)),
+
+\[
+\det(U-I)=2i\,\operatorname{Im}\operatorname{tr}U.
+\]
+
+Hence a class is fixed by outer conjugation exactly when it has eigenvalue (1), equivalently when it is conjugate to a real (SO(3)) rotation with spectrum
+
+\[
+\{1,e^{i\theta},e^{-i\theta}\}.
+\]
+
+Status:
+
+`OUTER_FIXED_CLASS_LOCUS_EQUALS_CONJUGATE_SPIN1_SO3_CLASS_LOCUS`.
+
+Stage 55 supplies the corresponding symmetric-pair split
+
+\[
+\mathfrak{su}(3)=\mathfrak{so}(3)\oplus\mathfrak p,
+\qquad
+3+5=8.
+\]
+
+`OUTER_INVOLUTION_LIE_SPLIT_SU3_EQUALS_SO3_PLUS_FIVE_COMPLEMENT`.
+
+The terminal loop has nonreal trace and no unit eigenvalue, so it lies off the fixed class locus and necessarily uses complement directions:
+
+`TERMINAL_OFF_FIXED_CLASS_REQUIRES_SU3_OVER_SO3_COMPLEMENT_DIRECTIONS`.
+
+No physical CP identification is made.
