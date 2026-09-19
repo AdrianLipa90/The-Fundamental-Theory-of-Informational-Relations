@@ -1646,3 +1646,23 @@ Status:
 `ORIENTATION_REVERSAL_NOT_REMOVABLE_BY_INNER_SU3_CONJUGATION`.
 
 This remains a group-theoretic orientation result, not a physical CP identification.
+
+### Appendix AV update — regular rank-two terminal \(SU(3)\) class
+
+The terminal Collatz holonomy has three distinct eigenvalues with principal phases
+
+\[
+(-0.8284975357488278,\ 0.2744955841537180,\ 0.5540019515951092),
+\]
+
+and is therefore a regular \(SU(3)\) element.
+
+Status:
+
+`TERMINAL_LOOP_REGULAR_SU3_CONJUGACY_CLASS`
+
+`TERMINAL_LOOP_CENTRALIZER_IS_MAXIMAL_TORUS_U1_X_U1`
+
+`TERMINAL_LOOP_SUPPLIES_TWO_INDEPENDENT_CARTAN_EIGENPHASE_COORDINATES`.
+
+These remain structural loop invariants, not physical mixing parameters.
