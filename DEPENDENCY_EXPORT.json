@@ -212,7 +212,7 @@
     {
       "claim_id": "TIR.SPACETIME.PHYSICAL_REALIZATION_BUNDLE_V02",
       "status": "EXECUTABLE_SOURCE_BUNDLE_CERTIFIER / SAME_PHYSICAL_REALIZATION_AND_RECEIPT_GATE / SPATIAL_AND_MATCHING_PRODUCTION_CAPTURES_OPEN / CANON_ALLOWED_FALSE",
-      "source_path": "TIR/foundations/validation/tir_production_realization_binding_v0_2.py",
+      "source_path": "TIR/foundations/TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2.md",
       "evidence_class": "source_executable_contract_status"
     }
   ],
