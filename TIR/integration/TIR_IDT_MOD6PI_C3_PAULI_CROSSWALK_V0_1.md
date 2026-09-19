@@ -4448,3 +4448,87 @@ This is precisely upstream of the already-known compact endpoint (SU(3)_F).
 Current frontier:
 
 `CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__FAMILY_WIJ_PATH_SOURCE_AND_RHO_BINDING_OPEN`.
+
+---
+
+## Appendix AA — NEW 2026-09-19 — Stage-24 orientation plus Stage-66 stationary selector
+
+### AA.1 Independent parents
+
+Stage 24 fixes the oriented representation-level cycle
+
+\[
+s_1\to s_2\to s_3\to s_1.
+\]
+
+Stage 66 independently derives the unique negative constrained-Hessian mode of the frozen stationary cubic selector and finds
+
+\[
+\boxed{
+v_-\parallel P_3A_{seed}P_3^T.
+}
+\]
+
+The (C_3) orbit of the symmetric seed-incidence direction is
+
+```text
+A0 = A_seed                 -> 12 channel
+A1 = P3 A_seed P3^T        -> 23 channel
+A2 = P3^2 A_seed (P3^T)^2  -> 13 channel
+```
+
+so the unique selected stationary tangent is the (23) channel.
+
+### AA.2 Directed representation-level tangent
+
+The Stage-66 tangent itself is symmetric and therefore does not carry an arrow.
+
+Combining it with the independently frozen Stage-24 cycle orientation selects the representation-level directed edge
+
+\[
+\boxed{s_2\to s_3.}
+\]
+
+Status:
+
+`STAGE24_ORIENTATION_PLUS_STAGE66_SELECTS_DIRECTED_2_TO_3_TANGENT_AT_REPRESENTATION_LEVEL`.
+
+### AA.3 What this closes
+
+This removes another arbitrary choice inside the family carrier:
+
+```text
+three C3-related symmetric tangent channels
+    -> unique Stage66 negative channel 23
+
+orientation of C3 cycle
+    -> Stage24 direction 2 -> 3
+```
+
+Neither observed CKM data nor masses enter either parent.
+
+### AA.4 Remaining dynamical gate
+
+This result does not yet identify a Collatz branch symbol with the selected family tangent and does not derive the exact Hamiltonian rhythm \\(\rho_s(k)\\).
+
+Thus the remaining map is
+
+\[
+\boxed{
+\{E,O\}\text{ branch data}
+\longrightarrow
+\text{directed family generator / step operator}
+\longrightarrow
+\rho_s(k)\text{-weighted ordered propagator}.
+}
+\]
+
+Status:
+
+`OPEN_COLLATZ_BRANCH_TO_DIRECTED_FAMILY_GENERATOR_AND_EXACT_RHO_BINDING`.
+
+The directed (2\to3) tangent is also not an up/down-sector assignment and therefore does not select Stage-39 A versus B.
+
+Current frontier:
+
+`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__COLLATZ_BRANCH_OPERATOR_AND_RHO_BINDING_OPEN`.
