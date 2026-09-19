@@ -88,6 +88,16 @@ def jarlskog(V: np.ndarray) -> float:
 
 
 def main() -> None:
+    stage15 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE15_EXCEPTIONAL_SM_SUBALGEBRA_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage16 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE16_EXCEPTIONAL_HYPERCHARGE_MATCH_V0_1.md"
+    ).read_text(encoding="utf-8")
     stage22 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
@@ -243,7 +253,22 @@ def main() -> None:
         [D_temporal, C_temporal]
     )
 
+    family_dimension = len(set(temporal_orbit))
+    weak_doublet_dimension = 2
+    family_x_weak_dimension = family_dimension * weak_doublet_dimension
+
     checks = {
+        "stage15_sm_subalgebra_parent_pass_present": (
+            "STAGE_15_PURE_LIE_ALGEBRA_PASS" in stage15
+            and "su}(2)" in stage15
+        ),
+        "stage16_hypercharge_representation_parent_pass_present": (
+            "STAGE_16_EXACT_HYPERCHARGE_REPRESENTATION_PASS" in stage16
+        ),
+        "stage16_explicit_two_state_lepton_doublet_multiplicity": (
+            "Y = -1/2   multiplicity 2" in stage16
+            and "L   : 2 states, Y = -1/2" in stage16
+        ),
         "stage22_active_order_is_frozen": all(
             token in stage22
             for token in (
@@ -322,6 +347,8 @@ def main() -> None:
         "family_transitive_orbit_has_three_labels": (
             len(set(family_orbit)) == 3
         ),
+        "weak_doublet_dimension_is_two": weak_doublet_dimension == 2,
+        "family_x_weak_dimension_is_six": family_x_weak_dimension == 6,
         "c3_and_z2_actions_commute": bool(
             np.allclose(
                 P6_temporal @ Z2_temporal,
@@ -411,12 +438,24 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
-        "six_quark_flavour_status": (
+        "weak_family_cardinality": (
+            "DIMENSION_3_X_2_EQUALS_6_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"
+            if passed
+            else "NOT_ESTABLISHED"
+        ),
+        "six_quark_flavour_cardinality": (
+            "CONDITIONAL_LABEL_COUNT_SIX_NOT_FULL_PHYSICAL_SPECTRUM_DERIVATION"
+            if passed
+            else "NOT_ESTABLISHED"
+        ),
+        "six_cycle_physical_flavour_operator": (
             "OPEN_REQUIRES_CHIRALITY_Z2_TO_WEAK_ISOSPIN_DOUBLET_BINDING"
         ),
         "physical_sector_binding": "OPEN",
         "idt_parent": "02JN periodic P4 endpoint quotient at N=3",
         "tir_pauli_parent": "TIR_RELATIONAL_GENERATOR_SPACE_V0_1",
+        "tir_weak_subalgebra_parent": "TIR_POLYGONAL_STAGE15_EXCEPTIONAL_SM_SUBALGEBRA_V0_1",
+        "tir_hypercharge_representation_parent": "TIR_POLYGONAL_STAGE16_EXCEPTIONAL_HYPERCHARGE_MATCH_V0_1",
         "tir_family_order_parent": "TIR_POLYGONAL_STAGE22_SEED_PRECEDENCE_V0_1",
         "tir_chirality_parent": "TIR_POLYGONAL_STAGE23_CHIRALITY_INTERTWINER_V0_1",
         "tir_family_cycle_parent": "TIR_POLYGONAL_STAGE24_TIR_SEED_CHIRALITY_E8_INTERTWINER_V0_1",
@@ -437,6 +476,12 @@ def main() -> None:
             "family": len(set(family_orbit)),
             "family_x_chirality": len(set(six_state_orbit)),
         },
+        "carrier_dimensions": {
+            "family": family_dimension,
+            "weak_doublet": weak_doublet_dimension,
+            "family_x_weak": family_x_weak_dimension,
+            "family_x_chirality": len(set(six_state_orbit)),
+        },
         "lie_dimensions": {
             "family": dim_family,
             "temporal_pullback": dim_temporal,
@@ -449,8 +494,9 @@ def main() -> None:
             "physical_ckm_assignment": "OPEN",
             "physical_pmns_assignment": "OPEN",
             "family_count_is_conditional_on_sector_binding": True,
-            "six_state_family_x_chirality_is_not_yet_six_quark_flavours": True,
-            "required_next_gate": "CHIRALITY_Z2_TO_WEAK_ISOSPIN_DOUBLET_BINDING",
+            "six_state_family_x_chirality_is_not_yet_the_physical_flavour_operator": True,
+            "six_weak_family_component_count_is_conditional_on_family_binding": True,
+            "required_next_gate_for_operator_identity": "CHIRALITY_Z2_TO_WEAK_ISOSPIN_DOUBLET_BINDING",
         },
     }
     print(json.dumps(payload, indent=2, sort_keys=True))
