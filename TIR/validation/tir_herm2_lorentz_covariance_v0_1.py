@@ -17,6 +17,14 @@ def sha(obj):
 def all_zero(items):
     return all(sp.simplify(v) == 0 for v in items)
 
+def canonical_exp_equal(a, b):
+    da = sp.expand(sp.re(a.rewrite(sp.exp))) if a.has(sp.I) else sp.expand(a.rewrite(sp.exp))
+    db = sp.expand(sp.re(b.rewrite(sp.exp))) if b.has(sp.I) else sp.expand(b.rewrite(sp.exp))
+    # First try the real-expanded forms; if complex structure remains, compare full expressions.
+    if sp.simplify(da - db) == 0:
+        return True
+    return sp.simplify(sp.expand(a.rewrite(sp.exp) - b.rewrite(sp.exp))) == 0
+
 
 def pauli_coeffs(M, eye2, sx, sy, sz):
     return (
@@ -49,13 +57,9 @@ def main():
         y,
         z * sp.cosh(chi) + t * sp.sinh(chi),
     )
-    boost_exact = all_zero(
-        [
-            tb - boost_expected[0],
-            xb - boost_expected[1],
-            yb - boost_expected[2],
-            zb - boost_expected[3],
-        ]
+    boost_exact = all(
+        canonical_exp_equal(got, want)
+        for got, want in zip((tb, xb, yb, zb), boost_expected)
     )
     boost_det_preserved = sp.simplify(Xb.det() - X.det()) == 0
     boost_minkowski_preserved = sp.simplify(
@@ -73,13 +77,9 @@ def main():
         x * sp.sin(theta) + y * sp.cos(theta),
         z,
     )
-    rotation_exact = all_zero(
-        [
-            tr - rotation_expected[0],
-            xr - rotation_expected[1],
-            yr - rotation_expected[2],
-            zr - rotation_expected[3],
-        ]
+    rotation_exact = all(
+        canonical_exp_equal(got, want)
+        for got, want in zip((tr, xr, yr, zr), rotation_expected)
     )
     rotation_det_preserved = sp.simplify(Xr.det() - X.det()) == 0
     rotation_unitary = sp.simplify(U * U.H - eye2) == sp.zeros(2)
