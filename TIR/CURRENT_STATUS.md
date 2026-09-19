@@ -1045,3 +1045,22 @@ The remaining branch-wise compact map must be non-polar and composition-preservi
 Frontier:
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__CANONICAL_POLAR_LIFT_REFUTED__RHO_BINDING_AND_NONPOLAR_COMPACT_LIFT_OPEN\`.
+
+
+### Appendix R update — complex holonomy exists, clean branch source map open
+
+Stage 35 gives noncommuting real family operators but \(J=0\).
+
+Stage 36 proves that a coefficient-free complex open-holonomy lift can produce a nonzero rephasing-invariant CP measure in \(SU(3)_F\), but its heavy-family source rows remain quarantined.
+
+Status:
+
+\`NONPOLAR_COMPLEX_HOLONOMY_CP_MECHANISM_EXISTS_SOURCE_QUARANTINED\`.
+
+No current source binds the exact Collatz/Poincare branch operators directly to the clean complex family holonomy.
+
+Remaining gate:
+
+\`OPEN_CLEAN_COLLATZ_POINCARE_TO_COMPLEX_FAMILY_HOLONOMY_SOURCE_MAP\`.
+
+Stage-40 full-CKM-shape failure is retained; no retuning is performed.
