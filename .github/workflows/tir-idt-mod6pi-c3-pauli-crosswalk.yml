@@ -44,6 +44,8 @@ jobs:
           grep -Fq '"flavour_cardinality_result": "N_F_EQUALS_3_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"cp_character_transfer": "F3_JARLSKOG_MATH_TRANSFER_CLOSED_PHYSICAL_CP_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"su3f_transfer": "LIE_DIMENSION_8_PRESERVED_UNDER_ORDERED_INTERTWINER"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_state_product_binding": "C3_X_CHIRALITY_Z2_SIX_STATE_INTERTWINER_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"six_quark_flavour_status": "OPEN_REQUIRES_CHIRALITY_Z2_TO_WEAK_ISOSPIN_DOUBLET_BINDING"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"physical_sector_binding": "OPEN"' mod6pi-c3-pauli-receipt.json
 
       - name: Upload receipt
