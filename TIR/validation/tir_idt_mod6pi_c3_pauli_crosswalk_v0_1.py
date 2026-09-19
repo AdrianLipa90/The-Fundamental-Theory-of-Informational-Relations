@@ -1120,6 +1120,78 @@ def main() -> None:
         )
     )
 
+    # Rank-two Cartan plane of the compact symmetric space SU(3)/SO(3).
+    # The family zero-sum plane x1+x2+x3=0 maps explicitly to diagonal
+    # real-symmetric traceless Hermitian matrices H(x)=diag(x).
+    su3so3_cartan_basis = [
+        np.diag(d3_plane_basis[:, j]).astype(complex)
+        for j in range(2)
+    ]
+    su3so3_cartan_gram = np.array(
+        [
+            [
+                float(np.real(np.trace(A.conj().T @ B)))
+                for B in su3so3_cartan_basis
+            ]
+            for A in su3so3_cartan_basis
+        ],
+        dtype=float,
+    )
+    su3so3_cartan_orthonormal_residual = float(
+        np.max(np.abs(su3so3_cartan_gram - np.eye(2)))
+    )
+    su3so3_cartan_commutator_residual = float(
+        np.max(
+            np.abs(
+                su3so3_cartan_basis[0] @ su3so3_cartan_basis[1]
+                - su3so3_cartan_basis[1] @ su3so3_cartan_basis[0]
+            )
+        )
+    )
+
+    def cartan_action_coeffs(M: np.ndarray) -> np.ndarray:
+        out = np.zeros((2, 2), dtype=float)
+        Mr = np.real(M)
+        for j, H in enumerate(su3so3_cartan_basis):
+            Ht = Mr @ H @ Mr.T
+            for i, B in enumerate(su3so3_cartan_basis):
+                out[i, j] = float(np.real(np.trace(B.conj().T @ Ht)))
+        return out
+
+    P_cartan_plane = cartan_action_coeffs(P_family)
+    R_cartan_plane = cartan_action_coeffs(R_orient)
+    family_to_cartan_P_intertwiner_residual = float(
+        np.max(np.abs(P_cartan_plane - P_d3_plane))
+    )
+    family_to_cartan_R_intertwiner_residual = float(
+        np.max(np.abs(R_cartan_plane - R_d3_plane))
+    )
+
+    e1_root = np.array([1.0, 0.0, 0.0])
+    e2_root = np.array([0.0, 1.0, 0.0])
+    e3_root = np.array([0.0, 0.0, 1.0])
+    alpha12 = d3_plane_basis.T @ (e1_root - e2_root)
+    alpha23 = d3_plane_basis.T @ (e2_root - e3_root)
+    alpha13 = d3_plane_basis.T @ (e1_root - e3_root)
+    a2_root_sum_residual = float(
+        np.max(np.abs(alpha12 + alpha23 - alpha13))
+    )
+    a2_root_norm_residual = max(
+        abs(float(alpha12 @ alpha12) - 2.0),
+        abs(float(alpha23 @ alpha23) - 2.0),
+        abs(float(alpha13 @ alpha13) - 2.0),
+    )
+    a2_cartan_offdiag_12_23 = (
+        2.0 * float(alpha12 @ alpha23) / float(alpha23 @ alpha23)
+    )
+    a2_cartan_offdiag_23_12 = (
+        2.0 * float(alpha23 @ alpha12) / float(alpha12 @ alpha12)
+    )
+    a2_cartan_matrix_residual = max(
+        abs(a2_cartan_offdiag_12_23 + 1.0),
+        abs(a2_cartan_offdiag_23_12 + 1.0),
+    )
+
     # Six-state C6 character spectrum from C3 x Z2.
     F2 = np.array(
         [[1.0, 1.0], [1.0, -1.0]],
@@ -2995,6 +3067,25 @@ def main() -> None:
             f3_nontrivial_character_conjugacy_residual < TOL
             and f3_character_plane_projector_residual < TOL
         ),
+        "su3_so3_cartan_plane_is_two_dimensional_orthonormal_abelian": (
+            su3so3_cartan_orthonormal_residual < TOL
+            and su3so3_cartan_commutator_residual < TOL
+        ),
+        "family_standard_plane_intertwines_with_su3_so3_cartan_plane": (
+            family_to_cartan_P_intertwiner_residual < TOL
+            and family_to_cartan_R_intertwiner_residual < TOL
+        ),
+        "su3_so3_restricted_roots_form_A2": (
+            a2_root_sum_residual < TOL
+            and a2_root_norm_residual < TOL
+            and a2_cartan_matrix_residual < TOL
+        ),
+        "su3_so3_restricted_weyl_group_matches_d3_s3_action": (
+            d3_unique_element_count == 6
+            and d3_plane_dihedral_relation_residual < TOL
+            and family_to_cartan_P_intertwiner_residual < TOL
+            and family_to_cartan_R_intertwiner_residual < TOL
+        ),
         "tensor_character_basis_diagonalizes_six_state_c6": (
             G6_character_offdiag_residual < TOL
         ),
@@ -3748,6 +3839,26 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "su3_so3_rank_status": (
+            "SU3_SO3_SYMMETRIC_SPACE_RANK_TWO"
+            if passed
+            else "FAILED"
+        ),
+        "su3_so3_restricted_root_status": (
+            "SU3_SO3_RESTRICTED_ROOT_SYSTEM_A2"
+            if passed
+            else "FAILED"
+        ),
+        "su3_so3_weyl_status": (
+            "SU3_SO3_RESTRICTED_WEYL_GROUP_D3_ISOMORPHIC_S3"
+            if passed
+            else "FAILED"
+        ),
+        "family_cartan_plane_intertwiner_status": (
+            "FAMILY_STANDARD_TWO_PLANE_INTERTWINES_SU3_SO3_RANK2_CARTAN_PLANE"
+            if passed
+            else "FAILED"
+        ),
         "six_state_c6_character_spectrum_status": (
             "WEAK_FAMILY_C6_REGULAR_CHARACTER_SPECTRUM_ALL_SIXTH_ROOTS_EXACT"
             if passed
@@ -3818,6 +3929,13 @@ def main() -> None:
             "d3_plane_order3": d3_plane_rotation_order3_residual,
             "d3_plane_reflection": d3_plane_reflection_involution_residual,
             "f3_character_plane_projector": f3_character_plane_projector_residual,
+            "su3_so3_cartan_orthonormal": su3so3_cartan_orthonormal_residual,
+            "su3_so3_cartan_commutator": su3so3_cartan_commutator_residual,
+            "family_cartan_P_intertwiner": family_to_cartan_P_intertwiner_residual,
+            "family_cartan_R_intertwiner": family_to_cartan_R_intertwiner_residual,
+            "su3_so3_A2_root_sum": a2_root_sum_residual,
+            "su3_so3_A2_root_norm": a2_root_norm_residual,
+            "su3_so3_A2_cartan_matrix": a2_cartan_matrix_residual,
             "six_state_c6_character_offdiag": G6_character_offdiag_residual,
             "six_state_c6_sixth_root_match": G6_sixth_root_match_residual,
             "six_state_c6_conjugate_pair": G6_conjugate_pair_residual,
@@ -4431,6 +4549,26 @@ def main() -> None:
             ),
             "physical_spatial_dimension_claimed": False,
         },
+        "su3_so3_rank2_weyl_audit": {
+            "symmetric_space": "SU(3)/SO(3)",
+            "rank": 2,
+            "cartan_plane_condition": "x1+x2+x3=0",
+            "cartan_basis_vectors": d3_plane_basis.T.tolist(),
+            "cartan_gram": su3so3_cartan_gram.tolist(),
+            "cartan_commutator_residual": su3so3_cartan_commutator_residual,
+            "P3_action_residual": family_to_cartan_P_intertwiner_residual,
+            "reflection_action_residual": family_to_cartan_R_intertwiner_residual,
+            "restricted_roots": {
+                "alpha12": alpha12.tolist(),
+                "alpha23": alpha23.tolist(),
+                "alpha13": alpha13.tolist(),
+            },
+            "restricted_root_system": "A2",
+            "restricted_weyl_group": "D3 ~= S3",
+            "family_permutation_rep": "1 + 2",
+            "standard_two_plane_identified_with_rank2_cartan_plane": True,
+            "physical_spatial_axis_claimed": False,
+        },
         "sixfold_group_structure_audit": {
             "family_generator": "P3",
             "orientation_reflection_matrix": np.real(R_orient).astype(int).tolist(),
@@ -4533,6 +4671,9 @@ def main() -> None:
             "c6_and_d3_both_have_six_elements_but_are_not_identified": True,
             "twelve_element_dihedral_extension_is_group_structure_not_particle_count": True,
             "d3_real_1_plus_2_decomposition_is_representation_dimension_not_spacetime_dimension": True,
+            "su3_so3_rank_two_is_symmetric_space_rank_not_two_physical_spatial_axes": True,
+            "three_family_label_carrier_is_not_identified_with_physical_xyz": True,
+            "rank2_cartan_plane_to_three_label_intertwiner_is_group_geometry_not_wave_to_volume_dynamics": True,
             "d6_real_1_plus_1_plus_2_plus_2_is_representation_decomposition_not_particle_multiplicity": True,
             "sixth_root_character_spectrum_is_group_representation_data_not_energy_spectrum": True,
             "f3_character_pair_is_not_by_itself_a_physical_two_axis_geometry": True,
