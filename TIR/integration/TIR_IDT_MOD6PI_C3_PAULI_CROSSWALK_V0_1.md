@@ -4655,3 +4655,53 @@ Selecting one assignment from an observed CKM matrix or CP-sign convention would
 Current frontier:
 
 `CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__EO_TO_DC_Z2_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN`.
+
+---
+
+## Appendix AE — NEW 2026-09-19 — Spectral invariants cannot break the E/O to D/C Z2
+
+The two minimal family generators satisfy
+
+\[
+C=F_3DF_3^\dagger.
+\]
+
+Therefore (D) and (C) are unitarily conjugate and have exactly the same characteristic polynomial and spectrum.
+
+In particular,
+
+\[
+\operatorname{tr}(D^n)=\operatorname{tr}(C^n)
+\qquad(n=1,2,3),
+\]
+
+and
+
+\[
+\|D\|_F=\|C\|_F.
+\]
+
+Thus no single-generator spectral invariant can distinguish the two branch assignments
+
+```text
+A: E -> D, O -> C
+B: E -> C, O -> D.
+```
+
+Status:
+
+`NO_GO_SINGLE_GENERATOR_SPECTRAL_INVARIANTS_CANNOT_SELECT_EO_TO_DC_Z2`.
+
+The superficial distinction that (D) is diagonal while (C) is character-mixed is not invariant under basis change. Stage 52 explicitly establishes only the availability of a split-real to compact real-form bridge and retains its dynamical selection as OPEN.
+
+Accordingly, diagonal-versus-mixed appearance cannot be used as a source theorem for choosing A over B.
+
+Status:
+
+`DIAGONAL_VS_MIXED_APPEARANCE_NOT_INVARIANT_WITHOUT_DERIVED_REAL_FORM_INTERTWINER`.
+
+The remaining Z2 must therefore be broken, if at all, by a relational invariant involving at least two generators, an oriented commutator/path datum, or a separately derived real-form intertwiner.
+
+Current frontier:
+
+`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__SPECTRAL_Z2_SELECTION_REFUTED__RELATIONAL_EO_TO_DC_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN`.
