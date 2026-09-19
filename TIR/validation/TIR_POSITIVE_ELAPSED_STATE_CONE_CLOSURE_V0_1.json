@@ -1,0 +1,43 @@
+{
+  "schema": "TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_VALIDATION_V0_1",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "authority": "CANDIDATE_ONLY",
+  "canon_allowed": false,
+  "physical_production_claim": false,
+  "physical_event_binding_claim": false,
+  "theorem_class": "EXACT_POSITIVE_CONE_EQUIVALENCE_CONDITIONAL_PHYSICAL_CLOCK_BINDING",
+  "tested_head_sha": "7144136533f59d6e65e5686ed1abdfe32c2dbc91",
+  "bijection": {
+    "forward": "Phi(ell,rho)=ell*rho",
+    "inverse": "ell=Tr(X); rho=X/Tr(X)",
+    "domain": "R_{>0} x D_2",
+    "codomain": "PSD(2) minus {0}"
+  },
+  "checks": {
+    "trace_recovers_elapsed_scale_exactly": true,
+    "trace_pauli_ratios_recover_Bloch_coordinates_exactly": true,
+    "determinant_equals_ell_squared_over_four_times_one_minus_r_squared": true,
+    "Pauli_coordinates_are_t_equals_ell_over_two_and_x_equals_ell_r_over_two": true,
+    "forward_packet_addition_equals_elapsed_weighted_state_composition_exactly": true,
+    "forward_composition_elapsed_scales_add_exactly": true,
+    "convex_weights_sum_to_one_exactly": true,
+    "convex_weights_are_positive_from_positive_elapsed_scales": true,
+    "pure_state_witness_maps_to_null_boundary": true,
+    "mixed_state_witness_maps_to_timelike_interior": true,
+    "nonzero_PSD_trace_normalization_gives_unique_inverse_standard_2x2_theorem": true,
+    "PSD_cone_pointedness_follows_from_trace_and_nonnegative_eigenvalues": true,
+    "physical_clock_calibration_not_promoted": true
+  },
+  "executable_receipt_sha256": "56e2b767bc7acbae0ae77e15ca5a0165b4d7fbb4e4380f6481a3fa817f99076f",
+  "ci": {
+    "workflow": "TIR positive elapsed-state cone closure v0.1",
+    "run_id": 35474289411,
+    "job_id": 105980737775,
+    "conclusion": "success"
+  },
+  "remaining_physical_gate": [
+    "calibrate the admitted elapsed scale to the intended physical clock interval",
+    "establish universal physical use of the elapsed-state packet for local forward event displacements"
+  ]
+}
