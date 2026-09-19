@@ -1174,3 +1174,35 @@ Status:
 `OVERLAP_REALIZATION_CONDITIONAL__SOURCE_STATES_NOT_YET_DERIVED`.
 
 GREMLIN XFI.02 remains candidate-only and is not promoted by authority.
+
+### Appendix W update — (C_3) projective frames and (F_3) Bargmann plaquette
+
+The active ordered family-seed basis and the exact (C_3) character eigenbasis form two current projective frames with
+
+\[
+\langle s_i|\chi_j\rangle=(F_3)_{ij}.
+\]
+
+A representative plaquette is
+
+\[
+\Pi=\frac{e^{2\pi i/3}}9,
+\]
+
+so
+
+\[
+\arg\Pi=\frac{2\pi}{3},
+\qquad
+\operatorname{Im}\Pi=\frac1{6\sqrt3}=J(F_3).
+\]
+
+Status:
+
+`C3_LABEL_AND_CHARACTER_PROJECTIVE_FRAMES_CURRENT_EXACT`
+
+`F3_NONZERO_BARGMANN_PLAQUETTE_AND_JARLSKOG_CURRENT_EXACT`.
+
+The remaining gate is physical sector-frame binding, not the existence of the projective frames:
+
+`REPRESENTATION_LEVEL_C3_FRAMES_DERIVED__PHYSICAL_SECTOR_FRAME_BINDING_OPEN`.
