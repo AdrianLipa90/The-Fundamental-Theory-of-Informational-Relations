@@ -1445,3 +1445,35 @@ Status:
 `TRIANGULAR_WILSON_LOOP_IDENTITY`.
 
 A non-flat physical family connection remains OPEN.
+
+### Appendix AO update — terminal Collatz-cycle nontrivial SU(3) loop candidate
+
+The exact terminal cycle
+
+\[
+1\to4\to2\to1
+\]
+
+maps under the validated (r_C=(-L)\bmod3) state index to frames (0\to1\to2\to0) and branch word `OEE`.
+
+Using the validated signed-geometric AJ step gives the closed loop candidate
+
+\[
+U_\circ=U_E(A_2)U_E(A_1)U_O(A_0).
+\]
+
+An exploratory dry-run preceded formalization, so this line is explicitly
+
+`RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST`.
+
+The exact trace witness is
+
+\[
+\operatorname{Im}\operatorname{tr}U_\circ
+=
+\sin\frac{\ln3}{2}\sin^2\frac{\ln2}{2}>0,
+\]
+
+hence the loop is analytically nontrivial.
+
+Repository validation is the next gate. Physical CKM/PMNS/CP promotion remains OPEN.
