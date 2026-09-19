@@ -7021,3 +7021,176 @@ These are exact representation-theory statements.
 The sixth-root spectrum is a character spectrum of the finite symmetry action.
 
 It is not an energy spectrum, particle-mass spectrum, physical frequency spectrum, or spacetime-dimension statement.
+
+---
+
+## Appendix BB — NEW 2026-09-19 — Compact outer-(Z_2) quotient of the (SU(3)) conjugacy-class space
+
+### BB.1 Complex trace is a complete (SU(3)) class coordinate
+
+For (U\in SU(3)), let
+
+\[
+t=\operatorname{tr}U.
+\]
+
+If the eigenvalues are \(\lambda_1,\lambda_2,\lambda_3\), then \(|\lambda_i|=1\) and \(\lambda_1\lambda_2\lambda_3=1\). Therefore the second elementary symmetric polynomial is
+
+\[
+\lambda_1\lambda_2+\lambda_1\lambda_3+\lambda_2\lambda_3
+=
+\overline{\lambda_1+\lambda_2+\lambda_3}
+=
+\bar t.
+\]
+
+Hence the characteristic polynomial is
+
+\[
+\boxed{
+p_U(\lambda)
+=
+\lambda^3-t\lambda^2+\bar t\lambda-1.
+}
+\]
+
+Since unitary matrices are normal, the eigenvalue multiset fixes the conjugacy class. Thus the complex trace is a complete coordinate on the (SU(3)) conjugacy-class space.
+
+Status:
+
+`SU3_CONJUGACY_CLASS_COMPLETELY_COORDINATIZED_BY_COMPLEX_TRACE`.
+
+### BB.2 Compact trace region and outer involution
+
+The trace image of compact (SU(3)) is the compact three-cusped deltoid. Its boundary is
+
+\[
+\boxed{
+t_{\partial}(\theta)
+=
+2e^{i\theta}+e^{-2i\theta}.
+}
+\]
+
+Complex conjugation sends
+
+\[
+t\mapsto\bar t,
+\]
+
+equivalently \(\theta\mapsto-\theta\) on the boundary.
+
+The outer involution induced by
+
+\[
+U\mapsto U^*
+\]
+
+therefore acts on conjugacy classes as reflection of the compact deltoid across the real axis.
+
+### BB.3 Fixed locus
+
+A class is fixed by the outer involution exactly when
+
+\[
+t=\bar t\in\mathbb R.
+\]
+
+For real \(t=x\),
+
+\[
+\lambda^3-x\lambda^2+x\lambda-1
+=
+(\lambda-1)
+\left(\lambda^2+(1-x)\lambda+1\right).
+\]
+
+For an (SU(3)) class the two remaining roots are a conjugate reciprocal pair, so the fixed classes have spectrum
+
+\[
+\{1,e^{i\theta},e^{-i\theta}\}
+\]
+
+and
+
+\[
+\boxed{
+x=1+2\cos\theta\in[-1,3].
+}
+\]
+
+Status:
+
+`OUTER_CONJUGATION_FIXED_CLASSES_FORM_REAL_TRACE_INTERVAL_MINUS1_TO3`.
+
+### BB.4 Compact quotient
+
+Quotienting the compact conjugacy-class deltoid by the involution
+
+\[
+t\sim\bar t
+\]
+
+gives a compact half-deltoid, which may be represented by
+
+\[
+\operatorname{Im}t\ge0.
+\]
+
+The real interval \([-1,3]\) is its fixed boundary.
+
+Status:
+
+`COMPACT_SU3_CLASS_SPACE_MOD_OUTER_Z2_HALF_DELTOID`.
+
+### BB.5 Terminal Collatz holonomy lies off the fixed locus
+
+For the validated terminal loop,
+
+\[
+t_\circ
+=
+2.4889716929998738
++
+0.06023967414631505\,i.
+\]
+
+Thus
+
+\[
+\operatorname{Im}t_\circ\neq0,
+\]
+
+so the forward terminal class is not fixed by the outer involution. The reverse loop has
+
+\[
+\operatorname{tr}U_{\circ^{-1}}=\bar t_\circ
+\]
+
+and the two classes form an orbit of size two.
+
+In the quotient they become one point away from the fixed boundary.
+
+Status:
+
+`TERMINAL_FORWARD_REVERSE_PAIR_IDENTIFIED_AS_ONE_OFF_FIXED_LOCUS_QUOTIENT_POINT`.
+
+### BB.6 Interpretation firewall
+
+This theorem gives a compact symmetry structure for the pair of orientation-reversed (SU(3)) classes:
+
+```text
+forward class
+    <-> outer Z2 <->
+reverse class
+
+quotient class space
+    = compact
+
+fixed classes
+    = real-trace interval [-1,3]
+```
+
+It does **not** identify the outer involution with physical charge conjugation, parity, or CP, and it does not treat \(|\operatorname{Im}t|\) as an observed CP-violation parameter.
+
+The result is purely group/conjugacy-class geometry.
