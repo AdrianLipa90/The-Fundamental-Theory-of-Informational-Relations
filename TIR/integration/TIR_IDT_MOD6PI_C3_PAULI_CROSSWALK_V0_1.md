@@ -1922,3 +1922,159 @@ The remaining positive route therefore requires a richer Poincare/holonomy/actio
 Status:
 
 \`OPEN_RICHER_POINCARE_HOLONOMY_OPERATOR_REQUIRED\`.
+
+
+---
+
+## Appendix K — NEW 2026-09-19 — Canonical Collatz/Poincare \(2\to3\) carrier and compact-real-form boundary
+
+Stage 48 freezes exact Collatz branch words in the free monoid
+\[
+\mathcal W=\{E,O\}^*,
+\]
+while keeping
+\[
+E\mapsto U_E,\qquad O\mapsto U_O
+\]
+and the exact per-step rhythm/weight explicitly OPEN.
+
+Stage 49 gives the canonical Möbius/Poincare lift
+\[
+\boxed{
+\{E,O\}^*
+\longrightarrow
+PSL(2,\mathbb R)
+\longrightarrow
+\operatorname{Isom}^+(\mathbb D_{\rm Poincare})
+}.
+\]
+
+For the normalized branch generators,
+\[
+\widehat M_E=
+\begin{pmatrix}
+1/\sqrt2&0\\
+0&\sqrt2
+\end{pmatrix},
+\qquad
+\widehat M_O=
+\frac1{\sqrt3}
+\begin{pmatrix}
+3&1\\
+0&1
+\end{pmatrix}.
+\]
+
+Stage 50 applies the standard symmetric-square representation
+\[
+\rho_2:
+SL(2,\mathbb R)\to SL(3,\mathbb R).
+\]
+Since
+\[
+\dim\operatorname{Sym}^2(\mathbb R^2)=3,
+\]
+the two-component projective carrier has the canonical three-component lift
+\[
+\boxed{
+SL(2,\mathbb R)
+\xrightarrow{\operatorname{Sym}^2}
+SL(3,\mathbb R)
+}.
+\]
+
+The exact branch matrices are
+\[
+R_E=
+\begin{pmatrix}
+1/2&0&0\\
+0&1&0\\
+0&0&2
+\end{pmatrix},
+\qquad
+R_O=
+\begin{pmatrix}
+3&2&1/3\\
+0&1&1/3\\
+0&0&1/3
+\end{pmatrix},
+\]
+and preserve
+\[
+Q(x,y,z)=xz-y^2.
+\]
+
+Status:
+
+\`BRANCH_WORD_TO_PSL2R_TO_SYM2_THREE_CARRIER_CURRENT_EXACT\`
+
+\`SYM2_TWO_TO_THREE_CARRIER_CLOSED\`.
+
+This is a representation theorem; it is not by itself a physical \(x,y,z\) identification.
+
+Stage 51 supplies the exact obstruction to direct fixed-similarity unitarization. In particular
+\[
+\operatorname{spec}(R_E)=\{1/2,1,2\}
+\]
+is incompatible with preservation of a positive-definite Hermitian form. Therefore
+\[
+\boxed{
+\operatorname{Sym}^2(PSL(2,\mathbb R))
+\not\sim SU(3)_F
+}
+\]
+by direct similarity.
+
+Stage 52 nevertheless gives the valid real-form bridge
+\[
+\boxed{
+\mathfrak{sl}(2,\mathbb R)
+\to
+\mathfrak{sl}(2,\mathbb C)
+\leftarrow
+\mathfrak{su}(2)
+\xrightarrow{\operatorname{Sym}^2}
+\mathfrak{su}(3)
+}.
+\]
+
+The bridge exists, but the repository still lacks a derived rule selecting the compact real form from the split-real Collatz/Poincare dynamics.
+
+Status:
+
+\`DIRECT_UNITARIZATION_REFUTED_COMPACT_REAL_FORM_BRIDGE_AVAILABLE_SELECTION_OPEN\`.
+
+Stage 53 further proves that the compact spin-one subgroup alone has
+\[
+\boxed{J=0},
+\]
+while
+\[
+\mathfrak{su}(3)\cong\mathbf3\oplus\mathbf5
+\]
+under that embedded spin-one \(SU(2)\). Nonzero family CP therefore requires directions outside the compact spin-one subalgebra.
+
+Status:
+
+\`COMPACT_SPIN1_SUBGROUP_JARLSKOG_ZERO_FULL_SU3_COMPLEMENT_REQUIRED\`.
+
+Stage 64 keeps the remaining selector debt explicit. The updated dynamical frontier is
+
+\`\`\`text
+Collatz branch words                              = EXACT
+branch words -> PSL(2,R) / Poincare              = CLOSED
+PSL(2,R) -> Sym^2 three-carrier                  = CLOSED
+direct split-real -> SU(3)_F similarity          = REFUTED
+compact real-form bridge into SU(3)              = AVAILABLE
+dynamical compact-real-form selection            = OPEN
+branch symbol -> physical family-space operator  = OPEN
+exact per-step rhythm/weight                     = OPEN
+compact spin-1 subgroup alone -> CP              = REFUTED (J=0)
+full SU(3) complement / complex holonomy         = REQUIRED
+\`\`\`
+
+Therefore the remaining positive target is not “find a three-state carrier”; that carrier is already derived. The missing object is the canonical selection and weighting mechanism that maps the exact Collatz/Poincare branch dynamics into the full compact family operator.
+
+Status:
+
+\`OPEN_BRANCH_OPERATOR_RHYTHM_REALFORM_AND_COMPLEMENT_SELECTION\`.
