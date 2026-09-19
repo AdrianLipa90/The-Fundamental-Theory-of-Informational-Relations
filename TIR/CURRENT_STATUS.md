@@ -1766,3 +1766,29 @@ Status:
 `TERMINAL_LOOP_IMAGINARY_TRACE_ORIENTATION_ODD_CLASS_WITNESS`.
 
 This is a structural Wilson-loop invariant, not yet a physical CP observable.
+
+### Appendix AS update — terminal loop is non-coboundary/path-nonseparable
+
+Any endpoint-only transport
+
+\[
+W_{ij}=G_i^\dagger G_j
+\]
+
+has identity triangular Wilson loop.
+
+The validated terminal Collatz loop instead has
+
+\[
+U_\circ\neq I.
+\]
+
+Hence its edge data cannot admit a global endpoint-frame coboundary factorization.
+
+Status:
+
+`NONTRIVIAL_TERMINAL_WILSON_LOOP_REFUTES_GLOBAL_GI_DAGGER_GJ_FACTORIZATION`
+
+`SOURCE_DERIVED_NONSEPARABLE_PATH_HOLONOMY_CANDIDATE_EXISTS`.
+
+The structural Collatz/Poincare-to-nonseparable-SU(3) map now exists at candidate level; physical family/CP binding remains OPEN.
