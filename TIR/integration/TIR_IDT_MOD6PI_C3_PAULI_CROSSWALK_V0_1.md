@@ -1032,3 +1032,222 @@ full six-quark physical spectrum derivation
 \`\`\`
 
 The remaining target is therefore no longer the existence of a \(2\)-state weak map. It is the promotion of the weak-axis orientation from recovered/conditional source status to a current first-principles physical selection theorem.
+
+
+---
+
+## Appendix E — NEW 2026-09-19 — Current \(A_1\) Weyl \(Z_2\) and the six-state family×weak carrier
+
+### E.1 Binary weak carrier from the current \(A_1\) parent
+
+Stage 15 provides the current exact weak-algebra factor
+
+\[
+A_1\cong\mathfrak{su}(2),
+\]
+
+and Stage 16 supplies the current one-generation weak-doublet representation.
+
+In the standard weight basis of the fundamental doublet,
+
+\[
+T_3=
+\begin{pmatrix}
+\frac12&0\\
+0&-\frac12
+\end{pmatrix}.
+\]
+
+The nontrivial Weyl element of \(A_1\) is represented by
+
+\[
+J_W=
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix}.
+\]
+
+It satisfies
+
+\[
+\boxed{J_W^2=I_2}
+\]
+
+and
+
+\[
+\boxed{
+J_WT_3J_W^{-1}=-T_3.
+}
+\]
+
+Thus the weak doublet contains an exact current \(Z_2\) weight-reflection action independently of the Stage-23 chirality/conjugation channel.
+
+Status:
+
+\`CURRENT_A1_WEYL_Z2_EXACT\`.
+
+### E.2 Product with the ordered family three-cycle
+
+Let \(P_F\) be the ordered family \(C_3\) action established in Appendix A. On
+
+\[
+V_F\otimes V_W
+\]
+
+define
+
+\[
+\boxed{
+G_{FW}=P_F\otimes J_W.
+}
+\]
+
+The two factors act on independent tensor components and commute. Since
+
+\[
+P_F^3=I_3,
+\qquad
+J_W^2=I_2,
+\qquad
+\gcd(3,2)=1,
+\]
+
+one obtains
+
+\[
+\boxed{
+G_{FW}^6=I_6,
+\qquad
+G_{FW}^3=I_3\otimes J_W\neq I_6.
+}
+\]
+
+The orbit of one family×weak basis state is transitive on all six labels, and
+
+\[
+\boxed{
+\chi_{G_{FW}}(\lambda)=\lambda^6-1.
+}
+\]
+
+Therefore
+
+\[
+\boxed{
+C_3^{\rm family}\times W(A_1)^{\rm weak}
+\cong
+C_3\times Z_2
+\cong
+C_6
+}
+\]
+
+as a six-state label action.
+
+Status:
+
+\`CURRENT_C3_X_A1_WEYL_Z2_C6_EXACT\`.
+
+### E.3 Separation from the chirality six-cycle
+
+Appendix B constructs
+
+\[
+V_F\otimes V_\chi
+\]
+
+with generator \(P_F\otimes J_\chi\).
+
+Appendix E constructs instead
+
+\[
+V_F\otimes V_W
+\]
+
+with generator \(P_F\otimes J_W\).
+
+Both are six-dimensional and both admit a \(C_6\) permutation realization, but they are differently typed carriers. Their equality is not assumed.
+
+The legacy orientation audit in Appendix D provides a historical label crosswalk between the CP1 north/south basis and \(T_3=\pm\frac12\), but this crosswalk is not needed to derive the current family×weak six-state carrier itself.
+
+### E.4 Consequence for flavour counting
+
+Under the remaining physical family-binding premise
+
+\[
+C_3^{\rm temporal}
+\longrightarrow
+C_3^{\rm physical\ family},
+\]
+
+the current weak-doublet parent yields
+
+\[
+\boxed{
+\dim(V_F\otimes V_W)=3\times2=6.
+}
+\]
+
+For the quark sector, the conventional family×weak-component naming is
+
+\[
+(u,d),\qquad
+(c,s),\qquad
+(t,b).
+\]
+
+Hence the number six is no longer an independent count once the three-family binding is admitted:
+
+\[
+\boxed{
+N_F=3
+\quad\land\quad
+\dim V_W=2
+\quad\Longrightarrow\quad
+N_{\rm quark\ family\text{-}weak\ labels}=6.
+}
+\]
+
+Status:
+
+\`SIX_WEAK_COMPONENT_LABELS_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING\`.
+
+This does not derive quark masses, Yukawa couplings, CKM entries, confinement, or the complete physical spectrum.
+
+### E.5 Narrowed remaining gate
+
+The binary factor no longer requires the legacy chirality-to-weak identification in order to obtain the six-state weak-family carrier.
+
+The principal unresolved seam is now
+
+\[
+\boxed{
+C_3^{\rm temporal}
+\stackrel{?}{\longrightarrow}
+C_3^{\rm physical\ family}.
+}
+\]
+
+After that, the remaining particle-physics work concerns dynamics and assignments rather than the bare \(3\times2\) cardinality:
+
+\`\`\`text
+temporal C3 -> ordered family C3 representation
+    CLOSED
+
+physical temporal C3 -> physical family index
+    OPEN
+
+weak A1 Weyl Z2
+    CLOSED EXACT
+
+family C3 x weak Weyl Z2 -> six-state C6 carrier
+    CLOSED EXACT
+
+six-state cardinality after physical family binding
+    FORCED: 3 x 2 = 6
+
+masses / Yukawa / CKM / full physical spectrum
+    OPEN
+\`\`\`
