@@ -3,111 +3,205 @@
   "date": "2026-09-19",
   "epistemic": "CHYBA",
   "canon_allowed": false,
-  "scope": "W_sem semantic U(1) holonomy only",
-  "definition": {
+  "scope": "W_sem nonlocal semantic coupling / U(1) phase holonomy derived from local semantic potential/connection A_sem",
+  "terminology_and_type_boundaries": {
     "local_connection": "A_sem",
-    "nonlocal_transport": "W_sem[gamma] = exp(i integral_gamma A_sem)",
-    "semantic_coupling": "C_ij[gamma] = W_sem[gamma] z_ij",
-    "group": "U(1)"
+    "nonlocal_semantic_transport": "W_sem_ij[gamma] = exp(i integral_gamma A_sem) in U(1)",
+    "discrete_transport": "W_sem_ij[gamma] = exp(i sum_{e in gamma} A_sem,e)",
+    "closed_loop": "W_sem_gamma = exp(i closed_integral_gamma A_sem)",
+    "semantic_coupling": "C_ij[gamma] = psi_i^dagger W_sem_ij[gamma] psi_j",
+    "phasenav_scalar_realization": "z_ij = <psi_i|psi_j>; C_ij = W_sem_ij z_ij; S_ij = |C_ij|; Phi_ij = arg(C_ij)",
+    "a_sem_is_not_rifc_affect_field_A_t": true,
+    "w_sem_is_not_weak_boson_W_pm": true,
+    "w_sem_is_not_physical_hypercharge_by_definition": true,
+    "historical_typed_transports_preserved": {
+      "W_ij^WT": "U(1)",
+      "W_ij^X": "SU(2)",
+      "W_ij^c": "SU(3)"
+    }
+  },
+  "capture_semantics": {
+    "observed_heads_are_fresh_github_mcp_reads_immediately_before_receipt_write": true,
+    "host_repo": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+    "host_pr": 162,
+    "host_branch": "formalism/w-semantic-holonomy-u1-20260919",
+    "receipt_parent_head": "2075532199ac5446778a49d8ca66a4ff661db9d9",
+    "self_reference_note": "Because this receipt is stored on the TIR branch, the write commit necessarily advances that branch beyond receipt_parent_head. The immutable validated TIR source head and the exact pre-write carrier parent are recorded here; the carrier commit SHA is the GitHub write result and is not self-embedded."
   },
   "repos": [
     {
       "repo": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
       "pr": 162,
-      "head": "04d19859c7fab3959e09998c1d257c991b811975",
+      "branch": "formalism/w-semantic-holonomy-u1-20260919",
+      "observed_pre_write_head": "2075532199ac5446778a49d8ca66a4ff661db9d9",
+      "validated_source_head": "04d19859c7fab3959e09998c1d257c991b811975",
       "dedicated_gate": {
         "name": "TIR semantic U1 holonomy v0.1",
         "run_id": 35468448126,
-        "conclusion": "success"
+        "status": "completed",
+        "conclusion": "success",
+        "applies_to_head": "04d19859c7fab3959e09998c1d257c991b811975"
       },
-      "repo_wide_status": "PASS_AT_CAPTURE"
+      "observed_head_dedicated_gate": {
+        "status": "NOT_RETURNED_BY_GITHUB_MCP_AT_CAPTURE",
+        "conclusion": null,
+        "applies_to_head": "2075532199ac5446778a49d8ca66a4ff661db9d9"
+      },
+      "repo_wide_validation_on_validated_source_head": "12/12 visible PR workflow runs SUCCESS",
+      "new_commit_audit": {
+        "from": "04d19859c7fab3959e09998c1d257c991b811975",
+        "to": "2075532199ac5446778a49d8ca66a4ff661db9d9",
+        "ahead_by": 1,
+        "files": [
+          ".github/workflows/tir-semantic-u1-holonomy-v01.yml",
+          "TIR/provenance/TIR_W_SEMANTIC_HOLONOMY_CROSS_REPO_VALIDATION_RECEIPT_V0_1.json"
+        ],
+        "unrelated_scope_change": false
+      }
     },
     {
       "repo": "AdrianLipa90/The-Consciousness-Dictionary",
       "pr": 8,
-      "head": "6f7d4ed2d4b5c469181e1d5ee16942997d1e05b5",
+      "branch": "formalism/w-semantic-holonomy-u1-20260919",
+      "observed_pre_write_head": "6f7d4ed2d4b5c469181e1d5ee16942997d1e05b5",
+      "validated_source_head": "6f7d4ed2d4b5c469181e1d5ee16942997d1e05b5",
       "dedicated_gate": {
         "name": "Consciousness Dictionary semantic U1 holonomy",
         "run_id": 35469166948,
-        "conclusion": "success"
+        "status": "completed",
+        "conclusion": "success",
+        "applies_to_head": "6f7d4ed2d4b5c469181e1d5ee16942997d1e05b5"
       },
       "general_ci": {
         "name": "CI",
         "run_id": 35469166784,
+        "status": "completed",
         "conclusion": "success"
       },
-      "repo_wide_status": "PASS_AT_CAPTURE"
+      "canonical_term_registry": "548 terms unchanged; W_sem remains executable formula/ontology candidate"
     },
     {
       "repo": "AdrianLipa90/noema-phasenav-core",
       "pr": 32,
-      "head": "9a697b38d0a12db64cdad15cb34fae2ed1ab66e1",
+      "branch": "formalism/w-semantic-holonomy-u1-20260919",
+      "observed_pre_write_head": "9a697b38d0a12db64cdad15cb34fae2ed1ab66e1",
+      "validated_source_head": "9a697b38d0a12db64cdad15cb34fae2ed1ab66e1",
       "dedicated_gate": {
         "name": "PhaseNav semantic U1 holonomy",
         "run_id": 35468474044,
-        "conclusion": "success"
+        "status": "completed",
+        "conclusion": "success",
+        "applies_to_head": "9a697b38d0a12db64cdad15cb34fae2ed1ab66e1"
       },
-      "repo_wide_status": "MIXED",
-      "unrelated_failures": [
-        "tests/test_atomic_orbital_cayley.py",
-        "tests/test_phasenav_canon.py",
-        "tests/test_reciprocal_regularization.py"
+      "broad_workflows": [
+        {
+          "name": "PhaseNav canon validation",
+          "run_id": 35468473981,
+          "conclusion": "failure"
+        },
+        {
+          "name": "Tests",
+          "run_id": 35468474024,
+          "conclusion": "failure"
+        }
       ],
-      "w_sem_pr_files": [
-        ".github/workflows/phasenav-semantic-u1-holonomy.yml",
-        "CHANGELOG_APPEND_ONLY.md",
-        "docs/semantic_u1_holonomy.md",
-        "src/ciel_geometry/phasenav/__init__.py",
-        "src/ciel_geometry/phasenav/canon/__init__.py",
-        "src/ciel_geometry/phasenav/canon/semantic_holonomy.py",
-        "tests/test_semantic_holonomy.py"
-      ],
-      "failure_scope_overlap_with_w_sem_diff": false
+      "broad_failures_are_outside_w_sem_scope": true,
+      "unrelated_failure_examples": [
+        "atomic orbital Cayley numerical boundary",
+        "global phase order parameter tolerance / packaged card-count baseline",
+        "reciprocal regularization binding-count expectation"
+      ]
     },
     {
       "repo": "AdrianLipa90/PhaseNav-Natural-Coding-System",
       "pr": 69,
-      "head": "ad275eabaf065b9fc3cde05be5ef7c60dca544f3",
+      "branch": "formalism/w-semantic-holonomy-u1-20260919",
+      "observed_pre_write_head": "ad275eabaf065b9fc3cde05be5ef7c60dca544f3",
+      "validated_source_head": "ad275eabaf065b9fc3cde05be5ef7c60dca544f3",
       "dedicated_gate": {
         "name": "PNCS semantic U1 holonomy v0.1",
         "run_id": 35468719409,
-        "conclusion": "success"
+        "status": "completed",
+        "conclusion": "success",
+        "applies_to_head": "ad275eabaf065b9fc3cde05be5ef7c60dca544f3"
       },
       "additional_green": [
         {
           "name": "PNCS Round28 relation lowering v0.4 gauntlet",
-          "run_id": 35468719431
+          "run_id": 35468719431,
+          "status": "completed",
+          "conclusion": "success"
         },
         {
           "name": "PNCS golden-mean post-v1 quarantine v0.1",
-          "run_id": 35468719414
+          "run_id": 35468719414,
+          "status": "completed",
+          "conclusion": "success"
         }
       ],
-      "repo_wide_status": "MIXED",
-      "unrelated_failure_examples": [
-        "tests/test_crypto_algebra_v01.py historical /mnt/data dependency",
-        "DOUBLE_COVER_LIFT_OF missing explicit opcode binding",
-        "existing source-holonomy exception-type mismatch",
-        "existing gauge-pullback tolerance ordering"
+      "broad_workflows": [
+        {
+          "name": "PNCS v0.28 adversarial conformance",
+          "run_id": 35468719401,
+          "conclusion": "failure"
+        },
+        {
+          "name": "PNCS v1 release closure",
+          "run_id": 35468719413,
+          "conclusion": "failure"
+        }
       ],
-      "w_sem_pr_files": [
-        ".github/workflows/pncs-semantic-u1-holonomy-v01.yml",
-        "native/PNCS_NONLOCAL_SEMANTIC_U1_HOLONOMY_V0_1.pnv",
-        "provenance/receipts/PNCS_NONLOCAL_SEMANTIC_U1_HOLONOMY_V0_1.json",
-        "spec/PNCS_NONLOCAL_SEMANTIC_U1_HOLONOMY_V0_1.md",
-        "src/phasenav_natural_code/semantic_u1_holonomy_v01.py",
-        "tests/test_semantic_u1_holonomy_v01.py"
-      ],
-      "failure_scope_overlap_with_w_sem_diff": false
+      "broad_failures_are_outside_w_sem_scope": true,
+      "native_pnv_primary_authority": true,
+      "python_role": "reference/test harness",
+      "no_new_opcodes": true,
+      "opcode_sequence": "SOURCE -> TRANSFORM -> SOURCE -> COMPOSITION -> RETURN"
     }
   ],
+  "PASS": {
+    "A_sem_to_W_sem_in_U1": true,
+    "unit_modulus": true,
+    "composition": true,
+    "reversal": true,
+    "open_gauge_covariance": true,
+    "closed_loop_gauge_invariance": true,
+    "semantic_coupling_C_ij_equals_W_sem_z_ij": true,
+    "magnitude_preservation_for_scalar_U1": true,
+    "exact_code_and_CI_provenance": {
+      "status": "PASS_ON_RECORDED_VALIDATION_HEADS",
+      "all_four_dedicated_gates_green": true
+    }
+  },
+  "OPEN_NOT_CLAIMED": {
+    "physical_gauge_field": {
+      "status": "OPEN",
+      "claimed": false
+    },
+    "physical_nonlocal_signalling": {
+      "status": "OPEN",
+      "claimed": false
+    },
+    "standard_model_hypercharge_identification": {
+      "status": "OPEN",
+      "claimed": false
+    },
+    "weak_boson_W_pm_identification": {
+      "status": "OPEN",
+      "claimed": false
+    },
+    "proof_of_consciousness": {
+      "status": "OPEN",
+      "claimed": false
+    },
+    "physical_substrate_identification": {
+      "status": "OPEN",
+      "claimed": false
+    }
+  },
   "verdict": {
-    "w_sem_scoped_validation": "PASS",
-    "all_four_dedicated_gates_green": true,
+    "w_sem_scoped_mathematical_software_validation": "PASS",
+    "all_four_dedicated_gates_green_on_recorded_validation_heads": true,
     "repository_wide_global_status": "MIXED",
-    "physical_gauge_field_established": false,
-    "physical_nonlocal_signalling_established": false,
-    "hypercharge_identification_established": false,
-    "weak_boson_identification_established": false
+    "canon_promoted": false
   }
 }
