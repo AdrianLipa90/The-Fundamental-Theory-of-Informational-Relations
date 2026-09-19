@@ -295,10 +295,35 @@ def main() -> None:
         ROOT
         / "TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md"
     ).read_text(encoding="utf-8")
+    stage35 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE35_HERMITIAN_FAMILY_PAIR_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage36 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE36_COMPLEX_HOLONOMY_CP_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage37 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE37_COMMON_FAMILY_AXIS_NOGO_V0_1.md"
+    ).read_text(encoding="utf-8")
     stage38 = (
         ROOT
         / "TIR/frozen_predictions/validation/"
         "TIR_POLYGONAL_EXCITATION_STAGE38_C3_CHARACTER_BASIS_CP_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage39 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE39_TWO_OPERATOR_FAMILY_CANDIDATE_V0_1.md"
+    ).read_text(encoding="utf-8")
+    stage40 = (
+        ROOT
+        / "TIR/frozen_predictions/validation/"
+        "TIR_POLYGONAL_EXCITATION_STAGE40_STAGE39_CKM_RETROSPECTIVE_V0_1.md"
     ).read_text(encoding="utf-8")
     stage42 = (
         ROOT
@@ -1083,8 +1108,36 @@ def main() -> None:
             and "Canonical polar factor" in stage30
             and "requires an independently derived TIR rule" in stage30
         ),
+        "stage35_real_family_pair_cp_boundary_present": (
+            "STAGE_35_HERMITIAN_FAMILY_PAIR_PASS_WITH_INPUT_PROVENANCE_AND_CP_BOUNDARY"
+            in stage35
+            and "CP from real cross-Gram: J = 0" in stage35
+            and "BLOCKED_PENDING_CLEAN_COMPLEX_TIR_NATIVE_SECTOR_OPERATOR" in stage35
+        ),
+        "stage36_complex_holonomy_cp_mechanism_pass_quarantine_present": (
+            "STAGE_36_COMPLEX_HOLONOMY_CP_MECHANISM_PASS__SOURCE_PROMOTION_QUARANTINED"
+            in stage36
+            and "W^{\\mathbb C}_{ij}=a_{ij}e^{i\\phi_{ij}}" in stage36
+            and "4.270454683508035" in stage36
+        ),
+        "stage36_complex_holonomy_status_tokens_present": (
+            "complex-holonomy CP mechanism: PASS" in stage36
+            and "non-zero J_F: PASS" in stage36
+            and "physical promotion: QUARANTINED BY SOURCE PROVENANCE" in stage36
+        ),
+        "stage37_common_family_axis_nogo_present": (
+            "STAGE_37_COMMON_FAMILY_AXIS_NOGO_PASS" in stage37
+        ),
         "stage38_c3_cp_parent_pass_present": (
             "STAGE_38_C3_CHARACTER_BASIS_CP_MATH_PASS" in stage38
+        ),
+        "stage39_two_operator_candidate_frozen_present": (
+            "STAGE_39_STRUCTURAL_CANDIDATE_FROZEN" in stage39
+            and "H(\\alpha)=D+\\alpha C" in stage39
+        ),
+        "stage40_full_ckm_shape_fail_mechanism_retained_present": (
+            "STAGE_40_FULL_CKM_SHAPE_FAIL__MECHANISM_RETAINED" in stage40
+            and "retuning" in stage40.lower()
         ),
         "stage42_su3f_parent_pass_present": (
             "STAGE_42_SU3F_LIE_CLOSURE_PASS" in stage42
@@ -1553,7 +1606,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__CANONICAL_POLAR_LIFT_REFUTED__RHO_BINDING_AND_NONPOLAR_COMPACT_LIFT_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__POLAR_LIFT_REFUTED__COMPLEX_HOLONOMY_MECHANISM_EXISTS__RHO_BINDING_AND_CLEAN_BRANCH_TO_COMPLEX_HOLONOMY_MAP_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -1590,6 +1643,17 @@ def main() -> None:
             "N_F_EQUALS_3_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"
             if passed
             else "NOT_ESTABLISHED"
+        ),
+        "complex_holonomy_cp_mechanism_status": (
+            "NONPOLAR_COMPLEX_HOLONOMY_CP_MECHANISM_EXISTS_SOURCE_QUARANTINED"
+            if passed
+            else "FAILED"
+        ),
+        "branch_to_complex_holonomy_status": (
+            "OPEN_CLEAN_COLLATZ_POINCARE_TO_COMPLEX_FAMILY_HOLONOMY_SOURCE_MAP"
+        ),
+        "stage39_40_status": (
+            "TWO_OPERATOR_MECHANISM_RETAINED_FULL_CKM_SHAPE_FAIL"
         ),
         "cp_character_transfer": (
             "F3_JARLSKOG_MATH_TRANSFER_CLOSED_PHYSICAL_CP_BINDING_OPEN"
@@ -1738,6 +1802,16 @@ def main() -> None:
             "lie_closure_dimension": 8,
             "physical_family_dynamics_selector": "OPEN",
         },
+        "complex_holonomy_provenance_audit": {
+            "real_family_pair_stage35": "J_EQUALS_ZERO",
+            "complex_holonomy_stage36": "J_NONZERO_MECHANISM_PASS",
+            "stage36_source_promotion": "QUARANTINED",
+            "common_single_axis_stage37": "NOGO",
+            "c3_character_stage38": "CP_CAPABLE_MATH_PASS",
+            "two_operator_stage39": "FROZEN_STRUCTURAL_CANDIDATE",
+            "stage40_retrospective": "FULL_CKM_SHAPE_FAIL_MECHANISM_RETAINED",
+            "collatz_poincare_to_stage36_source_map": "NOT_FOUND_CURRENT",
+        },
         "polar_compactification_audit": {
             "QE": QE.tolist(),
             "QO": QO.tolist(),
@@ -1851,6 +1925,9 @@ def main() -> None:
             "generatorwise_polar_compactification_is_order_blind_for_even_steps": True,
             "wordwise_polar_factor_is_not_a_branch_monoid_homomorphism": True,
             "polar_compact_factor_is_diagnostic_not_physical_family_operator": True,
+            "stage36_complex_holonomy_mechanism_is_not_promoted_from_quarantined_rows": True,
+            "nonzero_cp_mechanism_does_not_supply_collatz_branch_source_map": True,
+            "stage40_full_ckm_shape_failure_is_retained": True,
             "branch_symbol_to_split_real_operator_is_closed_but_not_physical_family_map": True,
             "legacy_eta_0_35_rhythm_is_model_choice_not_current_input": True,
             "exact_geometric_branch_length_alphabet_is_closed": True,
