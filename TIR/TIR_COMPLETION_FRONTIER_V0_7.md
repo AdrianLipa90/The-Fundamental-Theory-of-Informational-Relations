@@ -785,3 +785,34 @@ is not yet promoted.
 Remaining frontier:
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__RHO_BINDING_AND_COMPACT_FAMILY_MAP_OPEN\`.
+
+
+### Appendix P update — compact \(SU(3)_F\) endpoint class fixed
+
+The current family branch already has
+
+\[
+V_F\cong\mathbb C^3,
+\qquad
+U_F\in SU(3)_F.
+\]
+
+Therefore the compact positive-definite family endpoint class is not an open choice.
+
+Status:
+
+\`CURRENT_FAMILY_ENDPOINT_COMPACT_SU3F_REQUIRED\`
+
+\`COMPACT_ENDPOINT_CLASS_FIXED__DYNAMICAL_BRANCHWISE_LIFT_OPEN\`.
+
+Stage-51 direct similarity unitarization remains refuted. Stage-52 supplies an available change-of-real-form bridge, but the branch-wise map
+
+\[
+R_E,R_O\to U_E,U_O\in SU(3)_F
+\]
+
+remains OPEN.
+
+Aggregate frontier:
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_CLASS_FIXED__RHO_BINDING_AND_BRANCHWISE_COMPACT_LIFT_OPEN\`.
