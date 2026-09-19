@@ -1596,3 +1596,21 @@ The candidate is source-derived and target-free, but physical uniqueness and the
 remain OPEN.
 
 `BRANCH_LOCAL_GEOMETRIC_RHYTHM_VALIDATED__PHYSICAL_UNIQUENESS_AND_HAMILTONIAN_BINDING_OPEN`.
+
+### Appendix AM update — common-target family path-holonomy candidate frozen
+
+Using only Stage-47/48 exact Collatz paths and the validated Appendix-AJ step, the branch now freezes
+
+\[
+G_i=\overleftarrow{\prod}_{k=0}^{m_i-1}U_{geo}(n_{i,k}),
+\qquad
+W^F_{ij}=G_i^\dagger G_j.
+\]
+
+with common target (35) and (G_2=I_3).
+
+Status:
+
+`COMMON_TARGET_FAMILY_PATH_HOLONOMY_CANDIDATE_FROZEN_PREVALIDATION`.
+
+The next gate tests SU(3) typing, reversal, composition and triangular Wilson-loop flatness before any physical promotion.
