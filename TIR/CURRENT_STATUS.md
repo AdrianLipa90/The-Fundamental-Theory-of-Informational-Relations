@@ -408,3 +408,46 @@ in addition to the existing v12 source, evidence and appendix gates.
 ## 11. Reproducibility invariant
 
 Every `PASS` belongs to the exact theorem assumptions, source revision and validator named by its receipt. A mathematical or software `PASS` never silently promotes a physical observable. `FAIL`, `TENSION`, `OPEN` and `QUARANTINED` evidence remains visible until a separately versioned gate supersedes it.
+
+
+---
+
+## NEW — 2026-09-19 — periodic 6pi C3 / Pauli representation crosswalk
+
+An additive TIR–IDT representation bridge is now present on the current branch.
+
+Starting from the existing IDT (N=3) half-frame open-cut carrier,
+
+[
+|1|12|23|3|,
+]
+
+the explicit periodic endpoint condition
+
+[
+ThetasimTheta+6pi,
+qquad
+v_0sim v_3
+]
+
+gives the exact quotient
+
+[
+P_4/(v_0sim v_3)cong C_3.
+]
+
+The resulting regular (C_3) shift is diagonalized by the same (F_3) character basis already used by the TIR family-space branch, and the ordered real triad is exactly equivariant with the Pauli basis of (operatorname{Herm}_0(2)) under an (SU(2)) lift of the (120^circ) cyclic rotation.
+
+Status:
+
+`REPRESENTATION_CROSSWALK_CLOSED / TEMPORAL_SPATIAL_PHYSICAL_BINDING_OPEN / TEMPORAL_FLAVOUR_PHYSICAL_BINDING_OPEN`.
+
+This closes the abstract representation seam only. It does not identify temporal, spatial and flavour physical sectors.
+
+Canonical source:
+
+`TIR/integration/TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1.md`.
+
+Validator:
+
+`TIR/validation/tir_idt_mod6pi_c3_pauli_crosswalk_v0_1.py`.
