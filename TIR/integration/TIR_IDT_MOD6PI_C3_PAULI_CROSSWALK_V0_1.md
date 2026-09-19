@@ -1413,3 +1413,87 @@ C_3^{\rm physical\ family},
 \]
 
 while the electroweak-side gate is vacuum/hypercharge alignment rather than an absolute \(T_3\)-axis selection.
+
+
+---
+
+## Appendix G — NEW 2026-09-19 — Active Stage-22 precedence versus historical generation numbering
+
+### G.1 Two different orderings are preserved in the repository
+
+The historical atomic-assignment layer records
+
+\[
+\text{generation 1}\to(3,5),\qquad
+\text{generation 2}\to(11,13),\qquad
+\text{generation 3}\to(5,7).
+\]
+
+Stage 22 later fixes the active ordered seed basis for the family-carrier validation line as
+
+\[
+\boxed{
+s_1=(3,5),\qquad
+s_2=(5,7),\qquad
+s_3=(11,13).
+}
+\]
+
+The precedence-falsification layer explicitly states that the active Stage-22 ordering supersedes the early v0.5 generation ordering for the present validation branch.
+
+Therefore these are not interchangeable metadata surfaces.
+
+### G.2 Correct temporal-family representation binding
+
+The Appendix-A intertwiner
+
+\[
+M_{TF}:
+(e_1,e_2,e_3)\mapsto(s_1,s_2,s_3)
+\]
+
+is bound to the **active Stage-22 ordered family-seed basis**.
+
+Status:
+
+\`TEMPORAL_C3_TO_ACTIVE_STAGE22_FAMILY_SEED_ORDER_CLOSED\`.
+
+It is not a direct identification
+
+\[
+e_i\equiv\text{historical physical generation }i.
+\]
+
+The historical generation labels remain preserved for provenance but are not used as the \(C_3\) anchor.
+
+Status:
+
+\`HISTORICAL_GENERATION_NUMBERING_PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR\`.
+
+### G.3 Physical-family gate remains separate
+
+Stage 22 itself establishes an ordered three-element structural seed basis for subsequent family representation tests. Its PASS does not by itself prove that the active ordering is the physical mass-generation ordering.
+
+Therefore the remaining family-side physical seam is typed as
+
+\[
+\boxed{
+C_3^{\rm temporal}
+\longrightarrow
+C_3^{\rm active\ family\ seed\ carrier}
+\quad\text{CLOSED},
+}
+\]
+
+followed by
+
+\[
+\boxed{
+C_3^{\rm active\ family\ seed\ carrier}
+\stackrel{?}{\longrightarrow}
+C_3^{\rm physical\ generation/family}
+\quad\text{OPEN}.
+}
+\]
+
+This firewall prevents the old v0.5 ordering from being silently reintroduced into the new mod-\(6\pi\) crosswalk.
