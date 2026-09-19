@@ -939,3 +939,38 @@ Status:
 Therefore scalar \(q_C\) on one equator is insufficient as the Stage-36 CP source. An additional nonseparable connection, non-equatorial motion, multi-ray Berry geometry, or equivalent path-local structure is required.
 
 The existing hexahedral Bloch theorem has a nonzero \(\pm\pi/4\) Bargmann phase, but no family-sector identification is made.
+
+### Appendix V update — plaquette/Bargmann quadrilateral crosswalk
+
+If
+
+\[
+W_{ij}=\langle u_i|d_j\rangle,
+\]
+
+then every rephasing-invariant family plaquette obeys
+
+\[
+\boxed{
+W_{ij}W_{kj}^*W_{k\ell}W_{i\ell}^*
+=
+\langle u_i|d_j\rangle
+\langle d_j|u_k\rangle
+\langle u_k|d_\ell\rangle
+\langle d_\ell|u_i\rangle.
+}
+\]
+
+Thus the family plaquette phase is exactly the Bargmann/Pancharatnam quadrilateral phase under an overlap realization.
+
+Status:
+
+`PLAQUETTE_PHASE_EQUALS_BARGMANN_QUADRILATERAL_UNDER_OVERLAP_REALIZATION`.
+
+The remaining source problem is to derive the two projective family frames, or an equivalent pair-dependent holonomy, from the Collatz/Poincare dynamics.
+
+Status:
+
+`OVERLAP_REALIZATION_CONDITIONAL__SOURCE_STATES_NOT_YET_DERIVED`.
+
+GREMLIN XFI.02 remains candidate-only and is not promoted by authority.
