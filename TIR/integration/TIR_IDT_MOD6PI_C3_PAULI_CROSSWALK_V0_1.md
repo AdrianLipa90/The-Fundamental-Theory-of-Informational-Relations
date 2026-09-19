@@ -6180,3 +6180,105 @@ It is not identified with the CKM Jarlskog invariant, a CP phase, or any measure
 Status remains:
 
 `NONTRIVIAL_WILSON_LOOP_NOT_YET_PHYSICAL_CP_OR_SECTOR_BINDING`.
+
+---
+
+## Appendix AS — NEW 2026-09-19 — Terminal Collatz holonomy is non-coboundary and path-nonseparable
+
+### AS.1 Flat endpoint-frame factorization theorem
+
+If pairwise transports on a connected three-vertex system have the endpoint-only form
+
+\[
+\boxed{W_{ij}=G_i^\dagger G_j,}
+\]
+
+then the triangular Wilson product telescopes:
+
+\[
+W_{12}W_{23}W_{31}
+=
+G_1^\dagger G_2G_2^\dagger G_3G_3^\dagger G_1
+=
+I.
+\]
+
+Therefore every globally factorized endpoint-frame/coboundary transport is flat on the triangle.
+
+Appendix AN verifies exactly this situation for the common-target scaffold.
+
+### AS.2 Terminal Collatz loop violates the coboundary identity
+
+For the terminal Collatz cycle
+
+\[
+1\to4\to2\to1,
+\]
+
+Appendices AP–AR give the source-derived loop
+
+\[
+U_\circ=U_E(A_2)U_E(A_1)U_O(A_0),
+\]
+
+with
+
+\[
+\boxed{U_\circ\neq I.}
+\]
+
+Thus no globally defined endpoint frames \(G_1,G_4,G_2\) can satisfy all three terminal edge transports simultaneously as
+
+\[
+W_{ij}=G_i^\dagger G_j.
+\]
+
+Status:
+
+`NONTRIVIAL_TERMINAL_WILSON_LOOP_REFUTES_GLOBAL_GI_DAGGER_GJ_FACTORIZATION`.
+
+### AS.3 Nonseparable path source
+
+The terminal edge data therefore contains path information that cannot be reduced to a difference of endpoint frames.
+
+Equivalently, it is a genuinely non-coboundary/path-nonseparable holonomy candidate.
+
+Status:
+
+`SOURCE_DERIVED_NONSEPARABLE_PATH_HOLONOMY_CANDIDATE_EXISTS`.
+
+This is exactly the structural class required by the earlier scalar-phase no-go: a nonzero loop phase/holonomy cannot arise from separable vertex phases or endpoint-only coboundaries.
+
+### AS.4 Flat versus nonflat source structures
+
+The current branch now contains both:
+
+```text
+common-target W_ij scaffold
+    = exact SU(3) groupoid
+    = flat / pure gauge
+
+terminal Collatz-cycle transport
+    = exact SU(3) loop candidate
+    = nonflat / non-coboundary
+    = outside compact spin-one subgroup
+    = orientation-sensitive
+```
+
+This distinction is source-derived and does not require CKM, PMNS, masses, or fitted coefficients.
+
+### AS.5 Promotion boundary
+
+The existence of a nonseparable source holonomy candidate closes the old structural question
+
+\[
+\text{“can the Collatz/Poincare-side construction produce path-local non-coboundary }SU(3)\text{ data?”}
+\]
+
+at candidate level.
+
+It does not establish that this terminal-cycle loop is the physical family connection.
+
+Current status:
+
+`SOURCE_DERIVED_STATE_DEPENDENT_NONSEPARABLE_SU3_HOLONOMY_MAP_CANDIDATE_EXISTS__PHYSICAL_FAMILY_CP_BINDING_OPEN`.
