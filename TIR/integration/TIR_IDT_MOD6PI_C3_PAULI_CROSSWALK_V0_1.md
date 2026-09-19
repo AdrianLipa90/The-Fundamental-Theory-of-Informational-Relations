@@ -840,31 +840,43 @@ No observed masses are used by that archived source.
 
 The archived generated CSV
 
-\`archive/v7.9/full/28_debt11_chiral_representation_projection_v3_0/results/projection_channel_table_v3_0.csv\`
+`archive/v7.9/full/28_debt11_chiral_representation_projection_v3_0/results/projection_channel_table_v3_0.csv`
 
 is pinned by blob SHA
 
-\`3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1\`.
+`3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1`.
 
-The archived source generator contains the corrected row
+The archived source generator contains the corrected up-quark identifiers, including
 
-\`\`\`text
+```text
 u_L,up_quark,"T3=1/2, pole=north/+"
-\`\`\`
+```
 
-whereas the preserved generated CSV contains the historical stale identifier
+and the right-handed up-quark identifier `u_R`.
 
-\`\`\`text
-nu_L,up_quark,"T3=1/2, pole=north/+"
-\`\`\`
+An earlier connector-facing retrieval rendered the generated CSV with historical `nu_L/nu_R` identifiers. That observation is superseded for repository provenance by an exact GitHub Actions audit of the immutable PR-head Git object.
 
-for the same up-quark weak-doublet row.
+The validator now obtains the CSV object through
 
-Therefore the archived source generator is the provenance authority for the particle identifier. The generated CSV is retained as a historical artifact, and its stale identifier is diagnostic only; it does not gate the representation theorem.
+```text
+git ls-tree HEAD
+git cat-file blob <sha>
+```
+
+and independently verifies that the checked-out bytes equal the HEAD object. On that authoritative hosted Git object it obtains
+
+```text
+HEAD tree blob            = 3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1
+working tree == HEAD blob = true
+up_quark particle_ids     = ["u_L", "u_R"]
+CSV state                 = CORRECTED_UP_QUARK_PARTICLE_ID
+```
+
+Therefore the source generator and the hosted immutable generated-CSV object agree on the up-quark particle identifiers. The contradictory connector-facing rendering is quarantined as a retrieval-layer discrepancy and is not used as provenance authority.
 
 Status:
 
-\`ARCHIVAL_GENERATED_CSV_STALE_UP_QUARK_ID_DETECTED / SOURCE_SCRIPT_AUTHORITATIVE\`.
+`ARCHIVAL_SOURCE_AND_HEAD_OBJECT_CSV_CONSISTENT / CONNECTOR_VIEW_DISCREPANCY_QUARANTINED`.
 
 ### D.3 Historical axis status
 
