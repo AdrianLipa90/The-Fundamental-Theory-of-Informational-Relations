@@ -1233,3 +1233,25 @@ Remaining:
 `OPEN_EO_TO_ORIENTED_STAGE66_GENERATOR_PAIR_ASSIGNMENT`
 
 plus physical promotion of the already-frozen branch-rhythm candidate.
+
+### Appendix AH update — static two-axis Stage-66 branch map refuted
+
+Every fixed pair from the Stage-66 C3 orbit closes only a three-dimensional Lie algebra, whereas all three orbit members generate full \(\mathfrak{su}(3)_F\).
+
+Therefore a static
+
+\[
+E/O\to\{A_i,A_j\}
+\]
+
+map cannot be the complete family dynamics.
+
+Status:
+
+`STATIC_EO_TO_TWO_STAGE66_ORBIT_GENERATORS_REFUTED`.
+
+Remaining:
+
+`OPEN_COLLATZ_STATE_OR_PATH_TO_STAGE66_C3_ORBIT_INDEX_BINDING`
+
+plus physical promotion/binding of the frozen branch-rhythm candidate.
