@@ -4,14 +4,16 @@ on:
   pull_request:
     paths:
       - "TIR/docs/candidates/spacetime_dimension/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.md"
+      - "TIR/docs/candidates/spacetime_dimension/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.md"
       - "TIR/validation/tir_sp3_3plus1_bundle_compatibility_v0_1.py"
       - "TIR/validation/tir_sp3_delta_herm2_half_lift_bridge_v0_1.py"
-      - "TIR/docs/candidates/spacetime_dimension/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.md"
       - ".github/workflows/tir-sp3-3plus1-bundle-compatibility.yml"
   push:
     paths:
       - "TIR/docs/candidates/spacetime_dimension/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.md"
+      - "TIR/docs/candidates/spacetime_dimension/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.md"
       - "TIR/validation/tir_sp3_3plus1_bundle_compatibility_v0_1.py"
+      - "TIR/validation/tir_sp3_delta_herm2_half_lift_bridge_v0_1.py"
       - ".github/workflows/tir-sp3-3plus1-bundle-compatibility.yml"
 
 jobs:
@@ -33,6 +35,13 @@ jobs:
           grep -Fq '"TIR_GSC1_PRODUCTION_SPATIAL_CAPTURE"' build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
           grep -Fq '"TIR_INTERLEAF_PRODUCTION_MATCHING_CAPTURE"' build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
           grep -Fq '"physical_production_claim": false' build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
+          python TIR/validation/tir_sp3_delta_herm2_half_lift_bridge_v0_1.py | tee build/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.json
+          grep -Fq '"status": "PASS"' build/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.json
+          grep -Fq '"all_five_delta_herm2_witnesses_strictly_positive": true' build/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.json
+          grep -Fq '"bloch_vector_equals_existing_rfe8_shift_with_float_boundary_tolerance": true' build/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.json
+          grep -Fq '"raw_sp3_clock_correction_direct_trace_scale_identification_refuted_for_all_five": true' build/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.json
+          grep -Fq '"bundle_candidate_same_parent_still_passes": true' build/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.json
+          grep -Fq '"physical_production_claim": false' build/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.json
       - uses: actions/upload-artifact@v4
         with:
           name: tir-sp3-3plus1-bundle-compatibility-v0-1
