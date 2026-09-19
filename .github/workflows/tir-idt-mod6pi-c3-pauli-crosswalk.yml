@@ -75,6 +75,7 @@ jobs:
           grep -Fq '"weak_family_cardinality": "DIMENSION_3_X_2_EQUALS_6_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"six_quark_flavour_cardinality": "CONDITIONAL_LABEL_COUNT_SIX_NOT_FULL_PHYSICAL_SPECTRUM_DERIVATION"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"legacy_weak_pole_orientation_audit": "ARCHIVAL_SOURCE_RECOVERED_CURRENT_PROMOTION_CONDITIONAL"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"legacy_generated_projection_csv_state": "STALE_UP_QUARK_PARTICLE_ID"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"chirality_to_weak_label_intertwiner": "CLOSED_CONDITIONAL_ON_RECOVERED_NORTH_SOUTH_T3_ORIENTATION_ANCHOR"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"six_cycle_weak_family_label_operator": "CLOSED_CONDITIONAL_ON_RECOVERED_WEAK_ORIENTATION_ANCHOR"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"weak_a1_weyl_z2_status": "CURRENT_EXACT"' mod6pi-c3-pauli-receipt.json
