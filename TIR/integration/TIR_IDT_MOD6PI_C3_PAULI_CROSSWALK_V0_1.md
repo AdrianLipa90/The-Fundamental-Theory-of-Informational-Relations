@@ -4110,3 +4110,125 @@ Status:
 `REPRESENTATION_LEVEL_C3_FRAMES_DERIVED__PHYSICAL_SECTOR_FRAME_BINDING_OPEN`.
 
 This does not promote (F_3) itself to the observed CKM or PMNS matrix.
+
+---
+
+## Appendix X — NEW 2026-09-19 — Stage-39 structural sector eigenframes and retained Stage-40 CKM-shape failure
+
+### X.1 Frozen two-operator sector construction
+
+Stage 39 freezes
+
+\[
+D=\operatorname{diag}\left(-\frac13,0,\frac1{\sqrt5}\right),
+\qquad
+C=F_3DF_3^\dagger,
+\]
+
+and the family of Hermitian operators
+
+\[
+\boxed{H(\alpha)=D+\alpha C.}
+\]
+
+The endpoint weights are imported from the earlier Stage-33 invariant receipt:
+
+\[
+a=\frac27,
+\qquad
+b=\frac29.
+\]
+
+The Stage-33 receipt states that these ratios are not reconstructed from CKM or mass data.
+
+Stage 39 retains both assignments
+
+```text
+A: alpha_u = a, alpha_d = b
+B: alpha_u = b, alpha_d = a
+```
+
+without selecting one by target fit.
+
+### X.2 Two structural sector eigenframes exist
+
+For either assignment,
+
+\[
+H_u=H(\alpha_u),
+\qquad
+H_d=H(\alpha_d)
+\]
+
+are noncommuting Hermitian operators.
+
+Their ordered eigenframes define a relative transformation
+
+\[
+V=U_u^\dagger U_d,
+\]
+
+which is normalized to
+
+\[
+V\in SU(3).
+\]
+
+The present crosswalk independently reproduces the Stage-39 result:
+
+\[
+|J_A|=|J_B|
+\approx
+2.01742207300684\times10^{-5},
+\]
+
+with
+
+\[
+J_B=-J_A.
+\]
+
+Thus exchanging the two frozen endpoint assignments reverses the CP orientation while preserving the mixing scale.
+
+Status:
+
+`TWO_HERMITIAN_SECTOR_EIGENFRAMES_FROZEN_STRUCTURAL_CANDIDATE`
+
+`NONZERO_CP_UNITARY_RELATIVE_TRANSFORMATION_REPRODUCED_NO_TARGET_FIT`.
+
+### X.3 What remains open
+
+The existence of two structural sector eigenframes is therefore not the remaining issue.
+
+The unresolved questions are:
+
+```text
+which frozen assignment is physically up/down
+    = OPEN
+
+whether the Stage-39 structural relative transformation is the physical CKM map
+    = NOT PROMOTED
+
+full CKM shape reproduction
+    = FAIL (Stage 40 retained)
+```
+
+Stage 40 reports that the frozen construction underproduces the Cabibbo-like entry, overproduces other entries, and does not reproduce the full hierarchy. No retuning is introduced here.
+
+Status:
+
+`OPEN_STAGE39_A_B_ASSIGNMENT_NOT_SELECTED`
+
+`STAGE40_FULL_CKM_SHAPE_FAIL_RETAINED`.
+
+### X.4 Narrowed projective-frame frontier
+
+Appendix W derived the label and character projective frames at the (C_3) representation level.
+
+Stage 39 now supplies two further structural sector eigenframes from the same (D/F_3DF_3^\dagger) operator pair.
+
+Therefore the projective-frame frontier is narrowed to
+
+`C3_PROJECTIVE_FRAMES_AND_STAGE39_STRUCTURAL_SECTOR_FRAMES_DERIVED__PHYSICAL_ASSIGNMENT_AND_CKM_PROMOTION_OPEN`.
+
+This remains a structural/postdictive candidate line; it is not a successful quantitative CKM derivation.
