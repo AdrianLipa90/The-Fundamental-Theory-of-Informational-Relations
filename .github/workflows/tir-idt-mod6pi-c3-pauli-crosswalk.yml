@@ -41,6 +41,8 @@ jobs:
           grep -Fq '"technical_status": "PASS"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"representation_status": "TEMPORAL_C3_TO_PAULI_AND_ORDERED_FAMILY_C3_CROSSWALK_CLOSED"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"temporal_family_label_binding": "ANCHORED_EQUIVARIANT_LABEL_INTERTWINER_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_precedence_binding": "TEMPORAL_C3_TO_ACTIVE_STAGE22_FAMILY_SEED_ORDER_CLOSED"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"historical_generation_numbering_status": "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"flavour_cardinality_result": "N_F_EQUALS_3_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"cp_character_transfer": "F3_JARLSKOG_MATH_TRANSFER_CLOSED_PHYSICAL_CP_BINDING_OPEN"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"su3f_transfer": "LIE_DIMENSION_8_PRESERVED_UNDER_ORDERED_INTERTWINER"' mod6pi-c3-pauli-receipt.json
