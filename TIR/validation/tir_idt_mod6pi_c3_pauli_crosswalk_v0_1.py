@@ -1155,6 +1155,19 @@ def main() -> None:
         np.max(np.abs(ME @ MO - MO @ ME))
     )
 
+    # Minimal two-generator D/C branch-map ambiguity.
+    # Assignment A: E->D, O->C. Assignment B: E->C, O->D.
+    # Both retain noncommutativity; their Lie commutators are opposite.
+    dc_branch_A_E = ell_E_exact * D_family
+    dc_branch_A_O = ell_O_exact * C_family
+    dc_branch_B_E = ell_E_exact * C_family
+    dc_branch_B_O = ell_O_exact * D_family
+    dc_comm_A = dc_branch_A_E @ dc_branch_A_O - dc_branch_A_O @ dc_branch_A_E
+    dc_comm_B = dc_branch_B_E @ dc_branch_B_O - dc_branch_B_O @ dc_branch_B_E
+    dc_comm_A_norm = float(np.max(np.abs(dc_comm_A)))
+    dc_comm_B_norm = float(np.max(np.abs(dc_comm_B)))
+    dc_branch_swap_sign_residual = float(np.max(np.abs(dc_comm_A + dc_comm_B)))
+
     # Conditional overlap-realization theorem for family plaquette phase.
     # If W_ij=<u_i|d_j>, the rephasing-invariant plaquette is exactly the
     # Bargmann/Pancharatnam quadrilateral phase.
@@ -1662,6 +1675,15 @@ def main() -> None:
             single_axis_generator_commutator < TOL
             and mobius_branch_noncommutativity > TOL
         ),
+        "dc_two_generator_assignment_A_noncommutes": (
+            dc_comm_A_norm > TOL
+        ),
+        "dc_two_generator_assignment_B_noncommutes": (
+            dc_comm_B_norm > TOL
+        ),
+        "dc_branch_swap_reverses_lie_commutator_orientation": (
+            dc_branch_swap_sign_residual < TOL
+        ),
         "sym2_binary_to_three_dimension_exact": sym2_dimension == 3,
         "split_real_branch_operator_homomorphism_exact": (
             sym2_homomorphism_residual < TOL
@@ -2037,7 +2059,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__NONCOMMUTING_BRANCH_OPERATOR_AND_RHO_BINDING_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__EO_TO_DC_Z2_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2059,6 +2081,14 @@ def main() -> None:
         ),
         "family_branch_operator_requirement": (
             "AT_LEAST_TWO_NONCOMMUTING_GENERATORS_OR_STATE_DEPENDENT_CONJUGATION_REQUIRED"
+        ),
+        "minimal_dc_branch_map_status": (
+            "TWO_NONCOMMUTING_DC_ASSIGNMENTS_EXIST_WITH_BRANCH_SWAP_SIGN_REVERSAL"
+            if passed
+            else "FAILED"
+        ),
+        "branch_generator_assignment_status": (
+            "OPEN_Z2_EO_TO_DC_ASSIGNMENT_NOT_SOURCE_SELECTED"
         ),
         "icosahedral_family_embedding_status": (
             "STAGE61_62_C3_COMPATIBLE_RIGID_EMBEDDING_CURRENT_PASS"
@@ -2376,6 +2406,12 @@ def main() -> None:
             "required_next_object": (
                 "SOURCE_DERIVED_FAMILY_WIJ_OR_EQUIVALENT_PAIRWISE_PROJECTIVE_HOLONOMY"
             ),
+            "minimal_DC_branch_assignment_A": "E->D, O->C",
+            "minimal_DC_branch_assignment_B": "E->C, O->D",
+            "assignment_A_commutator_max_abs": dc_comm_A_norm,
+            "assignment_B_commutator_max_abs": dc_comm_B_norm,
+            "branch_swap_commutator_sign_residual": dc_branch_swap_sign_residual,
+            "DC_assignment_source_selection": "OPEN_Z2",
         },
         "sector_assignment_provenance_audit": {
             "stage39_assignments": {
@@ -2647,6 +2683,8 @@ def main() -> None:
             "directed_23_tangent_does_not_select_stage39_up_down_assignment": True,
             "single_fixed_stage66_tangent_for_both_branches_loses_word_order": True,
             "branch_operator_map_requires_noncommuting_or_state_dependent_structure": True,
+            "minimal_DC_pair_supplies_noncommutativity_but_not_EO_source_assignment": True,
+            "EO_to_DC_assignment_must_not_be_selected_from_CKM_or_CP_target_sign": True,
             "Aseed_was_not_used_to_fit_eta": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
