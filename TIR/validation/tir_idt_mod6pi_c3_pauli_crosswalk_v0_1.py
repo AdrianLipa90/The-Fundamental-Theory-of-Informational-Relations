@@ -349,8 +349,24 @@ def main() -> None:
             and 'Channel("e_L", "charged_lepton", "L", "weak_doublet", "south/-", Fraction(-1,2)' in archive_projection
         ),
         "legacy_generated_csv_stale_up_quark_row_detected": (
-            'nu_L,up_quark,"T3=1/2, pole=north/+"' in archive_projection_csv
-            and 'u_L,up_quark,"T3=1/2, pole=north/+"' not in archive_projection_csv
+            any(
+                len(parts) >= 2
+                and parts[0] == "nu_L"
+                and parts[1] == "up_quark"
+                for parts in (
+                    line.split(",", 2)
+                    for line in archive_projection_csv.splitlines()[1:]
+                )
+            )
+            and not any(
+                len(parts) >= 2
+                and parts[0] == "u_L"
+                and parts[1] == "up_quark"
+                for parts in (
+                    line.split(",", 2)
+                    for line in archive_projection_csv.splitlines()[1:]
+                )
+            )
         ),
         "legacy_axis_v18_declares_universal_weak_axis_ansatz": (
             "The weak doublet uses one universal weak-isospin axis." in archive_axis_v18
