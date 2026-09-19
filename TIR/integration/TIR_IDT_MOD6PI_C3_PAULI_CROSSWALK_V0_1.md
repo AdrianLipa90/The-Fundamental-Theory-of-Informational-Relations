@@ -784,3 +784,251 @@ The minimal remaining operator gate is
 \]
 
 A legacy implementation exists in the archived chiral-projection line, where north/south CP1 poles were associated with \(T_3=\pm\tfrac12\) upper/lower weak-doublet components, but that archived mapping is not promoted here as a current theorem.
+
+
+---
+
+## Appendix D — NEW 2026-09-19 — Legacy weak-pole orientation audit and conditional current crosswalk
+
+### D.1 Provenance recovery
+
+The archived chiral-projection source
+
+\`archive/v7.9/full/28_debt11_chiral_representation_projection_v3_0/scripts/debt11_chiral_representation_projection_v3_0.py\`
+
+is pinned by Git blob SHA
+
+\`01b9be380f095b613a731ba258865bc617d8e854\`.
+
+It contains the explicit one-generation weak-doublet pole assignments
+
+\[
+|N\rangle
+\leftrightarrow
+T_3=+\frac12
+\leftrightarrow
+\text{upper weak-doublet component},
+\]
+
+\[
+|S\rangle
+\leftrightarrow
+T_3=-\frac12
+\leftrightarrow
+\text{lower weak-doublet component}.
+\]
+
+In particular the source code contains
+
+\[
+u_L:
+\quad
+\text{north/+},\quad T_3=+\frac12,
+\]
+
+and
+
+\[
+d_L:
+\quad
+\text{south/-},\quad T_3=-\frac12.
+\]
+
+No observed masses are used by that archived source.
+
+### D.2 Stale generated artifact
+
+The archived generated CSV
+
+\`archive/v7.9/full/28_debt11_chiral_representation_projection_v3_0/results/projection_channel_table_v3_0.csv\`
+
+is pinned by blob SHA
+
+\`3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1\`.
+
+It contains a stale row identifier:
+
+\`\`\`text
+nu_L,up_quark,"T3=1/2, pole=north/+"
+\`\`\`
+
+whereas the source generator contains the corrected identifier
+
+\`\`\`text
+u_L,up_quark,"L","weak_doublet","north/+",Fraction(1,2),...
+\`\`\`
+
+Therefore this Appendix treats the archived source generator as authoritative and the stale generated CSV as a preserved historical artifact, not as the promotion source.
+
+Status:
+
+\`ARCHIVAL_GENERATED_CSV_STALE_ROW_ID_DETECTED / SOURCE_SCRIPT_AUTHORITATIVE\`.
+
+### D.3 Historical axis status
+
+The archived v1.8 axis document states that the weak doublet uses one universal weak-isospin axis and that the zeta-polar map labels the north/south pair of that same Killing field. However it explicitly classifies the physical axis selection as a canonical working ansatz.
+
+The later v2.3 source-grammar document strengthens the result. It first derives the abstract
+
+\`SOURCE_DERIVED_CHIRAL_CP1_AXIS\`
+
+from source-geometric criteria and only afterward identifies weak isospin as the Standard-Model realization of that abstract axis.
+
+Its status remains
+
+\`CONDITIONALLY_CLOSED_STRUCTURAL_ENUMERATION\`,
+
+not an unconditional first-principles proof of the complete weak sector.
+
+### D.4 Current representation crosswalk using the recovered orientation anchor
+
+Current Stage 23 supplies
+
+\[
+J_\chi=
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix}
+\]
+
+on the ordered pole basis
+
+\[
+(|N\rangle,|S\rangle).
+\]
+
+Let the ordered weak-doublet basis be
+
+\[
+(|+\rangle_W,|-\rangle_W),
+\qquad
+T_3|+\rangle_W=+\frac12|+\rangle_W,
+\qquad
+T_3|-\rangle_W=-\frac12|-\rangle_W.
+\]
+
+Using the recovered historical orientation anchor
+
+\[
+|N\rangle\mapsto|+\rangle_W,
+\qquad
+|S\rangle\mapsto|-\rangle_W,
+\]
+
+define
+
+\[
+F_{\chi W}=I_2.
+\]
+
+The weak-component exchange operator is
+
+\[
+J_W=
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix}.
+\]
+
+Then
+
+\[
+\boxed{
+F_{\chi W}J_\chi
+=
+J_WF_{\chi W}.
+}
+\]
+
+Thus the binary label representations are exactly intertwined once the recovered north/south-to-\(T_3\) orientation anchor is admitted.
+
+Status:
+
+\`CHIRALITY_TO_WEAK_LABEL_INTERTWINER_CLOSED_CONDITIONAL_ON_RECOVERED_ORIENTATION_ANCHOR\`.
+
+### D.5 Six-state weak-family lift
+
+Combine the Appendix-A family map and the recovered binary map:
+
+\[
+M_{6W}
+=
+M_{TF}\otimes F_{\chi W}.
+\]
+
+On the temporal side use
+
+\[
+G_T=P_T\otimes J_\chi,
+\]
+
+and on the weak-family label side use
+
+\[
+G_W=P_F\otimes J_W.
+\]
+
+Then
+
+\[
+\boxed{
+M_{6W}G_T
+=
+G_WM_{6W}.
+}
+\]
+
+Therefore the exact six-cycle has a weak-family label realization conditional on the recovered orientation anchor.
+
+The resulting label set is
+
+\[
+\boxed{
+\{(1,+),(1,-),(2,+),(2,-),(3,+),(3,-)\},
+}
+\]
+
+which has cardinality six.
+
+For the quark-doublet interpretation this has the label pattern
+
+\[
+(u,d),\qquad(c,s),\qquad(t,b),
+\]
+
+but this Appendix does not derive the masses, charges, CKM matrix, or full physical particle spectrum from the six-cycle alone.
+
+Status:
+
+\`SIX_WEAK_FAMILY_LABEL_OPERATOR_CLOSED_CONDITIONAL_ON_RECOVERED_WEAK_ORIENTATION_ANCHOR\`.
+
+### D.6 Remaining physical gate
+
+The old gate
+
+\`CHIRALITY_Z2_TO_WEAK_ISOSPIN_DOUBLET_BINDING = OPEN\`
+
+is narrowed but not erased.
+
+Its corrected decomposition is:
+
+\`\`\`text
+legacy N/S <-> T3 +/-1/2 orientation
+    = SOURCE RECOVERED
+
+current Z2 representation intertwiner under that orientation
+    = CLOSED EXACT
+
+current six-state weak-family label intertwiner
+    = CLOSED EXACT CONDITIONAL ON RECOVERED ORIENTATION
+
+first-principles physical selection of weak isospin from the source geometry
+    = OPEN / historically conditional
+
+full six-quark physical spectrum derivation
+    = OPEN
+\`\`\`
+
+The remaining target is therefore no longer the existence of a \(2\)-state weak map. It is the promotion of the weak-axis orientation from recovered/conditional source status to a current first-principles physical selection theorem.
