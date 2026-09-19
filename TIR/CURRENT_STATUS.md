@@ -554,3 +554,48 @@ Remaining gate:
 Therefore:
 
 \`SIX_QUARK_FLAVOURS_FROM_3_X_2 = OPEN_PENDING_WEAK_DOUBLET_BINDING\`.
+
+
+### Appendix D update — recovered weak-pole orientation
+
+A source audit recovered the archived one-generation pole orientation from
+
+\`archive/v7.9/full/28_debt11_chiral_representation_projection_v3_0/scripts/debt11_chiral_representation_projection_v3_0.py\`
+
+at Git blob SHA
+
+\`01b9be380f095b613a731ba258865bc617d8e854\`.
+
+The source maps
+
+\[
+N/+ \leftrightarrow T_3=+\frac12 \leftrightarrow \text{upper weak-doublet component},
+\]
+
+\[
+S/- \leftrightarrow T_3=-\frac12 \leftrightarrow \text{lower weak-doublet component},
+\]
+
+including \(u_L\) and \(d_L\).
+
+The preserved generated CSV at blob SHA
+\`3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1\`
+contains a stale \`nu_L,up_quark\` row identifier; the source generator is therefore the provenance authority for this recovery.
+
+With the recovered orientation anchor, the current Stage-23 pole-exchange \(Z_2\) and the weak-doublet component-exchange \(Z_2\) are exactly intertwined, and the six-state map lifts as
+
+\[
+M_{6W}=M_{TF}\otimes F_{\chi W},
+\qquad
+M_{6W}G_T=G_WM_{6W}.
+\]
+
+Status:
+
+\`ARCHIVAL_WEAK_POLE_ORIENTATION_RECOVERED\`
+
+\`CHIRALITY_TO_WEAK_LABEL_INTERTWINER_CLOSED_CONDITIONAL_ON_RECOVERED_ORIENTATION_ANCHOR\`
+
+\`SIX_WEAK_FAMILY_LABEL_OPERATOR_CLOSED_CONDITIONAL_ON_RECOVERED_WEAK_ORIENTATION_ANCHOR\`.
+
+The historical weak-axis selection itself remained conditional/ansatz-level before the later source-grammar strengthening. Therefore the first-principles physical weak-axis selection and the full physical six-quark spectrum remain OPEN.
