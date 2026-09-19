@@ -1,0 +1,41 @@
+name: TIR Herm2 Lorentz covariance v0.1
+
+on:
+  pull_request:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_HERM2_LORENTZ_COVARIANCE_V0_1.md"
+      - "TIR/validation/tir_herm2_lorentz_covariance_v0_1.py"
+      - ".github/workflows/tir-herm2-lorentz-covariance.yml"
+  push:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_HERM2_LORENTZ_COVARIANCE_V0_1.md"
+      - "TIR/validation/tir_herm2_lorentz_covariance_v0_1.py"
+      - ".github/workflows/tir-herm2-lorentz-covariance.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install sympy
+      - name: Revalidate causal parent and prove Herm2 Lorentz covariance
+        run: |
+          mkdir -p build
+          python TIR/validation/tir_causal_3plus1_pair_closure_v0_1.py | tee build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_PARENT.json
+          grep -Fq '"status": "PASS"' build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_PARENT.json
+          python TIR/validation/tir_herm2_lorentz_covariance_v0_1.py | tee build/TIR_HERM2_LORENTZ_COVARIANCE_V0_1.json
+          grep -Fq '"status": "PASS"' build/TIR_HERM2_LORENTZ_COVARIANCE_V0_1.json
+          grep -Fq '"explicit_z_boost_exact": true' build/TIR_HERM2_LORENTZ_COVARIANCE_V0_1.json
+          grep -Fq '"explicit_z_rotation_exact": true' build/TIR_HERM2_LORENTZ_COVARIANCE_V0_1.json
+          grep -Fq '"SL2C_action_kernel_is_plus_minus_I": true' build/TIR_HERM2_LORENTZ_COVARIANCE_V0_1.json
+          grep -Fq '"half_difference_covariant_under_boost": true' build/TIR_HERM2_LORENTZ_COVARIANCE_V0_1.json
+          grep -Fq '"physical_event_binding_claim": false' build/TIR_HERM2_LORENTZ_COVARIANCE_V0_1.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tir-herm2-lorentz-covariance-v0-1
+          path: |
+            build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_PARENT.json
+            build/TIR_HERM2_LORENTZ_COVARIANCE_V0_1.json
