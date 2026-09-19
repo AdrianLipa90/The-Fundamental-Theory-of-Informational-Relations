@@ -1,0 +1,37 @@
+name: TIR SP3 causal pair instantiation v0.1
+
+on:
+  pull_request:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.md"
+      - "TIR/validation/tir_sp3_causal_pair_instantiation_v0_1.py"
+      - ".github/workflows/tir-sp3-causal-pair-instantiation.yml"
+  push:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.md"
+      - "TIR/validation/tir_sp3_causal_pair_instantiation_v0_1.py"
+      - ".github/workflows/tir-sp3-causal-pair-instantiation.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate finite SP3 theorem instantiation
+        run: |
+          mkdir -p build
+          python TIR/validation/tir_sp3_causal_pair_instantiation_v0_1.py | tee build/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.json
+          grep -Fq '"status": "PASS"' build/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.json
+          grep -Fq '"all_five_frozen_pairs_instantiate_strict_theorem_future_cone": true' build/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.json
+          grep -Fq '"all_five_have_positive_normalized_causal_margin": true' build/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.json
+          grep -Fq '"causal_theorem_parent_PASS": true' build/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.json
+          grep -Fq '"sp3_parent_PASS": true' build/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.json
+          grep -Fq '"physical_event_binding_claim": false' build/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.json
+          grep -Fq '"empirical_theory_confirmation": false' build/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tir-sp3-causal-pair-instantiation-v0-1
+          path: build/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.json
