@@ -451,3 +451,61 @@ Canonical source:
 Validator:
 
 `TIR/validation/tir_idt_mod6pi_c3_pauli_crosswalk_v0_1.py`.
+
+
+### Appendix A update — ordered temporal C3 to ordered family C3
+
+The periodic IDT \(C_3\) carrier and the existing Stage-24 ordered family \(C_3\) carrier now have an exact anchored equivariant label intertwiner.
+
+With the declared anchor
+
+\[
+e_1\mapsto s_1
+\]
+
+and equivariance
+
+\[
+M_{TF}P_T=P_FM_{TF},
+\]
+
+transitivity forces
+
+\[
+e_2\mapsto s_2,\qquad e_3\mapsto s_3.
+\]
+
+Hence the ordered representation-level temporal-to-family seam is closed:
+
+\`ANCHORED_EQUIVARIANT_LABEL_INTERTWINER_CLOSED\`.
+
+The same \(F_3\) character basis diagonalizes both cycles, so the Stage-38 mathematical invariant
+
+\[
+J(F_3)=\frac1{6\sqrt3}
+\]
+
+transfers exactly at representation level. The Stage-42 pullback also preserves the real Lie-closure dimension
+
+\[
+\dim\mathfrak{su}(3)=8.
+\]
+
+Conditional cardinality consequence:
+
+\[
+\boxed{
+\text{physical temporal-family binding}
+\Longrightarrow N_F=3.
+}
+\]
+
+The physical sector-binding premise remains OPEN. Therefore the current state is:
+
+\`\`\`text
+temporal C3 <-> ordered family C3 representation = CLOSED_EXACT_WITH_DECLARED_ANCHOR
+F3 mathematical CP-capable invariant transfer   = CLOSED
+su(3)_F Lie-dimension transfer                   = CLOSED
+physical temporal <-> flavour identity           = OPEN
+physical CKM / PMNS assignment                   = OPEN
+\`\`\`
