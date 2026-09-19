@@ -1,0 +1,39 @@
+name: TIR causal 3plus1 pair closure v0.1
+
+on:
+  pull_request:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.md"
+      - "TIR/validation/tir_causal_3plus1_pair_closure_v0_1.py"
+      - ".github/workflows/tir-causal-3plus1-pair-closure.yml"
+  push:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.md"
+      - "TIR/validation/tir_causal_3plus1_pair_closure_v0_1.py"
+      - ".github/workflows/tir-causal-3plus1-pair-closure.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install sympy
+      - name: Prove causal 3+1 pair closure
+        run: |
+          mkdir -p build
+          python TIR/validation/tir_causal_3plus1_pair_closure_v0_1.py | tee build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.json
+          grep -Fq '"status": "PASS"' build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.json
+          grep -Fq '"determinant_identity_t2_minus_r2": true' build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.json
+          grep -Fq '"determinant_hessian_is_minkowski_diag_plus_minus_minus_minus": true' build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.json
+          grep -Fq '"spatial_PSD_intersection_is_zero_from_opposite_spectrum": true' build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.json
+          grep -Fq '"SO3_invariant_quadratic_forms_are_diag_a_b_b_b": true' build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.json
+          grep -Fq '"midpoint_half_difference_factor_one_half_is_unique": true' build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.json
+          grep -Fq '"half_difference_endpoint_composition_is_additive": true' build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.json
+          grep -Fq '"physical_event_binding_claim": false' build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tir-causal-3plus1-pair-closure-v0-1
+          path: build/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.json
