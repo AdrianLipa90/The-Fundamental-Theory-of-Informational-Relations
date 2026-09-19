@@ -1,0 +1,42 @@
+name: TIR Herm2 rapidity speed composition v0.1
+
+on:
+  pull_request:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.md"
+      - "TIR/validation/tir_herm2_rapidity_speed_composition_v0_1.py"
+      - ".github/workflows/tir-herm2-rapidity-speed-composition.yml"
+  push:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.md"
+      - "TIR/validation/tir_herm2_rapidity_speed_composition_v0_1.py"
+      - ".github/workflows/tir-herm2-rapidity-speed-composition.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install sympy
+      - name: Revalidate Lorentz parent and prove rapidity/speed composition
+        run: |
+          mkdir -p build
+          python TIR/validation/tir_herm2_lorentz_covariance_v0_1.py | tee build/TIR_HERM2_LORENTZ_COVARIANCE_PARENT.json
+          grep -Fq '"status": "PASS"' build/TIR_HERM2_LORENTZ_COVARIANCE_PARENT.json
+          python TIR/validation/tir_herm2_rapidity_speed_composition_v0_1.py | tee build/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.json
+          grep -Fq '"status": "PASS"' build/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.json
+          grep -Fq '"null_plus_slope_fixed": true' build/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.json
+          grep -Fq '"null_minus_slope_fixed": true' build/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.json
+          grep -Fq '"rapidity_boost_matrices_add_exactly": true' build/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.json
+          grep -Fq '"tanh_rapidity_addition_exact": true' build/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.json
+          grep -Fq '"einstein_velocity_addition_after_x0_equals_ct_exact": true' build/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.json
+          grep -Fq '"physical_clock_binding_claim": false' build/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tir-herm2-rapidity-speed-composition-v0-1
+          path: |
+            build/TIR_HERM2_LORENTZ_COVARIANCE_PARENT.json
+            build/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.json
