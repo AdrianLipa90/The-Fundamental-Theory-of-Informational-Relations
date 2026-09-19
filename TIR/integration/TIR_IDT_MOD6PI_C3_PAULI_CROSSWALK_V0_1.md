@@ -3675,3 +3675,180 @@ Thus the current clean-source gate becomes
 Current aggregate frontier:
 
 \`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_NONSEPARABLE_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN\`.
+
+
+---
+
+## Appendix U — NEW 2026-09-19 — Equatorial \(q_C\) Bargmann-phase no-go
+
+### U.1 Scalar \(q_C\) on the existing equatorial \(CP^1\) carrier
+
+The Collatz-Fubini-Study interface admits the equal-weight qubit ray
+
+\[
+\boxed{
+|\psi(q)\rangle
+=
+\frac{|0\rangle+e^{2\pi iq}|1\rangle}{\sqrt2}.
+}
+\]
+
+All such rays lie on one equator
+
+\[
+S^1\subset\mathbb CP^1.
+\]
+
+For two such rays,
+
+\[
+\langle\psi(q_i)|\psi(q_j)\rangle
+=
+\frac{1+e^{2\pi i(q_j-q_i)}}{2}
+=
+e^{i\pi(q_j-q_i)}
+\cos\!\big(\pi(q_j-q_i)\big).
+\]
+
+### U.2 Three-point Bargmann phase telescopes on one equator
+
+For three active rays, define the Bargmann invariant
+
+\[
+B_{123}
+=
+\langle\psi_1|\psi_2\rangle
+\langle\psi_2|\psi_3\rangle
+\langle\psi_3|\psi_1\rangle.
+\]
+
+Its explicit phase factor is
+
+\[
+\exp\left\{
+i\pi\left[
+(q_2-q_1)
++
+(q_3-q_2)
++
+(q_1-q_3)
+\right]
+\right\}.
+\]
+
+The exponent vanishes exactly:
+
+\[
+\boxed{
+(q_2-q_1)+(q_3-q_2)+(q_1-q_3)=0.
+}
+\]
+
+Hence the Bargmann product is real.
+
+For the active exact values
+
+\[
+q_1=\frac17,
+\qquad
+q_2=\frac{141}{448},
+\qquad
+q_3=\frac{141}{896},
+\]
+
+all three pair separations satisfy
+
+\[
+|q_i-q_j|<\frac12.
+\]
+
+Therefore every cosine factor is positive and
+
+\[
+\boxed{
+B_{123}>0,
+\qquad
+\arg B_{123}=0.
+}
+\]
+
+Status:
+
+\`ACTIVE_SCALAR_QC_EQUATORIAL_BARGMANN_PHASE_ZERO\`.
+
+### U.3 This is stronger than the separable plaquette no-go
+
+Appendix T showed that pair phases generated as
+
+\[
+\phi_{ij}=2\pi(q_i-q_j)
+\]
+
+have zero rephasing-invariant plaquette phase.
+
+The present result additionally shows that promoting the same scalar \(q_C\) values to equatorial projective rays and taking the standard three-ray Bargmann/Pancharatnam phase still does not generate a nonzero geometric phase for the active triplet.
+
+Thus neither of the two direct constructions
+
+\[
+q_i-q_j
+\]
+
+nor
+
+\[
+\arg\!
+\left(
+\langle\psi_1|\psi_2\rangle
+\langle\psi_2|\psi_3\rangle
+\langle\psi_3|\psi_1\rangle
+\right)
+\]
+
+supplies the Stage-36 CP phase.
+
+### U.4 Nonzero Bargmann phase exists elsewhere in current TIR
+
+The current hexahedral Bloch dual-frame theorem contains exact non-coplanar multi-ray triangles. For the ordered Bloch rays
+
+\[
+(+x,+y,+z)
+\]
+
+it gives
+
+\[
+\boxed{
+\gamma_B=+\frac{\pi}{4}
+}
+\]
+
+in the stated orientation convention.
+
+This proves that the TIR geometric framework can carry a nonzero Bargmann/Pancharatnam phase once the rays span genuine two-dimensional spherical area.
+
+It does **not** identify that spatial/hexahedral triangle with the family sector.
+
+### U.5 Correct remaining CP source requirement
+
+The active scalar \(q_C\) equator is therefore insufficient by itself.
+
+A viable clean family CP source must add at least one structure not contained in the single scalar equatorial coordinate, for example:
+
+\`\`\`text
+genuinely pair-dependent relational connection
+non-equatorial CP1 motion
+multi-ray Berry geometry with nonzero enclosed area
+path-local holonomy not reducible to vertex phases
+state-dependent complex operator data
+\`\`\`
+
+Status:
+
+\`ADDITIONAL_NONSEPARABLE_CONNECTION_OR_NON_EQUATORIAL_MULTI_RAY_GEOMETRY_REQUIRED\`.
+
+The sector firewall remains active: a nonzero Berry triangle from another TIR carrier is not reassigned to the family sector without an explicit intertwiner.
+
+Current aggregate frontier:
+
+\`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_SEPARABLE_AND_EQUATORIAL_BARGMANN_CP_REFUTED__COMPLEX_HOLONOMY_EXISTS__RHO_BINDING_AND_NONSEPARABLE_DISCRETE_HOLONOMIC_BRANCH_MAP_OPEN\`.
