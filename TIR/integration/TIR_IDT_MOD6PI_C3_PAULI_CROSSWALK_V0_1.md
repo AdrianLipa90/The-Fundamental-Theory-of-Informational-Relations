@@ -7558,3 +7558,171 @@ restricted Weyl group
 This is group/representation geometry only.
 
 It does **not** identify the rank-two Cartan plane with two physical spatial axes, the three family labels with physical (x,y,z), or the (2\to3) representation structure with a dynamical wavelength/amplitude-to-volume law.
+
+---
+
+## Appendix BE — NEW 2026-09-19 — Compact (A_2) Weyl alcove and the (SU(3)) trace deltoid
+
+### BE.1 Compactification of the rank-two plane
+
+Appendix BD identifies the family standard two-plane with the rank-two Cartan plane
+
+\[
+\mathfrak a
+=
+\{\operatorname{diag}(\theta_1,\theta_2,\theta_3):
+\theta_1+\theta_2+\theta_3=0\}.
+\]
+
+Exponentiation
+
+\[
+H\mapsto e^{iH}
+\]
+
+introduces the coroot-lattice periodicity, while the (A_2) Weyl group (S_3\simeq D_3) permutes the three eigenphases.
+
+A fundamental compact parameter domain is the Weyl alcove
+
+\[
+\boxed{
+\theta_1\ge\theta_2\ge\theta_3,
+\qquad
+\theta_1-\theta_3\le2\pi,
+\qquad
+\theta_1+\theta_2+\theta_3=0.
+}
+\]
+
+### BE.2 Exact equilateral triangle
+
+The three alcove vertices can be chosen as
+
+\[
+v_0=(0,0,0),
+\]
+
+\[
+v_1=\left(\frac{2\pi}{3},\frac{2\pi}{3},-\frac{4\pi}{3}\right),
+\]
+
+\[
+v_2=\left(\frac{4\pi}{3},-\frac{2\pi}{3},-\frac{2\pi}{3}\right).
+\]
+
+In the orthonormal rank-two coordinates of Appendix BD, all three side lengths are
+
+\[
+\boxed{
+L=2\pi\sqrt{\frac23}
+}
+\]
+
+and the area is
+
+\[
+\boxed{
+A=\frac{2\pi^2}{\sqrt3}.
+}
+\]
+
+Thus the fundamental alcove is an exact equilateral triangle.
+
+Status:
+
+`SU3_RANK2_WEYL_ALCOVE_EQUILATERAL_TRIANGLE_EXACT`.
+
+### BE.3 Trace map to the three deltoid cusps
+
+For a diagonal representative
+
+\[
+U(\theta)=\operatorname{diag}
+\left(e^{i\theta_1},e^{i\theta_2},e^{i\theta_3}\right),
+\]
+
+define
+
+\[
+t(\theta)=\operatorname{tr}U(\theta).
+\]
+
+At the three vertices,
+
+\[
+\boxed{
+t(v_0)=3,
+\qquad
+t(v_1)=3\omega,
+\qquad
+t(v_2)=3\omega^2,
+}
+\]
+
+where
+
+\[
+\omega=e^{2\pi i/3}.
+\]
+
+These are exactly the three cusps of the compact (SU(3)) trace deltoid.
+
+### BE.4 Alcove edges give the deltoid boundary
+
+On the edge with two equal eigenphases
+
+\[
+(\theta_1,\theta_2,\theta_3)=(t,t,-2t),
+\]
+
+the trace is
+
+\[
+\boxed{
+2e^{it}+e^{-2it},
+}
+\]
+
+which is precisely the deltoid boundary parameterization from Appendix BB.
+
+The remaining two edges are its (2\pi/3)-rotated images.
+
+Therefore
+
+\[
+\boxed{
+\text{compact Weyl alcove}
+\xrightarrow{\operatorname{tr}\exp(i\cdot)}
+\text{compact }SU(3)\text{ conjugacy-class deltoid}.
+}
+\]
+
+Status:
+
+`SU3_WEYL_ALCOVE_TRACE_MAPS_TO_COMPACT_DELTOID_CLASS_SPACE`.
+
+### BE.5 Family-plane interpretation
+
+The same rank-two plane already carries the family (D_3/S_3) standard action. Hence the exact chain is
+
+```text
+three-label permutation carrier
+    -> remove invariant singlet
+rank-two family relative plane
+    -> explicit diagonal Cartan intertwiner
+rank-two SU(3)/SO(3) Cartan plane
+    -> affine A2 Weyl quotient
+compact equilateral alcove
+    -> trace map
+compact SU(3) class deltoid
+```
+
+Status:
+
+`FAMILY_STANDARD_TWO_PLANE_COMPACTIFIES_VIA_A2_AFFINE_WEYL_TO_SU3_CLASS_DELTOID`.
+
+### BE.6 Interpretation firewall
+
+This is compact Lie-group/conjugacy-class geometry.
+
+The equilateral alcove is not claimed to be a physical triangle in space; the rank-two plane is not claimed to be two physical spatial axes; the deltoid is not a physical volume; and no wavelength/amplitude-to-volume dynamics is inferred from this compactification.
