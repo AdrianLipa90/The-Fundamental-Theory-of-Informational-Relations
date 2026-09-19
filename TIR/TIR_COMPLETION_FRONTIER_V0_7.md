@@ -508,3 +508,41 @@ Status:
 \`TEMPORAL_C3_TO_ACTIVE_STAGE22_FAMILY_SEED_ORDER_CLOSED\`.
 
 Physical generation/family binding remains OPEN downstream.
+
+### Appendix H update — source-order anchor and raw-qC negative control
+
+The active Stage-22 center projection
+
+\[
+(4,6,12)
+\]
+
+has ordinary Collatz stopping depths
+
+\[
+\boxed{(2,8,9)},
+\]
+
+strictly preserving the active Stage-22 order. Together with the inherited IDT open-cut order \(e_1<e_2<e_3\), this selects the unique order-preserving label crosswalk
+
+\[
+M_{\rm ord}(e_j)=s_j.
+\]
+
+Status:
+
+`UNIQUE_ORDER_PRESERVING_LABEL_CROSSWALK_CLOSED`
+
+`DECLARED_ANCHOR_DEPENDENCY_REMOVED_AT_ORDERED_LABEL_REPRESENTATION_LEVEL`.
+
+The raw IDT Collatz phases
+
+\[
+\left(\frac17,\frac{141}{448},\frac{141}{896}\right)
+\]
+
+are neither monotone in that active order nor equally spaced, so direct identification with the uniform periodic \(6\pi\) three-frame clock is rejected:
+
+`DIRECT_UNIFORM_C3_CLOCK_IDENTIFICATION_REFUTED`.
+
+The physical map from the active Stage-22 family-seed carrier to physical family/generation remains OPEN.
