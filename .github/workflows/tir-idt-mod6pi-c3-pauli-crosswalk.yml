@@ -170,6 +170,10 @@ jobs:
           grep -Fq '"mod6pi_six_to_twelve_group_status": "SIX_STATE_C6_ROTATION_EXTENDS_TO_TWELVE_ELEMENT_ORIENTATION_DIHEDRAL_SYMMETRY"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"d3_real_rep_decomposition_status": "D3_FAMILY_PERMUTATION_REP_REAL_3_DECOMPOSES_AS_1_PLUS_2"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"f3_character_decomposition_status": "F3_TRIVIAL_SINGLET_PLUS_CONJUGATE_CHARACTER_PAIR_COMPLEXIFIES_REAL_1_PLUS_2"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"su3_so3_rank_status": "SU3_SO3_SYMMETRIC_SPACE_RANK_TWO"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"su3_so3_restricted_root_status": "SU3_SO3_RESTRICTED_ROOT_SYSTEM_A2"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"su3_so3_weyl_status": "SU3_SO3_RESTRICTED_WEYL_GROUP_D3_ISOMORPHIC_S3"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"family_cartan_plane_intertwiner_status": "FAMILY_STANDARD_TWO_PLANE_INTERTWINES_SU3_SO3_RANK2_CARTAN_PLANE"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"six_state_c6_character_spectrum_status": "WEAK_FAMILY_C6_REGULAR_CHARACTER_SPECTRUM_ALL_SIXTH_ROOTS_EXACT"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"six_state_d6_real_mode_decomposition_status": "D6_SIX_STATE_REAL_REP_DECOMPOSES_AS_1_PLUS_1_PLUS_2_PLUS_2"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"six_weak_component_label_count": "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING"' mod6pi-c3-pauli-receipt.json
