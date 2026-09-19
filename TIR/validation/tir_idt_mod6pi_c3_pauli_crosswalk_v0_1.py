@@ -825,12 +825,12 @@ def main() -> None:
             and "canonical_scalar_selector_status: OPEN" in stage64
         ),
         "sym2_binary_to_three_dimension_exact": sym2_dimension == 3,
-        "sym2_branch_generators_have_det_one": (
+        "sym2_branch_generators_have_det_one": bool(
             abs(np.linalg.det(RE) - 1.0) < TOL
             and abs(np.linalg.det(RO) - 1.0) < TOL
         ),
         "sym2_split_real_invariant_preserved": split_invariant_residual < TOL,
-        "split_real_even_generator_not_unitary_spectrum": (
+        "split_real_even_generator_not_unitary_spectrum": bool(
             abs(re_eigen_moduli[0] - 0.5) < TOL
             and abs(re_eigen_moduli[1] - 1.0) < TOL
             and abs(re_eigen_moduli[2] - 2.0) < TOL
