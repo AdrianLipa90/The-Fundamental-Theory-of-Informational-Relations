@@ -5,6 +5,8 @@ on:
     paths:
       - "TIR/docs/candidates/spacetime_dimension/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.md"
       - "TIR/validation/tir_sp3_3plus1_bundle_compatibility_v0_1.py"
+      - "TIR/validation/tir_sp3_delta_herm2_half_lift_bridge_v0_1.py"
+      - "TIR/docs/candidates/spacetime_dimension/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.md"
       - ".github/workflows/tir-sp3-3plus1-bundle-compatibility.yml"
   push:
     paths:
@@ -34,4 +36,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: tir-sp3-3plus1-bundle-compatibility-v0-1
-          path: build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
+          path: |
+            build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
+            build/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.json
