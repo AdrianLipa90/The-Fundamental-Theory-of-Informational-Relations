@@ -2108,3 +2108,51 @@ Status:
 `FAMILY_STANDARD_TWO_PLANE_INTERTWINES_SU3_SO3_RANK2_CARTAN_PLANE`.
 
 This is representation/symmetric-space rank, not a physical spatial-dimension claim.
+
+### Appendix BE update — compact (A_2) alcove maps to the (SU(3)) deltoid
+
+The rank-two Cartan plane of Appendix BD compactifies under coroot periodicity and the (A_2) Weyl group to an exact equilateral fundamental alcove.
+
+Its vertices are
+
+\[
+(0,0,0),
+\quad
+(2\pi/3,2\pi/3,-4\pi/3),
+\quad
+(4\pi/3,-2\pi/3,-2\pi/3),
+\]
+
+with side
+
+\[
+2\pi\sqrt{2/3}
+\]
+
+and area
+
+\[
+2\pi^2/\sqrt3.
+\]
+
+The trace map sends them to
+
+\[
+3,
+\qquad
+3\omega,
+\qquad
+3\omega^2,
+\]
+
+the three cusps of the compact (SU(3)) trace deltoid.
+
+Status:
+
+`SU3_RANK2_WEYL_ALCOVE_EQUILATERAL_TRIANGLE_EXACT`
+
+`SU3_WEYL_ALCOVE_TRACE_MAPS_TO_COMPACT_DELTOID_CLASS_SPACE`
+
+`FAMILY_STANDARD_TWO_PLANE_COMPACTIFIES_VIA_A2_AFFINE_WEYL_TO_SU3_CLASS_DELTOID`.
+
+This is Lie/class-space compactification, not a physical-space or volume claim.
