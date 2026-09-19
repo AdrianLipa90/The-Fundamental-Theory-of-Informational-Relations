@@ -1280,6 +1280,59 @@ def main() -> None:
         for M in d3_elements
     )
 
+    # Cartan embedding Phi(g SO(3)) = g g^T for SU(3)/SO(3).
+    g_cartan_test = candidate_step[("O", 0)]["U"] @ candidate_step[("E", 1)]["U"]
+    S_cartan_test = g_cartan_test @ g_cartan_test.T
+    cartan_embedding_symmetry_residual = float(
+        np.max(np.abs(S_cartan_test.T - S_cartan_test))
+    )
+    cartan_embedding_unitarity_residual = float(
+        np.max(
+            np.abs(
+                S_cartan_test.conj().T @ S_cartan_test - np.eye(3)
+            )
+        )
+    )
+    cartan_embedding_determinant_residual = float(
+        abs(np.linalg.det(S_cartan_test) - 1.0)
+    )
+
+    # Right SO(3) action leaves gg^T invariant.
+    k_angle = 0.417
+    k_so3 = np.array(
+        [
+            [math.cos(k_angle), -math.sin(k_angle), 0.0],
+            [math.sin(k_angle), math.cos(k_angle), 0.0],
+            [0.0, 0.0, 1.0],
+        ],
+        dtype=complex,
+    )
+    cartan_embedding_right_so3_residual = float(
+        np.max(
+            np.abs(
+                (g_cartan_test @ k_so3)
+                @ (g_cartan_test @ k_so3).T
+                - S_cartan_test
+            )
+        )
+    )
+    cartan_embedding_k_unitarity_residual = float(
+        np.max(np.abs(k_so3.conj().T @ k_so3 - np.eye(3)))
+    )
+    cartan_embedding_k_det_residual = abs(np.linalg.det(k_so3) - 1.0)
+
+    # On the rank-two diagonal Cartan flat, choose g=exp(iH/2), so Phi=exp(iH).
+    H_cartan_probe = np.diag(alcove_probe_x).astype(complex)
+    g_cartan_probe = np.diag(np.exp(0.5j * alcove_probe_x))
+    S_cartan_probe = g_cartan_probe @ g_cartan_probe.T
+    exp_iH_probe = np.diag(np.exp(1j * alcove_probe_x))
+    cartan_embedding_flat_exp_residual = float(
+        np.max(np.abs(S_cartan_probe - exp_iH_probe))
+    )
+    cartan_embedding_flat_trace_residual = abs(
+        np.trace(S_cartan_probe) - alcove_probe_trace
+    )
+
     # Six-state C6 character spectrum from C3 x Z2.
     F2 = np.array(
         [[1.0, 1.0], [1.0, -1.0]],
@@ -3187,6 +3240,20 @@ def main() -> None:
         "su3_trace_is_weyl_D3_S3_invariant_on_rank2_plane": (
             alcove_weyl_trace_residual < TOL
         ),
+        "cartan_embedding_image_is_symmetric_unitary_det1": (
+            cartan_embedding_symmetry_residual < TOL
+            and cartan_embedding_unitarity_residual < TOL
+            and cartan_embedding_determinant_residual < TOL
+        ),
+        "cartan_embedding_is_right_so3_coset_invariant": (
+            cartan_embedding_right_so3_residual < TOL
+            and cartan_embedding_k_unitarity_residual < TOL
+            and cartan_embedding_k_det_residual < TOL
+        ),
+        "cartan_embedding_rank2_flat_equals_exp_iH": (
+            cartan_embedding_flat_exp_residual < TOL
+            and cartan_embedding_flat_trace_residual < TOL
+        ),
         "tensor_character_basis_diagonalizes_six_state_c6": (
             G6_character_offdiag_residual < TOL
         ),
@@ -3975,6 +4042,16 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "su3_so3_cartan_embedding_status": (
+            "SU3_MOD_SO3_CARTAN_EMBEDDING_IS_SYMMETRIC_UNITARY_DET1_MANIFOLD"
+            if passed
+            else "FAILED"
+        ),
+        "su3_so3_flat_embedding_status": (
+            "RANK2_CARTAN_FLAT_EMBEDS_AS_DIAGONAL_SYMMETRIC_UNITARY_EXP_IH"
+            if passed
+            else "FAILED"
+        ),
         "six_state_c6_character_spectrum_status": (
             "WEAK_FAMILY_C6_REGULAR_CHARACTER_SPECTRUM_ALL_SIXTH_ROOTS_EXACT"
             if passed
@@ -4057,6 +4134,11 @@ def main() -> None:
             "su3_alcove_cusps": alcove_cusp_residual,
             "su3_alcove_deltoid_edge": alcove_edge_deltoid_residual,
             "su3_alcove_weyl_trace": alcove_weyl_trace_residual,
+            "su3_so3_cartan_embedding_symmetry": cartan_embedding_symmetry_residual,
+            "su3_so3_cartan_embedding_unitarity": cartan_embedding_unitarity_residual,
+            "su3_so3_cartan_embedding_determinant": cartan_embedding_determinant_residual,
+            "su3_so3_cartan_embedding_coset": cartan_embedding_right_so3_residual,
+            "su3_so3_cartan_embedding_flat": cartan_embedding_flat_exp_residual,
             "six_state_c6_character_offdiag": G6_character_offdiag_residual,
             "six_state_c6_sixth_root_match": G6_sixth_root_match_residual,
             "six_state_c6_conjugate_pair": G6_conjugate_pair_residual,
@@ -4713,6 +4795,23 @@ def main() -> None:
             "class_space_image": "compact SU(3) trace deltoid",
             "physical_spatial_volume_claimed": False,
         },
+        "su3_so3_cartan_embedding_audit": {
+            "embedding": "Phi(g SO(3)) = g g^T",
+            "image": "symmetric unitary determinant-one matrices",
+            "test_symmetry_residual": cartan_embedding_symmetry_residual,
+            "test_unitarity_residual": cartan_embedding_unitarity_residual,
+            "test_determinant_residual": cartan_embedding_determinant_residual,
+            "right_so3_coset_invariance_residual": (
+                cartan_embedding_right_so3_residual
+            ),
+            "rank2_flat": "H=diag(theta), sum(theta)=0",
+            "flat_embedding": "Phi(exp(iH/2) SO(3)) = exp(iH)",
+            "flat_exp_residual": cartan_embedding_flat_exp_residual,
+            "flat_trace_residual": cartan_embedding_flat_trace_residual,
+            "manifold_dimension": 5,
+            "rank": 2,
+            "physical_configuration_space_claimed": False,
+        },
         "sixfold_group_structure_audit": {
             "family_generator": "P3",
             "orientation_reflection_matrix": np.real(R_orient).astype(int).tolist(),
@@ -4821,6 +4920,8 @@ def main() -> None:
             "equilateral_weyl_alcove_is_compact_class_parameter_domain_not_physical_triangle": True,
             "deltoid_trace_image_is_conjugacy_class_geometry_not_spatial_volume": True,
             "affine_weyl_compactification_is_not_physical_space_compactification_claim": True,
+            "cartan_embedding_manifold_is_internal_symmetric_space_not_physical_configuration_space": True,
+            "five_dimensional_su3_so3_manifold_is_not_five_spatial_dimensions": True,
             "d6_real_1_plus_1_plus_2_plus_2_is_representation_decomposition_not_particle_multiplicity": True,
             "sixth_root_character_spectrum_is_group_representation_data_not_energy_spectrum": True,
             "f3_character_pair_is_not_by_itself_a_physical_two_axis_geometry": True,
