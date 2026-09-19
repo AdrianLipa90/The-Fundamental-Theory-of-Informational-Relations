@@ -1,0 +1,37 @@
+name: TIR SP3 3plus1 bundle compatibility
+
+on:
+  pull_request:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.md"
+      - "TIR/validation/tir_sp3_3plus1_bundle_compatibility_v0_1.py"
+      - ".github/workflows/tir-sp3-3plus1-bundle-compatibility.yml"
+  push:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.md"
+      - "TIR/validation/tir_sp3_3plus1_bundle_compatibility_v0_1.py"
+      - ".github/workflows/tir-sp3-3plus1-bundle-compatibility.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy
+      - name: Validate SP3 candidate against canonical TIR bundle v0.2
+        run: |
+          mkdir -p build
+          python TIR/validation/tir_sp3_3plus1_bundle_compatibility_v0_1.py | tee build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
+          grep -Fq '"status": "PASS"' build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
+          grep -Fq '"same_physical_realization": true' build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
+          grep -Fq '"same_realization_receipt": true' build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
+          grep -Fq '"TIR_GSC1_PRODUCTION_SPATIAL_CAPTURE"' build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
+          grep -Fq '"TIR_INTERLEAF_PRODUCTION_MATCHING_CAPTURE"' build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
+          grep -Fq '"physical_production_claim": false' build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tir-sp3-3plus1-bundle-compatibility-v0-1
+          path: build/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.json
