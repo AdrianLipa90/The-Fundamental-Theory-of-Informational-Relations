@@ -26,6 +26,14 @@ jobs:
           test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
           git diff --check
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install validator dependency
+        run: python -m pip install --disable-pip-version-check numpy
+
       - name: Run mod6pi C3 Pauli representation validator
         run: |
           set -euo pipefail
