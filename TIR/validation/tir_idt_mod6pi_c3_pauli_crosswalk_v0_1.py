@@ -1593,8 +1593,14 @@ def main() -> None:
     terminal_trace_imag_residual = abs(
         terminal_loop_trace.imag - terminal_trace_imag_exact
     )
-    terminal_spin1_unit_eigenvalue_exclusion = abs(
+    terminal_det_u_minus_i = complex(
         np.linalg.det(U_terminal - np.eye(3))
+    )
+    terminal_spin1_unit_eigenvalue_exclusion = abs(
+        terminal_det_u_minus_i
+    )
+    terminal_trace_det_identity_residual = abs(
+        terminal_det_u_minus_i - 2.0j * terminal_loop_trace.imag
     )
 
     # Conjugacy-class invariants under a nontrivial F3 basis change.
@@ -1687,6 +1693,13 @@ def main() -> None:
         np.trace(U_terminal_reverse).real - np.trace(U_terminal_base1).real
     )
     terminal_orientation_odd_witness = float(np.trace(U_terminal_base1).imag)
+    terminal_inverse_trace_gap = abs(
+        np.trace(U_terminal_base1) - np.trace(U_terminal_reverse)
+    )
+    terminal_inverse_trace_gap_identity_residual = abs(
+        terminal_inverse_trace_gap
+        - 2.0 * abs(terminal_orientation_odd_witness)
+    )
 
     terminal_pairwise_eigenvalue_separations = [
         float(abs(terminal_loop_eigenvalues[i] - terminal_loop_eigenvalues[j]))
@@ -2411,6 +2424,17 @@ def main() -> None:
             and terminal_orientation_odd_imag_sum_residual < TOL
             and terminal_orientation_even_real_diff_residual < TOL
         ),
+        "su3_det_u_minus_i_equals_two_i_im_trace": (
+            terminal_trace_det_identity_residual < 1.0e-12
+        ),
+        "terminal_loop_and_inverse_have_distinct_traces": (
+            terminal_inverse_trace_gap > 1.0e-6
+            and terminal_inverse_trace_gap_identity_residual < 1.0e-12
+        ),
+        "terminal_orientation_reversal_not_inner_conjugate_in_su3": (
+            terminal_inverse_trace_gap > 1.0e-6
+            and terminal_trace_det_identity_residual < 1.0e-12
+        ),
         "terminal_loop_has_three_distinct_unitary_eigenvalues": (
             terminal_min_eigenvalue_separation > 1.0e-6
             and terminal_spectral_discriminant > 1.0e-12
@@ -2985,6 +3009,21 @@ def main() -> None:
             if passed
             else "FAILED"
         ),
+        "terminal_cycle_trace_fixedpoint_identity_status": (
+            "SU3_DET_U_MINUS_I_EQUALS_2I_IM_TRACE_EXACT"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_cycle_inverse_conjugacy_status": (
+            "TERMINAL_LOOP_AND_ORIENTATION_REVERSE_ARE_DISTINCT_SU3_CONJUGACY_CLASSES"
+            if passed
+            else "FAILED"
+        ),
+        "terminal_cycle_inner_symmetry_status": (
+            "ORIENTATION_REVERSAL_NOT_REMOVABLE_BY_INNER_SU3_CONJUGATION"
+            if passed
+            else "FAILED"
+        ),
         "terminal_cycle_regular_class_status": (
             "TERMINAL_LOOP_REGULAR_SU3_CONJUGACY_CLASS"
             if passed
@@ -3384,7 +3423,18 @@ def main() -> None:
             "trace_imag_residual": terminal_trace_imag_residual,
             "spin1_character_expected_form": "1+2*cos(theta) is real",
             "spin1_forced_eigenvalue": 1,
-            "det_U_minus_I_abs": float(terminal_spin1_unit_eigenvalue_exclusion),
+            "det_U_minus_I": {
+                "real": float(terminal_det_u_minus_i.real),
+                "imag": float(terminal_det_u_minus_i.imag),
+                "abs": float(terminal_spin1_unit_eigenvalue_exclusion),
+            },
+            "su3_identity_det_U_minus_I_equals_2i_Im_trace_residual": (
+                terminal_trace_det_identity_residual
+            ),
+            "forward_vs_inverse_trace_gap": float(terminal_inverse_trace_gap),
+            "forward_vs_inverse_trace_gap_equals_2absImTrace_residual": (
+                terminal_inverse_trace_gap_identity_residual
+            ),
             "outside_every_conjugate_spin1_su2": True,
             "basepoint_conjugacy": {
                 "base1_match_residual": terminal_base1_match_residual,
@@ -3808,6 +3858,7 @@ def main() -> None:
             "terminal_loop_outside_spin1_is_not_by_itself_a_physical_cp_observable": True,
             "nonreal_trace_is_used_only_as_conjugacy_subgroup_exclusion_witness": True,
             "orientation_odd_imaginary_trace_is_not_identified_with_physical_cp": True,
+            "orientation_reversal_not_inner_conjugate_is_group_theoretic_not_yet_cp_identification": True,
             "basepoint_covariance_is_groupoid_consistency_not_physical_promotion": True,
             "nontrivial_terminal_loop_closes_nonseparable_path_source_only_at_structural_candidate_level": True,
             "noncoboundary_source_does_not_by_itself_identify_ckm_or_pmns": True,
