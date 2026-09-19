@@ -935,7 +935,7 @@ def main() -> None:
         ),
         "stage49_collatz_mobius_poincare_lift_pass_present": (
             "STAGE_49_COLLATZ_MOBIUS_POINCARE_LIFT_PASS" in stage49
-            and "{E,O}^*" in stage49
+            and "\\{E,O\\}^*" in stage49
             and "PSL(2,\\mathbb R)" in stage49
         ),
         "stage50_sym2_three_carrier_pass_present": (
@@ -987,7 +987,7 @@ def main() -> None:
             "STAGE_65_STATIONARY_ORDERED_AXIS_SELECTOR_FROZEN_PREVALIDATION"
             in stage65
             and "CKM entries" in stage65
-            and "A_seed is deliberately excluded from the selector equation"
+            and "`A_seed` is deliberately excluded from the selector equation"
             in stage65
         ),
         "stage66_unique_stationary_selector_parent_pass_present": (
