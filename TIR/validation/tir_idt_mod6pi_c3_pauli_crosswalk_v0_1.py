@@ -21,6 +21,7 @@ import io
 import itertools
 import json
 import math
+import subprocess
 from fractions import Fraction
 from pathlib import Path
 
@@ -84,6 +85,32 @@ def lie_closure_dimension(hermitians: list[np.ndarray]) -> tuple[int, float]:
 def git_blob_sha(data: bytes) -> str:
     header = f"blob {len(data)}\0".encode("ascii")
     return hashlib.sha1(header + data).hexdigest()
+
+
+def git_head_blob(path: Path) -> tuple[str, bytes]:
+    rel = path.resolve().relative_to(ROOT.resolve()).as_posix()
+    listing = subprocess.run(
+        ["git", "-C", str(ROOT), "ls-tree", "HEAD", "--", rel],
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    if not listing:
+        raise RuntimeError(f"HEAD does not contain required provenance path: {rel}")
+    meta, listed_path = listing.split("\t", 1)
+    mode, obj_type, blob_sha = meta.split()
+    if listed_path != rel or obj_type != "blob":
+        raise RuntimeError(
+            f"Unexpected HEAD tree entry for {rel}: {mode} {obj_type} {blob_sha} {listed_path}"
+        )
+    data = subprocess.run(
+        ["git", "-C", str(ROOT), "cat-file", "blob", blob_sha],
+        check=True,
+        capture_output=True,
+    ).stdout
+    if git_blob_sha(data) != blob_sha:
+        raise RuntimeError(f"Git object self-hash mismatch for {rel}")
+    return blob_sha, data
 
 
 def json_default(value):
@@ -178,16 +205,24 @@ def main() -> None:
     archive_projection_blob = git_blob_sha(archive_projection_bytes)
     archive_projection_csv_blob = git_blob_sha(archive_projection_csv_bytes)
 
-    archive_csv_rows = list(csv.reader(io.StringIO(archive_projection_csv)))
+    # Provenance is read from the immutable HEAD git object, not inferred only
+    # from the checked-out working-tree representation.
+    archive_projection_csv_tree_blob, archive_projection_csv_object_bytes = (
+        git_head_blob(archive_projection_csv_path)
+    )
+    archive_projection_csv_worktree_matches_object = (
+        archive_projection_csv_bytes == archive_projection_csv_object_bytes
+    )
+    archive_projection_csv_object = archive_projection_csv_object_bytes.decode("utf-8")
+    archive_csv_rows = list(csv.reader(io.StringIO(archive_projection_csv_object)))
     archive_csv_data_rows = archive_csv_rows[1:]
-    archive_csv_has_stale_up_quark_id = any(
-        len(row) >= 2 and row[0] == "nu_L" and row[1] == "up_quark"
+    archive_csv_up_quark_particle_ids = [
+        row[0]
         for row in archive_csv_data_rows
-    )
-    archive_csv_has_corrected_up_quark_id = any(
-        len(row) >= 2 and row[0] == "u_L" and row[1] == "up_quark"
-        for row in archive_csv_data_rows
-    )
+        if len(row) >= 2 and row[1] == "up_quark"
+    ]
+    archive_csv_has_stale_up_quark_id = "nu_L" in archive_csv_up_quark_particle_ids
+    archive_csv_has_corrected_up_quark_id = "u_L" in archive_csv_up_quark_particle_ids
     if archive_csv_has_stale_up_quark_id and not archive_csv_has_corrected_up_quark_id:
         archive_csv_state = "STALE_UP_QUARK_PARTICLE_ID"
     elif archive_csv_has_corrected_up_quark_id and not archive_csv_has_stale_up_quark_id:
@@ -857,6 +892,13 @@ def main() -> None:
         ),
         "legacy_projection_csv_blob_pinned": (
             archive_projection_csv_blob == "3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1"
+        ),
+        "legacy_projection_csv_head_tree_blob_pinned": (
+            archive_projection_csv_tree_blob == "3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1"
+        ),
+        "legacy_projection_csv_worktree_matches_head_object": (
+            archive_projection_csv_worktree_matches_object
+            and archive_projection_csv_blob == archive_projection_csv_tree_blob
         ),
         "legacy_projection_source_has_correct_up_quark_row": (
             'Channel("u_L", "up_quark", "L", "weak_doublet", "north/+", Fraction(1,2)' in archive_projection
@@ -1544,6 +1586,13 @@ def main() -> None:
         "legacy_weak_projection_source": "archive/v7.9/full/28_debt11_chiral_representation_projection_v3_0/scripts/debt11_chiral_representation_projection_v3_0.py",
         "legacy_weak_projection_source_blob": archive_projection_blob,
         "legacy_generated_projection_csv_blob": archive_projection_csv_blob,
+        "legacy_generated_projection_csv_tree_blob": archive_projection_csv_tree_blob,
+        "legacy_generated_projection_csv_worktree_matches_head_object": (
+            archive_projection_csv_worktree_matches_object
+        ),
+        "legacy_generated_projection_csv_up_quark_particle_ids": (
+            archive_csv_up_quark_particle_ids
+        ),
         "legacy_generated_projection_csv_state": archive_csv_state,
         "tir_family_order_parent": "TIR_POLYGONAL_STAGE22_SEED_PRECEDENCE_V0_1",
         "tir_chirality_parent": "TIR_POLYGONAL_STAGE23_CHIRALITY_INTERTWINER_V0_1",
