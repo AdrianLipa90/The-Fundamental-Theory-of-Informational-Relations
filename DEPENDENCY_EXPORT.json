@@ -289,7 +289,7 @@
     {
       "from": "TIR.L_CONSTANTS.PLATONIC_CLOSURE",
       "to": "TIR.STANDARD_MODEL",
-      "authority": "CANONICAL_STRUCTURAL_PARENT"
+      "authority": "CANONICAL"
     },
     {
       "from": "TIR.SPACE.TETRAHEDRON",
