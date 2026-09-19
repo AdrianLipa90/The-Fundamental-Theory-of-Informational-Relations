@@ -2,8 +2,8 @@
   "schema": "FPDG_DEPENDENCY_EXPORT_V0_1",
   "repository_id": "TIR",
   "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
-  "source_commit": "bc22bf7dc9e02b912656e2f229a8efee39c2bbc9",
-  "generated_at": "2026-09-19T20:09:00+01:00",
+  "source_commit": "1b7bad9c04e0046a130a2bf041e43f1d189d97ec",
+  "generated_at": "2026-09-19T21:40:00+01:00",
   "claims": [
     {
       "claim_id": "TIR.PRIMITIVE.ZERO",
@@ -208,6 +208,12 @@
       "status": "OPEN",
       "source_path": "TIR/TIR_COMPLETION_FRONTIER_V0_7.md",
       "evidence_class": "source_repository_frontier"
+    },
+    {
+      "claim_id": "TIR.SPACETIME.PHYSICAL_REALIZATION_BUNDLE_V02",
+      "status": "EXECUTABLE_SOURCE_BUNDLE_CERTIFIER / SAME_PHYSICAL_REALIZATION_AND_RECEIPT_GATE / SPATIAL_AND_MATCHING_PRODUCTION_CAPTURES_OPEN / CANON_ALLOWED_FALSE",
+      "source_path": "TIR/foundations/validation/tir_production_realization_binding_v0_2.py",
+      "evidence_class": "source_executable_contract_status"
     }
   ],
   "local_edges": [
@@ -399,6 +405,16 @@
     {
       "from": "TIR.FLAVOUR.TERMINAL_SU3_LOOP",
       "to": "TIR.FLAVOUR.PHYSICAL_BINDING",
+      "authority": "CANONICAL_FRONTIER"
+    },
+    {
+      "from": "TIR.SPACE.GLOBAL_COMPLEX_INPUT_CONTRACT",
+      "to": "TIR.SPACETIME.PHYSICAL_REALIZATION_BUNDLE_V02",
+      "authority": "CANONICAL_FRONTIER"
+    },
+    {
+      "from": "TIR.SPACETIME.INTERLEAF_MATCHING_INPUT_CONTRACT",
+      "to": "TIR.SPACETIME.PHYSICAL_REALIZATION_BUNDLE_V02",
       "authority": "CANONICAL_FRONTIER"
     }
   ]
