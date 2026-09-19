@@ -483,3 +483,28 @@ The remaining electroweak gate is not “choose an absolute weak axis”; it is
 \`OPEN_HIGGS_HYPERCHARGE_ALIGNMENT_NOT_CLOSED_BY_AXIS_CONJUGACY\`.
 
 The temporal-to-physical-family binding and mass/mixing spectrum remain separately OPEN.
+
+
+### Appendix G update — active family-seed precedence
+
+The temporal \(C_3\) anchor is now explicitly bound to the active Stage-22 ordered family-seed basis
+
+\[
+(3,5)\to s_1,\qquad
+(5,7)\to s_2,\qquad
+(11,13)\to s_3.
+\]
+
+The older atomic-assignment generation numbering
+
+\[
+(3,5),\ (11,13),\ (5,7)
+\]
+
+is preserved as historical provenance but is not used as the active temporal-\(C_3\) anchor.
+
+Status:
+
+\`TEMPORAL_C3_TO_ACTIVE_STAGE22_FAMILY_SEED_ORDER_CLOSED\`.
+
+Physical generation/family binding remains OPEN downstream.
