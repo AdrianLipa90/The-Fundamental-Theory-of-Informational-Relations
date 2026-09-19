@@ -43,13 +43,22 @@ def main():
     expected_eta = sp.diag(1, -1, -1, -1)
     minkowski_signature_exact = minkowski_matrix == expected_eta
 
-    char_x = sp.factor(X.charpoly(lam).as_expr())
-    expected_char_x = sp.expand((lam - t)**2 - r2)
-    eigenvalue_polynomial_exact = sp.simplify(char_x - expected_char_x) == 0
+    char_x_poly = X.charpoly()
+    char_x = sp.factor(char_x_poly.as_expr())
+    char_x_coeffs = [sp.simplify(v) for v in char_x_poly.all_coeffs()]
+    expected_char_x_coeffs = [sp.Integer(1), -2*t, t**2-r2]
+    eigenvalue_polynomial_exact = all(
+        sp.simplify(a-b) == 0 for a, b in zip(char_x_coeffs, expected_char_x_coeffs)
+    )
 
-    char_spatial = sp.factor(spatial.charpoly(lam).as_expr())
-    expected_char_spatial = sp.expand(lam**2 - r2)
-    spatial_spectrum_opposite_exact = sp.simplify(char_spatial - expected_char_spatial) == 0
+    char_spatial_poly = spatial.charpoly()
+    char_spatial = sp.factor(char_spatial_poly.as_expr())
+    char_spatial_coeffs = [sp.simplify(v) for v in char_spatial_poly.all_coeffs()]
+    expected_char_spatial_coeffs = [sp.Integer(1), sp.Integer(0), -r2]
+    spatial_spectrum_opposite_exact = all(
+        sp.simplify(a-b) == 0
+        for a, b in zip(char_spatial_coeffs, expected_char_spatial_coeffs)
+    )
     spatial_trace_zero = sp.simplify(sp.trace(spatial)) == 0
     spatial_det_nonpositive = sp.simplify(spatial.det() + r2) == 0
 
