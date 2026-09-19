@@ -4232,3 +4232,115 @@ Therefore the projective-frame frontier is narrowed to
 `C3_PROJECTIVE_FRAMES_AND_STAGE39_STRUCTURAL_SECTOR_FRAMES_DERIVED__PHYSICAL_ASSIGNMENT_AND_CKM_PROMOTION_OPEN`.
 
 This remains a structural/postdictive candidate line; it is not a successful quantitative CKM derivation.
+
+---
+
+## Appendix Y — NEW 2026-09-19 — Coefficient-orientation firewall for Stage-39 sector assignment
+
+### Y.1 The current coefficient theorem does not define \(\alpha_u,\alpha_d\)
+
+The current coefficient-role theorem types
+
+\[
+R_h\leftrightarrow h,
+\qquad
+R_a\leftrightarrow a,
+\qquad
+R_b\leftrightarrow b,
+\qquad
+R_c\leftrightarrow c,
+\]
+
+and supplies an exact source-consensus sign rule when the declared gradient, directed-orbit and chiral orientation sources agree.
+
+It does not define a map
+
+\[
+(h,a,b,c)
+\longrightarrow
+(\alpha_u,\alpha_d)
+\]
+
+for the Stage-39 sector operators.
+
+Status:
+
+`COEFFICIENT_ORIENTATION_DOES_NOT_YET_SELECT_STAGE39_SECTOR_ASSIGNMENT`.
+
+### Y.2 The qC sign correlation is not an up/down assignment rule
+
+The coefficient-cocycle theorem establishes the exact structural correlation
+
+\[
+\operatorname{sgn}(\Delta q_{ij})
+=
+\operatorname{sgn}(b_{ij})
+=
+\operatorname{sgn}(c_{ij})
+\]
+
+on the closed Stage-24 cycle.
+
+That same theorem explicitly keeps
+
+`q_phase_to_b_c_orientation_binding = OPEN`
+
+and proves that a fixed scalar-linear qC-to-Z4 coefficient map is impossible.
+
+Therefore the qC sign correlation cannot be silently promoted to
+
+\[
+\alpha_u=2/7,\quad\alpha_d=2/9
+\]
+
+or to its swapped assignment.
+
+### Y.3 Target-leakage firewall
+
+Stage 39 freezes both assignments
+
+```text
+A: alpha_u = 2/7, alpha_d = 2/9
+B: alpha_u = 2/9, alpha_d = 2/7
+```
+
+before target comparison.
+
+Swapping A and B reverses the sign of the structural Jarlskog invariant while preserving its magnitude.
+
+Therefore selecting A or B because its sign matches an observed CKM sign convention would use the target to choose the theory branch.
+
+That is not an admissible derivation.
+
+Status:
+
+`OBSERVED_CP_SIGN_SELECTION_FORBIDDEN_AS_TARGET_LEAKAGE`.
+
+### Y.4 Current closure target
+
+The Standard-Model reconciliation ledger states the next CKM closure operation directly:
+
+```text
+bind the full CKM matrix to the same coefficient-free
+holonomic/orientation forcing theorem used by the mass/flavour sector
+```
+
+Hence the exact remaining theorem is
+
+\[
+\boxed{
+\text{coefficient-free holonomic/orientation source state}
+\longrightarrow
+\text{Stage-39 sector assignment / family operator}
+}
+\]
+
+without observed CKM entries, masses, or the sign of the measured Jarlskog invariant on the parent side.
+
+Status:
+
+`OPEN_COEFFICIENT_FREE_HOLONOMIC_SECTOR_ASSIGNMENT_THEOREM`.
+
+Current frontier:
+
+`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__RHO_BINDING_AND_COEFFICIENT_FREE_HOLONOMIC_ASSIGNMENT_OPEN`.
