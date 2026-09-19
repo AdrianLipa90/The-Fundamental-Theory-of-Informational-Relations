@@ -2337,3 +2337,165 @@ The remaining problem is selector dynamics, not carrier existence.
 Status:
 
 \`PHYSICAL_FAMILY_SELECTOR_ON_RIGID_3_PLUS_5_CARRIER_OPEN\`.
+
+
+---
+
+## Appendix M — NEW 2026-09-19 — Stage-65/66 stationary cubic selector closure
+
+### M.1 Historical Stage-64 OPEN is superseded by a frozen prospective selector
+
+Stage 64 correctly records that the rigid five-dimensional carrier still leaves a two-dimensional cubic invariant space,
+
+\[
+\operatorname{span}
+\{I_{\rm iso},I_{A5}\},
+\]
+
+and that no canonical relative coefficient had yet been promoted at that stage.
+
+Stage 65 then freezes, before validation and before CKM/mass comparison, the projectively normalized functional
+
+\[
+\boxed{
+\mathcal F_\eta(S)
+=
+I_{\rm iso}(S)
++
+\eta I_{A5}(S)
+}
+\]
+
+together with the constrained-stationarity condition at the already frozen ordered axis \(D_0\),
+
+\[
+\boxed{
+\nabla\mathcal F_\eta(D_0)
+=
+\lambda D_0.
+}
+\]
+
+The selector freeze explicitly excludes CKM entries, CKM phase/Jarlskog targets, fermion masses, PMNS data, \(A_{\rm seed}\) alignment and retrospective coefficient tuning.
+
+Status:
+
+\`STAGE_65_STATIONARY_ORDERED_AXIS_SELECTOR_FROZEN_PREVALIDATION\`.
+
+### M.2 Unique selector coefficient
+
+Stage 66 solves the frozen condition and obtains the unique real projective coefficient
+
+\[
+\boxed{
+\eta_*
+=
+-\frac{75(59+21\sqrt5)}{638}
+}
+\]
+
+with
+
+\[
+\boxed{
+\lambda_*
+=
+-\frac{8765+4758\sqrt5}{4785}.
+}
+\]
+
+Numerically,
+
+\[
+\eta_*
+\approx
+-12.4558104460222.
+\]
+
+The present crosswalk validator independently reconstructs the six icosahedral quadrupoles, the two cubic gradients and the constrained stationarity equations and reproduces both exact formulas to numerical tolerance.
+
+Status:
+
+\`STAGE66_UNIQUE_STATIONARY_CUBIC_SELECTOR_CLOSED_SADDLE\`.
+
+### M.3 Constrained Hessian
+
+At the frozen stationary point, the constrained Hessian has signature
+
+\[
+\boxed{
+(-,+,+,+).
+}
+\]
+
+Thus the selected point is a saddle, not a minimum.
+
+This classification is retained exactly as obtained and is not repaired by changing \(\eta\).
+
+### M.4 Independent \(C_3\)-orbit check
+
+The Stage-65 selector equation deliberately excludes \(A_{\rm seed}\) from solving \(\eta\).
+
+Only after the selector is fixed, compare the pre-existing orbit
+
+\[
+A_0=A_{\rm seed},
+\qquad
+A_1=P_3A_{\rm seed}P_3^T,
+\qquad
+A_2=P_3^2A_{\rm seed}(P_3^T)^2.
+\]
+
+The unique negative Hessian mode aligns exactly with
+
+\[
+\boxed{
+A_1=P_3A_{\rm seed}P_3^T.
+}
+\]
+
+Hence the \(C_3\)-orbit alignment is an external structural check rather than an input used to fit the selector.
+
+### M.5 Updated selector frontier
+
+The Stage-64 broad OPEN is therefore narrowed.
+
+Current status:
+
+\`\`\`text
+five-dimensional SU(3)/SO(3) complement carrier
+    = CLOSED
+
+two independent cubic invariants
+    = CLOSED
+
+unique projective cubic selector coefficient eta
+    = CLOSED
+
+selector stationarity
+    = CLOSED
+
+Hessian classification
+    = CLOSED / SADDLE
+
+negative mode alignment with independent C3 A_seed orbit
+    = CLOSED
+
+branch symbol -> physical family operator
+    = OPEN
+
+exact Collatz/twin-prime rhythm rho_s(k)
+    = OPEN
+
+split-real -> compact-real-form dynamical selection
+    = OPEN
+
+physical mass/mixing spectrum
+    = OPEN
+\`\`\`
+
+Therefore the corrected remaining gate is
+
+\`CUBIC_SELECTOR_CLOSED__BRANCH_OPERATOR_RHYTHM_AND_REALFORM_SELECTION_OPEN\`.
+
+The selector closure is mathematical. It does not by itself identify the saddle mode with a physical fermion generation or derive CKM/PMNS/masses.
