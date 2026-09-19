@@ -112,6 +112,9 @@ jobs:
           grep -Fq '"terminal_cycle_full_su3_direction_status": "TERMINAL_LOOP_REQUIRES_DIRECTIONS_BEYOND_COMPACT_SPIN1_SUBGROUP"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"terminal_cycle_basepoint_status": "TERMINAL_LOOP_CONJUGACY_CLASS_BASEPOINT_COVARIANT"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"terminal_cycle_orientation_status": "TERMINAL_LOOP_IMAGINARY_TRACE_ORIENTATION_ODD_CLASS_WITNESS"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_trace_fixedpoint_identity_status": "SU3_DET_U_MINUS_I_EQUALS_2I_IM_TRACE_EXACT"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_inverse_conjugacy_status": "TERMINAL_LOOP_AND_ORIENTATION_REVERSE_ARE_DISTINCT_SU3_CONJUGACY_CLASSES"' mod6pi-c3-pauli-receipt.json
+          grep -Fq '"terminal_cycle_inner_symmetry_status": "ORIENTATION_REVERSAL_NOT_REMOVABLE_BY_INNER_SU3_CONJUGATION"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"terminal_cycle_coboundary_status": "NONTRIVIAL_TERMINAL_WILSON_LOOP_REFUTES_GLOBAL_GI_DAGGER_GJ_FACTORIZATION"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"nonseparable_path_holonomy_status": "SOURCE_DERIVED_NONSEPARABLE_PATH_HOLONOMY_CANDIDATE_EXISTS"' mod6pi-c3-pauli-receipt.json
           grep -Fq '"terminal_cycle_regular_class_status": "TERMINAL_LOOP_REGULAR_SU3_CONJUGACY_CLASS"' mod6pi-c3-pauli-receipt.json
