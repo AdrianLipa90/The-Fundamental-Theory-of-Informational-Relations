@@ -38,7 +38,13 @@ def midpoint3(a, b):
 
 
 def main():
+    spatial = sp3c.spatial_capture()
     matching = sp3c.matching_input()
+    bundle_cert = sp3c.certify_physical_realization_bundle_v02({
+        "schema": sp3c.BUNDLE_SCHEMA,
+        "spatial_capture": spatial,
+        "matching_input": matching,
+    })
     beta_map = {
         row["patch_id"]: tuple(Decimal(str(x)) for x in row["beta_match"])
         for row in matching["patches"]
@@ -127,7 +133,14 @@ def main():
         "all_five_delta_herm2_witnesses_strictly_positive": all_positive,
         "bloch_vector_equals_existing_rfe8_shift_with_float_boundary_tolerance": max_rfc_shift_residual < Decimal("1e-15"),
         "raw_sp3_clock_correction_direct_trace_scale_identification_refuted_for_all_five": all_raw_clock_no_go,
-        "bundle_candidate_same_parent_still_passes": sp3c.main is not None,
+        "bundle_candidate_same_parent_still_passes": (
+            bundle_cert.same_physical_realization
+            and bundle_cert.same_realization_receipt
+            and bundle_cert.blockers == (
+                "TIR_GSC1_PRODUCTION_SPATIAL_CAPTURE",
+                "TIR_INTERLEAF_PRODUCTION_MATCHING_CAPTURE",
+            )
+        ),
     }
 
     status = "PASS" if all(checks.values()) else "FAIL"
