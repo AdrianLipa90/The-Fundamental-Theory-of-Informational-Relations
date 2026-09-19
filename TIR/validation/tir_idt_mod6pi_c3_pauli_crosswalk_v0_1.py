@@ -77,8 +77,7 @@ def lie_closure_dimension(hermitians: list[np.ndarray]) -> tuple[int, float]:
     return len(mats), residual
 
 
-def git_blob_sha(text: str) -> str:
-    data = text.encode("utf-8")
+def git_blob_sha(data: bytes) -> str:
     header = f"blob {len(data)}\0".encode("ascii")
     return hashlib.sha1(header + data).hexdigest()
 
@@ -116,13 +115,15 @@ def main() -> None:
         "METATIME_SM_DEBT8_SOURCE_AXIS_CANDIDATE_GRAMMAR_v2_3.md"
     )
 
-    archive_projection = archive_projection_path.read_text(encoding="utf-8")
-    archive_projection_csv = archive_projection_csv_path.read_text(encoding="utf-8")
+    archive_projection_bytes = archive_projection_path.read_bytes()
+    archive_projection_csv_bytes = archive_projection_csv_path.read_bytes()
+    archive_projection = archive_projection_bytes.decode("utf-8")
+    archive_projection_csv = archive_projection_csv_bytes.decode("utf-8")
     archive_axis_v18 = archive_axis_v18_path.read_text(encoding="utf-8")
     archive_axis_v23 = archive_axis_v23_path.read_text(encoding="utf-8")
 
-    archive_projection_blob = git_blob_sha(archive_projection)
-    archive_projection_csv_blob = git_blob_sha(archive_projection_csv)
+    archive_projection_blob = git_blob_sha(archive_projection_bytes)
+    archive_projection_csv_blob = git_blob_sha(archive_projection_csv_bytes)
 
     stage15 = (
         ROOT
