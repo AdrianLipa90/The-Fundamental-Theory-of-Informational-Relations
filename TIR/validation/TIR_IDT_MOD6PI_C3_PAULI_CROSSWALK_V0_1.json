@@ -4,7 +4,12 @@
   "branch": "feat/idt-mod6pi-c3-pauli-crosswalk-v0.1",
   "formalism": "TIR/integration/TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1.md",
   "validator": "TIR/validation/tir_idt_mod6pi_c3_pauli_crosswalk_v0_1.py",
-  "validated_code_docs_head": "2224f4a33f04c3601b819571ab31fd63dd344124",
+  "validation_semantics": {
+    "validated_head": "2224f4a33f04c3601b819571ab31fd63dd344124",
+    "validated_scope": "exact GitHub Actions checkout of PR head before this receipt-only writeback",
+    "receipt_is_self_validating": false,
+    "note": "The committed receipt points to the exact hosted artifact. Writing the receipt necessarily creates a later Git commit and therefore cannot truthfully claim to validate its own commit."
+  },
   "hosted_validation": {
     "workflow": "TIR IDT mod6pi C3 Pauli crosswalk",
     "run_id": 35424888578,
@@ -15,7 +20,7 @@
     "artifact_name": "tir-idt-mod6pi-c3-pauli-2224f4a33f04c3601b819571ab31fd63dd344124",
     "artifact_digest": "sha256:0724fa3d1d895e1eebb642b8aacc7d9bce8ad7b1a43f85432835f6d46430dc13"
   },
-  "technical_status": "PASS_HOSTED_EXACT_CODE_DOCS_HEAD",
+  "technical_status": "PASS_HOSTED_EXACT_CODE_HEAD",
   "representation_status": "TEMPORAL_C3_TO_PAULI_AND_ORDERED_FAMILY_C3_CROSSWALK_CLOSED",
   "family_precedence_binding": "TEMPORAL_C3_TO_ACTIVE_STAGE22_FAMILY_SEED_ORDER_CLOSED",
   "historical_generation_numbering_status": "PRESERVED_BUT_NOT_USED_AS_ACTIVE_C3_ANCHOR",
@@ -27,16 +32,15 @@
   "temporal_c3_family_role": "INDEPENDENT_C3_CROSSWALK_TO_EXISTING_MULTIPLICITY3_FAMILY_CARRIER",
   "cp_character_transfer": "F3_JARLSKOG_MATH_TRANSFER_CLOSED_PHYSICAL_CP_BINDING_OPEN",
   "su3f_transfer": "LIE_DIMENSION_8_PRESERVED_UNDER_ORDERED_INTERTWINER",
+  "six_state_product_binding": "C3_X_CHIRALITY_Z2_SIX_STATE_INTERTWINER_CLOSED",
   "weak_a1_weyl_z2_status": "CURRENT_EXACT",
   "weak_axis_conjugacy_status": "A1_CARTAN_ORIENTATION_SU2_CONJUGACY_CLASS_CLOSED",
+  "electroweak_vacuum_alignment_status": "OPEN_HIGGS_HYPERCHARGE_ALIGNMENT_NOT_CLOSED_BY_AXIS_CONJUGACY",
   "family_x_weak_six_cycle": "CURRENT_C3_X_A1_WEYL_Z2_C6_EXACT",
-  "six_weak_component_label_count": "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING",
-  "six_state_product_binding": "C3_X_CHIRALITY_Z2_SIX_STATE_INTERTWINER_CLOSED",
   "weak_family_cardinality": "DIMENSION_3_X_2_EQUALS_6_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING",
+  "six_weak_component_label_count": "SIX_CONDITIONAL_ON_PHYSICAL_TEMPORAL_FAMILY_BINDING",
   "six_quark_flavour_cardinality": "CONDITIONAL_LABEL_COUNT_SIX_NOT_FULL_PHYSICAL_SPECTRUM_DERIVATION",
   "six_cycle_physical_flavour_operator": "CURRENT_WEAK_FAMILY_REPRESENTATION_EXACT_PHYSICAL_GENERATION_BINDING_OPEN",
-  "electroweak_vacuum_alignment_status": "OPEN_HIGGS_HYPERCHARGE_ALIGNMENT_NOT_CLOSED_BY_AXIS_CONJUGACY",
-  "physical_sector_binding": "OPEN",
   "source_order_audit": {
     "active_centers": [
       4,
@@ -67,31 +71,32 @@
     "raw_qC_is_arithmetic_progression": false,
     "raw_qC_is_monotone_in_stage22_order": false
   },
-  "exact_mathematical_results": {
-    "periodic_6pi_open_cut_quotient": "P4/(v0~v3) ~= C3",
-    "temporal_family_ordered_label_crosswalk": "CLOSED",
-    "family_multiplicity_three": "INDEPENDENT_E8_PARENT_CURRENT_PASS",
+  "exact_math_receipt": {
+    "pauli_c3_equivariance_residual": 1.5700924586837752e-16,
+    "generic_axis_conjugacy_residual": 1.1109668836762344e-16,
+    "generic_axis_weyl_involution_residual": 4.504974924470746e-16,
+    "generic_axis_weyl_flip_residual": 2.7805993540640707e-16,
+    "family_lie_dimension": 8,
+    "temporal_pullback_lie_dimension": 8,
+    "jarlskog_F3": "1/(6*sqrt(3))",
+    "family_dimension": 3,
     "weak_doublet_dimension": 2,
-    "family_x_weak_dimension": 6,
-    "family_x_weak_cycle_order": 6,
-    "family_x_weak_characteristic_polynomial": "lambda^6-1",
-    "family_su3_lie_dimension": 8,
-    "jarlskog_F3": "1/(6*sqrt(3))"
+    "family_x_weak_dimension": 6
   },
-  "remaining_open": {
-    "active_stage22_family_seed_carrier_to_physical_family_generation_index": "OPEN",
+  "archive_provenance": {
+    "legacy_projection_source_blob": "01b9be380f095b613a731ba258865bc617d8e854",
+    "legacy_generated_projection_csv_blob": "3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1",
+    "generated_csv_state": "STALE_UP_QUARK_PARTICLE_ID",
+    "source_script_is_provenance_authority": true,
+    "csv_staleness_is_diagnostic_not_math_gate": true
+  },
+  "physical_firewall": {
+    "temporal_to_physical_family_dynamics": "OPEN",
+    "higgs_hypercharge_vacuum_alignment": "OPEN",
     "physical_ckm_assignment": "OPEN",
     "physical_pmns_assignment": "OPEN",
-    "masses_yukawa_full_spectrum": "OPEN",
-    "electroweak_higgs_hypercharge_vacuum_alignment": "OPEN",
-    "temporal_to_spatial_physical_binding": "OPEN",
+    "mass_yukawa_derivation": "OPEN",
+    "full_particle_spectrum_binding": "OPEN",
     "gravitational_metric_source_binding": "OPEN"
-  },
-  "firewall": {
-    "temporal_c3_not_sole_origin_of_family_multiplicity": true,
-    "family_multiplicity_three_has_independent_e8_parent": true,
-    "raw_qc_not_used_as_uniform_mod6pi_clock": true,
-    "historical_generation_numbering_not_used_as_active_c3_anchor": true,
-    "representation_equivalence_not_physical_sector_identity": true
   }
 }
