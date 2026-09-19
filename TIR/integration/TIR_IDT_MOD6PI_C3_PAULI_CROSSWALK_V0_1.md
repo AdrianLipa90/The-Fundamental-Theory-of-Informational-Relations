@@ -4891,3 +4891,73 @@ The independently frozen Poincare rhythm candidate remains mathematically valid 
 Current frontier:
 
 `CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__ORIENTED_A1_A2_COMPLEMENT_PAIR_CLOSED__EO_TO_ORBIT_PAIR_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN`.
+
+---
+
+## Appendix AH — NEW 2026-09-19 — Static two-axis Stage-66 branch map no-go
+
+Appendix AG establishes
+
+\[
+\dim\operatorname{Lie}\langle iA_i,iA_j\rangle=3
+\]
+
+for every distinct pair of Stage-66 orbit generators, while
+
+\[
+\dim\operatorname{Lie}\langle iA_0,iA_1,iA_2\rangle=8.
+\]
+
+Therefore any static assignment of the two Collatz branch symbols to only two fixed orbit axes, for example
+
+```text
+E -> A1, O -> A2
+```
+
+or the swapped assignment, remains confined to a three-dimensional subalgebra.
+
+It cannot reproduce the full source-derived family algebra
+
+\[
+\mathfrak{su}(3)_F.
+\]
+
+Status:
+
+`STATIC_EO_TO_TWO_STAGE66_ORBIT_GENERATORS_REFUTED`.
+
+### AH.1 Consequence
+
+If the Stage-66 orbit is used as the family-generator source, full family access requires either
+
+```text
+state/path-dependent traversal that visits all three A0,A1,A2
+or
+an independently derived additional generator outside the chosen pair.
+```
+
+Status:
+
+`FULL_SU3F_FROM_STAGE66_REQUIRES_ALL_THREE_ORBIT_GENERATORS_OR_EQUIVALENT_EXTRA_DIRECTION`.
+
+### AH.2 Current missing binding
+
+The current repository contains the temporal C3 cycle and the Stage-66 C3 generator orbit, but no current theorem identifies the Collatz step/state index with a specific temporal-C3/orbit index at each step.
+
+Accordingly no rule such as
+
+\[
+r_k=k\bmod3
+\]
+
+is introduced here.
+
+Remaining gate:
+
+`OPEN_COLLATZ_STATE_OR_PATH_TO_STAGE66_C3_ORBIT_INDEX_BINDING`.
+
+The separately frozen Poincare rhythm remains a validated mathematical candidate, not yet the unique physical Hamiltonian rhythm.
+
+Current frontier:
+
+`CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__STAGE66_C3_ORBIT_FULL_SU3F_GENERATOR_SET_CLOSED__STATIC_TWO_AXIS_EO_MAP_REFUTED__STATE_DEPENDENT_ORBIT_INDEX_AND_RHO_PHYSICAL_BINDING_OPEN`.
