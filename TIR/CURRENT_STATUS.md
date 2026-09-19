@@ -260,7 +260,11 @@ The source packet for the inter-leaf matching field is defined by
 
 The executable contract validates provenance, payload digest, patch/overlap integrity, the matching-law handoff and the `x0=ct` shift conversion. Its reference controls pass; the source-owned production `beta_match` dataset remains `OPEN_INPUT`.
 
-A later executable source-bundle gate is already merged at
+A later executable source-bundle gate is specified at
+
+`TIR/foundations/TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2.md`
+
+and implemented at
 
 `TIR/foundations/validation/tir_production_realization_binding_v0_2.py`.
 
