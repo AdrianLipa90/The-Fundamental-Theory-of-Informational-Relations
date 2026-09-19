@@ -645,6 +645,59 @@ def main() -> None:
         - float(np.linalg.norm(C_family, "fro"))
     )
 
+    # Stage-55 symmetric-pair projection in the exact spin-one basis used
+    # by the canonical validator.
+    r2_stage55 = math.sqrt(2.0)
+    Jx_stage55 = np.array(
+        [[0, 1, 0], [1, 0, 1], [0, 1, 0]], dtype=complex
+    ) / r2_stage55
+    Jy_stage55 = np.array(
+        [[0, -1j, 0], [1j, 0, -1j], [0, 1j, 0]], dtype=complex
+    ) / r2_stage55
+    Jz_stage55 = np.diag([1.0, 0.0, -1.0]).astype(complex)
+    Js_stage55 = [Jx_stage55, Jy_stage55, Jz_stage55]
+
+    def stage55_casimir(X: np.ndarray) -> np.ndarray:
+        out = np.zeros_like(X, dtype=complex)
+        for J55 in Js_stage55:
+            K55 = J55 @ X - X @ J55
+            out += J55 @ K55 - K55 @ J55
+        return out
+
+    def stage55_Pk(X: np.ndarray) -> np.ndarray:
+        return (6.0 * X - stage55_casimir(X)) / 4.0
+
+    def stage55_Pp(X: np.ndarray) -> np.ndarray:
+        return (stage55_casimir(X) - 2.0 * X) / 4.0
+
+    D0_family = D_family - np.trace(D_family) / 3.0 * np.eye(3)
+    C0_family = C_family - np.trace(C_family) / 3.0 * np.eye(3)
+    D0_k = stage55_Pk(D0_family)
+    D0_p = stage55_Pp(D0_family)
+    C0_k = stage55_Pk(C0_family)
+    C0_p = stage55_Pp(C0_family)
+    D0_k_norm2 = float(np.linalg.norm(D0_k, "fro") ** 2)
+    D0_p_norm2 = float(np.linalg.norm(D0_p, "fro") ** 2)
+    C0_k_norm2 = float(np.linalg.norm(C0_k, "fro") ** 2)
+    C0_p_norm2 = float(np.linalg.norm(C0_p, "fro") ** 2)
+    D0_stage55_reconstruction_residual = float(
+        np.max(np.abs(D0_k + D0_p - D0_family))
+    )
+    C0_stage55_reconstruction_residual = float(
+        np.max(np.abs(C0_k + C0_p - C0_family))
+    )
+
+    D0_k_norm2_exact = math.sqrt(5.0) / 15.0 + 7.0 / 45.0
+    D0_p_norm2_exact = 7.0 / 135.0 - math.sqrt(5.0) / 45.0
+    C0_k_norm2_exact = 4.0 * math.sqrt(5.0) / 135.0 + 56.0 / 405.0
+    C0_p_norm2_exact = 2.0 * math.sqrt(5.0) / 135.0 + 28.0 / 405.0
+    stage55_dc_norm_formula_residual = max(
+        abs(D0_k_norm2 - D0_k_norm2_exact),
+        abs(D0_p_norm2 - D0_p_norm2_exact),
+        abs(C0_k_norm2 - C0_k_norm2_exact),
+        abs(C0_p_norm2 - C0_p_norm2_exact),
+    )
+
     # Stage-39 two-sector structural candidate, frozen before target comparison.
     alpha_a = 2.0 / 7.0
     alpha_b = 2.0 / 9.0
@@ -1648,6 +1701,24 @@ def main() -> None:
             and "SU(3)/SO(3)" in stage55
             and "\\dim\\mathfrak p=5" in stage55
         ),
+        "stage55_dc_projectors_reconstruct_exactly": (
+            D0_stage55_reconstruction_residual < TOL
+            and C0_stage55_reconstruction_residual < TOL
+        ),
+        "stage55_dc_projected_norm_formulas_reproduced": (
+            stage55_dc_norm_formula_residual < TOL
+        ),
+        "D0_has_nonzero_stage55_complement_component": (
+            D0_p_norm2 > TOL
+        ),
+        "C0_has_nonzero_stage55_complement_component": (
+            C0_p_norm2 > TOL
+        ),
+        "stage52_compact_spin1_subgroup_alone_cannot_generate_dc_pair": (
+            D0_p_norm2 > TOL
+            and C0_p_norm2 > TOL
+            and "Sym^2(SU(2))" in stage52
+        ),
         "stage56_n5_icosahedral_spin2_irreducibility_pass_present": (
             "STAGE_56_N5_ICOSAHEDRAL_SPIN2_IRREDUCIBILITY_PASS" in stage56
             and "\\mathbf5\\downarrow A_5=\\mathbf5_{\\rm irr}" in stage56
@@ -2096,7 +2167,7 @@ def main() -> None:
             "-75*(59+21*sqrt(5))/638"
         ),
         "family_dynamics_selector_status": (
-            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__SPECTRAL_Z2_SELECTION_REFUTED__RELATIONAL_EO_TO_DC_ASSIGNMENT_AND_RHO_PHYSICAL_BINDING_OPEN"
+            "CUBIC_SELECTOR_CLOSED__SPLIT_REAL_BRANCH_OPERATOR_CLOSED__GEOMETRIC_RHYTHM_ALPHABET_CLOSED__COMPACT_ENDPOINT_FIXED__POLAR_AND_CONTINUOUS_LIE_LIFTS_REFUTED__SCALAR_QC_CP_REFUTED__C3_F3_BARGMANN_FRAMES_CLOSED__STAGE39_STRUCTURAL_SECTOR_FRAMES_CLOSED_STAGE40_CKM_SHAPE_FAIL__COEFFICIENT_ORIENTATION_NOT_YET_SECTOR_ASSIGNMENT__GENERIC_WIJ_GRAMMAR_CLOSED__STAGE24_PLUS_STAGE66_DIRECTED_23_TANGENT_CLOSED__SINGLE_AXIS_BRANCH_MAP_REFUTED__MINIMAL_DC_NONCOMMUTING_PAIR_CLOSED__SPECTRAL_Z2_SELECTION_REFUTED__SPIN1_ONLY_DC_GENERATION_REFUTED__BRANCH_TO_COMPLEMENT_INJECTION_EO_Z2_AND_RHO_PHYSICAL_BINDING_OPEN"
         ),
         "oriented_family_generator_status": (
             "TEMPORAL_ORIENTATION_SELECTS_P3_VS_INVERSE_AT_REPRESENTATION_LEVEL"
@@ -2134,6 +2205,14 @@ def main() -> None:
         ),
         "dc_basis_appearance_status": (
             "DIAGONAL_VS_MIXED_APPEARANCE_NOT_INVARIANT_WITHOUT_DERIVED_REAL_FORM_INTERTWINER"
+        ),
+        "stage52_dc_generation_status": (
+            "NO_GO_COMPACT_SPIN1_SUBGROUP_ALONE_CANNOT_GENERATE_DC_PAIR"
+            if passed
+            else "FAILED"
+        ),
+        "family_complement_injection_status": (
+            "OPEN_BRANCH_TO_SU3_OVER_SO3_COMPLEMENT_INJECTION_OR_EQUIVALENT_MIXED_KP_DYNAMICS"
         ),
         "icosahedral_family_embedding_status": (
             "STAGE61_62_C3_COMPATIBLE_RIGID_EMBEDDING_CURRENT_PASS"
@@ -2462,6 +2541,13 @@ def main() -> None:
             "D_C_frobenius_residual": dc_frobenius_residual,
             "single_generator_spectral_Z2_selection": "REFUTED",
             "compact_real_form_dynamic_selection": "OPEN_STAGE52",
+            "stage55_D0_k_norm2": D0_k_norm2,
+            "stage55_D0_p_norm2": D0_p_norm2,
+            "stage55_C0_k_norm2": C0_k_norm2,
+            "stage55_C0_p_norm2": C0_p_norm2,
+            "stage55_projector_formula_residual": stage55_dc_norm_formula_residual,
+            "compact_spin1_only_DC_generation": "REFUTED",
+            "required_extra_sector": "SU3_OVER_SO3_COMPLEMENT_P_OR_EQUIVALENT",
         },
         "sector_assignment_provenance_audit": {
             "stage39_assignments": {
@@ -2738,6 +2824,8 @@ def main() -> None:
             "D_and_C_are_unitarily_conjugate_so_spectra_cannot_select_branch_assignment": True,
             "diagonal_vs_mixed_matrix_appearance_is_basis_dependent": True,
             "stage52_real_form_bridge_availability_does_not_supply_dynamic_intertwiner_selection": True,
+            "stage52_compact_spin1_branch_alone_cannot_reproduce_D_or_C_exactly": True,
+            "family_branch_map_requires_nonzero_su3_over_so3_complement_content": True,
             "Aseed_was_not_used_to_fit_eta": True,
             "temporal_orientation_selection_is_representation_level_not_seed_dynamics": True,
             "historical_generation_numbering_is_not_used_as_temporal_c3_anchor": True,
