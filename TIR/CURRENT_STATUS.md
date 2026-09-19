@@ -1371,3 +1371,27 @@ The diagonal appearance of (D) versus the character-mixed appearance of (C) is b
 `DIAGONAL_VS_MIXED_APPEARANCE_NOT_INVARIANT_WITHOUT_DERIVED_REAL_FORM_INTERTWINER`.
 
 The remaining branch assignment must be selected, if possible, by a genuinely relational/path-oriented invariant.
+
+### Appendix AF update — compact spin-one branch bridge is insufficient
+
+Stage-55 Casimir projection gives nonzero \(\mathfrak p\) components for both traceless Stage-42 family generators:
+
+\[
+\|P_{\mathfrak p}D_0\|_F^2
+=
+\frac7{135}-\frac{\sqrt5}{45}>0,
+\]
+
+\[
+\|P_{\mathfrak p}C_0\|_F^2
+=
+\frac{28}{405}+\frac{2\sqrt5}{135}>0.
+\]
+
+Therefore the Stage-52 compact spin-one \(SO(3)\) bridge alone cannot generate the D/C family pair.
+
+`NO_GO_COMPACT_SPIN1_SUBGROUP_ALONE_CANNOT_GENERATE_DC_PAIR`.
+
+Remaining source gate:
+
+`OPEN_BRANCH_TO_SU3_OVER_SO3_COMPLEMENT_INJECTION_OR_EQUIVALENT_MIXED_KP_DYNAMICS`.
