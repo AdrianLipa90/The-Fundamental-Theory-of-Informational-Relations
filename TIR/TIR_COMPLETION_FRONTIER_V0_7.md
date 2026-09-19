@@ -1255,3 +1255,51 @@ Remaining:
 `OPEN_COLLATZ_STATE_OR_PATH_TO_STAGE66_C3_ORBIT_INDEX_BINDING`
 
 plus physical promotion/binding of the frozen branch-rhythm candidate.
+
+### Appendix AI update — exact Collatz state to C3 orbit index
+
+On the admitted finite-stopping basin define
+
+\[
+r_C(n)=(-L(n))\bmod3.
+\]
+
+Then
+
+\[
+\boxed{r_C(Tn)=r_C(n)+1\pmod3}.
+\]
+
+The terminal cycle
+
+\[
+1\to4\to2\to1
+\]
+
+maps to frame indices
+
+\[
+0\to1\to2\to0
+\]
+
+and simultaneously to the IDT phase cycle
+
+\[
+\frac47\to\frac17\to\frac27\to\frac47.
+\]
+
+Therefore the Stage-66 orbit index can be selected state-by-state by
+
+\[
+G_C(n)=A_{(-L(n))\bmod3},
+\]
+
+with exact C3 equivariance.
+
+Status:
+
+`STOPPING_DEPTH_MOD3_COLLATZ_TO_TEMPORAL_C3_EQUIVARIANT_BINDING_CLOSED`
+
+`CLOSED_REPRESENTATION_LEVEL_VIA_NEGATIVE_STOPPING_DEPTH_MOD3`.
+
+Physical temporal-family identification and physical rhythm promotion remain OPEN.
