@@ -86,9 +86,10 @@
   "archive_provenance": {
     "legacy_projection_source_blob": "01b9be380f095b613a731ba258865bc617d8e854",
     "legacy_generated_projection_csv_blob": "3ec7331cbb859d8d955c9d7d5d1bd67ef75e8fb1",
-    "generated_csv_state": "STALE_UP_QUARK_PARTICLE_ID",
+    "generated_csv_state": "SOURCE_AND_GENERATED_CSV_CONSISTENT",
     "source_script_is_provenance_authority": true,
-    "csv_staleness_is_diagnostic_not_math_gate": true
+    "source_and_generated_csv_up_quark_row": "u_L,up_quark",
+    "conflicting_nu_L_up_quark_row_present": false
   },
   "physical_firewall": {
     "temporal_to_physical_family_dynamics": "OPEN",
