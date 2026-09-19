@@ -746,3 +746,24 @@ are neither monotone in that active order nor equally spaced, so direct identifi
 `DIRECT_UNIFORM_C3_CLOCK_IDENTIFICATION_REFUTED`.
 
 The physical map from the active Stage-22 family-seed carrier to physical family/generation remains OPEN.
+
+
+### Appendix I update — independent \(E_8\) family multiplicity
+
+Stage 21 independently fixes a multiplicity-three family carrier through
+
+\[
+E_8\supset(E_6\times SU(3)_F)/Z_3.
+\]
+
+Stage 24 binds the active ordered seed basis to the exceptional triplet, and Stage 25 keeps \(SU(3)_F\) independent of color \(SU(3)_C\).
+
+Status:
+
+\`STAGE21_E8_THREEFOLD_MULTIPLICITY_3_CURRENT_PASS\`
+
+\`STAGE24_ORDERED_SEED_TO_E8_TRIPLET_INTERTWINER_CURRENT_PASS\`
+
+\`INDEPENDENT_C3_CROSSWALK_TO_EXISTING_MULTIPLICITY3_FAMILY_CARRIER\`.
+
+The temporal \(C_3\) is therefore an independent cross-consistency/origin candidate, not the sole parent of the family multiplicity.
