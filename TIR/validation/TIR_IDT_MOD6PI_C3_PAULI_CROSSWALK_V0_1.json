@@ -1,0 +1,31 @@
+{
+  "schema": "TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1",
+  "date": "2026-09-19",
+  "branch": "feat/idt-mod6pi-c3-pauli-crosswalk-v0.1",
+  "formalism": "TIR/integration/TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1.md",
+  "validator": "TIR/validation/tir_idt_mod6pi_c3_pauli_crosswalk_v0_1.py",
+  "technical_status": "PASS_LOCAL_REPRODUCTION",
+  "representation_status": "C3_CHARACTER_AND_PAULI_EQUIVARIANT_CROSSWALK_CLOSED",
+  "local_reproduction": {
+    "checks_passed": 8,
+    "checks_total": 8,
+    "max_pauli_c3_equivariance_residual": 1.5700924586837752e-16
+  },
+  "checks": {
+    "c3_shift_order_three": true,
+    "f3_unitary": true,
+    "f3_character_diagonalization": true,
+    "pauli_hs_orthonormal": true,
+    "u3_special_unitary": true,
+    "pauli_c3_equivariance": true,
+    "spinorial_cube_minus_identity": true,
+    "spinorial_sixth_power_identity": true
+  },
+  "physical_firewall": {
+    "temporal_to_spatial_physical_binding": "OPEN",
+    "temporal_to_flavour_physical_binding": "OPEN",
+    "ckm_pmns_parameter_forcing": "OPEN",
+    "gravitational_metric_source_binding": "OPEN"
+  },
+  "github_ci_status": "PENDING_OR_CROSSCUTTING_ONLY"
+}
