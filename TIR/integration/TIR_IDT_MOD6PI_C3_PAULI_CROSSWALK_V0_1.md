@@ -5669,3 +5669,155 @@ Status:
 Current family-source status:
 
 `COMMON_TARGET_FAMILY_WIJ_SCAFFOLD_SOURCE_DERIVED_FLAT__NONFLAT_PHYSICAL_CONNECTION_OPEN`.
+
+---
+
+## Appendix AO — NEW 2026-09-19 — Retrospective structural candidate: terminal Collatz-cycle SU(3) holonomy
+
+Status: `RETROSPECTIVE_STRUCTURAL_CANDIDATE_NOT_PROSPECTIVE_TEST`.
+
+### AO.1 Provenance disclosure
+
+The nontriviality of the loop below was observed in an exploratory dry-run before this Appendix was formalized.
+
+Accordingly this is **not** classified as a blind/prospective validation freeze.
+
+No CKM, PMNS, fermion mass, PDG value, fitted coefficient, or target matrix was used in the exploratory calculation or in the definition below.
+
+### AO.2 Exact closed Collatz cycle
+
+The standard terminal Collatz cycle is
+
+\[
+\boxed{1\to4\to2\to1}.
+\]
+
+Under the already validated stopping-depth state index
+
+\[
+r_C(n)=(-L(n))\bmod3,
+\]
+
+the three states carry
+
+\[
+r_C(1)=0,
+\qquad
+r_C(4)=1,
+\qquad
+r_C(2)=2.
+\]
+
+The branch sequence is
+
+\[
+\boxed{O,E,E}.
+\]
+
+### AO.3 AJ loop candidate
+
+Using the validated Appendix-AJ step
+
+\[
+U_{geo}(n)=\exp[-i\,\sigma_{b(n)}A_{r_C(n)}],
+\]
+
+with
+
+\[
+\sigma_O=+\ln3,
+\qquad
+\sigma_E=-\ln2,
+\]
+
+define the ordered terminal-cycle loop
+
+\[
+\boxed{
+U_\circ
+=
+U_E(A_2)\,U_E(A_1)\,U_O(A_0).
+}
+\]
+
+Later Collatz steps multiply on the left, consistently with Appendix AJ/AM.
+
+### AO.4 Exact analytic nontriviality witness
+
+Let
+
+\[
+a=\ln3,
+\qquad
+b=\ln2.
+\]
+
+Because each (A_r) is the symmetric half-strength generator of one coordinate two-plane, the loop trace reduces exactly to
+
+\[
+\boxed{
+\operatorname{tr}U_\circ
+=
+2\cos\frac a2\cos\frac b2
++\cos^2\frac b2
++i\sin\frac a2\sin^2\frac b2.
+}
+\]
+
+The imaginary part is
+
+\[
+\boxed{
+\operatorname{Im}\operatorname{tr}U_\circ
+=
+\sin\frac{\ln3}{2}
+\sin^2\frac{\ln2}{2}
+>0.
+}
+\]
+
+Therefore
+
+\[
+\boxed{U_\circ\neq I_3}
+\]
+
+without reference to any physical target.
+
+### AO.5 Retrospective numerical checkpoint
+
+The exploratory dry-run gave
+
+```text
+max |U_circle - I|  = 0.5008161081115994
+tr(U_circle)        = 2.4889716929998738 + 0.06023967414631505 i
+det(U_circle)       ≈ 1
+eigenphases         ≈ (-0.82849754, 0.55400195, 0.27449558)
+```
+
+These values are recorded only as a retrospective checkpoint to be independently reproduced by the repository validator.
+
+### AO.6 Validation gates
+
+The current validator should now independently verify:
+
+1. the exact cycle states, frames and branch word `OEE`;
+2. (U_\circ\in SU(3));
+3. (U_\circ\neq I);
+4. the analytic trace formula above;
+5. the strictly nonzero imaginary trace witness;
+6. gauge-conjugacy invariance of trace/eigenvalues;
+7. no physical-target input;
+8. no promotion to CKM/PMNS or physical CP merely from nontrivial loop holonomy.
+
+### AO.7 Scope boundary
+
+A nontrivial (SU(3)) Wilson loop is a non-flat source-derived holonomy candidate.
+
+It is **not** by itself a derivation of a Jarlskog invariant, CKM matrix, PMNS matrix, or physical CP violation.
+
+Physical sector binding remains OPEN.
+
+Status:
+
+`TERMINAL_COLLATZ_CYCLE_NONTRIVIAL_SU3_HOLONOMY_RETROSPECTIVE_CANDIDATE`.
