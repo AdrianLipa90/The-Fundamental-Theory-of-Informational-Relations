@@ -2,8 +2,8 @@
   "schema": "FPDG_DEPENDENCY_EXPORT_V0_1",
   "repository_id": "TIR",
   "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
-  "source_commit": "e4eba64a1cc60e7f67e7d9c8229b05ae6185aa6e",
-  "generated_at": "2026-09-19T21:42:00+01:00",
+  "source_commit": "f7b754347502f5051d423867f8a8d60627b1f8d7",
+  "generated_at": "2026-09-21T13:37:00+01:00",
   "claims": [
     {
       "claim_id": "TIR.PRIMITIVE.ZERO",
@@ -214,6 +214,18 @@
       "status": "EXECUTABLE_SOURCE_BUNDLE_CERTIFIER / SAME_PHYSICAL_REALIZATION_AND_RECEIPT_GATE / SPATIAL_AND_MATCHING_PRODUCTION_CAPTURES_OPEN / CANON_ALLOWED_FALSE",
       "source_path": "TIR/foundations/TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2.md",
       "evidence_class": "source_executable_contract_status"
+    },
+    {
+      "claim_id": "TIR.SPACETIME.SP3_3PLUS1_BUNDLE_COMPATIBILITY_V01",
+      "status": "CANDIDATE_ONLY / EXACT_SAME_PARENT_BUNDLE_COMPATIBILITY / STRUCTURAL_GATES_PASS / PRODUCTION_EVIDENCE_BLOCKED / CANON_ALLOWED_FALSE",
+      "source_path": "TIR/docs/candidates/spacetime_dimension/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.md",
+      "evidence_class": "candidate_formalism_validation"
+    },
+    {
+      "claim_id": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
+      "status": "CANDIDATE_ONLY / EXACT_CENTERED_HALF_DISPLACEMENT_INTERTWINER / RFC_SHIFT_MATCH_EXACT / PHYSICAL_PRODUCTION_CLAIM_FALSE / CANON_ALLOWED_FALSE",
+      "source_path": "TIR/docs/candidates/spacetime_dimension/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.md",
+      "evidence_class": "candidate_formalism_validation"
     }
   ],
   "local_edges": [
