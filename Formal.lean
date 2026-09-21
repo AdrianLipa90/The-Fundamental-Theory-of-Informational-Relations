@@ -121,4 +121,36 @@ theorem transitionFromPotential_cocycle
   rw [hOneMul]
 
 
+
+/--
+FSI.03 TIR-side gauge redundancy: changing the frame at an intermediate
+endpoint cancels from a composed transport. Only the endpoint frames remain.
+-/
+def gaugeEdge {G : Type}
+    (mul : G → G → G)
+    (inv : G → G)
+    (gi gj wij : G) : G :=
+  mul (mul gi wij) (inv gj)
+
+theorem gaugeEdge_middle_frame_cancels
+    {G : Type}
+    (mul : G → G → G)
+    (inv : G → G)
+    (one : G)
+    (hAssoc : ∀ x y z : G, mul (mul x y) z = mul x (mul y z))
+    (hInvMul : ∀ x : G, mul (inv x) x = one)
+    (hOneMul : ∀ x : G, mul one x = x)
+    (gi gj gk wij wjk : G) :
+    mul (gaugeEdge mul inv gi gj wij)
+        (gaugeEdge mul inv gj gk wjk) =
+      gaugeEdge mul inv gi gk (mul wij wjk) := by
+  unfold gaugeEdge
+  rw [hAssoc]
+  rw [← hAssoc (inv gj) (mul gj wjk) (inv gk)]
+  rw [← hAssoc (inv gj) gj wjk]
+  rw [hInvMul]
+  rw [hOneMul]
+  rw [← hAssoc (mul gi wij) wjk (inv gk)]
+  rw [hAssoc gi wij wjk]
+
 end Formal
