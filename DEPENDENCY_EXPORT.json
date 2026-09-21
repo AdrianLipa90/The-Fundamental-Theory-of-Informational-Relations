@@ -428,6 +428,25 @@
       "from": "TIR.SPACETIME.INTERLEAF_MATCHING_INPUT_CONTRACT",
       "to": "TIR.SPACETIME.PHYSICAL_REALIZATION_BUNDLE_V02",
       "authority": "CANONICAL_FRONTIER"
+    },
+    {
+      "from": "TIR.SPACETIME.PHYSICAL_REALIZATION_BUNDLE_V02",
+      "to": "TIR.SPACETIME.SP3_3PLUS1_BUNDLE_COMPATIBILITY_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "FULL_PHYSICAL_3PLUS1_PRODUCTION_BINDING_REQUIRED"
+    },
+    {
+      "from": "TIR.FOUNDATION.HALF",
+      "to": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.SPACETIME.SP3_3PLUS1_BUNDLE_COMPATIBILITY_V01",
+      "to": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "GLOBAL_PHYSICAL_SPATIAL_CARRIER_BINDING_REQUIRED"
     }
   ]
 }
