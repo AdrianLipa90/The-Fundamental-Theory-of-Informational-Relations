@@ -78,27 +78,47 @@ theorem fsi01_affine_inverse_crosswalk
   rfl
 
 
+
 /--
 FSI.02 local-to-global cocycle direction. A globally potentialized transition
 field has exact identity loops and satisfies the ordered triple-overlap
-composition law. This theorem is group-generic; the source repository keeps
-the physical/type interpretation of the group.
+composition law. The group laws are passed explicitly so the theorem stays
+dependency-free and the source repository keeps the interpretation of the
+transition algebra.
 -/
-def transitionFromPotential {G X : Type} [Group G]
+def transitionFromPotential {G X : Type}
+    (mul : G → G → G)
+    (inv : G → G)
     (p : X → G) (a b : X) : G :=
-  p b * (p a)⁻¹
+  mul (p b) (inv (p a))
 
 theorem transitionFromPotential_refl
-    {G X : Type} [Group G]
+    {G X : Type}
+    (mul : G → G → G)
+    (inv : G → G)
+    (one : G)
+    (hMulInv : ∀ x : G, mul x (inv x) = one)
     (p : X → G) (a : X) :
-    transitionFromPotential p a a = 1 := by
-  simp [transitionFromPotential]
+    transitionFromPotential mul inv p a a = one := by
+  exact hMulInv (p a)
 
 theorem transitionFromPotential_cocycle
-    {G X : Type} [Group G]
+    {G X : Type}
+    (mul : G → G → G)
+    (inv : G → G)
+    (one : G)
+    (hAssoc : ∀ x y z : G, mul (mul x y) z = mul x (mul y z))
+    (hInvMul : ∀ x : G, mul (inv x) x = one)
+    (hOneMul : ∀ x : G, mul one x = x)
     (p : X → G) (a b c : X) :
-    transitionFromPotential p b c * transitionFromPotential p a b =
-      transitionFromPotential p a c := by
-  simp [transitionFromPotential, mul_assoc]
+    mul (transitionFromPotential mul inv p b c)
+        (transitionFromPotential mul inv p a b) =
+      transitionFromPotential mul inv p a c := by
+  unfold transitionFromPotential
+  rw [hAssoc]
+  rw [← hAssoc (inv (p b)) (p b) (inv (p a))]
+  rw [hInvMul]
+  rw [hOneMul]
+
 
 end Formal
