@@ -1,4 +1,4 @@
-name = "tir-formal"
+name = "tir_formal"
 version = "0.1.0"
 defaultTargets = ["Formal"]
 
