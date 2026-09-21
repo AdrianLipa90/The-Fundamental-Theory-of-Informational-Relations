@@ -6,6 +6,7 @@ on:
     paths:
       - "Formal.lean"
       - "lakefile.toml"
+      - "lake-manifest.json"
       - "lean-toolchain"
       - ".github/workflows/lean-proof-gate.yml"
   workflow_dispatch:
@@ -20,6 +21,7 @@ jobs:
           auto-config: false
           build: true
           leanchecker: true
+          leanchecker-args: "Formal"
           axiom-audit: true
           axiom-audit-root: Formal
           use-github-cache: true
