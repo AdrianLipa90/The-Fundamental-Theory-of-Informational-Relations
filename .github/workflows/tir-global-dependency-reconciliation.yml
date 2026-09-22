@@ -1,0 +1,25 @@
+name: TIR global dependency reconciliation
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'DEPENDENCY_EXPORT.json'
+      - 'TIR/CURRENT_STATUS.md'
+      - 'TIR/monograph/v12/GREMLIN_PASS6_GLOBAL_DEPENDENCY_RECONCILIATION_20260922.md'
+      - 'TIR/validation/tir_global_dependency_reconciliation_v0_1.py'
+      - '.github/workflows/tir-global-dependency-reconciliation.yml'
+permissions:
+  contents: read
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11','3.12','3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m py_compile TIR/validation/tir_global_dependency_reconciliation_v0_1.py
+      - run: python TIR/validation/tir_global_dependency_reconciliation_v0_1.py

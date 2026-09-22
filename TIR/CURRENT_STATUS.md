@@ -1,9 +1,34 @@
 # CURRENT STATUS — TIR
 
-**Status line:** 2026-09-10 v12.1 promoted on `main`; coefficient-magnitude parent evaluation advanced on the current completion branch  
-**Publication correction:** TIR monograph v12.1 repository synchronization is merged on `main` without changing physical verdicts  
-**Status-surface policy:** merged theorem/contract results are distinguished from production-input, physical-binding and empirical-evidence gates  
-**Promotion:** validated v12.1 source head `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` merged through PR #128 as `main@3a31da6ebeded16d4f48345de62c974870f76694`; later status-only synchronization reached `main@76bb4d19b20260bf340ceaaa52d945b3cf3816f4`
+**Status line:** 2026-09-22 semantic dependency reconciliation refreshed after White-Thread spin-lift/Lyapunov promotion; reconciliation branch pending final merge  
+**Current source baseline:** `main@611bc7687f0a2266a7cc6cc3010f9776dc03a391`  
+**Status-surface policy:** formal/derivational closure, production-input state and empirical verdict are independent coordinates  
+**Legacy evidence rule:** a frozen legacy `FAIL` remains historical evidence for that exact formula; it does not automatically classify a later replacement construction  
+**Dependency export:** current branch export separates completed theorem surfaces, candidate-only bridges and still-open physical gates
+
+## 0. Semantic reconciliation — 2026-09-22
+
+The authoritative current reading is:
+
+```text
+local Einstein/ADM derivation              CLOSED in RFC; global production carrier/coverage OPEN
+hypercharge relative uniqueness            CLOSED on declared one-generation/one-Higgs content + TIR normalization
+neutrino absolute-action source repair     CLOSED derivationally; absolute physical mass validation OPEN
+coefficient magnitude evaluation           CLOSED_EXACT
+coefficient transition selector            OPEN; existing no-go constrains selector class
+continuum gauge normalization/running      OPEN
+electroweak common scheme/scale transport  OPEN
+Higgs scalar/action binding                OPEN
+quark scheme/scale mass map                OPEN
+meson absolute-action baseline             OPEN
+strong-CP holonomic source                 OPEN; frozen legacy nEDM route remains FAIL
+cosmological dimensionful scale/rho_crit   OPEN
+RH / native Li-Weil global positivity      OPEN
+```
+
+The Platonic/Ramanujan, 600-cell/McKay-E8, half-seam, semantic-U(1), CP1 and Bloch/polyhedral surfaces are now typed individually in `DEPENDENCY_EXPORT.json`. Exact mathematics inside a candidate surface is not silently promoted to a physical identification.
+
+PR #177 (`White-Thread spin lift and Lyapunov dynamics v0.1`) is intentionally not included in the current canonical export because it is not yet merged to `main`. After promotion it requires its own export/FPDG refresh.
 
 ## 1. Foundational closure
 
@@ -41,8 +66,10 @@ TIR_GLOBAL_3MANIFOLD_A5 = CERTIFIER_CLOSED / PRODUCTION_INPUT_OPEN
 TIR_GLOBAL_SPATIAL_INPUT_CONTRACT = CLOSED_CONTRACT / PRODUCTION_INPUT_OPEN
 TIR_INTERLEAF_MATCHING_FIELD_CONTRACT = CLOSED_CONTRACT / PRODUCTION_INPUT_OPEN
 TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT
-TIR_COEFFICIENT_TRANSITION_PARENT_SELECTOR = OPEN
-TIR_STANDARD_MODEL = ACTIVE_RECONCILIATION
+TIR_COEFFICIENT_TRANSITION_PARENT_SELECTOR = OPEN / ADDITIVE_TRANSITION_SENSITIVE_INVARIANT_REQUIRED
+TIR_STANDARD_MODEL = ACTIVE_RECONCILIATION / SUBGATES_EXPORTED_INDIVIDUALLY
+TIR_WHITE_THREAD_SPIN_LIFT = EXACT_2PI_4PI_DOUBLE_COVER / PHYSICAL_BINDING_OPEN
+TIR_WHITE_THREAD_LYAPUNOV = EXACT_CONDITIONAL_STATIC_HOLONOMY / DYNAMIC_FIELD_BINDING_OPEN
 TIR_SOH_NEGATIVE_INVERSE = GLOBAL_DOMINATION_CANDIDATE / RH_OPEN
 TIR_TIME_JOIN = SIBLING_INTERFACE
 TIR_COLLATZ_FS_RELATIONAL_PHASE = MATHEMATICAL_INTERFACE_ADDED / PHYSICAL_BINDING_OPEN
@@ -281,8 +308,8 @@ production global spatial capture           OPEN INPUT
 production inter-leaf matching capture      OPEN INPUT
 same physical realization ID + receipt      REQUIRED
 TIR physical-realization bundle v0.2        ASSEMBLER CLOSED / INPUTS OPEN
-TIR x IDT x RFC global spacetime/ADM join   OPEN
-Einstein constraint/evolution closure       OPEN downstream
+RFC local ADM/Einstein derivation            CLOSED on declared assumptions
+global TIR x IDT x RFC production carrier   OPEN INPUT / COVERAGE / PROMOTION
 ```
 
 ## 6. Coefficient and Standard-Model correction state
@@ -319,22 +346,24 @@ The residual non-circular gate is
 
 because the transition-level parent packet still has to be selected from coefficient-free geometry/routing before reading a recovered tuple or mass/Yukawa target.
 
-Other open structural work:
+Current Standard-Model structural state:
 
 ```text
-coefficient transition parent selector
-W_ij -> continuum gauge connection/curvature normalization
-common electroweak R_EW(mu,scheme) transport
-Higgs scalar/action binding
-hypercharge source/uniqueness theorem
-scheme/scale-defined quark mass map
-neutrino absolute-action repair
-meson absolute-action baseline
-strong-CP holonomic/topological source theorem
-cosmological dimensionful scale/rho_crit binding
+coefficient role/orientation forcing         CLOSED theorem candidate
+coefficient selector composition no-go       CLOSED exact diagnostic
+coefficient transition parent selector       OPEN
+hypercharge relative uniqueness              CLOSED on declared field content + normalization anchor
+neutrino absolute-action source repair       CLOSED derivationally / physical mass validation OPEN
+W_ij -> continuum gauge normalization        OPEN
+common electroweak R_EW(mu,scheme) transport OPEN
+Higgs scalar/action binding                  OPEN
+scheme/scale-defined quark mass map          OPEN
+meson absolute-action baseline               OPEN
+strong-CP holonomic/topological source       OPEN; legacy nEDM failure retained
+cosmological dimensionful scale/rho_crit     OPEN
 ```
 
-Retained empirical states include charged-lepton precision `FAIL`, PMNS reactor-angle `TENSION`, electroweak/fine-structure/Higgs precision failures or tensions in the frozen matrix, pion/kaon printed-formula `FAIL`, and the neutron-EDM `FAIL` generated by the frozen legacy strong-CP map.
+Retained empirical states remain attached to their frozen historical formulas: charged-lepton precision `FAIL`, PMNS reactor-angle `TENSION`, legacy electroweak/fine-structure/Higgs precision failures or tensions, legacy pion/kaon printed-formula `FAIL`, and the neutron-EDM `FAIL` generated by the frozen legacy strong-CP map. These receipts are not verdicts on later replacement constructions unless the replacement is frozen and revalidated against the same observable gate.
 
 Canonical reconciliation ledger:
 
@@ -392,17 +421,25 @@ production global spatial capture
 + production inter-leaf matching capture
 + same physical realization ID / receipt
 -> TIR physical-realization source bundle v0.2
--> global TIR-IDT-RFC spacetime/ADM admission
--> Einstein system closure
+-> global production TIR-IDT-RFC spacetime carrier/coverage
+(local RFC ADM/Einstein derivation is already closed)
 
 coefficient magnitude parent evaluation       CLOSED_EXACT
+coefficient selector no-go                     CLOSED_DIAGNOSTIC
 -> coefficient transition parent selector     OPEN
-+ continuum gauge normalization               OPEN
--> electroweak scheme/scale closure
--> scalar/Higgs, strong-CP, meson, neutrino and quark-map closures
+
+hypercharge relative uniqueness               CLOSED_ON_DECLARED_CONTENT
+neutrino source repair                         CLOSED_DERIVATION
+continuum gauge normalization                 OPEN
+electroweak common scheme/scale transport     OPEN
+Higgs scalar/action binding                   OPEN
+quark mass map                                OPEN
+meson absolute-action baseline                OPEN
+strong-CP holonomic source                    OPEN
+cosmological scale/rho_crit binding           OPEN
 
 native critical-axis positivity/nondegeneracy
--> RH-equivalent global closure (still OPEN)
+-> RH-equivalent global closure               OPEN
 ```
 
 ## 10. Publication synchronization
