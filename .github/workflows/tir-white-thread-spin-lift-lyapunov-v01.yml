@@ -7,6 +7,8 @@ on:
       - 'TIR/foundations/TIR_WHITE_THREAD_SPIN_LIFT_LYAPUNOV_V0_1.md'
       - 'TIR/validation/tir_white_thread_spin_lift_lyapunov_v0_1.py'
       - 'TIR/provenance/TIR_WHITE_THREAD_SPIN_LIFT_LYAPUNOV_V0_1.json'
+      - 'TIR/integration/TIR_WHITE_THREAD_SPIN_LIFT_CROSSLINK_V0_1.md'
+      - 'TIR/CLAIM_HIERARCHY.md'
       - '.github/workflows/tir-white-thread-spin-lift-lyapunov-v01.yml'
 
 permissions:
