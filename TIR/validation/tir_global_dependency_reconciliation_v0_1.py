@@ -19,6 +19,10 @@ EXPECTED={
 "TIR.CP1.DYADIC_FRACTAL_GATE","TIR.SPACE.HEXAHEDRAL_BLOCH_DUAL_FRAME",
 "TIR.SPACE.TETRA_FS_CROSSWALK","TIR.QUANTUM.QUBIT_TETRAHEDRAL_IC",
 "TIR.SPACE.DIMENSION_GATE","TIR.WHITE_THREAD.SPIN_LIFT","TIR.WHITE_THREAD.LYAPUNOV",
+"TIR.SPACETIME.SP3_3PLUS1_BUNDLE_COMPATIBILITY_V01","TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
+"TIR.SPACETIME.CAUSAL_3PLUS1_PAIR_CLOSURE_V01","TIR.SPACETIME.SP3_CAUSAL_PAIR_INSTANTIATION_V01",
+"TIR.SPACETIME.HERM2_LORENTZ_COVARIANCE_V01","TIR.SPACETIME.HERM2_RAPIDITY_SPEED_COMPOSITION_V01",
+"TIR.SPACETIME.POSITIVE_ELAPSED_STATE_CONE_V01",
 }
 def dag(nodes,edges):
     indeg={n:0 for n in nodes}; adj=defaultdict(list)
@@ -37,7 +41,7 @@ def main():
     ids=[c["claim_id"] for c in dep["claims"]]; s=set(ids); edges=dep["local_edges"]
     checks={
       "schema":dep.get("schema")=="FPDG_DEPENDENCY_EXPORT_V0_1",
-      "source_commit":dep.get("source_commit")=="611bc7687f0a2266a7cc6cc3010f9776dc03a391",
+      "source_commit":dep.get("source_commit")=="8c781742b656871529a4783ce977c8c1b8d51de2",
       "unique":len(ids)==len(s),
       "expected":EXPECTED<=s,
       "endpoints":all(e["from"] in s and e["to"] in s for e in edges),
