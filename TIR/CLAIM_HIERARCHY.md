@@ -217,6 +217,72 @@ The constraints
 have rank three in the four named quantities
 \((\kappa,\omega,f,\Gamma_{\mathcal I})\). Therefore the declared subsystem is one-dimensional, parametrized by \(f\).
 
+
+### White-Thread spin-lift and Lyapunov closure
+
+The canonical White-Thread U(1) transporter admits the explicit double-cover lift
+
+\[
+q\in\mathbb R/\mathbb Z
+\quad\leftarrow\quad
+\widetilde q\in\mathbb R/2\mathbb Z,
+\]
+
+with
+
+\[
+U(q)=e^{2\pi iq},
+\qquad
+\widetilde U(\widetilde q)=e^{\pi i\widetilde q},
+\qquad
+\boxed{\widetilde U^2=U}.
+\]
+
+Thus a one-turn / \(2\pi\) shift preserves the projected U(1) holonomy but flips the lifted spin sign, while a two-turn / \(4\pi\) shift restores it.
+
+For the isolated finite White-Thread phase subsystem with static lifted holonomy, symmetric nonnegative couplings, positive inertia and positive Rayleigh damping, the mixed \(2\pi/4\pi\) potential
+
+\[
+V_{\rm WT}
+=
+\sum_{\{i,j\}}
+K^{(1)}_{ij}(1-\cos\Delta_{ij})
++
+K^{(1/2)}_{ij}
+\left(1-\cos\frac{\Delta_{ij}}2\right)
+\]
+
+has the exact conditional energy law
+
+\[
+\boxed{
+\dot{\mathcal E}_{\rm WT}
+=
+-\sum_i\eta_i\dot\Theta_i^2
+\le0.
+}
+\]
+
+In the overdamped limit this becomes a gauge-twisted two-harmonic Kuramoto gradient flow and \(V_{\rm WT}\) itself is a Lyapunov function.
+
+This is an exact formal consequence of the declared finite graph / static-holonomy / positive-damping premises. It is not a physical proof of astrophysical White-Threads, black-hole information transport, Maxwell binding or nonlocal signalling.
+
+Canonical surface:
+
+\`TIR/foundations/TIR_WHITE_THREAD_SPIN_LIFT_LYAPUNOV_V0_1.md\`
+
+Validator:
+
+\`TIR/validation/tir_white_thread_spin_lift_lyapunov_v0_1.py\`
+
+The half-seam normalized field coordinate
+
+\[
+\mathfrak f=\frac12+\xi
+\]
+
+and the quadratic candidate \(E_{\rm seam}\propto\int\xi^2\) remain Class-B model definitions/candidates, with physical field binding explicitly open.
+
 ## C. Retrospective phenomenological assignments
 
 This class contains sector formula families developed or selected with access to comparison targets. Their exact algebraic evaluation and empirical residuals are recorded separately.
