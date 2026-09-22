@@ -1,0 +1,37 @@
+name: TIR positive elapsed-state cone closure v0.1
+
+on:
+  pull_request:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_V0_1.md"
+      - "TIR/validation/tir_positive_elapsed_state_cone_closure_v0_1.py"
+      - ".github/workflows/tir-positive-elapsed-state-cone.yml"
+  push:
+    paths:
+      - "TIR/docs/candidates/spacetime_dimension/TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_V0_1.md"
+      - "TIR/validation/tir_positive_elapsed_state_cone_closure_v0_1.py"
+      - ".github/workflows/tir-positive-elapsed-state-cone.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install sympy
+      - name: Prove positive elapsed-state cone equivalence
+        run: |
+          mkdir -p build
+          python TIR/validation/tir_positive_elapsed_state_cone_closure_v0_1.py | tee build/TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_V0_1.json
+          grep -Fq '"status": "PASS"' build/TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_V0_1.json
+          grep -Fq '"trace_recovers_elapsed_scale_exactly": true' build/TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_V0_1.json
+          grep -Fq '"determinant_equals_ell_squared_over_four_times_one_minus_r_squared": true' build/TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_V0_1.json
+          grep -Fq '"forward_packet_addition_equals_elapsed_weighted_state_composition_exactly": true' build/TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_V0_1.json
+          grep -Fq '"pure_state_witness_maps_to_null_boundary": true' build/TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_V0_1.json
+          grep -Fq '"physical_event_binding_claim": false' build/TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_V0_1.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tir-positive-elapsed-state-cone-v0-1
+          path: build/TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_V0_1.json
