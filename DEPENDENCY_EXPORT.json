@@ -2,8 +2,8 @@
   "schema": "FPDG_DEPENDENCY_EXPORT_V0_1",
   "repository_id": "TIR",
   "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
-  "source_commit": "611bc7687f0a2266a7cc6cc3010f9776dc03a391",
-  "generated_at": "2026-09-22T22:58:00+01:00",
+  "source_commit": "8c781742b656871529a4783ce977c8c1b8d51de2",
+  "generated_at": "2026-09-22T23:05:00+01:00",
   "claims": [
     {
       "claim_id": "TIR.PRIMITIVE.ZERO",
@@ -406,6 +406,62 @@
       "evidence_class": "source_formalism_status",
       "exact_head": "611bc7687f0a2266a7cc6cc3010f9776dc03a391",
       "validation": "TIR/validation/tir_white_thread_spin_lift_lyapunov_v0_1.py"
+    },
+    {
+      "claim_id": "TIR.SPACETIME.SP3_3PLUS1_BUNDLE_COMPATIBILITY_V01",
+      "status": "CANDIDATE_ONLY / EXACT_SAME_PARENT_BUNDLE_COMPATIBILITY / STRUCTURAL_GATES_PASS / PRODUCTION_EVIDENCE_BLOCKED / CANON_ALLOWED_FALSE",
+      "source_path": "TIR/docs/candidates/spacetime_dimension/TIR_SP3_3PLUS1_BUNDLE_COMPATIBILITY_V0_1.md",
+      "evidence_class": "source_candidate_status",
+      "exact_head": "8c781742b656871529a4783ce977c8c1b8d51de2",
+      "validation": "TIR/validation/tir_sp3_3plus1_bundle_compatibility_v0_1.py"
+    },
+    {
+      "claim_id": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
+      "status": "CANDIDATE_ONLY / EXACT_CENTERED_HALF_DISPLACEMENT_INTERTWINER / RFC_SHIFT_MATCH_EXACT / PHYSICAL_PRODUCTION_CLAIM_FALSE / CANON_ALLOWED_FALSE",
+      "source_path": "TIR/docs/candidates/spacetime_dimension/TIR_SP3_DELTA_HERM2_HALF_LIFT_BRIDGE_V0_1.md",
+      "evidence_class": "source_candidate_status",
+      "exact_head": "8c781742b656871529a4783ce977c8c1b8d51de2",
+      "validation": "TIR/validation/tir_sp3_delta_herm2_half_lift_bridge_v0_1.py"
+    },
+    {
+      "claim_id": "TIR.SPACETIME.CAUSAL_3PLUS1_PAIR_CLOSURE_V01",
+      "status": "CANDIDATE_ONLY / EXACT_BINARY_HERMITIAN_CAUSAL_ORDER_THEOREM / MINKOWSKI_SIGNATURE_DERIVED / HALF_DIFFERENCE_UNIQUENESS_EXACT / PHYSICAL_EVENT_BINDING_CONDITIONAL / CANON_ALLOWED_FALSE",
+      "source_path": "TIR/docs/candidates/spacetime_dimension/TIR_CAUSAL_3PLUS1_PAIR_CLOSURE_V0_1.md",
+      "evidence_class": "source_candidate_status",
+      "exact_head": "8c781742b656871529a4783ce977c8c1b8d51de2",
+      "validation": "TIR/validation/tir_causal_3plus1_pair_closure_v0_1.py"
+    },
+    {
+      "claim_id": "TIR.SPACETIME.SP3_CAUSAL_PAIR_INSTANTIATION_V01",
+      "status": "CANDIDATE_ONLY / FINITE_EXTERNAL_SOURCE_COMPATIBILITY_WITNESS / EXACT_THEOREM_INSTANTIATION_ON_FROZEN_PAIRS / PHYSICAL_EVENT_IDENTITY_NOT_CLAIMED / CANON_ALLOWED_FALSE",
+      "source_path": "TIR/docs/candidates/spacetime_dimension/TIR_SP3_CAUSAL_PAIR_INSTANTIATION_V0_1.md",
+      "evidence_class": "source_candidate_status",
+      "exact_head": "8c781742b656871529a4783ce977c8c1b8d51de2",
+      "validation": "TIR/validation/tir_sp3_causal_pair_instantiation_v0_1.py"
+    },
+    {
+      "claim_id": "TIR.SPACETIME.HERM2_LORENTZ_COVARIANCE_V01",
+      "status": "CANDIDATE_ONLY / EXACT_SPINOR_LORENTZ_COVARIANCE / FUTURE_CONE_PRESERVED / KERNEL_PLUS_MINUS_I / PHYSICAL_EVENT_BINDING_CONDITIONAL / CANON_ALLOWED_FALSE",
+      "source_path": "TIR/docs/candidates/spacetime_dimension/TIR_HERM2_LORENTZ_COVARIANCE_V0_1.md",
+      "evidence_class": "source_candidate_status",
+      "exact_head": "8c781742b656871529a4783ce977c8c1b8d51de2",
+      "validation": "TIR/validation/tir_herm2_lorentz_covariance_v0_1.py"
+    },
+    {
+      "claim_id": "TIR.SPACETIME.HERM2_RAPIDITY_SPEED_COMPOSITION_V01",
+      "status": "CANDIDATE_ONLY / EXACT_RAPIDITY_COMPOSITION / INVARIANT_NULL_SLOPE / SPEED_BOUND_AFTER_CLOCK_CALIBRATION / PHYSICAL_CLOCK_BINDING_CONDITIONAL / CANON_ALLOWED_FALSE",
+      "source_path": "TIR/docs/candidates/spacetime_dimension/TIR_HERM2_RAPIDITY_SPEED_COMPOSITION_V0_1.md",
+      "evidence_class": "source_candidate_status",
+      "exact_head": "8c781742b656871529a4783ce977c8c1b8d51de2",
+      "validation": "TIR/validation/tir_herm2_rapidity_speed_composition_v0_1.py"
+    },
+    {
+      "claim_id": "TIR.SPACETIME.POSITIVE_ELAPSED_STATE_CONE_V01",
+      "status": "CANDIDATE_ONLY / EXACT_POSITIVE_CONE_EQUIVALENCE / FORWARD_COMPOSITION_SEMIGROUP_EXACT / PSD_CONE_NOT_INDEPENDENT_CHOICE / PHYSICAL_CLOCK_CALIBRATION_OPEN / CANON_ALLOWED_FALSE",
+      "source_path": "TIR/docs/candidates/spacetime_dimension/TIR_POSITIVE_ELAPSED_STATE_CONE_CLOSURE_V0_1.md",
+      "evidence_class": "source_candidate_status",
+      "exact_head": "8c781742b656871529a4783ce977c8c1b8d51de2",
+      "validation": "TIR/validation/tir_positive_elapsed_state_cone_closure_v0_1.py"
     }
   ],
   "local_edges": [
@@ -838,6 +894,76 @@
       "from": "TIR.WHITE_THREAD.SPIN_LIFT",
       "to": "TIR.WHITE_THREAD.LYAPUNOV",
       "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.SPACETIME.PHYSICAL_REALIZATION_BUNDLE_V02",
+      "to": "TIR.SPACETIME.SP3_3PLUS1_BUNDLE_COMPATIBILITY_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "FULL_PHYSICAL_3PLUS1_PRODUCTION_BINDING_REQUIRED"
+    },
+    {
+      "from": "TIR.FOUNDATION.HALF",
+      "to": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "GLOBAL_PHYSICAL_SPATIAL_CARRIER_BINDING_REQUIRED"
+    },
+    {
+      "from": "TIR.SPACETIME.SP3_3PLUS1_BUNDLE_COMPATIBILITY_V01",
+      "to": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "GLOBAL_PHYSICAL_SPATIAL_CARRIER_BINDING_REQUIRED"
+    },
+    {
+      "from": "TIR.FOUNDATION.C2",
+      "to": "TIR.SPACETIME.CAUSAL_3PLUS1_PAIR_CLOSURE_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "PHYSICAL_EVENT_RELATION_TO_HERM2_REQUIRED"
+    },
+    {
+      "from": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
+      "to": "TIR.SPACETIME.SP3_CAUSAL_PAIR_INSTANTIATION_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "PHYSICAL_EVENT_IDENTITY_REQUIRED"
+    },
+    {
+      "from": "TIR.SPACETIME.CAUSAL_3PLUS1_PAIR_CLOSURE_V01",
+      "to": "TIR.SPACETIME.SP3_CAUSAL_PAIR_INSTANTIATION_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "PHYSICAL_EVENT_IDENTITY_REQUIRED"
+    },
+    {
+      "from": "TIR.SPACETIME.CAUSAL_3PLUS1_PAIR_CLOSURE_V01",
+      "to": "TIR.SPACETIME.HERM2_LORENTZ_COVARIANCE_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "PHYSICAL_EVENT_BINDING_REQUIRED"
+    },
+    {
+      "from": "TIR.SPACETIME.HERM2_LORENTZ_COVARIANCE_V01",
+      "to": "TIR.SPACETIME.HERM2_RAPIDITY_SPEED_COMPOSITION_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "PHYSICAL_CLOCK_BINDING_REQUIRED"
+    },
+    {
+      "from": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
+      "to": "TIR.SPACETIME.POSITIVE_ELAPSED_STATE_CONE_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "PHYSICAL_CLOCK_CALIBRATION_REQUIRED"
+    },
+    {
+      "from": "TIR.SPACETIME.CAUSAL_3PLUS1_PAIR_CLOSURE_V01",
+      "to": "TIR.SPACETIME.POSITIVE_ELAPSED_STATE_CONE_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "PHYSICAL_CLOCK_CALIBRATION_REQUIRED"
     }
   ]
 }
