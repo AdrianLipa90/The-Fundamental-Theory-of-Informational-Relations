@@ -1,0 +1,49 @@
+{
+  "schema": "TIR_HERM2_LORENTZ_COVARIANCE_VALIDATION_V0_1",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "authority": "CANDIDATE_ONLY",
+  "canon_allowed": false,
+  "physical_production_claim": false,
+  "physical_event_binding_claim": false,
+  "theorem_class": "EXACT_SPINOR_REPRESENTATION_THEORY_CONDITIONAL_PHYSICAL_INTERPRETATION",
+  "tested_head_sha": "847b9da7a554bb3316e8feac1e8a2f87e76ef8c4",
+  "parent": {
+    "causal_pair_theorem_receipt_sha256": "866201ed72794e4079b573743d7a41beb12976b19d29d35fc4b34236b40f6564",
+    "reexecuted_on_same_head": true
+  },
+  "checks": {
+    "explicit_z_boost_exact": true,
+    "boost_preserves_determinant": true,
+    "boost_preserves_minkowski_form": true,
+    "explicit_z_rotation_exact": true,
+    "rotation_preserves_determinant": true,
+    "general_congruence_preserves_PSD_cone": true,
+    "SL2C_action_kernel_is_plus_minus_I": true,
+    "half_difference_covariant_under_boost": true,
+    "half_difference_covariant_under_rotation": true,
+    "rotations_and_boosts_generate_SO_plus_1_3": true,
+    "physical_event_binding_not_promoted": true
+  },
+  "group_result": {
+    "action": "Phi_A(X)=A X A^dagger",
+    "covering_group": "SL(2,C)",
+    "kernel": "{+I,-I}",
+    "induced_group": "SO^+(1,3)",
+    "invariant": "det(X)=t^2-x^2-y^2-z^2",
+    "future_cone": "PSD(2)",
+    "causal_order_preserved": true
+  },
+  "ci": {
+    "workflow": "TIR Herm2 Lorentz covariance v0.1",
+    "run_id": 35474058326,
+    "job_id": 105980110523,
+    "conclusion": "success"
+  },
+  "executable_receipt_sha256": "2aa44af435461154b547297a884b3e853c218f28da8fbc280a892cb6014cac4a",
+  "remaining_physical_gate": [
+    "physical event translations use the Herm(2) carrier",
+    "physical future causality is the PSD cone order",
+    "scalar trace coordinate is calibrated to physical clock scale"
+  ]
+}
