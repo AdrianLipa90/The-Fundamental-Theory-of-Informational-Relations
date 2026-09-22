@@ -67,6 +67,12 @@ checks["four_pi_shift_returns_spin"] = all(
     close(spin_from_lift(q + 2.0), spin_from_lift(q)) for q in samples
 )
 checks["half_turn_is_minus_one"] = close(u1_from_turn(0.5), -1.0 + 0.0j)
+checks["half_seam_spin_lifts_are_plus_minus_i"] = (
+    close(spin_from_lift(0.5), 1j)
+    and close(spin_from_lift(1.5), -1j)
+    and close(spin_from_lift(0.5) ** 2, -1.0 + 0.0j)
+    and close(spin_from_lift(1.5) ** 2, -1.0 + 0.0j)
+)
 
 # Mixed 2pi / 4pi periodicity.
 k1_test = 0.7
