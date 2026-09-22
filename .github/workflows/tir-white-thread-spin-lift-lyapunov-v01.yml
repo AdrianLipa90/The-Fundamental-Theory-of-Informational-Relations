@@ -1,0 +1,31 @@
+name: TIR White-Thread spin lift Lyapunov v0.1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'TIR/foundations/TIR_WHITE_THREAD_SPIN_LIFT_LYAPUNOV_V0_1.md'
+      - 'TIR/validation/tir_white_thread_spin_lift_lyapunov_v0_1.py'
+      - 'TIR/provenance/TIR_WHITE_THREAD_SPIN_LIFT_LYAPUNOV_V0_1.json'
+      - 'TIR/integration/TIR_WHITE_THREAD_SPIN_LIFT_CROSSLINK_V0_1.md'
+      - 'TIR/CLAIM_HIERARCHY.md'
+      - '.github/workflows/tir-white-thread-spin-lift-lyapunov-v01.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  white-thread-spin-lift-lyapunov:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile validator
+        run: python -m py_compile TIR/validation/tir_white_thread_spin_lift_lyapunov_v0_1.py
+      - name: Run deterministic spin-lift / Lyapunov validator
+        run: python TIR/validation/tir_white_thread_spin_lift_lyapunov_v0_1.py
