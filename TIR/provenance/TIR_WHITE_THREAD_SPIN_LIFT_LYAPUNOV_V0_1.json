@@ -1,0 +1,34 @@
+{
+  "schema": "TIR_WHITE_THREAD_SPIN_LIFT_LYAPUNOV_V0_1",
+  "date": "2026-09-22",
+  "source_main_sha": "f7b754347502f5051d423867f8a8d60627b1f8d7",
+  "parents": [
+    "TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md",
+    "TIR/foundations/TIR_WIJ_SEMANTIC_U1_HOLONOMY_FROM_A_V0_1.md",
+    "TIR/foundations/TIR_PLATONIC_RAMANUJAN_LYAPUNOV_COROLLARY_V0_1.md",
+    "TIR/zeta_information_axis/BERRY_AB_KAPPA_NORMALIZED_CLOSURE_V0_1.md",
+    "archive/v7.9/full/01_foundational_formal_notes/hilbert_kahler_phase_hamiltonian/main.tex",
+    "archive/v7.9/full/10_standard_model_derivation_stages/03_metatime_sm_eb_action_closure_v0_2/METATIME_SM_EB_ACTION_CLOSURE_v0_2.md",
+    "archive/v7.9/full/33_debt10_white_thread_open_holonomy_preckm_v3_5/METATIME_SM_WHITE_THREAD_OPEN_HOLONOMY_PRECKM_v3_5.md"
+  ],
+  "exact_scope": [
+    "double-cover spin lift of U(1) normalized phase",
+    "2pi/4pi periodic potential identities",
+    "finite graph gradient identity",
+    "isolated static-holonomy Euler-Lagrange-Rayleigh energy monotonicity",
+    "overdamped gauge-twisted two-harmonic Kuramoto gradient flow"
+  ],
+  "model_definitions": [
+    "half-seam normalized field coordinate f=1/2+xi",
+    "positive oriented branch xi>0",
+    "quadratic seam excitation energy candidate"
+  ],
+  "open": [
+    "dynamic connection plus field-action closed energy theorem",
+    "physical Maxwell binding",
+    "physical black-hole or astrophysical interpretation",
+    "physical nonlocal signalling"
+  ],
+  "canon_allowed": false,
+  "epistemic": "EXACT_MATH_WITH_MODEL_BINDING_OPEN"
+}
