@@ -174,6 +174,53 @@ these are exactly
 
 Therefore the \(4\pi\) sector is not inferred from bare \(U(1)\) alone; it is the explicit double-cover / spin lift of the \(2\pi\) phase transporter.
 
+### Half-seam spin sheets
+
+At the already canonical normalized half-turn,
+
+\[
+q=\frac12\pmod1,
+\qquad
+U(q)=-1.
+\]
+
+The two lifts in \(\mathbb R/2\mathbb Z\) are
+
+\[
+\widetilde q_+=\frac12,
+\qquad
+\widetilde q_-=\frac32,
+\]
+
+giving
+
+\[
+\boxed{
+\widetilde U_+=e^{\pi i/2}=+i,
+\qquad
+\widetilde U_-=e^{3\pi i/2}=-i.
+}
+\]
+
+Both project to the same ordinary half-turn:
+
+\[
+\widetilde U_\pm^2=-1=U(1/2).
+\]
+
+Thus the half-seam has a precise two-sheet spin lift:
+
+\[
+\boxed{
+q=\frac12
+\quad\longleftarrow\quad
+\widetilde U\in\{+i,-i\}.
+}
+\]
+
+A \(2\pi\) lift shift exchanges the two sheets, while \(4\pi\) returns to the same sheet.
+
+
 ## 4. White-Thread lifted mismatch
 
 For node spin phases
