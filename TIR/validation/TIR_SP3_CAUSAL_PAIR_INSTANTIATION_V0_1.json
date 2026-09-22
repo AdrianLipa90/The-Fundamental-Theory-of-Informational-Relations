@@ -1,0 +1,57 @@
+{
+  "schema": "TIR_SP3_CAUSAL_PAIR_INSTANTIATION_VALIDATION_V0_1",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "authority": "CANDIDATE_ONLY",
+  "canon_allowed": false,
+  "physical_production_claim": false,
+  "physical_event_binding_claim": false,
+  "empirical_theory_confirmation": false,
+  "evidence_class": "FINITE_EXTERNAL_SOURCE_COMPATIBILITY_WITNESS",
+  "tested_head_sha": "236d20f6cd85174f145a846eb8a70aeb7b681e37",
+  "parent_receipts": {
+    "causal_theorem_executable_receipt_sha256": "866201ed72794e4079b573743d7a41beb12976b19d29d35fc4b34236b40f6564",
+    "sp3_half_lift_candidate_receipt_sha256": "d0ec78d6e4a3d1fdf3c7834057c4eba2a183f576dc8544ed091fb5bef284b4e9"
+  },
+  "exact_head_e2e": {
+    "causal_theorem_status": "PASS",
+    "sp3_half_lift_status": "PASS",
+    "finite_instantiation_status": "PASS"
+  },
+  "metrics": {
+    "minimum_normalized_causal_margin": "0.99999999989118859291686766536012542642413988329676440903967035570893426690187440",
+    "minimum_det_D_km2": "1294207457240192.867104888474",
+    "minimum_det_H_km2": "323551864310048.21677622211850",
+    "maximum_RFE8_shift_residual": "4.21402640266998755963811915953313719897961320072079109252752893915E-20"
+  },
+  "checks": {
+    "all_five_frozen_pairs_instantiate_strict_theorem_future_cone": true,
+    "all_five_have_positive_normalized_causal_margin": true,
+    "all_five_full_difference_determinants_positive": true,
+    "all_five_half_difference_determinants_positive": true,
+    "theorem_and_source_parent_reexecuted_on_same_exact_head": true,
+    "factor_half_is_exactly_the_theorem_centering_operator_on_each_pair": true,
+    "finite_compatibility_is_not_universal_empirical_confirmation": true,
+    "physical_event_identity_not_promoted": true,
+    "production_source_not_promoted": true
+  },
+  "ci": {
+    "workflow": "TIR SP3 causal pair instantiation v0.1",
+    "run_id": 35473840233,
+    "job_id": 105979526428,
+    "conclusion": "success"
+  },
+  "executable_receipt_sha256": "0ec5279fb56b6467982f60fc19f9468bcea57dfd04ebfc839c9fdc0f0ab80294",
+  "interpretation_firewall": {
+    "finite_source_compatibility_is_not_global_physical_spacetime_identity": true,
+    "lossless_representation_is_not_ontological_identity": true,
+    "five_timelike_witnesses_do_not_establish_universal_causality_law": true,
+    "raw_SP3_clock_correction_remains_rejected_as_event_trace_scale": true,
+    "production_source_admission_remains_open": true
+  },
+  "remaining_physical_gate": [
+    "independent physical justification that local event translations use the Herm(2) carrier",
+    "independent physical justification that future causality is the Hermitian PSD cone order",
+    "production-grade source admission beyond the frozen finite archive witness"
+  ]
+}
