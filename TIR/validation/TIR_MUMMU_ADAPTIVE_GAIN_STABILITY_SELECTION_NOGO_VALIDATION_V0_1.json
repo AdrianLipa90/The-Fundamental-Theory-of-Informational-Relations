@@ -1,0 +1,102 @@
+{
+  "schema": "TIR_MUMMU_ADAPTIVE_GAIN_STABILITY_SELECTION_NOGO_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "frozen local Euler/Lyapunov stability constrains the effective decay rate to an interval and does not uniquely select the current PNCS gain; the linear Hebbian and weak drives are not fixed by the quadratic curvature stability condition",
+  "checks": [
+    {
+      "name": "source_decay_step_is_strictly_inside_euler_stability_interval",
+      "status": "PASS",
+      "d": 0.01,
+      "dt": 0.01,
+      "d_dt": 0.0001,
+      "upper_boundary": 2,
+      "fraction_of_upper_boundary": 0.00005,
+      "stable_d_max": 200,
+      "margin_factor_to_upper_boundary": 20000
+    },
+    {
+      "name": "many_distinct_decay_gains_are_stable",
+      "status": "PASS",
+      "probes": [
+        {
+          "d": 0.001,
+          "factor": 0.99999,
+          "norm_ratio": 0.99999
+        },
+        {
+          "d": 0.01,
+          "factor": 0.9999,
+          "norm_ratio": 0.9999
+        },
+        {
+          "d": 1,
+          "factor": 0.99,
+          "norm_ratio": 0.99
+        },
+        {
+          "d": 50,
+          "factor": 0.5,
+          "norm_ratio": 0.5
+        },
+        {
+          "d": 99,
+          "factor": 0.010000000000000009,
+          "norm_ratio": 0.010000000000000009
+        },
+        {
+          "d": 150,
+          "factor": -0.5,
+          "norm_ratio": 0.5
+        },
+        {
+          "d": 199,
+          "factor": -0.99,
+          "norm_ratio": 0.99
+        }
+      ]
+    },
+    {
+      "name": "discrete_quadratic_lyapunov_ratio_matches_euler_factor_squared",
+      "status": "PASS",
+      "d": 73,
+      "F1_over_F0": 0.0729,
+      "expected": 0.0729,
+      "abs_error": 0
+    },
+    {
+      "name": "stability_boundary_is_exact_not_gain_selecting",
+      "status": "PASS",
+      "boundary_abs_factor": 1,
+      "beyond_abs_factor": 1.1
+    },
+    {
+      "name": "entrywise_box_projection_is_nonexpansive",
+      "status": "PASS",
+      "distance_before": 151.63886229236624,
+      "distance_after": 45.782347205567845
+    },
+    {
+      "name": "hebbian_linear_gain_does_not_change_frozen_flow_curvature",
+      "status": "PASS",
+      "probe_h_values": [
+        -7,
+        -0.1,
+        0,
+        0.2,
+        9
+      ],
+      "flow_jacobian_diagonal_estimates": [
+        -0.01000000082740371,
+        -0.009999999994736442,
+        -0.010000000000157452,
+        -0.009999999717180685,
+        -0.01000000082740371
+      ],
+      "max_abs_error_vs_minus_d": 8.274037097827369e-10
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "total": 6
+  }
+}
