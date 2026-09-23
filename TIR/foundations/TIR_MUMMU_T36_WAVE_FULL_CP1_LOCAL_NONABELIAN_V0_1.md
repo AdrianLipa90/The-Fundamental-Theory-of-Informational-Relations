@@ -547,38 +547,37 @@ declared quartic MUMMU seam coefficient/order.
 
 ## 20. Projective-connection versus source-operator firewall
 
-The local (CP^1) algebra above is exact for the declared horizontal connection,
+The local \(CP^1\) algebra above is exact for the declared horizontal connection,
 
-[
-mathcal A_{m hor}
+\[
+\mathcal A_{\rm hor}
 =
--rac{i}{2}
-(mathbf n	imes dmathbf n)cdotoldsymbolsigma.
-]
+-\frac{i}{2}
+(\mathbf n\times d\mathbf n)\cdot\boldsymbol\sigma.
+\]
 
 A nonzero commutator of two such connection values does not imply that every
 Hamiltonian capable of generating the same state path must be noncommuting.
 
 The exact counterexample and the direct source-operator test are recorded in
 
-`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`.
+TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md.
 
 In particular, fixed-modulus phase flow admits the commuting diagonal lift
 
-[
-H_D(	au)
+\[
+H_D(\tau)
 =
--operatorname{diag}dot	heta(	au),
-]
+-\operatorname{diag}\dot\theta(\tau),
+\]
 
 while the actual adaptive PNCS v0.32 semantic path has directly verified
 
-[
-oxed{
-[H_k,H_{k+1}]
-eq0
+\[
+\boxed{
+[H_k,H_{k+1}]\neq0
 }
-]
+\]
 
 for all six adjacent steps of the frozen seven-role trajectory.
 
