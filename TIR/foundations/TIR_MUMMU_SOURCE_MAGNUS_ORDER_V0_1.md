@@ -391,3 +391,20 @@ where the directly evaluated adjacent commutators satisfy
 
 Thus the cubic result in this theorem remains valid, but its operator is
 \(\mathcal A_{\rm hor}\), not the fixed source \(H_0\).
+
+
+## 10. Operator-level scope correction
+
+The (A(	au)) analyzed here is the reduced horizontal/projective connection
+derived from the (CP^1) trajectory. Therefore the cubic Magnus defect proven
+here is a statement about that connection.
+
+It is not the Magnus expansion of the fixed parent QHTRI Hamiltonian used to
+generate the reference trajectory; that fixed parent Hamiltonian commutes with
+itself.
+
+For genuine parent-source-operator history, use the distinct multi-step
+controlled PNCS sequence and test the actual (H_k) matrices directly. That
+test is recorded in
+
+`TIR_MUMMU_QHTRI_DIRECT_SOURCE_OPERATOR_NONCOMMUTATIVITY_V0_1.md`.
