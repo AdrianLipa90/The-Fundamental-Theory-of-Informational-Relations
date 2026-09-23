@@ -1,6 +1,6 @@
 # TIR MUMMU Coefficient-Free Observed-Hydro CP1 Transport v0.1
 
-Status: `EXACT_CONDITIONAL_CP1_TRANSPORT / NUMERIC_SOURCE_COMPONENT_WITNESS / EXACT_MINIMUM_NORM_HERMITIAN_LIFT / QHTRI_GRAPH_COEFFICIENTS_NOT_REQUIRED / NATIVE_CROSS_BINDING_OPEN / PHYSICAL_BINDING_OPEN`
+Status: `EXACT_CONDITIONAL_CP1_PROJECTIVE_TRANSPORT / NUMERIC_PROJECTIVE_CONNECTION_WITNESS / EXACT_MINIMUM_NORM_HERMITIAN_LIFT / COMMUTING_DIAGONAL_SOURCE_LIFT_EXISTS / QHTRI_GRAPH_COEFFICIENTS_NOT_REQUIRED_FOR_DESCRIPTIVE_LIFT / NATIVE_CROSS_BINDING_OPEN / PHYSICAL_BINDING_OPEN`
 
 Date: 2026-09-23
 
@@ -173,7 +173,7 @@ mathcal A
 
 No QHTRI graph-Hamiltonian coefficient enters this expression.
 
-## 5. Exact non-Abelian criterion
+## 5. Exact horizontal/projective connection noncommutativity criterion
 
 Let
 
@@ -233,8 +233,7 @@ e0.
 }
 ]
 
-Thus amplitude imbalance plus an evolving relative phase is sufficient for local
-non-Abelian transport.
+Thus amplitude imbalance plus an evolving relative phase is sufficient for noncommutativity of the declared horizontal/projective connection. It is not sufficient to prove noncommutativity of the source Hamiltonian.
 
 ## 6. Why the two obvious shortcuts fail
 
@@ -641,3 +640,51 @@ e0.
 The coefficient-free witness is therefore a statement about non-Abelian
 **projective/horizontal geometry**, not by itself evidence of a non-Abelian
 dynamical interaction Hamiltonian.
+
+
+## 14. Commuting diagonal source-lift firewall
+
+For the fixed-probability observed-hydro construction,
+
+[
+psi_k(	au)
+=
+sqrt{p_k}e^{i	heta_k(	au)},
+]
+
+the exact Hamiltonian
+
+[
+oxed{
+H_D(	au)
+=
+-operatorname{diag}
+(dot	heta_1,ldots,dot	heta_{36})
+}
+]
+
+satisfies
+
+[
+idotpsi=H_Dpsi.
+]
+
+Because every (H_D(	au)) is diagonal,
+
+[
+oxed{
+[H_D(	au_1),H_D(	au_2)]=0.
+}
+]
+
+Therefore the nonzero
+(Omega(	au_1)	imesOmega(	au_2)) reported above is specifically a
+horizontal/projective connection witness.
+
+The direct source-operator criterion is separated in
+
+`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`.
+
+This preserves the coefficient-free descriptive (H_{min}) theorem while
+preventing a chosen trajectory lift from being mistaken for a predictive source
+Hamiltonian.
