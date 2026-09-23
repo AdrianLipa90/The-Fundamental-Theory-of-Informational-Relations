@@ -191,7 +191,7 @@ def main() -> int:
     witness = float(np.linalg.norm(omega_cross))
     checks.append(
         {
-            "name": "observed_hydro_pair_nonabelian_witness_without_qhtri_graph_coefficients",
+            "name": "observed_hydro_pair_projective_connection_witness_without_qhtri_graph_coefficients",
             "status": "PASS" if witness > 5.0e-6 else "FAIL",
             "step50_delta": snapshots[50][2],
             "step50_delta_dot": snapshots[50][3],
@@ -202,6 +202,31 @@ def main() -> int:
             "omega_cross": omega_cross.tolist(),
             "cross_norm": witness,
             "uses_qhtri_graph_hamiltonian": False,
+        }
+    )
+
+    # The same fixed-modulus phase trajectory admits an exact commuting
+    # diagonal source lift H_D=-diag(theta_dot), so the rotating horizontal
+    # projective connection is not by itself a source-H noncommutativity proof.
+    theta50 = snapshots[50][0]
+    velocity50 = snapshots[50][1]
+    theta100 = snapshots[100][0]
+    velocity100 = snapshots[100][1]
+    psi50 = np.sqrt(probs) * np.exp(1j * theta50)
+    psi50 /= np.linalg.norm(psi50)
+    psi_dot50 = 1j * velocity50 * psi50
+    hdiag50 = -np.diag(velocity50.astype(np.complex128))
+    hdiag100 = -np.diag(velocity100.astype(np.complex128))
+    diag_map_error = float(np.max(np.abs(hdiag50 @ psi50 - 1j * psi_dot50)))
+    diag_comm = float(
+        np.linalg.norm(hdiag50 @ hdiag100 - hdiag100 @ hdiag50, "fro")
+    )
+    checks.append(
+        {
+            "name": "phase_only_hydro_admits_commuting_diagonal_source_lift",
+            "status": "PASS" if diag_map_error < 1e-15 and diag_comm < 1e-15 else "FAIL",
+            "mapping_error": diag_map_error,
+            "source_H_commutator_frobenius": diag_comm,
         }
     )
 
@@ -229,8 +254,6 @@ def main() -> int:
     )
 
     # Canonical minimum-Frobenius Hermitian lift of the known trajectory.
-    theta50 = snapshots[50][0]
-    velocity50 = snapshots[50][1]
     psi = np.sqrt(probs) * np.exp(1j * theta50)
     psi /= np.linalg.norm(psi)
     psi_dot = 1j * velocity50 * psi
@@ -301,10 +324,11 @@ def main() -> int:
         "status": status,
         "claim_scope": (
             "source-component temporal observation amplitudes plus PNCS hydrodynamic "
-            "T36 phase flow admit a conditional coefficient-free local CP1 "
-            "non-Abelian witness and a unique minimum-Frobenius descriptive "
-            "Hermitian lift; native PNCS observation-to-hydro cross-binding and "
-            "physical realization remain open"
+            "T36 phase flow admit a conditional coefficient-free horizontal/projective "
+            "CP1 connection witness and a unique minimum-Frobenius descriptive Hermitian "
+            "lift; the phase-only source trajectory also admits a commuting diagonal "
+            "Hamiltonian lift, so source-operator noncommutativity is not inferred; "
+            "native PNCS observation-to-hydro cross-binding and physical realization remain open"
         ),
         "source_pins": {
             "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963"
