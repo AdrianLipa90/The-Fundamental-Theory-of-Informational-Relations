@@ -387,7 +387,7 @@ The next fundamental gate is therefore narrower:
 | preclip PNCS (g)-update is a matrix gradient flow | `EXACT` |
 | clipping is Frobenius projection onto the coupling box | `EXACT` |
 | frozen-state potential is nonincreasing along its gradient flow | `EXACT` |
-| PNCS cosine update is dual to GREMLIN Kuramoto phase potential in coupling coordinates | `EXACT MATHEMATICAL CROSSWALK` |
+| PNCS off-diagonal cosine update is dual to GREMLIN Kuramoto edge potential in coupling coordinates | `EXACT UP TO SYMMETRIC-EDGE COORDINATE CONVENTION` |
 | full time-varying source has one global autonomous Lyapunov function | `NOT CLAIMED` |
 | gain values are derived fundamental constants | `OPEN / NOT CLAIMED` |
 | physical microscopic substrate | `OPEN / NOT CLAIMED` |
