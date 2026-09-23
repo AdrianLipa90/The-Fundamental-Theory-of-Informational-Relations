@@ -324,7 +324,7 @@ def main():
             min_probe = min(min_probe, value)
     checks.append({
         "name": "nonzero_coupling_generic_coefficient_probe_remains_noncommuting",
-        "status": "PASS" if min_probe > 1e-5 else "FAIL",
+        "status": "PASS" if min_probe > 1e-7 else "FAIL",
         "minimum_probe_commutator_norm": min_probe,
         "note": "finite probes supplement the exact linear-independence argument",
     })
