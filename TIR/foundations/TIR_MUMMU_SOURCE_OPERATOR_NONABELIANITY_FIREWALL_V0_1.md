@@ -883,3 +883,45 @@ The numerical gain values remain source policy parameters. The remaining
 fundamental gate is therefore the derivation of the coupling-space
 metric/mobility and gain scales, not the structural cosine/regularization form
 of the update.
+
+
+## 17. Activity-controlled curvature bifurcation
+
+The state-dependent sign of the Hebbian operator rotation is isolated in
+
+`TIR_MUMMU_ACTIVITY_OPERATOR_CURVATURE_BIFURCATION_V0_1.md`.
+
+The source activity satisfies
+
+[
+A
+=
+operatorname{clip}_{[0,1]}
+left[
+rac{10f_2+5f_4+3(1-f_3)}{18}
+ight],
+]
+
+so the exact sign surface is
+
+[
+oxed{
+10f_2+5f_4+3(1-f_3)=9.
+}
+]
+
+Under the local no-weak/no-clipping conditions,
+
+[
+[J,dot J]
+=
+rac{0.1(A-rac12)}{ho^2}
+[j,C_Phi].
+]
+
+Hence for nonzero geometric obstruction ([j,C_Phi]), the surface
+(A=1/2) kills the Hebbian operator curvature and crossing it reverses its
+orientation.
+
+The ratio (10:5:3) remains a source-policy weighting; this result derives the
+bifurcation geometry conditional on that admitted activity map.
