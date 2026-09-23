@@ -1,0 +1,63 @@
+{
+  "schema": "TIR_MUMMU_QHTRI_PAIR_DYNAMICS_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "model-level source-pinned QHTRI 36D dynamics generate full-CP1 pair imbalance and a noncommuting local pair history; physical binding open",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "fixture": "tests/test_semantic_htri_drive_v32.py::snapshot"
+  },
+  "checks": [
+    {
+      "name": "source_pinned_qhtri_hamiltonian_hermitian",
+      "status": "PASS",
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "initial_equal_pair_support",
+      "status": "PASS",
+      "state_norm_error": 2.220446049250313e-16,
+      "pair_support_error": 1.3877787807814457e-17
+    },
+    {
+      "name": "unitary_evolution_integrity",
+      "status": "PASS",
+      "unitarity_error": 2.886579864025407e-15,
+      "state_norm_error": 1.9984014443252818e-15
+    },
+    {
+      "name": "qhtiri_leaves_equal_amplitude_equator",
+      "status": "PASS",
+      "max_abs_u_initial": 1.8735013540549522e-16,
+      "max_abs_u_dt": 0.000111916174664778,
+      "mean_abs_u_dt": 5.6067451405899934e-05
+    },
+    {
+      "name": "source_derived_imbalance_velocity_nonzero",
+      "status": "PASS",
+      "max_abs_u_dot_initial": 0.011014611729223814
+    },
+    {
+      "name": "pair_projector_dynamics_integrity",
+      "status": "PASS",
+      "max_projector_or_unit_bloch_error": 2.220446049250313e-16,
+      "max_n_dot_dn_abs": 1.1015915459506537e-16,
+      "min_pair_support_dt": 0.05545563997144426
+    },
+    {
+      "name": "qhtiri_local_nonabelian_history_witness",
+      "status": "PASS",
+      "pair_index_zero_based": 9,
+      "omega_cross_norm": 9.440215696399268e-06,
+      "commutator_frobenius_norm": 6.6752405347876084e-06
+    },
+    {
+      "name": "imbalance_velocity_formula_finite_difference",
+      "status": "PASS",
+      "max_abs_error": 9.992006803259115e-09
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "total": 8
+  }
+}
