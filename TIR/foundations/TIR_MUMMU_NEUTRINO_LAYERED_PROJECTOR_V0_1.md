@@ -586,7 +586,7 @@ and
 
 `TIR/foundations/TIR_MUMMU_SOURCE_MAGNUS_ORDER_V0_1.md`.
 
-The source-derived local non-Abelian witness is
+The source-derived horizontal/projective connection witness is
 
 [
 oxed{
@@ -627,8 +627,7 @@ mathfrak S_{m MUMMU}^{m source}
 }
 ]
 
-Here the Stella anisotropy is quartic while the smooth non-Abelian history first
-appears cubically at operator level.  No common scalar order is asserted.
+Here the Stella anisotropy is quartic while the smooth horizontal/projective connection history first appears cubically in the Magnus expansion of that connection. This is not the Magnus expansion of the fixed 36D source Hamiltonian. No common scalar order is asserted.
 
 
 ## 17. QHTRI coefficient-identifiability firewall
@@ -862,7 +861,7 @@ e0.
 }
 ]
 
-The pinned source-component witness gives
+The pinned horizontal/projective connection witness gives
 
 [
 oxed{
@@ -872,8 +871,7 @@ approx
 }
 ]
 
-without calling `qhtri_graph_hamiltonian` and therefore without using its
-reference coefficients (0.25,0.7).
+without calling `qhtri_graph_hamiltonian` and therefore without using its reference coefficients (0.25,0.7). This witnesses the declared horizontal/projective connection only; the same phase-only trajectory admits a commuting diagonal source-Hamiltonian lift.
 
 A known normalized trajectory also has the unique minimum-Frobenius Hermitian
 representation
@@ -963,3 +961,115 @@ or
 ]
 
 The current coefficient-free source-composed witness closes only the first.
+
+
+## 21. Direct source-operator non-Abelianity closure
+
+The operator-level ambiguity is now separated by
+
+`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`.
+
+A changing horizontal (CP^1) generator,
+
+[
+Omega_j
+=
+mathbf n_j	imesdot{mathbf n}_j,
+]
+
+does not by itself imply a noncommuting source Hamiltonian. Fixed-modulus phase
+motion provides an exact counterexample through
+
+[
+H_D(	au)
+=
+-operatorname{diag}dot	heta(	au),
+qquad
+[H_D(	au_1),H_D(	au_2)]=0.
+]
+
+The actual source-operator test is instead performed on the native adaptive
+v0.32 semantic trajectory. Because (g_k) is updated before each QHTRI lift,
+
+[
+g_k	o J_k	o H_k
+]
+
+is path dependent.
+
+For the frozen seven-role semantic path, all six adjacent Hamiltonian
+commutators satisfy
+
+[
+oxed{
+|[H_k,H_{k+1}]|_F>0.
+}
+]
+
+The measured range is
+
+[
+oxed{
+4.02678	imes10^{-4}
+le
+|[H_k,H_{k+1}]|_F
+le
+4.94438	imes10^{-4}.
+}
+]
+
+Moreover, the coupling channel alone satisfies
+
+[
+oxed{
+[J_k,J_{k+1}]
+eq0
+}
+]
+
+for every adjacent pair. Therefore the exact default magnitudes
+(0.25) and (0.7) are not required for the **existence** of
+source-operator noncommutativity.
+
+A scale-free operator-direction witness is
+
+[
+oxed{
+widehat{mathcal C}^{J}_{k,k+1}
+=
+rac{
+|[J_k,J_{k+1}]|_F
+}{
+|J_k|_F|J_{k+1}|_F
+}.
+}
+]
+
+The MUMMU source signature should therefore remain typed:
+
+[
+oxed{
+mathfrak S_{m MUMMU}
+=
+left(
+C_4,,
+mathcal W_{m hor},,
+mathcal C^H,,
+mathcal D_{mathcal L}
+ight),
+}
+]
+
+where:
+
+- (C_4) is the Stella geometric anisotropy;
+- (mathcal W_{m hor}) belongs to the horizontal/projective (CP^1) connection;
+- (mathcal C^H) is the direct source-Hamiltonian commutator channel;
+- (mathcal D_{mathcal L}) is the loop/holonomy centrality defect.
+
+No scalar weighting between these coordinates is introduced.
+
+The remaining actuation-law problem is now quantitative and physical: derive
+the magnitudes and microscopic origin of the adaptive coupling law. It is no
+longer needed merely to establish the existence of a noncommuting source
+operator history in the computational model.
