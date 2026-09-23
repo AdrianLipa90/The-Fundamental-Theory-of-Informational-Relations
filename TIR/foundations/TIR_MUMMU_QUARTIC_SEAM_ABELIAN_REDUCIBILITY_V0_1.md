@@ -562,3 +562,46 @@ qquad
 
 This distinction is intentional and prevents two different asymptotic regimes
 from being merged under one coefficient.
+
+
+## 14. Adaptive-coupling Stella-kernel crosswalk
+
+The Stella quartic carrier is now linked conditionally to the adaptive coupling
+variational law by
+
+`TIR_MUMMU_STELLA_ADAPTIVE_COUPLING_QUARTIC_CROSSWALK_V0_1.md`.
+
+If a local equal-weight coupling shell is bound to the eight canonical Stella
+relation directions and
+
+[
+DeltaPhi_{mathbf n}=q(mathbf n),
+]
+
+then the scalar Hebbian force is exactly
+
+[
+oxed{
+-rac{partialmathcal F_H}{partialar g}
+=
+lambda_H S(q).
+}
+]
+
+Therefore it inherits the same expansion
+
+[
+lambda_H
+left[
+1-rac{r^2}{6}
++rac{r^4}{120}
+-rac1{108}C_4(q)
++O(r^6)
+ight].
+]
+
+Thus the geometric Stella anisotropy and the Stella-bound adaptive-coupling
+anisotropy are two readouts of the same finite cosine shell kernel.
+
+The native PNCS coupling-channel → Stella-relation-shell binding remains open
+and is not inferred from cardinality.
