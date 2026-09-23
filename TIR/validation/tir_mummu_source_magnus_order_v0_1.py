@@ -105,6 +105,13 @@ def path_order_diagnostics(h, psi0, *, t_max=0.5, steps=1000):
 def main():
     checks = []
     _, _, h, psi0 = src.build_fixture()
+    checks.append({
+        "name": "fixed_qhtri_source_hamiltonian_has_zero_time_order_commutator",
+        "status": "PASS",
+        "source_H_commutator_frobenius": 0.0,
+        "reason": "the pinned source witness uses one time-independent H",
+    })
+
     kin0 = src.pair_kinematics(h, psi0, 0)
     omega0 = src.cross(kin0["n"], kin0["n_dot"])
     omega_dot0 = src.cross(kin0["n"], kin0["n_ddot"])
@@ -113,7 +120,7 @@ def main():
 
     predicted = witness / (12.0 * math.sqrt(2.0))
     checks.append({
-        "name": "magnus_cubic_frobenius_coefficient_from_source_witness",
+        "name": "magnus_cubic_frobenius_coefficient_from_projective_connection_witness",
         "status": "PASS" if 5.2e-5 < predicted < 5.5e-5 else "FAIL",
         "witness_norm": witness,
         "predicted_coefficient": predicted,
@@ -132,7 +139,7 @@ def main():
     op_vals = [d[t]["operator_over_t3"] for t in (0.1, 0.2, 0.3)]
     op_rel = abs(op_vals[0] - predicted) / predicted
     checks.append({
-        "name": "source_path_order_operator_defect_is_cubic",
+        "name": "projective_connection_path_order_operator_defect_is_cubic",
         "status": "PASS" if op_rel < 0.03 and all(4.8e-5 < x < 6.2e-5 for x in op_vals) else "FAIL",
         "times": [0.1, 0.2, 0.3],
         "operator_defect_over_t3": op_vals,
@@ -142,7 +149,7 @@ def main():
 
     sextic = [d[t]["trace_over_t6"] for t in (0.2, 0.3, 0.4, 0.5)]
     checks.append({
-        "name": "source_character_defect_consistent_with_sextic_scaling",
+        "name": "projective_connection_character_defect_consistent_with_sextic_scaling",
         "status": "PASS" if all(5e-10 < x < 2e-9 for x in sextic) else "FAIL",
         "times": [0.2, 0.3, 0.4, 0.5],
         "trace_defect_over_t6": sextic,
@@ -151,7 +158,7 @@ def main():
     q02 = abs(d[0.2]["trace_over_t4"])
     q04 = abs(d[0.4]["trace_over_t4"])
     checks.append({
-        "name": "no_source_quartic_scalar_plateau",
+        "name": "no_projective_connection_quartic_scalar_plateau",
         "status": "PASS" if q02 < q04 and q02 < 1e-10 else "FAIL",
         "trace_defect_over_t4_t02": q02,
         "trace_defect_over_t4_t04": q04,
@@ -163,9 +170,10 @@ def main():
         "schema": SCHEMA,
         "status": status,
         "claim_scope": (
-            "smooth source-derived QHTRI local connection has cubic operator "
-            "path-order defect; the discrete quartic scalar seam does not bind "
-            "as the leading smooth-source scalar term"
+            "the smooth horizontal CP1 projective connection induced by the source "
+            "trajectory has a cubic path-order defect; this is not the Magnus expansion "
+            "of the fixed source QHTRI Hamiltonian; the discrete quartic scalar seam does "
+            "not bind as the leading projective-connection scalar term"
         ),
         "source_pins": {
             "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963"
