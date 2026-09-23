@@ -1,0 +1,177 @@
+{
+  "schema": "TIR_MUMMU_QHTRI_UPSTREAM_TANGENT_MATCHING_NOGO_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "after removing the global U(1) phase velocity, the pinned upstream intrinsic classical HTRI tangent is not exactly representable by the two-generator QHTRI span aD+bJ at any of seven frozen source sections; the current defaults are not recovered by this tangent-matching route",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "source_firewall_validator": "tir_mummu_source_operator_nonabelianity_firewall_v0_1.py"
+  },
+  "checks": [
+    {
+      "name": "global_u1_phase_velocity_removed_before_matching",
+      "status": "PASS",
+      "max_centered_velocity_mean_abs": 5.921189464667502e-15
+    },
+    {
+      "name": "two_generator_real_least_squares_is_well_posed",
+      "status": "PASS",
+      "minimum_real_design_rank": 2
+    },
+    {
+      "name": "exact_two_generator_tangent_lift_fails_on_all_pinned_sections",
+      "status": "PASS",
+      "best_relative_residuals": [
+        0.29306960960402734,
+        0.27232005720872093,
+        0.2302441985061186,
+        0.4516736659033299,
+        0.1791716054079046,
+        0.18623579986177635,
+        0.04528214427139321
+      ],
+      "minimum": 0.04528214427139321,
+      "maximum": 0.4516736659033299
+    },
+    {
+      "name": "source_defaults_do_not_match_upstream_intrinsic_tangent",
+      "status": "PASS",
+      "default_relative_residuals": [
+        9.05462804442895,
+        4.535052732112904,
+        4.204132091052674,
+        4.264184766650835,
+        5.223179590540923,
+        4.468181777779258,
+        4.349488218172569
+      ],
+      "reversed_default_relative_residuals": [
+        8.410497569000158,
+        3.2289108932757746,
+        2.600081477068541,
+        3.1299811408065006,
+        3.7780665563812588,
+        2.683826840579203,
+        2.6816119547850144
+      ]
+    },
+    {
+      "name": "best_fit_coefficients_are_not_source_defaults",
+      "status": "PASS",
+      "coefficients": [
+        {
+          "index": 0,
+          "a_star": -0.08163261002514594,
+          "b_star": -0.00013467161422709014
+        },
+        {
+          "index": 1,
+          "a_star": -0.08892509311349725,
+          "b_star": -0.005146477214992683
+        },
+        {
+          "index": 2,
+          "a_star": -0.08008982905574243,
+          "b_star": 0.03237740882960805
+        },
+        {
+          "index": 3,
+          "a_star": -0.07672891849459995,
+          "b_star": 0.0017188477350668415
+        },
+        {
+          "index": 4,
+          "a_star": -0.07935651652309203,
+          "b_star": 0.009061197986511508
+        },
+        {
+          "index": 5,
+          "a_star": -0.08204602796806107,
+          "b_star": -0.007846121480454148
+        },
+        {
+          "index": 6,
+          "a_star": -0.0808609813865766,
+          "b_star": 0.007499350492338151
+        }
+      ],
+      "max_abs_b_star": 0.03237740882960805,
+      "min_abs_a_star": 0.07672891849459995
+    }
+  ],
+  "rows": [
+    {
+      "index": 0,
+      "a_star": -0.08163261002514594,
+      "b_star": -0.00013467161422709014,
+      "best_relative_residual": 0.29306960960402734,
+      "default_relative_residual": 9.05462804442895,
+      "reversed_default_relative_residual": 8.410497569000158,
+      "real_design_rank": 2,
+      "centered_velocity_mean_abs": 2.7632217501781674e-15
+    },
+    {
+      "index": 1,
+      "a_star": -0.08892509311349725,
+      "b_star": -0.005146477214992683,
+      "best_relative_residual": 0.27232005720872093,
+      "default_relative_residual": 4.535052732112904,
+      "reversed_default_relative_residual": 3.2289108932757746,
+      "real_design_rank": 2,
+      "centered_velocity_mean_abs": 5.921189464667502e-15
+    },
+    {
+      "index": 2,
+      "a_star": -0.08008982905574243,
+      "b_star": 0.03237740882960805,
+      "best_relative_residual": 0.2302441985061186,
+      "default_relative_residual": 4.204132091052674,
+      "reversed_default_relative_residual": 2.600081477068541,
+      "real_design_rank": 2,
+      "centered_velocity_mean_abs": 1.578983857244667e-15
+    },
+    {
+      "index": 3,
+      "a_star": -0.07672891849459995,
+      "b_star": 0.0017188477350668415,
+      "best_relative_residual": 0.4516736659033299,
+      "default_relative_residual": 4.264184766650835,
+      "reversed_default_relative_residual": 3.1299811408065006,
+      "real_design_rank": 2,
+      "centered_velocity_mean_abs": 3.7500866609560844e-15
+    },
+    {
+      "index": 4,
+      "a_star": -0.07935651652309203,
+      "b_star": 0.009061197986511508,
+      "best_relative_residual": 0.1791716054079046,
+      "default_relative_residual": 5.223179590540923,
+      "reversed_default_relative_residual": 3.7780665563812588,
+      "real_design_rank": 2,
+      "centered_velocity_mean_abs": 2.1711028037114174e-15
+    },
+    {
+      "index": 5,
+      "a_star": -0.08204602796806107,
+      "b_star": -0.007846121480454148,
+      "best_relative_residual": 0.18623579986177635,
+      "default_relative_residual": 4.468181777779258,
+      "reversed_default_relative_residual": 2.683826840579203,
+      "real_design_rank": 2,
+      "centered_velocity_mean_abs": 3.947459643111668e-15
+    },
+    {
+      "index": 6,
+      "a_star": -0.0808609813865766,
+      "b_star": 0.007499350492338151,
+      "best_relative_residual": 0.04528214427139321,
+      "default_relative_residual": 4.349488218172569,
+      "reversed_default_relative_residual": 2.6816119547850144,
+      "real_design_rank": 2,
+      "centered_velocity_mean_abs": 2.960594732333751e-15
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "total": 5
+  }
+}
