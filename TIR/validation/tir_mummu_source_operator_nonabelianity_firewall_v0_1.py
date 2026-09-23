@@ -399,6 +399,34 @@ def main():
         "minimum": min(j_comm),
     })
 
+    # Stronger coefficient-independence gate.
+    # H_k = a D + b J_k gives
+    # [H_k,H_{k+1}] = b(a X_k + b Y_k),
+    # X_k=[D,J_{k+1}-J_k], Y_k=[J_k,J_{k+1}].
+    # If X_k,Y_k are HS-linearly independent, no real detuning coefficient
+    # a can cancel the commutator when b != 0.
+    D_const, _ = components(omega, g)
+    gram_determinants = []
+    xy_correlations = []
+    for k in range(len(Js) - 1):
+        delta_J = Js[k + 1] - Js[k]
+        X = D_const @ delta_J - delta_J @ D_const
+        Y = Js[k] @ Js[k + 1] - Js[k + 1] @ Js[k]
+        nx = float(np.linalg.norm(X, "fro"))
+        ny = float(np.linalg.norm(Y, "fro"))
+        inner = float(np.vdot(X, Y).real)
+        gram = (nx * ny) ** 2 - inner ** 2
+        gram_determinants.append(gram)
+        xy_correlations.append(inner / (nx * ny))
+
+    checks.append({
+        "name": "nonzero_coupling_prevents_detuning_cancellation_on_pinned_path",
+        "status": "PASS" if min(gram_determinants) > 3.0e-13 else "FAIL",
+        "gram_determinants": gram_determinants,
+        "hs_correlations": xy_correlations,
+        "consequence": "for every adjacent pinned step, b!=0 implies [aD+bJ_k,aD+bJ_{k+1}]!=0 for arbitrary real a",
+    })
+
     b = 0.37
     scale_errors = []
     for k in range(len(Js) - 1):
