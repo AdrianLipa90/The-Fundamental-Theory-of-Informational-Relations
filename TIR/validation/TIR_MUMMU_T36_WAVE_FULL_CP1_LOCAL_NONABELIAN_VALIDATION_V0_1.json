@@ -1,0 +1,58 @@
+{
+  "schema": "TIR_MUMMU_T36_WAVE_FULL_CP1_LOCAL_NONABELIAN_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "source-weighted local CP1 lift and local su2 noncommutativity; cross-factor coupling and physical binding remain open",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963"
+  },
+  "checks": [
+    {
+      "name": "weighted_pair_projector_is_rank_one_cp1",
+      "status": "PASS",
+      "idempotence_error": 5.551115123125783e-17,
+      "hermiticity_error": 0.0,
+      "trace_error": 1.8733731029281955e-18
+    },
+    {
+      "name": "weighted_bloch_formula",
+      "status": "PASS",
+      "max_abs_error": 1.1102230246251565e-16,
+      "unit_norm_error": 0.0
+    },
+    {
+      "name": "equal_weight_equator_limit",
+      "status": "PASS",
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "source_coordinate_tangent_generators",
+      "status": "PASS",
+      "omega_delta": [0.0,0.0,1.0],
+      "omega_u": [0.0,-1.0,0.0]
+    },
+    {
+      "name": "local_nonabelian_commutator",
+      "status": "PASS",
+      "max_abs_error": 0.0,
+      "commutator_norm": 0.7071067811865476
+    },
+    {
+      "name": "general_local_commutator_identity",
+      "status": "PASS",
+      "max_abs_error": 1.3877787807814457e-17
+    },
+    {
+      "name": "cross_factor_direct_product_commutator_remains_zero",
+      "status": "PASS",
+      "commutator_norm": 0.0
+    },
+    {
+      "name": "zero_pair_support_fails_closed",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "total": 8
+  }
+}
