@@ -1,0 +1,64 @@
+{
+  "schema": "TIR_MUMMU_QUARTIC_CONTINUUM_REGULARITY_SPLIT_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "finite two-layer amplitude scaling has exact quartic cross-product coefficient; source-pinned smooth QHTRI short-time path is consistent with sixth-order scalar-character memory, not quartic time-window scaling",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "fixture": "tests/test_semantic_htri_drive_v32.py::snapshot"
+  },
+  "checks": [
+    {
+      "name": "general_two_layer_quartic_cross_product_coefficient",
+      "status": "PASS",
+      "exact_cross_product_coefficient": 0.006742708333333333,
+      "epsilon_coefficient_estimates": [
+        0.0067410291297543765,
+        0.006741763731639068,
+        0.006742288498340354
+      ],
+      "relative_error_smallest_epsilon": 6.226503835314052e-05
+    },
+    {
+      "name": "orthogonal_alpha_beta_special_case",
+      "status": "PASS",
+      "residual": 0.0
+    },
+    {
+      "name": "quartic_coefficient_commutator_form",
+      "status": "PASS",
+      "cross_product_form": 0.006742708333333333,
+      "commutator_form": 0.006742708333333333,
+      "residual": 0.0
+    },
+    {
+      "name": "source_pinned_qhtri_fixture_hermitian",
+      "status": "PASS",
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "smooth_qhtri_character_memory_is_sixth_order_consistent",
+      "status": "PASS",
+      "windows": [0.2, 0.4, 0.8],
+      "character_differences": [
+        2.964295475749168e-14,
+        1.9734214262712158e-12,
+        1.2684475692026353e-10
+      ],
+      "ratio_0p4_over_0p2": 66.57303370786516,
+      "ratio_0p8_over_0p4": 64.2765682137834,
+      "log2_ratio_0p8_over_0p4": 6.006220999116244,
+      "expected_doubling_ratio_for_order_6": 64.0
+    },
+    {
+      "name": "smooth_qhtri_not_quartic_under_time_window_scaling",
+      "status": "PASS",
+      "observed_ratio": 64.2765682137834,
+      "quartic_expected_ratio": 16.0,
+      "sixth_order_expected_ratio": 64.0
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "total": 6
+  }
+}
