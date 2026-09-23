@@ -352,43 +352,42 @@ Static receipt:
 This theorem concerns the Magnus expansion of the induced horizontal/projective
 connection
 
-[
-mathcal A_{m hor}(	au)
+\[
+\mathcal A_{\rm hor}(\tau)
 =
--rac{i}{2}
-Omega(	au)cdotsigma.
-]
+-\frac{i}{2}
+\boldsymbol\Omega(\tau)\cdot\boldsymbol\sigma.
+\]
 
 It must not be identified with the Magnus expansion of the fixed 36D QHTRI
 Hamiltonian used to generate the pinned trajectory.
 
 For that fixture,
 
-[
-H_{m source}(	au)=H_0,
-]
+\[
+H_{\rm source}(\tau)=H_0,
+\]
 
 hence
 
-[
-oxed{
-[H_{m source}(	au_1),H_{m source}(	au_2)]=0
+\[
+\boxed{
+[H_{\rm source}(\tau_1),H_{\rm source}(\tau_2)]=0
 }
-]
+\]
 
 and all higher Magnus commutator terms of the source Hamiltonian vanish.
 
 Genuine source-Hamiltonian ordering is established separately on the adaptive
 v0.32 semantic path in
 
-`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`,
+TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md,
 
 where the directly evaluated adjacent commutators satisfy
 
-[
-[H_k,H_{k+1}]
-eq0.
-]
+\[
+[H_k,H_{k+1}]\neq0.
+\]
 
 Thus the cubic result in this theorem remains valid, but its operator is
-(mathcal A_{m hor}), not the fixed source (H_0).
+\(\mathcal A_{\rm hor}\), not the fixed source \(H_0\).
