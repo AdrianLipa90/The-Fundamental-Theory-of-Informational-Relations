@@ -1,6 +1,6 @@
 # TIR MUMMU T36 Wave-Amplitude Full-CP1 Lift and Local Non-Abelian Closure v0.1
 
-Status: `EXACT_SOURCE_WEIGHTED_CP1_LIFT / EXACT_PHASE_ONLY_EQUATOR_LIMIT / EXACT_LOCAL_SU2_NONCOMMUTATIVITY / CROSS_FACTOR_COUPLING_STILL_OPEN / PHYSICAL_BINDING_OPEN`
+Status: `EXACT_SOURCE_WEIGHTED_CP1_LIFT / EXACT_PHASE_ONLY_EQUATOR_LIMIT / EXACT_HORIZONTAL_PROJECTIVE_CONNECTION_NONCOMMUTATIVITY / SOURCE_OPERATOR_GATE_SEPARATE / CROSS_FACTOR_COUPLING_STILL_OPEN / PHYSICAL_BINDING_OPEN`
 
 Date: 2026-09-23
 
@@ -225,7 +225,7 @@ Then
 }
 \]
 
-## 7. Exact local non-Abelian criterion
+## 7. Exact horizontal projective-connection noncommutativity criterion
 
 For two admitted tangent segments at parameters \(\tau_1,\tau_2\),
 
@@ -261,7 +261,7 @@ Therefore
 }
 \]
 
-A single source pair can therefore carry noncommuting path history.
+A single source pair can therefore carry a noncommuting horizontal/projective connection history. This statement does not by itself establish noncommutativity of the underlying source Hamiltonian.
 
 No inter-pair coupling is mathematically required for this **local**
 non-Abelianity.
@@ -347,8 +347,7 @@ Their commutator is
 }
 \]
 
-Thus the source coordinates \((\delta,u)\) already span a genuinely
-noncommuting local \(\mathfrak{su}(2)\) channel.
+Thus the source coordinates \((\delta,u)\) already span a genuinely noncommuting local \(\mathfrak{su}(2)\) channel for the declared horizontal/projective connection.
 
 ## 9. Corrected interpretation of the 18-factor product
 
@@ -414,7 +413,7 @@ Thus:
 
 \[
 \boxed{
-\text{local non-Abelian source carrier = CLOSED}
+\text{local horizontal/projective non-Abelian carrier = CLOSED}
 }
 \]
 
@@ -544,3 +543,45 @@ without an inserted pair-level dynamics ansatz.
 The remaining gate is no longer the existence of local non-Abelianity.  It is
 whether the source-derived time-ordered connection reproduces the previously
 declared quartic MUMMU seam coefficient/order.
+
+
+## 20. Projective-connection versus source-operator firewall
+
+The local (CP^1) algebra above is exact for the declared horizontal connection,
+
+[
+mathcal A_{m hor}
+=
+-rac{i}{2}
+(mathbf n	imes dmathbf n)cdotoldsymbolsigma.
+]
+
+A nonzero commutator of two such connection values does not imply that every
+Hamiltonian capable of generating the same state path must be noncommuting.
+
+The exact counterexample and the direct source-operator test are recorded in
+
+`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`.
+
+In particular, fixed-modulus phase flow admits the commuting diagonal lift
+
+[
+H_D(	au)
+=
+-operatorname{diag}dot	heta(	au),
+]
+
+while the actual adaptive PNCS v0.32 semantic path has directly verified
+
+[
+oxed{
+[H_k,H_{k+1}]
+eq0
+}
+]
+
+for all six adjacent steps of the frozen seven-role trajectory.
+
+Accordingly, this document establishes the local projective connection algebra.
+Direct source-Hamiltonian noncommutativity is claimed only when the Hamiltonian
+commutator itself has been evaluated.
