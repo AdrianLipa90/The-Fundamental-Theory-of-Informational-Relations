@@ -564,19 +564,19 @@ embedded into a common Pauli frame and contribute to a nonzero
 The local projective carrier is now dynamically closed at model level through
 the existing PNCS QHTRI Hamiltonian:
 
-[
+\[
 (phi,omega,g)
-	o
+\to
 H
-	o
-psi(	au)
-	o
-P_j(	au)
-	o
-mathbf n_j(	au)
-	o
-mathcal A_j(	au).
-]
+\to
+psi(\tau)
+\to
+P_j(\tau)
+\to
+mathbf n_j(\tau)
+\to
+mathcal A_j(\tau).
+\]
 
 See:
 
@@ -588,44 +588,44 @@ and
 
 The source-derived horizontal/projective connection witness is
 
-[
-oxed{
+\[
+\boxed{
 mathcal W_j
 =
 left|
-oldsymbolOmega_j
-	imes
-dot{oldsymbolOmega}_j
-ight|.
+\boldsymbol\Omega_j
+\times
+dot{\boldsymbol\Omega}_j
+\right|.
 }
-]
+\]
 
 For the pinned deterministic PNCS pair-0 fixture,
 
-[
+\[
 mathcal W_0
 approx
-9.02843	imes10^{-4}>0.
-]
+9.02843\times10^{-4}>0.
+\]
 
 The smooth-history Magnus defect begins as
 
-[
+\[
 Omega_2(T)
 =
--rac{T^3}{12}[A_0,A_1]
+-\frac{T^3}{12}[A_0,A_1]
 +O(T^4),
-]
+\]
 
 so the source-preserving MUMMU signature is kept typed rather than collapsed:
 
-[
-oxed{
-mathfrak S_{m MUMMU}^{m source}
+\[
+\boxed{
+mathfrak S_{\rm MUMMU}^{\rm source}
 =
 (C_4,mathcal W,mathcal D_{mathcal L}).
 }
-]
+\]
 
 Here the Stella anisotropy is quartic while the smooth horizontal/projective connection history first appears cubically in the Magnus expansion of that connection. This is not the Magnus expansion of the fixed 36D source Hamiltonian. No common scalar order is asserted.
 
@@ -638,33 +638,33 @@ The remaining QHTRI Hamiltonian coefficients have been isolated in
 
 Write
 
-[
+\[
 H=aD+bJ,
-]
+\]
 
 where (D) is the standardized diagonal detuning operator and (J) is the
 zero-diagonal spectrally normalized coupling operator.
 
 They obey the exact Hilbert-Schmidt orthogonality
 
-[
-oxed{
+\[
+\boxed{
 operatorname{Tr}(DJ)=0.
 }
-]
+\]
 
 After normalization,
 
-[
+\[
 widehat D=D/|D|_F,
 qquad
 widehat J=J/|J|_F,
-]
+\]
 
 the Hamiltonian has the canonical two-coordinate form
 
-[
-oxed{
+\[
+\boxed{
 H
 =
 s
@@ -672,26 +672,26 @@ left(
 coschi,widehat D
 +
 sinchi,widehat J
-ight).
+\right).
 }
-]
+\]
 
 The scale (s) only rescales the unitary time parameter,
 
-[
+\[
 U_{s,chi}(t)=U_{1,chi}(st),
-]
+\]
 
 while the projective orbit shape is controlled by the dimensionless mixing angle
 (chi).
 
 Moreover,
 
-[
-oxed{
+\[
+\boxed{
 operatorname{Tr}(H^2)=s^2
 }
-]
+\]
 
 is independent of (chi), so a quadratic minimum-action/norm principle cannot
 select the detuning/coupling ratio.
@@ -710,34 +710,34 @@ absolute Hamiltonian scale by
 
 For a local pair define
 
-[
+\[
 R_1
 =
-rac{|Omega|}{|dot u|},
+\frac{|Omega|}{|dot u|},
 qquad
 R_2
 =
-rac{mathcal W}{|Omega|^3}.
-]
+\frac{mathcal W}{|Omega|^3}.
+\]
 
 Under a common Hamiltonian scaling (Hmapsto sH),
 
-[
+\[
 dot umapsto sdot u,
 qquad
 Omegamapsto sOmega,
 qquad
 mathcal Wmapsto s^3mathcal W,
-]
+\]
 
 so
 
-[
-oxed{
+\[
+\boxed{
 R_1, R_2
-	ext{ are scale invariant.}
+\text{ are scale invariant.}
 }
-]
+\]
 
 On the pinned deterministic PNCS branch, (R_1) is numerically strictly
 decreasing and (R_2) strictly increasing over (0<chi<pi/2), so the
@@ -757,51 +757,51 @@ typed ORCH/PNLF proper-time receipt:
 
 For
 
-[
+\[
 H=sK_chi
-]
+\]
 
 define the normalized-branch local rate
 
-[
+\[
 F_u(chi)
 =
-left.du/dtight|_{H=K_chi}.
-]
+left.du/dt\right|_{H=K_chi}.
+\]
 
 The source dynamics gives
 
-[
+\[
 du/dt=sF_u(chi).
-]
+\]
 
 With an admitted time binding
 
-[
-d	au=g,dt,
-]
+\[
+d\tau=g,dt,
+\]
 
 one obtains
 
-[
-oxed{
-du/d	au
+\[
+\boxed{
+du/d\tau
 =
-rac{s}{g}F_u(chi)
+\frac{s}{g}F_u(chi)
 }
-]
+\]
 
 and, for (F_u(chi)
 eq0),
 
-[
-oxed{
+\[
+\boxed{
 s
 =
 g,
-rac{du/d	au}{F_u(chi)}.
+\frac{du/d\tau}{F_u(chi)}.
 }
-]
+\]
 
 Thus scale-free trajectory shape calibrates (chi), while the independent
 typed clock receipt calibrates (s).
@@ -820,76 +820,76 @@ Hamiltonian defaults:
 
 It conditionally composes two existing PNCS source components:
 
-[
-	ext{TemporalObservationReceipt probabilities}
+\[
+\text{TemporalObservationReceipt probabilities}
 +
-	ext{HydrodynamicTrace phases}.
-]
+\text{HydrodynamicTrace phases}.
+\]
 
 For one pair with fixed post-observation imbalance
 
-[
-u=rac{p_L-p_R}{p_L+p_R},
+\[
+u=\frac{p_L-p_R}{p_L+p_R},
 qquad
 r=sqrt{1-u^2},
-]
+\]
 
 and hydrodynamically evolving relative phase
 
-[
-delta(	au)=	heta_R(	au)-	heta_L(	au),
-]
+\[
+delta(\tau)=\theta_R(\tau)-\theta_L(\tau),
+\]
 
 the exact local generator is
 
-[
-oxed{
+\[
+\boxed{
 Omega
 =
 dotdelta
 (-urcosdelta,,-ursindelta,,r^2).
 }
-]
+\]
 
 For (0<|u|<1), two sections with nonzero phase velocities and distinct
 relative phases generically give
 
-[
-oxed{
-Omega(	au_1)	imesOmega(	au_2)
+\[
+\boxed{
+Omega(\tau_1)\timesOmega(\tau_2)
 e0.
 }
-]
+\]
 
 The pinned horizontal/projective connection witness gives
 
-[
-oxed{
-|Omega_{50}	imesOmega_{100}|
+\[
+\boxed{
+|Omega_{50}\timesOmega_{100}|
 approx
-5.44020445	imes10^{-6}>0
+5.44020445\times10^{-6}>0
 }
-]
+\]
 
 without calling `qhtri_graph_hamiltonian` and therefore without using its reference coefficients (0.25,0.7). This witnesses the declared horizontal/projective connection only; the same phase-only trajectory admits a commuting diagonal source-Hamiltonian lift.
 
 A known normalized trajectory also has the unique minimum-Frobenius Hermitian
 representation
 
-[
-oxed{
+\[
+\boxed{
 H_{min}
 =
-|vanglelanglePsi|
+|v\ranglelanglePsi|
 +
-|Psianglelangle v|
+|Psi\ranglelangle v|
 -
-langlePsi|vangle
-|PsianglelanglePsi|,
+langlePsi|v\rangle
+|Psi\ranglelanglePsi|,
 qquad
 v=idotPsi.
 }
-]
+\]
 
 This closes a coefficient-free **descriptive** operator lane.  It does not
 replace the predictive-dynamics problem: (H_{min}) represents an already
@@ -909,31 +909,31 @@ distinct operator structures.
 
 The source phase law has the diagonal pair Hamiltonian
 
-[
-oxed{
-H_{m phase}
+\[
+\boxed{
+H_{\rm phase}
 =
 -operatorname{diag}(v_L,v_R),
 }
-]
+\]
 
 so
 
-[
-oxed{
-[H_{m phase}(	au_1),H_{m phase}(	au_2)]=0.
+\[
+\boxed{
+[H_{\rm phase}(\tau_1),H_{\rm phase}(\tau_2)]=0.
 }
-]
+\]
 
 The horizontal (CP^1) connection instead uses
 
-[
+\[
 Omega
 =
-n	imesdot n
+n\timesdot n
 =
 h-(ncdot h)n,
-]
+\]
 
 whose direction depends on the moving projective state.  Its time-separated
 generators may therefore fail to commute even while the underlying diagonal
@@ -941,24 +941,24 @@ phase Hamiltonians commute.
 
 For the pinned observed-hydro fixture:
 
-[
-|Omega_{50}	imesOmega_{100}|
-approx5.44020445	imes10^{-6},
-]
+\[
+|Omega_{50}\timesOmega_{100}|
+approx5.44020445\times10^{-6},
+\]
 
 while the dynamical-Hamiltonian commutator is exactly zero.
 
 Thus downstream MUMMU claims must type noncommutativity as either:
 
-[
-oxed{	ext{GEOMETRIC / HORIZONTAL}}
-]
+\[
+\boxed{\text{GEOMETRIC / HORIZONTAL}}
+\]
 
 or
 
-[
-oxed{	ext{DYNAMICAL / HAMILTONIAN}}.
-]
+\[
+\boxed{\text{DYNAMICAL / HAMILTONIAN}}.
+\]
 
 The current coefficient-free source-composed witness closes only the first.
 
@@ -971,61 +971,61 @@ The operator-level ambiguity is now separated by
 
 A changing horizontal (CP^1) generator,
 
-[
+\[
 Omega_j
 =
-mathbf n_j	imesdot{mathbf n}_j,
-]
+mathbf n_j\timesdot{mathbf n}_j,
+\]
 
 does not by itself imply a noncommuting source Hamiltonian. Fixed-modulus phase
 motion provides an exact counterexample through
 
-[
-H_D(	au)
+\[
+H_D(\tau)
 =
--operatorname{diag}dot	heta(	au),
+-operatorname{diag}dot\theta(\tau),
 qquad
-[H_D(	au_1),H_D(	au_2)]=0.
-]
+[H_D(\tau_1),H_D(\tau_2)]=0.
+\]
 
 The actual source-operator test is instead performed on the native adaptive
 v0.32 semantic trajectory. Because (g_k) is updated before each QHTRI lift,
 
-[
-g_k	o J_k	o H_k
-]
+\[
+g_k\to J_k\to H_k
+\]
 
 is path dependent.
 
 For the frozen seven-role semantic path, all six adjacent Hamiltonian
 commutators satisfy
 
-[
-oxed{
+\[
+\boxed{
 |[H_k,H_{k+1}]|_F>0.
 }
-]
+\]
 
 The measured range is
 
-[
-oxed{
-4.02678	imes10^{-4}
+\[
+\boxed{
+4.02678\times10^{-4}
 le
 |[H_k,H_{k+1}]|_F
 le
-4.94438	imes10^{-4}.
+4.94438\times10^{-4}.
 }
-]
+\]
 
 Moreover, the coupling channel alone satisfies
 
-[
-oxed{
+\[
+\boxed{
 [J_k,J_{k+1}]
-eq0
+\neq0
 }
-]
+\]
 
 for every adjacent pair. Therefore the exact default magnitudes
 (0.25) and (0.7) are not required for the **existence** of
@@ -1033,37 +1033,37 @@ source-operator noncommutativity.
 
 A scale-free operator-direction witness is
 
-[
-oxed{
+\[
+\boxed{
 widehat{mathcal C}^{J}_{k,k+1}
 =
-rac{
+\frac{
 |[J_k,J_{k+1}]|_F
 }{
 |J_k|_F|J_{k+1}|_F
 }.
 }
-]
+\]
 
 The MUMMU source signature should therefore remain typed:
 
-[
-oxed{
-mathfrak S_{m MUMMU}
+\[
+\boxed{
+mathfrak S_{\rm MUMMU}
 =
 left(
 C_4,,
-mathcal W_{m hor},,
+mathcal W_{\rm hor},,
 mathcal C^H,,
 mathcal D_{mathcal L}
-ight),
+\right),
 }
-]
+\]
 
 where:
 
 - (C_4) is the Stella geometric anisotropy;
-- (mathcal W_{m hor}) belongs to the horizontal/projective (CP^1) connection;
+- (mathcal W_{\rm hor}) belongs to the horizontal/projective (CP^1) connection;
 - (mathcal C^H) is the direct source-Hamiltonian commutator channel;
 - (mathcal D_{mathcal L}) is the loop/holonomy centrality defect.
 
