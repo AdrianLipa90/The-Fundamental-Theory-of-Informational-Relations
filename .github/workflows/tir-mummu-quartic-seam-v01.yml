@@ -6,12 +6,15 @@ on:
       - 'TIR/foundations/TIR_MUMMU_NEUTRINO_LAYERED_PROJECTOR_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_QUARTIC_SEAM_ABELIAN_REDUCIBILITY_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_ORBITAL_ALGEBRA_GAUGE_COVARIANT_CLOSURE_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_ORBITAL_SPIN_CONNECTION_UNIQUENESS_V0_1.md'
       - 'TIR/validation/tir_mummu_neutrino_layered_projector_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_NEUTRINO_LAYERED_PROJECTOR_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_quartic_seam_abelian_reducibility_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_QUARTIC_SEAM_ABELIAN_REDUCIBILITY_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_orbital_algebra_gauge_closure_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_ORBITAL_ALGEBRA_GAUGE_CLOSURE_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_orbital_spin_connection_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_ORBITAL_SPIN_CONNECTION_VALIDATION_V0_1.json'
       - '.github/workflows/tir-mummu-quartic-seam-v01.yml'
   workflow_dispatch:
 
