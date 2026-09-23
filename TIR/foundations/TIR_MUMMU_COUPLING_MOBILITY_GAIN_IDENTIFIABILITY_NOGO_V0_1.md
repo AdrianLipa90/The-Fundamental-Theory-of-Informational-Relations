@@ -447,3 +447,47 @@ Deterministic validator:
 Static receipt:
 
 `TIR/validation/TIR_MUMMU_COUPLING_MOBILITY_GAIN_IDENTIFIABILITY_NOGO_VALIDATION_V0_1.json`
+
+
+## 13. Stability does not select the effective rate
+
+The effective decay coefficient itself is not selected uniquely by local
+numerical stability.
+
+See:
+
+`TIR_MUMMU_ADAPTIVE_GAIN_STABILITY_SELECTION_NOGO_V0_1.md`.
+
+For the frozen explicit-Euler flow,
+
+[
+e_{n+1}
+=
+(1-dDelta t)e_n,
+]
+
+so strict convergence and quadratic Lyapunov descent require only
+
+[
+oxed{
+0<dDelta t<2.
+}
+]
+
+At the source values
+
+[
+d=0.01,qquadDelta t=0.01,
+]
+
+one has
+
+[
+dDelta t=10^{-4},
+]
+
+which is (20000) times below the upper stability boundary in (d).
+
+Thus neither the mobility/potential factorization nor the effective decay rate
+is fixed by stability. An independent response-time, clock or microscopic scale
+is required for numerical gain selection.
