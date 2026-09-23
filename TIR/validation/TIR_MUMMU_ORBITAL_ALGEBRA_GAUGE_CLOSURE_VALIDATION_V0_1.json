@@ -1,0 +1,61 @@
+{
+  "schema": "TIR_MUMMU_ORBITAL_ALGEBRA_GAUGE_CLOSURE_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "orbital address injectivity probe, SU(2) path endpoint covariance, gauge-invariant transported obstruction, and central-holonomy path independence; physical orbital/MUMMU realization remains open",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "on_primes_centered_hexagonal": "465e36061fe3c3e6e072b93020f33d5a60fe0c2f"
+  },
+  "checks": [
+    {
+      "name": "centered_hexagonal_eisenstein_source_identity",
+      "status": "PASS"
+    },
+    {
+      "name": "orbital_address_prefix_separation_probe",
+      "status": "PASS",
+      "lambda": 0.25,
+      "word_count": 1555,
+      "min_address_separation_depth_le_4": 0.015624999999999936,
+      "nonprefix_bound_factor": 0.3333333333333333,
+      "prefix_extension_bound_factor": 0.6666666666666666
+    },
+    {
+      "name": "orbital_path_endpoint_gauge_covariance",
+      "status": "PASS",
+      "max_abs_error": 3.4021815010030383e-16
+    },
+    {
+      "name": "transported_generator_common_root_covariance",
+      "status": "PASS",
+      "max_abs_error": 3.433175098891678e-16
+    },
+    {
+      "name": "orbital_nonabelian_obstruction_gauge_invariance",
+      "status": "PASS",
+      "plain": 0.5661721167747593,
+      "gauged": 0.5661721167747586,
+      "abs_difference": 6.661338147750939e-16
+    },
+    {
+      "name": "central_holonomy_path_independence",
+      "status": "PASS",
+      "delta_plus_I": 0.0,
+      "delta_minus_I": 0.0
+    },
+    {
+      "name": "noncentral_lagrange_loop_defect",
+      "status": "PASS",
+      "defect": 0.4999999999999999
+    },
+    {
+      "name": "noncentral_holonomy_path_memory_witness",
+      "status": "PASS",
+      "max_abs_generator_change": 0.7071067811865475
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "total": 8
+  }
+}
