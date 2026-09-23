@@ -384,3 +384,148 @@ Deterministic validator:
 Static receipt:
 
 `TIR/validation/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_VALIDATION_V0_1.json`
+
+
+## 15. Infinitesimal origin of the source-operator rotation
+
+At one source section write the pre-normalized symmetric zero-diagonal coupling
+matrix as (j), with spectral radius
+
+[
+ho=ho(j)>0,
+qquad
+J=rac{j}{ho}.
+]
+
+The v0.32 coupling update separates locally into
+
+[
+dot g
+=
+K_H+K_D+K_W,
+]
+
+where (K_H) is the phase-conditioned Hebbian term, (K_D) is decay and
+(K_W) is the weak-channel boost.
+
+For the pinned deterministic initial snapshot the weak-channel predicate is
+false, so
+
+[
+K_W=0.
+]
+
+The off-diagonal decay term is proportional to the current coupling matrix:
+
+[
+K_D^{m offdiag}=-gamma j.
+]
+
+After the QHTRI lift zeroes the diagonal and divides by spectral radius, any
+positive scalar rescaling cancels exactly. Therefore
+
+[
+oxed{
+dot J_D=0
+}
+]
+
+for the pure-decay lane before clipping.
+
+The Hebbian term is
+
+[
+oxed{
+K_H
+=
+0.1,
+(mathrm{activity}-0.5),
+operatorname{offdiag}
+left[
+cos(Phi_i-Phi_j)
+ight].
+}
+]
+
+For a differentiable simple spectral branch,
+
+[
+dot J
+=
+rac{K_H}{ho}
+-
+rac{j,dotho}{ho^2}.
+]
+
+Since the second term is proportional to (J), it drops out of the
+commutator:
+
+[
+oxed{
+[J,dot J]
+=
+rac{[j,K_H]}{ho^2}.
+}
+]
+
+Thus the infinitesimal source-operator direction change is controlled by the
+failure of the current coupling matrix (j) to commute with the
+phase-conditioned Hebbian update (K_H), not by spectral normalization.
+
+For the pinned source snapshot,
+
+[
+ho=3.06
+]
+
+and
+
+[
+oxed{
+|[J,dot J]|_F
+approx
+9.8075297286	imes10^{-2}.
+}
+]
+
+Finite-step checks satisfy
+
+[
+rac{|[J(0),J(dt)]|_F}{dt}
+	o
+9.8075297286	imes10^{-2}
+]
+
+as (dt	o0).
+
+Hence the local mechanism of source-operator path ordering is identified as
+
+[
+oxed{
+	ext{phase-conditioned adaptive coupling}
+;Rightarrow;
+[j,K_H]
+eq0
+;Rightarrow;
+[J,dot J]
+eq0.
+}
+]
+
+The decay term alone cannot produce this effect under the declared normalized
+QHTRI lift.
+
+## 16. Refined remaining arbitrariness
+
+This isolates the remaining policy dependence more sharply.
+
+The existence of source-operator noncommutativity does not depend on the QHTRI
+mixing magnitudes (0.25) and (0.7), and it does not come from the decay
+coefficient.
+
+It does depend on a nonzero phase-conditioned adaptive-coupling law. Its
+current numerical gain remains a runtime policy parameter.
+
+Therefore the next physical derivation target is no longer a generic pair
+((0.25,0.7)). It is the microscopic/source derivation of the adaptive
+coupling law itself, including the coefficient multiplying (K_H).
