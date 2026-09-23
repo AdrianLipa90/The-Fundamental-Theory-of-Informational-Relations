@@ -1,6 +1,6 @@
 # TIR MUMMU QHTRI-Driven Pair Dynamics and Local Holonomy Closure v0.1
 
-Status: `EXACT_PAIR_PROJECTOR_DYNAMICS / SOURCE_PINNED_QHTRI_FIXTURE_NONABELIAN_PASS / MODEL_LEVEL_RUNTIME_CLOSURE / PHYSICAL_BINDING_OPEN`
+Status: `EXACT_PAIR_PROJECTOR_DYNAMICS / HORIZONTAL_PROJECTIVE_CONNECTION_NONCOMMUTATIVITY_PASS / FIXED_SOURCE_H_COMMUTES / ADAPTIVE_SOURCE_OPERATOR_GATE_SEPARATE / PHYSICAL_BINDING_OPEN`
 
 Date: 2026-09-23
 
@@ -234,7 +234,7 @@ P_j(\tau)
 
 Every step is deterministic once an admitted PNCS snapshot is supplied.
 
-## 7. Exact local non-Abelian diagnostic
+## 7. Exact horizontal projective-connection diagnostic
 
 At two proper times,
 
@@ -275,7 +275,7 @@ Then
 \chi_j>0
 \]
 
-is an exact witness of noncommuting local history for pair \(j\).
+is an exact witness of noncommutativity of the declared horizontal/projective connection for pair \(j\). It is not, by itself, a witness of noncommuting source Hamiltonians.
 
 ## 8. Deterministic v0.32 fixture result
 
@@ -367,8 +367,7 @@ The corresponding commutator has Frobenius norm
 }
 \]
 
-Therefore the source-pinned deterministic PNCS/QHTRI fixture produces a
-noncommuting local pair history without any inter-pair coupling ansatz.
+Therefore the source-pinned deterministic PNCS/QHTRI fixture produces a noncommuting horizontal/projective pair connection without any inter-pair coupling ansatz. The same fixture uses one time-independent source Hamiltonian, so its direct source-Hamiltonian history commutes.
 
 ## 9. Numerical integrity
 
@@ -486,3 +485,41 @@ with no hand-selected pair of history generators.
 That requires extracting the small-loop expansion of the QHTRI-driven
 \(P_j(\tau)\) path and comparing its leading invariant with the current
 quartic-seam theorem.
+
+
+## 14. Direct source-operator correction
+
+The direct source-operator question is now tested separately in
+
+`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`.
+
+The fixed-H fixture used in this document obeys
+
+[
+oxed{
+[H(	au_1),H(	au_2)]=0
+}
+]
+
+because the same (H) generates every section.
+
+The stronger source-operator result comes instead from the native v0.32
+path-conditioned execution, where the adaptive coupling update changes (g_k),
+hence (J_k) and (H_k), at each semantic step. On the frozen seven-role
+trajectory, every adjacent direct commutator is nonzero.
+
+Thus the corrected hierarchy is
+
+[
+	ext{fixed-H pair dynamics}
+Rightarrow
+	ext{full CP1 motion + noncommuting horizontal connection},
+]
+
+while
+
+[
+	ext{adaptive semantic path}
+Rightarrow
+	ext{noncommuting source Hamiltonian history}.
+]
