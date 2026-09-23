@@ -80,6 +80,33 @@
       "note": "finite probes supplement the exact linear-independence argument"
     },
     {
+      "name": "direct_source_operator_commutator_has_linear_dt_continuum_limit",
+      "status": "PASS",
+      "dt_values": [
+        0.02,
+        0.01,
+        0.005,
+        0.0025,
+        0.00125
+      ],
+      "first_transition_commutator_over_dt": [
+        0.04754424396211102,
+        0.047544102329199096,
+        0.047544030100412256,
+        0.047543993631622525,
+        0.04754397530845688
+      ],
+      "mean_consecutive_commutator_over_dt": [
+        0.04415826520762785,
+        0.04415061667281941,
+        0.04414680271101129,
+        0.044144898302011716,
+        0.04414394673993107
+      ],
+      "fine_grid_spread": 5.47919553766052e-8,
+      "estimated_first_transition_limit": 0.04754397530845688
+    },
+    {
       "name": "direct_operator_commutator_signature_is_order_sensitive",
       "status": "PASS",
       "order_summaries": {
@@ -99,7 +126,7 @@
     }
   ],
   "summary": {
-    "passed": 7,
-    "total": 7
+    "passed": 8,
+    "total": 8
   }
 }
