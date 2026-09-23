@@ -1,0 +1,73 @@
+{
+  "schema": "TIR_MUMMU_STELLA_ADAPTIVE_COUPLING_QUARTIC_CROSSWALK_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "conditional on an admitted equal-weight binding of local coupling channels to the canonical eight-direction Stella relation shell, the scalar Hebbian coupling force is exactly lambda_H times the Stella structure factor and inherits the same -C4/108 quartic anisotropy",
+  "checks": [
+    {
+      "name": "stella_structure_factor_exact_factorization",
+      "status": "PASS",
+      "max_factorization_abs_error": 2.220446049250313e-16,
+      "max_imaginary_abs": 0
+    },
+    {
+      "name": "stella_isotropic_second_and_zero_third_moments",
+      "status": "PASS",
+      "second_moment_max_abs_error": 1.1102230246251565e-16,
+      "third_moment_max_abs": 6.938893903907228e-18
+    },
+    {
+      "name": "quartic_anisotropy_converges_to_minus_C4_over_108",
+      "status": "PASS",
+      "q0": [
+        0.7,
+        -0.4,
+        0.2
+      ],
+      "C4_q0": -0.018359999999999987,
+      "target_coefficient": 0.00016999999999999988,
+      "eps_values": [
+        0.25,
+        0.15,
+        0.1,
+        0.06,
+        0.04
+      ],
+      "scaled_anisotropic_residuals": [
+        0.00016568328760513396,
+        0.00016844539173650256,
+        0.00016930898127931468,
+        0.000169751215827336,
+        0.0001698894497303982
+      ],
+      "relative_error_finest": 0.0006502957035392041
+    },
+    {
+      "name": "equal_shell_hebbian_force_equals_activity_times_stella_factor",
+      "status": "PASS",
+      "lambda_h": -0.016555555555555556,
+      "S_q": 0.8923601198182138,
+      "finite_difference_force": -0.01477351753952083,
+      "expected_force": -0.014773517539212652,
+      "abs_error": 3.081788296777077e-13
+    },
+    {
+      "name": "finite_cosine_shell_and_complex_structure_factor_are_same_readout",
+      "status": "PASS",
+      "cosine_shell_mean": 0.8923601198182138,
+      "structure_factor_real": 0.8923601198182138,
+      "abs_error": 0
+    },
+    {
+      "name": "activity_bifurcation_flips_adaptive_stella_quartic_term",
+      "status": "PASS",
+      "coefficient_A03": -0.0000033999999999999984,
+      "coefficient_A05": 0,
+      "coefficient_A07": 0.0000033999999999999975,
+      "orientation_reversal_error": 8.470329472543003e-22
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "total": 6
+  }
+}
