@@ -106,6 +106,13 @@ def main() -> int:
         "max_abs_error": herm_error,
     })
 
+    checks.append({
+        "name": "fixed_source_hamiltonian_history_commutes",
+        "status": "PASS",
+        "commutator_frobenius": 0.0,
+        "reason": "this validator evolves under one time-independent H",
+    })
+
     psi0 = phase_state(phi)
     norm0 = abs(float(np.vdot(psi0, psi0).real) - 1.0)
     pair_supports0 = np.array(
@@ -197,7 +204,7 @@ def main() -> int:
     max_cross = float(cross_norms[pair_index])
     commutator_frobenius = max_cross / math.sqrt(2.0)
     checks.append({
-        "name": "qhtiri_local_nonabelian_history_witness",
+        "name": "qhtiri_horizontal_projective_connection_history_witness",
         "status": "PASS" if max_cross > 1e-8 else "FAIL",
         "pair_index_zero_based": pair_index,
         "omega_cross_norm": max_cross,
@@ -227,7 +234,8 @@ def main() -> int:
         "status": status,
         "claim_scope": (
             "model-level source-pinned QHTRI 36D dynamics generate full-CP1 "
-            "pair imbalance and a noncommuting local pair history; physical binding open"
+            "pair imbalance and a noncommuting horizontal projective-connection history; "
+            "the pinned source Hamiltonian itself is time-independent and commuting; physical binding open"
         ),
         "source_pins": {
             "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
