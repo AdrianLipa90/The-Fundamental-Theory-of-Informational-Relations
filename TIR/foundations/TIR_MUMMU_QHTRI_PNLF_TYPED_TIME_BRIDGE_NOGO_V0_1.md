@@ -299,7 +299,67 @@ Its canonical content hash may then be used as the PNLF
 Without the time-binding receipts, a hash over HTRI steps alone proves execution
 identity but not PNLF proper-time identity.
 
-## 9. Consequence for MUMMU finite-layer coefficient
+## 9. Reparameterization cancellation of the connection one-form
+
+The time bridge is required to bind interval identity, but the geometric
+connection itself is invariant under a positive reparameterization.
+
+If
+
+\[
+d\tau=g(t)\,dt,
+\qquad g(t)>0,
+\]
+
+then
+
+\[
+\frac{d\mathbf n}{d\tau}
+=
+\frac1{g(t)}
+\frac{d\mathbf n}{dt}.
+\]
+
+Hence
+
+\[
+\boldsymbol\Omega_\tau
+=
+\mathbf n\times\frac{d\mathbf n}{d\tau}
+=
+\frac1g
+\boldsymbol\Omega_t
+\]
+
+and therefore
+
+\[
+\boxed{
+\boldsymbol\Omega_\tau\,d\tau
+=
+\boldsymbol\Omega_t\,dt.
+}
+\]
+
+Thus
+
+\[
+\boxed{
+\int_{\tau_a}^{\tau_b}
+\boldsymbol\Omega_\tau d\tau
+=
+\int_{t_a}^{t_b}
+\boldsymbol\Omega_t dt
+}
+\]
+
+for the same oriented projective path.
+
+Consequently the ORCH lapse does **not** rescale the geometric holonomy of an
+already matched path.  Its role in the QHTRI–PNLF bridge is to prove which HTRI
+step interval corresponds to which PNLF proper-time interval.
+
+## 10. Consequence for MUMMU finite-layer coefficient
 
 For an admitted PNLF layer
 
@@ -334,7 +394,7 @@ mathcal Q_{i,j}
 is structurally defined but is not yet replayable from QHTRI `dt` receipts
 alone.
 
-## 10. Claim ledger
+## 11. Claim ledger
 
 | Statement | Status |
 |---|---|
@@ -349,7 +409,7 @@ alone.
 | QHTRI step hash alone proves PNLF trajectory identity | `REFUTED` |
 | physical laboratory-time interpretation | `OPEN / NOT CLAIMED` |
 
-## 11. Validation
+## 12. Validation
 
 Deterministic validator:
 
@@ -359,7 +419,7 @@ Static receipt:
 
 `TIR/validation/TIR_MUMMU_QHTRI_PNLF_TYPED_TIME_BRIDGE_NOGO_VALIDATION_V0_1.json`
 
-## 12. Next gate
+## 13. Next gate
 
 The next implementation target is now unambiguous:
 
