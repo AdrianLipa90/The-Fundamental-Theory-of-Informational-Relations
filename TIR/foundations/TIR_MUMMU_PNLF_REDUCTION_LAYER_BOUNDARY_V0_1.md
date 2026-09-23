@@ -8,23 +8,23 @@ Date: 2026-09-23
 
 The quartic/continuum split leaves one structural question:
 
-[
-	ext{what defines a finite MUMMU layer without arbitrary time slicing?}
-]
+\[
+\text{what defines a finite MUMMU layer without arbitrary time slicing?}
+\]
 
 PNCS already contains an operational answer in the PNLF orbital-memory
 contract.  Stable memory is represented by immutable admitted checkpoints
 joined by liminal proper-time trajectories,
 
-[
-oxed{
+\[
+\boxed{
 S_i
 ;--;
-Lambda_i(	au)
+Lambda_i(\tau)
 ;longrightarrow;
 S_{i+1}.
 }
-]
+\]
 
 This theorem identifies an **operational finite MUMMU layer** with one admitted
 PNLF liminal segment.
@@ -49,9 +49,9 @@ Imported contracts:
 
 The source reduction kernel is
 
-[
-oxed{
-Omega_{m red}
+\[
+\boxed{
+Omega_{\rm red}
 =
 lambda_1 C
 +
@@ -61,23 +61,23 @@ lambda_3Delta
 -
 lambda_4Xi.
 }
-]
+\]
 
 Reduction readiness is exactly
 
-[
-oxed{
+\[
+\boxed{
 mathrm{ready}
 iff
-Omega_{m red}geOmega_{m crit}.
+Omega_{\rm red}geOmega_{\rm crit}.
 }
-]
+\]
 
 The coefficients
 
-[
-lambda_1,lambda_2,lambda_3,lambda_4,Omega_{m crit}
-]
+\[
+lambda_1,lambda_2,lambda_3,lambda_4,Omega_{\rm crit}
+\]
 
 are explicit receipt-bound policy inputs.
 
@@ -90,23 +90,23 @@ The source explicitly separates readiness from selection.
 
 A stable memory residue requires
 
-[
-oxed{
+\[
+\boxed{
 mathrm{ready}
 land
 mathrm{selected_orbital_index is explicit}.
 }
-]
+\]
 
 PNLF then additionally requires a State Memory checkpoint carrying both
 
-[
-oxed{
-	ext{reduction witness}
-quad	ext{and}quad
-	ext{consolidation witness}.
+\[
+\boxed{
+\text{reduction witness}
+quad\text{and}quad
+\text{consolidation witness}.
 }
-]
+\]
 
 Thus none of the following alone creates an admitted finite layer endpoint:
 
@@ -120,56 +120,56 @@ Thus none of the following alone creates an admitted finite layer endpoint:
 
 Let a liminal segment have
 
-[
-	au_{m start},
+\[
+\tau_{\rm start},
 qquad
-	au_{m cursor}.
-]
+\tau_{\rm cursor}.
+\]
 
 A PNLF `STATE_COMMIT` admits the segment only when the right checkpoint is a
 valid descendant of the left pilot and
 
-[
-oxed{
-	au_{m right}
+\[
+\boxed{
+\tau_{\rm right}
 =
-	au_{m cursor}.
+\tau_{\rm cursor}.
 }
-]
+\]
 
 The admitted segment is then closed with
 
-[
-oxed{
-	au_{m end}
+\[
+\boxed{
+\tau_{\rm end}
 =
-	au_{m cursor}
+\tau_{\rm cursor}
 =
-	au_{m right}.
+\tau_{\rm right}.
 }
-]
+\]
 
 Define the operational MUMMU boundary set
 
-[
-oxed{
-mathcal B_{m PNLF}
+\[
+\boxed{
+mathcal B_{\rm PNLF}
 =
-{	au_i:
-S_i 	ext{is an admitted State Memory checkpoint}}.
+{\tau_i:
+S_i \text{is an admitted State Memory checkpoint}}.
 }
-]
+\]
 
 For consecutive admitted checkpoints define
 
-[
-oxed{
+\[
+\boxed{
 L_i
 =
 Lambda_i
-ig|_{[	au_i,	au_{i+1}]}.
+\big|_{[\tau_i,\tau_{i+1}]}.
 }
-]
+\]
 
 This interval is the operational finite MUMMU layer.
 
@@ -177,32 +177,32 @@ This interval is the operational finite MUMMU layer.
 
 Suppose
 
-[
-	au_i<	au_*<	au_{i+1}
-]
+\[
+\tau_i<\tau_*<\tau_{i+1}
+\]
 
-but no admitted PNLF checkpoint exists at (	au_*).
+but no admitted PNLF checkpoint exists at (\tau_*).
 
 Then the two subintervals
 
-[
-[	au_i,	au_*],
+\[
+[\tau_i,\tau_*],
 qquad
-[	au_*,	au_{i+1}]
-]
+[\tau_*,\tau_{i+1}]
+\]
 
 are not independent admitted PNLF layers.
 
 Therefore
 
-[
-oxed{
-	ext{numerical time slicing}
+\[
+\boxed{
+\text{numerical time slicing}
 
 eq
-	ext{MUMMU layer boundary}.
+\text{MUMMU layer boundary}.
 }
-]
+\]
 
 A discretization may be used to integrate the connection inside (L_i), but it
 must not be promoted to a new finite layer unless the normal reduction /
@@ -212,38 +212,38 @@ consolidation admission contract creates a checkpoint there.
 
 For local (CP^1) pair (j), the QHTRI-derived connection supplies
 
-[
-oldsymbolOmega_j(	au)
+\[
+\boldsymbol\Omega_j(\tau)
 =
-mathbf n_j(	au)	imes
-dot{mathbf n}_j(	au).
-]
+mathbf n_j(\tau)\times
+dot{mathbf n}_j(\tau).
+\]
 
 For admitted layer (L_i), define its integrated generator vector
 
-[
-oxed{
+\[
+\boxed{
 mathbf a_{i,j}
 =
-int_{	au_i}^{	au_{i+1}}
-oldsymbolOmega_j(	au),d	au.
+int_{\tau_i}^{\tau_{i+1}}
+\boldsymbol\Omega_j(\tau),d\tau.
 }
-]
+\]
 
 This is invariant under orientation-preserving reparameterization of the same
 proper-time path.
 
 The associated constant-integrated-vector representative is
 
-[
-U_{i,j}^{m int}
+\[
+U_{i,j}^{\rm int}
 =
 exp
 left[
--rac{i}{2}
-mathbf a_{i,j}cdotoldsymbolsigma
-ight].
-]
+-\frac{i}{2}
+mathbf a_{i,j}cdot\boldsymbolsigma
+\right].
+\]
 
 The exact path transporter remains the path-ordered exponential and need not
 equal this representative.
@@ -252,51 +252,51 @@ equal this representative.
 
 For two consecutive admitted layers (L_i,L_{i+1}), define
 
-[
-oxed{
+\[
+\boxed{
 mathcal Q_{i,j}
 =
-rac1{96}
+\frac1{96}
 left|
 mathbf a_{i,j}
-	imes
+\times
 mathbf a_{i+1,j}
-ight|^2.
+\right|^2.
 }
-]
+\]
 
 Equivalently, with
 
-[
+\[
 A_{i,j}
 =
--rac{i}{2}
-mathbf a_{i,j}cdotoldsymbolsigma,
-]
+-\frac{i}{2}
+mathbf a_{i,j}cdot\boldsymbolsigma,
+\]
 
-[
-oxed{
+\[
+\boxed{
 mathcal Q_{i,j}
 =
-rac1{48}
+\frac1{48}
 |[A_{i,j},A_{i+1,j}]|_F^2.
 }
-]
+\]
 
-For a common amplitude scale (arepsilon),
+For a common amplitude scale (\varepsilon),
 
-[
-oxed{
-K_{m seq}
+\[
+\boxed{
+K_{\rm seq}
 -
-K_{m const}
+K_{\rm const}
 =
-arepsilon^4
+\varepsilon^4
 mathcal Q_{i,j}
 +
-O(arepsilon^6).
+O(\varepsilon^6).
 }
-]
+\]
 
 Thus the finite-layer history coefficient is now attached to admitted
 reduction-bounded intervals rather than arbitrary hand-selected time cuts.
@@ -307,8 +307,8 @@ Do not sum independent local pair contributions with arbitrary weights.
 
 For the eighteen source pairs define the vector
 
-[
-oxed{
+\[
+\boxed{
 mathbf Q_i
 =
 (
@@ -317,55 +317,55 @@ ldots,
 mathcal Q_{i,18}
 ).
 }
-]
+\]
 
 Possible later reductions of this vector require a separately derived invariant
 or measure.
 
 The Stella carrier term remains separately typed:
 
-[
--rac1{108}C_4(mathbf q).
-]
+\[
+-\frac1{108}C_4(mathbf q).
+\]
 
 Therefore the reduction-bounded MUMMU signature is provisionally
 
-[
-oxed{
-mathfrak S_i^{m MUMMU}
+\[
+\boxed{
+mathfrak S_i^{\rm MUMMU}
 =
 left(
 C_4,,
 mathbf Q_i,,
 mathcal D_{mathcal L}
-ight).
+\right).
 }
-]
+\]
 
 ## 10. Exact source fixture for endpoint semantics
 
 The pinned PNCS PNLF tests contain the canonical admitted example:
 
-[
-	au_{m start}=0,
+\[
+\tau_{\rm start}=0,
 qquad
-	au_{m cursor}=1,
+\tau_{\rm cursor}=1,
 qquad
-	au_{m right}=1,
-]
+\tau_{\rm right}=1,
+\]
 
 after which
 
-[
-oxed{
+\[
+\boxed{
 mathrm{resolution_state}=mathrm{ADMITTED},
 qquad
-	au_{m end}=	au_{m cursor}=1.
+\tau_{\rm end}=\tau_{\rm cursor}=1.
 }
-]
+\]
 
 The same test suite rejects a `STATE_COMMIT` whose right checkpoint is at
-(	au=1) while the OPEN segment cursor remains at (	au=0).
+(\tau=1) while the OPEN segment cursor remains at (\tau=0).
 
 Therefore the exact proper-time endpoint is a source-enforced invariant.
 
@@ -373,9 +373,9 @@ Therefore the exact proper-time endpoint is a source-enforced invariant.
 
 PNLF records
 
-[
-	exttt{t36_trajectory_commitment}
-]
+\[
+\texttt{t36_trajectory_commitment}
+\]
 
 for each liminal segment.
 
@@ -383,13 +383,13 @@ QHTRI independently records Hamiltonian/execution/trajectory identities.
 
 The current source audit did **not** find an existing exact receipt that binds
 
-[
-oxed{
-	ext{PNLF segment T36 trajectory commitment}
+\[
+\boxed{
+\text{PNLF segment T36 trajectory commitment}
 leftrightarrow
-	ext{QHTRI 36D unitary trajectory}
+\text{QHTRI 36D unitary trajectory}
 }
-]
+\]
 
 for the same proper-time interval.
 
@@ -410,21 +410,21 @@ The result must not be overstated.
 
 Closed:
 
-[
-oxed{
-	ext{PNLF gives deterministic admitted finite-layer boundaries}
+\[
+\boxed{
+\text{PNLF gives deterministic admitted finite-layer boundaries}
 }
-]
+\]
 
 conditional on the configured reduction/consolidation policy.
 
 Not closed:
 
-[
-oxed{
-	ext{the reduction policy coefficients are fundamental constants of Nature}.
+\[
+\boxed{
+\text{the reduction policy coefficients are fundamental constants of Nature}.
 }
-]
+\]
 
 Likewise no physical wavefunction-collapse interpretation is asserted.
 
@@ -432,7 +432,7 @@ Likewise no physical wavefunction-collapse interpretation is asserted.
 
 | Statement | Status |
 |---|---|
-| reduction readiness is (Omega_{m red}geOmega_{m crit}) | `EXACT IMPORTED` |
+| reduction readiness is (Omega_{\rm red}geOmega_{\rm crit}) | `EXACT IMPORTED` |
 | selection below threshold is rejected | `EXACT IMPORTED` |
 | stable memory requires reduction + explicit selected state | `EXACT IMPORTED` |
 | admitted checkpoint requires reduction and consolidation witnesses | `EXACT IMPORTED` |
@@ -440,7 +440,7 @@ Likewise no physical wavefunction-collapse interpretation is asserted.
 | admitted segment closes with tau_end = tau_cursor | `EXACT IMPORTED` |
 | admitted PNLF segment defines an operational finite MUMMU layer | `MODEL BINDING DEFINITION` |
 | arbitrary interior time slicing creates new admitted layer | `REFUTED BY BINDING DEFINITION` |
-| adjacent-layer quartic functional (|a_i	imes a_{i+1}|^2/96) | `EXACT GIVEN LAYER BINDING` |
+| adjacent-layer quartic functional (|a_i\times a_{i+1}|^2/96) | `EXACT GIVEN LAYER BINDING` |
 | QHTRI trajectory identity is already bound to PNLF segment commitment | `NOT FOUND / OPEN` |
 | reduction-policy coefficients are physically fundamental | `OPEN / NOT CLAIMED` |
 
@@ -458,13 +458,13 @@ Static receipt:
 
 The remaining executable seam is now explicit:
 
-[
-oxed{
-	ext{QHTRI trajectory receipt}
+\[
+\boxed{
+\text{QHTRI trajectory receipt}
 longleftrightarrow
-	ext{PNLF }t36_trajectory_commitment.
+\text{PNLF }t36_trajectory_commitment.
 }
-]
+\]
 
 Closing that identity bridge would make the finite-layer quartic coefficient
 fully replayable from source receipts rather than only formally well-defined.
@@ -478,35 +478,35 @@ The remaining QHTRI↔PNLF identity seam is classified by
 
 The current source types
 
-[
-Delta t_{m HTRI},
+\[
+Delta t_{\rm HTRI},
 quad
-t_{m sample},
+t_{\rm sample},
 quad
-Delta t_{m coord},
+Delta t_{\rm coord},
 quad
-Delta	au_{m ORCH},
+Delta\tau_{\rm ORCH},
 quad
-	au_{m PNLF}
-]
+\tau_{\rm PNLF}
+\]
 
 must remain distinct until an explicit time-binding receipt connects them.
 
 For a positive lapse
 
-[
-d	au=g(t)dt,
-]
+\[
+d\tau=g(t)dt,
+\]
 
 the geometric connection one-form satisfies
 
-[
-oxed{
-(mathbf n	imes dmathbf n/d	au)d	au
+\[
+\boxed{
+(mathbf n\times dmathbf n/d\tau)d\tau
 =
-(mathbf n	imes dmathbf n/dt)dt.
+(mathbf n\times dmathbf n/dt)dt.
 }
-]
+\]
 
 Therefore the proper-time bridge does not rescale MUMMU holonomy on an already
 matched path.  It is required to prove **interval identity**: exactly which
