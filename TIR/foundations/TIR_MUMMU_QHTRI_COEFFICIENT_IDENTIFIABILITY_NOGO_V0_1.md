@@ -462,3 +462,59 @@ Deterministic validator:
 Static receipt:
 
 `TIR/validation/TIR_MUMMU_QHTRI_COEFFICIENT_IDENTIFIABILITY_VALIDATION_V0_1.json`
+
+
+## 13. Descriptive-transport escape hatch
+
+The coefficient no-go applies to the **predictive QHTRI graph-Hamiltonian
+family**
+
+[
+H=aD+bJ.
+]
+
+A separate source-compatible descriptive lane is recorded in
+
+`TIR_MUMMU_COEFFICIENT_FREE_OBSERVED_HYDRO_CP1_V0_1.md`.
+
+There, temporal-observation amplitudes and the existing hydrodynamic
+(T^{36}) proper-time phase flow define the (CP^1) trajectory directly.
+The local non-Abelian connection can then be calculated without choosing
+((a,b)).
+
+For any already-known normalized trajectory, the unique minimum-Frobenius
+Hermitian lift
+
+[
+H_{min}
+=
+|vanglelanglePsi|
++
+|Psianglelangle v|
+-
+langlePsi|vangle|PsianglelanglePsi|,
+qquad
+v=idotPsi,
+]
+
+provides a coefficient-free operator representation.
+
+Thus:
+
+[
+oxed{
+0.25, 0.7
+	ext{ remain an open provenance issue for predictive graph-QHTRI,}
+}
+]
+
+while
+
+[
+oxed{
+	ext{descriptive local MUMMU transport need not depend on them.}
+}
+]
+
+This distinction does not derive a new predictive Hamiltonian and does not
+weaken the actuation firewall.
