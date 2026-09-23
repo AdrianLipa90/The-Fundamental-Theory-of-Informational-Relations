@@ -441,3 +441,58 @@ arbitrary time slicing.
 
 If no such boundary exists, the continuum branch should retain the sixth-order
 smooth-path law instead of importing the finite-layer quartic seam.
+
+
+## 12. PNLF finite-layer boundary closure
+
+The finite-layer boundary question is refined by
+
+`TIR/foundations/TIR_MUMMU_PNLF_REDUCTION_LAYER_BOUNDARY_V0_1.md`.
+
+Operationally, a finite MUMMU layer is bound to one admitted PNLF liminal
+segment
+
+\[
+S_i--\Lambda_i(\tau)\longrightarrow S_{i+1},
+\]
+
+closed by `STATE_COMMIT` at
+
+\[
+\tau_{i+1}
+=
+\tau_{\rm cursor}
+=
+\tau_{\rm end}.
+\]
+
+The endpoint requires the configured reduction threshold, explicit selected
+state, reduction witness and consolidation witness.  Numerical substeps inside
+the segment are integration points, not new MUMMU layers.
+
+For pair \(j\),
+
+\[
+\mathbf a_{i,j}
+=
+\int_{\tau_i}^{\tau_{i+1}}
+\boldsymbol\Omega_j(\tau)d\tau
+\]
+
+and consecutive admitted layers carry the source-bound functional
+
+\[
+\boxed{
+\mathcal Q_{i,j}
+=
+\frac1{96}
+|\mathbf a_{i,j}\times\mathbf a_{i+1,j}|^2.
+}
+\]
+
+This removes arbitrary software time slicing conditional on the receipt-bound
+PNLF reduction policy.
+
+The remaining executable seam is an exact identity bridge between the PNLF
+`t36_trajectory_commitment` and the QHTRI unitary trajectory receipt over the
+same proper-time interval.
