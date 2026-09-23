@@ -68,8 +68,8 @@
       "B_psi_error": 4.670885906470169e-18,
       "B_hermiticity_error": 3.469446951953614e-18,
       "alternate_mapping_error": 6.992893892674703e-18,
-      "Hmin_norm2": 0.0003993674597165262,
-      "Halt_norm2": 0.8795830410153214,
+      "Hmin_norm2": 0.0003993674428691913,
+      "Halt_norm2": 0.8795830409984741,
       "B_norm2": 0.879183673555605,
       "pythagorean_norm2_error": 1.1102230246251565e-16
     }
