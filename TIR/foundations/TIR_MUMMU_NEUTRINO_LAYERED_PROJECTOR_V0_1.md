@@ -557,3 +557,75 @@ whose anchored joint orbit contains all eighteen pair labels.
 Only after such an action is source-derived may different T36 pair sectors be
 embedded into a common Pauli frame and contribute to a nonzero
 \(\mathcal O_{\rm orb}\).
+
+
+## 16. Source-derived local dynamics and asymptotic class
+
+The local projective carrier is now dynamically closed at model level through
+the existing PNCS QHTRI Hamiltonian:
+
+[
+(phi,omega,g)
+	o
+H
+	o
+psi(	au)
+	o
+P_j(	au)
+	o
+mathbf n_j(	au)
+	o
+mathcal A_j(	au).
+]
+
+See:
+
+`TIR/foundations/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_SOURCE_WITNESS_V0_1.md`
+
+and
+
+`TIR/foundations/TIR_MUMMU_SOURCE_MAGNUS_ORDER_V0_1.md`.
+
+The source-derived local non-Abelian witness is
+
+[
+oxed{
+mathcal W_j
+=
+left|
+oldsymbolOmega_j
+	imes
+dot{oldsymbolOmega}_j
+ight|.
+}
+]
+
+For the pinned deterministic PNCS pair-0 fixture,
+
+[
+mathcal W_0
+approx
+9.02843	imes10^{-4}>0.
+]
+
+The smooth-history Magnus defect begins as
+
+[
+Omega_2(T)
+=
+-rac{T^3}{12}[A_0,A_1]
++O(T^4),
+]
+
+so the source-preserving MUMMU signature is kept typed rather than collapsed:
+
+[
+oxed{
+mathfrak S_{m MUMMU}^{m source}
+=
+(C_4,mathcal W,mathcal D_{mathcal L}).
+}
+]
+
+Here the Stella anisotropy is quartic while the smooth non-Abelian history first
+appears cubically at operator level.  No common scalar order is asserted.
