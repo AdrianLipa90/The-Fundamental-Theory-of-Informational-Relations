@@ -80,6 +80,18 @@
       "note": "finite probes supplement the exact linear-independence argument"
     },
     {
+      "name": "source_update_channel_ablation",
+      "status": "PASS",
+      "first_transition_commutator_norms": {
+        "full": 0.000475441023291991,
+        "hebb_only": 0.00046815248124742835,
+        "decay_only": 2.362084485582676e-16,
+        "weak_boost_only": 0.00009168171952068004,
+        "hebb_plus_boost": 0.0004753459564791059
+      },
+      "interpretation": "spectrally normalized decay-only rescales off-diagonal g and cannot rotate J; directional Hebbian/weak updates generate operator curvature"
+    },
+    {
       "name": "direct_source_operator_commutator_has_linear_dt_continuum_limit",
       "status": "PASS",
       "dt_values": [
@@ -126,7 +138,7 @@
     }
   ],
   "summary": {
-    "passed": 8,
-    "total": 8
+    "passed": 9,
+    "total": 9
   }
 }
