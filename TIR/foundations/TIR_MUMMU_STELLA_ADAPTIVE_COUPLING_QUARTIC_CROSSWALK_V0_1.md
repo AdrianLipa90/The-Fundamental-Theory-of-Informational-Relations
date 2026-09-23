@@ -346,3 +346,27 @@ Deterministic validator:
 Static receipt:
 
 `TIR/validation/TIR_MUMMU_STELLA_ADAPTIVE_COUPLING_QUARTIC_CROSSWALK_VALIDATION_V0_1.json`
+
+
+## 12. Native harmonic-mask binding firewall
+
+The tempting source multiplicity split
+
+[
+36=8	imes3+2	imes6
+]
+
+has been audited in
+
+`TIR_MUMMU_PNCS_HARMONIC_MASK_STELLA_BINDING_NOGO_V0_1.md`.
+
+Although eight harmonic-mask classes occur with multiplicity three, those eight
+classes do not form a Hamming cube, no one-bit deletion gives eight unique
+three-bit labels, and no rank-three linear quotient over (mathbb F_2) is
+injective on them.
+
+Therefore the current PNCS harmonic-mask table cannot serve as the missing
+Stella-shell binding by cardinality or linear bit reduction alone.
+
+The conditional quartic crosswalk remains valid, but its shell-binding premise
+must be discharged by a different source invariant.
