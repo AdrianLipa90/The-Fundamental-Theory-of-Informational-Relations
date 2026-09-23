@@ -1095,3 +1095,91 @@ The remaining actuation-law problem is now quantitative and physical: derive
 the microscopic origin and gain of the phase-conditioned adaptive coupling law.
 It is no longer needed merely to establish the existence of a noncommuting
 source-operator history in the computational model.
+
+
+## 21. Direct source-operator noncommutativity and projective firewall
+
+The operator-level distinction is now closed by
+
+`TIR/foundations/TIR_MUMMU_QHTRI_DIRECT_SOURCE_OPERATOR_NONCOMMUTATIVITY_V0_1.md`.
+
+A changing local projective connection
+
+[
+mathcal A_j
+=
+-rac{i}{2}
+(mathbf n_j	imesdot{mathbf n}_j)cdotoldsymbolsigma
+]
+
+does not by itself prove that the parent 36D Hamiltonians fail to commute. A
+constant diagonal parent Hamiltonian can generate a curved reduced (CP^1)
+trajectory whose horizontal connection changes direction.
+
+Therefore
+
+[
+oxed{
+Omega(	au_1)	imesOmega(	au_2)
+eq0
+
+otRightarrow
+[H(	au_1),H(	au_2)]
+eq0.
+}
+]
+
+The source operator must be tested directly.
+
+For the full PNCS controlled semantic trajectory, `controlled_step()`
+updates the coupling matrix before constructing each QHTRI Hamiltonian. Hence
+
+[
+H_k=aD+bJ_k
+]
+
+varies with ordered step (k).
+
+The exact consecutive commutator is
+
+[
+oxed{
+[H_k,H_{k+1}]
+=
+ab[D,J_{k+1}-J_k]
++
+b^2[J_k,J_{k+1}].
+}
+]
+
+On the pinned seven-role deterministic fixture, all six consecutive source
+Hamiltonian commutators are nonzero, with Frobenius norms in the interval
+
+[
+oxed{
+4.02678	imes10^{-4}
+le
+|[H_k,H_{k+1}]|_F
+le
+4.94438	imes10^{-4}.
+}
+]
+
+Moreover the two commutator components are Hilbert-Schmidt linearly independent
+on all six transitions. Consequently, on that pinned trajectory,
+
+[
+oxed{
+b
+eq0
+Longrightarrow
+[H_k,H_{k+1}]
+eq0
+}
+]
+
+for arbitrary real detuning coefficient (a).
+
+Thus the precise runtime defaults (0.25,0.7) control magnitude and rate but
+are not required for the existence of source-operator noncommutativity on the
+validated trajectory.
