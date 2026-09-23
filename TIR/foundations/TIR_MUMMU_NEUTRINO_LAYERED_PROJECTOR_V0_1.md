@@ -965,16 +965,16 @@ The current coefficient-free source-composed witness closes only the first.
 
 ## 21. Direct source-operator non-Abelianity closure
 
-The operator-level ambiguity is now separated by
+The operator-level ambiguity is separated by
 
-`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`.
+TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md.
 
-A changing horizontal (CP^1) generator,
+A changing horizontal \(CP^1\) generator,
 
 \[
-Omega_j
+\boldsymbol\Omega_j
 =
-mathbf n_j\timesdot{mathbf n}_j,
+\mathbf n_j\times\dot{\mathbf n}_j,
 \]
 
 does not by itself imply a noncommuting source Hamiltonian. Fixed-modulus phase
@@ -983,13 +983,13 @@ motion provides an exact counterexample through
 \[
 H_D(\tau)
 =
--operatorname{diag}dot\theta(\tau),
-qquad
+-\operatorname{diag}\dot\theta(\tau),
+\qquad
 [H_D(\tau_1),H_D(\tau_2)]=0.
 \]
 
 The actual source-operator test is instead performed on the native adaptive
-v0.32 semantic trajectory. Because (g_k) is updated before each QHTRI lift,
+v0.32 semantic trajectory. Because \(g_k\) is updated before each QHTRI lift,
 
 \[
 g_k\to J_k\to H_k
@@ -1002,7 +1002,7 @@ commutators satisfy
 
 \[
 \boxed{
-|[H_k,H_{k+1}]|_F>0.
+\|[H_k,H_{k+1}]\|_F>0.
 }
 \]
 
@@ -1011,9 +1011,9 @@ The measured range is
 \[
 \boxed{
 4.02678\times10^{-4}
-le
-|[H_k,H_{k+1}]|_F
-le
+\le
+\|[H_k,H_{k+1}]\|_F
+\le
 4.94438\times10^{-4}.
 }
 \]
@@ -1022,54 +1022,76 @@ Moreover, the coupling channel alone satisfies
 
 \[
 \boxed{
-[J_k,J_{k+1}]
-\neq0
+[J_k,J_{k+1}]\neq0
 }
 \]
 
 for every adjacent pair. Therefore the exact default magnitudes
-(0.25) and (0.7) are not required for the **existence** of
-source-operator noncommutativity.
+\(0.25\) and \(0.7\) are not required for the existence of source-operator
+noncommutativity.
 
 A scale-free operator-direction witness is
 
 \[
 \boxed{
-widehat{mathcal C}^{J}_{k,k+1}
+\widehat{\mathcal C}^{J}_{k,k+1}
 =
 \frac{
-|[J_k,J_{k+1}]|_F
+\|[J_k,J_{k+1}]\|_F
 }{
-|J_k|_F|J_{k+1}|_F
+\|J_k\|_F\|J_{k+1}\|_F
 }.
 }
 \]
 
-The MUMMU source signature should therefore remain typed:
+The local infinitesimal mechanism is even narrower. On the pinned initial
+snapshot, pure normalized decay leaves \(J\) directionally unchanged, while
+the phase-conditioned Hebbian update satisfies
 
 \[
 \boxed{
-mathfrak S_{\rm MUMMU}
+[J,\dot J]
 =
-left(
-C_4,,
-mathcal W_{\rm hor},,
-mathcal C^H,,
-mathcal D_{mathcal L}
+\frac{[j,K_H]}{\rho^2}
+\neq0.
+}
+\]
+
+Numerically,
+
+\[
+\boxed{
+\|[J,\dot J]\|_F
+\approx
+9.8075297286\times10^{-2}.
+}
+\]
+
+The MUMMU source signature should therefore remain typed,
+
+\[
+\boxed{
+\mathfrak S_{\rm MUMMU}
+=
+\left(
+C_4,\,
+\mathcal W_{\rm hor},\,
+\mathcal C^H,\,
+\mathcal D_{\mathcal L}
 \right),
 }
 \]
 
 where:
 
-- (C_4) is the Stella geometric anisotropy;
-- (mathcal W_{\rm hor}) belongs to the horizontal/projective (CP^1) connection;
-- (mathcal C^H) is the direct source-Hamiltonian commutator channel;
-- (mathcal D_{mathcal L}) is the loop/holonomy centrality defect.
+- \(C_4\) is the Stella geometric anisotropy;
+- \(\mathcal W_{\rm hor}\) belongs to the horizontal/projective \(CP^1\) connection;
+- \(\mathcal C^H\) is the direct source-Hamiltonian commutator channel;
+- \(\mathcal D_{\mathcal L}\) is the loop/holonomy centrality defect.
 
 No scalar weighting between these coordinates is introduced.
 
 The remaining actuation-law problem is now quantitative and physical: derive
-the magnitudes and microscopic origin of the adaptive coupling law. It is no
-longer needed merely to establish the existence of a noncommuting source
-operator history in the computational model.
+the microscopic origin and gain of the phase-conditioned adaptive coupling law.
+It is no longer needed merely to establish the existence of a noncommuting
+source-operator history in the computational model.
