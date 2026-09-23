@@ -12,6 +12,7 @@ on:
       - 'TIR/foundations/TIR_MUMMU_T36_WAVE_FULL_CP1_LOCAL_NONABELIAN_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_QUARTIC_CONTINUUM_REGULARITY_SPLIT_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_PNLF_REDUCTION_LAYER_BOUNDARY_V0_1.md'
       - 'TIR/validation/tir_mummu_neutrino_layered_projector_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_NEUTRINO_LAYERED_PROJECTOR_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_quartic_seam_abelian_reducibility_v0_1.py'
@@ -30,6 +31,8 @@ on:
       - 'TIR/validation/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_quartic_continuum_regularity_split_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_QUARTIC_CONTINUUM_REGULARITY_SPLIT_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_pnlf_reduction_layer_boundary_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_PNLF_REDUCTION_LAYER_BOUNDARY_VALIDATION_V0_1.json'
       - '.github/workflows/tir-mummu-quartic-seam-v01.yml'
   workflow_dispatch:
 
@@ -76,3 +79,6 @@ jobs:
 
       - name: Run MUMMU quartic/continuum regularity split gate
         run: python TIR/validation/tir_mummu_quartic_continuum_regularity_split_v0_1.py
+
+      - name: Run MUMMU PNLF reduction-layer boundary gate
+        run: python TIR/validation/tir_mummu_pnlf_reduction_layer_boundary_v0_1.py
