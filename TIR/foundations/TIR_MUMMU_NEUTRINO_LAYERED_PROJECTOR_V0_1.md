@@ -433,3 +433,71 @@ Together with the Stella quartic harmonic, the minimal typed signature is
 \]
 
 No arbitrary weighting between these invariants is introduced.
+
+
+## 14. Derived orbital spin connection
+
+The orbital path representation is now generated from admitted liminal
+trajectories rather than supplied as a free \(SU(2)\) map:
+
+`TIR/foundations/TIR_MUMMU_ORBITAL_SPIN_CONNECTION_UNIQUENESS_V0_1.md`.
+
+Let
+
+\[
+P(\tau)
+=
+\Pi[\theta(\tau)]
+=
+\frac12(I+\mathbf n(\tau)\cdot\boldsymbol\sigma)
+\]
+
+be the explicit local \(CP^1\) reduction of the full T36 trajectory, and let
+\(\varphi(\tau)\) be the admitted lifted orbital phase.  Then
+
+\[
+\boxed{
+\mathcal A_{\rm orb}
+=
+-\frac{i}{2}
+\left[
+\mathbf n\times d\mathbf n
++
+\mathbf n\,d\varphi
+\right]\cdot\boldsymbol\sigma
+}
+\]
+
+is the unique spin connection compatible with projector motion and the declared
+spinorial fiber phase.
+
+The path transporter is therefore
+
+\[
+\boxed{
+\rho(\Lambda)
+=
+\mathcal P\exp\left(\int_\Lambda\mathcal A_{\rm orb}\right).
+}
+\]
+
+This yields two independent exact sources of orbital memory:
+
+\[
+d\varphi\neq0
+\quad\text{(fiber winding)}
+\]
+
+and
+
+\[
+\mathbf n\times d\mathbf n\neq0
+\quad\text{(projective/Berry geometry)}.
+\]
+
+An endpoint-only law \(U_{vu}=F_vF_u^{-1}\) is excluded as a source of
+nontrivial MUMMU holonomy because every closed product then telescopes to
+identity.  Liminal path data are therefore structurally necessary, not optional.
+
+The remaining mathematical binding is now the sector map
+\(\Pi:T^{36}\to CP^1\) and its admission rule.
