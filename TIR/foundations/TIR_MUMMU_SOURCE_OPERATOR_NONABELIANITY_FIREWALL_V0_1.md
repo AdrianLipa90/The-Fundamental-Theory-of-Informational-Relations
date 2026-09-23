@@ -1,136 +1,130 @@
 # TIR MUMMU Source-Operator Non-Abelianity and Projective-Lift Firewall v0.1
 
-Status: `EXACT_PROJECTIVE_LIFT_FIREWALL / FIXED_MODULUS_COMMUTING_LIFT_NOGO / FROZEN_SEMANTIC_PATH_SOURCE_OPERATOR_NONCOMMUTATIVITY_PASS / QHTRI_DEFAULT_MAGNITUDES_NOT_REQUIRED_FOR_EXISTENCE / PHYSICAL_BINDING_OPEN`
+Status: EXACT_PROJECTIVE_LIFT_FIREWALL / FIXED_MODULUS_COMMUTING_LIFT_NOGO / FROZEN_SEMANTIC_PATH_SOURCE_OPERATOR_NONCOMMUTATIVITY_PASS / QHTRI_DEFAULT_MAGNITUDES_NOT_REQUIRED_FOR_EXISTENCE / HEBBIAN_DIRECTION_SOURCE_ISOLATED / PHYSICAL_BINDING_OPEN
 
 Date: 2026-09-23
 
 ## 1. Purpose
 
-MUMMU now contains two mathematically distinct noncommutativity questions:
+MUMMU contains two mathematically distinct noncommutativity questions:
 
-1. does a declared horizontal/projective connection have noncommuting
-   time-separated generators?
-2. does the actual source Hamiltonian history have noncommuting
-   time-separated operators?
+1. does a declared horizontal/projective connection have noncommuting time-separated generators?
+2. does the actual source Hamiltonian history have noncommuting time-separated operators?
 
 The first does not imply the second.
 
-This firewall keeps those claims separate and then tests the stronger
-source-operator question directly on the pinned PNCS v0.32 adaptive path.
+This firewall keeps those claims separate and tests the stronger source-operator
+question directly on the pinned PNCS v0.32 adaptive path.
 
 ## 2. Fixed-modulus counterexample
 
 For a normalized fixed-modulus wave state
 
-[
-psi_k(	au)
+\[
+\psi_k(\tau)
 =
-sqrt{p_k},e^{i	heta_k(	au)},
-qquad
-p_k=mathrm{constant},
-]
+\sqrt{p_k}\,e^{i\theta_k(\tau)},
+\qquad
+p_k=\mathrm{constant},
+\]
 
 one has
 
-[
-dotpsi_k=idot	heta_kpsi_k.
-]
+\[
+\dot\psi_k=i\dot\theta_k\psi_k.
+\]
 
 Therefore
 
-[
-oxed{
-H_D(	au)
+\[
+\boxed{
+H_D(\tau)
 =
--operatorname{diag}
-left(
-dot	heta_1(	au),ldots,dot	heta_N(	au)
-ight)
+-\operatorname{diag}
+\left(
+\dot\theta_1(\tau),\ldots,\dot\theta_N(\tau)
+\right)
 }
-]
+\]
 
 satisfies
 
-[
-idotpsi=H_Dpsi.
-]
+\[
+i\dot\psi=H_D\psi.
+\]
 
-Because all (H_D(	au)) are diagonal,
+Because all \(H_D(\tau)\) are diagonal,
 
-[
-oxed{
-[H_D(	au_1),H_D(	au_2)]=0
+\[
+\boxed{
+[H_D(\tau_1),H_D(\tau_2)]=0
 }
-]
+\]
 
 for every pair of sections.
 
-Thus a rotating horizontal (CP^1) connection does not by itself prove a
+Thus a rotating horizontal \(CP^1\) connection does not by itself prove a
 noncommuting dynamical/source Hamiltonian.
 
 ## 3. Projective connection can still rotate
 
 For one pair with constant imbalance
 
-[
-u=rac{p_L-p_R}{p_L+p_R},
-qquad
-r=sqrt{1-u^2},
-]
+\[
+u=\frac{p_L-p_R}{p_L+p_R},
+\qquad
+r=\sqrt{1-u^2},
+\]
 
 write
 
-[
-mathbf n=(rcosdelta,rsindelta,u).
-]
+\[
+\mathbf n=(r\cos\delta,r\sin\delta,u).
+\]
 
 Then
 
-[
-oxed{
-oldsymbolOmega
+\[
+\boxed{
+\boldsymbol\Omega
 =
-mathbf n	imesdot{mathbf n}
+\mathbf n\times\dot{\mathbf n}
 =
-dotdelta
-(-urcosdelta,-ursindelta,r^2).
+\dot\delta
+(-ur\cos\delta,-ur\sin\delta,r^2).
 }
-]
+\]
 
 It is possible to have
 
-[
-oldsymbolOmega_1	imesoldsymbolOmega_2
-e0
-]
+\[
+\boldsymbol\Omega_1\times\boldsymbol\Omega_2\neq0
+\]
 
 while the diagonal phase Hamiltonians commute.
 
 Therefore
 
-[
-oxed{
-oldsymbolOmega_1	imesoldsymbolOmega_2
-e0
-
-otRightarrow
-[H_{m source}(	au_1),H_{m source}(	au_2)]
-e0.
+\[
+\boxed{
+\boldsymbol\Omega_1\times\boldsymbol\Omega_2\neq0
+\;\not\Rightarrow\;
+[H_{\rm source}(\tau_1),H_{\rm source}(\tau_2)]\neq0.
 }
-]
+\]
 
 ## 4. Fixed-H QHTRI fixture firewall
 
 The earlier deterministic QHTRI pair-dynamics witness uses one fixed
-Hamiltonian (H_0).
+Hamiltonian \(H_0\).
 
 Consequently
 
-[
-oxed{
+\[
+\boxed{
 [H_0,H_0]=0.
 }
-]
+\]
 
 That fixture proves source-derived amplitude transport and a changing
 projective connection, but it does not prove a noncommuting source-Hamiltonian
@@ -141,137 +135,136 @@ history.
 The full PNCS v0.32 controlled path is different: before each QHTRI lift it
 updates the coupling matrix,
 
-[
-g_klongrightarrow g_{k+1}
-longrightarrow J_{k+1}
-longrightarrow H_{k+1}.
-]
+\[
+g_k
+\longrightarrow
+g_{k+1}
+\longrightarrow
+J_{k+1}
+\longrightarrow
+H_{k+1}.
+\]
 
 The source law is
 
-[
+\[
 H_k=dD+cJ_k,
-]
+\]
 
-where (D) is the fixed standardized diagonal detuning operator and (J_k) is
+where \(D\) is the fixed standardized diagonal detuning operator and \(J_k\) is
 the step-specific symmetric, zero-diagonal, spectral-radius-normalized coupling
 operator.
 
 The correct source-operator witness is
 
-[
-oxed{
-mathcal C^H_{k,k+1}
+\[
+\boxed{
+\mathcal C^H_{k,k+1}
 =
-|[H_k,H_{k+1}]|_F.
+\|[H_k,H_{k+1}]\|_F.
 }
-]
+\]
 
 ## 6. Pinned frozen Nisaba trajectory
 
-Use the exact PNCS frozen seven-role semantic sequence:
+Use the exact PNCS frozen seven-role semantic sequence
 
-[
-mathrm{ADDRESS}
-	o
-mathrm{TABLET_WRITING}
-	o
-mathrm{WISDOM}
-	o
-mathrm{FAIR_JUDGMENT}
-	o
-mathrm{RECEPTION}
-	o
-mathrm{AGREEMENT_WORK}
-	o
-mathrm{HOPE_GRATITUDE}.
-]
+\[
+\mathrm{ADDRESS}
+\to
+\mathrm{TABLET\_WRITING}
+\to
+\mathrm{WISDOM}
+\to
+\mathrm{FAIR\_JUDGMENT}
+\to
+\mathrm{RECEPTION}
+\to
+\mathrm{AGREEMENT\_WORK}
+\to
+\mathrm{HOPE\_GRATITUDE}.
+\]
 
 The semantic addresses are generated by the source
-`PNCS_SEMANTIC_CONTENT_ADDRESS_GENERATOR_V2`.
+PNCS_SEMANTIC_CONTENT_ADDRESS_GENERATOR_V2.
 
 The deterministic v0.32 source snapshot is the one declared in
-`tests/test_semantic_htri_drive_v32.py`.
+tests/test_semantic_htri_drive_v32.py.
 
-For the six adjacent source Hamiltonian pairs:
+For the six adjacent source Hamiltonian pairs,
 
-[
-oxed{
-egin{aligned}
-mathcal C^H_{01}&=4.7544102329	imes10^{-4},\
-mathcal C^H_{12}&=4.5429156243	imes10^{-4},\
-mathcal C^H_{23}&=4.9443771753	imes10^{-4},\
-mathcal C^H_{34}&=4.0267801525	imes10^{-4},\
-mathcal C^H_{45}&=4.1942046707	imes10^{-4},\
-mathcal C^H_{56}&=4.0276821479	imes10^{-4}.
-end{aligned}
+\[
+\boxed{
+\begin{aligned}
+\mathcal C^H_{01}&=4.7544102329\times10^{-4},\\
+\mathcal C^H_{12}&=4.5429156243\times10^{-4},\\
+\mathcal C^H_{23}&=4.9443771753\times10^{-4},\\
+\mathcal C^H_{34}&=4.0267801525\times10^{-4},\\
+\mathcal C^H_{45}&=4.1942046707\times10^{-4},\\
+\mathcal C^H_{56}&=4.0276821479\times10^{-4}.
+\end{aligned}
 }
-]
+\]
 
 Thus
 
-[
-oxed{
-[H_k,H_{k+1}]
-e0
+\[
+\boxed{
+[H_k,H_{k+1}]\neq0
 }
-]
+\]
 
 for every adjacent pair in this pinned source path.
 
 ## 7. Coupling-only witness
 
 The binary existence of source-operator noncommutativity does not require the
-specific source defaults (d=0.25), (c=0.7).
+specific source defaults \(d=0.25\), \(c=0.7\).
 
 Set the detuning channel to zero and write
 
-[
+\[
 H_k^{(J)}=bJ_k.
-]
+\]
 
 Then
 
-[
-oxed{
-[
-H_k^{(J)},H_{k+1}^{(J)}
-]
+\[
+\boxed{
+[H_k^{(J)},H_{k+1}^{(J)}]
 =
 b^2[J_k,J_{k+1}].
 }
-]
+\]
 
-For every (b
-e0), noncommutativity exists whenever
-([J_k,J_{k+1}]
-e0).
+For every \(b\neq0\), noncommutativity exists whenever
+\([J_k,J_{k+1}]\neq0\).
 
-On the same frozen semantic trajectory:
+On the same frozen semantic trajectory,
 
-[
-oxed{
-egin{aligned}
-|[J_0,J_1]|_F&=6.9519462295	imes10^{-4},\
-|[J_1,J_2]|_F&=5.8866491593	imes10^{-4},\
-|[J_2,J_3]|_F&=8.6162713605	imes10^{-4},\
-|[J_3,J_4]|_F&=4.5353607473	imes10^{-4},\
-|[J_4,J_5]|_F&=4.0785651857	imes10^{-4},\
-|[J_5,J_6]|_F&=2.6250228232	imes10^{-4}.
-end{aligned}
+\[
+\boxed{
+\begin{aligned}
+\|[J_0,J_1]\|_F&=6.9519462295\times10^{-4},\\
+\|[J_1,J_2]\|_F&=5.8866491593\times10^{-4},\\
+\|[J_2,J_3]\|_F&=8.6162713605\times10^{-4},\\
+\|[J_3,J_4]\|_F&=4.5353607473\times10^{-4},\\
+\|[J_4,J_5]\|_F&=4.0785651857\times10^{-4},\\
+\|[J_5,J_6]\|_F&=2.6250228232\times10^{-4}.
+\end{aligned}
 }
-]
+\]
 
 All six are nonzero.
 
-Therefore:
+Therefore
 
-[
-oxed{
-0.25, 0.7
-	ext{ are not required for the existence of source-operator non-Abelianity.}
+\[
+\boxed{
+0.25,\;0.7
+\text{ are not required for the existence of source-operator non-Abelianity.}
 }
-]
+\]
 
 A nonzero coupling scale remains necessary for the coupling-only operator
 magnitude.
@@ -280,252 +273,243 @@ magnitude.
 
 Define
 
-[
-oxed{
-widehat{mathcal C}^{J}_{k,k+1}
+\[
+\boxed{
+\widehat{\mathcal C}^{J}_{k,k+1}
 =
-rac{
-|[J_k,J_{k+1}]|_F
+\frac{
+\|[J_k,J_{k+1}]\|_F
 }{
-|J_k|_F|J_{k+1}|_F
+\|J_k\|_F\|J_{k+1}\|_F
 }.
 }
-]
+\]
 
-For the pinned source path:
+For the pinned source path,
 
-[
-oxed{
-widehat{mathcal C}^{J}
-approx
+\[
+\boxed{
+\widehat{\mathcal C}^{J}
+\approx
 (
-3.284878,,
-2.781725,,
-4.071416,,
-2.143060,,
-1.927184,,
+3.284878,\,
+2.781725,\,
+4.071416,\,
+2.143060,\,
+1.927184,\,
 1.240256
-)	imes10^{-4}.
+)\times10^{-4}.
 }
-]
+\]
 
-This removes a common scalar coupling magnitude and measures change of
-operator direction.
+This removes a common scalar coupling magnitude and measures change of operator
+direction.
 
-## 9. Corrected hierarchy
-
-MUMMU must keep two lanes:
-
-[
-oxed{
-	ext{projective path}
-	o
-mathcal A_{m hor}
-	o
-[mathcal A_{m hor}(	au_1),mathcal A_{m hor}(	au_2)]
-}
-]
-
-and separately
-
-[
-oxed{
-	ext{adaptive source path}
-	o
-{H_k}
-	o
-[H_k,H_{k+1}].
-}
-]
-
-Neither is a silent proxy for the other.
-
-## 10. Coefficient consequence
-
-The discovery removes one false dependency:
-
-[
-oxed{
-	ext{source-operator non-Abelianity does not require deriving }0.25,0.7.
-}
-]
-
-But quantitative physical prediction still requires source authority for:
-
-- coupling magnitude;
-- detuning magnitude if retained;
-- adaptive-(g) update constants;
-- physical/proper-time calibration;
-- microscopic interpretation of (g).
-
-Thus the actuation-law problem remains open for physical prediction, not for
-the existence of noncommuting source operators in the computational model.
-
-## 11. Claim ledger
-
-| Statement | Status |
-|---|---|
-| fixed-modulus phase flow admits commuting diagonal Hermitian lift | `EXACT` |
-| rotating horizontal (Omega) alone proves source-H noncommutativity | `REFUTED` |
-| fixed-H pair fixture has noncommuting source-H history | `REFUTED` |
-| fixed-H pair fixture has source-derived amplitude transport | `PASS` |
-| frozen v0.32 path has nonzero adjacent source-H commutators | `NUMERIC SOURCE-PINNED PASS` |
-| coupling-only (J_k) history is noncommuting on the same path | `NUMERIC SOURCE-PINNED PASS` |
-| exact defaults (0.25,0.7) are required for existence of source non-Abelianity | `REFUTED` |
-| exact defaults are irrelevant to quantitative magnitude | `REFUTED` |
-| physical microscopic realization | `OPEN / NOT CLAIMED` |
-
-## 12. Validation
-
-Deterministic validator:
-
-`TIR/validation/tir_mummu_source_operator_nonabelianity_firewall_v0_1.py`
-
-Static receipt:
-
-`TIR/validation/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_VALIDATION_V0_1.json`
-
-
-## 15. Infinitesimal origin of the source-operator rotation
+## 9. Infinitesimal origin of the source-operator rotation
 
 At one source section write the pre-normalized symmetric zero-diagonal coupling
-matrix as (j), with spectral radius
+matrix as \(j\), with spectral radius
 
-[
-ho=ho(j)>0,
-qquad
-J=rac{j}{ho}.
-]
+\[
+\rho=\rho(j)>0,
+\qquad
+J=\frac{j}{\rho}.
+\]
 
 The v0.32 coupling update separates locally into
 
-[
-dot g
+\[
+\dot g
 =
 K_H+K_D+K_W,
-]
+\]
 
-where (K_H) is the phase-conditioned Hebbian term, (K_D) is decay and
-(K_W) is the weak-channel boost.
+where \(K_H\) is the phase-conditioned Hebbian term, \(K_D\) is decay and
+\(K_W\) is the weak-channel boost.
 
 For the pinned deterministic initial snapshot the weak-channel predicate is
 false, so
 
-[
+\[
 K_W=0.
-]
+\]
 
-The off-diagonal decay term is proportional to the current coupling matrix:
+The off-diagonal decay term is proportional to the current coupling matrix,
 
-[
-K_D^{m offdiag}=-gamma j.
-]
+\[
+K_D^{\rm offdiag}=-\gamma j.
+\]
 
 After the QHTRI lift zeroes the diagonal and divides by spectral radius, any
 positive scalar rescaling cancels exactly. Therefore
 
-[
-oxed{
-dot J_D=0
+\[
+\boxed{
+\dot J_D=0
 }
-]
+\]
 
 for the pure-decay lane before clipping.
 
 The Hebbian term is
 
-[
-oxed{
+\[
+\boxed{
 K_H
 =
-0.1,
-(mathrm{activity}-0.5),
-operatorname{offdiag}
-left[
-cos(Phi_i-Phi_j)
-ight].
+0.1\,
+(\mathrm{activity}-0.5)\,
+\operatorname{offdiag}
+\left[
+\cos(\Phi_i-\Phi_j)
+\right].
 }
-]
+\]
 
 For a differentiable simple spectral branch,
 
-[
-dot J
+\[
+\dot J
 =
-rac{K_H}{ho}
+\frac{K_H}{\rho}
 -
-rac{j,dotho}{ho^2}.
-]
+\frac{j\,\dot\rho}{\rho^2}.
+\]
 
-Since the second term is proportional to (J), it drops out of the
-commutator:
+Since the second term is proportional to \(J\), it drops out of the commutator,
 
-[
-oxed{
-[J,dot J]
+\[
+\boxed{
+[J,\dot J]
 =
-rac{[j,K_H]}{ho^2}.
+\frac{[j,K_H]}{\rho^2}.
 }
-]
+\]
 
 Thus the infinitesimal source-operator direction change is controlled by the
-failure of the current coupling matrix (j) to commute with the
-phase-conditioned Hebbian update (K_H), not by spectral normalization.
+failure of the current coupling matrix \(j\) to commute with the
+phase-conditioned Hebbian update \(K_H\), not by spectral normalization.
 
 For the pinned source snapshot,
 
-[
-ho=3.06
-]
+\[
+\rho=3.06
+\]
 
 and
 
-[
-oxed{
-|[J,dot J]|_F
-approx
-9.8075297286	imes10^{-2}.
+\[
+\boxed{
+\|[J,\dot J]\|_F
+\approx
+9.8075297286\times10^{-2}.
 }
-]
+\]
 
 Finite-step checks satisfy
 
-[
-rac{|[J(0),J(dt)]|_F}{dt}
-	o
-9.8075297286	imes10^{-2}
-]
+\[
+\frac{\|[J(0),J(dt)]\|_F}{dt}
+\longrightarrow
+9.8075297286\times10^{-2}
+\]
 
-as (dt	o0).
+as \(dt\to0\).
 
-Hence the local mechanism of source-operator path ordering is identified as
+Hence the local mechanism of source-operator path ordering is
 
-[
-oxed{
-	ext{phase-conditioned adaptive coupling}
-;Rightarrow;
-[j,K_H]
-eq0
-;Rightarrow;
-[J,dot J]
-eq0.
+\[
+\boxed{
+\text{phase-conditioned adaptive coupling}
+\;\Longrightarrow\;
+[j,K_H]\neq0
+\;\Longrightarrow\;
+[J,\dot J]\neq0.
 }
-]
+\]
 
 The decay term alone cannot produce this effect under the declared normalized
 QHTRI lift.
 
-## 16. Refined remaining arbitrariness
+## 10. Corrected operator hierarchy
 
-This isolates the remaining policy dependence more sharply.
+MUMMU must keep two lanes:
 
-The existence of source-operator noncommutativity does not depend on the QHTRI
-mixing magnitudes (0.25) and (0.7), and it does not come from the decay
-coefficient.
+\[
+\boxed{
+\text{projective path}
+\to
+\mathcal A_{\rm hor}
+\to
+[\mathcal A_{\rm hor}(\tau_1),\mathcal A_{\rm hor}(\tau_2)]
+}
+\]
 
-It does depend on a nonzero phase-conditioned adaptive-coupling law. Its
-current numerical gain remains a runtime policy parameter.
+and separately
 
-Therefore the next physical derivation target is no longer a generic pair
-((0.25,0.7)). It is the microscopic/source derivation of the adaptive
-coupling law itself, including the coefficient multiplying (K_H).
+\[
+\boxed{
+\text{adaptive source path}
+\to
+\{H_k\}
+\to
+[H_k,H_{k+1}].
+}
+\]
+
+Neither is a silent proxy for the other.
+
+## 11. Refined remaining arbitrariness
+
+The result removes two false dependencies.
+
+First,
+
+\[
+\boxed{
+\text{source-operator non-Abelianity does not require deriving }0.25,0.7.
+}
+\]
+
+Second, the normalized coupling direction is not rotated by pure decay on the
+pinned source branch.
+
+The existence of source-operator noncommutativity instead depends on a nonzero
+phase-conditioned adaptive-coupling law. Its present numerical gain remains a
+runtime policy parameter.
+
+Quantitative physical prediction still requires source authority for:
+
+- the Hebbian/adaptive coupling gain;
+- coupling magnitude;
+- detuning magnitude if retained;
+- physical/proper-time calibration;
+- microscopic interpretation of \(g\).
+
+Thus the next physical derivation target is the microscopic/source derivation
+of the adaptive coupling law itself.
+
+## 12. Claim ledger
+
+| Statement | Status |
+|---|---|
+| fixed-modulus phase flow admits commuting diagonal Hermitian lift | EXACT |
+| rotating horizontal \(\Omega\) alone proves source-H noncommutativity | REFUTED |
+| fixed-H pair fixture has noncommuting source-H history | REFUTED |
+| fixed-H pair fixture has source-derived amplitude transport | PASS |
+| frozen v0.32 path has nonzero adjacent source-H commutators | NUMERIC SOURCE-PINNED PASS |
+| coupling-only \(J_k\) history is noncommuting on the same path | NUMERIC SOURCE-PINNED PASS |
+| exact defaults \(0.25,0.7\) are required for existence of source non-Abelianity | REFUTED |
+| pure normalized decay rotates the coupling-operator direction | REFUTED |
+| phase-conditioned Hebbian update has \([J,\dot J]\neq0\) on pinned source | NUMERIC + DIFFERENTIAL PASS |
+| physical microscopic realization | OPEN / NOT CLAIMED |
+
+## 13. Validation
+
+Deterministic validator:
+
+TIR/validation/tir_mummu_source_operator_nonabelianity_firewall_v0_1.py
+
+Static receipt:
+
+TIR/validation/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_VALIDATION_V0_1.json
