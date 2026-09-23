@@ -418,6 +418,97 @@ def main():
         "max_abs_error": max(scale_errors),
     })
 
+    def source_state():
+        phi_s = np.linspace(0.07, 5.91, N, dtype=np.float64)
+        omega_s = 39.6 + np.linspace(-0.12, 0.12, N, dtype=np.float64)
+        idx_s = np.arange(N, dtype=np.float64)
+        g_s = 0.18 * np.cos((idx_s[:, None] - idx_s[None, :]) * np.pi / 18.0)
+        g_s = 0.5 * (g_s + g_s.T)
+        np.fill_diagonal(g_s, 0.0)
+        flavor_s = np.array([0.31, 0.72, 0.23, 0.56, 0.48, 0.5], dtype=np.float64)
+        tau_s = np.linspace(0.21, 0.49, N, dtype=np.float64)
+        gravity_s = np.array([0.0, 1.17, 0.3, 0.0, 0.0, 1.0, 0.0, 0.0], dtype=np.float64)
+        return phi_s, omega_s, g_s, flavor_s, tau_s, gravity_s
+
+    def section_xi(phi_s, g_s):
+        phase_s = harmonic_composite_phase(phi_s)
+        cmat = np.cos(phase_s[:, None] - phase_s[None, :])
+        cmat = 0.5 * (cmat + cmat.T)
+        np.fill_diagonal(cmat, 0.0)
+        jmat = 0.5 * (g_s + g_s.T)
+        jmat = jmat.copy()
+        np.fill_diagonal(jmat, 0.0)
+        comm = jmat @ cmat - cmat @ jmat
+        return float(
+            np.linalg.norm(comm, "fro")
+            / (np.linalg.norm(jmat, "fro") * np.linalg.norm(cmat, "fro"))
+        )
+
+    order_controls = {
+        "original": [0, 1, 2, 3, 4, 5, 6],
+        "reverse": [6, 5, 4, 3, 2, 1, 0],
+        "shuffle": [3, 6, 0, 4, 2, 5, 1],
+    }
+    order_diagnostics = {}
+    all_h_comm = []
+    all_j_comm = []
+    all_xi = []
+
+    for control_name, order in order_controls.items():
+        phi_s, omega_s, g_s, flavor_s, tau_s, gravity_s = source_state()
+        hs_s = []
+        js_s = []
+        xis_s = []
+        for address_index in order:
+            xis_s.append(section_xi(phi_s, g_s))
+            phi_s, g_s, gravity_s, h_s, _, j_s = controlled_step(
+                phi_s,
+                omega_s,
+                g_s,
+                flavor_s,
+                tau_s,
+                gravity_s,
+                addresses[address_index],
+            )
+            hs_s.append(h_s)
+            js_s.append(j_s)
+
+        hc_s = []
+        jc_s = []
+        for k in range(len(hs_s) - 1):
+            hc_s.append(float(np.linalg.norm(
+                hs_s[k] @ hs_s[k + 1] - hs_s[k + 1] @ hs_s[k],
+                "fro",
+            )))
+            jc_s.append(float(np.linalg.norm(
+                js_s[k] @ js_s[k + 1] - js_s[k + 1] @ js_s[k],
+                "fro",
+            )))
+
+        all_h_comm.extend(hc_s)
+        all_j_comm.extend(jc_s)
+        all_xi.extend(xis_s)
+        order_diagnostics[control_name] = {
+            "H_commutators": hc_s,
+            "J_commutators": jc_s,
+            "Xi_phase_sections": xis_s,
+        }
+
+    checks.append({
+        "name": "operator_obstruction_persists_across_frozen_order_controls",
+        "status": (
+            "PASS"
+            if min(all_h_comm) > 4.0e-4
+            and min(all_j_comm) > 2.0e-4
+            and min(all_xi) > 0.04
+            else "FAIL"
+        ),
+        "minimum_H_commutator_frobenius": min(all_h_comm),
+        "minimum_J_commutator_frobenius": min(all_j_comm),
+        "minimum_Xi_phase": min(all_xi),
+        "controls": order_diagnostics,
+    })
+
     status = "PASS" if all(c["status"] == "PASS" for c in checks) else "FAIL"
     out = {
         "schema": SCHEMA,
@@ -429,7 +520,9 @@ def main():
             "including in the coupling-only sector; the initial infinitesimal "
             "operator rotation is isolated to the phase-conditioned Hebbian update "
             "while pure decay is directionally removed by spectral normalization; "
-            "a coefficient-free normalized obstruction [j,C_phi] is also recorded"
+            "a coefficient-free normalized obstruction [j,C_phi] is also recorded; "
+            "the direct and coefficient-free obstructions persist across the frozen "
+            "original/reverse/shuffle order controls"
         ),
         "source_pins": {
             "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
