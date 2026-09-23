@@ -14,6 +14,7 @@ on:
       - 'TIR/foundations/TIR_MUMMU_QUARTIC_CONTINUUM_REGULARITY_SPLIT_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_PNLF_REDUCTION_LAYER_BOUNDARY_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_QHTRI_PNLF_TYPED_TIME_BRIDGE_NOGO_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QHTRI_PNLF_TRAJECTORY_RECEIPT_BINDING_V0_1.md'
       - 'TIR/validation/tir_mummu_neutrino_layered_projector_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_NEUTRINO_LAYERED_PROJECTOR_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_quartic_seam_abelian_reducibility_v0_1.py'
@@ -36,6 +37,8 @@ on:
       - 'TIR/validation/TIR_MUMMU_PNLF_REDUCTION_LAYER_BOUNDARY_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_qhtri_pnlf_typed_time_bridge_nogo_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_QHTRI_PNLF_TYPED_TIME_BRIDGE_NOGO_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_qhtri_pnlf_trajectory_receipt_binding_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QHTRI_PNLF_TRAJECTORY_RECEIPT_BINDING_VALIDATION_V0_1.json'
       - '.github/workflows/tir-mummu-quartic-seam-v01.yml'
   workflow_dispatch:
 
@@ -88,3 +91,6 @@ jobs:
 
       - name: Run MUMMU QHTRI-PNLF typed-time bridge no-go gate
         run: python TIR/validation/tir_mummu_qhtri_pnlf_typed_time_bridge_nogo_v0_1.py
+
+      - name: Run MUMMU QHTRI-ORCH-PNLF trajectory receipt gate
+        run: python TIR/validation/tir_mummu_qhtri_pnlf_trajectory_receipt_binding_v0_1.py
