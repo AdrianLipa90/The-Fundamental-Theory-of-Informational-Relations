@@ -453,3 +453,33 @@ connection law.
 That step would connect the present finite theorem to the existing TIR
 holonomy/connection branch without identifying layer twist with physical gravity
 by assumption.
+
+
+## 12. T36 source-binding firewall
+
+The quartic non-Abelian history term is an exact statement for the declared
+shared-\(SU(2)\) histories.  It is **not yet** an exact consequence of the
+source T36 complementary-pair carrier.
+
+The later source audit gives
+
+\[
+T^{36}\to(CP^1)^{18},
+\qquad
+\mathfrak g_{36}
+=
+\bigoplus_{j=1}^{18}\mathfrak{su}(2)_j,
+\]
+
+for which distinct factor generators commute identically.
+
+Therefore the quartic history term becomes source-bound to T36 only after an
+admitted inter-factor intertwiner/shared-frame connection is derived.
+
+See:
+
+`TIR/foundations/TIR_MUMMU_18PAIR_INTERTWINER_ADMISSION_NOGO_V0_1.md`.
+
+This preserves the exact quartic theorem while preventing an unsupported
+promotion from a mathematical shared-frame probe to the uncoupled PNCS T36
+source geometry.
