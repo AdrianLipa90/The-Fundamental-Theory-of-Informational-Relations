@@ -17,6 +17,7 @@ on:
       - 'TIR/foundations/TIR_MUMMU_QHTRI_PROPER_TIME_SCALE_CALIBRATION_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_COEFFICIENT_FREE_OBSERVED_HYDRO_CP1_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_GEOMETRIC_NONABELIAN_DYNAMICAL_ABELIAN_SPLIT_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_QUARTIC_CONTINUUM_REGULARITY_SPLIT_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_PNLF_REDUCTION_LAYER_BOUNDARY_V0_1.md'
@@ -50,6 +51,8 @@ on:
       - 'TIR/validation/TIR_MUMMU_COEFFICIENT_FREE_OBSERVED_HYDRO_CP1_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_geometric_nonabelian_dynamical_abelian_split_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_GEOMETRIC_NONABELIAN_DYNAMICAL_ABELIAN_SPLIT_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_source_operator_nonabelianity_firewall_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_qhtri_pair_dynamics_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_quartic_continuum_regularity_split_v0_1.py'
@@ -139,3 +142,6 @@ jobs:
 
       - name: Run MUMMU geometric/dynamical connection split gate
         run: python TIR/validation/tir_mummu_geometric_nonabelian_dynamical_abelian_split_v0_1.py
+
+      - name: Run MUMMU source-operator non-Abelianity firewall gate
+        run: python TIR/validation/tir_mummu_source_operator_nonabelianity_firewall_v0_1.py
