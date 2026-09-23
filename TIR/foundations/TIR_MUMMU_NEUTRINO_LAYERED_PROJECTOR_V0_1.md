@@ -316,3 +316,62 @@ Einstein/Newton closure      = OPEN; conditional bridge stated
 Validator:
 
 `TIR/validation/tir_mummu_neutrino_layered_projector_v0_1.py`
+
+
+## 12. Quartic-seam refinement
+
+The layered projector now has a dedicated finite theorem surface for the first
+non-isotropic Stella signature and the first scalar trace signature of
+noncommuting `SU(2)` layer history:
+
+`TIR/foundations/TIR_MUMMU_QUARTIC_SEAM_ABELIAN_REDUCIBILITY_V0_1.md`
+
+The exact common-frame obstruction is
+
+\[
+\mathcal O_{\rm NC}
+=
+\frac12\sum_{m<n}
+|\boldsymbol\tau_m\times\boldsymbol\tau_n|^2.
+\]
+
+On the commuting sector \(\mathcal O_{\rm NC}=0\), the finite transport is
+simultaneously diagonalizable and, with uniform inter-layer phase increment,
+reduces to the scalar Dirichlet channels of Section 6.
+
+For the equal-weight Stella carrier, the first orientation-selecting harmonic is
+quartic:
+
+\[
+S(\mathbf q)
+=
+1-\frac{r^2}{6}+\frac{r^4}{120}
+-\frac1{108}C_4(\mathbf q)+O(r^6).
+\]
+
+For the declared sequential-vs-constant-axis `SU(2)` comparison with the same
+integrated generator vector, the scalar history difference is also quartic:
+
+\[
+K_{\rm seq}-K_{\rm const}
+=
+\frac{\alpha^2\beta^2}{96}
++O(6).
+\]
+
+Their combined leading defect defines the **MUMMU quartic seam**:
+
+\[
+\boxed{
+\Delta\mathfrak P
+=
+-\frac1{108}C_4(\mathbf q)
++
+\frac{\alpha^2\beta^2}{96}
++
+O(6).
+}
+\]
+
+This refinement is mathematical only. It does not promote the physical
+neutrino-layer, Cartan-torsion, or gravitational interpretations.
