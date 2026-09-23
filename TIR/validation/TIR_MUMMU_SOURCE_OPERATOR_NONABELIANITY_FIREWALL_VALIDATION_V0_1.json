@@ -1,7 +1,7 @@
 {
   "schema": "TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_VALIDATION_V0_1",
   "status": "PASS",
-  "claim_scope": "projective horizontal-generator noncommutativity is not sufficient to infer source-Hamiltonian noncommutativity; the frozen PNCS semantic path has direct nonzero adjacent Hamiltonian commutators, including in the coupling-only sector; the initial infinitesimal rotation is isolated to phase-conditioned Hebbian adaptation, and a coefficient-free normalized [j,C_phi] obstruction records the underlying operator-direction mismatch",
+  "claim_scope": "projective horizontal-generator noncommutativity is not sufficient to infer source-Hamiltonian noncommutativity; the frozen PNCS semantic paths have direct nonzero adjacent Hamiltonian commutators, including in the coupling-only sector; the infinitesimal rotation is isolated to phase-conditioned Hebbian adaptation, a coefficient-free normalized [j,C_phi] obstruction records the underlying direction mismatch, and these obstructions persist across original/reverse/shuffle controls",
   "source_pins": {
     "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
     "semantic_sequence_fixture": "tests/test_semantic_htri_drive_v32.py::trajectories"
@@ -104,10 +104,100 @@
       "status": "PASS",
       "probe_b": 0.37,
       "max_abs_error": 0
+    },
+    {
+      "name": "operator_obstruction_persists_across_frozen_order_controls",
+      "status": "PASS",
+      "minimum_H_commutator_frobenius": 0.00040259761262674196,
+      "minimum_J_commutator_frobenius": 0.00026244653400130124,
+      "minimum_Xi_phase": 0.041504625298592446,
+      "controls": {
+        "original": {
+          "H_commutators": [
+            0.000475441023291991,
+            0.0004542915624319203,
+            0.0004944377175301405,
+            0.00040267801525085105,
+            0.00041942046707139083,
+            0.00040276821479287106
+          ],
+          "J_commutators": [
+            0.0006951946229457181,
+            0.0005886649159290464,
+            0.0008616271360524945,
+            0.0004535360747272778,
+            0.0004078565185673787,
+            0.00026250228231580443
+          ],
+          "Xi_phase_sections": [
+            0.4892295237087932,
+            0.3238141655166749,
+            0.2340905398257463,
+            0.38782074666202865,
+            0.18535074712080432,
+            0.17783462927107535,
+            0.0416296993609356
+          ]
+        },
+        "reverse": {
+          "H_commutators": [
+            0.0004094622698204238,
+            0.00040265772379648326,
+            0.00041955198374930104,
+            0.00040259761262674196,
+            0.0004937196178149947,
+            0.0004544574027867201
+          ],
+          "J_commutators": [
+            0.00044120536895948706,
+            0.00026247764422442516,
+            0.0004077546057322752,
+            0.00045377110094605127,
+            0.0008616624064232427,
+            0.0005884452250077281
+          ],
+          "Xi_phase_sections": [
+            0.4892295237087932,
+            0.1858448230880343,
+            0.041504625298592446,
+            0.17778130050943225,
+            0.18551435926268953,
+            0.387810258678402,
+            0.23393597853227618
+          ]
+        },
+        "shuffle": {
+          "H_commutators": [
+            0.0004026398188554346,
+            0.00040949918658930777,
+            0.00047531218482536723,
+            0.0004193822983007205,
+            0.0004927538369795312,
+            0.00040277238246897796
+          ],
+          "J_commutators": [
+            0.0004537456574622733,
+            0.0004411597694417865,
+            0.000694971847784174,
+            0.000407638649832046,
+            0.0008616419941803659,
+            0.00026244653400130124
+          ],
+          "Xi_phase_sections": [
+            0.4892295237087932,
+            0.1854911621989452,
+            0.18584477444051997,
+            0.32374662463958265,
+            0.17777087552611243,
+            0.3878461433562256,
+            0.041553854034646384
+          ]
+        }
+      }
     }
   ],
   "summary": {
-    "passed": 9,
-    "total": 9
+    "passed": 10,
+    "total": 10
   }
 }
