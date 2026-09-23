@@ -810,3 +810,95 @@ typed clock receipt calibrates (s).
 This closes model-level identifiability of the two QHTRI coefficient degrees of
 freedom. It does not derive a fundamental actuation law selecting them before
 observation.
+
+
+## 20. Coefficient-free observed-hydro transport lane
+
+A second local MUMMU transport lane is now available without the QHTRI graph
+Hamiltonian defaults:
+
+`TIR/foundations/TIR_MUMMU_COEFFICIENT_FREE_OBSERVED_HYDRO_CP1_V0_1.md`.
+
+It conditionally composes two existing PNCS source components:
+
+[
+	ext{TemporalObservationReceipt probabilities}
++
+	ext{HydrodynamicTrace phases}.
+]
+
+For one pair with fixed post-observation imbalance
+
+[
+u=rac{p_L-p_R}{p_L+p_R},
+qquad
+r=sqrt{1-u^2},
+]
+
+and hydrodynamically evolving relative phase
+
+[
+delta(	au)=	heta_R(	au)-	heta_L(	au),
+]
+
+the exact local generator is
+
+[
+oxed{
+Omega
+=
+dotdelta
+(-urcosdelta,,-ursindelta,,r^2).
+}
+]
+
+For (0<|u|<1), two sections with nonzero phase velocities and distinct
+relative phases generically give
+
+[
+oxed{
+Omega(	au_1)	imesOmega(	au_2)
+e0.
+}
+]
+
+The pinned source-component witness gives
+
+[
+oxed{
+|Omega_{50}	imesOmega_{100}|
+approx
+5.44020445	imes10^{-6}>0
+}
+]
+
+without calling `qhtri_graph_hamiltonian` and therefore without using its
+reference coefficients (0.25,0.7).
+
+A known normalized trajectory also has the unique minimum-Frobenius Hermitian
+representation
+
+[
+oxed{
+H_{min}
+=
+|vanglelanglePsi|
++
+|Psianglelangle v|
+-
+langlePsi|vangle
+|PsianglelanglePsi|,
+qquad
+v=idotPsi.
+}
+]
+
+This closes a coefficient-free **descriptive** operator lane.  It does not
+replace the predictive-dynamics problem: (H_{min}) represents an already
+admitted trajectory rather than selecting that trajectory in advance.
+
+The current native-source boundary remains explicit: PNCS does not yet emit one
+receipt binding a `TemporalObservationReceipt` post-state to a
+`HydrodynamicTrace` on the same (T^{36}) basis.  Until that object exists,
+the composition remains source-compatible and conditional rather than a native
+PNCS end-to-end contract.
