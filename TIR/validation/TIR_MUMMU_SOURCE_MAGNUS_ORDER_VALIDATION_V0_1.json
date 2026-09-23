@@ -1,13 +1,19 @@
 {
   "schema": "TIR_MUMMU_SOURCE_MAGNUS_ORDER_VALIDATION_V0_1",
   "status": "PASS",
-  "claim_scope": "smooth source-derived QHTRI local connection has cubic operator path-order defect; the discrete quartic scalar seam does not bind as the leading smooth-source scalar term",
+  "claim_scope": "the smooth horizontal CP1 projective connection induced by the source trajectory has a cubic path-order defect; this is not the Magnus expansion of the fixed source QHTRI Hamiltonian; the discrete quartic scalar seam does not bind as the leading projective-connection scalar term",
   "source_pins": {
     "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963"
   },
   "checks": [
     {
-      "name": "magnus_cubic_frobenius_coefficient_from_source_witness",
+      "name": "fixed_qhtri_source_hamiltonian_has_zero_time_order_commutator",
+      "status": "PASS",
+      "source_H_commutator_frobenius": 0,
+      "reason": "the pinned source witness uses one time-independent H"
+    },
+    {
+      "name": "magnus_cubic_frobenius_coefficient_from_projective_connection_witness",
       "status": "PASS",
       "witness_norm": 0.000902843008737589,
       "predicted_coefficient": 0.000053200534485434534
@@ -19,9 +25,13 @@
       "omega_derivative_dot_cross_inner_abs": 5.421010862427522e-20
     },
     {
-      "name": "source_path_order_operator_defect_is_cubic",
+      "name": "projective_connection_path_order_operator_defect_is_cubic",
       "status": "PASS",
-      "times": [0.1, 0.2, 0.3],
+      "times": [
+        0.1,
+        0.2,
+        0.3
+      ],
       "operator_defect_over_t3": [
         0.000053872598311808696,
         0.00005469134096262271,
@@ -31,27 +41,32 @@
       "relative_error_at_t01": 0.012632660436426225
     },
     {
-      "name": "source_character_defect_consistent_with_sextic_scaling",
+      "name": "projective_connection_character_defect_consistent_with_sextic_scaling",
       "status": "PASS",
-      "times": [0.2, 0.3, 0.4, 0.5],
+      "times": [
+        0.2,
+        0.3,
+        0.4,
+        0.5
+      ],
       "trace_defect_over_t6": [
         9.124645483638002e-10,
         9.335620220784926e-10,
         9.691141118761677e-10,
-        1.0129781458090292e-09
+        1.0129781458090292e-9
       ]
     },
     {
-      "name": "no_source_quartic_scalar_plateau",
+      "name": "no_projective_connection_quartic_scalar_plateau",
       "status": "PASS",
       "trace_defect_over_t4_t02": 3.649858193455201e-11,
-      "trace_defect_over_t4_t04": 1.5505825790018684e-10,
+      "trace_defect_over_t4_t04": 1.5505825790018685e-10,
       "quartic_source_binding": "FAIL"
     }
   ],
   "summary": {
-    "passed": 5,
-    "total": 5
+    "passed": 6,
+    "total": 6
   },
-  "note": "Static receipt values were cross-checked against a higher-resolution exact-eigensystem diagnostic; CI validator independently recomputes the same scaling with the pure-Python source fixture."
+  "note": "Static receipt values describe the horizontal/projective CP1 connection induced by the fixed-H trajectory. Direct source-Hamiltonian noncommutativity is tested separately on the adaptive semantic path."
 }
