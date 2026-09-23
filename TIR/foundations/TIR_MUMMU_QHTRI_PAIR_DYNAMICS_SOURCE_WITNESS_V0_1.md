@@ -527,43 +527,42 @@ Static receipt:
 A later direct operator audit separates the horizontal projective connection from
 the Hamiltonian that generates the 36D source trajectory:
 
-`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`.
+TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md.
 
 For this pinned fixture,
 
-[
-H(	au)=H_0
-]
+\[
+H(\tau)=H_0
+\]
 
 is time independent, hence
 
-[
-oxed{
-[H(	au_1),H(	au_2)]=0.
+\[
+\boxed{
+[H(\tau_1),H(\tau_2)]=0.
 }
-]
+\]
 
 Therefore the nonzero quantity
 
-[
-mathcal W_j
+\[
+\mathcal W_j
 =
-|Omega_j	imesdotOmega_j|
-]
+\|\Omega_j\times\dot\Omega_j\|
+\]
 
 must be read as a witness for the declared horizontal/projective connection,
 not as a direct source-Hamiltonian commutator witness.
 
 Genuine source-operator noncommutativity is established separately on the
-adaptive PNCS semantic path, where (g_k) and therefore (H_k) vary between
+adaptive PNCS semantic path, where \(g_k\) and therefore \(H_k\) vary between
 steps and direct evaluation gives
 
-[
-oxed{
-[H_k,H_{k+1}]
-eq0.
+\[
+\boxed{
+[H_k,H_{k+1}]\neq0.
 }
-]
+\]
 
 This correction preserves all pair-dynamics and projector-derivative results
 above while narrowing the operator-level claim to the quantity actually tested.
