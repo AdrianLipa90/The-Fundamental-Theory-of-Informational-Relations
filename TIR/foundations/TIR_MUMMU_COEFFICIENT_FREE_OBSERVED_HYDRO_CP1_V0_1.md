@@ -8,13 +8,13 @@ Date: 2026-09-23
 
 The existing source-derived MUMMU witness used the PNCS QHTRI graph Hamiltonian
 
-[
-H_{m QHTRI}
+\[
+H_{\rm QHTRI}
 =
 0.25,operatorname{diag}(widehatomega)
 +
 0.7,widehat g.
-]
+\]
 
 Those coefficients are regression/reference defaults, not source-derived
 invariants.
@@ -22,13 +22,13 @@ invariants.
 This theorem shows that a different model-level route to a full local (CP^1)
 history exists using already implemented PNCS source components:
 
-[
-oxed{
-	ext{temporal observation amplitudes}
+\[
+\boxed{
+\text{temporal observation amplitudes}
 +
-	ext{hydrodynamic }T^{36}	ext{ phase flow}.
+\text{hydrodynamic }T^{36}\text{ phase flow}.
 }
-]
+\]
 
 The route does not use the QHTRI graph Hamiltonian or its (0.25,0.7)
 coefficients.
@@ -52,15 +52,15 @@ The temporal geometry contract explicitly maps
 
 The observation layer provides normalized probabilities
 
-[
+\[
 p_k=|a_k|^2,
-]
+\]
 
 while the hydrodynamic layer provides an ordered proper-time phase trajectory
 
-[
-	aumapsto 	heta_k(	au).
-]
+\[
+\taumapsto \theta_k(\tau).
+\]
 
 There is not yet one native PNCS receipt binding an observation post-state to a
 hydrodynamic trace.  That composition is therefore conditional in TIR.
@@ -77,99 +77,99 @@ Assume:
 
 For pair (j), with coordinates (L=2j), (R=2j+1), define
 
-[
+\[
 q_j=p_L+p_R>0,
-]
+\]
 
-[
+\[
 u_j
 =
-rac{p_L-p_R}{p_L+p_R},
-]
+\frac{p_L-p_R}{p_L+p_R},
+\]
 
 and
 
-[
-delta_j(	au)
+\[
+delta_j(\tau)
 =
-	heta_R(	au)-	heta_L(	au).
-]
+\theta_R(\tau)-\theta_L(\tau).
+\]
 
 The pair state is
 
-[
-oxed{
-|psi_j(	au)angle
+\[
+\boxed{
+|psi_j(\tau)\rangle
 =
-rac1{sqrt{q_j}}
-egin{pmatrix}
-sqrt{p_L}e^{i	heta_L(	au)}\
-sqrt{p_R}e^{i	heta_R(	au)}
+\frac1{sqrt{q_j}}
+\begin{pmatrix}
+sqrt{p_L}e^{i\theta_L(\tau)}\
+sqrt{p_R}e^{i\theta_R(\tau)}
 end{pmatrix}.
 }
-]
+\]
 
 The corresponding Bloch vector is
 
-[
-oxed{
+\[
+\boxed{
 mathbf n_j
 =
 left(
 r_jcosdelta_j,,
 r_jsindelta_j,,
 u_j
-ight),
+\right),
 qquad
 r_j=sqrt{1-u_j^2}.
 }
-]
+\]
 
 Because the observation probabilities are held fixed on the admitted trace,
 
-[
+\[
 dot u_j=0.
-]
+\]
 
 ## 4. Exact phase-flow generator
 
 For constant (u),
 
-[
+\[
 partial_deltamathbf n
 =
 (-rsindelta,,
  rcosdelta,,
  0).
-]
+\]
 
 Therefore
 
-[
-oxed{
-oldsymbolOmega
+\[
+\boxed{
+\boldsymbol\Omega
 =
-mathbf n	imesdot{mathbf n}
+mathbf n\timesdot{mathbf n}
 =
 dotdelta
 left(
 -u rcosdelta,,
 -u rsindelta,,
 r^2
-ight).
+\right).
 }
-]
+\]
 
 The local spin connection is
 
-[
-oxed{
+\[
+\boxed{
 mathcal A
 =
--rac{i}{2}
-oldsymbolOmegacdotoldsymbolsigma.
+-\frac{i}{2}
+\boldsymbol\Omegacdot\boldsymbolsigma.
 }
-]
+\]
 
 No QHTRI graph-Hamiltonian coefficient enters this expression.
 
@@ -177,42 +177,42 @@ No QHTRI graph-Hamiltonian coefficient enters this expression.
 
 Let
 
-[
+\[
 mathbf w(delta)
 =
 (-urcosdelta,,-ursindelta,,r^2).
-]
+\]
 
 For two admitted sections,
 
-[
-oldsymbolOmega_1
+\[
+\boldsymbol\Omega_1
 =
 dotdelta_1mathbf w(delta_1),
 qquad
-oldsymbolOmega_2
+\boldsymbol\Omega_2
 =
 dotdelta_2mathbf w(delta_2).
-]
+\]
 
 Their vector cross product is
 
-[
-oxed{
-mathbf w(delta_1)	imesmathbf w(delta_2)
+\[
+\boxed{
+mathbf w(delta_1)\timesmathbf w(delta_2)
 =
-egin{pmatrix}
+\begin{pmatrix}
 u r^3(sindelta_1-sindelta_2)\
 u r^3(cosdelta_2-cosdelta_1)\
 u^2r^2sin(delta_2-delta_1)
 end{pmatrix}.
 }
-]
+\]
 
 Hence a sufficient and generic exact condition for noncommutation is
 
-[
-oxed{
+\[
+\boxed{
 0<|u|<1,
 quad
 dotdelta_1dotdelta_2
@@ -221,17 +221,17 @@ quad
 delta_1
 otequivdelta_2pmod{2pi}.
 }
-]
+\]
 
 Then
 
-[
-oxed{
-[mathcal A(	au_1),mathcal A(	au_2)]
+\[
+\boxed{
+[mathcal A(\tau_1),mathcal A(\tau_2)]
 
 e0.
 }
-]
+\]
 
 Thus amplitude imbalance plus an evolving relative phase is sufficient for noncommutativity of the declared horizontal/projective connection. It is not sufficient to prove noncommutativity of the source Hamiltonian.
 
@@ -241,28 +241,28 @@ Thus amplitude imbalance plus an evolving relative phase is sufficient for nonco
 
 For `TemporalDualPairProjection36`,
 
-[
+\[
 t_pm=NOWpmDelta,
-]
+\]
 
 so
 
-[
+\[
 u_pm
 =
-pmrac{Delta}{lambda}.
-]
+pm\frac{Delta}{lambda}.
+\]
 
 Therefore the pair phases depend on (Delta/lambda), not on the absolute
 value of (NOW).
 
 Hence
 
-[
-oxed{
-rac{partialdelta_{m dual}}{partial NOW}=0.
+\[
+\boxed{
+\frac{partialdelta_{\rm dual}}{partial NOW}=0.
 }
-]
+\]
 
 Moving the observation origin alone does not create the required phase history
 for the canonical inversion-dual pair.
@@ -274,22 +274,22 @@ weights are positive real numbers and do not change the pair phase difference.
 
 At fixed (delta),
 
-[
-mathbf n	imespartial_umathbf n
+\[
+mathbf n\timespartial_umathbf n
 =
-rac1r
+\frac1r
 (sindelta,-cosdelta,0).
-]
+\]
 
 All such generators are collinear as (u) changes.
 
 Therefore
 
-[
-oxed{
-	ext{Gaussian localization alone is locally Abelian on one pair.}
+\[
+\boxed{
+\text{Gaussian localization alone is locally Abelian on one pair.}
 }
-]
+\]
 
 Both ingredients are required: an imbalanced pair and a changing relative phase.
 
@@ -297,50 +297,50 @@ Both ingredients are required: an imbalanced pair and a changing relative phase.
 
 Use the deterministic temporal grid
 
-[
+\[
 t_k=k-18,
 qquad
 k=0,ldots,35,
-]
+\]
 
 with (lambda=4), equal-modulus pre-observation amplitudes and
 Gaussian localization at
 
-[
+\[
 NOW=0,
 qquad
 sigma=1.
-]
+\]
 
 For pair (j=9), coordinates (18,19) correspond to times (0,1).
 
 The post-observation pair imbalance is exactly
 
-[
-oxed{
+\[
+\boxed{
 u
 =
-rac{1-e^{-1/2}}{1+e^{-1/2}}
+\frac{1-e^{-1/2}}{1+e^{-1/2}}
 =
-	anhrac14
+\tanh\frac14
 approx
 0.2449186624.
 }
-]
+\]
 
 Initialize `PhaseFlowState36` from the same temporal phase projection and use
 an admitted hydrodynamic gate
 
-[
-ho=1,
+\[
+\rho=1,
 qquad
 
-u_{m eff}=0,
+u_{\rm eff}=0,
 qquad
 gamma=0.05,
 qquad
 dt=0.01,
-]
+\]
 
 with a unit drive on coordinate 18.
 
@@ -349,17 +349,17 @@ relative phase velocity after the first step.
 
 At steps 50 and 100 the deterministic witness gives
 
-[
-oxed{
+\[
+\boxed{
 left|
-oldsymbolOmega_{50}
-	imes
-oldsymbolOmega_{100}
-ight|
+\boldsymbol\Omega_{50}
+\times
+\boldsymbol\Omega_{100}
+\right|
 approx
-5.44020445	imes10^{-6}>0.
+5.44020445\times10^{-6}>0.
 }
-]
+\]
 
 The witness depends on the admitted hydrodynamic trajectory parameters, but not
 on the QHTRI graph coefficients (0.25,0.7).
@@ -371,114 +371,114 @@ representation.
 
 Let
 
-[
-|Psiangle^dagger|Psiangle=1,
-]
+\[
+|Psi\rangle^dagger|Psi\rangle=1,
+\]
 
 and define
 
-[
-|vangle
+\[
+|v\rangle
 =
-i|dotPsiangle.
-]
+i|dotPsi\rangle.
+\]
 
 Normalization implies
 
-[
+\[
 a
 :=
-langlePsi|vangle
+langlePsi|v\rangle
 inmathbb R.
-]
+\]
 
 Define
 
-[
-oxed{
+\[
+\boxed{
 H_{min}
 =
-|vanglelanglePsi|
+|v\ranglelanglePsi|
 +
-|Psianglelangle v|
+|Psi\ranglelangle v|
 -
-a|PsianglelanglePsi|.
+a|Psi\ranglelanglePsi|.
 }
-]
+\]
 
 Then
 
-[
+\[
 H_{min}^dagger=H_{min},
-]
+\]
 
 and
 
-[
-oxed{
-H_{min}|Psiangle=|vangle
+\[
+\boxed{
+H_{min}|Psi\rangle=|v\rangle
 =
-i|dotPsiangle.
+i|dotPsi\rangle.
 }
-]
+\]
 
 Therefore
 
-[
-i|dotPsiangle
+\[
+i|dotPsi\rangle
 =
-H_{min}|Psiangle.
-]
+H_{min}|Psi\rangle.
+\]
 
 ### Minimum-norm uniqueness
 
-Choose a basis with (|Psiangle=e_1) and decompose
+Choose a basis with (|Psi\rangle=e_1) and decompose
 
-[
-|vangle
+\[
+|v\rangle
 =
 (a,w)^T.
-]
+\]
 
-Every Hermitian solution of (H|Psiangle=v) has block form
+Every Hermitian solution of (H|Psi\rangle=v) has block form
 
-[
+\[
 H
 =
-egin{pmatrix}
+\begin{pmatrix}
 a & w^dagger\
 w & B
 end{pmatrix},
 qquad
 B=B^dagger.
-]
+\]
 
 Hence
 
-[
+\[
 |H|_F^2
 =
 a^2+2|w|^2+|B|_F^2.
-]
+\]
 
 The unique minimum occurs at
 
-[
+\[
 B=0,
-]
+\]
 
 which is exactly (H_{min}).
 
 Thus
 
-[
-oxed{
+\[
+\boxed{
 H_{min}
 =
 operatorname*{argmin}_{H=H^dagger, HPsi=idotPsi}
 |H|_F.
 }
-]
+\]
 
 This supplies a canonical operator representation of an already admitted
 trajectory without inserting detuning/coupling mixture coefficients.
@@ -489,15 +489,15 @@ This distinction is mandatory.
 
 The source-composed trajectory plus (H_{min}) answers:
 
-[
-	ext{“what Hermitian operator minimally represents this admitted motion?”}
-]
+\[
+\text{“what Hermitian operator minimally represents this admitted motion?”}
+\]
 
 It does not answer:
 
-[
-	ext{“what operator predicts the motion before the trajectory is known?”}
-]
+\[
+\text{“what operator predicts the motion before the trajectory is known?”}
+\]
 
 The first is now coefficient-free.
 
@@ -511,19 +511,19 @@ transport**, but not automatically from predictive QHTRI dynamics.
 The PNCS semantic-magnitude gate proves that, at fixed content identity,
 (phi), (omega), lane profile and source snapshot, varying
 
-[
-Q_{BNA}=rac{BN}{A_R}
-]
+\[
+Q_{BNA}=\frac{BN}{A_R}
+\]
 
 leaves all current HTRI/QHTRI numeric outputs unchanged, including (H).
 
 Thus on the current source path
 
-[
-oxed{
-rac{partial H_{m QHTRI}}{partial Q_{BNA}}=0
+\[
+\boxed{
+\frac{partial H_{\rm QHTRI}}{partial Q_{BNA}}=0
 }
-]
+\]
 
 in the operational sense tested by that firewall.
 
@@ -536,17 +536,17 @@ The missing native object is now narrower than a new Hamiltonian law.
 
 A future PNCS receipt may bind:
 
-[
-oxed{
+\[
+\boxed{
 (
-	ext{TemporalObservationReceipt},
-	ext{shared }T^{36}	ext{ basis},
-	ext{HydrodynamicTrace}
+\text{TemporalObservationReceipt},
+\text{shared }T^{36}\text{ basis},
+\text{HydrodynamicTrace}
 )
 longrightarrow
-	ext{ObservedHydroWaveTrace}.
+\text{ObservedHydroWaveTrace}.
 }
-]
+\]
 
 It must prove:
 
@@ -597,45 +597,45 @@ in
 
 With frozen pair amplitudes and hydrodynamic phase velocities,
 
-[
-H_{m phase}
+\[
+H_{\rm phase}
 =
 -operatorname{diag}(v_L,v_R)
 =
--rac{v_L+v_R}{2}I
+-\frac{v_L+v_R}{2}I
 +
-rac{dotdelta}{2}sigma_z.
-]
+\frac{dotdelta}{2}sigma_z.
+\]
 
 Therefore all time-separated dynamical phase Hamiltonians commute:
 
-[
-oxed{
-[H_{m phase}(	au_1),H_{m phase}(	au_2)]=0.
+\[
+\boxed{
+[H_{\rm phase}(\tau_1),H_{\rm phase}(\tau_2)]=0.
 }
-]
+\]
 
 The projective horizontal generator is instead
 
-[
-oxed{
+\[
+\boxed{
 Omega
 =
 h-(ncdot h)n,
 qquad
 h=(0,0,dotdelta),
 }
-]
+\]
 
 and can rotate with the moving Bloch state.  Hence the same bound trajectory can
 have
 
-[
-oxed{
-[mathcal A_{m geom}(	au_1),mathcal A_{m geom}(	au_2)]
+\[
+\boxed{
+[mathcal A_{\rm geom}(\tau_1),mathcal A_{\rm geom}(\tau_2)]
 e0.
 }
-]
+\]
 
 The coefficient-free witness is therefore a statement about non-Abelian
 **projective/horizontal geometry**, not by itself evidence of a non-Abelian
@@ -646,39 +646,39 @@ dynamical interaction Hamiltonian.
 
 For the fixed-probability observed-hydro construction,
 
-[
-psi_k(	au)
+\[
+psi_k(\tau)
 =
-sqrt{p_k}e^{i	heta_k(	au)},
-]
+sqrt{p_k}e^{i\theta_k(\tau)},
+\]
 
 the exact Hamiltonian
 
-[
-oxed{
-H_D(	au)
+\[
+\boxed{
+H_D(\tau)
 =
 -operatorname{diag}
-(dot	heta_1,ldots,dot	heta_{36})
+(dot\theta_1,ldots,dot\theta_{36})
 }
-]
+\]
 
 satisfies
 
-[
+\[
 idotpsi=H_Dpsi.
-]
+\]
 
-Because every (H_D(	au)) is diagonal,
+Because every (H_D(\tau)) is diagonal,
 
-[
-oxed{
-[H_D(	au_1),H_D(	au_2)]=0.
+\[
+\boxed{
+[H_D(\tau_1),H_D(\tau_2)]=0.
 }
-]
+\]
 
 Therefore the nonzero
-(Omega(	au_1)	imesOmega(	au_2)) reported above is specifically a
+(Omega(\tau_1)\timesOmega(\tau_2)) reported above is specifically a
 horizontal/projective connection witness.
 
 The direct source-operator criterion is separated in
