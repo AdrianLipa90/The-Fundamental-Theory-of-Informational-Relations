@@ -431,7 +431,147 @@ Hence the local mechanism of source-operator path ordering is
 The decay term alone cannot produce this effect under the declared normalized
 QHTRI lift.
 
-## 10. Corrected operator hierarchy
+## 10. Coefficient-free phase-geometry obstruction
+
+Write the phase-conditioned Hebbian direction as
+
+\[
+K_H
+=
+\lambda_H C_\Phi,
+\]
+
+with
+
+\[
+\lambda_H
+=
+0.1(\mathrm{activity}-0.5)
+\]
+
+and
+
+\[
+\boxed{
+(C_\Phi)_{ij}
+=
+\begin{cases}
+\cos(\Phi_i-\Phi_j), & i\neq j,\\
+0, & i=j.
+\end{cases}
+}
+\]
+
+Then the infinitesimal commutator becomes
+
+\[
+\boxed{
+[J,\dot J]
+=
+\frac{\lambda_H}{\rho^2}
+[j,C_\Phi].
+}
+\]
+
+Therefore the binary directional obstruction is independent of the numerical
+Hebbian gain whenever \(\lambda_H\neq0\).
+
+Define the dimensionless coefficient-free witness
+
+\[
+\boxed{
+\Xi_\Phi
+=
+\frac{
+\|[j,C_\Phi]\|_F
+}{
+\|j\|_F\|C_\Phi\|_F
+}.
+}
+\]
+
+For the pinned deterministic source snapshot,
+
+\[
+\|[j,C_\Phi]\|_F
+\approx
+55.4700716977,
+\]
+
+\[
+\|j\|_F
+\approx
+4.45295407567,
+\qquad
+\|C_\Phi\|_F
+\approx
+25.4623130522,
+\]
+
+hence
+
+\[
+\boxed{
+\Xi_\Phi
+\approx
+0.489229523709.
+}
+\]
+
+This is the coefficient-free statement:
+
+\[
+\boxed{
+[j,C_\Phi]\neq0.
+}
+\]
+
+The current gain is
+
+\[
+\lambda_H
+\approx
+-1.65555555556\times10^{-2},
+\]
+
+which restores the previously measured local rate
+
+\[
+\frac{|\lambda_H|}{\rho^2}
+\|[j,C_\Phi]\|_F
+\approx
+9.80752972855\times10^{-2}.
+\]
+
+A source-ablation comparison gives the following dimensionless witnesses on the
+same initial coupling graph:
+
+\[
+\Xi_{\rm raw\ phase}
+\approx
+0.08078159138,
+\]
+
+\[
+\Xi_{\rm common\ harmonic}
+\approx
+0.39256286197,
+\]
+
+\[
+\Xi_{\rm channel\ specific\ harmonic}
+\approx
+0.48922952371.
+\]
+
+Thus the fundamental phase geometry already fails to commute with the coupling
+graph, while harmonic composition and channel-specific harmonic structure
+increase the directional mismatch in this pinned fixture.
+
+These amplification factors are numerical source-fixture observations, not
+universal theorems.
+
+## 11. Corrected operator hierarchy
 
 MUMMU must keep two lanes:
 
@@ -459,7 +599,7 @@ and separately
 
 Neither is a silent proxy for the other.
 
-## 11. Refined remaining arbitrariness
+## 12. Refined remaining arbitrariness
 
 The result removes two false dependencies.
 
@@ -489,7 +629,7 @@ Quantitative physical prediction still requires source authority for:
 Thus the next physical derivation target is the microscopic/source derivation
 of the adaptive coupling law itself.
 
-## 12. Claim ledger
+## 13. Claim ledger
 
 | Statement | Status |
 |---|---|
@@ -501,10 +641,10 @@ of the adaptive coupling law itself.
 | coupling-only \(J_k\) history is noncommuting on the same path | NUMERIC SOURCE-PINNED PASS |
 | exact defaults \(0.25,0.7\) are required for existence of source non-Abelianity | REFUTED |
 | pure normalized decay rotates the coupling-operator direction | REFUTED |
-| phase-conditioned Hebbian update has \([J,\dot J]\neq0\) on pinned source | NUMERIC + DIFFERENTIAL PASS |
+| phase-conditioned Hebbian update has \([J,\dot J]\neq0\) on pinned source | NUMERIC + DIFFERENTIAL PASS |\n| coefficient-free phase geometry has \([j,C_\Phi]\neq0\) | NUMERIC SOURCE-PINNED PASS |
 | physical microscopic realization | OPEN / NOT CLAIMED |
 
-## 13. Validation
+## 14. Validation
 
 Deterministic validator:
 
