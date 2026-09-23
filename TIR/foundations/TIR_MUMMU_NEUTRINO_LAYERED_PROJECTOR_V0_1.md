@@ -902,3 +902,64 @@ receipt binding a `TemporalObservationReceipt` post-state to a
 `HydrodynamicTrace` on the same (T^{36}) basis.  Until that object exists,
 the composition remains source-compatible and conditional rather than a native
 PNCS end-to-end contract.
+
+
+## 21. Geometric/dynamical connection split
+
+The coefficient-free observed-hydro lane has now been decomposed into its two
+distinct operator structures.
+
+The source phase law has the diagonal pair Hamiltonian
+
+[
+oxed{
+H_{m phase}
+=
+-operatorname{diag}(v_L,v_R),
+}
+]
+
+so
+
+[
+oxed{
+[H_{m phase}(	au_1),H_{m phase}(	au_2)]=0.
+}
+]
+
+The horizontal (CP^1) connection instead uses
+
+[
+Omega
+=
+n	imesdot n
+=
+h-(ncdot h)n,
+]
+
+whose direction depends on the moving projective state.  Its time-separated
+generators may therefore fail to commute even while the underlying diagonal
+phase Hamiltonians commute.
+
+For the pinned observed-hydro fixture:
+
+[
+|Omega_{50}	imesOmega_{100}|
+approx5.44020445	imes10^{-6},
+]
+
+while the dynamical-Hamiltonian commutator is exactly zero.
+
+Thus downstream MUMMU claims must type noncommutativity as either:
+
+[
+oxed{	ext{GEOMETRIC / HORIZONTAL}}
+]
+
+or
+
+[
+oxed{	ext{DYNAMICAL / HAMILTONIAN}}.
+]
+
+The current coefficient-free source-composed witness closes only the first.
