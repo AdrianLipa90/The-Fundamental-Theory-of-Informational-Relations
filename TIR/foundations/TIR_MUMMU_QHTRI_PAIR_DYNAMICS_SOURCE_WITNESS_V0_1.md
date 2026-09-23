@@ -506,7 +506,7 @@ whether the quartic coefficient emerges or fails.
 | (dot u_j) formula follows from Schrödinger evolution | `EXACT` |
 | projector first/second derivative formulas | `EXACT` |
 | local witness (Omega	imesdotOmega) controls first noncommuting time separation | `EXACT` |
-| deterministic pair-0 witness is nonzero | `NUMERIC PASS / PINNED FIXTURE` |
+| deterministic pair-0 horizontal/projective witness is nonzero | `NUMERIC PASS / PINNED FIXTURE` |\n| fixed source Hamiltonian history is noncommuting | `REFUTED / COMMUTATOR ZERO` |
 | no pair-dynamics ansatz is required | `PASS AT MODEL LEVEL` |
 | QHTRI coefficients are fundamental physical constants | `NOT CLAIMED` |
 | physical MUMMU/neutrino/gravity realization | `OPEN / NOT CLAIMED` |
