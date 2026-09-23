@@ -66,6 +66,7 @@ Fields:
 - htri_dt
 - coordinate_dt
 - time_binding_receipt_sha256
+- time_binding_model_id
 - combined_g
 - proper_dt
 
@@ -215,7 +216,7 @@ proper_time_model_id, tau_start, tau_end, numeric_tolerance, steps[].
 Each step MUST include:
 
 step_index, htri_step_receipt_sha256, H_sha256, htri_dt, coordinate_dt,
-time_binding_receipt_sha256, combined_g, proper_dt.
+time_binding_receipt_sha256, time_binding_model_id, combined_g, proper_dt.
 
 Optional descriptive metadata must not alter the canonical identity unless it is
 explicitly promoted into the schema.
@@ -227,16 +228,17 @@ An execution-to-segment binding is rejected if any of the following holds:
 1. no steps are supplied;
 2. a step index is missing, duplicated, or out of order;
 3. any digest is not lowercase SHA-256;
-4. any numeric field is non-finite;
-5. htri_dt <= 0;
-6. coordinate_dt <= 0;
-7. combined_g <= 0;
-8. proper_dt <= 0;
-9. htri_dt != coordinate_dt outside tolerance;
-10. proper_dt != coordinate_dt * combined_g outside tolerance;
-11. tau_end <= tau_start;
-12. sum(proper_dt) != tau_end - tau_start outside tolerance;
-13. the declared PNLF trajectory commitment differs from the canonical receipt
+4. any step time_binding_model_id differs from the layer proper_time_model_id;
+5. any numeric field is non-finite;
+6. htri_dt <= 0;
+7. coordinate_dt <= 0;
+8. combined_g <= 0;
+9. proper_dt <= 0;
+10. htri_dt != coordinate_dt outside tolerance;
+11. proper_dt != coordinate_dt * combined_g outside tolerance;
+12. tau_end <= tau_start;
+13. sum(proper_dt) != tau_end - tau_start outside tolerance;
+14. the declared PNLF trajectory commitment differs from the canonical receipt
     commitment.
 
 Hence:
