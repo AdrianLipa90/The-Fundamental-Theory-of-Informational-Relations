@@ -311,6 +311,51 @@ def main():
         "relative_error_finest": local_rel_error,
     })
 
+    def phase_geometry_witness(phase_vector):
+        cmat = np.cos(phase_vector[:, None] - phase_vector[None, :])
+        cmat = 0.5 * (cmat + cmat.T)
+        np.fill_diagonal(cmat, 0.0)
+        comm = j0 @ cmat - cmat @ j0
+        xi = float(
+            np.linalg.norm(comm, "fro")
+            / (np.linalg.norm(j0, "fro") * np.linalg.norm(cmat, "fro"))
+        )
+        return cmat, float(np.linalg.norm(comm, "fro")), xi
+
+    c_phi, phase_comm_norm, xi_phi = phase_geometry_witness(phi_eff0)
+
+    common_complex = np.sum(
+        HARMONIC_AMPS[None, :]
+        * np.exp(1j * phi[:, None] * HARMONIC_VALUES[None, :]),
+        axis=1,
+    )
+    common_harmonic_phase = np.angle(common_complex)
+    _, _, xi_common = phase_geometry_witness(common_harmonic_phase)
+    _, _, xi_raw = phase_geometry_witness(phi)
+
+    lambda_h = 0.1 * (activity0 - 0.5)
+    reconstructed_rate = abs(lambda_h) * phase_comm_norm / (rho0 * rho0)
+    checks.append({
+        "name": "coefficient_free_phase_geometry_obstruction",
+        "status": (
+            "PASS"
+            if xi_phi > 0.48
+            and abs(reconstructed_rate - predicted_rate) < 1e-13
+            else "FAIL"
+        ),
+        "Xi_phase": xi_phi,
+        "raw_phase_Xi": xi_raw,
+        "common_harmonic_Xi": xi_common,
+        "channel_specific_harmonic_Xi": xi_phi,
+        "j_C_commutator_frobenius": phase_comm_norm,
+        "j_frobenius": float(np.linalg.norm(j0, "fro")),
+        "C_phi_frobenius": float(np.linalg.norm(c_phi, "fro")),
+        "lambda_H": lambda_h,
+        "reconstructed_commutator_rate": reconstructed_rate,
+        "harmonic_to_raw_ratio": xi_phi / xi_raw,
+        "channel_specific_to_common_ratio": xi_phi / xi_common,
+    })
+
     addresses = [semantic_address(semantic_content_id(role)) for role in ROLES]
     Hs = []
     Js = []
@@ -383,7 +428,8 @@ def main():
             "path nevertheless has direct nonzero adjacent Hamiltonian commutators, "
             "including in the coupling-only sector; the initial infinitesimal "
             "operator rotation is isolated to the phase-conditioned Hebbian update "
-            "while pure decay is directionally removed by spectral normalization"
+            "while pure decay is directionally removed by spectral normalization; "
+            "a coefficient-free normalized obstruction [j,C_phi] is also recorded"
         ),
         "source_pins": {
             "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
