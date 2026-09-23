@@ -1,0 +1,67 @@
+{
+  "schema": "TIR_MUMMU_QHTRI_MIXING_ANGLE_CALIBRATION_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "scale-free local trajectory-shape observables can calibrate the QHTRI mixing angle on the pinned deterministic branch; no fundamental actuation/source law is promoted",
+  "checks": [
+    {
+      "name": "trajectory_shape_invariants_cancel_hamiltonian_scale",
+      "status": "PASS",
+      "max_invariant_abs_error": 3.126388037344441e-13,
+      "scaling_diagnostics": [
+        {
+          "scale": 0.37,
+          "udot_over_s": -0.005875926016698732,
+          "omega_norm_over_s": 0.016223974731691324,
+          "witness_over_s3": 0.00015145529353845265
+        },
+        {
+          "scale": 1.0,
+          "udot_over_s": -0.005875926016698739,
+          "omega_norm_over_s": 0.016223974731691272,
+          "witness_over_s3": 0.00015145529353845246
+        },
+        {
+          "scale": 2.4,
+          "udot_over_s": -0.005875926016698709,
+          "omega_norm_over_s": 0.016223974731691262,
+          "witness_over_s3": 0.00015145529353845173
+        }
+      ]
+    },
+    {
+      "name": "default_angle_shape_signature",
+      "status": "PASS",
+      "chi_deg": 34.18041622288494,
+      "udot": -0.005875926016698739,
+      "omega_norm": 0.016223974731691272,
+      "witness": 0.00015145529353845246,
+      "R1": 2.7610924108956634,
+      "R2": 35.466037853920184
+    },
+    {
+      "name": "pinned_fixture_R1_strictly_decreases",
+      "status": "PASS",
+      "max_forward_difference": -0.00014482748075828056,
+      "R1_start": 153395.03272272032,
+      "R1_end": 1.048397831373676
+    },
+    {
+      "name": "pinned_fixture_R2_strictly_increases",
+      "status": "PASS",
+      "min_forward_difference": 0.005122389910027891,
+      "R2_start": 0.0008090031049569446,
+      "R2_end": 62.19483374228468
+    },
+    {
+      "name": "grid_calibration_recovers_default_neighborhood",
+      "status": "PASS",
+      "grid_chi_deg": 34.18213773905395,
+      "target_chi_deg": 34.18041622288494,
+      "signature_l1_error": 0.0013638781625173735
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "total": 5
+  }
+}
