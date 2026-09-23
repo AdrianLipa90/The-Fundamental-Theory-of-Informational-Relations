@@ -1,0 +1,318 @@
+# TIR MUMMU Neutrino-Layered Holographic Projector v0.1
+
+Status: `MODEL_CANDIDATE / EXACT_LAYER_INTERFERENCE_THEOREM / EXACT_MOIRE_TWIST_SCALING / NEUTRINO_PHYSICAL_BINDING_OPEN / GRAVITY_BINDING_OPEN`
+
+Date: 2026-09-23
+
+## 1. Scope and epistemic boundary
+
+This note formalizes a TIR model candidate: a layered holographic carrier built from Stella Octangula/Bloch cells, coherent cell oscillations, and relative layer twist. The emergent inter-layer interference field is named **MUMMU**.
+
+The exact mathematics below concerns layered wave/interference geometry. Identification of the layers with physical neutrinos, of the collective source with physical mass density, or of the emergent metric with spacetime gravity is not established by these identities and remains a physical binding problem.
+
+## 2. Layer carrier
+
+Let
+
+\[
+\mathcal N=\{\Sigma_n\}_{n\in\mathbb Z}
+\]
+
+be an ordered family of holographic layers. Each layer carries the antipodally closed tetrahedral Bloch frame
+
+\[
+\Sigma_{\rm stella}=T\cup(-T),
+\]
+
+with eight Stella Octangula rays inherited from `TIR_STELLA_DISTINCTION_HOLONOMY_BRIDGE_V0_1.md`.
+
+For reciprocal channel \(a\) on layer \(n\), define
+
+\[
+\psi_{n,a}(\mathbf x,t)
+=c_{n,a}\exp\{i[\mathbf k_{n,a}\cdot\mathbf x-\omega_{n,a}t+\phi_{n,a}]\}.
+\]
+
+The layer orientation is
+
+\[
+\mathbf k_{n,a}=R(\theta_n)\mathbf k_{0,a}.
+\]
+
+The projected field and observable intensity are
+
+\[
+\boxed{\Psi(\mathbf x,t)=\sum_{n,a}\psi_{n,a}(\mathbf x,t)},
+\qquad
+\boxed{\mathcal P(\mathbf x,t)=|\Psi(\mathbf x,t)|^2}.
+\]
+
+## 3. MUMMU as the relational field
+
+Define the MUMMU field as the non-diagonal part of the projector:
+
+\[
+\boxed{
+\mathcal M
+:=\sum_{(n,a)\ne(m,b)}
+\psi_{n,a}\psi_{m,b}^*
+}.
+\]
+
+Thus
+
+\[
+\mathcal P=\sum_{n,a}|\psi_{n,a}|^2+\mathcal M.
+\]
+
+MUMMU is therefore typed as a relational/interference field.
+
+## 4. Exact two-layer moire scale
+
+For one reciprocal channel with lattice period \(a\),
+
+\[
+k=\frac{2\pi}{a}.
+\]
+
+Let the second layer be rotated by \(\delta\theta\). Then
+
+\[
+\Delta\mathbf q=[R(\delta\theta)-I]\mathbf k
+\]
+
+has exact magnitude
+
+\[
+\boxed{|\Delta\mathbf q|=2k\sin\frac{|\delta\theta|}{2}}.
+\]
+
+Hence
+
+\[
+\boxed{
+L_M=\frac{2\pi}{|\Delta\mathbf q|}
+=\frac{a}{2\sin(|\delta\theta|/2)}
+}.
+\]
+
+For \(|\delta\theta|\ll1\),
+
+\[
+\boxed{L_M\sim\frac{a}{|\delta\theta|}}.
+\]
+
+## 5. Layer torsion law
+
+Define the model-specific layer-twist density
+
+\[
+\boxed{\tau_L(z):=\frac{d\theta}{dz}}.
+\]
+
+This must not be silently identified with Cartan torsion \(T^a\); the existing TIR curvature/torsion firewall remains intact.
+
+For neighboring layers separated by \(d\),
+
+\[
+\delta\theta\simeq\tau_L d,
+\]
+
+so
+
+\[
+\boxed{
+L_M\simeq\frac{a}{|\tau_L|d}
+}.
+\]
+
+In the distinguished equal-spacing/equal-cell-scale case \(d=a\),
+
+\[
+\boxed{L_M\simeq\frac1{|\tau_L|}}.
+\]
+
+Thus the macroscopic interference length is, to leading order, the inverse layer-twist density and is independent of the microscopic carrier length.
+
+## 6. N-layer holographic sharpening theorem
+
+For a single channel whose inter-layer phase increment is \(\chi\),
+
+\[
+\Psi_N(\chi)=\sum_{n=0}^{N-1}e^{in\chi}.
+\]
+
+Therefore
+
+\[
+\boxed{
+\Psi_N(\chi)
+=e^{i(N-1)\chi/2}
+\frac{\sin(N\chi/2)}{\sin(\chi/2)}
+}
+\]
+
+and
+
+\[
+\boxed{
+I_N(\chi)
+=\left|\frac{\sin(N\chi/2)}{\sin(\chi/2)}\right|^2.
+}
+\]
+
+The coherent maximum is
+
+\[
+\boxed{I_N(0)=N^2}.
+\]
+
+If \(\chi=\Delta q\,x\), the moire period is \(L_M=2\pi/|\Delta q|\), while the first zeros around a principal maximum occur at
+
+\[
+\boxed{|x|=\frac{L_M}{N}}.
+\]
+
+Hence the coherent projection sharpens as \(1/N\).
+
+## 7. Neutrino phase-clock instantiation
+
+TIR already carries
+
+\[
+\ell_\phi=\frac{\hbar c}{E}.
+\]
+
+If, as a model candidate only, a neutrino mass eigenstate at rest supplies \(E_i=m_i c^2\), define
+
+\[
+\boxed{a_i:=\ell_{\nu_i}=\frac{\hbar c}{m_i c^2}}.
+\]
+
+Using the current internally reconciled TIR candidate masses
+
+\[
+(m_1,m_2,m_3)=
+(0.0050099939,0.0100199878,0.0500999391)\ {\rm eV}
+\]
+
+gives
+
+\[
+\boxed{
+(\ell_{\nu_1},\ell_{\nu_2},\ell_{\nu_3})
+\approx
+(39.3867,19.6933,3.93867)\ \mu{\rm m}.
+}
+\]
+
+The candidate mass ratio \(1:2:10\) therefore gives the inverse phase-clock ratio
+
+\[
+\boxed{1:\frac12:\frac1{10}}.
+\]
+
+No empirical promotion is implied.
+
+## 8. Conditional weak-field bridge
+
+The existing hexahedral/Bloch metric carrier has
+
+\[
+h_0=\frac{\ell_\phi^2}{6}I_3.
+\]
+
+Introduce a dimensionless collective layer deformation \(u(\mathbf x)\) through
+
+\[
+\omega(\mathbf x)=\omega_0e^{u(\mathbf x)},
+\qquad
+\ell_\phi(\mathbf x)=\ell_0e^{-u(\mathbf x)}.
+\]
+
+Then
+
+\[
+\boxed{h(\mathbf x)=h_0e^{-2u(\mathbf x)}}
+\]
+
+and for \(|u|\ll1\),
+
+\[
+\boxed{h\simeq h_0(1-2u)}.
+\]
+
+If a source density \(\rho_s\) couples to a gapless collective mode with
+
+\[
+\mathcal E[u]=\int d^3x\left[
+\frac C2|\nabla u|^2+\lambda\rho_su
+\right],
+\]
+
+stationarity gives
+
+\[
+\boxed{\nabla^2u=\frac{\lambda}{C}\rho_s}.
+\]
+
+The Newtonian weak-field equation is therefore recovered conditionally if
+
+\[
+\boxed{u=\Phi/c^2},
+\qquad
+\boxed{\lambda/C=4\pi G/c^2}.
+\]
+
+This does not derive \(G\). It isolates the microscopic closure target: derive \(\lambda/C\) from layered Stella/MUMMU dynamics.
+
+## 9. Minimal universe pipeline
+
+\[
+\boxed{
+0
+\to
+\text{distinction}
+\to
+\{\Sigma_n\}
+\to
+\text{Stella/Bloch oscillation}
+\to
+\tau_L
+\to
+\mathcal M\;(\text{MUMMU})
+\to
+\mathcal P
+\to
+\text{stable projected structure}.
+}
+\]
+
+## 10. Claim classes
+
+```text
+layer carrier               = neutrino-like phase sheets        MODEL CANDIDATE
+cell geometry               = Stella Octangula/Bloch closure    EXACT CONDITIONAL UPSTREAM
+oscillation/interference    = coherent phase dynamics           EXACT MATHEMATICS
+twist-to-moire scale        = L_M=a/[2 sin(delta theta/2)]      EXACT
+torsion asymptotic          = L_M~a/(tau_L d)                   EXACT ASYMPTOTIC
+special d=a collapse        = L_M~1/tau_L                       EXACT ASYMPTOTIC
+N-layer projector           = Dirichlet kernel                  EXACT
+physical neutrino identity  = OPEN
+semantic mass = gravity     = OPEN
+Cartan torsion identification = OPEN
+Einstein/Newton closure      = OPEN; conditional bridge stated
+```
+
+## 11. Falsification / next gates
+
+1. Derive the allowed layer spacing \(d\) rather than choosing \(d=a\).
+2. Derive collective twist stiffness and source coupling \((C,\lambda)\) from the microscopic Stella/Bloch action.
+3. Test whether the three neutrino mass channels remain mutually coherent over the required scale.
+4. Test Lorentz covariance and compatibility with known neutrino propagation and cosmological constraints.
+5. Determine whether layer twist induces the existing TIR Cartan connection while preserving the curvature/torsion firewall.
+6. Recover a nontrivial weak-field potential without importing Newton's law beyond the explicit matching gate.
+
+Validator:
+
+`TIR/validation/tir_mummu_neutrino_layered_projector_v0_1.py`
