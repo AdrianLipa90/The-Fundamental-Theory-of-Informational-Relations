@@ -1,7 +1,7 @@
 {
   "schema": "TIR_MUMMU_QHTRI_PAIR_DYNAMICS_VALIDATION_V0_1",
   "status": "PASS",
-  "claim_scope": "model-level source-pinned QHTRI 36D dynamics generate full-CP1 pair imbalance and a noncommuting local pair history; physical binding open",
+  "claim_scope": "model-level source-pinned QHTRI 36D dynamics generate full-CP1 pair imbalance and a noncommuting horizontal projective-connection history; the pinned source Hamiltonian itself is time-independent and commuting; physical binding open",
   "source_pins": {
     "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
     "fixture": "tests/test_semantic_htri_drive_v32.py::snapshot"
@@ -10,7 +10,13 @@
     {
       "name": "source_pinned_qhtri_hamiltonian_hermitian",
       "status": "PASS",
-      "max_abs_error": 0.0
+      "max_abs_error": 0
+    },
+    {
+      "name": "fixed_source_hamiltonian_history_commutes",
+      "status": "PASS",
+      "commutator_frobenius": 0,
+      "reason": "this validator evolves under one time-independent H"
     },
     {
       "name": "initial_equal_pair_support",
@@ -29,7 +35,7 @@
       "status": "PASS",
       "max_abs_u_initial": 1.8735013540549522e-16,
       "max_abs_u_dt": 0.000111916174664778,
-      "mean_abs_u_dt": 5.6067451405899934e-05
+      "mean_abs_u_dt": 0.000056067451405899934
     },
     {
       "name": "source_derived_imbalance_velocity_nonzero",
@@ -44,20 +50,20 @@
       "min_pair_support_dt": 0.05545563997144426
     },
     {
-      "name": "qhtiri_local_nonabelian_history_witness",
+      "name": "qhtiri_horizontal_projective_connection_history_witness",
       "status": "PASS",
       "pair_index_zero_based": 9,
-      "omega_cross_norm": 9.440215696399268e-06,
-      "commutator_frobenius_norm": 6.6752405347876084e-06
+      "omega_cross_norm": 0.000009440215696399268,
+      "commutator_frobenius_norm": 0.0000066752405347876084
     },
     {
       "name": "imbalance_velocity_formula_finite_difference",
       "status": "PASS",
-      "max_abs_error": 9.992006803259115e-09
+      "max_abs_error": 9.992006803259115e-9
     }
   ],
   "summary": {
-    "passed": 8,
-    "total": 8
+    "passed": 9,
+    "total": 9
   }
 }
