@@ -11,6 +11,7 @@ on:
       - 'TIR/foundations/TIR_MUMMU_18PAIR_INTERTWINER_ADMISSION_NOGO_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_T36_WAVE_FULL_CP1_LOCAL_NONABELIAN_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_SOURCE_WITNESS_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_SOURCE_MAGNUS_ORDER_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_QUARTIC_CONTINUUM_REGULARITY_SPLIT_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_PNLF_REDUCTION_LAYER_BOUNDARY_V0_1.md'
@@ -32,6 +33,8 @@ on:
       - 'TIR/validation/TIR_MUMMU_T36_WAVE_FULL_CP1_LOCAL_NONABELIAN_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_qhtri_pair_dynamics_source_witness_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_SOURCE_WITNESS_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_source_magnus_order_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_SOURCE_MAGNUS_ORDER_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_qhtri_pair_dynamics_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_quartic_continuum_regularity_split_v0_1.py'
@@ -100,3 +103,6 @@ jobs:
 
       - name: Run MUMMU QHTRI pair-dynamics source witness gate
         run: python TIR/validation/tir_mummu_qhtri_pair_dynamics_source_witness_v0_1.py
+
+      - name: Run MUMMU smooth-source Magnus-order gate
+        run: python TIR/validation/tir_mummu_source_magnus_order_v0_1.py
