@@ -19,6 +19,7 @@ on:
       - 'TIR/foundations/TIR_MUMMU_QHTRI_UPSTREAM_TANGENT_MATCHING_NOGO_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_ADAPTIVE_COUPLING_VARIATIONAL_CLOSURE_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_COUPLING_MOBILITY_GAIN_IDENTIFIABILITY_NOGO_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_ADAPTIVE_GAIN_STABILITY_SELECTION_NOGO_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_COEFFICIENT_FREE_OBSERVED_HYDRO_CP1_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_GEOMETRIC_NONABELIAN_DYNAMICAL_ABELIAN_SPLIT_V0_1.md'
       - 'TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md'
@@ -59,6 +60,8 @@ on:
       - 'TIR/validation/TIR_MUMMU_ADAPTIVE_COUPLING_VARIATIONAL_CLOSURE_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_coupling_mobility_gain_identifiability_nogo_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_COUPLING_MOBILITY_GAIN_IDENTIFIABILITY_NOGO_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_adaptive_gain_stability_selection_nogo_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_ADAPTIVE_GAIN_STABILITY_SELECTION_NOGO_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_coefficient_free_observed_hydro_cp1_v0_1.py'
       - 'TIR/validation/TIR_MUMMU_COEFFICIENT_FREE_OBSERVED_HYDRO_CP1_VALIDATION_V0_1.json'
       - 'TIR/validation/tir_mummu_geometric_nonabelian_dynamical_abelian_split_v0_1.py'
@@ -169,3 +172,6 @@ jobs:
 
       - name: Run MUMMU coupling mobility-gain identifiability no-go gate
         run: python TIR/validation/tir_mummu_coupling_mobility_gain_identifiability_nogo_v0_1.py
+
+      - name: Run MUMMU adaptive gain stability-selection no-go gate
+        run: python TIR/validation/tir_mummu_adaptive_gain_stability_selection_nogo_v0_1.py
