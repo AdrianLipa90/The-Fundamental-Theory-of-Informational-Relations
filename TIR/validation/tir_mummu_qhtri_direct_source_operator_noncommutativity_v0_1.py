@@ -246,6 +246,26 @@ def main():
 
     D, Hs, Js = run_order(tuple(range(7)))
 
+    # Exact separation counterexample: a constant diagonal parent Hamiltonian
+    # can generate a curved reduced CP1 path whose horizontal projective
+    # connection changes direction.
+    u = 0.3
+    r = math.sqrt(1.0 - u * u)
+    nu = 0.7
+    delta1 = 0.2
+    delta2 = 1.1
+    w1 = nu * np.asarray((-u * r * math.cos(delta1), -u * r * math.sin(delta1), r * r))
+    w2 = nu * np.asarray((-u * r * math.cos(delta2), -u * r * math.sin(delta2), r * r))
+    projective_cross = float(np.linalg.norm(np.cross(w1, w2)))
+    h_diag = np.diag(np.asarray((0.0, -nu), dtype=np.float64))
+    parent_comm = float(np.linalg.norm(h_diag @ h_diag - h_diag @ h_diag, "fro"))
+    checks.append({
+        "name": "projective_noncommutativity_does_not_imply_parent_operator_noncommutativity",
+        "status": "PASS" if projective_cross > 1e-3 and parent_comm == 0.0 else "FAIL",
+        "projective_omega_cross_norm": projective_cross,
+        "parent_hamiltonian_commutator_norm": parent_comm,
+    })
+
     fixed_self = frob(comm(Hs[0], Hs[0]))
     checks.append({
         "name": "fixed_h_source_operator_self_commutator_zero",
