@@ -566,3 +566,28 @@ steps and direct evaluation gives
 
 This correction preserves all pair-dynamics and projector-derivative results
 above while narrowing the operator-level claim to the quantity actually tested.
+
+
+## 13. Superseding parent-operator firewall
+
+This file studies a fixed-H trajectory. Therefore the parent source operator
+history satisfies
+
+[
+oxed{[H,H]=0.}
+]
+
+The nonzero quantity
+
+[
+mathcal W=|Omega	imesdotOmega|
+]
+
+remains a valid curvature/change-of-direction witness for the selected reduced
+(CP^1) horizontal connection, but it must not be promoted to parent-H
+noncommutativity.
+
+Direct source-operator noncommutativity is established separately for the
+multi-step controlled PNCS trajectory in
+
+`TIR_MUMMU_QHTRI_DIRECT_SOURCE_OPERATOR_NONCOMMUTATIVITY_V0_1.md`.
