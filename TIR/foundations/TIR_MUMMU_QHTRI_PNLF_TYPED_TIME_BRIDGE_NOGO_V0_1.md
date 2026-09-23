@@ -434,3 +434,33 @@ proper-time trajectory as the PNLF `t36_trajectory_commitment`.
 
 Until that object exists, the algebraic MUMMU closure is stronger than the
 end-to-end persistence provenance, and the repository should say so explicitly.
+
+
+## 14. Canonical candidate receipt schema
+
+The minimal provenance object required by this no-go is now explicitly defined
+in:
+
+TIR/foundations/TIR_MUMMU_QHTRI_PNLF_TRAJECTORY_RECEIPT_BINDING_V0_1.md
+
+It binds, in order:
+
+[
+(	ext{QHTRI step receipt},H,dt_{m HTRI})
+]
+
+to
+
+[
+(	ext{ORCH time-binding receipt},g_{m combined},Delta	au)
+]
+
+and closes the accumulated proper time exactly on one PNLF liminal segment.
+
+The canonical candidate commitment is fail-closed on mixed time models, altered
+Hamiltonian hashes, reordered steps, basis changes, endpoint mismatch and stale
+declared PNLF trajectory commitments.
+
+This closes the **schema-level** bridge in TIR.  The remaining source-level gate
+is a native PNCS emitter/admission path producing that receipt rather than a TIR
+candidate validator constructing it externally.
