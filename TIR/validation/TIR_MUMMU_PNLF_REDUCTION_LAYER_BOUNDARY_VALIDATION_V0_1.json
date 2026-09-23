@@ -1,0 +1,67 @@
+{
+  "schema": "TIR_MUMMU_PNLF_REDUCTION_LAYER_BOUNDARY_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "operational finite MUMMU layer boundaries are admitted PNLF liminal segments conditional on explicit reduction/consolidation policy; QHTRI-to-PNLF trajectory identity and physical boundary remain open",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "pnlf_fixture": "tests/test_pnlf_orbital_memory_v01.py"
+  },
+  "checks": [
+    {
+      "name": "receipt_bound_reduction_threshold",
+      "status": "PASS",
+      "omega": 1.4079999999999997,
+      "omega_crit": 1.3,
+      "reduce_ready": true
+    },
+    {
+      "name": "exact_admitted_segment_endpoint",
+      "status": "PASS",
+      "tau_start": 0.0,
+      "tau_cursor": 1.0,
+      "tau_end": 1.0,
+      "right_checkpoint_tau": 1.0
+    },
+    {
+      "name": "unrecorded_tau_gap_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "nonadmitted_boundaries_fail_closed",
+      "status": "PASS",
+      "ready_without_selection_admitted": false,
+      "selection_without_ready_admitted": false,
+      "missing_witness_admitted": false,
+      "rejected_segment_admitted": false
+    },
+    {
+      "name": "arbitrary_interior_time_slice_is_not_layer_boundary",
+      "status": "PASS",
+      "candidate_tau": 0.4,
+      "admitted_checkpoint_times": [0.0,1.0,2.25]
+    },
+    {
+      "name": "reduction_bounded_quartic_functional",
+      "status": "PASS",
+      "cross_product_form": 4.463541666666667e-06,
+      "commutator_form": 4.463541666666667e-06,
+      "residual": 0.0
+    },
+    {
+      "name": "layer_integrated_generator_reparameterization_invariance",
+      "status": "PASS",
+      "max_abs_error": 1.2500001034254637e-11
+    },
+    {
+      "name": "boundary_is_policy_conditional_not_parameter_free",
+      "status": "PASS",
+      "omega": 1.4079999999999997,
+      "ready_at_1p30": true,
+      "ready_at_1p60": false
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "total": 8
+  }
+}
