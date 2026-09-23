@@ -1,0 +1,36 @@
+name: TIR MUMMU quartic seam gate
+
+on:
+  pull_request:
+    paths:
+      - 'TIR/foundations/TIR_MUMMU_NEUTRINO_LAYERED_PROJECTOR_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QUARTIC_SEAM_ABELIAN_REDUCIBILITY_V0_1.md'
+      - 'TIR/validation/tir_mummu_neutrino_layered_projector_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_NEUTRINO_LAYERED_PROJECTOR_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_quartic_seam_abelian_reducibility_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QUARTIC_SEAM_ABELIAN_REDUCIBILITY_VALIDATION_V0_1.json'
+      - '.github/workflows/tir-mummu-quartic-seam-v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-mummu-quartic-seam:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact event revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run MUMMU layered projector gate
+        run: python TIR/validation/tir_mummu_neutrino_layered_projector_v0_1.py
+
+      - name: Run MUMMU quartic seam gate
+        run: python TIR/validation/tir_mummu_quartic_seam_abelian_reducibility_v0_1.py
