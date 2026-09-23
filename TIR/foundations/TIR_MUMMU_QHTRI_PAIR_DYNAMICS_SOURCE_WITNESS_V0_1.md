@@ -1,6 +1,6 @@
 # TIR MUMMU QHTRI Pair-Dynamics Source Witness v0.1
 
-Status: `SOURCE_DERIVED_MODEL_LEVEL_NONABELIAN_WITNESS / EXACT_LOCAL_DERIVATIVES / NO_NEW_TRANSPORT_ANSATZ / PHYSICAL_BINDING_OPEN`
+Status: `SOURCE_DERIVED_PAIR_DYNAMICS / EXACT_HORIZONTAL_PROJECTIVE_CONNECTION_WITNESS / FIXED_SOURCE_H_COMMUTES / ADAPTIVE_SOURCE_OPERATOR_GATE_SEPARATE / PHYSICAL_BINDING_OPEN`
 
 Date: 2026-09-23
 
@@ -278,7 +278,7 @@ P_j=rac12(I+mathbf n_jcdotoldsymbolsigma),
 the Bloch derivatives are read directly from
 (dot P_j,ddot P_j).
 
-## 6. Local source-derived non-Abelian acceleration
+## 6. Local horizontal projective-connection acceleration
 
 Define
 
@@ -358,8 +358,7 @@ dot{oldsymbolOmega}_j
 }
 ]
 
-is therefore an exact local witness that the source-derived pair history leaves
-the Abelian one-axis sector.
+is therefore an exact local witness that the declared horizontal/projective CP1 connection changes generator axis. It does not, by itself, establish noncommutativity of the underlying source Hamiltonian history.
 
 ## 7. Deterministic PNCS witness
 
@@ -404,8 +403,7 @@ approx
 }
 ]
 
-Therefore the existing source Hamiltonian and source phase state already produce
-a non-Abelian local orbital-spin history.
+Therefore the existing source Hamiltonian and source phase state already produce a changing, noncommuting horizontal/projective CP1 connection. The pinned Hamiltonian used in this fixture is nevertheless time-independent, so its direct source-operator history commutes.
 
 This is a computational/model-level witness from the pinned PNCS reference
 fixture. It is not evidence that the same dynamics is physically realized by
@@ -522,3 +520,50 @@ Deterministic validator:
 Static receipt:
 
 `TIR/validation/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_SOURCE_WITNESS_VALIDATION_V0_1.json`
+
+
+## 13. Source-operator correction firewall
+
+A later direct operator audit separates the horizontal projective connection from
+the Hamiltonian that generates the 36D source trajectory:
+
+`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`.
+
+For this pinned fixture,
+
+[
+H(	au)=H_0
+]
+
+is time independent, hence
+
+[
+oxed{
+[H(	au_1),H(	au_2)]=0.
+}
+]
+
+Therefore the nonzero quantity
+
+[
+mathcal W_j
+=
+|Omega_j	imesdotOmega_j|
+]
+
+must be read as a witness for the declared horizontal/projective connection,
+not as a direct source-Hamiltonian commutator witness.
+
+Genuine source-operator noncommutativity is established separately on the
+adaptive PNCS semantic path, where (g_k) and therefore (H_k) vary between
+steps and direct evaluation gives
+
+[
+oxed{
+[H_k,H_{k+1}]
+eq0.
+}
+]
+
+This correction preserves all pair-dynamics and projector-derivative results
+above while narrowing the operator-level claim to the quantity actually tested.
