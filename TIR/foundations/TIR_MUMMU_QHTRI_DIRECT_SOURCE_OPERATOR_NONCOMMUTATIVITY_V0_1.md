@@ -419,3 +419,84 @@ Deterministic validator:
 Static receipt:
 
 `TIR/validation/TIR_MUMMU_QHTRI_DIRECT_SOURCE_OPERATOR_NONCOMMUTATIVITY_VALIDATION_V0_1.json`
+
+
+## 13. Continuum source-operator curvature
+
+For a differentiable operator trajectory,
+
+[
+H(t+Delta t)
+=
+H(t)
++
+Delta t,dot H(t)
++
+O(Delta t^2),
+]
+
+so
+
+[
+oxed{
+[H(t),H(t+Delta t)]
+=
+Delta t,[H,dot H]
++
+O(Delta t^2).
+}
+]
+
+Hence a finite nonzero limit
+
+[
+oxed{
+mathcal K_H
+=
+lim_{Delta t	o0}
+rac{
+|[H(t),H(t+Delta t)]|_F
+}{
+Delta t
+}
+}
+]
+
+is a direct operator-curvature witness.
+
+On the pinned first transition, the validator obtains
+
+[
+rac{|[H_0,H_1]|_F}{Delta t}
+=
+egin{cases}
+0.04754424396,&Delta t=0.02,\\
+0.04754410233,&Delta t=0.01,\\
+0.04754403010,&Delta t=0.005,\\
+0.04754399363,&Delta t=0.0025,\\
+0.04754397531,&Delta t=0.00125.
+end{cases}
+]
+
+The fine-grid spread over the last three values is approximately
+
+[
+5.48	imes10^{-8}.
+]
+
+Therefore the discrete controlled-step commutator is consistent with a finite
+linear continuum limit,
+
+[
+oxed{
+mathcal K_H
+approx
+4.7544	imes10^{-2}
+}
+]
+
+for the pinned first transition.
+
+This does not prove a physical continuum field law. It establishes that the
+validated source-operator noncommutativity is not merely a finite-step artifact
+of choosing (Delta t=0.01).
