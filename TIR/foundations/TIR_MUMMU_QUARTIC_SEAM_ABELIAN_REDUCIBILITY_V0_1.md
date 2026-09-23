@@ -509,3 +509,56 @@ corresponding doubling ratio approximately \(64\), not the quartic ratio
 Therefore the finite-layer quartic seam and the smooth continuum short-time
 limit are distinct typed regimes. What remains open is the source-derived rule
 that determines finite MUMMU layer/reduction boundaries.
+
+
+## 13. Smooth-source asymptotic separation
+
+The source-derived QHTRI pair trajectory has now been analyzed independently:
+
+`TIR/foundations/TIR_MUMMU_SOURCE_MAGNUS_ORDER_V0_1.md`.
+
+For a smooth local connection
+
+[
+mathcal A(t)=A_0+tA_1+O(t^2),
+]
+
+the second Magnus term is
+
+[
+oxed{
+Omega_2(T)
+=
+-rac{T^3}{12}[A_0,A_1]
++
+O(T^4).
+}
+]
+
+Thus the first source-history defect is cubic at operator level.
+
+The discrete result
+
+[
+K_{m seq}-K_{m const}
+=
+rac{alpha^2eta^2}{96}
++
+O(6)
+]
+
+remains exact for the declared two-pulse comparison, but it is not promoted to
+the leading scalar asymptotic of the smooth QHTRI source trajectory.
+
+Accordingly:
+
+[
+oxed{
+	ext{discrete quartic theorem: PASS},
+qquad
+	ext{smooth-QHTRI quartic source binding: FAIL}.
+}
+]
+
+This distinction is intentional and prevents two different asymptotic regimes
+from being merged under one coefficient.
