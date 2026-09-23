@@ -1,12 +1,12 @@
 # TIR MUMMU Source Magnus-Order Theorem v0.1
 
-Status: `EXACT_CUBIC_MAGNUS_OPERATOR_DEFECT / QUARTIC_SCALAR_SOURCE_BINDING_FAIL / NUMERIC_SEXTIC_CHARACTER_SCALING / DISCRETE_QUARTIC_THEOREM_RETAINED`
+Status: `EXACT_CUBIC_PROJECTIVE_CONNECTION_MAGNUS_DEFECT / NOT_SOURCE_HAMILTONIAN_MAGNUS_CLAIM / QUARTIC_SCALAR_PROJECTIVE_BINDING_FAIL / NUMERIC_SEXTIC_CHARACTER_SCALING / DISCRETE_QUARTIC_THEOREM_RETAINED`
 
 Date: 2026-09-23
 
 ## 1. Purpose
 
-The source-derived QHTRI pair trajectory produces a smooth local connection
+The source-derived QHTRI pair trajectory induces a smooth horizontal/projective local connection
 
 [
 mathcal A(	au)
@@ -93,7 +93,7 @@ O(T^4).
 }
 ]
 
-Therefore the first source-history defect is cubic at operator level.
+Therefore the first history defect of this horizontal/projective connection is cubic at operator level.
 
 ## 3. SU(2) vector form
 
@@ -276,8 +276,7 @@ O(6)
 remains exact for its declared finite sequential-vs-constant-axis pulse
 comparison.
 
-The source-derived smooth QHTRI connection belongs to a different asymptotic
-class:
+The source-induced smooth horizontal/projective CP1 connection belongs to a different asymptotic class:
 
 [
 oxed{
@@ -346,3 +345,50 @@ Deterministic validator:
 Static receipt:
 
 `TIR/validation/TIR_MUMMU_SOURCE_MAGNUS_ORDER_VALIDATION_V0_1.json`
+
+
+## 10. Operator-scope correction
+
+This theorem concerns the Magnus expansion of the induced horizontal/projective
+connection
+
+[
+mathcal A_{m hor}(	au)
+=
+-rac{i}{2}
+Omega(	au)cdotsigma.
+]
+
+It must not be identified with the Magnus expansion of the fixed 36D QHTRI
+Hamiltonian used to generate the pinned trajectory.
+
+For that fixture,
+
+[
+H_{m source}(	au)=H_0,
+]
+
+hence
+
+[
+oxed{
+[H_{m source}(	au_1),H_{m source}(	au_2)]=0
+}
+]
+
+and all higher Magnus commutator terms of the source Hamiltonian vanish.
+
+Genuine source-Hamiltonian ordering is established separately on the adaptive
+v0.32 semantic path in
+
+`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`,
+
+where the directly evaluated adjacent commutators satisfy
+
+[
+[H_k,H_{k+1}]
+eq0.
+]
+
+Thus the cubic result in this theorem remains valid, but its operator is
+(mathcal A_{m hor}), not the fixed source (H_0).
