@@ -501,3 +501,59 @@ identity.  Liminal path data are therefore structurally necessary, not optional.
 
 The remaining mathematical binding is now the sector map
 \(\Pi:T^{36}\to CP^1\) and its admission rule.
+
+
+## 15. Eighteen-pair coupling firewall
+
+The exact source-preserving T36 carrier is eighteen local projective factors,
+
+\[
+\Pi_{18}:T^{36}\to(CP^1)^{18},
+\qquad
+G_{36}=SU(2)^{18}.
+\]
+
+The coupling/admission analysis is recorded in
+
+`TIR/foundations/TIR_MUMMU_18PAIR_INTERTWINER_ADMISSION_NOGO_V0_1.md`.
+
+Two consequences are mandatory for downstream MUMMU work.
+
+First, different factors of the uncoupled Lie algebra commute:
+
+\[
+[\mathfrak{su}(2)_j,\mathfrak{su}(2)_k]=0
+\qquad(j\ne k).
+\]
+
+Therefore the non-Abelian MUMMU obstruction is **not** derived from the
+uncoupled T36 pair geometry alone.
+
+Second, the cardinality identity
+
+\[
+18=6\times3
+\]
+
+does not define a six-port × Pauli-triad intertwiner.  A single cyclic
+\(C_{18}\) ordering cannot provide it either because
+
+\[
+C_{18}\not\cong C_6\times C_3.
+\]
+
+The minimal exact admission object is a pair of commuting source permutations
+
+\[
+S^6=R^3=I,
+\qquad
+SR=RS,
+\qquad
+\langle S\rangle\cap\langle R\rangle=\{I\},
+\]
+
+whose anchored joint orbit contains all eighteen pair labels.
+
+Only after such an action is source-derived may different T36 pair sectors be
+embedded into a common Pauli frame and contribute to a nonzero
+\(\mathcal O_{\rm orb}\).
