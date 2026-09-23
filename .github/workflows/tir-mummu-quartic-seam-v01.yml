@@ -40,3 +40,6 @@ jobs:
 
       - name: Run MUMMU orbital-algebra gauge closure gate
         run: python TIR/validation/tir_mummu_orbital_algebra_gauge_closure_v0_1.py
+
+      - name: Run MUMMU orbital spin-connection gate
+        run: python TIR/validation/tir_mummu_orbital_spin_connection_v0_1.py
