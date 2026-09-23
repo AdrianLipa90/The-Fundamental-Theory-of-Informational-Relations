@@ -65,6 +65,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check --no-cache-dir numpy
+
       - name: Run MUMMU layered projector gate
         run: python TIR/validation/tir_mummu_neutrino_layered_projector_v0_1.py
 
