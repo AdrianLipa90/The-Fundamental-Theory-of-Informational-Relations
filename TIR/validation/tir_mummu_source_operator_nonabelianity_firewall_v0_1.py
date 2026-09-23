@@ -242,6 +242,75 @@ def main():
         "commutator_frobenius": fixed_comm,
     })
 
+    # Isolate the infinitesimal source of coupling-operator direction change.
+    phi_eff0 = harmonic_composite_phase(phi)
+    diff0 = phi_eff0[:, None] - phi_eff0[None, :]
+    activity0 = (
+        float(flavor[2]) + float(flavor[4]) * 0.5
+        + (1.0 - float(flavor[3])) * 0.3
+    ) / 1.8
+    activity0 = min(max(activity0, 0.0), 1.0)
+
+    z_phase0 = np.exp(1j * phi)
+    z_ch0 = np.mean(z_phase0.reshape(-1, 3), axis=1)
+    ch_coh0 = np.abs(z_ch0)
+    ch_mean0 = np.angle(z_ch0)
+    global_z0 = np.mean(z_phase0)
+    global_mean0 = float(np.angle(global_z0))
+    dist0 = np.abs(np.angle(np.exp(1j * (ch_mean0 - global_mean0))))
+    weak0 = (ch_coh0 < 0.5) & (dist0 > 0.5)
+    checks.append({
+        "name": "initial_weak_channel_boost_is_inactive",
+        "status": "PASS" if int(np.count_nonzero(weak0)) == 0 else "FAIL",
+        "active_weak_channels": int(np.count_nonzero(weak0)),
+    })
+
+    _, J0 = components(omega, g)
+    decay_rate = -0.01 * (g - EYE_N * 0.1)
+    _, J_decay = components(omega, g + DT * decay_rate)
+    decay_direction_error = float(np.max(np.abs(J_decay - J0)))
+    checks.append({
+        "name": "pure_decay_is_directionally_invisible_after_qhtri_normalization",
+        "status": "PASS" if decay_direction_error < 1e-14 else "FAIL",
+        "max_abs_J_change": decay_direction_error,
+    })
+
+    hebb_rate = 0.1 * (activity0 - 0.5) * np.cos(diff0)
+    k_h = 0.5 * (hebb_rate + hebb_rate.T)
+    np.fill_diagonal(k_h, 0.0)
+    j0 = 0.5 * (g + g.T)
+    j0 = j0.copy()
+    np.fill_diagonal(j0, 0.0)
+    rho0 = float(np.max(np.abs(np.linalg.eigvalsh(j0))))
+    local_commutator = j0 @ k_h - k_h @ j0
+    predicted_rate = float(np.linalg.norm(local_commutator, "fro") / (rho0 * rho0))
+
+    scaled_rates = []
+    eps_values = [1.0e-2, 5.0e-3, 2.5e-3, 1.0e-3, 1.0e-4]
+    for eps in eps_values:
+        _, J_eps = components(
+            omega,
+            g + eps * (hebb_rate + decay_rate),
+        )
+        scaled_rates.append(
+            float(np.linalg.norm(J0 @ J_eps - J_eps @ J0, "fro") / eps)
+        )
+    local_rel_error = abs(scaled_rates[-1] - predicted_rate) / predicted_rate
+    checks.append({
+        "name": "hebbian_phase_conditioning_generates_infinitesimal_operator_rotation",
+        "status": (
+            "PASS"
+            if predicted_rate > 0.09 and local_rel_error < 5e-6
+            else "FAIL"
+        ),
+        "activity": activity0,
+        "spectral_radius": rho0,
+        "predicted_commutator_rate": predicted_rate,
+        "eps_values": eps_values,
+        "scaled_commutator_rates": scaled_rates,
+        "relative_error_finest": local_rel_error,
+    })
+
     addresses = [semantic_address(semantic_content_id(role)) for role in ROLES]
     Hs = []
     Js = []
@@ -312,7 +381,9 @@ def main():
             "projective horizontal-generator noncommutativity is not sufficient to infer "
             "source-Hamiltonian noncommutativity; the source-pinned frozen PNCS semantic "
             "path nevertheless has direct nonzero adjacent Hamiltonian commutators, "
-            "including in the coupling-only sector"
+            "including in the coupling-only sector; the initial infinitesimal "
+            "operator rotation is isolated to the phase-conditioned Hebbian update "
+            "while pure decay is directionally removed by spectral normalization"
         ),
         "source_pins": {
             "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
