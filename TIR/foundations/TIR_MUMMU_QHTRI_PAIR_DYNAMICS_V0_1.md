@@ -489,37 +489,37 @@ quartic-seam theorem.
 
 ## 14. Direct source-operator correction
 
-The direct source-operator question is now tested separately in
+The direct source-operator question is tested separately in
 
-`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`.
+TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md.
 
 The fixed-H fixture used in this document obeys
 
-[
-oxed{
-[H(	au_1),H(	au_2)]=0
+\[
+\boxed{
+[H(\tau_1),H(\tau_2)]=0
 }
-]
+\]
 
-because the same (H) generates every section.
+because the same \(H\) generates every section.
 
 The stronger source-operator result comes instead from the native v0.32
-path-conditioned execution, where the adaptive coupling update changes (g_k),
-hence (J_k) and (H_k), at each semantic step. On the frozen seven-role
+path-conditioned execution, where the adaptive coupling update changes \(g_k\),
+hence \(J_k\) and \(H_k\), at each semantic step. On the frozen seven-role
 trajectory, every adjacent direct commutator is nonzero.
 
 Thus the corrected hierarchy is
 
-[
-	ext{fixed-H pair dynamics}
-Rightarrow
-	ext{full CP1 motion + noncommuting horizontal connection},
-]
+\[
+\text{fixed-H pair dynamics}
+\Rightarrow
+\text{full }CP^1\text{ motion + noncommuting horizontal connection},
+\]
 
 while
 
-[
-	ext{adaptive semantic path}
-Rightarrow
-	ext{noncommuting source Hamiltonian history}.
-]
+\[
+\text{adaptive semantic path}
+\Rightarrow
+\text{noncommuting source Hamiltonian history}.
+\]
