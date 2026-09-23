@@ -19,105 +19,105 @@ diagonal Hermitian generator.  This theorem separates the two structures.
 
 For one admitted pair let
 
-[
-|psiangle
+\[
+|psi\rangle
 =
-rac1{sqrt q}
-egin{pmatrix}
-sqrt{p_L},e^{i	heta_L}\
-sqrt{p_R},e^{i	heta_R}
+\frac1{sqrt q}
+\begin{pmatrix}
+sqrt{p_L},e^{i\theta_L}\
+sqrt{p_R},e^{i\theta_R}
 end{pmatrix},
-]
+\]
 
 with (p_L,p_R) constant along the bound hydro trace.
 
 Let
 
-[
-v_L=dot	heta_L,
+\[
+v_L=dot\theta_L,
 qquad
-v_R=dot	heta_R,
+v_R=dot\theta_R,
 qquad
 dotdelta=v_R-v_L.
-]
+\]
 
 Then
 
-[
+\[
 dotpsi
 =
 i
-egin{pmatrix}
+\begin{pmatrix}
 v_L&0\
 0&v_R
 end{pmatrix}
 psi.
-]
+\]
 
 Therefore
 
-[
-oxed{
+\[
+\boxed{
 idotpsi
 =
-H_{m phase}psi
+H_{\rm phase}psi
 }
-]
+\]
 
 with
 
-[
-oxed{
-H_{m phase}
+\[
+\boxed{
+H_{\rm phase}
 =
 -
-egin{pmatrix}
+\begin{pmatrix}
 v_L&0\
 0&v_R
 end{pmatrix}.
 }
-]
+\]
 
 ## 3. Pauli decomposition
 
 Write
 
-[
+\[
 c
 =
--rac{v_L+v_R}{2}.
-]
+-\frac{v_L+v_R}{2}.
+\]
 
 Then
 
-[
-oxed{
-H_{m phase}
+\[
+\boxed{
+H_{\rm phase}
 =
 cI
 +
-rac{dotdelta}{2}sigma_z.
+\frac{dotdelta}{2}sigma_z.
 }
-]
+\]
 
 Hence every section belongs to the same Abelian algebra
 
-[
+\[
 operatorname{span}{I,sigma_z}.
-]
+\]
 
 For any two proper-time sections,
 
-[
-oxed{
-[
-H_{m phase}(	au_1),
-H_{m phase}(	au_2)
-]
+\[
+\boxed{
+\[
+H_{\rm phase}(\tau_1),
+H_{\rm phase}(\tau_2)
+\]
 =
 0.
 }
-]
+\]
 
 Thus the frozen-amplitude hydrodynamic wave lane is dynamically Abelian in this
 fixed computational basis.
@@ -126,122 +126,122 @@ fixed computational basis.
 
 Let
 
-[
+\[
 mathbf n
 =
 (rcosdelta,rsindelta,u),
 qquad
 r=sqrt{1-u^2}.
-]
+\]
 
 The traceless dynamical field is
 
-[
+\[
 mathbf h
 =
 (0,0,dotdelta).
-]
+\]
 
 The Bloch equation is
 
-[
-oxed{
+\[
+\boxed{
 dot{mathbf n}
 =
-mathbf h	imesmathbf n.
+mathbf h\timesmathbf n.
 }
-]
+\]
 
 The horizontal/geometric generator is
 
-[
-oldsymbolOmega
+\[
+\boldsymbol\Omega
 =
-mathbf n	imesdot{mathbf n}.
-]
+mathbf n\timesdot{mathbf n}.
+\]
 
 Using the vector triple-product identity,
 
-[
-oxed{
-oldsymbolOmega
+\[
+\boxed{
+\boldsymbol\Omega
 =
 mathbf h
 -
 (mathbf ncdotmathbf h)mathbf n.
 }
-]
+\]
 
-Thus (oldsymbolOmega) is the component of the dynamical rotation vector
+Thus (\boldsymbolOmega) is the component of the dynamical rotation vector
 orthogonal to the instantaneous projective state.
 
 For the fixed-imbalance latitude,
 
-[
-oxed{
-oldsymbolOmega
+\[
+\boxed{
+\boldsymbol\Omega
 =
 dotdelta
 (-urcosdelta,,-ursindelta,,r^2).
 }
-]
+\]
 
 ## 5. Why the geometric generators can fail to commute
 
 Although (mathbf h) always points along the fixed (z) axis, the projection
 
-[
+\[
 mathbf h
 mapsto
 mathbf h-(mathbf ncdotmathbf h)mathbf n
-]
+\]
 
-depends on the moving state (mathbf n(	au)).
+depends on the moving state (mathbf n(\tau)).
 
 Therefore the horizontal generator direction can rotate in
 (mathfrak{su}(2)).
 
 Define
 
-[
-mathcal A_{m geom}(	au)
+\[
+mathcal A_{\rm geom}(\tau)
 =
--rac{i}{2}
-oldsymbolOmega(	au)cdotoldsymbolsigma.
-]
+-\frac{i}{2}
+\boldsymbol\Omega(\tau)cdot\boldsymbolsigma.
+\]
 
 Then
 
-[
-oxed{
-[
-mathcal A_{m geom}(	au_1),
-mathcal A_{m geom}(	au_2)
-]
+\[
+\boxed{
+\[
+mathcal A_{\rm geom}(\tau_1),
+mathcal A_{\rm geom}(\tau_2)
+\]
 =
--rac{i}{2}
+-\frac{i}{2}
 left(
-oldsymbolOmega_1	imesoldsymbolOmega_2
-ight)cdotoldsymbolsigma.
+\boldsymbolOmega_1\times\boldsymbolOmega_2
+\right)cdot\boldsymbolsigma.
 }
-]
+\]
 
 Thus it is possible to have simultaneously
 
-[
-oxed{
-[H_{m phase}(	au_1),H_{m phase}(	au_2)]=0
+\[
+\boxed{
+[H_{\rm phase}(\tau_1),H_{\rm phase}(\tau_2)]=0
 }
-]
+\]
 
 and
 
-[
-oxed{
-[mathcal A_{m geom}(	au_1),mathcal A_{m geom}(	au_2)]
+\[
+\boxed{
+[mathcal A_{\rm geom}(\tau_1),mathcal A_{\rm geom}(\tau_2)]
 e0.
 }
-]
+\]
 
 There is no contradiction: the objects describe different connections.
 
@@ -250,38 +250,38 @@ There is no contradiction: the objects describe different connections.
 For the pinned coefficient-free source-component fixture, pair 9 at replay
 sections 50 and 100 gives
 
-[
-|Omega_{50}	imesOmega_{100}|
+\[
+|Omega_{50}\timesOmega_{100}|
 approx
-5.440204449331002	imes10^{-6}.
-]
+5.440204449331002\times10^{-6}.
+\]
 
 Therefore
 
-[
-oxed{
+\[
+\boxed{
 left|
-[
+\[
 mathcal A_{50},mathcal A_{100}
-]
-ight|_F
+\]
+\right|_F
 =
-rac{
-|Omega_{50}	imesOmega_{100}|
+\frac{
+|Omega_{50}\timesOmega_{100}|
 }{sqrt2}
 approx
-3.846805457163179	imes10^{-6}.
+3.846805457163179\times10^{-6}.
 }
-]
+\]
 
 At the same two sections,
 
-[
-oxed{
-[H_{{m phase},50},H_{{m phase},100}]
+\[
+\boxed{
+[H_{{\rm phase},50},H_{{\rm phase},100}]
 =0
 }
-]
+\]
 
 exactly.
 
@@ -290,13 +290,13 @@ exactly.
 The previously defined (H_{min}) is the unique minimum-Frobenius Hermitian
 operator satisfying
 
-[
+\[
 H_{min}psi=idotpsi
-]
+\]
 
 at one known state/tangent pair.
 
-The diagonal (H_{m phase}) also satisfies that equation for the
+The diagonal (H_{\rm phase}) also satisfies that equation for the
 frozen-amplitude phase trajectory.
 
 They need not be the same operator because one state/tangent pair does not fix
@@ -304,17 +304,17 @@ the operator on the orthogonal complement.
 
 Their difference obeys
 
-[
-oxed{
-(H_{m phase}-H_{min})psi=0.
+\[
+\boxed{
+(H_{\rm phase}-H_{min})psi=0.
 }
-]
+\]
 
 Thus:
 
-- (H_{m phase}) is selected by the known coordinate-wise phase law;
+- (H_{\rm phase}) is selected by the known coordinate-wise phase law;
 - (H_{min}) is selected by minimum Frobenius norm among all Hermitian lifts;
-- (mathcal A_{m geom}) is the horizontal projective connection.
+- (mathcal A_{\rm geom}) is the horizontal projective connection.
 
 These three operators must not be silently identified.
 
@@ -322,21 +322,21 @@ These three operators must not be silently identified.
 
 The coefficient-free witness establishes:
 
-[
-oxed{
-	ext{non-Abelian projective/horizontal geometry}
+\[
+\boxed{
+\text{non-Abelian projective/horizontal geometry}
 }
-]
+\]
 
 inside the composed model.
 
 It does **not** by itself establish:
 
-[
-oxed{
-	ext{a non-Abelian dynamical interaction Hamiltonian}.
+\[
+\boxed{
+\text{a non-Abelian dynamical interaction Hamiltonian}.
 }
-]
+\]
 
 Any later physical claim requiring non-Abelian dynamical forces must provide a
 separate source-derived Hamiltonian with nonzero time-separated commutators.
@@ -345,10 +345,10 @@ separate source-derived Hamiltonian with nonzero time-separated commutators.
 
 | Statement | Status |
 |---|---|
-| fixed-amplitude phase evolution has diagonal (H_{m phase}) | `EXACT` |
-| (H_{m phase}) lies in (operatorname{span}{I,sigma_z}) | `EXACT` |
-| time-separated (H_{m phase}) commute | `EXACT` |
-| (dot n=h	imes n) | `EXACT` |
+| fixed-amplitude phase evolution has diagonal (H_{\rm phase}) | `EXACT` |
+| (H_{\rm phase}) lies in (operatorname{span}{I,sigma_z}) | `EXACT` |
+| time-separated (H_{\rm phase}) commute | `EXACT` |
+| (dot n=h\times n) | `EXACT` |
 | (Omega=h-(ncdot h)n) | `EXACT` |
 | geometric connection may be noncommuting | `EXACT` |
 | pinned geometric commutator is nonzero | `NUMERIC PASS` |
