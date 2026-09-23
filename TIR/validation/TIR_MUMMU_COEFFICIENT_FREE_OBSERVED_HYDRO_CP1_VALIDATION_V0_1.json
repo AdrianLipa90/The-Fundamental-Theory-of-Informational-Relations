@@ -1,7 +1,7 @@
 {
   "schema": "TIR_MUMMU_COEFFICIENT_FREE_OBSERVED_HYDRO_CP1_VALIDATION_V0_1",
   "status": "PASS",
-  "claim_scope": "source-component temporal observation amplitudes plus PNCS hydrodynamic T36 phase flow admit a conditional coefficient-free local CP1 non-Abelian witness and a unique minimum-Frobenius descriptive Hermitian lift; native PNCS observation-to-hydro cross-binding and physical realization remain open",
+  "claim_scope": "source-component temporal observation amplitudes plus PNCS hydrodynamic T36 phase flow admit a conditional coefficient-free horizontal/projective CP1 connection witness and a unique minimum-Frobenius descriptive Hermitian lift; the phase-only source trajectory also admits a commuting diagonal Hamiltonian lift, so source-operator noncommutativity is not inferred; native PNCS observation-to-hydro cross-binding and physical realization remain open",
   "source_pins": {
     "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963"
   },
@@ -15,13 +15,21 @@
     {
       "name": "canonical_dual_pair_now_translation_invariant",
       "status": "PASS",
-      "max_abs_error": 0.0
+      "max_abs_error": 0
     },
     {
       "name": "gaussian_fixed_phase_meridian_is_locally_abelian",
       "status": "PASS",
-      "generator_u02": [0.657501924, -0.780613789, 1.3877787807814457e-17],
-      "generator_u06": [0.805272109, -0.956052734, -5.551115123125783e-17],
+      "generator_u02": [
+        0.657501924,
+        -0.780613789,
+        1.3877787807814457e-17
+      ],
+      "generator_u06": [
+        0.805272109,
+        -0.956052734,
+        -5.551115123125783e-17
+      ],
       "cross_norm": 7.4003066239373e-17
     },
     {
@@ -35,17 +43,35 @@
       "abs_error": 1.1102230246251565e-16
     },
     {
-      "name": "observed_hydro_pair_nonabelian_witness_without_qhtri_graph_coefficients",
+      "name": "observed_hydro_pair_projective_connection_witness_without_qhtri_graph_coefficients",
       "status": "PASS",
       "step50_delta": -0.4963329771385685,
       "step50_delta_dot": -0.025005054316652828,
-      "step50_omega": [0.005221211194041361, -0.0028275498222051373, -0.023505122352863676],
+      "step50_omega": [
+        0.005221211194041361,
+        -0.0028275498222051373,
+        -0.023505122352863676
+      ],
       "step100_delta": -0.5152177486710774,
       "step100_delta_dot": -0.05004108365853668,
-      "step100_omega": [0.010340171944433305, -0.005854906451633523, -0.04703936168938666],
-      "omega_cross": [-4.614153728748461e-06, 2.555435109632845e-06, -1.3323517622809958e-06],
-      "cross_norm": 5.440204449331002e-06,
+      "step100_omega": [
+        0.010340171944433305,
+        -0.005854906451633523,
+        -0.04703936168938666
+      ],
+      "omega_cross": [
+        -0.000004614153728748461,
+        0.000002555435109632845,
+        -0.0000013323517622809958
+      ],
+      "cross_norm": 0.000005440204449331002,
       "uses_qhtri_graph_hamiltonian": false
+    },
+    {
+      "name": "phase_only_hydro_admits_commuting_diagonal_source_lift",
+      "status": "PASS",
+      "mapping_error": 0,
+      "source_H_commutator_frobenius": 0
     },
     {
       "name": "fixed_imbalance_cross_product_identity",
@@ -75,7 +101,7 @@
     }
   ],
   "summary": {
-    "passed": 7,
-    "total": 7
+    "passed": 8,
+    "total": 8
   }
 }
