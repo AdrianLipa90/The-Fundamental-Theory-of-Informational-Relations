@@ -523,23 +523,49 @@ The validator checks:
 8. global-frame covariance;
 9. nontrivial Lagrange-loop centrality defect without fitted transport parameters.
 
-## 16. Remaining gate
+## 16. T36 projection refinement
 
-The transporter itself is no longer free.
+The source-derived projection question is refined by
 
-The remaining gate is solely the **projection/admission layer**:
+`TIR/foundations/TIR_MUMMU_T36_CP1_PAIR_PROJECTION_V0_1.md`.
+
+The PNCS temporal T36 contract is not natively one qubit. It is eighteen
+complementary phase pairs, giving the source-preserving map
 
 \[
 \boxed{
-\Pi:
-T^{36}
-\longrightarrow
-CP^1
+\Pi_{18}:T^{36}\to(CP^1)^{18}.
 }
 \]
 
-must be source-derived for each declared orbital sector rather than chosen after
-seeing a desired MUMMU result.
+For pair \(j\),
 
-This is narrower than the former
-\(\rho:\mathsf{Path}(\mathcal O)\to SU(2)\) problem.
+\[
+|\psi_j\rangle
+=
+\frac1{\sqrt2}
+(e^{i\theta_{2j-1}},e^{i\theta_{2j}})^T,
+\]
+
+\[
+\mathbf n_j
+=
+(\cos\delta_j,\sin\delta_j,0),
+\qquad
+\delta_j=\theta_{2j}-\theta_{2j-1}.
+\]
+
+The common center phase cancels projectively and all 36 coordinates are consumed
+exactly once.
+
+Accordingly the uncoupled orbital spin transport lifts naturally to
+
+\[
+\boxed{
+\rho_{18}:\mathsf{Path}(\mathcal O)\to SU(2)^{18}.
+}
+\]
+
+The remaining gate is no longer a T36-to-CP1 coordinate choice. It is whether a
+source-derived coupling/intertwiner between the eighteen CP1 factors is required
+and, if so, what invariant fixes it without fitted coefficients.
