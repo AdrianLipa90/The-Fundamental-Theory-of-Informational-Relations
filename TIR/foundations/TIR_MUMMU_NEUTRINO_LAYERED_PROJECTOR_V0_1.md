@@ -700,3 +700,50 @@ select the detuning/coupling ratio.
 The PNCS defaults (0.25,0.7) therefore remain regression/reference parameters,
 not TIR-derived constants.  The only unresolved Hamiltonian freedom is now one
 dimensionless mixing angle plus an external time-scale calibration.
+
+
+## 18. Scale-free mixing-angle calibration
+
+The remaining dimensionless QHTRI mixing angle is now separated from the
+absolute Hamiltonian scale by
+
+`TIR/foundations/TIR_MUMMU_QHTRI_MIXING_ANGLE_CALIBRATION_FIREWALL_V0_1.md`.
+
+For a local pair define
+
+[
+R_1
+=
+rac{|Omega|}{|dot u|},
+qquad
+R_2
+=
+rac{mathcal W}{|Omega|^3}.
+]
+
+Under a common Hamiltonian scaling (Hmapsto sH),
+
+[
+dot umapsto sdot u,
+qquad
+Omegamapsto sOmega,
+qquad
+mathcal Wmapsto s^3mathcal W,
+]
+
+so
+
+[
+oxed{
+R_1, R_2
+	ext{ are scale invariant.}
+}
+]
+
+On the pinned deterministic PNCS branch, (R_1) is numerically strictly
+decreasing and (R_2) strictly increasing over (0<chi<pi/2), so the
+trajectory shape can calibrate (chi) without fixing the absolute clock rate.
+
+This does not promote (chi) to a fundamental constant. GREMLIN's existing
+actuation firewall remains active: a source quantity may control Hamiltonian
+parameters only through an explicit independent actuation law/receipt.
