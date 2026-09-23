@@ -6,95 +6,71 @@ Date: 2026-09-23
 
 ## 1. Purpose
 
-Earlier MUMMU gates used the horizontal projective generator
+MUMMU now contains two mathematically distinct noncommutativity questions:
 
-[
-mathcal A_j(	au)
-=
--rac{i}{2}
-oldsymbolOmega_j(	au)cdotoldsymbolsigma,
-qquad
-oldsymbolOmega_j
-=
-mathbf n_j	imesdot{mathbf n}_j,
-]
+1. does a declared horizontal/projective connection have noncommuting
+   time-separated generators?
+2. does the actual source Hamiltonian history have noncommuting
+   time-separated operators?
 
-and treated
+The first does not imply the second.
 
-[
-oldsymbolOmega_j(	au_1)
-	imes
-oldsymbolOmega_j(	au_2)
+This firewall keeps those claims separate and then tests the stronger
+source-operator question directly on the pinned PNCS v0.32 adaptive path.
 
-eq0
-]
+## 2. Fixed-modulus counterexample
 
-as a source non-Abelianity witness.
-
-That implication is too strong.
-
-This firewall separates:
-
-1. noncommutativity of a declared projective/horizontal lift;
-2. noncommutativity of the actual source Hamiltonian history;
-3. coefficient-free descriptive lifts of an already known trajectory.
-
-## 2. Exact fixed-modulus counterexample
-
-Let
+For a normalized fixed-modulus wave state
 
 [
 psi_k(	au)
 =
-sqrt{p_k},
-e^{i	heta_k(	au)},
+sqrt{p_k},e^{i	heta_k(	au)},
 qquad
-p_k=	ext{constant}.
+p_k=mathrm{constant},
 ]
 
-Then
+one has
 
 [
-dotpsi_k
-=
-idot	heta_kpsi_k,
+dotpsi_k=idot	heta_kpsi_k.
 ]
 
-so the exact Hermitian lift
+Therefore
 
 [
 oxed{
 H_D(	au)
 =
 -operatorname{diag}
-igl(
+left(
 dot	heta_1(	au),ldots,dot	heta_N(	au)
-igr)
+ight)
 }
 ]
 
 satisfies
 
 [
-oxed{
 idotpsi=H_Dpsi.
-}
 ]
 
-For any two sections,
+Because all (H_D(	au)) are diagonal,
 
 [
 oxed{
-[H_D(	au_1),H_D(	au_2)]=0.
+[H_D(	au_1),H_D(	au_2)]=0
 }
 ]
 
-Therefore a phase-only trajectory with fixed amplitudes always admits a
-commuting diagonal source-operator representation.
+for every pair of sections.
 
-## 3. Why the projective generator may still rotate
+Thus a rotating horizontal (CP^1) connection does not by itself prove a
+noncommuting dynamical/source Hamiltonian.
 
-For a two-level pair with constant imbalance
+## 3. Projective connection can still rotate
+
+For one pair with constant imbalance
 
 [
 u=rac{p_L-p_R}{p_L+p_R},
@@ -105,9 +81,7 @@ r=sqrt{1-u^2},
 write
 
 [
-mathbf n
-=
-(rcosdelta,rsindelta,u).
+mathbf n=(rcosdelta,rsindelta,u).
 ]
 
 Then
@@ -116,125 +90,110 @@ Then
 oxed{
 oldsymbolOmega
 =
+mathbf n	imesdot{mathbf n}
+=
 dotdelta
 (-urcosdelta,-ursindelta,r^2).
 }
 ]
 
-At two different relative phases, one may have
+It is possible to have
 
 [
 oldsymbolOmega_1	imesoldsymbolOmega_2
-eq0
+e0
 ]
 
-even though the exact diagonal Hamiltonian lift above commutes at all times.
-
-Hence
-
-[
-oxed{
-oldsymbolOmega_1	imesoldsymbolOmega_2
-eq0
-
-otRightarrow
-[H_{m source}(	au_1),H_{m source}(	au_2)]
-eq0.
-}
-]
-
-The former is a property of the declared horizontal/minimum projective
-connection. It is not by itself an operator-history invariant.
-
-## 4. Consequence for the fixed-H QHTRI fixture
-
-The deterministic pair-dynamics fixture used by the earlier source witness has
-
-[
-H(	au)=H_0
-]
-
-constant.
+while the diagonal phase Hamiltonians commute.
 
 Therefore
 
 [
 oxed{
-[H(	au_1),H(	au_2)]=0
+oldsymbolOmega_1	imesoldsymbolOmega_2
+e0
+
+otRightarrow
+[H_{m source}(	au_1),H_{m source}(	au_2)]
+e0.
 }
 ]
 
-exactly, even though:
+## 4. Fixed-H QHTRI fixture firewall
 
-- pair populations evolve;
-- the normalized pair projector leaves the equal-amplitude equator;
-- the horizontal projective generator changes direction;
-- its own time-separated matrices may fail to commute.
+The earlier deterministic QHTRI pair-dynamics witness uses one fixed
+Hamiltonian (H_0).
 
-Those statements are compatible. They describe different operators.
-
-## 5. Correct source-operator gate
-
-The PNCS v0.32 controlled path does contain a genuinely time-dependent source
-Hamiltonian because the coupling matrix is updated before every QHTRI lift:
-
-[
-g_k
-longrightarrow
-g_{k+1}
-longrightarrow
-J_{k+1}
-longrightarrow
-H_{k+1}.
-]
-
-For each step,
-
-[
-H_k
-=
-dD+cJ_k,
-]
-
-where (D) is the fixed standardized detuning operator and (J_k) is the
-step-specific symmetric, zero-diagonal, spectral-radius-normalized coupling
-operator.
-
-The correct source-operator witness is therefore
+Consequently
 
 [
 oxed{
-mathcal C^{H}_{k,k+1}
+[H_0,H_0]=0.
+}
+]
+
+That fixture proves source-derived amplitude transport and a changing
+projective connection, but it does not prove a noncommuting source-Hamiltonian
+history.
+
+## 5. Correct source-operator gate
+
+The full PNCS v0.32 controlled path is different: before each QHTRI lift it
+updates the coupling matrix,
+
+[
+g_klongrightarrow g_{k+1}
+longrightarrow J_{k+1}
+longrightarrow H_{k+1}.
+]
+
+The source law is
+
+[
+H_k=dD+cJ_k,
+]
+
+where (D) is the fixed standardized diagonal detuning operator and (J_k) is
+the step-specific symmetric, zero-diagonal, spectral-radius-normalized coupling
+operator.
+
+The correct source-operator witness is
+
+[
+oxed{
+mathcal C^H_{k,k+1}
 =
 |[H_k,H_{k+1}]|_F.
 }
 ]
 
-## 6. Frozen seven-role semantic trajectory
+## 6. Pinned frozen Nisaba trajectory
 
-Use the exact PNCS frozen Nisaba sequence
+Use the exact PNCS frozen seven-role semantic sequence:
 
 [
-	ext{ADDRESS}
+mathrm{ADDRESS}
 	o
-	ext{TABLET_WRITING}
+mathrm{TABLET_WRITING}
 	o
-	ext{WISDOM}
+mathrm{WISDOM}
 	o
-	ext{FAIR_JUDGMENT}
+mathrm{FAIR_JUDGMENT}
 	o
-	ext{RECEPTION}
+mathrm{RECEPTION}
 	o
-	ext{AGREEMENT_WORK}
+mathrm{AGREEMENT_WORK}
 	o
-	ext{HOPE_GRATITUDE},
+mathrm{HOPE_GRATITUDE}.
 ]
 
-with semantic addresses generated by the source
+The semantic addresses are generated by the source
 `PNCS_SEMANTIC_CONTENT_ADDRESS_GENERATOR_V2`.
 
-Using the deterministic v0.32 source snapshot, the six adjacent source
-Hamiltonian commutators have Frobenius norms
+The deterministic v0.32 source snapshot is the one declared in
+`tests/test_semantic_htri_drive_v32.py`.
+
+For the six adjacent source Hamiltonian pairs:
 
 [
 oxed{
@@ -254,46 +213,41 @@ Thus
 [
 oxed{
 [H_k,H_{k+1}]
-eq0
-quad
-	ext{for every adjacent pair in the frozen source path}.
+e0
 }
 ]
 
-This is genuine source-operator noncommutativity.
+for every adjacent pair in this pinned source path.
 
-## 7. Coupling-only source witness
+## 7. Coupling-only witness
 
-The existence claim does not require the numerical QHTRI defaults
-(d=0.25) and (c=0.7).
+The binary existence of source-operator noncommutativity does not require the
+specific source defaults (d=0.25), (c=0.7).
 
-Set
+Set the detuning channel to zero and write
 
 [
-d=0,
-qquad
-H_k=bJ_k.
+H_k^{(J)}=bJ_k.
 ]
 
 Then
 
 [
 oxed{
-[H_k,H_{k+1}]
+[
+H_k^{(J)},H_{k+1}^{(J)}
+]
 =
 b^2[J_k,J_{k+1}].
 }
 ]
 
-For (b
-eq0), source-operator noncommutativity exists whenever
+For every (b
+e0), noncommutativity exists whenever
+([J_k,J_{k+1}]
+e0).
 
-[
-[J_k,J_{k+1}]
-eq0.
-]
-
-On the same frozen semantic trajectory,
+On the same frozen semantic trajectory:
 
 [
 oxed{
@@ -308,21 +262,21 @@ end{aligned}
 }
 ]
 
-All are nonzero.
+All six are nonzero.
 
 Therefore:
 
 [
 oxed{
-	ext{specific values }0.25, 0.7
+0.25, 0.7
 	ext{ are not required for the existence of source-operator non-Abelianity.}
 }
 ]
 
-The coupling channel must be nonzero, but its absolute scale controls magnitude,
-not the binary existence of the commutator.
+A nonzero coupling scale remains necessary for the coupling-only operator
+magnitude.
 
-## 8. Scale-free coupling-direction witness
+## 8. Scale-free operator-direction witness
 
 Define
 
@@ -338,88 +292,37 @@ widehat{mathcal C}^{J}_{k,k+1}
 }
 ]
 
-For the frozen path:
+For the pinned source path:
 
 [
 oxed{
 widehat{mathcal C}^{J}
 approx
 (
-3.28488,
-2.78173,
-4.07142,
-2.14306,
-1.92718,
-1.24026
+3.284878,,
+2.781725,,
+4.071416,,
+2.143060,,
+1.927184,,
+1.240256
 )	imes10^{-4}.
 }
 ]
 
-This witness is invariant under a common nonzero scalar rescaling of the
-coupling Hamiltonians.
+This removes a common scalar coupling magnitude and measures change of
+operator direction.
 
-It measures change of operator direction rather than coupling magnitude.
+## 9. Corrected hierarchy
 
-## 9. Amplitude transport and operator noncommutativity are distinct
-
-A fixed off-diagonal Hamiltonian may move probabilities while remaining a
-single commuting time generator.
-
-Therefore
-
-[
-dot p_k
-eq0
-]
-
-proves that a purely diagonal lift is insufficient for that trajectory, but it
-still does not by itself prove a noncommuting Hamiltonian history.
-
-The source path closes the stronger gate only because the adaptive (g_k)
-produces directly verified
-
-[
-[H_k,H_{k+1}]
-eq0.
-]
-
-## 10. Status of the minimum-Frobenius lift
-
-For a known normalized trajectory, the exact operator
-
-[
-H_{min}
-=
-|vanglelanglePsi|
-+
-|Psianglelangle v|
--
-langlePsi|vangle
-|PsianglelanglePsi|,
-qquad
-v=idotPsi,
-]
-
-remains the unique minimum-Frobenius Hermitian solution of
-
-[
-HPsi=idotPsi.
-]
-
-However, its time-separated commutators are properties of that chosen
-minimum-norm representation.
-
-They must not be substituted for direct source-Hamiltonian commutators.
-
-## 11. Corrected MUMMU hierarchy
-
-The typed hierarchy is now
+MUMMU must keep two lanes:
 
 [
 oxed{
 	ext{projective path}
 	o
 mathcal A_{m hor}
+	o
+[mathcal A_{m hor}(	au_1),mathcal A_{m hor}(	au_2)]
 }
 ]
 
@@ -427,7 +330,7 @@ and separately
 
 [
 oxed{
-	ext{source adaptive coupling path}
+	ext{adaptive source path}
 	o
 {H_k}
 	o
@@ -435,19 +338,15 @@ and separately
 }
 ]
 
-The first controls projective/Berry-style transport.
+Neither is a silent proxy for the other.
 
-The second establishes genuine source-operator path ordering.
-
-Neither should be used as a silent proxy for the other.
-
-## 12. Remaining coefficient problem
+## 10. Coefficient consequence
 
 The discovery removes one false dependency:
 
 [
 oxed{
-	ext{operator non-Abelianity does not require deriving }0.25,0.7.
+	ext{source-operator non-Abelianity does not require deriving }0.25,0.7.
 }
 ]
 
@@ -456,28 +355,27 @@ But quantitative physical prediction still requires source authority for:
 - coupling magnitude;
 - detuning magnitude if retained;
 - adaptive-(g) update constants;
-- the physical time scale;
-- microscopic identification of (g).
+- physical/proper-time calibration;
+- microscopic interpretation of (g).
 
-Thus the actuation-law gate remains open for physical prediction, not for the
-existence of noncommuting source operators in the computational model.
+Thus the actuation-law problem remains open for physical prediction, not for
+the existence of noncommuting source operators in the computational model.
 
-## 13. Claim ledger
+## 11. Claim ledger
 
 | Statement | Status |
 |---|---|
 | fixed-modulus phase flow admits commuting diagonal Hermitian lift | `EXACT` |
 | rotating horizontal (Omega) alone proves source-H noncommutativity | `REFUTED` |
-| fixed-H QHTRI pair fixture has noncommuting source-H history | `REFUTED` |
-| fixed-H fixture has source-derived amplitude transport | `PASS` |
-| frozen v0.32 semantic path has ([H_k,H_{k+1}]
-eq0) for all six adjacent steps | `NUMERIC SOURCE-PINNED PASS` |
+| fixed-H pair fixture has noncommuting source-H history | `REFUTED` |
+| fixed-H pair fixture has source-derived amplitude transport | `PASS` |
+| frozen v0.32 path has nonzero adjacent source-H commutators | `NUMERIC SOURCE-PINNED PASS` |
 | coupling-only (J_k) history is noncommuting on the same path | `NUMERIC SOURCE-PINNED PASS` |
-| exact defaults 0.25 and 0.7 are required for existence of non-Abelian source history | `REFUTED` |
+| exact defaults (0.25,0.7) are required for existence of source non-Abelianity | `REFUTED` |
 | exact defaults are irrelevant to quantitative magnitude | `REFUTED` |
 | physical microscopic realization | `OPEN / NOT CLAIMED` |
 
-## 14. Validation
+## 12. Validation
 
 Deterministic validator:
 
