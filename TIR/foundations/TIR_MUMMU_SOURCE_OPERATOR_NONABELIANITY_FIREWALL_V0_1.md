@@ -701,3 +701,81 @@ TIR/validation/tir_mummu_source_operator_nonabelianity_firewall_v0_1.py
 Static receipt:
 
 TIR/validation/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_VALIDATION_V0_1.json
+
+
+## 10.2 No detuning cancellation on the pinned path
+
+The coupling-only result proves that source-operator noncommutativity exists
+without the detuning term. A stronger statement is available.
+
+For adjacent source steps write
+
+[
+H_k=aD+bJ_k.
+]
+
+Define
+
+[
+X_k=[D,J_{k+1}-J_k],
+qquad
+Y_k=[J_k,J_{k+1}].
+]
+
+Then
+
+[
+oxed{
+[H_k,H_{k+1}]
+=
+b(aX_k+bY_k).
+}
+]
+
+For all six adjacent pairs in the pinned original trajectory, the
+Hilbert-Schmidt Gram determinant
+
+[
+G_k
+=
+|X_k|_F^2|Y_k|_F^2
+-
+|langle X_k,Y_kangle_{m HS}|^2
+]
+
+is strictly positive:
+
+[
+oxed{
+G_k
+approx
+(1.9764,,
+1.3362,,
+2.7928,,
+0.8155,,
+0.6110,,
+0.3101)	imes10^{-12}.
+}
+]
+
+Therefore (X_k) and (Y_k) are linearly independent at every adjacent pinned
+step.
+
+Consequently,
+
+[
+oxed{
+b
+eq0
+Longrightarrow
+[H_k,H_{k+1}]
+eq0
+}
+]
+
+for **arbitrary real detuning coefficient (a)** on this pinned path.
+
+Thus the existence of the direct source-operator obstruction cannot be removed
+by retuning the detuning coefficient against the coupling term. Only removing
+the coupling channel itself, or changing the source path so the obstruction
+vanishes, can close it.
