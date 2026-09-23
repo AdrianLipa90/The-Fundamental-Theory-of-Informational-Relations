@@ -523,3 +523,32 @@ while
 \Rightarrow
 \text{noncommuting source Hamiltonian history}.
 \]
+
+
+## 14. Superseding operator-vs-projective correction
+
+The direct parent-operator test is now recorded in
+
+`TIR_MUMMU_QHTRI_DIRECT_SOURCE_OPERATOR_NONCOMMUTATIVITY_V0_1.md`.
+
+The fixed-H fixture used in Sections 3–9 has one constant parent Hamiltonian, so
+
+[
+[H(	au_1),H(	au_2)]=0
+]
+
+identically. Its nonzero (chi_j) is therefore a property of the reduced
+horizontal/projective connection, not proof of parent-H noncommutativity.
+
+The full PNCS controlled semantic trajectory is different: `controlled_step()`
+updates (g) and constructs distinct (H_k). Direct validation gives
+
+[
+[H_k,H_{k+1}]
+eq0
+]
+
+for all six consecutive transitions in the pinned seven-role trajectory.
+
+Any earlier wording in this document that used “noncommuting source history” for
+the fixed-H local projector result is superseded by this distinction.
