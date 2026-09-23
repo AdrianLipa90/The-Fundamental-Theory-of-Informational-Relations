@@ -1,7 +1,7 @@
 {
   "schema": "TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_VALIDATION_V0_1",
   "status": "PASS",
-  "claim_scope": "projective horizontal-generator noncommutativity is not sufficient to infer source-Hamiltonian noncommutativity; the source-pinned frozen PNCS semantic path nevertheless has direct nonzero adjacent Hamiltonian commutators, including in the coupling-only sector; the initial infinitesimal operator rotation is isolated to the phase-conditioned Hebbian update while pure decay is directionally removed by spectral normalization",
+  "claim_scope": "projective horizontal-generator noncommutativity is not sufficient to infer source-Hamiltonian noncommutativity; the frozen PNCS semantic path has direct nonzero adjacent Hamiltonian commutators, including in the coupling-only sector; the initial infinitesimal rotation is isolated to phase-conditioned Hebbian adaptation, and a coefficient-free normalized [j,C_phi] obstruction records the underlying operator-direction mismatch",
   "source_pins": {
     "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
     "semantic_sequence_fixture": "tests/test_semantic_htri_drive_v32.py::trajectories"
@@ -51,6 +51,21 @@
       "relative_error_finest": 0.0000015516290666147446
     },
     {
+      "name": "coefficient_free_phase_geometry_obstruction",
+      "status": "PASS",
+      "Xi_phase": 0.4892295237087932,
+      "raw_phase_Xi": 0.0807815913779084,
+      "common_harmonic_Xi": 0.39256286196602685,
+      "channel_specific_harmonic_Xi": 0.4892295237087932,
+      "j_C_commutator_frobenius": 55.47007169773645,
+      "j_frobenius": 4.452954075667074,
+      "C_phi_frobenius": 25.46231305220863,
+      "lambda_H": -0.016555555555555556,
+      "reconstructed_commutator_rate": 0.09807529728550186,
+      "harmonic_to_raw_ratio": 6.056200619025987,
+      "channel_specific_to_common_ratio": 1.2462450504325395
+    },
+    {
       "name": "frozen_semantic_path_source_hamiltonians_noncommute",
       "status": "PASS",
       "adjacent_commutator_frobenius": [
@@ -92,7 +107,7 @@
     }
   ],
   "summary": {
-    "passed": 8,
-    "total": 8
+    "passed": 9,
+    "total": 9
   }
 }
