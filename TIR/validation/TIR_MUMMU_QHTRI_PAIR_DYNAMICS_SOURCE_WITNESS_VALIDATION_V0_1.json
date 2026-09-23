@@ -1,7 +1,7 @@
 {
   "schema": "TIR_MUMMU_QHTRI_PAIR_DYNAMICS_SOURCE_WITNESS_VALIDATION_V0_1",
   "status": "PASS",
-  "claim_scope": "model-level source-derived QHTRI 36D wave evolution produces a non-Abelian local CP1 pair-history witness; physical binding and fundamental status of QHTRI coefficients remain open",
+  "claim_scope": "model-level source-derived QHTRI 36D wave evolution produces pair-imbalance dynamics and a changing horizontal CP1 projective connection; this receipt does not infer source-Hamiltonian noncommutativity; physical binding and fundamental status of QHTRI coefficients remain open",
   "source_pins": {
     "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963"
   },
@@ -9,22 +9,28 @@
     {
       "name": "source_fixture_qhtri_hamiltonian_hermitian",
       "status": "PASS",
-      "max_abs_error": 0.0
+      "max_abs_error": 0
     },
     {
       "name": "source_phase_state_normalized",
       "status": "PASS",
-      "norm_error": 0.0
+      "norm_error": 0
+    },
+    {
+      "name": "fixed_source_hamiltonian_history_is_commuting",
+      "status": "PASS",
+      "source_operator_commutator_frobenius": 0,
+      "reason": "the pinned fixture uses one time-independent H"
     },
     {
       "name": "pair_imbalance_derivative_from_36d_schrodinger",
       "status": "PASS",
-      "u": 0.0,
+      "u": 0,
       "u_dot": -0.010654152604631609,
       "formula_abs_error": 8.673617379884035e-18
     },
     {
-      "name": "source_derived_local_nonabelian_acceleration_witness",
+      "name": "source_derived_projective_connection_acceleration_witness",
       "status": "PASS",
       "omega": [
         -0.001769477054388944,
@@ -38,15 +44,19 @@
       ],
       "omega_cross_omega_dot": [
         0.0008903039767670687,
-        0.00014994774824133825,
+        0.00014994774824133824,
         1.3552527156068805e-19
       ],
       "witness_norm": 0.000902843008737589
     },
     {
-      "name": "short_time_commutator_converges_to_local_witness",
+      "name": "short_time_projective_connection_commutator_converges_to_local_witness",
       "status": "PASS",
-      "eps_values": [0.01, 0.005, 0.0025],
+      "eps_values": [
+        0.01,
+        0.005,
+        0.0025
+      ],
       "scaled_cross_norms": [
         0.0009038785849283399,
         0.0009033568431330332,
@@ -57,7 +67,7 @@
     {
       "name": "finite_time_pair_imbalance_emerges",
       "status": "PASS",
-      "u_t0": 0.0,
+      "u_t0": 0,
       "u_t05": -0.010175159132743996,
       "state_norm_error_t05": 8.881784197001252e-16
     },
@@ -78,7 +88,7 @@
     }
   ],
   "summary": {
-    "passed": 7,
-    "total": 7
+    "passed": 8,
+    "total": 8
   }
 }
