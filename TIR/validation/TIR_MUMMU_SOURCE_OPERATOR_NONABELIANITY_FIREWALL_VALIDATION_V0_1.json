@@ -1,7 +1,7 @@
 {
   "schema": "TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_VALIDATION_V0_1",
   "status": "PASS",
-  "claim_scope": "projective horizontal-generator noncommutativity is not sufficient to infer source-Hamiltonian noncommutativity; the source-pinned frozen PNCS semantic path nevertheless has direct nonzero adjacent Hamiltonian commutators, including in the coupling-only sector",
+  "claim_scope": "projective horizontal-generator noncommutativity is not sufficient to infer source-Hamiltonian noncommutativity; the source-pinned frozen PNCS semantic path nevertheless has direct nonzero adjacent Hamiltonian commutators, including in the coupling-only sector; the initial infinitesimal operator rotation is isolated to the phase-conditioned Hebbian update while pure decay is directionally removed by spectral normalization",
   "source_pins": {
     "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
     "semantic_sequence_fixture": "tests/test_semantic_htri_drive_v32.py::trajectories"
@@ -11,12 +11,44 @@
       "name": "projective_omega_noncommutativity_does_not_imply_source_operator_noncommutativity",
       "status": "PASS",
       "projective_omega_cross_norm": 0.17737983788512188,
-      "commuting_diagonal_source_H_commutator_frobenius": 0.0
+      "commuting_diagonal_source_H_commutator_frobenius": 0
     },
     {
       "name": "fixed_h_qhtri_fixture_source_operator_history_commutes",
       "status": "PASS",
-      "commutator_frobenius": 0.0
+      "commutator_frobenius": 0
+    },
+    {
+      "name": "initial_weak_channel_boost_is_inactive",
+      "status": "PASS",
+      "active_weak_channels": 0
+    },
+    {
+      "name": "pure_decay_is_directionally_invisible_after_qhtri_normalization",
+      "status": "PASS",
+      "max_abs_J_change": 3.469446951953614e-17
+    },
+    {
+      "name": "hebbian_phase_conditioning_generates_infinitesimal_operator_rotation",
+      "status": "PASS",
+      "activity": 0.33444444444444443,
+      "spectral_radius": 3.060000000000001,
+      "predicted_commutator_rate": 0.09807529728550185,
+      "eps_values": [
+        0.01,
+        0.005,
+        0.0025,
+        0.001,
+        0.0001
+      ],
+      "scaled_commutator_rates": [
+        0.0980905108958597,
+        0.09808290511130753,
+        0.09807910145360284,
+        0.098076819013971,
+        0.09807544946198384
+      ],
+      "relative_error_finest": 0.0000015516290666147446
     },
     {
       "name": "frozen_semantic_path_source_hamiltonians_noncommute",
@@ -56,11 +88,11 @@
       "name": "coupling_scale_enters_commutator_quadratically",
       "status": "PASS",
       "probe_b": 0.37,
-      "max_abs_error": 0.0
+      "max_abs_error": 0
     }
   ],
   "summary": {
-    "passed": 5,
-    "total": 5
+    "passed": 8,
+    "total": 8
   }
 }
