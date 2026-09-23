@@ -468,3 +468,50 @@ longleftrightarrow
 
 Closing that identity bridge would make the finite-layer quartic coefficient
 fully replayable from source receipts rather than only formally well-defined.
+
+
+## 16. Typed-time refinement
+
+The remaining QHTRI↔PNLF identity seam is classified by
+
+`TIR/foundations/TIR_MUMMU_QHTRI_PNLF_TYPED_TIME_BRIDGE_NOGO_V0_1.md`.
+
+The current source types
+
+[
+Delta t_{m HTRI},
+quad
+t_{m sample},
+quad
+Delta t_{m coord},
+quad
+Delta	au_{m ORCH},
+quad
+	au_{m PNLF}
+]
+
+must remain distinct until an explicit time-binding receipt connects them.
+
+For a positive lapse
+
+[
+d	au=g(t)dt,
+]
+
+the geometric connection one-form satisfies
+
+[
+oxed{
+(mathbf n	imes dmathbf n/d	au)d	au
+=
+(mathbf n	imes dmathbf n/dt)dt.
+}
+]
+
+Therefore the proper-time bridge does not rescale MUMMU holonomy on an already
+matched path.  It is required to prove **interval identity**: exactly which
+HTRI execution steps belong to the admitted PNLF liminal segment.
+
+The final executable provenance object is therefore an ordered trajectory
+commitment containing both HTRI step receipts and ORCH time-binding receipts,
+with accumulated proper time equal to the PNLF `tau_cursor`.
