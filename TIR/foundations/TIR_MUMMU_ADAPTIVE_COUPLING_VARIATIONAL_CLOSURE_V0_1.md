@@ -401,3 +401,63 @@ Deterministic validator:
 Static receipt:
 
 `TIR/validation/TIR_MUMMU_ADAPTIVE_COUPLING_VARIATIONAL_CLOSURE_VALIDATION_V0_1.json`
+
+
+## 13. Mobility-normalization identifiability firewall
+
+The local gradient representation does not uniquely factor its effective runtime
+gains into a coupling-space mobility and potential coefficients.
+
+This is formalized in
+
+`TIR_MUMMU_COUPLING_MOBILITY_GAIN_IDENTIFIABILITY_NOGO_V0_1.md`.
+
+For
+
+[
+dot g
+=
+-mu
+abla_g
+left[
+-alphalangle g,C_Phiangle_F
++
+rac{eta}{2}|g-g_0|_F^2
+ight],
+]
+
+the trajectory depends only on
+
+[
+h=mualpha,
+qquad
+d=mueta.
+]
+
+The exact gauge
+
+[
+oxed{
+(mu,alpha,eta)
+sim
+(cmu,alpha/c,eta/c),
+qquad c>0,
+}
+]
+
+leaves the coupling trajectory unchanged.
+
+Thus the executable Frobenius-gradient form may be represented canonically in
+software with unit mobility, but that convention must not be promoted to a
+microscopic physical mobility.
+
+The invariant frozen ratio is
+
+[
+rac{h}{d}
+=
+rac{alpha}{eta},
+]
+
+while an independent typed clock can calibrate the common flow rate. It still
+cannot split mobility from potential normalization.
