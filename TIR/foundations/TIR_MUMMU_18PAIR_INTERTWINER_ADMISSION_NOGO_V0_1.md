@@ -131,24 +131,31 @@ Therefore
 }
 \]
 
-Inside one factor every source generator is also proportional to the same local
-\(\sigma_z\), so its self-family remains Abelian.
+For the **phase-only equal-amplitude submanifold**, every local generator is
+also proportional to the same local \(\sigma_z\), so that restricted
+self-family is Abelian.
 
-Consequently:
+The stronger statement that uncoupled T36 can never generate any local
+non-Abelian transport is corrected by
+
+`TIR_MUMMU_T36_WAVE_FULL_CP1_LOCAL_NONABELIAN_V0_1.md`.
+
+The source wave-amplitude carrier supplies a population-imbalance coordinate
+\(u_j\) and lifts each pair from the equator to full \(CP^1\).  Within one
+factor, changing \((\delta_j,u_j)\) can then produce noncommuting local
+generators.
+
+The exact no-go retained here is only the cross-factor statement:
 
 \[
 \boxed{
-\Pi_{18}
-\text{ plus uncoupled }SU(2)^{18}
-\text{ cannot by itself generate }
-\mathcal O_{\rm NC}>0.
+j\ne k
+\Longrightarrow
+[\mathfrak{su}(2)_j,\mathfrak{su}(2)_k]=0
 }
 \]
 
-The non-Abelian MUMMU seam therefore requires a genuine inter-factor coupling,
-shared-frame embedding, or non-product connection.
-
-This is a structural no-go, not a numerical failure.
+until a genuine inter-factor coupling/shared connection is derived.
 
 ## 4. Cardinality is not an intertwiner
 
