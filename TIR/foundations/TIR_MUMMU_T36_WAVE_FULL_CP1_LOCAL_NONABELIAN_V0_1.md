@@ -584,3 +584,28 @@ for all six adjacent steps of the frozen seven-role trajectory.
 Accordingly, this document establishes the local projective connection algebra.
 Direct source-Hamiltonian noncommutativity is claimed only when the Hamiltonian
 commutator itself has been evaluated.
+
+
+## 16. Operator-vs-projective separation
+
+The local connection in this theorem is the horizontal/projective lift selected
+from the (CP^1) trajectory. Its commutator is exact **within that connection**.
+
+It does not follow that every parent Hamiltonian realizing the same projective
+path is noncommuting. A constant diagonal Hamiltonian provides an exact
+counterexample for fixed unequal amplitudes and linearly evolving relative
+phase.
+
+The direct source-operator criterion is therefore
+
+[
+[H(	au_1),H(	au_2)]
+eq0,
+]
+
+tested independently in
+
+`TIR_MUMMU_QHTRI_DIRECT_SOURCE_OPERATOR_NONCOMMUTATIVITY_V0_1.md`.
+
+That direct gate PASSes on the full source-controlled semantic trajectory,
+while a fixed-H segment remains commuting at parent-operator level.
