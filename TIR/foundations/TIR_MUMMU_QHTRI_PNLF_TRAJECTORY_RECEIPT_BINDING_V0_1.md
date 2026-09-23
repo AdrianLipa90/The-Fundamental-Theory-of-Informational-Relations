@@ -396,3 +396,55 @@ C_L.
 
 Until that native emitter exists, TIR may validate candidate receipts but must
 not claim that the live PNCS/PNLF persistence path already emits them.
+
+
+## 16. Native PNCS feature-branch implementation evidence
+
+A native read-only emitter implementing this schema now exists on the PNCS
+feature branch:
+
+feat/mummu-qhtri-pnlf-trajectory-binding-v01-20260923
+
+at head:
+
+7e1a2dab237ec741ec29d1da19007520c9755d8d
+
+Draft pull request:
+
+PhaseNav-Natural-Coding-System #73
+
+The implementation adds:
+
+- src/phasenav_natural_code/qhtri_pnlf_trajectory_binding_v01.py
+- spec/PNCS_QHTRI_PNLF_TRAJECTORY_BINDING_V0_1.md
+- tests/test_qhtri_pnlf_trajectory_binding_v01.py
+- .github/workflows/pncs-qhtri-pnlf-trajectory-binding-v01.yml
+
+Hosted evidence on that exact head:
+
+- PNCS QHTRI PNLF trajectory binding v0.1: SUCCESS
+- PNCS v1 release closure: SUCCESS
+- PNCS v0.28 adversarial conformance: SUCCESS
+- PNCS Round28 relation lowering v0.4 gauntlet: SUCCESS
+- PNCS golden-mean post-v1 quarantine v0.1: SUCCESS
+
+The PNCS branch is four commits ahead and zero behind the pinned main source
+commit 8855abed440e9949f576ffbe2153325f69e78963.
+
+Accordingly the corrected status is:
+
+[
+oxed{
+	ext{native emitter implemented and CI-green on PNCS feature branch}
+}
+]
+
+while
+
+[
+oxed{
+	ext{promotion to PNCS main remains OPEN}.
+}
+]
+
+No main merge is implied by this evidence.
