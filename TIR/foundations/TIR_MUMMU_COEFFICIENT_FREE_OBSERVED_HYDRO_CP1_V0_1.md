@@ -568,10 +568,10 @@ source-compatible candidate.
 | Gaussian observation supplies normalized amplitude imbalance | `EXACT IMPORTED` |
 | hydrodynamic trace supplies ordered proper-time phase evolution | `EXACT IMPORTED` |
 | fixed-imbalance phase-flow CP1 formula | `EXACT` |
-| generic non-Abelian criterion above | `EXACT` |
+| generic horizontal/projective connection noncommutativity criterion above | `EXACT` |
 | canonical dual-pair NOW translation changes pair phase | `REFUTED` |
 | Gaussian localization alone is non-Abelian | `REFUTED` |
-| pinned observed+hydro composition has nonzero local witness | `NUMERIC PASS` |
+| pinned observed+hydro composition has nonzero horizontal/projective witness | `NUMERIC PASS` |\n| same fixed-modulus source phase law admits commuting diagonal Hamiltonians | `EXACT` |
 | (H_{min}) is the unique minimum-Frobenius Hermitian trajectory lift | `EXACT` |
 | route requires QHTRI graph defaults (0.25,0.7) | `REFUTED FOR DESCRIPTIVE TRANSPORT` |
 | native PNCS observation→hydro wave-trace receipt exists | `NOT FOUND / OPEN` |
@@ -642,7 +642,7 @@ The coefficient-free witness is therefore a statement about non-Abelian
 dynamical interaction Hamiltonian.
 
 
-## 14. Commuting diagonal source-lift firewall
+## 15. 36D commuting diagonal source-lift restatement
 
 For the fixed-probability observed-hydro construction,
 
