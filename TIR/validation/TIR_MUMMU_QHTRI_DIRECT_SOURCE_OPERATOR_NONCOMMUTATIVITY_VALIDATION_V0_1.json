@@ -8,9 +8,15 @@
   },
   "checks": [
     {
+      "name": "projective_noncommutativity_does_not_imply_parent_operator_noncommutativity",
+      "status": "PASS",
+      "projective_omega_cross_norm": 0.1153756713135586,
+      "parent_hamiltonian_commutator_norm": 0
+    },
+    {
       "name": "fixed_h_source_operator_self_commutator_zero",
       "status": "PASS",
-      "frobenius_norm": 0.0
+      "frobenius_norm": 0
     },
     {
       "name": "all_consecutive_controlled_source_hamiltonians_noncommute",
@@ -70,7 +76,7 @@
     {
       "name": "nonzero_coupling_generic_coefficient_probe_remains_noncommuting",
       "status": "PASS",
-      "minimum_probe_commutator_norm": 2.6250228231580447e-06,
+      "minimum_probe_commutator_norm": 0.0000026250228231580447,
       "note": "finite probes supplement the exact linear-independence argument"
     },
     {
@@ -93,7 +99,7 @@
     }
   ],
   "summary": {
-    "passed": 6,
-    "total": 6
+    "passed": 7,
+    "total": 7
   }
 }
