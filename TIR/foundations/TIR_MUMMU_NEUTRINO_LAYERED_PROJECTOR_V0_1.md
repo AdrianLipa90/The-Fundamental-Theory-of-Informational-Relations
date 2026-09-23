@@ -747,3 +747,66 @@ trajectory shape can calibrate (chi) without fixing the absolute clock rate.
 This does not promote (chi) to a fundamental constant. GREMLIN's existing
 actuation firewall remains active: a source quantity may control Hamiltonian
 parameters only through an explicit independent actuation law/receipt.
+
+
+## 19. Proper-time scale calibration closure
+
+The Hamiltonian scale is conditionally identifiable once the trajectory has a
+typed ORCH/PNLF proper-time receipt:
+
+`TIR/foundations/TIR_MUMMU_QHTRI_PROPER_TIME_SCALE_CALIBRATION_V0_1.md`.
+
+For
+
+[
+H=sK_chi
+]
+
+define the normalized-branch local rate
+
+[
+F_u(chi)
+=
+left.du/dtight|_{H=K_chi}.
+]
+
+The source dynamics gives
+
+[
+du/dt=sF_u(chi).
+]
+
+With an admitted time binding
+
+[
+d	au=g,dt,
+]
+
+one obtains
+
+[
+oxed{
+du/d	au
+=
+rac{s}{g}F_u(chi)
+}
+]
+
+and, for (F_u(chi)
+eq0),
+
+[
+oxed{
+s
+=
+g,
+rac{du/d	au}{F_u(chi)}.
+}
+]
+
+Thus scale-free trajectory shape calibrates (chi), while the independent
+typed clock receipt calibrates (s).
+
+This closes model-level identifiability of the two QHTRI coefficient degrees of
+freedom. It does not derive a fundamental actuation law selecting them before
+observation.
