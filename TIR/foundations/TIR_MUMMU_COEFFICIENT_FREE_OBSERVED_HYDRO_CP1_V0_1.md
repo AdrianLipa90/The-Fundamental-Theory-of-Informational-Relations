@@ -587,3 +587,57 @@ Deterministic validator:
 Static receipt:
 
 `TIR/validation/TIR_MUMMU_COEFFICIENT_FREE_OBSERVED_HYDRO_CP1_VALIDATION_V0_1.json`
+
+
+## 14. Geometric versus dynamical noncommutativity firewall
+
+The coefficient-free source-composed lane has an exact operator split recorded
+in
+
+`TIR/foundations/TIR_MUMMU_GEOMETRIC_NONABELIAN_DYNAMICAL_ABELIAN_SPLIT_V0_1.md`.
+
+With frozen pair amplitudes and hydrodynamic phase velocities,
+
+[
+H_{m phase}
+=
+-operatorname{diag}(v_L,v_R)
+=
+-rac{v_L+v_R}{2}I
++
+rac{dotdelta}{2}sigma_z.
+]
+
+Therefore all time-separated dynamical phase Hamiltonians commute:
+
+[
+oxed{
+[H_{m phase}(	au_1),H_{m phase}(	au_2)]=0.
+}
+]
+
+The projective horizontal generator is instead
+
+[
+oxed{
+Omega
+=
+h-(ncdot h)n,
+qquad
+h=(0,0,dotdelta),
+}
+]
+
+and can rotate with the moving Bloch state.  Hence the same bound trajectory can
+have
+
+[
+oxed{
+[mathcal A_{m geom}(	au_1),mathcal A_{m geom}(	au_2)]
+e0.
+}
+]
+
+The coefficient-free witness is therefore a statement about non-Abelian
+**projective/horizontal geometry**, not by itself evidence of a non-Abelian
+dynamical interaction Hamiltonian.
