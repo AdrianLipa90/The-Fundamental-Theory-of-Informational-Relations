@@ -1,0 +1,70 @@
+{
+  "schema": "TIR_MUMMU_QHTRI_COEFFICIENT_IDENTIFIABILITY_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "QHTRI two-coefficient sector reduces to an overall time scale and one dimensionless Hilbert-Schmidt mixing angle; quadratic norm/action cannot select that angle; PNCS defaults remain reference parameters",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "origin_commit": "bfe21eaa3e5c0d5e33dc2e449c88c6bd0e10cf52"
+  },
+  "checks": [
+    {
+      "name": "detuning_coupling_hilbert_schmidt_orthogonality",
+      "status": "PASS",
+      "hs_inner": 0.0
+    },
+    {
+      "name": "standardized_36d_detuning_frobenius_norm",
+      "status": "PASS",
+      "D_frobenius_norm": 6.000000000000001,
+      "J_frobenius_norm": 1.4552137502179978
+    },
+    {
+      "name": "normalized_hs_basis_is_orthonormal",
+      "status": "PASS",
+      "max_abs_error": 2.220446049250313e-16
+    },
+    {
+      "name": "quadratic_hs_action_cannot_select_mixing_angle",
+      "status": "PASS",
+      "min_trace_H2": 0.9999999999999996,
+      "max_trace_H2": 1.0000000000000002,
+      "spread": 6.661338147750939e-16
+    },
+    {
+      "name": "overall_scale_is_unitary_time_reparameterization",
+      "status": "PASS",
+      "max_abs_error": 2.463258469952349e-15
+    },
+    {
+      "name": "source_defaults_reduce_to_hs_scale_and_angle",
+      "status": "PASS",
+      "A": 1.5000000000000002,
+      "B": 1.0186496251525985,
+      "scale_s": 1.8131869894810988,
+      "chi_rad": 0.5965608027914262,
+      "chi_deg": 34.18041622288494,
+      "raw_ratio_b_over_a": 2.8
+    },
+    {
+      "name": "default_angle_not_extremum_of_fixture_witness",
+      "status": "PASS",
+      "chi_default_deg": 34.18041622288494,
+      "chi_witness_max_deg": 43.065,
+      "w_default": 0.00015145529353845246,
+      "w_max": 0.00015890803653240937,
+      "default_fraction_of_max": 0.9531002763825798
+    },
+    {
+      "name": "equal_hs_neutral_benchmark",
+      "status": "PASS",
+      "chi_deg": 45.0,
+      "raw_ratio_b_over_a": 4.1231056256176615,
+      "frobenius_norm": 0.9999999999999999,
+      "promotion_state": "BENCHMARK_CONVENTION_ONLY"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "total": 8
+  }
+}
