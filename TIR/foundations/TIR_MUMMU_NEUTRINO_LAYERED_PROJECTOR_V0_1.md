@@ -629,3 +629,74 @@ mathfrak S_{m MUMMU}^{m source}
 
 Here the Stella anisotropy is quartic while the smooth non-Abelian history first
 appears cubically at operator level.  No common scalar order is asserted.
+
+
+## 17. QHTRI coefficient-identifiability firewall
+
+The remaining QHTRI Hamiltonian coefficients have been isolated in
+
+`TIR/foundations/TIR_MUMMU_QHTRI_COEFFICIENT_IDENTIFIABILITY_NOGO_V0_1.md`.
+
+Write
+
+[
+H=aD+bJ,
+]
+
+where (D) is the standardized diagonal detuning operator and (J) is the
+zero-diagonal spectrally normalized coupling operator.
+
+They obey the exact Hilbert-Schmidt orthogonality
+
+[
+oxed{
+operatorname{Tr}(DJ)=0.
+}
+]
+
+After normalization,
+
+[
+widehat D=D/|D|_F,
+qquad
+widehat J=J/|J|_F,
+]
+
+the Hamiltonian has the canonical two-coordinate form
+
+[
+oxed{
+H
+=
+s
+left(
+coschi,widehat D
++
+sinchi,widehat J
+ight).
+}
+]
+
+The scale (s) only rescales the unitary time parameter,
+
+[
+U_{s,chi}(t)=U_{1,chi}(st),
+]
+
+while the projective orbit shape is controlled by the dimensionless mixing angle
+(chi).
+
+Moreover,
+
+[
+oxed{
+operatorname{Tr}(H^2)=s^2
+}
+]
+
+is independent of (chi), so a quadratic minimum-action/norm principle cannot
+select the detuning/coupling ratio.
+
+The PNCS defaults (0.25,0.7) therefore remain regression/reference parameters,
+not TIR-derived constants.  The only unresolved Hamiltonian freedom is now one
+dimensionless mixing angle plus an external time-scale calibration.
