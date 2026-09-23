@@ -1,0 +1,66 @@
+{
+  "schema": "TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "projective horizontal-generator noncommutativity is not sufficient to infer source-Hamiltonian noncommutativity; the source-pinned frozen PNCS semantic path nevertheless has direct nonzero adjacent Hamiltonian commutators, including in the coupling-only sector",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "semantic_sequence_fixture": "tests/test_semantic_htri_drive_v32.py::trajectories"
+  },
+  "checks": [
+    {
+      "name": "projective_omega_noncommutativity_does_not_imply_source_operator_noncommutativity",
+      "status": "PASS",
+      "projective_omega_cross_norm": 0.17737983788512188,
+      "commuting_diagonal_source_H_commutator_frobenius": 0.0
+    },
+    {
+      "name": "fixed_h_qhtri_fixture_source_operator_history_commutes",
+      "status": "PASS",
+      "commutator_frobenius": 0.0
+    },
+    {
+      "name": "frozen_semantic_path_source_hamiltonians_noncommute",
+      "status": "PASS",
+      "adjacent_commutator_frobenius": [
+        0.000475441023291991,
+        0.0004542915624319203,
+        0.0004944377175301405,
+        0.00040267801525085105,
+        0.00041942046707139083,
+        0.00040276821479287106
+      ],
+      "minimum": 0.00040267801525085105
+    },
+    {
+      "name": "coupling_only_operator_history_noncommutes",
+      "status": "PASS",
+      "adjacent_J_commutator_frobenius": [
+        0.0006951946229457181,
+        0.0005886649159290464,
+        0.0008616271360524945,
+        0.0004535360747272778,
+        0.0004078565185673787,
+        0.00026250228231580443
+      ],
+      "normalized_direction_witness": [
+        0.00032848779769002165,
+        0.0002781725248822899,
+        0.00040714157943708384,
+        0.00021430595921524895,
+        0.00019271838929226502,
+        0.00012402564868558929
+      ],
+      "minimum": 0.00026250228231580443
+    },
+    {
+      "name": "coupling_scale_enters_commutator_quadratically",
+      "status": "PASS",
+      "probe_b": 0.37,
+      "max_abs_error": 0.0
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "total": 5
+  }
+}
