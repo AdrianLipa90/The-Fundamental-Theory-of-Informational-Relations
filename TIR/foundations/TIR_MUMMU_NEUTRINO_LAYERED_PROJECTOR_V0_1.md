@@ -375,3 +375,61 @@ O(6).
 
 This refinement is mathematical only. It does not promote the physical
 neutrino-layer, Cartan-torsion, or gravitational interpretations.
+
+
+## 13. Orbital-algebra transport closure
+
+The MUMMU history channel is now bound to the orbital algebra rather than an
+arbitrary common frame:
+
+`TIR/foundations/TIR_MUMMU_ORBITAL_ALGEBRA_GAUGE_COVARIANT_CLOSURE_V0_1.md`
+
+The recursive six-port Eisenstein address is
+
+\[
+z(w)=
+\sum_{k=1}^{|w|}
+r_k\prod_{j=1}^{k}u_{a_j},
+\qquad
+u_{a_j}\in\{\pm1,\pm\omega,\pm\omega^2\}.
+\]
+
+For geometric radial ratio \(0<\lambda<1/3\), finite orbital words have
+distinct addresses.  Their canonical prefix paths define orbital transport
+\(W_{0w}\), and local twist generators are compared only after transport to the
+root frame:
+
+\[
+\widehat A_w=W_{0w}A_wW_{0w}^{-1}.
+\]
+
+The gauge-invariant obstruction and Lagrange-loop defect are retained as
+separate coordinates,
+
+\[
+\mathcal O_{\rm orb}
+=
+\frac12\sum_{u<v}
+\|[\widehat A_u,\widehat A_v]\|_F^2,
+\]
+
+\[
+\mathcal D_{\mathcal L}
+=
+\sum_C
+\left(
+1-\frac14|\operatorname{Tr}H_C|^2
+\right).
+\]
+
+Together with the Stella quartic harmonic, the minimal typed signature is
+
+\[
+\boxed{
+\mathfrak S_{\rm MUMMU}^{\rm orb}
+=
+(C_4,\mathcal O_{\rm orb},\mathcal D_{\mathcal L}).
+}
+\]
+
+No arbitrary weighting between these invariants is introduced.
