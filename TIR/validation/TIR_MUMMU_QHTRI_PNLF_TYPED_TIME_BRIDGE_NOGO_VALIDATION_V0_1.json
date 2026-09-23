@@ -1,0 +1,59 @@
+{
+  "schema": "TIR_MUMMU_QHTRI_PNLF_TYPED_TIME_BRIDGE_NOGO_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "typed separation of HTRI dt, semantic sample time, ORCH coordinate/proper time and PNLF proper time; geometric connection one-form is reparameterization invariant but interval identity requires an explicit time-binding receipt",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963"
+  },
+  "checks": [
+    {
+      "name": "drive_snapshot_tau_vector_is_not_pnlf_scalar_tau",
+      "status": "PASS",
+      "drive_tau_shape": [36],
+      "pnlf_tau_is_scalar": true
+    },
+    {
+      "name": "coordinate_and_proper_duration_are_distinct_generically",
+      "status": "PASS",
+      "coordinate_duration": 0.045,
+      "proper_duration": 0.042
+    },
+    {
+      "name": "accumulated_orch_proper_time_closes_pnlf_endpoint",
+      "status": "PASS",
+      "tau_start": 1.2,
+      "tau_cursor": 1.242,
+      "right_good": 1.242,
+      "right_bad_direct_dt_sum": 1.2449999999999999
+    },
+    {
+      "name": "connection_one_form_reparameterization_cancellation",
+      "status": "PASS",
+      "max_abs_error": 2.7755575615628914e-17
+    },
+    {
+      "name": "trajectory_commitment_binds_time_model_and_endpoint",
+      "status": "PASS",
+      "base": "a124bc327065982cd5255ebdb06158d89e99bc3a0f6023ddad538c53096b1499",
+      "changed_model": "1db83da16f3e1dec1864434e8caaf32c4d24345f01ede2a49b2bdcc29b305445",
+      "changed_endpoint": "0fbd6047d8b2d17b8b253c7ed2fba01a88aff71b6bee6f0f6232a8b2efc73953"
+    },
+    {
+      "name": "htri_step_hash_alone_does_not_determine_pnlf_proper_duration",
+      "status": "PASS",
+      "same_htri_only_commitment": "f9e613747c6b6c8f8e7920baddb92fb7beab7e0d359d067bbf9f07dd694ec290",
+      "proper_duration_policy_a": 0.042,
+      "proper_duration_policy_b": 0.045
+    },
+    {
+      "name": "direct_dt_equals_proper_time_only_for_unit_lapse_control",
+      "status": "PASS",
+      "coordinate_duration": 0.045,
+      "unit_lapse_proper_duration": 0.045
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "total": 7
+  }
+}
