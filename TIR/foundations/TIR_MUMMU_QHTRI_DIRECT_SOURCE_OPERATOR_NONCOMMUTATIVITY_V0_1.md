@@ -1,0 +1,350 @@
+# TIR MUMMU QHTRI Direct Source-Operator Noncommutativity v0.1
+
+Status: `EXACT_CONTROLLED_STEP_HAMILTONIAN_DECOMPOSITION / PINNED_SOURCE_OPERATOR_NONCOMMUTATIVITY_PASS / FIXED_H_SELF_COMMUTATOR_ZERO / COEFFICIENT_VALUE_INDEPENDENT_EXISTENCE_FOR_B_NONZERO_ON_PINNED_FIXTURE / PHYSICAL_BINDING_OPEN`
+
+Date: 2026-09-23
+
+## 1. Purpose
+
+Earlier MUMMU work used the local projective connection
+
+[
+mathcal A_j
+=
+-rac{i}{2}
+(mathbf n_j	imesdot{mathbf n}_j)cdotoldsymbolsigma
+]
+
+and its changing direction as a history diagnostic.
+
+That construction is a valid projective/horizontal lift, but it does not by
+itself prove that the **source Hamiltonians** generating the full 36D runtime
+fail to commute.
+
+This theorem tests the source operators directly.
+
+## 2. Mandatory correction
+
+For a single fixed Hamiltonian segment,
+
+[
+H(	au)=H,
+]
+
+one has identically
+
+[
+oxed{
+[H(	au_1),H(	au_2)]=0.
+}
+]
+
+Therefore a nonzero projective quantity such as
+
+[
+|Omega(	au_1)	imesOmega(	au_2)|
+]
+
+must not be promoted by itself to a proof that the source Hamiltonian history is
+noncommuting.
+
+It proves noncommutativity of the chosen local projective connection, not
+necessarily of the parent source operator.
+
+## 3. Source-controlled multi-step path
+
+PNCS source pin:
+
+`AdrianLipa90/PhaseNav-Natural-Coding-System@8855abed440e9949f576ffbe2153325f69e78963`.
+
+Relevant source:
+
+- `src/phasenav_natural_code/semantic_htri_drive_v32.py`;
+- `src/phasenav_natural_code/semantic_address_v31.py`;
+- `src/phasenav_natural_code/semantic_sequence_v31.py`;
+- `tests/test_semantic_htri_drive_v32.py`.
+
+The controlled step updates the coupling matrix (g) before constructing the
+QHTRI Hamiltonian. Therefore the full ordered semantic trajectory produces
+
+[
+H_0,H_1,ldots,H_6,
+]
+
+not one fixed operator reused at every step.
+
+Write
+
+[
+oxed{
+H_k=aD+bJ_k,
+}
+]
+
+where
+
+[
+D=operatorname{diag}(widehatomega)
+]
+
+is constant across the pinned trajectory and (J_k) is the normalized
+zero-diagonal coupling operator after controlled-step update (k).
+
+## 4. Exact consecutive commutator decomposition
+
+For consecutive steps,
+
+[
+egin{aligned}
+[H_k,H_{k+1}]
+&=
+[aD+bJ_k, aD+bJ_{k+1}]\
+&=
+ab[D,J_{k+1}-J_k]
++b^2[J_k,J_{k+1}].
+end{aligned}
+]
+
+Define
+
+[
+oxed{
+X_k=[D,J_{k+1}-J_k],
+qquad
+Y_k=[J_k,J_{k+1}].
+}
+]
+
+Then
+
+[
+oxed{
+[H_k,H_{k+1}]
+=
+abX_k+b^2Y_k
+=
+b(aX_k+bY_k).
+}
+]
+
+This identity is exact.
+
+## 5. Fixed-H vs controlled-history distinction
+
+Two regimes must remain typed separately.
+
+### Fixed-H segment
+
+A prepared temporal-fibre segment with one admitted (H) has
+
+[
+oxed{
+[H,H]=0.
+}
+]
+
+It may still generate amplitude redistribution and a curved reduced
+(CP^1) trajectory.
+
+### Controlled semantic trajectory
+
+Because `controlled_step()` updates (g),
+
+[
+J_{k+1}
+eq J_k
+]
+
+in general, so the Hamiltonian itself changes.
+
+The correct source-operator question is then
+
+[
+oxed{
+[H_k,H_{k+1}] stackrel{?}{=}0.
+}
+]
+
+## 6. Deterministic PNCS result
+
+For the exact seven-role NISABA deterministic fixture used by PNCS, the
+consecutive Frobenius commutator norms are
+
+[
+egin{array}{c|c}
+k & |[H_k,H_{k+1}]|_F\
+hline
+0 & 4.75441023291991	imes10^{-4}\
+1 & 4.54291562431920	imes10^{-4}\
+2 & 4.94437717530141	imes10^{-4}\
+3 & 4.02678015250851	imes10^{-4}\
+4 & 4.19420467071391	imes10^{-4}\
+5 & 4.02768214792871	imes10^{-4}
+end{array}
+]
+
+Hence
+
+[
+oxed{
+[H_k,H_{k+1}]
+eq0
+quad
+	ext{for every consecutive pair in the pinned trajectory.}
+}
+]
+
+This is direct source-operator noncommutativity.
+
+## 7. Independence from the special default ratio
+
+The source defaults are
+
+[
+a=0.25,qquad b=0.7.
+]
+
+Their precise values are not required for the **existence** of the pinned
+noncommutativity.
+
+For every consecutive step in the deterministic fixture, (X_k) and (Y_k)
+are linearly independent under the Hilbert-Schmidt inner product.
+
+Equivalently, their Gram determinant
+
+[
+oxed{
+G_k
+=
+|X_k|_F^2|Y_k|_F^2
+-
+|langle X_k,Y_kangle_{m HS}|^2
+}
+]
+
+is strictly positive.
+
+The six deterministic values are approximately
+
+[
+(1.9764, 1.3362, 2.7928, 0.8155, 0.6110, 3.1007)	imes10^{-12}.
+]
+
+Therefore
+
+[
+aX_k+bY_k=0
+]
+
+has no solution with (b
+eq0).
+
+Thus, on this pinned trajectory,
+
+[
+oxed{
+b
+eq0
+Longrightarrow
+[H_k,H_{k+1}]
+eq0
+}
+]
+
+for arbitrary real (a).
+
+The exact norm still depends on (a) and (b), but the presence of
+noncommutativity does not require the special ratio (0.7/0.25).
+
+## 8. What the coefficient firewall still means
+
+This theorem does **not** derive the physical value of (b), nor does it prove
+that Nature chooses the PNCS runtime Hamiltonian.
+
+It only establishes:
+
+1. if the admitted controlled trajectory has nonzero coupling sector (b),
+2. and its source-updated (J_k) follows the pinned PNCS path,
+
+then source-operator noncommutativity is unavoidable on that fixture.
+
+The earlier coefficient-identifiability firewall therefore remains valid for
+magnitudes, rates and physical calibration.
+
+## 9. Order sensitivity
+
+The same direct-operator diagnostic distinguishes the three existing PNCS
+ordered semantic fixtures.
+
+For original, reverse and shuffled seven-role trajectories, the sums of
+consecutive commutator norms are respectively approximately
+
+[
+oxed{
+2.6490370	imes10^{-3},
+quad
+2.5824466	imes10^{-3},
+quad
+2.6023597	imes10^{-3}.
+}
+]
+
+Thus the direct Hamiltonian commutator history retains order information.
+
+This is a model/runtime statement, not a semantic-physics promotion.
+
+## 10. Corrected hierarchy
+
+The correct hierarchy is now:
+
+[
+oxed{
+	ext{full }CP^1	ext{ carrier}
+}
+]
+
+does not by itself imply
+
+[
+oxed{
+	ext{noncommuting source operators}.
+}
+]
+
+A changing projective connection may be represented by commuting parent
+operators.
+
+However, the actual PNCS controlled semantic trajectory independently gives
+
+[
+oxed{
+[H_k,H_{k+1}]
+eq0,
+}
+]
+
+so source-operator noncommutativity is established there directly.
+
+## 11. Claim ledger
+
+| Statement | Status |
+|---|---|
+| fixed-H source history commutes with itself | `EXACT` |
+| changing projective (Omega) alone proves parent-H noncommutativity | `REFUTED` |
+| controlled_step updates (g) before constructing (H) | `EXACT SOURCE CONTRACT` |
+| consecutive Hamiltonian commutator decomposition | `EXACT` |
+| all six pinned consecutive source commutators are nonzero | `NUMERIC PASS` |
+| (X_k,Y_k) are HS-linearly independent on all six transitions | `NUMERIC PASS` |
+| exact default ratio (0.7/0.25) is required for noncommutativity | `REFUTED ON PINNED FIXTURE` |
+| nonzero coupling (b) is sufficient on pinned fixture for any real (a) | `EXACT CONDITIONAL ON NUMERIC INDEPENDENCE RECEIPT` |
+| physical microscopic Hamiltonian identified | `OPEN / NOT CLAIMED` |
+
+## 12. Validation
+
+Deterministic validator:
+
+`TIR/validation/tir_mummu_qhtri_direct_source_operator_noncommutativity_v0_1.py`
+
+Static receipt:
+
+`TIR/validation/TIR_MUMMU_QHTRI_DIRECT_SOURCE_OPERATOR_NONCOMMUTATIVITY_VALIDATION_V0_1.json`
