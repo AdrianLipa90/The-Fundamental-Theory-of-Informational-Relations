@@ -484,3 +484,63 @@ u_j(\tau)
 from the existing PhaseNav temporal/wave evolution, and test whether its
 resulting local holonomy reproduces the MUMMU quartic seam without selecting two
 histories by hand.
+
+
+## 15. QHTRI pair-dynamics source closure
+
+The previously open pair-imbalance trajectory is now source-bound at model
+level by
+
+`TIR/foundations/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_SOURCE_WITNESS_V0_1.md`.
+
+The existing PNCS fixed-H/QHTRI dynamics gives
+
+[
+idotpsi=Hpsi,
+]
+
+so
+
+[
+dot p_k
+=
+2,operatorname{Im}
+left[
+psi_k^*(Hpsi)_k
+ight]
+]
+
+and therefore
+
+[
+oxed{
+dot u_j
+=
+rac{
+2(p_Rdot p_L-p_Ldot p_R)
+}{
+(p_L+p_R)^2
+}.
+}
+]
+
+For the pinned deterministic PNCS fixture, pair 0 has the local witness
+
+[
+oxed{
+left|
+oldsymbolOmega_0
+	imes
+dot{oldsymbolOmega}_0
+ight|
+approx
+9.02843	imes10^{-4}>0.
+}
+]
+
+Thus the source 36D Hamiltonian generates a changing local (SU(2)) generator
+without an inserted pair-level dynamics ansatz.
+
+The remaining gate is no longer the existence of local non-Abelianity.  It is
+whether the source-derived time-ordered connection reproduces the previously
+declared quartic MUMMU seam coefficient/order.
