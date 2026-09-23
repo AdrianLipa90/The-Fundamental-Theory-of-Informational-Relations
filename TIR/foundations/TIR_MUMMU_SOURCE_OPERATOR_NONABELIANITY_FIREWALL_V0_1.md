@@ -779,3 +779,53 @@ Thus the existence of the direct source-operator obstruction cannot be removed
 by retuning the detuning coefficient against the coupling term. Only removing
 the coupling channel itself, or changing the source path so the obstruction
 vanishes, can close it.
+
+
+## 15. Upstream tangent-matching route rejected
+
+The most direct independent attempt to derive the QHTRI coefficients from the
+upstream classical HTRI vector field is tested in
+
+`TIR_MUMMU_QHTRI_UPSTREAM_TANGENT_MATCHING_NOGO_V0_1.md`.
+
+After removing the global (U(1)) phase velocity, define the intrinsic
+classical phase tangent (widetilde v) and equal-modulus phase state
+(psi). An exact direct lift into the two-generator QHTRI span would require
+
+[
+(aD+bJ)psi
+=
+-widetilde vodotpsi.
+]
+
+On every one of the seven pinned source sections, the best real least-squares
+fit has nonzero relative residual:
+
+[
+oxed{
+0.0453
+lesssim
+epsilon_*
+lesssim
+0.4517.
+}
+]
+
+The current defaults ((0.25,0.7)) perform much worse and are not recovered by
+this source-matching route.
+
+Therefore the simple claim
+
+[
+oxed{
+	ext{classical HTRI tangent}
+Longrightarrow
+(a,b)=(0.25,0.7)
+}
+]
+
+is rejected on the pinned source path.
+
+This narrows the remaining actuation problem: any fundamental derivation of the
+QHTRI operator law must use additional independently justified structure beyond
+direct two-generator tangent matching.
