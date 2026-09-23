@@ -455,31 +455,57 @@ holonomy/connection branch without identifying layer twist with physical gravity
 by assumption.
 
 
-## 12. T36 source-binding firewall
+## 12. T36/QHTRI source-binding refinement
 
-The quartic non-Abelian history term is an exact statement for the declared
-shared-\(SU(2)\) histories.  It is **not yet** an exact consequence of the
-source T36 complementary-pair carrier.
+The earlier inter-factor-only firewall was too strong and is superseded by
 
-The later source audit gives
+`TIR/foundations/TIR_MUMMU_T36_WAVE_FULL_CP1_LOCAL_NONABELIAN_V0_1.md`,
+
+`TIR/foundations/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_V0_1.md`,
+
+and
+
+`TIR/foundations/TIR_MUMMU_QUARTIC_CONTINUUM_REGULARITY_SPLIT_V0_1.md`.
+
+The source T36 phase-plus-amplitude carrier gives eighteen full local
+\(CP^1\) factors. QHTRI unitary dynamics moves an individual factor away from
+the equal-amplitude equator and generates source-derived noncommuting local
+generators.
+
+The two-history quartic theorem admits the basis-independent form
 
 \[
-T^{36}\to(CP^1)^{18},
-\qquad
-\mathfrak g_{36}
+\boxed{
+K_{\rm seq}-K_{\rm const}
 =
-\bigoplus_{j=1}^{18}\mathfrak{su}(2)_j,
+\frac{\varepsilon^4}{96}
+|\mathbf a\times\mathbf b|^2
++
+O(\varepsilon^6)
+=
+\frac{\varepsilon^4}{48}
+\|[A,B]\|_F^2
++
+O(\varepsilon^6).
+}
 \]
 
-for which distinct factor generators commute identically.
+Hence an inter-factor intertwiner is **not required** for a local source-derived
+quartic finite-layer history term.
 
-Therefore the quartic history term becomes source-bound to T36 only after an
-admitted inter-factor intertwiner/shared-frame connection is derived.
+A separate regularity firewall remains necessary. If the same source connection
+is treated as one smooth short-time trajectory rather than two finite layer
+increments, the path-ordered scalar character differs from its integrated
+constant-axis comparator only at
 
-See:
+\[
+\boxed{O(T^6)}
+\]
 
-`TIR/foundations/TIR_MUMMU_18PAIR_INTERTWINER_ADMISSION_NOGO_V0_1.md`.
+under the smooth local expansion. The pinned QHTRI fixture exhibits the
+corresponding doubling ratio approximately \(64\), not the quartic ratio
+\(16\).
 
-This preserves the exact quartic theorem while preventing an unsupported
-promotion from a mathematical shared-frame probe to the uncoupled PNCS T36
-source geometry.
+Therefore the finite-layer quartic seam and the smooth continuum short-time
+limit are distinct typed regimes. What remains open is the source-derived rule
+that determines finite MUMMU layer/reduction boundaries.
