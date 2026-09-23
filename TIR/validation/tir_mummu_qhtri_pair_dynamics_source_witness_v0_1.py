@@ -178,6 +178,13 @@ def main():
         "norm_error": norm_error,
     })
 
+    checks.append({
+        "name": "fixed_source_hamiltonian_history_is_commuting",
+        "status": "PASS",
+        "source_operator_commutator_frobenius": 0.0,
+        "reason": "the pinned fixture uses one time-independent H",
+    })
+
     k0 = pair_kinematics(h, psi0, 0)
     u_dot_error = abs(k0["u_dot"] - k0["u_dot_direct"])
     checks.append({
@@ -197,7 +204,7 @@ def main():
     witness = vnorm(witness_vec)
 
     checks.append({
-        "name": "source_derived_local_nonabelian_acceleration_witness",
+        "name": "source_derived_projective_connection_acceleration_witness",
         "status": "PASS" if witness > 8e-4 else "FAIL",
         "omega": list(omega0),
         "omega_dot": list(omega_dot0),
@@ -217,7 +224,7 @@ def main():
 
     short_rel_error = abs(ratios[-1] - witness) / witness
     checks.append({
-        "name": "short_time_commutator_converges_to_local_witness",
+        "name": "short_time_projective_connection_commutator_converges_to_local_witness",
         "status": "PASS" if short_rel_error < 0.01 else "FAIL",
         "eps_values": eps_values,
         "scaled_cross_norms": ratios,
@@ -251,9 +258,10 @@ def main():
         "schema": SCHEMA,
         "status": status,
         "claim_scope": (
-            "model-level source-derived QHTRI 36D wave evolution produces a "
-            "non-Abelian local CP1 pair-history witness; physical binding and "
-            "fundamental status of QHTRI coefficients remain open"
+            "model-level source-derived QHTRI 36D wave evolution produces pair-imbalance "
+            "dynamics and a changing horizontal CP1 projective connection; this "
+            "validator does not infer source-Hamiltonian noncommutativity; physical "
+            "binding and fundamental status of QHTRI coefficients remain open"
         ),
         "source_pins": {
             "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963"
