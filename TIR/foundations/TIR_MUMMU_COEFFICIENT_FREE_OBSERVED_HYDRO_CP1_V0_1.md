@@ -593,21 +593,21 @@ Static receipt:
 The coefficient-free source-composed lane has an exact operator split recorded
 in
 
-`TIR/foundations/TIR_MUMMU_GEOMETRIC_NONABELIAN_DYNAMICAL_ABELIAN_SPLIT_V0_1.md`.
+TIR/foundations/TIR_MUMMU_GEOMETRIC_NONABELIAN_DYNAMICAL_ABELIAN_SPLIT_V0_1.md.
 
 With frozen pair amplitudes and hydrodynamic phase velocities,
 
 \[
 H_{\rm phase}
 =
--operatorname{diag}(v_L,v_R)
+-\operatorname{diag}(v_L,v_R)
 =
 -\frac{v_L+v_R}{2}I
 +
-\frac{dotdelta}{2}sigma_z.
+\frac{\dot\delta}{2}\sigma_z.
 \]
 
-Therefore all time-separated dynamical phase Hamiltonians commute:
+Therefore all time-separated dynamical phase Hamiltonians commute,
 
 \[
 \boxed{
@@ -619,37 +619,35 @@ The projective horizontal generator is instead
 
 \[
 \boxed{
-Omega
+\boldsymbol\Omega
 =
-h-(ncdot h)n,
-qquad
-h=(0,0,dotdelta),
+\mathbf h-(\mathbf n\cdot\mathbf h)\mathbf n,
+\qquad
+\mathbf h=(0,0,\dot\delta),
 }
 \]
 
-and can rotate with the moving Bloch state.  Hence the same bound trajectory can
+and can rotate with the moving Bloch state. Hence the same bound trajectory can
 have
 
 \[
 \boxed{
-[mathcal A_{\rm geom}(\tau_1),mathcal A_{\rm geom}(\tau_2)]
-e0.
+[\mathcal A_{\rm geom}(\tau_1),\mathcal A_{\rm geom}(\tau_2)]\neq0.
 }
 \]
 
 The coefficient-free witness is therefore a statement about non-Abelian
-**projective/horizontal geometry**, not by itself evidence of a non-Abelian
+projective/horizontal geometry, not by itself evidence of a non-Abelian
 dynamical interaction Hamiltonian.
-
 
 ## 15. 36D commuting diagonal source-lift restatement
 
 For the fixed-probability observed-hydro construction,
 
 \[
-psi_k(\tau)
+\psi_k(\tau)
 =
-sqrt{p_k}e^{i\theta_k(\tau)},
+\sqrt{p_k}e^{i\theta_k(\tau)},
 \]
 
 the exact Hamiltonian
@@ -658,18 +656,18 @@ the exact Hamiltonian
 \boxed{
 H_D(\tau)
 =
--operatorname{diag}
-(dot\theta_1,ldots,dot\theta_{36})
+-\operatorname{diag}
+(\dot\theta_1,\ldots,\dot\theta_{36})
 }
 \]
 
 satisfies
 
 \[
-idotpsi=H_Dpsi.
+i\dot\psi=H_D\psi.
 \]
 
-Because every (H_D(\tau)) is diagonal,
+Because every \(H_D(\tau)\) is diagonal,
 
 \[
 \boxed{
@@ -678,13 +676,13 @@ Because every (H_D(\tau)) is diagonal,
 \]
 
 Therefore the nonzero
-(Omega(\tau_1)\timesOmega(\tau_2)) reported above is specifically a
-horizontal/projective connection witness.
+\(\boldsymbol\Omega(\tau_1)\times\boldsymbol\Omega(\tau_2)\) reported above is
+specifically a horizontal/projective connection witness.
 
 The direct source-operator criterion is separated in
 
-`TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md`.
+TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md.
 
-This preserves the coefficient-free descriptive (H_{min}) theorem while
+This preserves the coefficient-free descriptive \(H_{\min}\) theorem while
 preventing a chosen trajectory lift from being mistaken for a predictive source
 Hamiltonian.
