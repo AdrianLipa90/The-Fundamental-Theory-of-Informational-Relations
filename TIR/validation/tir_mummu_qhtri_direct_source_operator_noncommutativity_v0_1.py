@@ -213,7 +213,7 @@ def initial_snapshot():
     return phi, omega, g, flavor, tau, gravity
 
 
-def run_order(order):
+def run_order(order, dt=0.01):
     targets = [semantic_address(content_id(role)) for role in ROLES]
     phi, omega, g, flavor, tau, gravity = initial_snapshot()
     Hs = []
@@ -222,7 +222,7 @@ def run_order(order):
 
     for idx in order:
         phi, g, gravity, H, D_now, J, _ = controlled_step(
-            phi, omega, g, flavor, tau, gravity, targets[idx]
+            phi, omega, g, flavor, tau, gravity, targets[idx], dt=dt
         )
         Hs.append(H)
         Js.append(J)
@@ -347,6 +347,28 @@ def main():
         "status": "PASS" if min_probe > 1e-7 else "FAIL",
         "minimum_probe_commutator_norm": min_probe,
         "note": "finite probes supplement the exact linear-independence argument",
+    })
+
+    # Continuum diagnostic: consecutive source-operator commutator must
+    # scale linearly in dt if a finite [H, dH/dt] limit exists.
+    dt_values = [0.02, 0.01, 0.005, 0.0025, 0.00125]
+    first_scaled = []
+    mean_scaled = []
+    for dt_probe in dt_values:
+        _, hseq, _ = run_order(tuple(range(7)), dt=dt_probe)
+        vals = [frob(comm(hseq[k], hseq[k + 1])) for k in range(6)]
+        first_scaled.append(vals[0] / dt_probe)
+        mean_scaled.append(float(sum(vals) / len(vals) / dt_probe))
+
+    first_limit_spread = max(first_scaled[-3:]) - min(first_scaled[-3:])
+    checks.append({
+        "name": "direct_source_operator_commutator_has_linear_dt_continuum_limit",
+        "status": "PASS" if first_limit_spread < 1e-6 else "FAIL",
+        "dt_values": dt_values,
+        "first_transition_commutator_over_dt": first_scaled,
+        "mean_consecutive_commutator_over_dt": mean_scaled,
+        "fine_grid_spread": first_limit_spread,
+        "estimated_first_transition_limit": first_scaled[-1],
     })
 
     order_summaries = {}
