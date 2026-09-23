@@ -450,8 +450,8 @@ axes.
 | Bloch vector formula in \((\delta,u)\) | `EXACT` |
 | equal pair weights recover equatorial phase-only carrier | `EXACT` |
 | local connection direction varies on full CP1 | `EXACT` |
-| local commutator criterion \(\Omega_1\times\Omega_2\) | `EXACT` |
-| phase and imbalance tangents generate nonzero Pauli commutator | `EXACT` |
+| horizontal/projective connection commutator criterion \(\Omega_1\times\Omega_2\) | `EXACT` |
+| phase and imbalance tangents generate nonzero Pauli commutator in the declared projective connection | `EXACT` |\n| this commutator alone proves source-Hamiltonian noncommutativity | `REFUTED` |
 | distinct uncoupled factors commute | `EXACT` |
 | inter-factor 6×3 intertwiner is required for any non-Abelianity | `REFUTED / CORRECTED` |
 | inter-factor 6×3 intertwiner is required for cross-factor port/axis organization | `OPEN ADMISSION GATE` |
@@ -540,7 +540,7 @@ approx
 Thus the source 36D Hamiltonian generates a changing local (SU(2)) generator
 without an inserted pair-level dynamics ansatz.
 
-The remaining gate is no longer the existence of local non-Abelianity.  It is
+The remaining gate is no longer the existence of local noncommutativity of the horizontal/projective connection. It is
 whether the source-derived time-ordered connection reproduces the previously
 declared quartic MUMMU seam coefficient/order.
 
