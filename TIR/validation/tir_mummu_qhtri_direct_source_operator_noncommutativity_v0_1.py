@@ -111,7 +111,7 @@ def qhtri_hamiltonian(omega, g, a=0.25, b=0.7):
     return a * D + b * J, D, J, spec
 
 
-def controlled_step(phi, omega, g, flavor, tau, gravity, target, dt=0.01):
+def controlled_step(phi, omega, g, flavor, tau, gravity, target, dt=0.01, *, enable_hebb=True, enable_decay=True, enable_boost=True):
     phi = phi.copy()
     omega = omega.copy()
     g = g.copy()
@@ -148,10 +148,11 @@ def controlled_step(phi, omega, g, flavor, tau, gravity, target, dt=0.01):
 
     hebb_step = 0.01 * dt * 10.0
     decay_step = 0.001 * dt * 10.0
-    dg = (
-        hebb_step * (activity - 0.5) * np.cos(diff)
-        - decay_step * (g - EYE_N * 0.1)
-    )
+    dg = np.zeros_like(g)
+    if enable_hebb:
+        dg += hebb_step * (activity - 0.5) * np.cos(diff)
+    if enable_decay:
+        dg -= decay_step * (g - EYE_N * 0.1)
     g += dg
     np.clip(g, -1.0, 1.0, out=g)
 
@@ -165,7 +166,7 @@ def controlled_step(phi, omega, g, flavor, tau, gravity, target, dt=0.01):
     dist = np.abs(np.angle(np.exp(1j * (ch_mean - global_mean))))
     weak = (ch_coh < 0.5) & (dist > 0.5)
 
-    if weak.any():
+    if enable_boost and weak.any():
         boost = 0.01 * (0.5 - ch_coh) * dist * dt * 10.0
         wc = np.flatnonzero(weak)
         rows = CH_ROWS[wc].ravel()
@@ -213,7 +214,7 @@ def initial_snapshot():
     return phi, omega, g, flavor, tau, gravity
 
 
-def run_order(order, dt=0.01):
+def run_order(order, dt=0.01, *, enable_hebb=True, enable_decay=True, enable_boost=True):
     targets = [semantic_address(content_id(role)) for role in ROLES]
     phi, omega, g, flavor, tau, gravity = initial_snapshot()
     Hs = []
@@ -222,7 +223,7 @@ def run_order(order, dt=0.01):
 
     for idx in order:
         phi, g, gravity, H, D_now, J, _ = controlled_step(
-            phi, omega, g, flavor, tau, gravity, targets[idx], dt=dt
+            phi, omega, g, flavor, tau, gravity, targets[idx], dt=dt, enable_hebb=enable_hebb, enable_decay=enable_decay, enable_boost=enable_boost
         )
         Hs.append(H)
         Js.append(J)
@@ -347,6 +348,37 @@ def main():
         "status": "PASS" if min_probe > 1e-7 else "FAIL",
         "minimum_probe_commutator_norm": min_probe,
         "note": "finite probes supplement the exact linear-independence argument",
+    })
+
+    # Source-update channel ablation on the first transition.
+    ablations = {}
+    for label, flags in {
+        "full": (True, True, True),
+        "hebb_only": (True, False, False),
+        "decay_only": (False, True, False),
+        "weak_boost_only": (False, False, True),
+        "hebb_plus_boost": (True, False, True),
+    }.items():
+        _, hseq, _ = run_order(
+            (0, 1),
+            enable_hebb=flags[0],
+            enable_decay=flags[1],
+            enable_boost=flags[2],
+        )
+        ablations[label] = frob(comm(hseq[0], hseq[1]))
+
+    checks.append({
+        "name": "source_update_channel_ablation",
+        "status": (
+            "PASS"
+            if ablations["full"] > 4e-4
+            and ablations["hebb_only"] > 4e-4
+            and ablations["weak_boost_only"] > 5e-5
+            and ablations["decay_only"] < 1e-12
+            else "FAIL"
+        ),
+        "first_transition_commutator_norms": ablations,
+        "interpretation": "spectrally normalized decay-only rescales off-diagonal g and cannot rotate J; directional Hebbian/weak updates generate operator curvature",
     })
 
     # Continuum diagnostic: consecutive source-operator commutator must
