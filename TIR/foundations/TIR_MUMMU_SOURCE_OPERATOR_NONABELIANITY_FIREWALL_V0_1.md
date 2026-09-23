@@ -571,6 +571,54 @@ increase the directional mismatch in this pinned fixture.
 These amplification factors are numerical source-fixture observations, not
 universal theorems.
 
+### 10.1 Frozen order-control robustness
+
+The PNCS regression corpus contains three frozen semantic order controls:
+
+- original;
+- reverse;
+- shuffle \(=(3,6,0,4,2,5,1)\) in zero-based role indexing.
+
+Replaying the same deterministic source snapshot through all three controls
+preserves direct operator noncommutativity.
+
+Across all \(18\) adjacent source-Hamiltonian pairs,
+
+\[
+\boxed{
+\min_{\rm controls}
+\|[H_k,H_{k+1}]\|_F
+\approx
+4.0259761263\times10^{-4}>0.
+}
+\]
+
+Across all \(18\) coupling-only adjacent pairs,
+
+\[
+\boxed{
+\min_{\rm controls}
+\|[J_k,J_{k+1}]\|_F
+\approx
+2.6244653400\times10^{-4}>0.
+}
+\]
+
+The coefficient-free phase-geometry obstruction also remains nonzero at every
+pre-update section of all three seven-step controls:
+
+\[
+\boxed{
+\min_{\rm controls,\ sections}\Xi_\Phi
+\approx
+0.04150462530>0.
+}
+\]
+
+Thus the source-operator obstruction is not specific to one frozen semantic
+ordering. The detailed sequence of obstruction strengths remains order
+dependent, as expected for a path-conditioned system.
+
 ## 11. Corrected operator hierarchy
 
 MUMMU must keep two lanes:
@@ -641,7 +689,7 @@ of the adaptive coupling law itself.
 | coupling-only \(J_k\) history is noncommuting on the same path | NUMERIC SOURCE-PINNED PASS |
 | exact defaults \(0.25,0.7\) are required for existence of source non-Abelianity | REFUTED |
 | pure normalized decay rotates the coupling-operator direction | REFUTED |
-| phase-conditioned Hebbian update has \([J,\dot J]\neq0\) on pinned source | NUMERIC + DIFFERENTIAL PASS |\n| coefficient-free phase geometry has \([j,C_\Phi]\neq0\) | NUMERIC SOURCE-PINNED PASS |
+| phase-conditioned Hebbian update has \([J,\dot J]\neq0\) on pinned source | NUMERIC + DIFFERENTIAL PASS |\n| coefficient-free phase geometry has \([j,C_\Phi]\neq0\) | NUMERIC SOURCE-PINNED PASS |\n| direct operator obstruction persists across original/reverse/shuffle controls | NUMERIC SOURCE-PINNED PASS |
 | physical microscopic realization | OPEN / NOT CLAIMED |
 
 ## 14. Validation
