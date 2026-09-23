@@ -686,3 +686,23 @@ TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md.
 This preserves the coefficient-free descriptive \(H_{\min}\) theorem while
 preventing a chosen trajectory lift from being mistaken for a predictive source
 Hamiltonian.
+
+
+## 14. Parent-operator separation correction
+
+The nonzero cross product of the local (Omega) vectors in this conditional
+observed-hydro construction proves noncommutativity of the chosen horizontal
+(CP^1) connection.
+
+It does **not** prove that the underlying parent dynamics requires a
+noncommuting Hamiltonian history. In fact, fixed amplitudes with phase-only
+motion admit diagonal commuting parent Hamiltonians.
+
+The minimum-Frobenius (H_{min}) remains a valid canonical descriptive lift,
+but its noncommutativity properties are properties of that chosen lift, not a
+uniqueness theorem for the physical/source parent operator.
+
+Direct parent-source-operator claims must be established from the actual source
+(H_k) sequence, as done in
+
+`TIR_MUMMU_QHTRI_DIRECT_SOURCE_OPERATOR_NONCOMMUTATIVITY_V0_1.md`.
