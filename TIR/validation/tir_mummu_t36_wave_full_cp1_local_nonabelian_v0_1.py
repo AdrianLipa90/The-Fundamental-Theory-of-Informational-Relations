@@ -136,7 +136,7 @@ def main():
     expected=scale(-0.5j,SX)
     comm_error=maxerr(comm,expected)
     checks.append({
-        "name":"local_nonabelian_commutator",
+        "name":"horizontal_projective_connection_commutator",
         "status":"PASS" if comm_error<1e-14 else "FAIL",
         "max_abs_error":comm_error,
         "commutator_norm":math.sqrt(sum(abs(comm[i][j])**2 for i in range(2) for j in range(2))),
@@ -151,7 +151,7 @@ def main():
     rhs=generator(cross(o1,o2))
     general_error=maxerr(lhs,rhs)
     checks.append({
-        "name":"general_local_commutator_identity",
+        "name":"general_projective_connection_commutator_identity",
         "status":"PASS" if general_error<1e-14 else "FAIL",
         "max_abs_error":general_error,
     })
@@ -177,7 +177,7 @@ def main():
     out={
         "schema":SCHEMA,
         "status":status,
-        "claim_scope":"source-weighted local CP1 lift and local su2 noncommutativity; cross-factor coupling and physical binding remain open",
+        "claim_scope":"source-weighted local CP1 lift and exact noncommutativity of the declared horizontal projective connection; source-Hamiltonian noncommutativity requires a separate direct operator gate; cross-factor coupling and physical binding remain open",
         "checks":checks,
         "summary":{"passed":sum(c["status"]=="PASS" for c in checks),"total":len(checks)},
         "source_pins":{"pncs_main":"8855abed440e9949f576ffbe2153325f69e78963"},
