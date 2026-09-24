@@ -2478,3 +2478,32 @@ Hence
 \]
 
 and the exact fixed-x acceleration threshold is omega_acc^4=2 C_Lambda/(3+x) for positive C_Lambda. RF-F16 shows the constant vacuum component is exactly repartition-degenerate with the reference vacuum/potential zero point. The transport route derives the functional constant-vacuum component but does not predict its magnitude or sign. No current receipt identifies C_Lambda with holonomy/topology.
+
+TIR_RF_F22_PROJECTOR_RESPONSE_ACCELERATION_THRESHOLD = PASS_EXACT_CONDITIONAL
+TIR_FROZEN_PROJECTOR_RESPONSE_ACCELERATION = NO_DECELERATING
+TIR_AB_INDEPENDENT_METRIC_RESPONSE = ZERO_EXACT_CONDITIONAL
+TIR_BERRY_FIXED_MAP_METRIC_RESPONSE = ZERO_EXACT_CONDITIONAL
+TIR_RF_F19_INDEPENDENT_SCALE_RESPONSE = ZERO_EXACT_CONDITIONAL
+TIR_EULER_SPIN_METRIC_FUNCTIONAL = OPEN
+TIR_SAME_METRIC_LAPSE_PROJECTOR = SELF_NORMALIZED_ZERO_STRESS_NO_GO
+TIR_SPACETIME_SPIN_CONNECTION_ADAPTER = QUARANTINED_CANDIDATE
+TIR_C_LAMBDA_DIMENSION = T_MINUS_4_EXACT
+TIR_DIMENSIONLESS_TOPOLOGY_FIXES_C_LAMBDA_MAGNITUDE = NO_GO_WITHOUT_OMEGA_STAR
+TIR_C_LAMBDA_OVER_OMEGA_STAR_4_TOPOLOGICAL_BINDING = OPEN
+
+### 2026-09-24 continuation — response and dimensional closure firewalls
+
+Canonical additions:
+
+- TIR/integration/TIR_IDT_RFC_PROJECTOR_RESPONSE_ACCELERATION_THRESHOLD_V0_1.md
+- TIR/integration/TIR_IDT_RFC_BERRY_EULER_METRIC_RESPONSE_SOURCE_FIREWALL_V0_1.md
+- TIR/integration/TIR_IDT_RFC_LAPSE_PROJECTOR_METRIC_VARIATION_BIFURCATION_V0_1.md
+- TIR/integration/TIR_IDT_RFC_C_LAMBDA_TOPOLOGICAL_DIMENSIONAL_NO_GO_V0_1.md
+
+Positive-projector acceleration requires
+
+\[
+\frac{R_0+3R_s}{\mu_\vartheta^2}+(S_0+3S_s)<-\frac12.
+\]
+
+AB and fixed-map Berry admit zero metric-response branches; RF-F19 admits S_vartheta=0 on independent variation. Reusing the same ADM lapse inside the projector calibration during the same metric variation self-normalizes the projector and gives zero stress. Separately, [C_Lambda]=T^-4, so dimensionless holonomy/topology may constrain only C_Lambda/Omega_*^4 after an independent frequency scale Omega_* is derived.
