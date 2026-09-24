@@ -188,7 +188,7 @@ These are project-local formal classes, not claims of new universally recognized
 
 ## 10. Relation to existing TIR gravity branch
 
-This bridge supplies a candidate microscopic/geometric mechanism for the still-open source-to-coframe gate in:
+This bridge supplies a candidate microscopic/geometric mechanism for the still-open *upstream source-to-coframe realization gate* feeding the already-existing downstream GR chain in:
 
 - `TIR_FRACTAL_ORBITAL_INFORMATIONAL_HOLONOMIC_GRAVITY_V0_1`;
 - `TIR_FLOW_COFRAME_ADM_CONSTRAINT_GRAVITY_V0_1`;
@@ -210,7 +210,8 @@ The TIR continuous-relational-medium crosswalk may reduce to incompressible Navi
 - coframe -> Levi--Civita -> curvature chain: PASS STANDARD/CONDITIONAL
 - moire hyperlayers -> unique physical coframe: OPEN
 - hyperlayer source -> Newton constant: OPEN
-- hyperlayer dynamics -> Einstein equations without inserted GR gate: OPEN
+- downstream coframe -> Cartan/Levi-Civita/ADM/local-Einstein chain: EXISTING CONDITIONAL_CLOSED TIR SPINE
+- hyperlayer/source -> admitted physical coframe realization: OPEN
 - "universe memory" as measured physical ontology: OPEN
 - Navier--Stokes Millennium closure: NOT CLAIMED
 - Riemann/other Clay closures: NOT CLAIMED
