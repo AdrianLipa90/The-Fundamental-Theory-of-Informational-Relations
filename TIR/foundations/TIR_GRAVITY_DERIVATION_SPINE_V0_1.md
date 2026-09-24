@@ -213,7 +213,7 @@ The source contracts and assemblers exist, but the repository explicitly records
 
 Therefore the next fundamental gate cannot be closed by algebraic relabeling or by synthetic NOEMA/PhaseNav state.
 
-It requires a source-owned production realization or an independently derived law that generates the matching field and temporal deformation from earlier TIR/IDT primitives.
+It requires a source-owned production event-spatial realization with one clock/realization lineage and sufficient refinement coverage. The coordinate matching field remains a representation input for nonzero-shift gauges; it is not the fundamental observable target.
 
 ## 9. Claim status
 
@@ -231,7 +231,11 @@ CONTINUOUS_TRANSPORT_CROSSWALK = PASS_CONDITIONAL
 
 PRODUCTION_PHYSICAL_REALIZATION = OPEN_INPUT
 
-FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = OPEN
+FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = NOT_FUNDAMENTAL_TARGET / SHIFT_GAUGE_REPRESENTATION
+
+EVENT_SPATIAL_METRIC_RATE_SOURCE_CONTRACT = PASS_EXECUTABLE / PRODUCTION_INPUT_OPEN
+
+RF_E9_EXTRINSIC_CURVATURE_OPERATOR = REUSED_EXISTING_RFC_GATE
 
 HOLONOMIC_LATE_TIME_ACCELERATION_SOURCE = OPEN
 
@@ -249,3 +253,22 @@ FULL_PHYSICAL_GRAVITY_DERIVED_FROM_MICROSCOPIC_TIR_SOURCE = NOT_YET_CLOSED
 - TIR_FLOW_COFRAME_ADM_CONSTRAINT_GRAVITY_V0_1
 - TIR_INTERLEAF_SHIFT_ORBITAL_RAPIDITY_MASS_BRIDGE_V0_1
 - TIR_CONTINUOUS_RELATIONAL_MEDIUM_NAVIER_STOKES_CROSSWALK_V0_1
+- TIR_IDT_EXTRINSIC_CURVATURE_SOURCE_BRIDGE_V0_1
+- TIR_IDT_EVENT_SPATIAL_STATE_BINDING_V0_1
+
+
+## 11. Event-indexed source completion
+
+The preferred production source path is now
+
+\[
+\boxed{\text{IDT event clock}+\text{TIR spatial snapshot}+\text{same realization/receipt/clock}\to\frac{\Delta h}{\Delta x^0}\to\partial_0h\xrightarrow{\rm RF\!-!E9}K_{ij}.}
+\]
+
+This path reuses RFC RF-E9 and avoids treating either the ADM shift or an abstract equality \(x_{\rm IDT}=\rho_{\rm TIR}\) as a physical premise.
+
+The remaining blocker is empirical/source-level:
+
+\[
+\boxed{\text{production event-spatial realization + refinement coverage}.}
+\]
