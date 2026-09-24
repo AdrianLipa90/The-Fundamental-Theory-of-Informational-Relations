@@ -507,3 +507,56 @@ Thus the local representation chain is now dynamic without inserting Einstein eq
 \]
 
 What remains open is not this matrix identity but the physical selection of the packet response data \((G,J,\mathcal I,\mathcal H)\), preservation of the admissible cone/frame domain, spatial gluing, and the derivation of non-flat Levi-Civita curvature/source normalization.
+
+
+## 17. Symmetric packet-flow source refinement
+
+The four-packet dynamics now has a concrete zero-drive control sector inherited from IDT 00C/01D/09C.
+
+Tetra-SIC coordinates give
+
+\[
+p_a=\frac14(1+\mathbf r\cdot\mathbf n_a),
+\qquad
+\mathbf r=3\sum_a p_a\mathbf n_a.
+\]
+
+The six transition mobilities are not fitted coefficients:
+
+\[
+M_{ab}
+=
+\frac{
+\sqrt{\rho_R(a)\rho_R(b)}
+}{
+\tfrac12[\eta_R(a)+\eta_R(b)]
+}.
+\]
+
+These rates define the symmetric generator \(Q\), then
+
+\[
+\dot p=pQ
+\to
+\dot{\mathbf r}
+\to
+\dot x
+\to
+\dot E
+\to
+\dot e
+\to
+\dot B.
+\]
+
+For uniform \(\rho_0,\eta_0\),
+
+\[
+\dot{\mathbf r}
+=
+-4(\rho_0/\eta_0)\mathbf r.
+\]
+
+Thus the free scalar mobility of the S4-symmetric control model is removed in favor of existing relational density/viscosity inputs.
+
+Remaining physical gates are now concentrated in the source/evolution of \(\rho_R,\eta_R\), non-exact directional drive, reversible phase response, spacetime gluing, curvature and gravitational normalization.
