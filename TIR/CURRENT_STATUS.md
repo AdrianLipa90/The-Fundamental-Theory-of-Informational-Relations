@@ -89,6 +89,14 @@ TIR_IDT_EVENT_SPATIAL_STATE_BINDING = PASS_EXECUTABLE_SOURCE_CONTRACT / PRODUCTI
 TIR_EVENT_METRIC_RATE_TO_RF_E9 = CLOSED_CONDITIONAL_REFINEMENT
 TIR_RF_E9_EXTRINSIC_CURVATURE_OPERATOR = REUSED_EXISTING_RFC_GATE
 TIR_PRODUCTION_EVENT_SPATIAL_REALIZATION = OPEN_INPUT
+TIR_RF_E13_FLAT_FLRW_ACCELERATION = PASS_EXACT_ON_PARENT
+TIR_INFORMATION_SCALAR_ACCELERATION_CRITERION = PASS_EXACT_LOCAL_CANONICAL
+TIR_BARE_LAMBDA_REQUIRED_FOR_ACCELERATION = NO_ON_INFORMATION_SCALAR_ACTION_ROUTE
+TIR_CURRENT_HOLONOMY_TO_STRESS = SPECTATOR_NO_GO
+TIR_EQUAL_STRESS_HOLONOMY_PARTITION = NO_GO
+TIR_HOLONOMY_D_CHANNEL_DIFFERENTIAL_STRESS = CANDIDATE / PHYSICAL_BINDING_OPEN
+TIR_ABSOLUTE_ALPHA_I_NORMALIZATION = OPEN
+TIR_NONTRIVIAL_HOLONOMY_PERSISTENCE = OPEN
 TIR_FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = NOT_FUNDAMENTAL_TARGET / SHIFT_IS_GAUGE_REPRESENTATION
 
 
@@ -2380,3 +2388,30 @@ K_{ij}=\frac1{2N}\left(-\partial_0h_{ij}+D_ib_j+D_jb_i\right).
 \]
 
 Reference controls PASS. Production event-spatial data remain OPEN INPUT. The abstract physical identity between a generic IDT state coordinate and a TIR density operator is not required by the preferred production route.
+
+
+### 2026-09-24 information-holonomy cosmological acceleration gate
+
+TIR/integration/TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_V0_1.md
+
+RF-E12/RF-E13 flat-FLRW gives
+
+\[
+\frac{a''}{a}=-\frac{\kappa_E}{6}(\rho+3p).
+\]
+
+On the canonical information-scalar branch,
+
+\[
+U_I=\frac{\alpha_I}{\kappa_E}\Xi_I,\qquad \phi_I=\sqrt{2\Xi_I},
+\]
+
+so
+
+\[
+\boxed{\frac{a''}{a}\Big|_I=\frac{\alpha_I\Xi_I}{3}-\frac{\kappa_E}{6\Xi_I}(\Xi_I')^2.}
+\]
+
+An additional bare cosmological constant is therefore not mathematically required on this action route; absolute alpha_I normalization remains open.
+
+The current RF-L3/IDT-01L2 action preserves tau_R but has partial U_I / partial tau_R = 0, so temporal holonomy is presently a spectator in stress-energy. Further, C_h+D_h=1 means equal stress attribution to both channels cannot create a tau_R-dependent gravitational effect. The minimal D-channel vacuum-stress candidate remains unpromoted until the complementary C-channel source ledger, Bianchi conservation and nontrivial-holonomy persistence/stability gates are closed.
