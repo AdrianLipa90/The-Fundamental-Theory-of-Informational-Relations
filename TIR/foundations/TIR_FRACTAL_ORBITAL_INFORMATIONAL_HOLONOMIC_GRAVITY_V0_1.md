@@ -353,3 +353,26 @@ Status:
 \`TIR_EINSTEIN_EQUALS_NAVIER_STOKES = NOT_CLAIMED\`
 
 The candidate binding \(u\equiv V_{\rm FO}\) supplies a natural continuum dynamics target for the previously open \(V_{\rm FO}\) field-equation gate, but does not close it.
+
+
+## 13. Downstream ADM constraint strengthening
+
+The downstream gate TIR_FLOW_COFRAME_ADM_CONSTRAINT_GRAVITY_V0_1 strengthens the Schwarzschild control.
+
+On the stationary spherically symmetric, unit-lapse, flat-slice ADM sector, the vacuum Hamiltonian constraint gives
+
+\[
+\frac{2}{c^2}\frac Vr\left(2V'+\frac Vr\right)=0.
+\]
+
+The nontrivial branch therefore satisfies
+
+\[
+\frac{d}{dr}(rV^2)=0,
+\qquad
+V^2=\frac Cr.
+\]
+
+Weak-field/ADM mass normalization fixes \(C=2GM\). Thus the inverse-radius river profile is derived conditionally from the admitted gravitational constraint rather than inserted as a target profile.
+
+This does not close the microscopic source-to-\(\chi\) or orbital-recursion-to-coframe gates.
