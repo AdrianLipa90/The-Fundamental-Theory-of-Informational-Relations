@@ -318,3 +318,38 @@ The candidate is rejected or demoted if:
 
 Validation authority:
 TIR/foundations/validation/tir_fractal_orbital_informational_holonomic_gravity_v0_1.py
+
+
+---
+
+## 14. Continuous relational-medium transport extension
+
+A new additive continuum crosswalk is defined in
+
+\`TIR/foundations/TIR_CONTINUOUS_RELATIONAL_MEDIUM_NAVIER_STOKES_CROSSWALK_V0_1.md\`.
+
+It introduces a persistent relational density \(\rho_I\), transport field \(u\), pressure-like scalar \(\Pi_I\), relaxation stress \(\Sigma_I\), forcing \(F_I\), and reserved holonomy forcing \(H_I\), with local balance laws
+
+\[
+\partial_t\rho_I+\nabla_a(\rho_Iu^a)=S_I,
+\]
+
+\[
+\rho_I(\partial_tu^a+u^b\nabla_bu^a)
+=
+-\nabla^a\Pi_I+\nabla_b\Sigma_I^{ab}+\rho_I F_I^a+H_I^a.
+\]
+
+On the explicitly declared constant-density, divergence-free, flat, Newtonian-relaxation sector this reduces to standard incompressible Navier-Stokes form.
+
+Status:
+
+\`TIR_CONTINUOUS_RELATIONAL_TRANSPORT = PASS_CROSSWALK\`
+
+\`TIR_NAVIER_STOKES_FORM_RECOVERY = PASS_CONDITIONAL\`
+
+\`TIR_ORBITAL_SOURCE_TO_TRANSPORT_COEFFICIENTS = OPEN\`
+
+\`TIR_EINSTEIN_EQUALS_NAVIER_STOKES = NOT_CLAIMED\`
+
+The candidate binding \(u\equiv V_{\rm FO}\) supplies a natural continuum dynamics target for the previously open \(V_{\rm FO}\) field-equation gate, but does not close it.

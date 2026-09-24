@@ -1,0 +1,23 @@
+{
+  "schema": "TIR_CONTINUOUS_RELATIONAL_MEDIUM_NAVIER_STOKES_VALIDATION_RECEIPT_V0_1",
+  "status": "PASS_MATHEMATICAL_CONTROLS_ONLY",
+  "date": "2026-09-24",
+  "controls": {
+    "hubble_continuity": "PASS",
+    "rigid_rotation_incompressible_ns": "PASS"
+  },
+  "scope": [
+    "continuity equation control",
+    "incompressible divergence-free control",
+    "rigid-rotation convective-pressure balance",
+    "nonzero vorticity with zero vector Laplacian"
+  ],
+  "not_validated": [
+    "TIR source-to-continuum-field binding",
+    "physical viscosity",
+    "Einstein dynamics from transport law",
+    "spacetime as material fluid",
+    "empirical gravity prediction"
+  ],
+  "canon_allowed": false
+}
