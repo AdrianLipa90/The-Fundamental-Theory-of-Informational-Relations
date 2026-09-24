@@ -192,15 +192,19 @@ The remaining physical cosmology gate is
 
 \[
 \boxed{
-{\rm fundamental\ dynamics}
+{\rm source\!\!-\!bound\ event/spatial\ evolution}
 \to
-\beta_{\rm match}(x,t),\,N_\Theta,\,K_{ij}
+\partial_0 h_{ij},\,N,\,b^i
+\xrightarrow{\rm RF\!\!-\!E9}
+K_{ij}
 \to
-{\rm gauge\!-\!invariant\ spacetime\ dynamics}
+{\rm ADM\ constraints/evolution}
 \to
 \ddot a/a.
 }
 \]
+
+The late-time acceleration mechanism still requires a derived physical source or geometric correction; the event-spatial contract closes the metric-rate handoff, not that cosmological source.
 
 ## 8. Current blocker
 
