@@ -376,3 +376,36 @@ V^2=\frac Cr.
 Weak-field/ADM mass normalization fixes \(C=2GM\). Thus the inverse-radius river profile is derived conditionally from the admitted gravitational constraint rather than inserted as a target profile.
 
 This does not close the microscopic source-to-\(\chi\) or orbital-recursion-to-coframe gates.
+
+
+## 14. Native TIR inter-leaf shift binding
+
+The native TIR spacetime interface already exports the inter-leaf matching field and normalized x0 shift
+
+\[
+b^i_{(0)}=\frac{\beta^i_{(t)}}{c}.
+\]
+
+Comparing its ADM coframe with the flow convention gives
+
+\[
+\boxed{V^i=-c\,b^i_{(0)}=-\beta^i_{(t)}}.
+\]
+
+Hence, on the subluminal chart sector,
+
+\[
+\boxed{\chi=\operatorname{artanh}|b|}.
+\]
+
+This exact bridge is documented in
+
+TIR_INTERLEAF_SHIFT_ORBITAL_RAPIDITY_MASS_BRIDGE_V0_1.
+
+The shift remains slicing/gauge dependent. In spherical symmetry the same flow representation yields the invariant Misner--Sharp mass
+
+\[
+\boxed{m_{\rm MS}=\frac{rV^2}{2G}},
+\]
+
+so the downstream vacuum law \(V^2=C/r\) is equivalently constant invariant mass. Production \(\beta_{\rm match}\) and its fundamental dynamical source remain open.
