@@ -73,6 +73,53 @@ TIR_WHITE_THREAD_LYAPUNOV = EXACT_CONDITIONAL_STATIC_HOLONOMY / DYNAMIC_FIELD_BI
 TIR_SOH_NEGATIVE_INVERSE = GLOBAL_DOMINATION_CANDIDATE / RH_OPEN
 TIR_TIME_JOIN = SIBLING_INTERFACE
 TIR_COLLATZ_FS_RELATIONAL_PHASE = MATHEMATICAL_INTERFACE_ADDED / PHYSICAL_BINDING_OPEN
+TIR_FRACTAL_ORBITAL_GRAVITY_KINEMATICS = PASS_EXACT_MATHEMATICAL_CONTROLS
+TIR_FRACTAL_ORBITAL_GRAVITY_PG_SCHWARZSCHILD = PASS_EXACT_CONTROL
+TIR_FRACTAL_ORBITAL_GRAVITY_FLAT_FLRW = PASS_EXACT_CONTROL
+TIR_FRACTAL_ORBITAL_GRAVITY_LC_TP_FIREWALL = PASS_REPRESENTATION
+TIR_FRACTAL_ORBITAL_GRAVITY_SOURCE_TO_RAPIDITY = OPEN_PHYSICAL_BINDING
+TIR_FRACTAL_ORBITAL_GRAVITY_DYNAMICS = OPEN
+TIR_FLOW_COFRAME_ADM_SPHERICAL_VACUUM_DERIVATION = PASS_CONDITIONAL
+TIR_FLOW_COFRAME_SCHWARZSCHILD_RIVER_PROFILE = DERIVED_ON_DECLARED_ADM_ASSUMPTIONS
+TIR_INTERLEAF_SHIFT_TO_ORBITAL_RAPIDITY = CLOSED_EXACT_KINEMATIC
+TIR_SPHERICAL_FLOW_TO_MISNER_SHARP_MASS = CLOSED_EXACT
+TIR_PRODUCTION_BETA_MATCH = OPEN_INPUT
+TIR_IDT_EXTRINSIC_CURVATURE_SOURCE_BRIDGE = PASS_CONDITIONAL_METRIC_RATE_SOURCE / RF_E9_REUSED
+TIR_IDT_EVENT_SPATIAL_STATE_BINDING = PASS_EXECUTABLE_SOURCE_CONTRACT / PRODUCTION_INPUT_OPEN
+TIR_EVENT_METRIC_RATE_TO_RF_E9 = CLOSED_CONDITIONAL_REFINEMENT
+TIR_RF_E9_EXTRINSIC_CURVATURE_OPERATOR = REUSED_EXISTING_RFC_GATE
+TIR_PRODUCTION_EVENT_SPATIAL_REALIZATION = OPEN_INPUT
+TIR_RF_E13_FLAT_FLRW_ACCELERATION = PASS_EXACT_ON_PARENT
+TIR_INFORMATION_SCALAR_ACCELERATION_CRITERION = PASS_EXACT_LOCAL_CANONICAL
+TIR_BARE_LAMBDA_REQUIRED_FOR_ACCELERATION = NO_ON_INFORMATION_SCALAR_ACTION_ROUTE
+TIR_CURRENT_HOLONOMY_TO_STRESS = SPECTATOR_NO_GO
+TIR_EQUAL_STRESS_HOLONOMY_PARTITION = NO_GO
+TIR_HOLONOMY_D_CHANNEL_DIFFERENTIAL_STRESS = CANDIDATE / PHYSICAL_BINDING_OPEN
+TIR_ABSOLUTE_ALPHA_I_NORMALIZATION = OPEN
+TIR_NONTRIVIAL_HOLONOMY_PERSISTENCE = OPEN
+TIR_HOLONOMY_PARTITION_BOOKKEEPING_INVARIANCE = PASS_EXACT
+TIR_OMITTED_C_SOURCE_ACCELERATION_DEFECT = PASS_EXACT
+TIR_RF_E4_PHASE_KINETIC_COSMOLOGY = EXACT_W_PLUS_ONE_DECELERATING
+TIR_RF_F20_CONNECTION_METRIC_RESPONSE_COSMOLOGY = PASS_EXACT_CONDITIONAL_SIGN_TEST
+TIR_TEMPORAL_U1_TO_LOCAL_ABE_RESPONSE_BINDING = OPEN
+TIR_BERRY_EULER_R_ACTIVE_SIGN_AND_MAGNITUDE = OPEN
+TIR_RF_F15_VACUUM_INTEGRATION_ACCELERATION = PASS_EXACT_CONDITIONAL
+TIR_C_LAMBDA_TRANSPORT_CONSERVATION = PASS_EXACT_FIXED_X
+TIR_C_LAMBDA_MAGNITUDE_SIGN = OPEN_INITIAL_BOUNDARY_DATA
+TIR_C_LAMBDA_HOLONOMY_TOPOLOGY_BINDING = OPEN
+TIR_CONSTANT_VACUUM_REPARTITION_DEGENERACY = PASS_EXACT_RF_F16
+TIR_FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = NOT_FUNDAMENTAL_TARGET / SHIFT_IS_GAUGE_REPRESENTATION
+
+
+
+TIR_CONTINUOUS_RELATIONAL_TRANSPORT = PASS_CONTINUUM_CROSSWALK
+TIR_NAVIER_STOKES_FORM_RECOVERY = PASS_CONDITIONAL
+TIR_RELATIONAL_VORTICITY_CIRCULATION = PASS_EXACT_MATHEMATICS
+TIR_FLOW_FIELD_TO_CONTINUUM_DYNAMICS = CANDIDATE
+TIR_ORBITAL_SOURCE_TO_TRANSPORT_COEFFICIENTS = OPEN
+TIR_EINSTEIN_EQUALS_NAVIER_STOKES = NOT_CLAIMED
+TIR_SPACETIME_AS_MATERIAL_FLUID = NOT_CLAIMED
+
 ```
 
 ## 2. Canonical information normalization
@@ -311,6 +358,57 @@ TIR physical-realization bundle v0.2        ASSEMBLER CLOSED / INPUTS OPEN
 RFC local ADM/Einstein derivation            CLOSED on declared assumptions
 global TIR x IDT x RFC production carrier   OPEN INPUT / COVERAGE / PROMOTION
 ```
+
+
+## NEW — 2026-09-24 — fractal-orbital informational-holonomic gravity
+
+Canonical source:
+
+TIR/foundations/TIR_FRACTAL_ORBITAL_INFORMATIONAL_HOLONOMIC_GRAVITY_V0_1.md
+
+The new gate does not replace A2/A3 or reopen the Levi-Civita theorem. It supplies an orbital-hyperbolic realization of a flow coframe,
+
+\[
+z=\tanh(\chi/2)e^{i(\phi+\kappa W)},
+\qquad
+\mathbf V_{\rm FO}=c\,\mathcal B[G_\gamma],
+\qquad
+e^0=c\,d\tau,\quad e^i=dX^i-V_{\rm FO}^i d\tau.
+\]
+
+Exact controls now present on the candidate branch:
+
+\[
+\mathbf V=-\sqrt{2GM/R}\,\hat{\mathbf r}
+\Longrightarrow {\rm Schwarzschild\ in\ Painleve\!-\!Gullstrand},
+\]
+
+\[
+\mathbf V=H(t)\mathbf R
+\Longrightarrow {\rm flat\ FLRW\ in\ physical\ radius}.
+\]
+
+The Levi-Civita sector remains
+
+\[
+T^a(\omega_{\rm LC})=0,
+\]
+
+while an equivalent teleparallel representation may use a distinct flat connection with nonzero torsion. These are never conflated.
+
+Status:
+
+FRACTAL_ORBITAL_GRAVITY_EXACT_CONTROLS = PASS
+
+SOURCE_TO_DIMENSIONLESS_RAPIDITY_BINDING = OPEN
+
+ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME = OPEN
+
+DYNAMICAL_FIELD_EQUATION_FOR_V_FO = OPEN
+
+LATE_TIME_ACCELERATION_WITHOUT_RETUNING = OPEN
+
+The old cosmological density ansatz in the publication-candidate monograph is not silently superseded by this foundation gate.
 
 ## 6. Coefficient and Standard-Model correction state
 
@@ -2243,3 +2341,140 @@ one has
 `RANK2_CARTAN_FLAT_EMBEDS_AS_DIAGONAL_SYMMETRIC_UNITARY_EXP_IH`.
 
 This is internal symmetric-space geometry, not a physical-space claim.
+
+
+### 2026-09-24 gravity strengthening
+
+Canonical source:
+
+TIR/foundations/TIR_FLOW_COFRAME_ADM_CONSTRAINT_GRAVITY_V0_1.md
+
+On the stationary spherical flat-slice ADM sector, the vacuum Hamiltonian constraint derives \(V^2=C/r\); weak-field/ADM mass normalization gives \(C=2GM\). The source-to-coframe gate remains OPEN.
+
+
+### 2026-09-24 native shift / rapidity / invariant-mass bridge
+
+Canonical source:
+
+TIR/foundations/TIR_INTERLEAF_SHIFT_ORBITAL_RAPIDITY_MASS_BRIDGE_V0_1.md
+
+The existing TIR x0 matching shift satisfies \(b=\beta_t/c\). In the flow sign convention \(V=-cb\), hence \(\chi=\operatorname{artanh}|b|\) on the subluminal chart. This removes the historical B-omega-N/AR expression from the required gravity kinematics.
+
+The shift itself remains gauge/slicing dependent. In spherical symmetry the full metric gives the invariant Misner--Sharp mass \(m_{\rm MS}=rV^2/(2G)\). Production beta_match remains OPEN INPUT.
+
+
+### Gravity derivation spine
+
+Single dependency surface:
+
+TIR/foundations/TIR_GRAVITY_DERIVATION_SPINE_V0_1.md
+
+Status: structural gravity derivation assembled; local Cartan/ADM/Einstein and spherical vacuum flow subgates are closed on their declared assumptions; production physical realization and fundamental dynamics to beta_match remain OPEN.
+
+
+### 2026-09-24 event-indexed metric-rate source route
+
+The gravity source frontier is no longer expressed as a requirement to derive the coordinate shift from invariants.
+
+Canonical integration sources:
+
+TIR/integration/TIR_IDT_EXTRINSIC_CURVATURE_SOURCE_BRIDGE_V0_1.md
+
+TIR/integration/TIR_IDT_EVENT_SPATIAL_STATE_BINDING_V0_1.md
+
+Cross-repository source pins:
+
+TIR/integration/receipts/TIR_IDT_EVENT_SPATIAL_RF_E9_SOURCE_PINS_V0_1.json
+
+The source contract binds IDT realized events to TIR spatial snapshots under one physical-realization receipt and clock identity and exports the refinement estimator
+
+\[
+\frac{\Delta h_{ij}}{\Delta x^0}\to\partial_0h_{ij}.
+\]
+
+RFC RF-E9 remains the unique extrinsic-curvature operator:
+
+\[
+K_{ij}=\frac1{2N}\left(-\partial_0h_{ij}+D_ib_j+D_jb_i\right).
+\]
+
+Reference controls PASS. Production event-spatial data remain OPEN INPUT. The abstract physical identity between a generic IDT state coordinate and a TIR density operator is not required by the preferred production route.
+
+
+### 2026-09-24 information-holonomy cosmological acceleration gate
+
+TIR/integration/TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_V0_1.md
+
+RF-E12/RF-E13 flat-FLRW gives
+
+\[
+\frac{a''}{a}=-\frac{\kappa_E}{6}(\rho+3p).
+\]
+
+On the canonical information-scalar branch,
+
+\[
+U_I=\frac{\alpha_I}{\kappa_E}\Xi_I,\qquad \phi_I=\sqrt{2\Xi_I},
+\]
+
+so
+
+\[
+\boxed{\frac{a''}{a}\Big|_I=\frac{\alpha_I\Xi_I}{3}-\frac{\kappa_E}{6\Xi_I}(\Xi_I')^2.}
+\]
+
+An additional bare cosmological constant is therefore not mathematically required on this action route; absolute alpha_I normalization remains open.
+
+The current RF-L3/IDT-01L2 action preserves tau_R but has partial U_I / partial tau_R = 0, so temporal holonomy is presently a spectator in stress-energy. Further, C_h+D_h=1 means equal stress attribution to both channels cannot create a tau_R-dependent gravitational effect. The minimal D-channel vacuum-stress candidate remains unpromoted until the complementary C-channel source ledger, Bianchi conservation and nontrivial-holonomy persistence/stability gates are closed.
+
+
+### 2026-09-24 temporal-U1 metric-response cosmology gate
+
+TIR/integration/TIR_IDT_RFC_HOLONOMY_BIANCHI_CHANNEL_LEDGER_V0_1.md
+
+TIR/integration/TIR_IDT_RFC_TEMPORAL_U1_METRIC_RESPONSE_COSMOLOGY_V0_1.md
+
+The exact C_h/D_h partition is bookkeeping-invariant when the complementary source is retained. Moving D_h U_I to the dynamic-Lambda side leaves the acceleration unchanged. Omitting C_h U_I creates the exact spurious defect
+
+\[
+\mathcal A_{original}-\mathcal A_{omitC}=\frac{\kappa_E}{3}U_I C_h.
+\]
+
+RF-E4 independently shows that pure phase kinetic stress has w=+1 and is decelerating. RF-F20 supplies the first existing non-bookkeeping phase/connection correction
+
+\[
+\Delta T_{\mu\nu}^{phase}=4A^2R_{\mu\nu}.
+\]
+
+For an isotropic orthonormal response R=diag(R0,Rs,Rs,Rs),
+
+\[
+\Delta(a''/a)_R=-\frac{2\kappa_EA^2}{3}(R_0+3R_s).
+\]
+
+The correction accelerates by itself when R0+3Rs<0. The physical temporal-U1/holonomy to local ABE Berry/Euler metric-response binding remains open; closed-loop holonomy alone does not determine R_mn.
+
+
+### 2026-09-24 phase-cell vacuum-integration acceleration gate
+
+TIR/integration/TIR_IDT_RFC_PHASE_CELL_VACUUM_INTEGRATION_ACCELERATION_V0_1.md
+
+RF-F15 fixed-x transport gives the conserved coordinate
+
+\[
+C_\Lambda=|\omega|^4\left[v-\frac{1-x}{2}\right],\qquad \frac{dC_\Lambda}{d\ln|\omega|}=0.
+\]
+
+With K=K0 omega^4,
+
+\[
+\rho_r=\frac{3+x}{2}K_0\omega^4,\qquad \rho_\Lambda=K_0C_\Lambda,\qquad p=\rho_r/3-\rho_\Lambda.
+\]
+
+Hence
+
+\[
+\frac{a''}{a}=\frac{\kappa_E}{3}(\rho_\Lambda-\rho_r),
+\]
+
+and the exact fixed-x acceleration threshold is omega_acc^4=2 C_Lambda/(3+x) for positive C_Lambda. RF-F16 shows the constant vacuum component is exactly repartition-degenerate with the reference vacuum/potential zero point. The transport route derives the functional constant-vacuum component but does not predict its magnitude or sign. No current receipt identifies C_Lambda with holonomy/topology.

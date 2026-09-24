@@ -1,0 +1,38 @@
+{
+  "schema": "TIR_GRAVITY_EVENT_SPATIAL_GREMLIN_AUDIT_V0_1",
+  "date": "2026-09-24",
+  "authority": "CANDIDATE_ONLY",
+  "no_query_execution_authority": true,
+  "runtime_root": "/dev/shm/ciel_noema",
+  "audits": [
+    {
+      "task_event_id": "gremlin:whisper:sha256:c8b228897af10b1edb123884b2ed06fcb9541bfca5e3e865818096a35ba8521b",
+      "phasenav_event_id": "gremlin:whisper:sha256:9870f32508e98728ac6c23324386ca8a949595d32f47a920d91cf68401ed0b4b",
+      "fused_event_id": "gremlin:whisper:sha256:ca13de1411646507d06620a07b202cb00400ed9566326a0e335d6c9853a870ef",
+      "audit_event_id": "gremlin:whisper:sha256:ffc7fa283f17ca200168b0bcd92c4b74f39f0d26d7c1a207f98850acb0377235",
+      "phase_attention_terms": [
+        "identification",
+        "source-owned",
+        "production",
+        "idt-state"
+      ],
+      "selected_internal_task_candidate": "identification source-owned production idt-state"
+    },
+    {
+      "task_event_id": "gremlin:whisper:sha256:0e9a581454d764f43f09b152d24bfbc0b9f1e6d1ecdd30f8b1b647f024612a32",
+      "phasenav_event_id": "gremlin:whisper:sha256:f5fa8b1268019e6e305eb48995f87fa12339db160e9f4c6fb7e6d49d605382ba",
+      "fused_event_id": "gremlin:whisper:sha256:5568a6c7c7e26197008836b2042a7ca42c0515b5f1fdf09da91e75ad82aa7864",
+      "audit_event_id": "gremlin:whisper:sha256:f412d7b89d20b10cae7a0d4ada1e2830dfbaa6911668114a5595c9c724da93a8",
+      "phase_attention_terms": [
+        "circularity",
+        "duplicated",
+        "production",
+        "parameter"
+      ],
+      "selected_internal_task_candidate": "circularity duplicated production parameter"
+    }
+  ],
+  "interpretation": "GREMLIN/PhaseNav supplied candidate attention and adversarial routing only; deterministic mathematics and repository source pins remain authoritative.",
+  "theorem_promotion_from_gremlin": false,
+  "canon_allowed": false
+}

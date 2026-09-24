@@ -1,0 +1,20 @@
+{
+  "schema": "TIR_IDT_RFC_PROJECTOR_RESPONSE_ACCELERATION_THRESHOLD_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_RF_F22_PROJECTOR_RESPONSE_ACCELERATION_THRESHOLD_PHYSICAL_RESPONSE_OPEN",
+  "canon_allowed": false,
+  "execution": "LOCAL_EQUIVALENT_REFERENCE_CHECK_2026-09-24",
+  "exact_relations": [
+    "D_active=2 eta Uhat f'(1) [1+2 R_active/mu_theta^2+2 S_active]",
+    "Delta(a''/a)_D=-(kappa_E/3) eta Uhat f'(1) B_response",
+    "for eta Uhat f'(1)>0 acceleration iff R_active/mu_theta^2+S_active<-1/2",
+    "R=S=0 gives B_response=1 and deceleration"
+  ],
+  "open_gates": [
+    "TEMPORAL_U1_TO_LOCAL_ABE_RESPONSE_BINDING",
+    "PHYSICAL_R_MN_RECEIPT",
+    "PHYSICAL_S_MN_RECEIPT",
+    "PHYSICAL_PROJECTOR_PROFILE_SELECTION",
+    "OBSERVATIONAL_BACKGROUND_AND_PERTURBATION_TEST"
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGY_SOURCE_PINS_V0_1",
+  "date": "2026-09-24",
+  "authority": "CANDIDATE_BRANCH_PROVENANCE",
+  "tir": {
+    "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+    "branch": "feat/tir-fractal-orbital-gravity-v0-1-20260924",
+    "source": "TIR/integration/TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_V0_1.md"
+  },
+  "idt": {
+    "repository": "AdrianLipa90/Informational-Dynamics-of-Time",
+    "main_sha": "2960a936e3f74b07a4bf30ebc5cb78b6c1811b4c",
+    "sources": [
+      {
+        "path": "formalism/01K_temporal_information_curvature_interface.md",
+        "blob_sha": "3763000ac6f94519701e3b4987080c473fceeae9"
+      },
+      {
+        "path": "formalism/01L_phase_clock_length_scale.md",
+        "blob_sha": "78a4bc32e553d1d0a20886f8bdd2157edd0efaf9"
+      },
+      {
+        "path": "formalism/01L_relational_lambda_oriented_holonomy_interface.md",
+        "blob_sha": "4e7ad7a3019e07c09225ecb47c75bdff6195bd90"
+      },
+      {
+        "path": "formalism/01L2_rfc_information_scalar_potential_reconstruction_holonomy.md",
+        "blob_sha": "b6b69dc98d682f150da1297bca8e0998e82010b3"
+      },
+      {
+        "path": "formalism/01AC_gauge_covariant_phase_pullback_noether_generator.md",
+        "blob_sha": "2270399974381cebbc9122a8d105177205bf92bf"
+      }
+    ]
+  },
+  "rfc": {
+    "repository": "AdrianLipa90/Relational-Field-Closure",
+    "main_sha": "786d1e1a9f9c91a4c3174719ed76966aa73edcef",
+    "sources": [
+      {
+        "path": "closure/einstein/RF_E12_ACTION_PROJECTED_ADM_SOURCE_CONSTRAINTS.md",
+        "blob_sha": "9047b5df019afc28ae5a3fc977e73c3553cb251d"
+      },
+      {
+        "path": "closure/einstein/RF_E13_CONSTRAINT_PROPAGATION_BIANCHI_LEDGER.md",
+        "blob_sha": "daec576274e6521a34bceaa4b8247de215cece20"
+      },
+      {
+        "path": "closure/lambda0/RF_L2_DYNAMIC_LAMBDA0_ACTION_REALIZABILITY_STABILITY.md",
+        "blob_sha": "4c258ed1bab36061c85cf9a65e6c8f7a8047211b"
+      },
+      {
+        "path": "closure/lambda0/RF_L3_INFORMATION_SCALAR_POTENTIAL_RECONSTRUCTION.md",
+        "blob_sha": "d70aeebfd7c3f1d2b69a9c0f150edcc65aed8ba9"
+      },
+      {
+        "path": "closure/lambda0/RF_L4A_SHANNON_FISHER_LOCAL_NORMALIZATION.md",
+        "blob_sha": "31161902c89b2f9250c7d4a03606cb5cd4581f11"
+      },
+      {
+        "path": "closure/lambda0/RF_L5_SHANNON_ONSAGER_TEMPORAL_WAVE_KLEIN_GORDON_BRIDGE.md",
+        "blob_sha": "452a9df9de6f08e573050c1c8b2ae75a7f94fdd1"
+      },
+      {
+        "path": "closure/scale/RF_S8_JOINT_KL_CLOCK_RADIAL_ACTION_COMPOSITION.md",
+        "blob_sha": "10bfbbf9240732611aabee99398a09c0157c9438"
+      },
+      {
+        "path": "formalism/RFN1B2M_GAUGE_COVARIANT_PHASE_PULLBACK_NOETHER_GENERATOR.md",
+        "blob_sha": "c09718387ededfdf1d90b2be6d5a91b13d6357ab"
+      },
+      {
+        "path": "closure/einstein/RF_E4_PHASE_KINETIC_STRESS_ENERGY_FIREWALL.md",
+        "blob_sha": "2730ee2578d18cad7c4c8fd278fcc41aebdd1e08"
+      },
+      {
+        "path": "formalism/RF_F20_ABE_EULER_OFFSHELL_METRIC_RESPONSE.md",
+        "blob_sha": "92dafaeb0bb7b2e2883f7ddcd60e46dfd6eb2581"
+      },
+      {
+        "path": "closure/einstein/RF_E27_COLLATZ_FS_PHASE_FIBRE_INTERFACE.md",
+        "blob_sha": "7986d011a0c6a542b3bc271c415f131603cebbc1"
+      }
+    ]
+  },
+  "firewalls": [
+    "CURRENT_RF_L3_POTENTIAL_IS_TAU_R_INDEPENDENT",
+    "C_H_PLUS_D_H_EQUALS_ONE",
+    "EQUAL_STRESS_PARTITION_CANNOT_CREATE_HOLONOMY_GRAVITY",
+    "FULL_SCALAR_AND_DYNAMIC_LAMBDA_REPRESENTATIONS_MUST_NOT_BE_DOUBLE_COUNTED",
+    "ABSOLUTE_ALPHA_I_REMAINS_OPEN",
+    "PURE_PHASE_KINETIC_W_EQUALS_PLUS_ONE_IS_DECELERATING",
+    "CLOSED_LOOP_HOLONOMY_DOES_NOT_FIX_LOCAL_OFFSHELL_METRIC_RESPONSE",
+    "TEMPORAL_U1_TO_LOCAL_ABE_METRIC_RESPONSE_REMAINS_OPEN",
+    "MAXWELL_STRESS_MUST_NOT_BE_DOUBLE_COUNTED_THROUGH_AB_RESPONSE"
+  ],
+  "canon_allowed": false
+}

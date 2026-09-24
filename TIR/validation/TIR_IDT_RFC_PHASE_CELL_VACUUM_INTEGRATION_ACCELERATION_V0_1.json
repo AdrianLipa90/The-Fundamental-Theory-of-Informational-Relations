@@ -1,0 +1,24 @@
+{
+  "schema": "TIR_IDT_RFC_PHASE_CELL_VACUUM_INTEGRATION_ACCELERATION_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_RF_F15_VACUUM_INTEGRATION_ACCELERATION_TRANSITION_C_LAMBDA_ORIGIN_OPEN",
+  "canon_allowed": false,
+  "execution": "LOCAL_EQUIVALENT_REFERENCE_CHECK_2026-09-24",
+  "exact_relations": [
+    "C_Lambda = |omega|^4 [v-(1-x)/2] is conserved on the fixed-x RF-F15 transport family",
+    "rho_r=((3+x)/2) K0 omega^4",
+    "rho_Lambda=K0 C_Lambda",
+    "p=rho_r/3-rho_Lambda",
+    "a''/a=(kappa_E/3)(rho_Lambda-rho_r)",
+    "acceleration iff C_Lambda>((3+x)/2) omega^4",
+    "omega_acc^4=2 C_Lambda/(3+x)",
+    "a|omega|=Q_a -> a_acc=Q_a[(3+x)/(2 C_Lambda)]^(1/4)"
+  ],
+  "open_gates": [
+    "PHYSICAL_RF_N1B2K_CURRENT_MEASURE_REALIZATION",
+    "PHYSICAL_C_LAMBDA_SIGN_AND_MAGNITUDE",
+    "C_LAMBDA_TO_HOLONOMY_TOPOLOGY_BOUNDARY_CHARGE_BINDING",
+    "MULTICOMPONENT_DUST_RADIATION_VACUUM_TRANSPORT",
+    "OBSERVATIONAL_FLRW_PERTURBATION_TEST"
+  ]
+}
