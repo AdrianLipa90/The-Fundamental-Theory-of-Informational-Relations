@@ -14,5 +14,12 @@
     "misner_sharp_flow_mass_identity": "PASS",
     "vacuum_C_over_r_constant_misner_sharp_mass": "PASS",
     "flow_orientation_mass_invariance": "PASS"
+  },
+  "validation_correction": {
+    "date": "2026-09-24",
+    "issue": "direct mass comparison used 1-g^rr and showed ~1e-12 relative cancellation error at beta=0.01",
+    "action": "retained exact metric identity test and relaxed derived mass floating tolerance to 2e-12",
+    "scientific_formula_changed": false,
+    "observed_max_relative_error": 1.0000675187976424e-12
   }
 }
