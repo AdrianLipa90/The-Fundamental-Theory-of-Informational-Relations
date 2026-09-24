@@ -287,3 +287,30 @@ Current status:
 - MOIRE_TO_UNIQUE_PHYSICAL_COFRAME = OPEN
 - UNIVERSE_MEMORY_AS_PHYSICAL_ONTOLOGY = OPEN
 - MILLENNIUM_PROBLEM_CLOSURE = NOT_CLAIMED
+
+
+## 12. Bivector-36 refinement of the microscopic gate
+
+`TIR_BIVECTOR36_COFRAME_LIFT_V0_1` supplies a non-arbitrary representation target for the previously open 36D-to-coframe step:
+
+\[
+\mathcal M_{36}
+\xrightarrow{\mathcal D}
+B^{IJ}{}_{\mu\nu}
+\xrightarrow{\text{simplicity/liftability}}
+[e^I{}_{\mu}]
+\to g_{\mu\nu}
+\to \omega_{LC}
+\to R.
+\]
+
+The exact exterior-square identities and validator close the algebraic **type** of the lift gate. They do not yet derive the physical decoder \(\mathcal D\), the source normalization, or Einstein dynamics from pre-geometric TIR data alone.
+
+Current status additions:
+
+- BIVECTOR_36_DIMENSIONAL_MATCH = PASS_EXACT
+- COFRAME_TO_C2_EXTERIOR_SQUARE = PASS_EXACT
+- WEDGE_PAIRING_LIFT_GATE = PASS_EXACT
+- GENERIC_PERTURBED_6x6_REJECTION = PASS_VALIDATOR
+- PLEBANSKI_SIMPLICITY_CROSSWALK = PASS_STANDARD
+- MOIRE_OBSERVABLES_TO_B_FIELD = OPEN
