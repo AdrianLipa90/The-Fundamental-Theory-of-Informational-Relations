@@ -1,0 +1,18 @@
+{
+  "schema": "TIR_INTERLEAF_SHIFT_ORBITAL_RAPIDITY_MASS_BRIDGE_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_EXACT_SHIFT_RAPIDITY_AND_INVARIANT_MASS_BRIDGE_PRODUCTION_INPUT_OPEN",
+  "canon_allowed": false,
+  "execution": "LOCAL_CONTAINER_2026-09-24",
+  "production_beta_match": "OPEN_INPUT",
+  "shift_is_physical_source": false,
+  "exact_controls": {
+    "beta_t_to_shift_to_flow_sign_bridge": "PASS",
+    "shift_norm_to_rapidity": "PASS",
+    "rapidity_to_poincare_radius": "PASS",
+    "radial_inverse_metric_grr": "PASS",
+    "misner_sharp_flow_mass_identity": "PASS",
+    "vacuum_C_over_r_constant_misner_sharp_mass": "PASS",
+    "flow_orientation_mass_invariance": "PASS"
+  }
+}
