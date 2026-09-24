@@ -1,0 +1,26 @@
+{
+  "schema": "TIR_IDT_RFC_PLANCK_FREQUENCY_VACUUM_FACTORIZATION_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_PLANCK_REFERENCE_FACTORIZATION_INTERNAL_DIMENSIONLESS_VACUUM_INVARIANT_OPEN",
+  "canon_allowed": false,
+  "exact_relations": [
+    "Omega_P=sqrt(c^5/(hbar G))",
+    "chi_Lambda=C_Lambda/Omega_P^4",
+    "epsilon_P=c^7/(hbar G^2)",
+    "rho_Lambda/epsilon_P=(N zeta_q/(2 a_FS)) chi_Lambda",
+    "FULL_TETRA_CP1 a_FS=pi -> rho_Lambda/epsilon_P=(N zeta_q/(2 pi)) chi_Lambda",
+    "q0=hbar,N=1 -> chi_Lambda=2 pi rho_Lambda/epsilon_P"
+  ],
+  "legacy_translation": {
+    "r_224": 1.345110818116154e-122,
+    "chi_full_tetra_unit": 8.451580528915731e-122,
+    "status": "EXACT_TRANSLATION_NOT_DERIVATION"
+  },
+  "open_gates": [
+    "INTERNAL_G_DERIVATION",
+    "PHYSICAL_Q0_OVER_HBAR_BINDING",
+    "PHYSICAL_PHASE_CELL_OCCUPATION",
+    "INDEPENDENT_CHI_LAMBDA_TOPOLOGICAL_DERIVATION",
+    "INDEPENDENT_224_EXPONENT_DERIVATION"
+  ]
+}
