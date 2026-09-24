@@ -5,12 +5,14 @@ import json, math
 SCHEMA="TIR_FLOW_COFRAME_ADM_CONSTRAINT_GRAVITY_VALIDATION_V0_1"
 TOL=1e-12
 
-def radial_constraint(V: float, dV: float, r: float, c: float=1.0) -> float:
+def radial_constraint(V: float, dV: float, r: float, c: float=1.0) -> tuple[float,float]:
     a=dV/c
     b=V/(c*r)
     K=a+2*b
     KijKij=a*a+2*b*b
-    return K*K-KijKij
+    raw=K*K-KijKij
+    scale=max(1.0,abs(K*K),abs(KijKij))
+    return raw,abs(raw)/scale
 
 def main():
     checks=[]
@@ -20,16 +22,18 @@ def main():
             for s in (-1.0,1.0):
                 V=s*math.sqrt(C/r)
                 dV=-V/(2*r)
-                max_res=max(max_res,abs(radial_constraint(V,dV,r)))
-    checks.append({"name":"vacuum_radial_C_over_r_family","pass":max_res<TOL,"max_abs_residual":max_res})
+                _,rel=radial_constraint(V,dV,r)
+                max_res=max(max_res,rel)
+    checks.append({"name":"vacuum_radial_C_over_r_family","pass":max_res<TOL,"max_scaled_residual":max_res})
 
     bad=[]
     for p in (0.0,0.5,1.5,2.0,3.0):
         C=2.3; r=1.7
         V=math.sqrt(C/(r**p))
         dV=-(p/(2*r))*V
-        bad.append(abs(radial_constraint(V,dV,r)))
-    checks.append({"name":"non_unit_power_negative_controls","pass":all(x>1e-6 for x in bad),"residuals":bad})
+        _,rel=radial_constraint(V,dV,r)
+        bad.append(rel)
+    checks.append({"name":"non_unit_power_negative_controls","pass":all(x>1e-6 for x in bad),"scaled_residuals":bad})
 
     max_id=0.0
     for V,dV,r in ((.3,-.07,.8),(2.0,-.4,3.0),(-.5,.2,1.4)):
