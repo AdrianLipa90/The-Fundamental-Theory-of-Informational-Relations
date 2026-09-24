@@ -460,3 +460,115 @@ Thus:
 - the frame/curvature decomposition is therefore compatible with tetrahedral relabeling.
 
 This is an exact covariance statement about the index carrier. It does not identify tetrahedral labels with physical spacetime coordinates.
+
+
+## 13. Exact criterion for the half/half norm split
+
+Because \(\Theta_J\) is an orthogonal involution for the Frobenius pairing, write
+
+\[
+A=\frac12(X-\Theta_JX),
+\qquad
+B=\frac12(X+\Theta_JX),
+\qquad
+\alpha=\frac{\operatorname{tr}X}{6}.
+\]
+
+Then
+
+\[
+X_{\rm frame}=A+\alpha I,
+\qquad
+Q=B-\alpha I,
+\]
+
+with all relevant summands mutually orthogonal. Therefore
+
+\[
+\boxed{
+\|X_{\rm frame}\|_F^2
+-
+\|Q\|_F^2
+=
+-\langle X,\Theta_JX\rangle_F
++
+\frac{(\operatorname{tr}X)^2}{3}.
+}
+\]
+
+Hence the two sectors carry exactly equal Frobenius norm if and only if
+
+\[
+\boxed{
+\langle X,\Theta_JX\rangle_F
+=
+\frac{(\operatorname{tr}X)^2}{3}.
+}
+\]
+
+For the canonical tetrahedral overlap witness,
+
+\[
+\operatorname{tr}X=-2,
+\qquad
+\langle X,\Theta_JX\rangle_F=\frac43,
+\]
+
+so the exact \(1/2+1/2\) split is forced by this identity rather than being a numerical accident.
+
+## 14. Exact barycentric 1+3 frame generator
+
+Applying the inverse exterior-square Lie map to the canonical tetrahedral frame sector gives
+
+\[
+\boxed{
+H_\Delta
+=
+\frac13\mathbf 1\mathbf 1^T
+-
+\frac12 I_4.
+}
+\]
+
+Equivalently,
+
+\[
+H_\Delta=
+\begin{pmatrix}
+-1/6&1/3&1/3&1/3\\
+1/3&-1/6&1/3&1/3\\
+1/3&1/3&-1/6&1/3\\
+1/3&1/3&1/3&-1/6
+\end{pmatrix}.
+\]
+
+The vertex permutation representation therefore splits exactly as
+
+\[
+\mathbb R^4
+=
+\operatorname{span}(1,1,1,1)
+\oplus
+\{v:\sum_i v_i=0\},
+\]
+
+with dimensions
+
+\[
+\boxed{4=1+3}
+\]
+
+and eigenvalues
+
+\[
+\boxed{
+\lambda_{\rm bary}=\frac56,
+\qquad
+\lambda_{\rm std}=-\frac12
+\quad\text{(multiplicity 3)}.
+}
+\]
+
+This is the standard trivial-plus-standard decomposition of the tetrahedral vertex representation under \(S_4\).
+
+TIR already has an independent \(1+3\) Herm(2) event carrier \(I\oplus\operatorname{span}(\sigma_x,\sigma_y,\sigma_z)\). The two decompositions are representation-compatible, but physical identification of the barycentric scalar with clock time and the standard three-space with measured spatial directions remains a separate binding gate.
