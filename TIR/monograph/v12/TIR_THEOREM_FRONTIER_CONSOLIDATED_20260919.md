@@ -89,6 +89,8 @@ NEW: ADM flow constraint strengthening. For the already-admitted unit-lapse flat
 \]
 hence \(V^2=C/r\). Weak-field/ADM mass normalization gives \(C=2GM\). This upgrades the Schwarzschild Painleve-Gullstrand profile from inserted control to a conditional derivation downstream of the existing TIR ADM/Einstein gate. Microscopic source-to-coframe binding remains open.
 
+NEW: native inter-leaf shift to rapidity. The existing TIR matching-field export \(b_{(0)}=\beta_t/c\) is exactly the flow-coordinate carrier up to the declared sign convention \(V=-cb_{(0)}\). Hence \(\chi=\operatorname{artanh}|b|\) on the subluminal chart and the Poincare radial coordinate follows without a new scale. In spherical symmetry the full metric gives \(m_{\rm MS}=rV^2/(2G)\), separating gauge-dependent shift representation from invariant mass content. Production \(\beta_{\rm match}\) remains open.
+
 ### Open physical binding / no-go ledger
 
 The branch-local geometric rhythm is validated structurally, but the physical Hamiltonian identification
