@@ -1,0 +1,22 @@
+{
+  "schema": "TIR_IDT_RFC_EULER_PALATINI_TORSION_SOURCE_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_EULER_PALATINI_ADAPTER_ROUTES_NONTRIVIAL_PROJECTOR_TO_TORSION_NOT_RF_F20_METRIC_RESPONSE",
+  "canon_allowed": false,
+  "exact_conditional": [
+    "A_E=(s_E/2) n_AB omega^AB",
+    "Palatini coframe/metric variation at fixed omega,n -> R_E_mn=0",
+    "on C_theta=1: s^mu_AB=(2 eta Uhat s_E fprime(1)/mu_theta^2) q^mu n_AB",
+    "nonzero connection current modifies the Cartan equation",
+    "nonzero Cartan source is incompatible with T^A=0 for invertible coframe",
+    "second-order omega[E] substitution requires full functional variation, not RF-F20 algebraic partial derivative"
+  ],
+  "open_gates": [
+    "LORENTZ_TO_U1_REDUCTION",
+    "PHYSICAL_N_AB_SELECTION",
+    "EINSTEIN_CARTAN_TORSION_SOLUTION",
+    "TORSION_ELIMINATED_EFFECTIVE_STRESS",
+    "FLRW_ISOTROPY_REDUCTION",
+    "ACCELERATION_SIGN_TEST"
+  ]
+}
