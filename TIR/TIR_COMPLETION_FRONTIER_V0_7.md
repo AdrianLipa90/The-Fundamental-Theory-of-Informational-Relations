@@ -2035,3 +2035,37 @@ LATE_TIME_ACCELERATION_WITHOUT_RETUNING = OPEN
 LOCAL_PPN_LENSING_GW_VALIDATION_AFTER_BINDING = OPEN
 
 This sharpens, but does not falsely close, the existing metric/source gravity binding gate.
+
+
+---
+
+## NEW — 2026-09-24 — conditional ADM flow derivation strengthening
+
+Canonical source:
+
+TIR/foundations/TIR_FLOW_COFRAME_ADM_CONSTRAINT_GRAVITY_V0_1.md
+
+The conditional chain is
+
+\[
+{}^{(3)}R=0,\quad
+\rho=0,\quad
+V=V(r),\quad
+N=1
+\Longrightarrow
+\frac{d}{dr}(rV^2)=0
+\Longrightarrow
+V^2=\frac Cr.
+\]
+
+With asymptotic mass normalization, \(C=2GM\).
+
+SPHERICAL_VACUUM_FLOW_PROFILE_FROM_ADM_CONSTRAINT = PASS_CONDITIONAL
+
+SCHWARZSCHILD_PG_RIVER_LAW = DERIVED_ON_DECLARED_ASSUMPTIONS
+
+SOURCE_TO_DIMENSIONLESS_RAPIDITY_BINDING = OPEN
+
+ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME = OPEN
+
+HOLONOMIC_COSMOLOGICAL_SOURCE = OPEN
