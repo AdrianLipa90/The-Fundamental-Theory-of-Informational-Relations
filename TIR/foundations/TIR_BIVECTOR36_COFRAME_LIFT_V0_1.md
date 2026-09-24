@@ -207,3 +207,120 @@ The bivector gate gives a natural six-channel carrier for area/loop transport, b
 ## 11. Standard-literature anchors
 
 The standard crosswalk is grounded in four-dimensional bivector geometry, Plebanski constrained-BF gravity, simplicity constraints and Urbantke metric reconstruction. These anchors are external mathematics/GR results; the TIR novelty claim, if any, concerns only how the project attempts to bind its 36D hyperlayer state to that standard gate.
+
+
+## 12. Moire Lie-decoder candidate
+
+The PhaseNav candidate `moire_bivector_decoder.py` now supplies an explicit representation-level form of the previously open decoder.
+
+For the two 6x6 phase sheets, define the signed relative-phase generator
+
+\[
+X_{AB}=\operatorname{Arg}\exp i(\Phi^L_{AB}-\Phi^R_{AB}).
+\]
+
+The common mean phase is excluded because a simultaneous U(1) shift of both sheets must not create geometry.
+
+With the wedge pairing \(J\), define the involution
+
+\[
+\Theta_J(X)=JX^TJ.
+\]
+
+Then
+
+\[
+X_{\rm geom}
+=
+\frac12(X-\Theta_JX)
++
+\frac{\operatorname{tr}X}{6}I_6,
+\]
+
+and
+
+\[
+Q=X-X_{\rm geom}.
+\]
+
+Exactly,
+
+\[
+X_{\rm geom}^TJ+JX_{\rm geom}
+=
+2\alpha J,
+\qquad
+\alpha=\frac{\operatorname{tr}X}{6},
+\]
+
+so
+
+\[
+X_{\rm geom}\in\mathfrak{co}(3,3).
+\]
+
+The decomposition is
+
+\[
+\boxed{
+\operatorname{Mat}_6
+=
+\mathfrak{so}(3,3)
+\oplus
+\mathbb RI
+\oplus
+\mathcal Q,
+\qquad
+36=15+1+20.
+}
+\]
+
+The 20-dimensional \(Q\) sector is retained explicitly as a simplicity/geometric defect. It is not silently discarded.
+
+The local exceptional representation
+
+\[
+\mathfrak{gl}(4)\to\mathfrak{co}(3,3)
+\]
+
+is inverted by contraction. If \(A=\rho(H)\),
+
+\[
+C^k{}_i=\sum_j A^{kj}{}_{ij}
+=2H^k{}_i+\delta^k_i\operatorname{tr}H,
+\]
+
+hence
+
+\[
+\operatorname{tr}H=\frac{\operatorname{tr}C}{6},
+\qquad
+H^k{}_i=
+\frac12\left(C^k{}_i-\delta^k_i\operatorname{tr}H\right).
+\]
+
+Thus the representation chain is now explicit:
+
+\[
+\text{relative Phase36}
+\to
+(X_{\rm geom},Q)
+\to
+H\in\mathfrak{gl}(4).
+\]
+
+### Firewall
+
+This does **not** close physical gravity. Any 36D state admits a projected geometric component by construction. Promotion requires the raw defect \(Q\) to satisfy a pre-registered empirical/dynamical criterion and requires an independently justified mapping of PhaseNav's six row/column axes to the two bivector pair frames.
+
+Current statuses:
+
+- MOIRE_RELATIVE_PHASE_DECODER_FORM = PASS_DEFINITION
+- MAT6_TO_CO33_PLUS_DEFECT = PASS_EXACT
+- CO33_TO_GL4_LOCAL_INVERSE = PASS_EXACT
+- AXIS_PAIR_BINDING = OPEN
+- DEFECT_PROMOTION_THRESHOLD = OPEN_PREREGISTRATION
+- PHYSICAL_MOIRE_SOURCE_TO_GRAVITY = OPEN
+- CURRENT_RUNTIME_GEOMETRIC_SIGNAL = FAIL_NO_STABLE_SIGNAL
+
+The current live software diagnostic is explicitly non-physical: across 20 sequential snapshots, the aligned defect was not stably lower than an exact-value permutation null.
