@@ -271,3 +271,53 @@ G_{ij}^{\nabla}
 \]
 
 The corresponding triangular translational loop source is the existing discrete solder torsion object.
+
+
+## 9. Hawking-fibre cosmology candidate — 2026-09-24
+
+### Hawking-fibre cosmology candidate
+
+The cosmology branch introduces a new typed candidate
+
+[
+oxed{
+W^H_{ij}
+}
+]
+
+without redefining the generic (W_{ij}) family.
+
+On the local Abelian phase candidate,
+
+[
+oxed{
+W^H_{ij}
+=
+exp!left(
+iint_{gamma^H_{ij}}A_H
+ight)
+in U(1).
+}
+]
+
+Current typing is therefore
+
+[
+oxed{
+W_{ij}^{WT}in U(1),
+qquad
+W_{ij}^{X}in SU(2),
+qquad
+W_{ij}^{c}in SU(3),
+qquad
+W_{ij}^{H}in U(1) 	ext{(CANDIDATE)}.
+}
+]
+
+The (H) superscript denotes the proposed Hawking-fibre cosmology sector. It is not identified with (WT), (X), or colour transport.
+
+Physical meaning and validation gates are recorded in
+
+`TIR/cosmology/TIR_HAWKING_FIBRE_WIJ_CANDIDATE_V0_1.md`.
+
+A bare unitary (W^H) cannot itself be a thermal occupation spectrum because (|W^H|=1). Hawking thermality is therefore assigned, if the candidate survives, to the reduced exterior state after tracing inaccessible interior degrees of freedom.
