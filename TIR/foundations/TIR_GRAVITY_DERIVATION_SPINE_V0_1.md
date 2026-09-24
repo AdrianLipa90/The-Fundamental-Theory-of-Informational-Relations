@@ -249,3 +249,41 @@ FULL_PHYSICAL_GRAVITY_DERIVED_FROM_MICROSCOPIC_TIR_SOURCE = NOT_YET_CLOSED
 - TIR_FLOW_COFRAME_ADM_CONSTRAINT_GRAVITY_V0_1
 - TIR_INTERLEAF_SHIFT_ORBITAL_RAPIDITY_MASS_BRIDGE_V0_1
 - TIR_CONTINUOUS_RELATIONAL_MEDIUM_NAVIER_STOKES_CROSSWALK_V0_1
+
+
+## 11. Moire hyperlayer microscopic bridge
+
+The additive candidate `TIR_MOIRE_HYPERLAYER_GRAVITY_BRIDGE_V0_1` supplies a lower-level representation candidate for the still-open microscopic-to-coframe gate:
+
+\[
+CP^1
+\to (g_{FS},F_{Berry})
+\to T_4\cup T_4^*
+\to \text{paired triangular sheets}
+\to \mathbb R^6\otimes\mathbb R^6
+\to \mathcal M
+\to e
+\to \omega_{LC}
+\to R.
+\]
+
+The 36D factorization is declared as a structured computational choice. It distinguishes the factorized subgroup \(SO(6)_L\times SO(6)_R\), with 30 generators, from unrestricted \(SO(36)\), with 630 plane-rotation generators.
+
+The bridge also adds a strict pure-gauge firewall. A globally exact displacement and a smooth connection of the form \(U^{-1}dU\) do not by themselves generate physical curvature. The candidate only advances the gravity chain if the induced coframe/metric retains gauge-invariant non-flat content.
+
+The associated project-local memory law is:
+
+\[
+\text{memory}=\text{persistent path-dependent relational transport},
+\]
+
+represented minimally by non-trivial holonomy classes after gauge quotient.
+
+Current status:
+
+- MOIRE_TWO_LAYER_IDENTITY = PASS_EXACT
+- HYPERLAYER_6x6_FACTORIZATION = PASS_DEFINITION
+- PURE_GAUGE_FIREWALL = PASS_EXACT
+- MOIRE_TO_UNIQUE_PHYSICAL_COFRAME = OPEN
+- UNIVERSE_MEMORY_AS_PHYSICAL_ONTOLOGY = OPEN
+- MILLENNIUM_PROBLEM_CLOSURE = NOT_CLAIMED
