@@ -353,3 +353,52 @@ This removes arbitrary coordinate selection from the local representation step. 
 - independent gravitational phenomenology.
 
 The current NOEMA/PhaseNav live-state diagnostic did not show stable low-defect structure versus within-snapshot permutation nulls and is recorded as `FAIL_NO_STABLE_RUNTIME_GEOMETRIC_SIGNAL`.
+
+
+## 14. Tetra-edge carrier refinement
+
+The six-axis ambiguity is now split into an exact part and one genuinely open source gate.
+
+Exact:
+
+\[
+E(T_4)=\{01,02,03,23,31,12\},
+\]
+
+with opposite-edge pairing
+
+\[
+01\leftrightarrow23,
+\quad
+02\leftrightarrow31,
+\quad
+03\leftrightarrow12,
+\]
+
+which reproduces the numeric bivector wedge-pairing matrix \(J\). All 24 vertex relabelings satisfy
+
+\[
+C_2(p)^TJC_2(p)=\operatorname{sgn}(p)J.
+\]
+
+Two six-edge sheets therefore produce a natural 36-channel relation carrier.
+
+The channel value law is preregistered as the phase of the canonical PhaseNav complex overlap:
+
+\[
+X_{ab}=\arg\left[
+\frac1{36}\sum_k e^{i(\phi^-_{b,k}-\phi^+_{a,k})}
+\right].
+\]
+
+Still open:
+
+\[
+\boxed{
+\text{tetrahedral/Bloch edge geometry}
+\to
+\text{six admissible Phase36 edge carriers per sheet}.
+}
+\]
+
+The legacy \(\phi_0,\ldots,\phi_{35}\) vector is not accepted as this binding merely by a 6x6 reshape.
