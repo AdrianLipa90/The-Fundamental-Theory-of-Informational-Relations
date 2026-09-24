@@ -402,3 +402,63 @@ Still open:
 \]
 
 The legacy \(\phi_0,\ldots,\phi_{35}\) vector is not accepted as this binding merely by a 6x6 reshape.
+
+
+## 15. Four-packet coframe closure of the representation gate
+
+The candidate file `TIR_FOUR_PACKET_NULL_TETRA_COFRAME_MOIRE_V0_1` removes the need to source the coframe from anonymous legacy Phase36 coordinates.
+
+For four independently admitted TIR x IDT elapsed-state packets,
+
+\[
+x_a=\frac{\ell_a}{2}(1,\mathbf r_a),
+\qquad a=0,1,2,3,
+\]
+
+define
+
+\[
+E=[x_0\;x_1\;x_2\;x_3].
+\]
+
+The four-packet parameter map has local real rank 16 whenever all \(\ell_a>0\), and the coframe is admitted where \(\det E\neq0\).
+
+Two layers give
+
+\[
+\boxed{
+e_{BA}=E_BE_A^{-1}.
+}
+\]
+
+The 36D representation is then generated, not assumed:
+
+\[
+\boxed{
+B_{BA}=C_2(e_{BA}).
+}
+\]
+
+The regular tetrahedral SIC with equal elapsed scale is an exact nondegenerate null-frame seed. Its antipode gives spatial parity
+
+\[
+P=\operatorname{diag}(1,-1,-1,-1),
+\]
+
+and
+
+\[
+C_2(P)=\operatorname{diag}(-I_3,+I_3).
+\]
+
+This closes the **local representation/coframe construction** without selecting four coordinates from Phase36.
+
+It does not yet close physical gravity. Remaining gates are:
+
+- physical calibration of the elapsed scale;
+- a dynamical law for the four packet fields;
+- proof that the resulting \(e(x)\) is not globally removable;
+- derivation of source normalization/Newton coupling;
+- GR phenomenology and Einstein-dynamics comparison.
+
+The aligned tetrahedron/antipode edge-transport overlap phase was tested and rejected as the primary moire source because \(U^-_{ij}=U^+_{ij}\) and the scalar overlaps are real/zero.
