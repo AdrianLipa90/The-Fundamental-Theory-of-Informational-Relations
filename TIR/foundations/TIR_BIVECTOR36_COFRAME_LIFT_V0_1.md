@@ -207,3 +207,38 @@ The bivector gate gives a natural six-channel carrier for area/loop transport, b
 ## 11. Standard-literature anchors
 
 The standard crosswalk is grounded in four-dimensional bivector geometry, Plebanski constrained-BF gravity, simplicity constraints and Urbantke metric reconstruction. These anchors are external mathematics/GR results; the TIR novelty claim, if any, concerns only how the project attempts to bind its 36D hyperlayer state to that standard gate.
+
+
+## 12. Correction: 20D complement is a curvature sector
+
+The earlier liftability discussion remains valid for matrices claimed to be a finite exterior square \(C_2(e)\). However, a generic 36-component relation operator need not be close to that finite-image submanifold in order to be geometrically meaningful.
+
+At the Lie/linear level,
+
+\[
+\operatorname{Mat}_6
+=
+\mathfrak{co}(3,3)_{16}
+\oplus
+\mathcal Q_{20}.
+\]
+
+With \(J\) the wedge pairing, \(Q\in\mathcal Q_{20}\) obeys
+
+\[
+JQ=Q^TJ,
+\qquad
+\operatorname{tr}Q=0.
+\]
+
+Setting \(S=JQ\) makes \(S\) symmetric, and \(\operatorname{tr}Q=0\) is exactly the single four-dimensional algebraic Bianchi condition on the associated pair-symmetric four-index tensor. Hence
+
+\[
+\boxed{
+\mathcal Q_{20}\cong\mathcal K(V),
+}
+\]
+
+the 20-dimensional space of algebraic Riemann curvature tensors.
+
+Therefore the term "simplicity defect" is deprecated as a universal interpretation of \(Q\). A nonzero \(Q\) may instead be the algebraic-curvature channel. Physical promotion still requires proving that it equals the curvature of the selected spacetime connection, rather than an arbitrary pointwise algebraic tensor.
