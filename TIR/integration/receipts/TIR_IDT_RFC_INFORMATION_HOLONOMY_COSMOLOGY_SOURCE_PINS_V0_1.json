@@ -26,6 +26,10 @@
       {
         "path": "formalism/01L2_rfc_information_scalar_potential_reconstruction_holonomy.md",
         "blob_sha": "b6b69dc98d682f150da1297bca8e0998e82010b3"
+      },
+      {
+        "path": "formalism/01AC_gauge_covariant_phase_pullback_noether_generator.md",
+        "blob_sha": "2270399974381cebbc9122a8d105177205bf92bf"
       }
     ]
   },
@@ -60,6 +64,22 @@
       {
         "path": "closure/scale/RF_S8_JOINT_KL_CLOCK_RADIAL_ACTION_COMPOSITION.md",
         "blob_sha": "10bfbbf9240732611aabee99398a09c0157c9438"
+      },
+      {
+        "path": "formalism/RFN1B2M_GAUGE_COVARIANT_PHASE_PULLBACK_NOETHER_GENERATOR.md",
+        "blob_sha": "c09718387ededfdf1d90b2be6d5a91b13d6357ab"
+      },
+      {
+        "path": "closure/einstein/RF_E4_PHASE_KINETIC_STRESS_ENERGY_FIREWALL.md",
+        "blob_sha": "2730ee2578d18cad7c4c8fd278fcc41aebdd1e08"
+      },
+      {
+        "path": "formalism/RF_F20_ABE_EULER_OFFSHELL_METRIC_RESPONSE.md",
+        "blob_sha": "92dafaeb0bb7b2e2883f7ddcd60e46dfd6eb2581"
+      },
+      {
+        "path": "closure/einstein/RF_E27_COLLATZ_FS_PHASE_FIBRE_INTERFACE.md",
+        "blob_sha": "7986d011a0c6a542b3bc271c415f131603cebbc1"
       }
     ]
   },
@@ -68,7 +88,11 @@
     "C_H_PLUS_D_H_EQUALS_ONE",
     "EQUAL_STRESS_PARTITION_CANNOT_CREATE_HOLONOMY_GRAVITY",
     "FULL_SCALAR_AND_DYNAMIC_LAMBDA_REPRESENTATIONS_MUST_NOT_BE_DOUBLE_COUNTED",
-    "ABSOLUTE_ALPHA_I_REMAINS_OPEN"
+    "ABSOLUTE_ALPHA_I_REMAINS_OPEN",
+    "PURE_PHASE_KINETIC_W_EQUALS_PLUS_ONE_IS_DECELERATING",
+    "CLOSED_LOOP_HOLONOMY_DOES_NOT_FIX_LOCAL_OFFSHELL_METRIC_RESPONSE",
+    "TEMPORAL_U1_TO_LOCAL_ABE_METRIC_RESPONSE_REMAINS_OPEN",
+    "MAXWELL_STRESS_MUST_NOT_BE_DOUBLE_COUNTED_THROUGH_AB_RESPONSE"
   ],
   "canon_allowed": false
 }
