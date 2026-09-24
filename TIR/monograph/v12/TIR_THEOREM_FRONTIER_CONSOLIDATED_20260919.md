@@ -105,6 +105,8 @@ An additional bare cosmological constant is not required for this mechanism; the
 
 NEW: holonomy-stress no-go. The current RF-L3 action preserves \(\tau_R\) but is independent of it, so holonomy is presently a spectator in stress-energy. Further, \(C_h+D_h=1\) makes a same-stress C/D partition gravitationally \(\tau_R\)-independent. A holonomy-active completion therefore requires differential stress attribution, a derived holonomy-dependent action, a dynamical holonomy stress, or a genuinely topological/frozen contribution. The candidate \(\Lambda_D=\alpha_I\Xi_I\sin^2(\tau_R/2)\) is not promoted without the complementary C-channel/Bianchi ledger and persistence/stability closure.
 
+NEW: temporal-U1 metric-response route. RF-E4 fixes pure homogeneous phase kinetic stress at w=+1, so the phase-kinetic sector is decelerating rather than dark-energy-like. RF-F20 supplies a genuinely non-bookkeeping correction \(\Delta T^{phase}_{\mu\nu}=4A^2R_{\mu\nu}\). In an isotropic orthonormal sector its acceleration correction is \(-2\kappa_EA^2(R_0+3R_s)/3\), so the correction accelerates iff \(R_0+3R_s<0\). Closed-loop holonomy does not determine the local off-shell metric response; the temporal-U(1)/holonomy to local Berry/Euler \(R_{\mu\nu}\) binding remains OPEN.
+
 ### Open physical binding / no-go ledger
 
 The branch-local geometric rhythm is validated structurally, but the physical Hamiltonian identification
