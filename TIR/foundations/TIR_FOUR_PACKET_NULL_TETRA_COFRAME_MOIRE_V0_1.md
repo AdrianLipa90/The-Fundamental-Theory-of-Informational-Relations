@@ -436,3 +436,58 @@ The coframe-relative operator \(E_BE_A^{-1}\) is the cleaner layer variable.
 - Newton constant/source normalization: OPEN
 - Einstein equations from pre-geometric dynamics: OPEN
 - Clay Millennium closure: NOT CLAIMED
+
+
+## 12. IDT relative-frame dynamics crosslink
+
+The IDT candidate branch
+`feat/four-packet-relative-coframe-dynamics-v01-20260924`
+supplies the exact evolution identities for two admitted packet frames.
+
+Let
+
+\[
+e=E_BE_A^{-1},
+\qquad
+L_A=\dot E_AE_A^{-1},
+\qquad
+L_B=\dot E_BE_B^{-1}.
+\]
+
+Then
+
+\[
+\boxed{
+\dot e=L_Be-eL_A.
+}
+\]
+
+For the generated bivector operator
+
+\[
+B=C_2(e),
+\]
+
+the differential exterior-square representation gives
+
+\[
+\boxed{
+\dot B
+=
+\rho(L_B)B
+-
+B\rho(L_A).
+}
+\]
+
+These identities were validated independently with exact rational arithmetic.
+
+IDT 01A provides the upstream candidate response type
+
+\[
+\dot Y=-G\nabla\mathcal I+JG\nabla\mathcal H
+\]
+
+on an even-dimensional relational state manifold. Applied to the sixteen packet coordinates, it supplies a typed route to \(\dot E\) once \(G,J,\mathcal I,\mathcal H\) are physically admitted.
+
+This closes the **relative-frame evolution identity**, but not the unique physical packet dynamics. The functionals and response geometry remain an explicit source gate.
