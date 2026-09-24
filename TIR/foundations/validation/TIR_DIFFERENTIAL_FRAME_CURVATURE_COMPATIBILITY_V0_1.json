@@ -1,0 +1,26 @@
+{
+  "schema": "TIR_DIFFERENTIAL_FRAME_CURVATURE_COMPATIBILITY_V0_1",
+  "date": "2026-09-24",
+  "candidate_only": true,
+  "status": "PASS",
+  "negative_control": {
+    "source": "CONSTANT_CANONICAL_TETRA_EDGE_OVERLAP",
+    "algebraic_curvature_frob2": "10/3",
+    "levi_civita_curvature": "0",
+    "compatibility": "FAIL_EXPECTED"
+  },
+  "positive_control": {
+    "source": "S2_X_R2_STEREOGRAPHIC_LOCAL_CHART",
+    "coordinate_R0101": "16",
+    "orthonormal_R0101": "1",
+    "compatibility": "PASS"
+  },
+  "interpretation": {
+    "pointwise_algebraic_curvature_is_not_physical_curvature_by_itself": true,
+    "spacetime_variation_or_nontrivial_connection_is_required": true,
+    "existing_TIR_Levi_Civita_connection_reused": true,
+    "new_gravity_connection_defined": false
+  },
+  "physical_moire_source_binding": "OPEN",
+  "millennium_problem_claim": false
+}
