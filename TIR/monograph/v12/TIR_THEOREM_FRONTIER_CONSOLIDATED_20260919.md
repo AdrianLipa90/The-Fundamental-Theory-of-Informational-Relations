@@ -83,6 +83,12 @@ e^0=c\,d\tau,\qquad e^i=dX^i-V_{\rm FO}^i d\tau,
 \]
 the profiles \(V=-\sqrt{2GM/R}\,\hat r\) and \(V=H(t)R\) reproduce exact Schwarzschild Painleve-Gullstrand and flat-FLRW physical-radius controls respectively. These are exact control identities, not yet a source derivation.
 
+NEW: ADM flow constraint strengthening. For the already-admitted unit-lapse flat-slice flow coframe, stationary spherical vacuum ADM data satisfy
+\[
+\frac{d}{dr}(rV^2)=0,
+\]
+hence \(V^2=C/r\). Weak-field/ADM mass normalization gives \(C=2GM\). This upgrades the Schwarzschild Painleve-Gullstrand profile from inserted control to a conditional derivation downstream of the existing TIR ADM/Einstein gate. Microscopic source-to-coframe binding remains open.
+
 ### Open physical binding / no-go ledger
 
 The branch-local geometric rhythm is validated structurally, but the physical Hamiltonian identification
