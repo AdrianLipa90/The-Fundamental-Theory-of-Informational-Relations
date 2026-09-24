@@ -3,7 +3,7 @@
   "technical_status": "PASS",
   "verdict": "PASS_RF_F15_VACUUM_INTEGRATION_ACCELERATION_TRANSITION_C_LAMBDA_ORIGIN_OPEN",
   "canon_allowed": false,
-  "execution": "LOCAL_EQUIVALENT_REFERENCE_CHECK_2026-09-24",
+  "execution": "LOCAL_EQUIVALENT_REFERENCE_CHECK_2026-09-24_RERUN_AFTER_SCALED_RESIDUAL_FIX",
   "exact_relations": [
     "C_Lambda = |omega|^4 [v-(1-x)/2] is conserved on the fixed-x RF-F15 transport family",
     "rho_r=((3+x)/2) K0 omega^4",
@@ -20,5 +20,13 @@
     "C_LAMBDA_TO_HOLONOMY_TOPOLOGY_BOUNDARY_CHARGE_BINDING",
     "MULTICOMPONENT_DUST_RADIATION_VACUUM_TRANSPORT",
     "OBSERVATIONAL_FLRW_PERTURBATION_TEST"
-  ]
+  ],
+  "numeric_sanity": {
+    "fixed_x_transport_max_absolute_cancellation_residual": 1.7084234672905114,
+    "fixed_x_transport_max_scaled_residual": 1.726645614633489e-16,
+    "flrw_acceleration_max_scaled_error": 5.551115123125783e-16,
+    "effective_eos_max_error": 3.3306690738754696e-16,
+    "transition_sign_mismatches": 0,
+    "note": "Absolute transport residual is unstable at extreme C_Lambda/omega^4; scaled residual is authoritative."
+  }
 }
