@@ -84,7 +84,12 @@ TIR_FLOW_COFRAME_SCHWARZSCHILD_RIVER_PROFILE = DERIVED_ON_DECLARED_ADM_ASSUMPTIO
 TIR_INTERLEAF_SHIFT_TO_ORBITAL_RAPIDITY = CLOSED_EXACT_KINEMATIC
 TIR_SPHERICAL_FLOW_TO_MISNER_SHARP_MASS = CLOSED_EXACT
 TIR_PRODUCTION_BETA_MATCH = OPEN_INPUT
-TIR_FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = OPEN
+TIR_IDT_EXTRINSIC_CURVATURE_SOURCE_BRIDGE = PASS_CONDITIONAL_METRIC_RATE_SOURCE / RF_E9_REUSED
+TIR_IDT_EVENT_SPATIAL_STATE_BINDING = PASS_EXECUTABLE_SOURCE_CONTRACT / PRODUCTION_INPUT_OPEN
+TIR_EVENT_METRIC_RATE_TO_RF_E9 = CLOSED_CONDITIONAL_REFINEMENT
+TIR_RF_E9_EXTRINSIC_CURVATURE_OPERATOR = REUSED_EXISTING_RFC_GATE
+TIR_PRODUCTION_EVENT_SPATIAL_REALIZATION = OPEN_INPUT
+TIR_FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = NOT_FUNDAMENTAL_TARGET / SHIFT_IS_GAUGE_REPRESENTATION
 
 
 
@@ -2346,3 +2351,32 @@ Single dependency surface:
 TIR/foundations/TIR_GRAVITY_DERIVATION_SPINE_V0_1.md
 
 Status: structural gravity derivation assembled; local Cartan/ADM/Einstein and spherical vacuum flow subgates are closed on their declared assumptions; production physical realization and fundamental dynamics to beta_match remain OPEN.
+
+
+### 2026-09-24 event-indexed metric-rate source route
+
+The gravity source frontier is no longer expressed as a requirement to derive the coordinate shift from invariants.
+
+Canonical integration sources:
+
+TIR/integration/TIR_IDT_EXTRINSIC_CURVATURE_SOURCE_BRIDGE_V0_1.md
+
+TIR/integration/TIR_IDT_EVENT_SPATIAL_STATE_BINDING_V0_1.md
+
+Cross-repository source pins:
+
+TIR/integration/receipts/TIR_IDT_EVENT_SPATIAL_RF_E9_SOURCE_PINS_V0_1.json
+
+The source contract binds IDT realized events to TIR spatial snapshots under one physical-realization receipt and clock identity and exports the refinement estimator
+
+\[
+\frac{\Delta h_{ij}}{\Delta x^0}\to\partial_0h_{ij}.
+\]
+
+RFC RF-E9 remains the unique extrinsic-curvature operator:
+
+\[
+K_{ij}=\frac1{2N}\left(-\partial_0h_{ij}+D_ib_j+D_jb_i\right).
+\]
+
+Reference controls PASS. Production event-spatial data remain OPEN INPUT. The abstract physical identity between a generic IDT state coordinate and a TIR density operator is not required by the preferred production route.
