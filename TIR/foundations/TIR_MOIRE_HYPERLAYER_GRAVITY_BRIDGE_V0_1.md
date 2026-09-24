@@ -302,3 +302,24 @@ This closes the **representation shape** of the decoder, but not the physical so
 5. pass GR phenomenology.
 
 The software runtime diagnostic returned `FAIL_NO_STABLE_RUNTIME_GEOMETRIC_SIGNAL`, so no physical promotion is made.
+
+
+## 16. Null-frame replacement of the legacy edge-carrier route
+
+The tetrahedral layer no longer requires six independent Phase36 carriers to populate the 6x6 bivector matrix.
+
+Instead, four lifted tetrahedral null rays form a full four-frame \(E\), and the six edge carriers arise functorially as
+
+\[
+B=C_2(E).
+\]
+
+Two local layers therefore produce
+
+\[
+M_{36}=B_2B_1^{-1}=C_2(E_2E_1^{-1}).
+\]
+
+This closes the carrier construction inside exterior algebra. The previous overlap-based six-Phase36-edge route remains a computational experiment but is not required by the gravity bridge.
+
+The physical moire/gravity content can only arise from a spacetime-dependent relative deformation \(e(x)=E_2(x)E_1(x)^{-1}\). The exact antipodal pair has constant \(e=P\) and is a flat parity background.
