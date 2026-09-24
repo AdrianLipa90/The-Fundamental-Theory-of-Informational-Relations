@@ -462,3 +462,48 @@ It does not yet close physical gravity. Remaining gates are:
 - GR phenomenology and Einstein-dynamics comparison.
 
 The aligned tetrahedron/antipode edge-transport overlap phase was tested and rejected as the primary moire source because \(U^-_{ij}=U^+_{ij}\) and the scalar overlaps are real/zero.
+
+
+## 16. Relative-coframe evolution gate
+
+IDT now exports the exact candidate dynamics
+
+\[
+e=E_BE_A^{-1},
+\qquad
+\boxed{\dot e=L_Be-eL_A},
+\]
+
+with
+
+\[
+L_s=\dot E_sE_s^{-1}.
+\]
+
+The generated 36D bivector field obeys
+
+\[
+\boxed{
+\dot B
+=
+\rho(L_B)B
+-
+B\rho(L_A),
+\qquad
+B=C_2(e).
+}
+\]
+
+Thus the local representation chain is now dynamic without inserting Einstein equations:
+
+\[
+\text{IDT packet response}
+\to
+\dot E
+\to
+\dot e
+\to
+\dot B.
+\]
+
+What remains open is not this matrix identity but the physical selection of the packet response data \((G,J,\mathcal I,\mathcal H)\), preservation of the admissible cone/frame domain, spatial gluing, and the derivation of non-flat Levi-Civita curvature/source normalization.
