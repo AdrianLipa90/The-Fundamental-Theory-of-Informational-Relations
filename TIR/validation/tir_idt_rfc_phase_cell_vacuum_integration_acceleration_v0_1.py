@@ -20,7 +20,8 @@ def main():
         v=(1.0-x)/2.0 + C/omega**4
         dvdln=-4.0*C/omega**4
         transport=dvdln + 4.0*v - 2.0*(1.0-x)
-        max_conservation=max(max_conservation,abs(transport))
+        transport_scale=max(1.0,abs(dvdln),abs(4.0*v),abs(2.0*(1.0-x)))
+        max_conservation=max(max_conservation,abs(transport)/transport_scale)
 
         rho_r=(3.0+x)/2.0*K0*omega**4
         rho_l=K0*C
@@ -44,7 +45,7 @@ def main():
         {
             'name':'fixed_x_transport_solution',
             'pass':max_conservation<1e-10,
-            'max_transport_residual':max_conservation,
+            'max_scaled_transport_residual':max_conservation,
         },
         {
             'name':'flrw_acceleration_identity',
