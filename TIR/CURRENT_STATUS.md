@@ -103,6 +103,11 @@ TIR_RF_E4_PHASE_KINETIC_COSMOLOGY = EXACT_W_PLUS_ONE_DECELERATING
 TIR_RF_F20_CONNECTION_METRIC_RESPONSE_COSMOLOGY = PASS_EXACT_CONDITIONAL_SIGN_TEST
 TIR_TEMPORAL_U1_TO_LOCAL_ABE_RESPONSE_BINDING = OPEN
 TIR_BERRY_EULER_R_ACTIVE_SIGN_AND_MAGNITUDE = OPEN
+TIR_RF_F15_VACUUM_INTEGRATION_ACCELERATION = PASS_EXACT_CONDITIONAL
+TIR_C_LAMBDA_TRANSPORT_CONSERVATION = PASS_EXACT_FIXED_X
+TIR_C_LAMBDA_MAGNITUDE_SIGN = OPEN_INITIAL_BOUNDARY_DATA
+TIR_C_LAMBDA_HOLONOMY_TOPOLOGY_BINDING = OPEN
+TIR_CONSTANT_VACUUM_REPARTITION_DEGENERACY = PASS_EXACT_RF_F16
 TIR_FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = NOT_FUNDAMENTAL_TARGET / SHIFT_IS_GAUGE_REPRESENTATION
 
 
@@ -2448,3 +2453,28 @@ For an isotropic orthonormal response R=diag(R0,Rs,Rs,Rs),
 \]
 
 The correction accelerates by itself when R0+3Rs<0. The physical temporal-U1/holonomy to local ABE Berry/Euler metric-response binding remains open; closed-loop holonomy alone does not determine R_mn.
+
+
+### 2026-09-24 phase-cell vacuum-integration acceleration gate
+
+TIR/integration/TIR_IDT_RFC_PHASE_CELL_VACUUM_INTEGRATION_ACCELERATION_V0_1.md
+
+RF-F15 fixed-x transport gives the conserved coordinate
+
+\[
+C_\Lambda=|\omega|^4\left[v-\frac{1-x}{2}\right],\qquad \frac{dC_\Lambda}{d\ln|\omega|}=0.
+\]
+
+With K=K0 omega^4,
+
+\[
+\rho_r=\frac{3+x}{2}K_0\omega^4,\qquad \rho_\Lambda=K_0C_\Lambda,\qquad p=\rho_r/3-\rho_\Lambda.
+\]
+
+Hence
+
+\[
+\frac{a''}{a}=\frac{\kappa_E}{3}(\rho_\Lambda-\rho_r),
+\]
+
+and the exact fixed-x acceleration threshold is omega_acc^4=2 C_Lambda/(3+x) for positive C_Lambda. RF-F16 shows the constant vacuum component is exactly repartition-degenerate with the reference vacuum/potential zero point. The transport route derives the functional constant-vacuum component but does not predict its magnitude or sign. No current receipt identifies C_Lambda with holonomy/topology.
