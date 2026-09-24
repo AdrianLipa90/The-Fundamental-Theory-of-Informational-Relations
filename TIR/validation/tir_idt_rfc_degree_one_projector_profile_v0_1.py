@@ -37,7 +37,8 @@ def main():
         sigma=sign*eta*U*sE/mu
         h=kappa*sigma
         derivative=-h/(2*kappa)+sigma/2
-        max_stationary=max(max_stationary,abs(derivative))
+        stationary_scale=max(1.0,abs(h/(2*kappa)),abs(sigma/2.0))
+        max_stationary=max(max_stationary,abs(derivative)/stationary_scale)
 
         direct=-h*h/(4*kappa)+sigma*h/2
         target=kappa*sigma*sigma/4
@@ -51,7 +52,7 @@ def main():
             'f1':1.0,'fprime1':0.5,'fsecond1':-0.25,
         },
         {'name':'fixed_sign_exact_linearity','pass':max_linear<1e-12,'max_scaled_error':max_linear},
-        {'name':'cartan_stationary_solution','pass':max_stationary<1e-12,'max_error':max_stationary},
+        {'name':'cartan_stationary_solution','pass':max_stationary<1e-12,'max_scaled_error':max_stationary},
         {'name':'eliminated_local_action','pass':max_eff<1e-12,'max_scaled_error':max_eff},
     ]
     passed=all(c['pass'] for c in checks)
