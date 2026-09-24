@@ -263,3 +263,42 @@ to
 \]
 
 The decoder \(\mathcal D\) from concrete moire observables to B coefficients remains OPEN.
+
+
+## 15. Decoder refinement: 36 = 16 + 20
+
+The open decoder \(\mathcal D\) now has a coefficient-free **candidate form** at the Lie-representation level.
+
+The relative 6x6 phase generator \(X\) is decomposed canonically under the wedge-pairing involution into
+
+\[
+X=X_{\rm geom}+Q,
+\]
+
+with
+
+\[
+X_{\rm geom}\in\mathfrak{co}(3,3),
+\qquad
+\dim\mathfrak{co}(3,3)=16,
+\]
+
+and a 20-dimensional J-self-adjoint traceless defect sector.
+
+Using the local isomorphism
+
+\[
+\mathfrak{gl}(4)\cong\mathfrak{co}(3,3)
+\]
+
+induced by the exterior-square representation, \(X_{\rm geom}\) yields a 4x4 coframe generator \(H\) without selecting four coordinates from 36.
+
+This closes the **representation shape** of the decoder, but not the physical source binding. The required remaining gates are:
+
+1. bind PhaseNav 6x6 axes to internal/spacetime bivector pair frames without post-data relabeling;
+2. pre-register an admissible defect criterion;
+3. derive dimensional normalization/couplings;
+4. obtain a spacetime-dependent source field from physical realization data;
+5. pass GR phenomenology.
+
+The software runtime diagnostic returned `FAIL_NO_STABLE_RUNTIME_GEOMETRIC_SIGNAL`, so no physical promotion is made.
