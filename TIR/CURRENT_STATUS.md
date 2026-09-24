@@ -81,6 +81,11 @@ TIR_FRACTAL_ORBITAL_GRAVITY_SOURCE_TO_RAPIDITY = OPEN_PHYSICAL_BINDING
 TIR_FRACTAL_ORBITAL_GRAVITY_DYNAMICS = OPEN
 TIR_FLOW_COFRAME_ADM_SPHERICAL_VACUUM_DERIVATION = PASS_CONDITIONAL
 TIR_FLOW_COFRAME_SCHWARZSCHILD_RIVER_PROFILE = DERIVED_ON_DECLARED_ADM_ASSUMPTIONS
+TIR_INTERLEAF_SHIFT_TO_ORBITAL_RAPIDITY = CLOSED_EXACT_KINEMATIC
+TIR_SPHERICAL_FLOW_TO_MISNER_SHARP_MASS = CLOSED_EXACT
+TIR_PRODUCTION_BETA_MATCH = OPEN_INPUT
+TIR_FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = OPEN
+
 
 
 TIR_CONTINUOUS_RELATIONAL_TRANSPORT = PASS_CONTINUUM_CROSSWALK
@@ -2321,3 +2326,14 @@ Canonical source:
 TIR/foundations/TIR_FLOW_COFRAME_ADM_CONSTRAINT_GRAVITY_V0_1.md
 
 On the stationary spherical flat-slice ADM sector, the vacuum Hamiltonian constraint derives \(V^2=C/r\); weak-field/ADM mass normalization gives \(C=2GM\). The source-to-coframe gate remains OPEN.
+
+
+### 2026-09-24 native shift / rapidity / invariant-mass bridge
+
+Canonical source:
+
+TIR/foundations/TIR_INTERLEAF_SHIFT_ORBITAL_RAPIDITY_MASS_BRIDGE_V0_1.md
+
+The existing TIR x0 matching shift satisfies \(b=\beta_t/c\). In the flow sign convention \(V=-cb\), hence \(\chi=\operatorname{artanh}|b|\) on the subluminal chart. This removes the historical B-omega-N/AR expression from the required gravity kinematics.
+
+The shift itself remains gauge/slicing dependent. In spherical symmetry the full metric gives the invariant Misner--Sharp mass \(m_{\rm MS}=rV^2/(2G)\). Production beta_match remains OPEN INPUT.
