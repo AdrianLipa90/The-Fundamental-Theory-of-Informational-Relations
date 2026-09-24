@@ -350,3 +350,68 @@ Current status additions:
 - GENERIC_PERTURBED_6x6_REJECTION = PASS_VALIDATOR
 - PLEBANSKI_SIMPLICITY_CROSSWALK = PASS_STANDARD
 - MOIRE_OBSERVABLES_TO_B_FIELD = OPEN
+
+
+## 13. Herm(2)-first bivector-response refinement
+
+The repository now contains a stronger ordering of the dimensional dependencies:
+
+\[
+\boxed{
+(\ell,\rho)
+\to
+X=\ell\rho\in\operatorname{Herm}(2)
+\to
+\text{local 3+1 determinant/Lorentz carrier}
+\to
+\Lambda^2T^*M
+\to
+\operatorname{End}(\Lambda^2T^*M).
+}
+\]
+
+Thus 4D is not extracted from an anonymous PhaseNav 36-vector. The 36-channel object is downstream and acts naturally on the six 2-form channels of the established 4D carrier.
+
+The exact pointwise representation split is
+
+\[
+\boxed{
+36=16+20
+=
+\dim\mathfrak{gl}(4)
++
+\dim\mathcal K(V),
+}
+\]
+
+where the 20-dimensional sector is the space of algebraic curvature tensors after the wedge-pairing/Bianchi identification.
+
+The canonical tetrahedral edge-transport witness further gives an exact equal Frobenius-energy split
+
+\[
+\frac{\|X_{\rm frame}\|_F^2}{\|X\|_F^2}
+=
+\frac{\|X_{\rm curv}\|_F^2}{\|X\|_F^2}
+=
+\frac12,
+\]
+
+for that specific source-derived construction.
+
+This closes a representation theorem, not the physical field equations.
+
+The narrowed gravity gate is now
+
+\[
+\boxed{
+X_{\rm relation}(x)
+\to
+\big(H_{\rm frame}(x),R_{\rm alg}(x)\big)
+\quad\text{with}\quad
+R_{\rm alg}(x)
+\stackrel{?}{=}
+R[\omega_{LC}(e[H])](x).
+}
+\]
+
+The equality above, source normalization, physical clock/length binding and production spacetime realization remain OPEN.
