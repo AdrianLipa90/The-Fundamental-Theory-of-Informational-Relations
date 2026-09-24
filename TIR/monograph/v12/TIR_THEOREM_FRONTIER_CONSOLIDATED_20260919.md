@@ -36,6 +36,12 @@ FINITE_ORIENTATION_EXTENSIONS                   = CLOSED
 PHYSICAL_FAMILY_GENERATION_BINDING              = OPEN
 ```
 
+NEW: fractal-orbital Lorentz carrier. The hyperbolic orbital carrier now has an explicit representation bridge
+\[
+\mathfrak{su}(1,1)\cong\mathfrak{so}(2,1)\subset\mathfrak{so}(3,1),
+\]
+with \(q=\tanh(\chi/2)\) and \(\beta=2q/(1+q^2)=\tanh\chi\). This closes a representation crosswalk only; physical spacetime binding remains separately gated.
+
 ### Dynamics / geometry bridge
 
 The structural chain
@@ -70,6 +76,12 @@ SIGNED_GEOMETRIC_SU3_STEP                        = PASS_MATH_PROVENANCE
 COLLATZ_POINCARE_BRANCH_RHYTHM                   = PASS_MATH_PROVENANCE
 TERMINAL_NONFLAT_SU3_PATH_SOURCE                 = PASS_STRUCTURAL
 ```
+
+NEW: orbital-flow gravity controls. Ordered non-collinear orbital boosts generate the expected Lorentz rotation commutator. With the candidate coframe
+\[
+e^0=c\,d\tau,\qquad e^i=dX^i-V_{\rm FO}^i d\tau,
+\]
+the profiles \(V=-\sqrt{2GM/R}\,\hat r\) and \(V=H(t)R\) reproduce exact Schwarzschild Painleve-Gullstrand and flat-FLRW physical-radius controls respectively. These are exact control identities, not yet a source derivation.
 
 ### Open physical binding / no-go ledger
 
@@ -108,6 +120,8 @@ COMMON_TARGET_WIJ_AS_NONFLAT_CP_SOURCE            = REFUTED
 ```
 
 Still OPEN downstream: temporal-to-physical-family identification, dynamical compact-real-form selection, Higgs/hypercharge vacuum alignment, mass/Yukawa derivation, physical CKM/PMNS forcing, full particle-spectrum binding, temporal-to-spatial physical binding, and metric/source gravity binding.
+
+NEW: gravity physical-binding firewall. The map \(B\omega\mathcal N/(AR\Lambda)\to\chi(x)\), the unique orbital recursion \(\to V_{\rm FO}\), and the field equation for \(V_{\rm FO}\) remain OPEN. Pure local Lorentz relabeling is explicitly rejected as a gravity source. Existing TIR Levi-Civita zero torsion and an optional teleparallel torsion representation refer to different connections and are not conflated. A dark-energy-like interpretation is only a mechanism claim if the derived dynamics yields \(\dot H_{\rm FO}+H_{\rm FO}^2>0\) without retuning.
 
 Future small additions are written as `NEW:` under one of these three blocks. No further Appendix-letter sequence is active.
 
