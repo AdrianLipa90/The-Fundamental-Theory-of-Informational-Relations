@@ -91,6 +91,12 @@ hence \(V^2=C/r\). Weak-field/ADM mass normalization gives \(C=2GM\). This upgra
 
 NEW: native inter-leaf shift to rapidity. The existing TIR matching-field export \(b_{(0)}=\beta_t/c\) is exactly the flow-coordinate carrier up to the declared sign convention \(V=-cb_{(0)}\). Hence \(\chi=\operatorname{artanh}|b|\) on the subluminal chart and the Poincare radial coordinate follows without a new scale. In spherical symmetry the full metric gives \(m_{\rm MS}=rV^2/(2G)\), separating gauge-dependent shift representation from invariant mass content. Production \(\beta_{\rm match}\) remains open.
 
+NEW: event-indexed metric-rate source bridge. IDT realized-event edges may be paired with TIR spatial snapshots under one source-owned realization receipt and calibrated clock. The finite estimator
+\[
+\Delta h_{ij}/\Delta x^0
+\]
+converges to \(\partial_0h_{ij}\) on a regular smooth refinement and is handed to the existing RFC RF-E9 operator. No competing \(K_{ij}\) is introduced. This removes a generic physical identity \(x_{\rm IDT}=\rho_{\rm TIR}\) from the minimum production premises.
+
 ### Open physical binding / no-go ledger
 
 The branch-local geometric rhythm is validated structurally, but the physical Hamiltonian identification
@@ -130,6 +136,8 @@ COMMON_TARGET_WIJ_AS_NONFLAT_CP_SOURCE            = REFUTED
 Still OPEN downstream: temporal-to-physical-family identification, dynamical compact-real-form selection, Higgs/hypercharge vacuum alignment, mass/Yukawa derivation, physical CKM/PMNS forcing, full particle-spectrum binding, temporal-to-spatial physical binding, and metric/source gravity binding.
 
 NEW: gravity physical-binding firewall. The map \(B\omega\mathcal N/(AR\Lambda)\to\chi(x)\), the unique orbital recursion \(\to V_{\rm FO}\), and the field equation for \(V_{\rm FO}\) remain OPEN. Pure local Lorentz relabeling is explicitly rejected as a gravity source. Existing TIR Levi-Civita zero torsion and an optional teleparallel torsion representation refer to different connections and are not conflated. A dark-energy-like interpretation is only a mechanism claim if the derived dynamics yields \(\dot H_{\rm FO}+H_{\rm FO}^2>0\) without retuning.
+
+NEW: event-spatial production frontier. The coordinate shift is not a fundamental observable target. Remaining gravity closure requires source-owned event-spatial snapshots with the same physical-realization receipt and clock identity, plus sufficient refinement/coverage for the continuum claim. Reference fixtures, NOEMA/PhaseNav runtime vectors and synthetic event graphs cannot satisfy this production gate.
 
 Future small additions are written as `NEW:` under one of these three blocks. No further Appendix-letter sequence is active.
 
