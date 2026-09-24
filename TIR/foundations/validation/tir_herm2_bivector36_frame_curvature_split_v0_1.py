@@ -110,6 +110,38 @@ def validate():
     checks["tetra_exact_half_half_split"]=sp.simplify(f/total)==sp.Rational(1,2) and sp.simplify(q/total)==sp.Rational(1,2)
     checks["tetra_curvature_bianchi"]=ST==ST.T and sp.trace(QT)==0 and sp.simplify(ST[0,3]+ST[1,4]+ST[2,5])==0
 
+    thetaT=J*T.T*J
+    inner_T_theta=sp.simplify(sum(T[i,j]*thetaT[i,j] for i in range(6) for j in range(6)))
+    half_condition=sp.simplify(sp.trace(T)**2/sp.Integer(3))
+    checks["tetra_half_split_involution_criterion"]=inner_T_theta==half_condition==sp.Rational(4,3)
+
+    def pair_index_sign(i,j):
+        if i==j:
+            return None,sp.Integer(0)
+        for idx,(a,b) in enumerate(PAIR_BASIS):
+            if (i,j)==(a,b):
+                return idx,sp.Integer(1)
+            if (i,j)==(b,a):
+                return idx,sp.Integer(-1)
+        raise ValueError((i,j))
+
+    def bicomp(A,oi,oj,ii,ij):
+        row,rs=pair_index_sign(oi,oj)
+        col,cs=pair_index_sign(ii,ij)
+        if row is None or col is None:
+            return sp.Integer(0)
+        return rs*cs*A[row,col]
+
+    C=sp.zeros(4)
+    for k in range(4):
+        for i in range(4):
+            C[k,i]=sp.simplify(sum(bicomp(frameT,k,j,i,j) for j in range(4)))
+    trH=sp.simplify(sp.trace(C)/6)
+    H=sp.Matrix(4,4,lambda k,i:sp.simplify((C[k,i]-(trH if k==i else 0))/2))
+    H_expected=sp.Rational(1,3)*sp.ones(4)-sp.Rational(1,2)*sp.eye(4)
+    checks["tetra_frame_generator_exact_barycentric_form"]=H==H_expected
+    checks["tetra_frame_generator_charpoly_1_plus_3"]=sp.factor(H.charpoly().as_expr())==sp.factor((2*sp.Symbol("lambda")+1)**3*(6*sp.Symbol("lambda")-5)/48)
+
     return {
         "schema":"TIR_HERM2_BIVECTOR36_FRAME_CURVATURE_SPLIT_V0_1",
         "status":"PASS" if all(checks.values()) else "FAIL",
