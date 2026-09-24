@@ -304,7 +304,7 @@ B^{IJ}{}_{\mu\nu}
 \to R.
 \]
 
-The exact exterior-square identities and validator close the algebraic **type** of the lift gate. They do not yet derive the physical decoder \(\mathcal D\), the source normalization, or Einstein dynamics from pre-geometric TIR data alone.
+The exact exterior-square identities and validator close the algebraic **type** of the lift gate. They do not yet derive the physical decoder \(\mathcal D\), source normalization, or a production microscopic realization. The downstream Cartan → Levi-Civita → ADM → local Einstein sector remains the already-existing conditional closure of this spine.
 
 Current status additions:
 
@@ -459,7 +459,7 @@ It does not yet close physical gravity. Remaining gates are:
 - a dynamical law for the four packet fields;
 - proof that the resulting \(e(x)\) is not globally removable;
 - derivation of source normalization/Newton coupling;
-- GR phenomenology and Einstein-dynamics comparison.
+- production-source binding and independent physical phenomenology. The downstream local Einstein/ADM chain itself is already conditionally closed on the declared TIR assumptions.
 
 The aligned tetrahedron/antipode edge-transport overlap phase was tested and rejected as the primary moire source because \(U^-_{ij}=U^+_{ij}\) and the scalar overlaps are real/zero.
 
@@ -625,4 +625,6 @@ Updated frontier:
 - CONSTANT_ANTIPODAL_PARITY_AS_GRAVITY = FAIL_FLAT_BACKGROUND
 - SPACETIME_DEPENDENT_FRAME_DYNAMICS = OPEN
 - SOURCE_NORMALIZATION_AND_G = OPEN
-- EINSTEIN_DYNAMICS/PHENOMENOLOGY = OPEN
+- DOWNSTREAM_LOCAL_GR_CHAIN = CLOSED_ON_DECLARED_ASSUMPTIONS
+- PRODUCTION_SOURCE_TO_COFRAME_REALIZATION = OPEN
+- INDEPENDENT_PHENOMENOLOGY = OPEN
