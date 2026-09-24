@@ -97,6 +97,12 @@ TIR_EQUAL_STRESS_HOLONOMY_PARTITION = NO_GO
 TIR_HOLONOMY_D_CHANNEL_DIFFERENTIAL_STRESS = CANDIDATE / PHYSICAL_BINDING_OPEN
 TIR_ABSOLUTE_ALPHA_I_NORMALIZATION = OPEN
 TIR_NONTRIVIAL_HOLONOMY_PERSISTENCE = OPEN
+TIR_HOLONOMY_PARTITION_BOOKKEEPING_INVARIANCE = PASS_EXACT
+TIR_OMITTED_C_SOURCE_ACCELERATION_DEFECT = PASS_EXACT
+TIR_RF_E4_PHASE_KINETIC_COSMOLOGY = EXACT_W_PLUS_ONE_DECELERATING
+TIR_RF_F20_CONNECTION_METRIC_RESPONSE_COSMOLOGY = PASS_EXACT_CONDITIONAL_SIGN_TEST
+TIR_TEMPORAL_U1_TO_LOCAL_ABE_RESPONSE_BINDING = OPEN
+TIR_BERRY_EULER_R_ACTIVE_SIGN_AND_MAGNITUDE = OPEN
 TIR_FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = NOT_FUNDAMENTAL_TARGET / SHIFT_IS_GAUGE_REPRESENTATION
 
 
@@ -2415,3 +2421,30 @@ so
 An additional bare cosmological constant is therefore not mathematically required on this action route; absolute alpha_I normalization remains open.
 
 The current RF-L3/IDT-01L2 action preserves tau_R but has partial U_I / partial tau_R = 0, so temporal holonomy is presently a spectator in stress-energy. Further, C_h+D_h=1 means equal stress attribution to both channels cannot create a tau_R-dependent gravitational effect. The minimal D-channel vacuum-stress candidate remains unpromoted until the complementary C-channel source ledger, Bianchi conservation and nontrivial-holonomy persistence/stability gates are closed.
+
+
+### 2026-09-24 temporal-U1 metric-response cosmology gate
+
+TIR/integration/TIR_IDT_RFC_HOLONOMY_BIANCHI_CHANNEL_LEDGER_V0_1.md
+
+TIR/integration/TIR_IDT_RFC_TEMPORAL_U1_METRIC_RESPONSE_COSMOLOGY_V0_1.md
+
+The exact C_h/D_h partition is bookkeeping-invariant when the complementary source is retained. Moving D_h U_I to the dynamic-Lambda side leaves the acceleration unchanged. Omitting C_h U_I creates the exact spurious defect
+
+\[
+\mathcal A_{original}-\mathcal A_{omitC}=\frac{\kappa_E}{3}U_I C_h.
+\]
+
+RF-E4 independently shows that pure phase kinetic stress has w=+1 and is decelerating. RF-F20 supplies the first existing non-bookkeeping phase/connection correction
+
+\[
+\Delta T_{\mu\nu}^{phase}=4A^2R_{\mu\nu}.
+\]
+
+For an isotropic orthonormal response R=diag(R0,Rs,Rs,Rs),
+
+\[
+\Delta(a''/a)_R=-\frac{2\kappa_EA^2}{3}(R_0+3R_s).
+\]
+
+The correction accelerates by itself when R0+3Rs<0. The physical temporal-U1/holonomy to local ABE Berry/Euler metric-response binding remains open; closed-loop holonomy alone does not determine R_mn.
