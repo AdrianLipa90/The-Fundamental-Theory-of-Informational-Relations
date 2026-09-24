@@ -161,3 +161,17 @@ ABSOLUTE_ALPHA_I_NORMALIZATION                        = OPEN
 
 Future small additions are written as `NEW:` under one of these three blocks. No further Appendix-letter sequence is active.
 
+
+
+## NEW — 2026-09-24 continuation — vacuum integration / response / dimensional frontier
+
+RF-F15 fixed-x transport carries the conserved integration coordinate \(C_\Lambda=|\omega|^4[v-(1-x)/2]\) and the exact conditional acceleration transition \(a''/a=\kappa_E(\rho_\Lambda-\rho_r)/3\). Its sign and magnitude remain boundary/physical inputs. RF-F22 supplies the distinct response threshold \((R_0+3R_s)/\mu_\vartheta^2+(S_0+3S_s)<-1/2\). Same-metric lapse reuse gives projector self-normalization and zero stress. Since \([C_\Lambda]=T^{-4}\) while winding/Chern/holonomy are dimensionless, topology alone cannot determine nonzero absolute \(C_\Lambda\); an independent \(\Omega_*\) is required.
+
+```text
+RF_F15_CONSTANT_VACUUM_TRANSPORT = PASS_EXACT_CONDITIONAL
+RF_F22_PROJECTOR_RESPONSE_THRESHOLD = PASS_EXACT_CONDITIONAL
+SAME_METRIC_LAPSE_PROJECTOR = SELF_NORMALIZED_ZERO_STRESS_NO_GO
+EULER_SPIN_METRIC_RESPONSE = OPEN
+C_LAMBDA_TOPOLOGICAL_ABSOLUTE_SCALE = NO_GO_WITHOUT_OMEGA_STAR
+C_LAMBDA_OVER_OMEGA_STAR_4_TOPOLOGY = OPEN
+```
