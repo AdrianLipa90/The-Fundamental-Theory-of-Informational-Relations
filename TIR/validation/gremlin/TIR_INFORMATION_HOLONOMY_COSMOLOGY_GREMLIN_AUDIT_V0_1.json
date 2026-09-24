@@ -1,0 +1,37 @@
+{
+  "schema": "TIR_INFORMATION_HOLONOMY_COSMOLOGY_GREMLIN_AUDIT_V0_1",
+  "date": "2026-09-24",
+  "authority": "CANDIDATE_ONLY",
+  "query_execution_authority": false,
+  "theorem_promotion_from_gremlin": false,
+  "audits": [
+    {
+      "task_event_id": "gremlin:whisper:sha256:2976e3c471944fd765da159c17688c03bd472c97f65ca59fec7a621a11614801",
+      "phasenav_event_id": "gremlin:whisper:sha256:485e6de98f61578eae290fe21b873362ccb0c3374e3bfdfc97ae2d3bf71d026e",
+      "fused_event_id": "gremlin:whisper:sha256:0f540ef522a8a11aebbe5f420529163d805abc386210f6480b1e7872e1470ce4",
+      "audit_event_id": "gremlin:whisper:sha256:6e27b854fc32788e1de488efa506030b0c857c3cd72b00a97638e626732cfc97",
+      "phase_attention_terms": [
+        "acceleration",
+        "activation",
+        "criterion",
+        "inherited"
+      ],
+      "selected_internal_task_candidate": "acceleration activation criterion inherited"
+    },
+    {
+      "task_event_id": "gremlin:whisper:sha256:59a500523214b9ccd7a61480a37830ee9fddfd2890834d6b506042d96b8fe8bb",
+      "phasenav_event_id": "gremlin:whisper:sha256:1be4ab013d105e78e6280e81f0cf5fb43cee0b0734e19381c41c896ed95eb811",
+      "fused_event_id": "gremlin:whisper:sha256:796a4e22b644b0acc9ef7207dbe2d0099b0445b6df2892eb94e97c83f890927e",
+      "audit_event_id": "gremlin:whisper:sha256:3e35c2c193f5be30dd90e7b08a9cd13dedfcf7abb90aae2c0383b72357daa2c7",
+      "phase_attention_terms": [
+        "positive-kinetic",
+        "complementary",
+        "conservation",
+        "stability"
+      ],
+      "selected_internal_task_candidate": "positive-kinetic complementary conservation stability"
+    }
+  ],
+  "interpretation": "GREMLIN/PhaseNav supplied candidate adversarial attention only. Deterministic equations, validator controls and pinned repository parents are the evidence authority.",
+  "canon_allowed": false
+}
