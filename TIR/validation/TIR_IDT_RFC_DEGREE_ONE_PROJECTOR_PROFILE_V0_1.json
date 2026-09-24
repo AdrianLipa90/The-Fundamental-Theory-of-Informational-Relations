@@ -1,0 +1,24 @@
+{
+  "schema": "TIR_IDT_RFC_DEGREE_ONE_PROJECTOR_PROFILE_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_UNIQUE_SQRT_PROJECTOR_UNDER_DEGREE_ONE_Q_HOMOGENEITY_PHYSICAL_INHERITANCE_OPEN",
+  "canon_allowed": false,
+  "exact_conditional": [
+    "C[lambda q]=lambda^2 C[q]",
+    "f(lambda^2 C)=lambda f(C), f(1)=1 -> unique f(C)=sqrt(C)",
+    "fprime(1)=1/2",
+    "fsecond(1)=-1/4",
+    "projector connection Hessian fsecond(1)+fprime(1)/2=0",
+    "fixed-sign f(C(h))=sign(q)[Q+s_E h/2]/mu_theta exactly",
+    "sigma_E=sign(q) eta Uhat s_E/mu_theta",
+    "h=kappa_E sigma_E",
+    "Delta L_eff=kappa_E sigma_E^2/4"
+  ],
+  "open_gates": [
+    "RF_F17_INHERITS_RF_F13_COMPATIBLE_Q_DEGREE_ONE_HOMOGENEITY",
+    "INTERNAL_AXIS_TO_SPACETIME_TETRAD_SOLDER",
+    "TETRA_SPIN_COARSE_GRAINING",
+    "FULL_EFFECTIVE_METRIC_STRESS",
+    "EFFECTIVE_EOS_AND_ACCELERATION_SIGN"
+  ]
+}
