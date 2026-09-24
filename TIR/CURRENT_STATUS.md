@@ -2507,3 +2507,24 @@ Positive-projector acceleration requires
 \]
 
 AB and fixed-map Berry admit zero metric-response branches; RF-F19 admits S_vartheta=0 on independent variation. Reusing the same ADM lapse inside the projector calibration during the same metric variation self-normalizes the projector and gives zero stress. Separately, [C_Lambda]=T^-4, so dimensionless holonomy/topology may constrain only C_Lambda/Omega_*^4 after an independent frequency scale Omega_* is derived.
+
+TIR_PLANCK_FREQUENCY_VACUUM_FACTORIZATION = PASS_REFERENCE_CALIBRATION / INTERNAL_G_OPEN
+TIR_CHI_LAMBDA_DIMENSIONLESS_COORDINATE = PASS_EXACT
+TIR_LEGACY_224_TO_CHI_LAMBDA = EXACT_TRANSLATION / NOT_DERIVATION
+TIR_EULER_PALATINI_DIRECT_METRIC_RESPONSE = ZERO_BRANCH_EXACT
+TIR_EULER_PALATINI_SPIN_CURRENT = PASS_EXACT_CONDITIONAL
+TIR_EULER_CARTAN_TORSION = PASS_LOCAL_EXACT_CONDITIONAL
+TIR_BLOCH_AXIS_EULER_U1_REDUCTION = PASS_LOCAL_EXACT / SPACETIME_SOLDER_OPEN
+TIR_SINGLE_AXIS_TORSION_FLRW = NO_GO_ANISOTROPIC
+TIR_TETRA_TORSION_SECOND_MOMENT = PASS_ISOTROPIC_EXACT
+TIR_PROJECTOR_PROFILE_IDENTIFIABILITY = FIRST_DERIVATIVE_INSUFFICIENT
+TIR_DEGREE_ONE_PROJECTOR_PROFILE = UNIQUE_SQRT_CONDITIONAL
+TIR_DEGREE_ONE_EULER_TORSION_VACUUM_SIGN = NEGATIVE_RHO_W_MINUS1_DECELERATING
+
+### 2026-09-24 continuation — Planck factorization and Euler–Cartan branch
+
+The RF-F15 integration constant is factorized as \(C_\Lambda=\Omega_P^4\chi_\Lambda\), with \(\Omega_P=\sqrt{c^5/(\hbar G)}\) used only as an external universal reference scale. Internal derivation of \(G\), \(q_0/\hbar\), occupation and \(\chi_\Lambda\) remain open. The legacy \((2/7)^{224}\) suppression remains an ansatz; its map into \(\chi_\Lambda\) is translation only.
+
+The Euler adapter now has a local exact reduction \(SO(3)\to SO(2)\simeq U(1)\) with \(\mathcal A_E' = \mathcal A_E-s_E d\alpha\) and \(s_E=1/2\) reproducing the 2pi sign flip and 4pi closure. In the Palatini representation the direct metric response is zero; the nontrivial effect is a connection spin current and sourced Cartan torsion. A coherent single axis is not exactly FLRW-isotropic. The regular tetrahedral axis set has zero first moment and isotropic second moment.
+
+If RF-F17 inherits positive degree-one homogeneity in the phase one-form, the unique projector profile is \(f(C)=\sqrt C\). On the RF-F19 independent-scale branch the eliminated minimal Euler torsion then contributes \(\rho_{tor}<0,\ p_{tor}=-\rho_{tor}>0\), so it is decelerating rather than a positive-dark-energy source. The RF-F15 constant-vacuum integration component remains separately typed.
