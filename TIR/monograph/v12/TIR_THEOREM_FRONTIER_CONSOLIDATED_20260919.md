@@ -175,3 +175,23 @@ EULER_SPIN_METRIC_RESPONSE = OPEN
 C_LAMBDA_TOPOLOGICAL_ABSOLUTE_SCALE = NO_GO_WITHOUT_OMEGA_STAR
 C_LAMBDA_OVER_OMEGA_STAR_4_TOPOLOGY = OPEN
 ```
+
+
+## NEW — 2026-09-24 continuation — Planck / Euler–Cartan closure split
+
+The dimensional vacuum problem is factorized as \(C_\Lambda=\Omega_P^4\chi_\Lambda\), \(\Omega_P=\sqrt{c^5/(\hbar G)}\), with the Planck scale treated as external calibration rather than an internal derivation. On full tetrahedral CP1, \(\rho_\Lambda/\varepsilon_P=(\mathcal N\zeta_q/2\pi)\chi_\Lambda\). The legacy \((2/7)^{224}\) value is retained only as an exact convention-translation candidate; the exponent remains un-derived.
+
+The Euler branch now closes locally as \(SO(3)\to SO(2)\simeq U(1)\), then routes through Palatini connection current to Cartan torsion rather than direct RF-F20 metric response. Single-axis torsion is anisotropic; the tetrahedral set has exact isotropic second moment. The projector profile is nonidentifiable from \(f(1),f'(1)\) alone. Under the additional RF-F13-compatible degree-one q-homogeneity premise, \(f=\sqrt C\) is unique and the minimal torsion correction has negative vacuum density and decelerating sign.
+
+```text
+PLANCK_REFERENCE_FACTORIZATION                  = PASS_EXACT / INTERNAL_G_OPEN
+BLOCH_AXIS_EULER_U1_REDUCTION                  = PASS_LOCAL_EXACT / SPACETIME_SOLDER_OPEN
+PALATINI_EULER_SPIN_CURRENT                    = PASS_EXACT_CONDITIONAL
+LOCAL_EULER_CARTAN_TORSION                     = PASS_EXACT_CONDITIONAL
+SINGLE_AXIS_FLRW_ISOTROPY                      = NO_GO
+TETRA_SECOND_MOMENT_ISOTROPY                   = PASS_EXACT
+PROJECTOR_PROFILE_FROM_F1_FPRIME1              = NONIDENTIFIABLE
+DEGREE_ONE_Q_TO_F_SQRT_C                       = PASS_UNIQUE_CONDITIONAL
+MINIMAL_SQRT_EULER_TORSION_POSITIVE_DARK_ENERGY = NO_GO / NEGATIVE_RHO_DECELERATING
+RF_F15_CONSTANT_VACUUM_ACCELERATION            = ACTIVE_CONDITIONAL_ROUTE
+```
