@@ -560,3 +560,69 @@ For uniform \(\rho_0,\eta_0\),
 Thus the free scalar mobility of the S4-symmetric control model is removed in favor of existing relational density/viscosity inputs.
 
 Remaining physical gates are now concentrated in the source/evolution of \(\rho_R,\eta_R\), non-exact directional drive, reversible phase response, spacetime gluing, curvature and gravitational normalization.
+
+
+## 15. Tetrahedral null-frame closure of the 36D carrier
+
+The earlier open route through six separately supplied Phase36 edge carriers is superseded by `TIR_TETRA_NULL_FRAME_BIVECTOR_MOIRE_V0_1`.
+
+The tetrahedral SIC/Bloch directions, after the already-admitted positive elapsed-state lift, form four linearly independent null rays. In a rational chart they are the columns of the exact Hadamard frame
+
+\[
+E_+=
+\begin{pmatrix}
+1&1&1&1\\
+1&1&-1&-1\\
+1&-1&1&-1\\
+1&-1&-1&1
+\end{pmatrix},
+\qquad
+\det E_+=-16.
+\]
+
+The six tetrahedral edges are then generated, rather than separately assigned:
+
+\[
+B_+=C_2(E_+)=\Lambda^2E_+.
+\]
+
+For any second admitted four-frame \(E_2=eE_1\),
+
+\[
+\boxed{
+M_{36}=B_2B_1^{-1}=C_2(e).
+}
+\]
+
+Hence the local carrier step
+
+\[
+\text{tetra geometry}\to 4\text{D frame}\to6\text{ bivectors}\to36\text{ relative coefficients}
+\]
+
+is now exact and does not require legacy Phase36.
+
+For the exact antipodal background,
+
+\[
+e=P=\operatorname{diag}(1,-1,-1,-1)
+\]
+
+and
+
+\[
+C_2(P)=\operatorname{diag}(-I_3,+I_3).
+\]
+
+The half-sum/half-difference of the two antipodal bivector frames gives exact complementary rank-three cancellation through \((I\pm C_2(P))/2\).
+
+Updated frontier:
+
+- TETRA_TO_4D_NULL_FRAME = PASS_EXACT
+- NULL_FRAME_TO_SIX_BIVECTOR_EDGES = PASS_EXACT
+- SIX_BIVECTORS_TO_RELATIVE_36D_OPERATOR = PASS_EXACT
+- LEGACY_PHASE36_REQUIRED_FOR_THIS_GATE = NO
+- CONSTANT_ANTIPODAL_PARITY_AS_GRAVITY = FAIL_FLAT_BACKGROUND
+- SPACETIME_DEPENDENT_FRAME_DYNAMICS = OPEN
+- SOURCE_NORMALIZATION_AND_G = OPEN
+- EINSTEIN_DYNAMICS/PHENOMENOLOGY = OPEN
