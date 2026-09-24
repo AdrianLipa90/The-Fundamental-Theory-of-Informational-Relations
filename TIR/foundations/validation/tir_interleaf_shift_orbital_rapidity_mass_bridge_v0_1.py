@@ -51,7 +51,7 @@ def main():
             max_mass=max(max_mass,abs(m1-m2)/max(1.0,abs(m2)))
     checks += [
         {"name":"radial_inverse_metric_grr","pass":max_inv<5e-15,"max_error":max_inv},
-        {"name":"misner_sharp_flow_mass_identity","pass":max_mass<5e-15,"max_relative_error":max_mass},
+        {"name":"misner_sharp_flow_mass_identity","pass":max_mass<2e-12,"max_relative_error":max_mass,"note":"floating subtraction 1-g^rr at beta=0.01"},
     ]
 
     # Vacuum V^2=C/r means constant invariant mass.
