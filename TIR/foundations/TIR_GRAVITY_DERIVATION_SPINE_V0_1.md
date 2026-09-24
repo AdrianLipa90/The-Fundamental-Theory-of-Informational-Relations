@@ -314,3 +314,42 @@ Current status additions:
 - GENERIC_PERTURBED_6x6_REJECTION = PASS_VALIDATOR
 - PLEBANSKI_SIMPLICITY_CROSSWALK = PASS_STANDARD
 - MOIRE_OBSERVABLES_TO_B_FIELD = OPEN
+
+
+## 13. Moire-to-bivector decoder status
+
+The microscopic chain is now refined to
+
+\[
+\mathcal M_{36}
+\to
+X\in\operatorname{Mat}_6
+\to
+(X_{\rm geom},Q)
+\to
+H\in\mathfrak{gl}(4)
+\to
+e
+\to
+g
+\to
+R.
+\]
+
+The exact algebraic decomposition is
+
+\[
+36=16+20,
+\]
+
+where the 16-dimensional sector is \(\mathfrak{co}(3,3)\cong\mathfrak{gl}(4)\) at the Lie-algebra level and the 20-dimensional complement is retained as a simplicity defect.
+
+This removes arbitrary coordinate selection from the local representation step. It does **not** remove the following blockers:
+
+- PhaseNav axis-to-bivector-frame binding;
+- physical normalization and source provenance;
+- a pre-registered small-defect condition;
+- production spacetime realization;
+- independent gravitational phenomenology.
+
+The current NOEMA/PhaseNav live-state diagnostic did not show stable low-defect structure versus within-snapshot permutation nulls and is recorded as `FAIL_NO_STABLE_RUNTIME_GEOMETRIC_SIGNAL`.
