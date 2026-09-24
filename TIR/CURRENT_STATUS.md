@@ -2478,3 +2478,20 @@ Hence
 \]
 
 and the exact fixed-x acceleration threshold is omega_acc^4=2 C_Lambda/(3+x) for positive C_Lambda. RF-F16 shows the constant vacuum component is exactly repartition-degenerate with the reference vacuum/potential zero point. The transport route derives the functional constant-vacuum component but does not predict its magnitude or sign. No current receipt identifies C_Lambda with holonomy/topology.
+
+TIR_HAWKING_FIBRE_WIJ = CANDIDATE_BRIDGE_TYPED
+TIR_HAWKING_FIBRE_MICROTRANSPORT = U1_UNITARY_CONTROL_PASS
+TIR_HAWKING_THERMALITY_FROM_BARE_WIJ = NO_GO_UNIT_MODULUS
+TIR_HAWKING_REDUCED_STATE_THERMALITY = PASS_TFD_CONTROL
+TIR_HAWKING_A_H_CONNECTION_SOURCE = OPEN
+TIR_HAWKING_ZERO_NODE_PHYSICAL_BINDING = OPEN
+TIR_HAWKING_CAUSAL_HORIZON_CRITERION = OPEN
+TIR_HAWKING_TEMPERATURE_AREA_ENTROPY_DERIVATION = OPEN
+
+### 2026-09-24 Hawking-fibre W_ij cosmology candidate
+
+Canonical candidate:
+
+TIR/cosmology/TIR_HAWKING_FIBRE_WIJ_CANDIDATE_V0_1.md
+
+A new typed (W^H_{ij}) member is admitted at CANDIDATE_BRIDGE level only. It preserves the existing (W_{ij}) family and uses unitary microscopic transport. Because (|W^H|=1), the bare link cannot itself encode a thermal Hawking occupation spectrum. The exact TFD control shows that Planck occupation can instead arise after tracing inaccessible interior degrees of freedom. Physical promotion requires independent derivation of (A_H), a causal-horizon criterion, Hawking temperature and Bekenstein-Hawking area entropy.
