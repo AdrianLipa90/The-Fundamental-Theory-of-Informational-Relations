@@ -56,7 +56,19 @@ This is a declared factorization, not the unique factorization of a 36-dimension
 X\mapsto LXR^T,\qquad L,R\in SO(6).
 \]
 
-Each \(SO(6)\) has \(\binom62=15\) generators, so \(SO(6)_L\times SO(6)_R\) carries 30 generator directions. The unrestricted group \(SO(36)\) has \(\binom{36}{2}=630\) plane-rotation generators. Therefore "6x6 axes" means a structured 36-coordinate factorization, not 36 independent rotation planes.
+Each \(SO(6)\) has
+
+\[
+\binom62=15
+\]
+
+generators, so \(SO(6)_L\times SO(6)_R\) carries 30 generator directions. The unrestricted group \(SO(36)\) has
+
+\[
+\binom{36}{2}=630
+\]
+
+plane-rotation generators. Therefore "6x6 axes" means a structured 36-coordinate factorization, not 36 independent rotation planes.
 
 ## 5. Moire pair identity
 
@@ -72,7 +84,13 @@ For equal-amplitude layer carriers
 \Delta\phi=\phi_1-\phi_2.
 \]
 
-The mean phase and half-difference are therefore exact coordinates of two-layer interference. Destructive zeros occur at \(\Delta\phi=(2k+1)\pi\). The parent layers remain non-zero. This is an interference null, not annihilation of the underlying relational state.
+The mean phase and half-difference are therefore exact coordinates of two-layer interference. Destructive zeros occur at
+
+\[
+\Delta\phi=(2k+1)\pi.
+\]
+
+The parent layers remain non-zero. This is an interference null, not annihilation of the underlying relational state.
 
 ## 6. Hyperlayer field
 
@@ -88,7 +106,13 @@ with \(\Delta X_n=X_{n+1}-X_n\) and a declared relative orientation \(U_n\). A c
 \mathcal M(x)=\sum_n w_n\,\mathfrak m[\mathcal D_n(x)],
 \]
 
-provided the chosen norm obeys a convergence condition such as \(\sum_n |w_n|<\infty\). An infinite layer count alone does not guarantee a finite continuum field.
+provided the chosen norm obeys a convergence condition such as
+
+\[
+\sum_n |w_n|<\infty.
+\]
+
+An infinite layer count alone does not guarantee a finite continuum field.
 
 ## 7. Coframe bridge and gravity firewall
 
@@ -98,7 +122,13 @@ A relative displacement/orientation field may feed a coframe candidate
 e^a=e^a_{(0)}+\lambda\,B^a{}_{\mu}(\mathcal M)\,dx^\mu.
 \]
 
-If \(B^a{}_{\mu}=\partial_\mu u^a\) globally and no independent non-trivial gluing is present, the displacement is integrable. Likewise a smooth connection of the form \(\Omega=U^{-1}dU\) is locally pure gauge and satisfies the Maurer--Cartan identity
+If \(B^a{}_{\mu}=\partial_\mu u^a\) globally and no independent non-trivial gluing is present, the displacement is integrable. Likewise a smooth connection of the form
+
+\[
+\Omega=U^{-1}dU
+\]
+
+is locally pure gauge and satisfies the Maurer--Cartan identity
 
 \[
 d\Omega+\Omega\wedge\Omega=0.
@@ -135,7 +165,7 @@ The minimal geometric memory observable is path dependence of transport. For a c
 \mathfrak M[\gamma]=\mathcal P\exp\oint_\gamma\Omega.
 \]
 
-A state has non-trivial relational memory on a family of loops when the corresponding holonomy cannot be removed by one admissible global gauge choice. This motivates the candidate law
+A state has non-trivial relational memory on a family of loops when the corresponding holonomy cannot be removed by one admissible global gauge choice. This motivates the candidate law:
 
 \[
 \boxed{\text{memory}=\text{persistent path-dependent relational transport}.}
