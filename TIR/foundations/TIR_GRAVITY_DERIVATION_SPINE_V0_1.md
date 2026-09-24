@@ -371,3 +371,20 @@ C_LAMBDA_TOPOLOGICAL_ABSOLUTE_MAGNITUDE = DIMENSIONAL_NO_GO_WITHOUT_OMEGA_STAR
 PHYSICAL_EULER_OR_SCALE_METRIC_RESPONSE = OPEN
 
 PHYSICAL_OMEGA_STAR_SCALE = OPEN
+
+
+## 2026-09-24 continuation — Euler–Cartan torsion/sign refinement
+
+The Euler connection candidate is now locally gauge-reduced from the RFC spatial Cartan connection through the stabilizer of a unit axis, \(SO(3)\to SO(2)\simeq U(1)\). With \(s_E=1/2\), the projected gauge parameter reproduces the exact 2pi sign flip and 4pi spin closure. The physical solder from the internal TIR A1/CP1 axis to the RFC spatial tetrad remains open.
+
+On the first-order Palatini branch, \(\omega^{AB}\) is independent during coframe variation, so the direct RF-F20 Euler metric response is zero. The nontrivial projector coupling instead sources the Cartan connection. In the local normal-flow branch the exact torsion solution is
+
+\[
+T^0=-\frac{\kappa_E\sigma_E}{2}n_{ij}E^i\wedge E^j,\qquad T^i=0.
+\]
+
+A single nonzero axis is not exactly FLRW-isotropic. Four regular tetrahedral axes give zero first moment and isotropic second moment, but a nonzero coarse-grained spin-squared source requires microscopic/statistical averaging after the torsion elimination; pointwise source cancellation gives zero torsion.
+
+RF-F17 profile data \(f(1)=1,f'(1)=1/2\) alone do not identify the eliminated torsion action because \(f''(1)\) remains free. If the interaction is additionally required to be positively homogeneous of degree one in the phase-clock one-form, the unique profile is \(f(C)=\sqrt C\). On that branch the local eliminated torsion correction is \(\Delta L_{tor}=\kappa_E\sigma_E^2/4\). Under RF-F19 independent-scale metric variation this gives \(T^{tor}_{\mu\nu}=g_{\mu\nu}\Delta L_{tor}\), hence \(\rho_{tor}=-\Delta L_{tor}<0\), \(p_{tor}=+\Delta L_{tor}\), \(w=-1\), and a decelerating FLRW contribution.
+
+Therefore the minimal degree-one Euler-torsion branch does not supply positive dark energy. The separately typed RF-F15 constant-vacuum integration component remains the current positive-acceleration route when \(C_\Lambda>0\).
