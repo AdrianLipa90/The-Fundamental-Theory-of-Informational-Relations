@@ -499,3 +499,23 @@ The physical TIR use of this crosswalk must be rejected or demoted if:
 Reference validator:
 
 \`TIR/foundations/validation/tir_continuous_relational_medium_navier_stokes_v0_1.py\`
+
+
+## 14. Cross-repository IT realization
+
+The explicit engineering realization is recorded separately at:
+
+- repository: \`AdrianLipa90/GREMLIN\`
+- branch: \`feat/bio-os-continuous-relational-medium-v01-20260924\`
+- commit: \`831eee95db8661031412356bfb7019a9a75b7bec\`
+- specification: \`spec/GREMLIN_BIO_OS_CONTINUOUS_RELATIONAL_MEDIUM_V0_1.md\`
+
+This reference is deliberately one-way in evidential force:
+
+\[
+\text{shared mathematics / architecture crosswalk}
+\not\Rightarrow
+\text{physical validation}.
+\]
+
+The GREMLIN implementation may test computational properties such as locality, reuse and marginal energy cost. Those tests do not promote the physical TIR source-binding gates.
