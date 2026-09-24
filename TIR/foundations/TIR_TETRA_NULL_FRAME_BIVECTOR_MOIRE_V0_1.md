@@ -1,6 +1,6 @@
 # TIR Tetrahedral Null-Frame / Bivector Moire Bridge v0.1
 
-Status: CANDIDATE_FOUNDATIONAL_BRIDGE / EXACT_CARRIER_GEOMETRY / PHYSICAL_DYNAMICS_OPEN  
+Status: CANDIDATE_FOUNDATIONAL_BRIDGE / EXACT_CARRIER_GEOMETRY / UPSTREAM_SOURCE_DYNAMICS_OPEN / DOWNSTREAM_LOCAL_GR_CHAIN_ALREADY_CONDITIONAL_CLOSED  
 Date: 2026-09-24
 
 ## 1. Purpose
@@ -362,7 +362,7 @@ R[g].
 }
 \]
 
-The carrier is now derived. The physical dynamics that determine \(e(x)\), its normalization, and its coupling to matter remain open.
+The carrier is now derived. The downstream Cartan → zero-torsion Levi-Civita → ADM → local Einstein chain already exists in the TIR gravity spine on its declared assumptions. What remains open here is the upstream physical law that generates the spacetime-dependent admitted frame \(e(x)\), its source normalization, and its production realization.
 
 ## 9. PhaseNav firewall
 
@@ -402,4 +402,6 @@ A row-major reshape of legacy Phase36 remains computational only.
 - constant antipodal pair -> gravity: FAIL / FLAT BACKGROUND
 - spacetime-varying frame dynamics from TIR source laws: OPEN
 - Newton constant/source normalization: OPEN
-- Einstein dynamics and phenomenology: OPEN
+- downstream local Cartan/Levi-Civita/ADM/Einstein chain: CLOSED_ON_DECLARED_ASSUMPTIONS in existing TIR gravity spine
+- production source → spacetime-dependent coframe realization: OPEN
+- independent phenomenology/physical realization: OPEN
