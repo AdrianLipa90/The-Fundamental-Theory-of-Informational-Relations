@@ -1,0 +1,29 @@
+{
+  "schema": "TIR_IDT_RFC_TEMPORAL_U1_METRIC_RESPONSE_COSMOLOGY_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_PHASE_KINETIC_DECELERATION_AND_RF_F20_RESPONSE_SIGN_TEST_LOCAL_ABE_METRIC_BINDING_OPEN",
+  "canon_allowed": false,
+  "execution": "LOCAL_EQUIVALENT_REFERENCE_CHECK_2026-09-24",
+  "checks": {
+    "rf_e4_pure_phase_is_decelerating": {
+      "pass": true,
+      "max_error": 0
+    },
+    "rf_f20_metric_response_acceleration_formula": {
+      "pass": true,
+      "max_error": 1.1368683772161603e-13,
+      "sign_mismatches": 0
+    },
+    "frozen_connection_control": {
+      "pass": true,
+      "statement": "R_mn=0 => Delta T_phase_mn=0 => no metric-response acceleration correction"
+    }
+  },
+  "open_gates": [
+    "SAME_TEMPORAL_U1_BUNDLE_ADMISSION",
+    "TAU_R_OR_A_T_TO_LOCAL_ABE_CONNECTION_BINDING",
+    "LOCAL_OFFSHELL_BERRY_EULER_METRIC_RESPONSE_R_MN",
+    "PRODUCTION_SIGN_AND_MAGNITUDE_OF_R_ACTIVE",
+    "BIANCHI_AND_TOTAL_SOURCE_RECOMPOSITION"
+  ]
+}
