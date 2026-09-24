@@ -2337,3 +2337,12 @@ TIR/foundations/TIR_INTERLEAF_SHIFT_ORBITAL_RAPIDITY_MASS_BRIDGE_V0_1.md
 The existing TIR x0 matching shift satisfies \(b=\beta_t/c\). In the flow sign convention \(V=-cb\), hence \(\chi=\operatorname{artanh}|b|\) on the subluminal chart. This removes the historical B-omega-N/AR expression from the required gravity kinematics.
 
 The shift itself remains gauge/slicing dependent. In spherical symmetry the full metric gives the invariant Misner--Sharp mass \(m_{\rm MS}=rV^2/(2G)\). Production beta_match remains OPEN INPUT.
+
+
+### Gravity derivation spine
+
+Single dependency surface:
+
+TIR/foundations/TIR_GRAVITY_DERIVATION_SPINE_V0_1.md
+
+Status: structural gravity derivation assembled; local Cartan/ADM/Einstein and spherical vacuum flow subgates are closed on their declared assumptions; production physical realization and fundamental dynamics to beta_match remain OPEN.
