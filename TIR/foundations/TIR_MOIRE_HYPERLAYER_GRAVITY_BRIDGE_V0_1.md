@@ -263,3 +263,38 @@ to
 \]
 
 The decoder \(\mathcal D\) from concrete moire observables to B coefficients remains OPEN.
+
+
+## 15. Herm(2)-first architectural correction
+
+The current main branch already contains an exact candidate 3+1 event carrier in \(\operatorname{Herm}(2)\), together with its Lorentz action. Therefore this bridge no longer treats the 36D hyperlayer as the preferred source of the four-dimensional base.
+
+The corrected dependency direction is
+
+\[
+\boxed{
+\operatorname{Herm}(2)_{3+1}
+\to
+\Lambda^2
+\to
+\operatorname{End}(\Lambda^2)_{36}
+\to
+\text{moire / relation response}.
+}
+\]
+
+The 36D layer is interpreted as an area/bivector response carrier over an already established local 4D base.
+
+The exact decomposition
+
+\[
+\operatorname{End}(\Lambda^2)
+=
+\mathfrak{co}(3,3)_{16}
+\oplus
+\mathcal K(V)_{20}
+\]
+
+is documented in `TIR_HERM2_BIVECTOR36_FRAME_CURVATURE_SPLIT_V0_1`. The 16-dimensional component is the exterior-square image of local frame deformation; the 20-dimensional component is naturally identified with algebraic curvature tensors, not with a generic failure/defect.
+
+Consequently, a physical moire-gravity claim now requires **differential compatibility** between these two sectors, not suppression of the 20-dimensional sector.
