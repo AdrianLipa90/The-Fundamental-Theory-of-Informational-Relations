@@ -1,0 +1,60 @@
+{
+  "schema": "TIR_MUMMU_18PAIR_INTERTWINER_ADMISSION_NOGO_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "group/action admission theorem and direct-product non-Abelian no-go; no source claim that PNCS already supplies the required C6xC3 action",
+  "checks": [
+    {
+      "commute": true,
+      "name": "synthetic_regular_C6xC3_action",
+      "order_R": 3,
+      "order_S": 6,
+      "status": "PASS",
+      "subgroup_intersection_size": 1
+    },
+    {
+      "name": "anchored_action_is_free_transitive",
+      "orbit_size": 18,
+      "status": "PASS"
+    },
+    {
+      "collision": false,
+      "coordinate_count": 18,
+      "name": "unique_anchored_product_coordinates",
+      "status": "PASS"
+    },
+    {
+      "C18_generator_order": 18,
+      "C6xC3_element_orders": [1,2,3,6],
+      "C6xC3_max_element_order": 6,
+      "name": "C18_not_isomorphic_to_C6xC3",
+      "status": "PASS"
+    },
+    {
+      "explicit_distinct_bijections": 2,
+      "name": "cardinality_only_bijection_nonuniqueness",
+      "status": "PASS",
+      "total_possible_bijections": 6402373705728000
+    },
+    {
+      "max_cross_factor_commutator_norm2": 0.0,
+      "name": "uncoupled_su2_18_cross_factor_commutator_nogo",
+      "status": "PASS"
+    },
+    {
+      "max_same_axis_commutator_norm2": 0.0,
+      "name": "source_pair_sigma_z_family_is_abelian",
+      "status": "PASS"
+    },
+    {
+      "name": "conditional_shared_pauli_embedding_opens_nonabelian_channel",
+      "nonzero_axis_commutator_pairs": 108,
+      "promotion_state": "CONDITIONAL_ONLY",
+      "status": "PASS",
+      "unordered_pairs": 153
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "total": 8
+  }
+}

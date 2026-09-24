@@ -1,0 +1,94 @@
+{
+  "schema": "TIR_MUMMU_QHTRI_PAIR_DYNAMICS_SOURCE_WITNESS_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "model-level source-derived QHTRI 36D wave evolution produces pair-imbalance dynamics and a changing horizontal CP1 projective connection; this receipt does not infer source-Hamiltonian noncommutativity; physical binding and fundamental status of QHTRI coefficients remain open",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963"
+  },
+  "checks": [
+    {
+      "name": "source_fixture_qhtri_hamiltonian_hermitian",
+      "status": "PASS",
+      "max_abs_error": 0
+    },
+    {
+      "name": "source_phase_state_normalized",
+      "status": "PASS",
+      "norm_error": 0
+    },
+    {
+      "name": "fixed_source_hamiltonian_history_is_commuting",
+      "status": "PASS",
+      "source_operator_commutator_frobenius": 0,
+      "reason": "the pinned fixture uses one time-independent H"
+    },
+    {
+      "name": "pair_imbalance_derivative_from_36d_schrodinger",
+      "status": "PASS",
+      "u": 0,
+      "u_dot": -0.010654152604631609,
+      "formula_abs_error": 8.673617379884035e-18
+    },
+    {
+      "name": "source_derived_projective_connection_acceleration_witness",
+      "status": "PASS",
+      "omega": [
+        -0.001769477054388944,
+        0.010506180227187151,
+        -0.02741996687287062
+      ],
+      "omega_dot": [
+        -0.005984899749357473,
+        0.03553492802773341,
+        -0.008001260465699477
+      ],
+      "omega_cross_omega_dot": [
+        0.0008903039767670687,
+        0.00014994774824133824,
+        1.3552527156068805e-19
+      ],
+      "witness_norm": 0.000902843008737589
+    },
+    {
+      "name": "short_time_projective_connection_commutator_converges_to_local_witness",
+      "status": "PASS",
+      "eps_values": [
+        0.01,
+        0.005,
+        0.0025
+      ],
+      "scaled_cross_norms": [
+        0.0009038785849283399,
+        0.0009033568431330332,
+        0.0009030989389764475
+      ],
+      "relative_error_finest": 0.0002834714744220613
+    },
+    {
+      "name": "finite_time_pair_imbalance_emerges",
+      "status": "PASS",
+      "u_t0": 0,
+      "u_t05": -0.010175159132743996,
+      "state_norm_error_t05": 8.881784197001252e-16
+    },
+    {
+      "name": "finite_time_generator_direction_changes",
+      "status": "PASS",
+      "omega_t0": [
+        -0.001769477054388944,
+        0.010506180227187151,
+        -0.02741996687287062
+      ],
+      "omega_t05": [
+        -0.005023077314086905,
+        0.030596809284086125,
+        -0.03291478523503362
+      ],
+      "cross_norm": 0.0004995220726340409
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "total": 8
+  }
+}

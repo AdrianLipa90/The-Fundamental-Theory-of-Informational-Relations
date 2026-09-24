@@ -1,0 +1,95 @@
+{
+  "checks": [
+    {
+      "name": "stella_dot_spectrum",
+      "status": "PASS",
+      "value": [-1.0, -0.333333333333, 0.333333333333, 1.0]
+    },
+    {
+      "max_relative_error": 0.0,
+      "name": "exact_moire_vector_identity",
+      "status": "PASS"
+    },
+    {
+      "max_abs_error": 2.3683427866662957e-14,
+      "name": "n_layer_dirichlet_projector",
+      "status": "PASS"
+    },
+    {
+      "N": 36,
+      "name": "coherent_peak_N2",
+      "peak": 1296.0,
+      "status": "PASS"
+    },
+    {
+      "N": 36,
+      "name": "first_zero_resolution_1_over_N",
+      "status": "PASS",
+      "zero_intensity": 1.291836769497182e-29
+    },
+    {
+      "lengths_m": [
+        3.9386670705268e-05,
+        1.9693335352633964e-05,
+        3.938667070526838e-06
+      ],
+      "name": "neutrino_phase_clock_inverse_mass_ratio",
+      "ratio": [1.0, 0.49999999999999906, 0.10000000000000095],
+      "status": "PASS"
+    },
+    {
+      "max_abs_tauL_minus_1": 6.463718449367661e-13,
+      "name": "equal_spacing_torsion_radius_collapse",
+      "samples": [
+        {
+          "delta_theta_rad": 3.938667070529384e-06,
+          "target_L_m": 1.0,
+          "tau_L_per_m": 1.0000000000006464,
+          "tau_times_L": 1.0000000000006464
+        },
+        {
+          "delta_theta_rad": 6.182180302192494e-13,
+          "target_L_m": 6371000.0,
+          "tau_L_per_m": 1.5696123057604772e-07,
+          "tau_times_L": 1.0
+        },
+        {
+          "delta_theta_rad": 2.6328363178546482e-17,
+          "target_L_m": 149597870700.0,
+          "tau_L_per_m": 6.684587122268445e-12,
+          "tau_times_L": 0.9999999999999999
+        },
+        {
+          "delta_theta_rad": 1.2764350672212496e-22,
+          "target_L_m": 3.085677581e16,
+          "tau_L_per_m": 3.240779289960431e-17,
+          "tau_times_L": 1.0
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "max_abs_error": 1.999955756559757e-12,
+      "name": "weak_field_metric_linearization",
+      "status": "PASS"
+    }
+  ],
+  "claim_scope": "formal layered interference and scaling only; physical neutrino/gravity binding open",
+  "derived": {
+    "N36_first_zero_fraction_of_moire_period": 0.027777777777777776,
+    "N36_peak_gain": 1296,
+    "phase_clock_lengths_m": [
+      3.9386670705268e-05,
+      1.9693335352633964e-05,
+      3.938667070526838e-06
+    ],
+    "phase_clock_lengths_um": [
+      39.386670705268,
+      19.693335352633962,
+      3.938667070526838
+    ]
+  },
+  "schema": "TIR_MUMMU_NEUTRINO_LAYERED_PROJECTOR_VALIDATION_V0_1",
+  "status": "PASS",
+  "summary": {"passed": 8, "total": 8}
+}

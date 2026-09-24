@@ -1,0 +1,46 @@
+{
+  "schema": "TIR_MUMMU_GEOMETRIC_NONABELIAN_DYNAMICAL_ABELIAN_SPLIT_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "frozen-amplitude observed-hydro motion has a commuting diagonal dynamical phase Hamiltonian while its horizontal CP1 connection can have noncommuting time-separated generators; these structures are kept explicitly distinct",
+  "checks": [
+    {
+      "name": "diagonal_phase_hamiltonian_exactly_generates_bound_pair_motion",
+      "status": "PASS",
+      "max_mapping_error": 0.0
+    },
+    {
+      "name": "phase_hamiltonian_pauli_decomposition",
+      "status": "PASS",
+      "max_abs_error": 0.0
+    },
+    {
+      "name": "time_separated_phase_hamiltonians_commute",
+      "status": "PASS",
+      "commutator_frobenius_norm": 0.0
+    },
+    {
+      "name": "horizontal_generator_is_projected_dynamical_axis",
+      "status": "PASS",
+      "max_bloch_equation_error": 0.0,
+      "max_projection_identity_error": 4.336808689942018e-19,
+      "max_n_dot_omega_abs": 6.309275085263171e-19
+    },
+    {
+      "name": "geometric_connection_is_noncommuting_on_pinned_sections",
+      "status": "PASS",
+      "omega_cross": [-4.614153728748461e-06, 2.555435109632845e-06, -1.3323517622809958e-06],
+      "omega_cross_norm": 5.440204449331002e-06,
+      "geometric_commutator_frobenius_norm": 3.846805457163179e-06
+    },
+    {
+      "name": "phase_law_and_minimum_norm_lifts_share_state_tangent_only",
+      "status": "PASS",
+      "difference_action_on_state": 2.199061971997947e-18,
+      "operator_difference_frobenius_norm": 0.009440424930043064
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "total": 6
+  }
+}

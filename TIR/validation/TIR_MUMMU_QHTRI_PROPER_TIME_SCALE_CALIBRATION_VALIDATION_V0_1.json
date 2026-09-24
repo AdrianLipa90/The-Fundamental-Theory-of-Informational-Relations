@@ -1,0 +1,75 @@
+{
+  "schema": "TIR_MUMMU_QHTRI_PROPER_TIME_SCALE_CALIBRATION_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "given a calibrated mixing angle and an admitted proper-time factor, the QHTRI Hamiltonian scale is uniquely recoverable at model level from a nonsingular local trajectory rate; no fundamental actuation law is promoted",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "pncs_time_binding_branch_head": "7e1a2dab237ec741ec29d1da19007520c9755d8d"
+  },
+  "checks": [
+    {
+      "name": "normalized_default_angle_has_nonsingular_u_rate",
+      "status": "PASS",
+      "F_u": -0.005875926016698737
+    },
+    {
+      "name": "typed_proper_time_recovers_hamiltonian_scale",
+      "status": "PASS",
+      "max_abs_error": 2.020605904817785e-14,
+      "cases": [
+        {
+          "scale_s": 0.37,
+          "proper_time_factor_g": 0.81,
+          "coordinate_u_dot": -0.0021740926261785308,
+          "proper_u_dot": -0.0026840649705907786,
+          "recovered_s": 0.36999999999999966,
+          "abs_error": 3.3306690738754696e-16
+        },
+        {
+          "scale_s": 1.0,
+          "proper_time_factor_g": 1.25,
+          "coordinate_u_dot": -0.005875926016698737,
+          "proper_u_dot": -0.00470074081335899,
+          "recovered_s": 1.0,
+          "abs_error": 0.0
+        },
+        {
+          "scale_s": 1.8131869894810988,
+          "proper_time_factor_g": 0.64,
+          "coordinate_u_dot": -0.010654152604631529,
+          "proper_u_dot": -0.016647113444736763,
+          "recovered_s": 1.8131869894810786,
+          "abs_error": 2.020605904817785e-14
+        },
+        {
+          "scale_s": 2.4,
+          "proper_time_factor_g": 1.73,
+          "coordinate_u_dot": -0.014102222440076907,
+          "proper_u_dot": -0.00815157366478434,
+          "recovered_s": 2.3999999999999893,
+          "abs_error": 1.0658141036401503e-14
+        }
+      ]
+    },
+    {
+      "name": "coordinate_u_rate_is_linear_in_hamiltonian_scale",
+      "status": "PASS",
+      "max_abs_error": 2.2551405187698492e-17
+    },
+    {
+      "name": "pure_detuning_endpoint_is_singular_for_u_rate_calibration",
+      "status": "PASS",
+      "F_u_at_chi_zero": 0.0,
+      "calibration_state": "REJECT_NO_DENOMINATOR"
+    },
+    {
+      "name": "typed_time_reparameterization_preserves_connection_one_form",
+      "status": "PASS",
+      "abs_error": 0.0
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "total": 5
+  }
+}

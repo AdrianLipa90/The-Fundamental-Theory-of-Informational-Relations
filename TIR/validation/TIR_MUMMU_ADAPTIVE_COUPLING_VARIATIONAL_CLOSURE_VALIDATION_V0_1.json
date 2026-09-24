@@ -1,0 +1,55 @@
+{
+  "schema": "TIR_MUMMU_ADAPTIVE_COUPLING_VARIATIONAL_CLOSURE_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "the PNCS adaptive coupling update is exactly a composition of projected local gradient substeps in coupling-matrix space; its off-diagonal cosine direction is the coupling-coordinate dual of the GREMLIN Kuramoto edge potential; gain values and physical ontology remain open",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "gremlin_main": "e1e617b03406e38946a3b5296db5cfd259cca3df",
+    "source_firewall_validator": "tir_mummu_source_operator_nonabelianity_firewall_v0_1.py"
+  },
+  "checks": [
+    {
+      "name": "initial_hebb_decay_substep_is_exact_projected_gradient_step",
+      "status": "PASS",
+      "weak_count": 0,
+      "lambda_h": -0.016555555555555556,
+      "gamma": 0.01,
+      "stage1_max_abs_error": 2.710505431213761e-20,
+      "full_step_max_abs_error": 2.710505431213761e-20,
+      "negative_gradient_identity_error": 0
+    },
+    {
+      "name": "frozen_hd_flow_has_exact_local_lyapunov_power_identity",
+      "status": "PASS",
+      "power_identity_abs_error": 0,
+      "F_before": 0.7370737133946414,
+      "F_after": 0.7350626652960757,
+      "delta_F": -0.002011048098565782
+    },
+    {
+      "name": "weak_channel_substep_is_exact_linear_potential_gradient_step",
+      "status": "PASS",
+      "weak_count": 6,
+      "weak_rate_frobenius_norm": 0.1645903290201461,
+      "full_source_step_max_abs_error": 3.469446951953614e-18,
+      "negative_gradient_identity_error": 0
+    },
+    {
+      "name": "entrywise_clip_is_box_projection",
+      "status": "PASS",
+      "max_abs_error": 0
+    },
+    {
+      "name": "gremlin_phase_potential_coupling_gradient_matches_pncs_cosine_direction",
+      "status": "PASS",
+      "finite_difference_negative_gradient": 0.7564029649853588,
+      "cos_delta": 0.7564029649848117,
+      "abs_error": 5.470068842328146e-13,
+      "scope": "off_diagonal_edge_coordinate; symmetric-matrix factor convention kept separate"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "total": 5
+  }
+}

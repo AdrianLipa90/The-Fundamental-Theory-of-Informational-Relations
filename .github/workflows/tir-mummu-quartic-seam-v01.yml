@@ -1,0 +1,195 @@
+name: TIR MUMMU quartic seam gate
+
+on:
+  pull_request:
+    paths:
+      - 'TIR/foundations/TIR_MUMMU_NEUTRINO_LAYERED_PROJECTOR_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QUARTIC_SEAM_ABELIAN_REDUCIBILITY_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_ORBITAL_ALGEBRA_GAUGE_COVARIANT_CLOSURE_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_ORBITAL_SPIN_CONNECTION_UNIQUENESS_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_T36_CP1_PAIR_PROJECTION_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_18PAIR_INTERTWINER_ADMISSION_NOGO_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_T36_WAVE_FULL_CP1_LOCAL_NONABELIAN_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_SOURCE_WITNESS_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_SOURCE_MAGNUS_ORDER_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QHTRI_COEFFICIENT_IDENTIFIABILITY_NOGO_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QHTRI_MIXING_ANGLE_CALIBRATION_FIREWALL_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QHTRI_PROPER_TIME_SCALE_CALIBRATION_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QHTRI_DIRECT_SOURCE_OPERATOR_NONCOMMUTATIVITY_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QHTRI_UPSTREAM_TANGENT_MATCHING_NOGO_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_ADAPTIVE_COUPLING_VARIATIONAL_CLOSURE_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_COUPLING_MOBILITY_GAIN_IDENTIFIABILITY_NOGO_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_ADAPTIVE_GAIN_STABILITY_SELECTION_NOGO_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_ACTIVITY_OPERATOR_CURVATURE_BIFURCATION_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_STELLA_ADAPTIVE_COUPLING_QUARTIC_CROSSWALK_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_PNCS_HARMONIC_MASK_STELLA_BINDING_NOGO_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_COEFFICIENT_FREE_OBSERVED_HYDRO_CP1_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_GEOMETRIC_NONABELIAN_DYNAMICAL_ABELIAN_SPLIT_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QUARTIC_CONTINUUM_REGULARITY_SPLIT_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_PNLF_REDUCTION_LAYER_BOUNDARY_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QHTRI_PNLF_TYPED_TIME_BRIDGE_NOGO_V0_1.md'
+      - 'TIR/foundations/TIR_MUMMU_QHTRI_PNLF_TRAJECTORY_RECEIPT_BINDING_V0_1.md'
+      - 'TIR/validation/tir_mummu_neutrino_layered_projector_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_NEUTRINO_LAYERED_PROJECTOR_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_quartic_seam_abelian_reducibility_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QUARTIC_SEAM_ABELIAN_REDUCIBILITY_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_orbital_algebra_gauge_closure_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_ORBITAL_ALGEBRA_GAUGE_CLOSURE_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_orbital_spin_connection_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_ORBITAL_SPIN_CONNECTION_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_t36_cp1_pair_projection_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_T36_CP1_PAIR_PROJECTION_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_18pair_intertwiner_admission_nogo_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_18PAIR_INTERTWINER_ADMISSION_NOGO_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_t36_wave_full_cp1_local_nonabelian_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_T36_WAVE_FULL_CP1_LOCAL_NONABELIAN_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_qhtri_pair_dynamics_source_witness_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_SOURCE_WITNESS_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_source_magnus_order_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_SOURCE_MAGNUS_ORDER_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_qhtri_coefficient_identifiability_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QHTRI_COEFFICIENT_IDENTIFIABILITY_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_qhtri_mixing_angle_calibration_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QHTRI_MIXING_ANGLE_CALIBRATION_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_qhtri_proper_time_scale_calibration_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QHTRI_PROPER_TIME_SCALE_CALIBRATION_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_qhtri_direct_source_operator_noncommutativity_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QHTRI_DIRECT_SOURCE_OPERATOR_NONCOMMUTATIVITY_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_qhtri_upstream_tangent_matching_nogo_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QHTRI_UPSTREAM_TANGENT_MATCHING_NOGO_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_adaptive_coupling_variational_closure_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_ADAPTIVE_COUPLING_VARIATIONAL_CLOSURE_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_coupling_mobility_gain_identifiability_nogo_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_COUPLING_MOBILITY_GAIN_IDENTIFIABILITY_NOGO_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_adaptive_gain_stability_selection_nogo_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_ADAPTIVE_GAIN_STABILITY_SELECTION_NOGO_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_activity_operator_curvature_bifurcation_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_ACTIVITY_OPERATOR_CURVATURE_BIFURCATION_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_stella_adaptive_coupling_quartic_crosswalk_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_STELLA_ADAPTIVE_COUPLING_QUARTIC_CROSSWALK_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_pncs_harmonic_mask_stella_binding_nogo_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_PNCS_HARMONIC_MASK_STELLA_BINDING_NOGO_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_coefficient_free_observed_hydro_cp1_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_COEFFICIENT_FREE_OBSERVED_HYDRO_CP1_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_geometric_nonabelian_dynamical_abelian_split_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_GEOMETRIC_NONABELIAN_DYNAMICAL_ABELIAN_SPLIT_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_source_operator_nonabelianity_firewall_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_qhtri_pair_dynamics_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QHTRI_PAIR_DYNAMICS_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_quartic_continuum_regularity_split_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QUARTIC_CONTINUUM_REGULARITY_SPLIT_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_pnlf_reduction_layer_boundary_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_PNLF_REDUCTION_LAYER_BOUNDARY_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_qhtri_pnlf_typed_time_bridge_nogo_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QHTRI_PNLF_TYPED_TIME_BRIDGE_NOGO_VALIDATION_V0_1.json'
+      - 'TIR/validation/tir_mummu_qhtri_pnlf_trajectory_receipt_binding_v0_1.py'
+      - 'TIR/validation/TIR_MUMMU_QHTRI_PNLF_TRAJECTORY_RECEIPT_BINDING_VALIDATION_V0_1.json'
+      - '.github/workflows/tir-mummu-quartic-seam-v01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-mummu-quartic-seam:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact event revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation dependencies
+        run: python -m pip install --disable-pip-version-check --no-cache-dir numpy
+
+      - name: Run MUMMU layered projector gate
+        run: python TIR/validation/tir_mummu_neutrino_layered_projector_v0_1.py
+
+      - name: Run MUMMU quartic seam gate
+        run: python TIR/validation/tir_mummu_quartic_seam_abelian_reducibility_v0_1.py
+
+      - name: Run MUMMU orbital-algebra gauge closure gate
+        run: python TIR/validation/tir_mummu_orbital_algebra_gauge_closure_v0_1.py
+
+      - name: Run MUMMU orbital spin-connection gate
+        run: python TIR/validation/tir_mummu_orbital_spin_connection_v0_1.py
+
+      - name: Run MUMMU T36 eighteen-CP1 projection gate
+        run: python TIR/validation/tir_mummu_t36_cp1_pair_projection_v0_1.py
+
+      - name: Run MUMMU 18-pair intertwiner admission/no-go gate
+        run: python TIR/validation/tir_mummu_18pair_intertwiner_admission_nogo_v0_1.py
+
+      - name: Run MUMMU T36 wave full-CP1 local non-Abelian gate
+        run: python TIR/validation/tir_mummu_t36_wave_full_cp1_local_nonabelian_v0_1.py
+
+      - name: Run MUMMU QHTRI pair-dynamics gate
+        run: python TIR/validation/tir_mummu_qhtri_pair_dynamics_v0_1.py
+
+      - name: Run MUMMU quartic/continuum regularity split gate
+        run: python TIR/validation/tir_mummu_quartic_continuum_regularity_split_v0_1.py
+
+      - name: Run MUMMU PNLF reduction-layer boundary gate
+        run: python TIR/validation/tir_mummu_pnlf_reduction_layer_boundary_v0_1.py
+
+      - name: Run MUMMU QHTRI-PNLF typed-time bridge no-go gate
+        run: python TIR/validation/tir_mummu_qhtri_pnlf_typed_time_bridge_nogo_v0_1.py
+
+      - name: Run MUMMU QHTRI-ORCH-PNLF trajectory receipt gate
+        run: python TIR/validation/tir_mummu_qhtri_pnlf_trajectory_receipt_binding_v0_1.py
+
+      - name: Run MUMMU QHTRI pair-dynamics source witness gate
+        run: python TIR/validation/tir_mummu_qhtri_pair_dynamics_source_witness_v0_1.py
+
+      - name: Run MUMMU smooth-source Magnus-order gate
+        run: python TIR/validation/tir_mummu_source_magnus_order_v0_1.py
+
+      - name: Run MUMMU QHTRI coefficient-identifiability gate
+        run: python TIR/validation/tir_mummu_qhtri_coefficient_identifiability_v0_1.py
+
+      - name: Run MUMMU QHTRI mixing-angle calibration gate
+        run: python TIR/validation/tir_mummu_qhtri_mixing_angle_calibration_v0_1.py
+
+      - name: Run MUMMU QHTRI proper-time scale calibration gate
+        run: python TIR/validation/tir_mummu_qhtri_proper_time_scale_calibration_v0_1.py
+
+      - name: Run MUMMU coefficient-free observed-hydro CP1 gate
+        run: python TIR/validation/tir_mummu_coefficient_free_observed_hydro_cp1_v0_1.py
+
+      - name: Run MUMMU geometric/dynamical connection split gate
+        run: python TIR/validation/tir_mummu_geometric_nonabelian_dynamical_abelian_split_v0_1.py
+
+      - name: Run MUMMU source-operator non-Abelianity firewall gate
+        run: python TIR/validation/tir_mummu_source_operator_nonabelianity_firewall_v0_1.py
+
+      - name: Run MUMMU direct QHTRI source-operator noncommutativity gate
+        run: python TIR/validation/tir_mummu_qhtri_direct_source_operator_noncommutativity_v0_1.py
+
+      - name: Run MUMMU QHTRI upstream tangent-matching no-go gate
+        run: python TIR/validation/tir_mummu_qhtri_upstream_tangent_matching_nogo_v0_1.py
+
+      - name: Run MUMMU adaptive coupling variational closure gate
+        run: python TIR/validation/tir_mummu_adaptive_coupling_variational_closure_v0_1.py
+
+      - name: Run MUMMU coupling mobility-gain identifiability no-go gate
+        run: python TIR/validation/tir_mummu_coupling_mobility_gain_identifiability_nogo_v0_1.py
+
+      - name: Run MUMMU adaptive gain stability-selection no-go gate
+        run: python TIR/validation/tir_mummu_adaptive_gain_stability_selection_nogo_v0_1.py
+
+      - name: Run MUMMU activity operator-curvature bifurcation gate
+        run: python TIR/validation/tir_mummu_activity_operator_curvature_bifurcation_v0_1.py
+
+      - name: Run MUMMU Stella adaptive-coupling quartic crosswalk gate
+        run: python TIR/validation/tir_mummu_stella_adaptive_coupling_quartic_crosswalk_v0_1.py
+
+      - name: Run MUMMU PNCS harmonic-mask Stella-binding no-go gate
+        run: python TIR/validation/tir_mummu_pncs_harmonic_mask_stella_binding_nogo_v0_1.py

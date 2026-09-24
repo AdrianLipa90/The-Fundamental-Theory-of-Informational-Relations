@@ -1,0 +1,52 @@
+{
+  "schema": "TIR_MUMMU_T36_CP1_PAIR_PROJECTION_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "exact 18 complementary-pair CP1 projection conditional on PNCS experimental T36 pairing; single-CP1 selector and physical binding open",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963"
+  },
+  "checks": [
+    {
+      "bloch_error": 7.771561172376096e-16,
+      "name": "pair_projector_rank_one_and_bloch_formula",
+      "projector_error": 1.6653345369377348e-16,
+      "status": "PASS",
+      "trace_error": 2.220446049250313e-16
+    },
+    {
+      "max_abs_error": 1.6653345369377348e-16,
+      "name": "center_phase_projective_cancellation",
+      "status": "PASS"
+    },
+    {
+      "max_unit_circle_error": 5.551115123125783e-16,
+      "name": "source_relative_phase_equals_2omega_t",
+      "status": "PASS"
+    },
+    {
+      "coordinate_count": 36,
+      "name": "all_36_coordinates_used_once",
+      "status": "PASS",
+      "unique_count": 36
+    },
+    {
+      "max_spinor_error": 2.220446049250313e-16,
+      "name": "pair_spin_transport_recovers_registered_frequency",
+      "status": "PASS"
+    },
+    {
+      "max_abs_error": 1.2246467991473532e-16,
+      "name": "pair_relative_2pi_spin_lift_minus_I",
+      "status": "PASS"
+    },
+    {
+      "max_abs_error": 0.0,
+      "name": "pair_registry_permutation_covariance",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "total": 7
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "schema": "TIR_MUMMU_QHTRI_DIRECT_SOURCE_OPERATOR_NONCOMMUTATIVITY_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "direct source-operator test for PNCS controlled semantic QHTRI trajectory; fixed-H self history remains commuting, while source-updated multi-step Hamiltonians are noncommuting on the pinned deterministic fixture",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "fixture": "tests/test_semantic_htri_drive_v32.py"
+  },
+  "checks": [
+    {
+      "name": "projective_noncommutativity_does_not_imply_parent_operator_noncommutativity",
+      "status": "PASS",
+      "projective_omega_cross_norm": 0.1153756713135586,
+      "parent_hamiltonian_commutator_norm": 0
+    },
+    {
+      "name": "fixed_h_source_operator_self_commutator_zero",
+      "status": "PASS",
+      "frobenius_norm": 0
+    },
+    {
+      "name": "all_consecutive_controlled_source_hamiltonians_noncommute",
+      "status": "PASS",
+      "consecutive_commutator_frobenius_norms": [
+        0.000475441023291991,
+        0.0004542915624319203,
+        0.0004944377175301405,
+        0.00040267801525085105,
+        0.00041942046707139083,
+        0.00040276821479287106
+      ],
+      "minimum": 0.00040267801525085105,
+      "maximum": 0.0004944377175301405
+    },
+    {
+      "name": "exact_consecutive_commutator_decomposition",
+      "status": "PASS",
+      "max_abs_error": 2.8884670534318896e-17
+    },
+    {
+      "name": "X_Y_hs_linear_independence_all_transitions",
+      "status": "PASS",
+      "gram_determinants": [
+        1.9763760988443583e-12,
+        1.336201960668856e-12,
+        2.792774011631374e-12,
+        8.154724893275614e-13,
+        6.110410938392429e-13,
+        3.1007351971914526e-13
+      ],
+      "hs_correlations": [
+        -0.06525978931059014,
+        0.025287063077845593,
+        -0.18155696886671335,
+        -0.058438276994213424,
+        0.15315400576660945,
+        0.0742085756110062
+      ],
+      "X_frobenius_norms": [
+        0.002026539916834291,
+        0.0019642953814956333,
+        0.001972318137390502,
+        0.0019945074098476462,
+        0.0019394649107934456,
+        0.002127151250888945
+      ],
+      "Y_frobenius_norms": [
+        0.0006951946229457181,
+        0.0005886649159290464,
+        0.0008616271360524945,
+        0.0004535360747272778,
+        0.0004078565185673787,
+        0.00026250228231580443
+      ]
+    },
+    {
+      "name": "nonzero_coupling_generic_coefficient_probe_remains_noncommuting",
+      "status": "PASS",
+      "minimum_probe_commutator_norm": 0.0000026250228231580447,
+      "note": "finite probes supplement the exact linear-independence argument"
+    },
+    {
+      "name": "source_update_channel_ablation",
+      "status": "PASS",
+      "first_transition_commutator_norms": {
+        "full": 0.000475441023291991,
+        "hebb_only": 0.00046815248124742835,
+        "decay_only": 2.362084485582676e-16,
+        "weak_boost_only": 0.00009168171952068004,
+        "hebb_plus_boost": 0.0004753459564791059
+      },
+      "interpretation": "spectrally normalized decay-only rescales off-diagonal g and cannot rotate J; directional Hebbian/weak updates generate operator curvature"
+    },
+    {
+      "name": "direct_source_operator_commutator_has_linear_dt_continuum_limit",
+      "status": "PASS",
+      "dt_values": [
+        0.02,
+        0.01,
+        0.005,
+        0.0025,
+        0.00125
+      ],
+      "first_transition_commutator_over_dt": [
+        0.04754424396211102,
+        0.047544102329199096,
+        0.047544030100412256,
+        0.047543993631622525,
+        0.04754397530845688
+      ],
+      "mean_consecutive_commutator_over_dt": [
+        0.04415826520762785,
+        0.04415061667281941,
+        0.04414680271101129,
+        0.044144898302011716,
+        0.04414394673993107
+      ],
+      "fine_grid_spread": 5.47919553766052e-8,
+      "estimated_first_transition_limit": 0.04754397530845688
+    },
+    {
+      "name": "direct_operator_commutator_signature_is_order_sensitive",
+      "status": "PASS",
+      "order_summaries": {
+        "original": {
+          "sum_consecutive_commutator_norms": 0.0026490370003691647,
+          "max_consecutive_commutator_norm": 0.0004944377175301405
+        },
+        "reverse": {
+          "sum_consecutive_commutator_norms": 0.0025824466105946646,
+          "max_consecutive_commutator_norm": 0.0004937196178149947
+        },
+        "shuffle": {
+          "sum_consecutive_commutator_norms": 0.002602359708019339,
+          "max_consecutive_commutator_norm": 0.0004927538369795312
+        }
+      }
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "total": 9
+  }
+}

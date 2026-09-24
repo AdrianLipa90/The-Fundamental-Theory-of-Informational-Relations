@@ -1,0 +1,66 @@
+{
+  "schema": "TIR_MUMMU_QHTRI_PNLF_TRAJECTORY_RECEIPT_BINDING_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "candidate canonical provenance binding from ordered QHTRI step receipts and ORCH time bindings to one PNLF T36 trajectory commitment; native PNCS emitter and physical binding remain open",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963"
+  },
+  "checks": [
+    {
+      "name": "canonical_binding_is_deterministic",
+      "status": "PASS",
+      "commitment": "fc1ba738a72c288efe99ad63d18c38717efbb5c1c922330aef5dfaa3911d8473"
+    },
+    {
+      "name": "declared_pnlf_commitment_matches_canonical_payload",
+      "status": "PASS"
+    },
+    {
+      "name": "identity_fields_change_commitment",
+      "status": "PASS",
+      "sensitivity": {
+        "hamiltonian_hash": true,
+        "htri_step_receipt": true,
+        "time_binding_receipt": true,
+        "t36_basis": true
+      }
+    },
+    {
+      "name": "ordered_step_sequence_enters_identity",
+      "status": "PASS",
+      "reordered_commitment": "be9400c717299ff463934ade60e463fbef3a9bf643faa15c14e26cee680ed376"
+    },
+    {
+      "name": "mixed_time_models_fail_closed",
+      "status": "PASS"
+    },
+    {
+      "name": "htri_coordinate_dt_mismatch_fails_closed",
+      "status": "PASS"
+    },
+    {
+      "name": "per_step_proper_time_formula_fails_closed",
+      "status": "PASS"
+    },
+    {
+      "name": "pnlf_endpoint_closure_fails_closed",
+      "status": "PASS"
+    },
+    {
+      "name": "stale_declared_commitment_fails_closed",
+      "status": "PASS"
+    },
+    {
+      "name": "noncontiguous_step_indices_fail_closed",
+      "status": "PASS"
+    },
+    {
+      "name": "nonfinite_numeric_input_fails_closed",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "total": 11
+  }
+}

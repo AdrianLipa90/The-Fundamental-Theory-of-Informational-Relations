@@ -1,0 +1,224 @@
+{
+  "schema": "TIR_MUMMU_SOURCE_OPERATOR_NONABELIANITY_FIREWALL_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "projective horizontal-generator noncommutativity is not sufficient to infer source-Hamiltonian noncommutativity; the frozen PNCS semantic paths have direct nonzero adjacent Hamiltonian commutators, including in the coupling-only sector; the infinitesimal rotation is isolated to phase-conditioned Hebbian adaptation, a coefficient-free normalized [j,C_phi] obstruction records the underlying direction mismatch, and these obstructions persist across original/reverse/shuffle controls",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "semantic_sequence_fixture": "tests/test_semantic_htri_drive_v32.py::trajectories"
+  },
+  "checks": [
+    {
+      "name": "projective_omega_noncommutativity_does_not_imply_source_operator_noncommutativity",
+      "status": "PASS",
+      "projective_omega_cross_norm": 0.17737983788512188,
+      "commuting_diagonal_source_H_commutator_frobenius": 0
+    },
+    {
+      "name": "fixed_h_qhtri_fixture_source_operator_history_commutes",
+      "status": "PASS",
+      "commutator_frobenius": 0
+    },
+    {
+      "name": "initial_weak_channel_boost_is_inactive",
+      "status": "PASS",
+      "active_weak_channels": 0
+    },
+    {
+      "name": "pure_decay_is_directionally_invisible_after_qhtri_normalization",
+      "status": "PASS",
+      "max_abs_J_change": 3.469446951953614e-17
+    },
+    {
+      "name": "hebbian_phase_conditioning_generates_infinitesimal_operator_rotation",
+      "status": "PASS",
+      "activity": 0.33444444444444443,
+      "spectral_radius": 3.060000000000001,
+      "predicted_commutator_rate": 0.09807529728550185,
+      "eps_values": [
+        0.01,
+        0.005,
+        0.0025,
+        0.001,
+        0.0001
+      ],
+      "scaled_commutator_rates": [
+        0.0980905108958597,
+        0.09808290511130753,
+        0.09807910145360284,
+        0.098076819013971,
+        0.09807544946198384
+      ],
+      "relative_error_finest": 0.0000015516290666147446
+    },
+    {
+      "name": "coefficient_free_phase_geometry_obstruction",
+      "status": "PASS",
+      "Xi_phase": 0.4892295237087932,
+      "raw_phase_Xi": 0.0807815913779084,
+      "common_harmonic_Xi": 0.39256286196602685,
+      "channel_specific_harmonic_Xi": 0.4892295237087932,
+      "j_C_commutator_frobenius": 55.47007169773645,
+      "j_frobenius": 4.452954075667074,
+      "C_phi_frobenius": 25.46231305220863,
+      "lambda_H": -0.016555555555555556,
+      "reconstructed_commutator_rate": 0.09807529728550186,
+      "harmonic_to_raw_ratio": 6.056200619025987,
+      "channel_specific_to_common_ratio": 1.2462450504325395
+    },
+    {
+      "name": "frozen_semantic_path_source_hamiltonians_noncommute",
+      "status": "PASS",
+      "adjacent_commutator_frobenius": [
+        0.000475441023291991,
+        0.0004542915624319203,
+        0.0004944377175301405,
+        0.00040267801525085105,
+        0.00041942046707139083,
+        0.00040276821479287106
+      ],
+      "minimum": 0.00040267801525085105
+    },
+    {
+      "name": "coupling_only_operator_history_noncommutes",
+      "status": "PASS",
+      "adjacent_J_commutator_frobenius": [
+        0.0006951946229457181,
+        0.0005886649159290464,
+        0.0008616271360524945,
+        0.0004535360747272778,
+        0.0004078565185673787,
+        0.00026250228231580443
+      ],
+      "normalized_direction_witness": [
+        0.00032848779769002165,
+        0.0002781725248822899,
+        0.00040714157943708384,
+        0.00021430595921524895,
+        0.00019271838929226502,
+        0.00012402564868558929
+      ],
+      "minimum": 0.00026250228231580443
+    },
+    {
+      "name": "nonzero_coupling_prevents_detuning_cancellation_on_pinned_path",
+      "status": "PASS",
+      "gram_determinants": [
+        1.9763760988443583e-12,
+        1.336201960668856e-12,
+        2.792774011631374e-12,
+        8.154724893275614e-13,
+        6.110410938392429e-13,
+        3.1007351971914526e-13
+      ],
+      "hs_correlations": [
+        -0.06525978931059014,
+        0.025287063077845593,
+        -0.18155696886671335,
+        -0.058438276994213424,
+        0.15315400576660945,
+        0.0742085756110062
+      ],
+      "consequence": "for every adjacent pinned step, b!=0 implies [aD+bJ_k,aD+bJ_{k+1}]!=0 for arbitrary real a"
+    },
+    {
+      "name": "coupling_scale_enters_commutator_quadratically",
+      "status": "PASS",
+      "probe_b": 0.37,
+      "max_abs_error": 0
+    },
+    {
+      "name": "operator_obstruction_persists_across_frozen_order_controls",
+      "status": "PASS",
+      "minimum_H_commutator_frobenius": 0.00040259761262674196,
+      "minimum_J_commutator_frobenius": 0.00026244653400130124,
+      "minimum_Xi_phase": 0.041504625298592446,
+      "controls": {
+        "original": {
+          "H_commutators": [
+            0.000475441023291991,
+            0.0004542915624319203,
+            0.0004944377175301405,
+            0.00040267801525085105,
+            0.00041942046707139083,
+            0.00040276821479287106
+          ],
+          "J_commutators": [
+            0.0006951946229457181,
+            0.0005886649159290464,
+            0.0008616271360524945,
+            0.0004535360747272778,
+            0.0004078565185673787,
+            0.00026250228231580443
+          ],
+          "Xi_phase_sections": [
+            0.4892295237087932,
+            0.3238141655166749,
+            0.2340905398257463,
+            0.38782074666202865,
+            0.18535074712080432,
+            0.17783462927107535,
+            0.0416296993609356
+          ]
+        },
+        "reverse": {
+          "H_commutators": [
+            0.0004094622698204238,
+            0.00040265772379648326,
+            0.00041955198374930104,
+            0.00040259761262674196,
+            0.0004937196178149947,
+            0.0004544574027867201
+          ],
+          "J_commutators": [
+            0.00044120536895948706,
+            0.00026247764422442516,
+            0.0004077546057322752,
+            0.00045377110094605127,
+            0.0008616624064232427,
+            0.0005884452250077281
+          ],
+          "Xi_phase_sections": [
+            0.4892295237087932,
+            0.1858448230880343,
+            0.041504625298592446,
+            0.17778130050943225,
+            0.18551435926268953,
+            0.387810258678402,
+            0.23393597853227618
+          ]
+        },
+        "shuffle": {
+          "H_commutators": [
+            0.0004026398188554346,
+            0.00040949918658930777,
+            0.00047531218482536723,
+            0.0004193822983007205,
+            0.0004927538369795312,
+            0.00040277238246897796
+          ],
+          "J_commutators": [
+            0.0004537456574622733,
+            0.0004411597694417865,
+            0.000694971847784174,
+            0.000407638649832046,
+            0.0008616419941803659,
+            0.00026244653400130124
+          ],
+          "Xi_phase_sections": [
+            0.4892295237087932,
+            0.1854911621989452,
+            0.18584477444051997,
+            0.32374662463958265,
+            0.17777087552611243,
+            0.3878461433562256,
+            0.041553854034646384
+          ]
+        }
+      }
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "total": 11
+  }
+}

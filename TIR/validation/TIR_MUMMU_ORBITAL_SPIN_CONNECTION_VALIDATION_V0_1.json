@@ -1,0 +1,65 @@
+{
+  "schema": "TIR_MUMMU_ORBITAL_SPIN_CONNECTION_VALIDATION_V0_1",
+  "status": "PASS",
+  "claim_scope": "mathematical orbital spin-connection derivation from admitted CP1 projection, lifted phase and liminal path; physical MUMMU/neutrino/gravity binding open",
+  "source_pins": {
+    "pncs_main": "8855abed440e9949f576ffbe2153325f69e78963",
+    "ciel_orbital_foundation": "aa0da54ef29a1f80dd0390427935342225388950"
+  },
+  "checks": [
+    {
+      "max_abs_error": 5.551115123125783e-17,
+      "name": "projector_kinematics_identity",
+      "status": "PASS"
+    },
+    {
+      "antihermitian_error": 0.0,
+      "name": "connection_generator_in_su2",
+      "status": "PASS",
+      "trace_abs": 0.0
+    },
+    {
+      "max_abs_error": 2.2887833992611187e-16,
+      "name": "endpoint_coboundary_loop_no_go",
+      "status": "PASS"
+    },
+    {
+      "four_pi_to_plus_I_error": 2.4492935982947064e-16,
+      "name": "fiber_spinorial_2pi_4pi_closure",
+      "status": "PASS",
+      "two_pi_to_minus_I_error": 1.2246467991473532e-16
+    },
+    {
+      "max_abs_error": 2.1276056357529605e-15,
+      "name": "path_concatenation_functoriality",
+      "status": "PASS"
+    },
+    {
+      "max_abs_error": 3.2298203690718184e-07,
+      "name": "equatorial_geometric_loop_minus_I",
+      "status": "PASS",
+      "trace_real": -1.9999999999998344
+    },
+    {
+      "centrality_defect": 0.9999999999999413,
+      "name": "latitude_pi_solid_angle_zero_character",
+      "status": "PASS",
+      "trace_abs": 4.84473180328176e-07
+    },
+    {
+      "max_abs_error": 3.2239507942692045e-15,
+      "name": "global_frame_covariance",
+      "status": "PASS"
+    },
+    {
+      "centrality_defect": 0.9999999999999413,
+      "fitted_transport_parameters": 0,
+      "name": "derived_lagrange_loop_noncentrality",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "total": 9
+  }
+}
