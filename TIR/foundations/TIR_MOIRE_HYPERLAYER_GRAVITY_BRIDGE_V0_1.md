@@ -225,3 +225,41 @@ Reject or demote the bridge if:
 4. the infinite-layer sum fails to converge under the declared weights;
 5. gravity profiles must be inserted rather than generated;
 6. any claimed new prediction fails held-out physical tests.
+
+
+## 14. Bivector-36 lift gate
+
+The downstream file `TIR_BIVECTOR36_COFRAME_LIFT_V0_1` replaces any arbitrary 36-to-4 coordinate selection by a four-dimensional exterior-square gate.
+
+For \(V\cong\mathbb R^4\),
+
+\[
+\dim\Lambda^2V=6,
+\qquad
+\dim\operatorname{End}(\Lambda^2V)=36.
+\]
+
+A coframe \(e\) induces \(B=C_2(e)=\Lambda^2e\). In the canonical pair basis the exact identities
+
+\[
+C_2(e)^TJC_2(e)=\det(e)J,
+\qquad
+\det C_2(e)=\det(e)^3
+\]
+
+provide a reject-before-interpretation gate for a raw 6x6 hyperlayer matrix.
+
+This strengthens the open arrow
+
+\[
+\mathcal M_{36}\to e
+\]
+
+to
+
+\[
+\mathcal M_{36}\xrightarrow{\mathcal D}B
+\xrightarrow{\text{simplicity/liftability}}[e].
+\]
+
+The decoder \(\mathcal D\) from concrete moire observables to B coefficients remains OPEN.
