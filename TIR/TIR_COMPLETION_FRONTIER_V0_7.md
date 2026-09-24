@@ -2106,3 +2106,36 @@ PRODUCTION_BETA_MATCH = OPEN_INPUT
 FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = OPEN
 
 SHIFT_AS_STANDALONE_PHYSICAL_SOURCE = FORBIDDEN_PROMOTION
+
+
+---
+
+## NEW — 2026-09-24 — event-indexed metric-rate source to existing RF-E9
+
+Canonical sources:
+
+TIR/integration/TIR_IDT_EXTRINSIC_CURVATURE_SOURCE_BRIDGE_V0_1.md
+
+TIR/integration/TIR_IDT_EVENT_SPATIAL_STATE_BINDING_V0_1.md
+
+The abstract same-state map is no longer required as the smallest production gate. A source-owned IDT event may instead carry a TIR spatial snapshot under the same realization receipt and calibrated clock identity.
+
+\[
+\Delta x^0=\alpha\,\Delta\Theta,\qquad \mathcal D_{ij}=\frac{\Delta h_{ij}}{\Delta x^0},\qquad \mathcal D_{ij}\to\partial_0h_{ij}.
+\]
+
+This quantity is supplied to the existing RFC RF-E9 operator. No second extrinsic-curvature definition is introduced.
+
+EVENT_SPATIAL_METRIC_RATE_SOURCE_CONTRACT = PASS_EXECUTABLE
+
+EVENT_METRIC_RATE_REFINEMENT = PASS_CONDITIONAL
+
+RF_E9_EXTRINSIC_CURVATURE_OPERATOR = REUSED_EXISTING_GATE
+
+GENERIC_IDT_STATE_EQ_TIR_RHO = NOT_REQUIRED_FOR_PRODUCTION_ROUTE
+
+PRODUCTION_EVENT_SPATIAL_REALIZATION = OPEN_INPUT
+
+GLOBAL_EVENT_SPATIAL_REFINEMENT_COVERAGE = OPEN_INPUT
+
+SHIFT_AS_FUNDAMENTAL_OBSERVABLE = REFUTED_AS_GAUGE_TARGET
