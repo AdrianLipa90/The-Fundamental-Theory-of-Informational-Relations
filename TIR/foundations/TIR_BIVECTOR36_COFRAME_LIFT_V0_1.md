@@ -200,7 +200,8 @@ The bivector gate gives a natural six-channel carrier for area/loop transport, b
 - Urbantke metric reconstruction from nondegenerate chiral B triple: PASS STANDARD CROSSWALK
 - PhaseNav/moire observables -> unique B coefficients: OPEN
 - B -> unique tetrad globally: OPEN COMPONENT/GAUGE DETAILS
-- hyperlayer dynamics -> Einstein dynamics without inserted GR assumptions: OPEN
+- downstream coframe -> Cartan/Levi-Civita/ADM/local-Einstein chain: EXISTING CONDITIONAL_CLOSED TIR SPINE
+- upstream hyperlayer/source -> admitted physical coframe realization: OPEN
 - physical universe-memory ontology: OPEN
 - Clay Millennium problem closure: NOT CLAIMED
 
@@ -311,7 +312,7 @@ H\in\mathfrak{gl}(4).
 
 ### Firewall
 
-This does **not** close physical gravity. Any 36D state admits a projected geometric component by construction. Promotion requires the raw defect \(Q\) to satisfy a pre-registered empirical/dynamical criterion and requires an independently justified mapping of PhaseNav's six row/column axes to the two bivector pair frames.
+This does **not** by itself close the upstream physical source binding. The downstream TIR GR bridge already carries an admitted coframe through Cartan refinement, zero-torsion Levi-Civita selection, ADM reconstruction and a local Einstein sector on declared assumptions. Any raw 36D state still admits a projected geometric component by construction, so promotion of this *upstream decoder* requires the raw defect \(Q\) to satisfy a pre-registered empirical/dynamical criterion and an independently justified axis/carrier binding.
 
 Current statuses:
 
