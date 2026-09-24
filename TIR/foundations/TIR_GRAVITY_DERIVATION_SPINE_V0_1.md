@@ -286,3 +286,32 @@ The remaining blocker is empirical/source-level:
 \[
 \boxed{\text{production event-spatial realization + refinement coverage}.}
 \]
+
+
+## 10. 2026-09-24 acceleration mechanism closure refinement
+
+The current source stack now separates three non-equivalent acceleration routes:
+
+1. RF-F15 constant vacuum integration component: rho_C=K0 C_Lambda, with exact fixed-x transition rho_C>rho_r but open magnitude/sign.
+2. RF-L2 information-scalar potential: exact negative-pressure action route when potential dominates kinetic stress; absolute scale remains open.
+3. RF-F22 state-dependent projector/connection response: genuinely non-metric-proportional candidate source, with exact local threshold
+
+\[
+\frac{R_0+3R_s}{\mu_\vartheta^2}+(S_0+3S_s)<-\frac12
+\]
+
+on the positive interaction branch.
+
+The current frozen/internal realization does not satisfy route 3: AB and fixed-map Berry response may be held metric-independent, RF-F19 has an exact S_vartheta=0 independent-variation branch, and no current source derives a nonzero Euler/spin metric functional. Reusing the same ADM lapse inside the projector calibration during the same metric variation recovers the RF-F18 self-normalization no-go and gives zero projector stress.
+
+Finally, C_Lambda has dimension T^-4. Dimensionless holonomy/topological data cannot determine its nonzero magnitude without an independently derived frequency scale Omega_*; at most they may fix C_Lambda/Omega_*^4.
+
+PROJECTOR_RESPONSE_THRESHOLD = PASS_EXACT_CONDITIONAL
+
+SAME_METRIC_LAPSE_PROJECTOR = ZERO_STRESS_NO_GO
+
+C_LAMBDA_TOPOLOGICAL_ABSOLUTE_MAGNITUDE = DIMENSIONAL_NO_GO_WITHOUT_OMEGA_STAR
+
+PHYSICAL_EULER_OR_SCALE_METRIC_RESPONSE = OPEN
+
+PHYSICAL_OMEGA_STAR_SCALE = OPEN
