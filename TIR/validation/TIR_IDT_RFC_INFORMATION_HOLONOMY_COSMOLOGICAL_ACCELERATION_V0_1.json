@@ -1,0 +1,64 @@
+{
+  "schema": "TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_ACCELERATION_CRITERION_CURRENT_HOLONOMY_SPECTATOR_HOLONOMY_ACTIVE_ATTRIBUTION_OPEN",
+  "canon_allowed": false,
+  "execution": "LOCAL_EQUIVALENT_REFERENCE_CHECK_2026-09-24",
+  "checks": {
+    "rf_e13_flat_flrw_reduction": {
+      "pass": true,
+      "max_k_evolution_error": 2.6645352591003757e-15,
+      "max_acceleration_error": 3.552713678800501e-15
+    },
+    "information_scalar_acceleration_criterion": {
+      "pass": true,
+      "max_error": 2.6645352591003757e-15,
+      "sign_mismatches": 0
+    },
+    "scalar_vs_dynamic_lambda_no_double_count_roundtrip": {
+      "pass": true,
+      "max_error": 3.552713678800501e-15
+    },
+    "phase_clock_information_log_rate": {
+      "pass": true,
+      "max_error": 8.560350206465728e-9
+    },
+    "event_metric_acceleration_second_order": {
+      "pass": true,
+      "errors": [
+        0.00004996804444450109,
+        0.000012423002783285009,
+        0.000003101437629118853,
+        7.750898665184747e-7,
+        1.937550755462536e-7
+      ],
+      "ratios": [
+        0.24861895079930713,
+        0.2496528160882164,
+        0.24991309167119535,
+        0.2499775624942135
+      ]
+    },
+    "holonomy_partition_and_stationary_classification": {
+      "pass": true,
+      "max_identity_error": 2.220446049250313e-16,
+      "D_second_derivative_tau0": 0.5,
+      "D_second_derivative_taupi": -0.5
+    },
+    "holonomy_equal_stress_partition_no_go": {
+      "pass": true,
+      "max_total_potential_error": 1.4210854715202004e-14
+    },
+    "current_rfl3_holonomy_spectator": {
+      "pass": true,
+      "max_tau_derivative": 0
+    }
+  },
+  "open_gates": [
+    "ABSOLUTE_ALPHA_I_NORMALIZATION",
+    "INDEPENDENT_PHASE_KG_SPECTRAL_MATCH",
+    "PHYSICAL_HOLONOMY_D_CHANNEL_STRESS_ATTRIBUTION",
+    "NONTRIVIAL_HOLONOMY_PERSISTENCE_OR_DYNAMICAL_STABILITY",
+    "PRODUCTION_EVENT_SPATIAL_COSMOLOGY_REALIZATION"
+  ]
+}
