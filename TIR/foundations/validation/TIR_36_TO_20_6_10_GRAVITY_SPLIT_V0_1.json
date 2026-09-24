@@ -1,0 +1,16 @@
+{
+  "schema": "TIR_36_TO_20_6_10_GRAVITY_SPLIT_V0_1",
+  "date": "2026-09-24",
+  "candidate_only": true,
+  "status": "PASS",
+  "checks_passed": 8,
+  "checks_total": 8,
+  "dimension_ledger": {
+    "raw_bivector": 36,
+    "simplicity_defect": 20,
+    "geometric_gl4": 16,
+    "lorentz_gauge": 6,
+    "metric_deformation": 10
+  },
+  "next_gate": "SOURCE_DYNAMICS_FOR_10D_METRIC_SECTOR"
+}
