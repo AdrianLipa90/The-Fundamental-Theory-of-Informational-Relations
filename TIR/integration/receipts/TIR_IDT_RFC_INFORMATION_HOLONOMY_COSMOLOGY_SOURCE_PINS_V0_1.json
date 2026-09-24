@@ -5,7 +5,29 @@
   "tir": {
     "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
     "branch": "feat/tir-fractal-orbital-gravity-v0-1-20260924",
-    "source": "TIR/integration/TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_V0_1.md"
+    "source": "TIR/integration/TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_V0_1.md",
+    "sources": [
+      {
+        "path": "TIR/integration/TIR_WHITE_THREAD_SPIN_LIFT_CROSSLINK_V0_1.md",
+        "blob_sha": "5b242f018e4d074fdd276ea5f591b545a4705221"
+      },
+      {
+        "path": "TIR/foundations/TIR_WHITE_THREAD_SPIN_LIFT_LYAPUNOV_V0_1.md",
+        "blob_sha": "9c115e3743adc3418db82991f5d2520375d2102c"
+      },
+      {
+        "path": "TIR/integration/TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1.md",
+        "blob_sha": "4eb3d06a906d8a82525bc08909853028111a3cde"
+      },
+      {
+        "path": "TIR/metatime_paper.tex",
+        "blob_sha": "0aebd743e6e0f295ed5d2c00e78647e4f2a567db"
+      },
+      {
+        "path": "TIR/validation/TIR_V12_COSMOLOGY_FORMULA_AUDIT_V0_1.json",
+        "blob_sha": "f787e2af7be842952b6936d7c426a514467fd85d"
+      }
+    ]
   },
   "idt": {
     "repository": "AdrianLipa90/Informational-Dynamics-of-Time",
@@ -124,6 +146,18 @@
       {
         "path": "closure/einstein/RF_E8_ADM_KINEMATIC_ASSEMBLY_FIREWALL.md",
         "blob_sha": "bcb86be0f690567bdca401a81caaddec739c5e64"
+      },
+      {
+        "path": "closure/scale/RF_S10_TETRA_FS_PROJECTIVE_REFINEMENT.md",
+        "blob_sha": "b3dd156dd3060ab5e90bfa3008b15a053abebcbe"
+      },
+      {
+        "path": "closure/einstein/RF_E21_CARTAN_PALATINI_EINSTEIN_HILBERT_SELECTION.md",
+        "blob_sha": "c2ba5987c20f92161338a2885ca1444dd1eb3358"
+      },
+      {
+        "path": "formalism/RF02I_HEXAHEDRAL_COFRAME_CONNECTION.md",
+        "blob_sha": "1fa21764d81636ca0c63a39fcab5fc060cd0dabd"
       }
     ]
   },
@@ -141,7 +175,14 @@
     "DIMENSIONLESS_HOLONOMY_CANNOT_FIX_NONZERO_C_LAMBDA_WITHOUT_FREQUENCY_SCALE",
     "RF_F18_SAME_METRIC_SELF_NORMALIZATION_ZEROES_PROJECTOR_STRESS",
     "AB_AND_FIXED_MAP_BERRY_METRIC_RESPONSES_HAVE_ZERO_RESPONSE_BRANCH",
-    "LEGACY_A_E_EQUALS_HALF_OMEGA_E_IS_NOT_A_CURRENT_SPACETIME_SPIN_CONNECTION_BINDING"
+    "LEGACY_A_E_EQUALS_HALF_OMEGA_E_IS_NOT_A_CURRENT_SPACETIME_SPIN_CONNECTION_BINDING",
+    "PLANCK_FREQUENCY_IS_EXTERNAL_UNIVERSAL_CALIBRATION_NOT_INTERNAL_G_DERIVATION",
+    "LEGACY_224_DARK_ENERGY_SUPPRESSION_REMAINS_ANSATZ",
+    "PALATINI_EULER_ADAPTER_ROUTES_TO_CONNECTION_SPIN_CURRENT_NOT_DIRECT_RF_F20_METRIC_RESPONSE",
+    "SINGLE_COHERENT_EULER_AXIS_BREAKS_EXACT_FLRW_ISOTROPY",
+    "TETRAHEDRAL_AXIS_SET_CLOSES_ZERO_FIRST_AND_ISOTROPIC_SECOND_MOMENTS_ONLY",
+    "RF_F17_PROFILE_REMAINS_OPEN_UNLESS_DEGREE_ONE_Q_HOMOGENEITY_IS_ADMITTED",
+    "DEGREE_ONE_SQRT_PROFILE_TORSION_CORRECTION_HAS_NEGATIVE_ENERGY_VACUUM_SIGN"
   ],
   "canon_allowed": false,
   "legacy_sources": [
