@@ -1,6 +1,6 @@
 # TIR × IDT Extrinsic-Curvature Source Bridge v0.1
 
-Status: CONDITIONAL_EXTRINSIC_CURVATURE_SOURCE_THEOREM / REPARAMETRIZATION_INVARIANT_NORMAL_STRAIN / DISCRETE_GRAM_REFERENCE_PASS / CP1_TO_TIR_PURE_STATE_REPRESENTATION_SEAM_EXACT / PHYSICAL_SAME_STATE_BINDING_OPEN
+Status: CONDITIONAL_METRIC_RATE_SOURCE_THEOREM / RF_E9_OPERATOR_REUSED / REPARAMETRIZATION_INVARIANT_NORMAL_STRAIN / DISCRETE_GRAM_REFERENCE_PASS / CP1_REPRESENTATION_SEAM_EXACT / EVENT_INDEXED_PRODUCTION_ROUTE_PREFERRED / PRODUCTION_INPUT_OPEN
 
 Date: 2026-09-24
 
@@ -415,3 +415,44 @@ K_{ij}
 Reference validator:
 
 TIR/validation/tir_idt_extrinsic_curvature_source_bridge_v0_1.py
+
+
+## 12. RFC RF-E9 ownership and preferred production route
+
+Cross-repository audit pins RFC RF-E9 as the unique extrinsic-curvature operator for this path:
+
+\[
+\boxed{
+K_{ij}^{\rm RF-E9}
+=
+\frac1{2N}
+\left(
+-\partial_0h_{ij}
++D_i b_j+D_j b_i
+\right).
+}
+\]
+
+Accordingly, the formulas in Sections 4--6 are source/consistency formulas for the metric-rate contribution to this existing operator. They do not define a competing \(K_{ij}\).
+
+The preferred production architecture is now the event-indexed source contract
+
+TIR_IDT_EVENT_SPATIAL_STATE_BINDING_V0_1.
+
+It binds an IDT realized event to a TIR spatial snapshot under the same physical-realization receipt and clock identity, estimates
+
+\[
+\boxed{
+\partial_0h_{ij}
+\leftarrow
+\frac{\Delta h_{ij}}{\Delta x^0},
+}
+\]
+
+and hands that source term to RF-E9. This removes the abstract physical identity \(x_{\rm IDT}=\rho_{\rm TIR}\) from the required production premises.
+
+The smooth state-flow map \(\Xi\) remains a valid conditional analytic route and may later supply a stronger microscopic derivation, but it is no longer the smallest production binding gate.
+
+Pinned cross-repository provenance:
+
+TIR/integration/receipts/TIR_IDT_EVENT_SPATIAL_RF_E9_SOURCE_PINS_V0_1.json
