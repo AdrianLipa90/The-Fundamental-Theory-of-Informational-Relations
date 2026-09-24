@@ -2000,3 +2000,239 @@ one has
 `RANK2_CARTAN_FLAT_EMBEDS_AS_DIAGONAL_SYMMETRIC_UNITARY_EXP_IH`.
 
 This is internal symmetric-space geometry, not a physical-space claim.
+
+
+---
+
+## NEW — 2026-09-24 — gravity mechanism gate
+
+Canonical source:
+
+TIR/foundations/TIR_FRACTAL_ORBITAL_INFORMATIONAL_HOLONOMIC_GRAVITY_V0_1.md
+
+The representation/control subgates are closed:
+
+FRACTAL_ORBITAL_HYPERBOLIC_RAPIDITY = PASS_EXACT
+
+NONCOMMUTING_BOOST_HOLONOMY = PASS_EXACT_LIE_ALGEBRA
+
+SCHWARZSCHILD_PG_FLOW_CONTROL = PASS_EXACT
+
+FLAT_FLRW_FLOW_CONTROL = PASS_EXACT
+
+LEVI_CIVITA_TELEPARALLEL_CONNECTION_FIREWALL = PASS
+
+The physical closure frontier is now explicit:
+
+SOURCE_TO_DIMENSIONLESS_RAPIDITY_BINDING = OPEN
+
+ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME = OPEN
+
+DYNAMICAL_FIELD_EQUATION_FOR_V_FO = OPEN
+
+LATE_TIME_ACCELERATION_WITHOUT_RETUNING = OPEN
+
+LOCAL_PPN_LENSING_GW_VALIDATION_AFTER_BINDING = OPEN
+
+This sharpens, but does not falsely close, the existing metric/source gravity binding gate.
+
+
+---
+
+## NEW — 2026-09-24 — conditional ADM flow derivation strengthening
+
+Canonical source:
+
+TIR/foundations/TIR_FLOW_COFRAME_ADM_CONSTRAINT_GRAVITY_V0_1.md
+
+The conditional chain is
+
+\[
+{}^{(3)}R=0,\quad
+\rho=0,\quad
+V=V(r),\quad
+N=1
+\Longrightarrow
+\frac{d}{dr}(rV^2)=0
+\Longrightarrow
+V^2=\frac Cr.
+\]
+
+With asymptotic mass normalization, \(C=2GM\).
+
+SPHERICAL_VACUUM_FLOW_PROFILE_FROM_ADM_CONSTRAINT = PASS_CONDITIONAL
+
+SCHWARZSCHILD_PG_RIVER_LAW = DERIVED_ON_DECLARED_ASSUMPTIONS
+
+SOURCE_TO_DIMENSIONLESS_RAPIDITY_BINDING = OPEN
+
+ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME = OPEN
+
+HOLONOMIC_COSMOLOGICAL_SOURCE = OPEN
+
+
+---
+
+## NEW — 2026-09-24 — native inter-leaf shift to rapidity / invariant mass
+
+Canonical source:
+
+TIR/foundations/TIR_INTERLEAF_SHIFT_ORBITAL_RAPIDITY_MASS_BRIDGE_V0_1.md
+
+\[
+b_{(0)}=\beta_{(t)}/c,
+\qquad
+V=-cb_{(0)},
+\qquad
+\chi=\operatorname{artanh}|b|
+\]
+
+is an exact kinematic representation chain after the coordinate/sign convention is fixed.
+
+For the spherical flow metric,
+
+\[
+m_{\rm MS}=\frac{rV^2}{2G}
+\]
+
+is the invariant Misner--Sharp mass. Therefore the stationary vacuum law \(V^2=C/r\) is equivalent to \(dm_{\rm MS}/dr=0\).
+
+INTERLEAF_SHIFT_TO_RAPIDITY_KINEMATIC_BINDING = CLOSED_EXACT
+
+SPHERICAL_FLOW_TO_MISNER_SHARP_MASS = CLOSED_EXACT
+
+PRODUCTION_BETA_MATCH = OPEN_INPUT
+
+FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = NOT_FUNDAMENTAL_TARGET / SHIFT_GAUGE_REPRESENTATION
+
+SHIFT_AS_STANDALONE_PHYSICAL_SOURCE = FORBIDDEN_PROMOTION
+
+
+---
+
+## NEW — 2026-09-24 — event-indexed metric-rate source to existing RF-E9
+
+Canonical sources:
+
+TIR/integration/TIR_IDT_EXTRINSIC_CURVATURE_SOURCE_BRIDGE_V0_1.md
+
+TIR/integration/TIR_IDT_EVENT_SPATIAL_STATE_BINDING_V0_1.md
+
+The abstract same-state map is no longer required as the smallest production gate. A source-owned IDT event may instead carry a TIR spatial snapshot under the same realization receipt and calibrated clock identity.
+
+\[
+\Delta x^0=\alpha\,\Delta\Theta,\qquad \mathcal D_{ij}=\frac{\Delta h_{ij}}{\Delta x^0},\qquad \mathcal D_{ij}\to\partial_0h_{ij}.
+\]
+
+This quantity is supplied to the existing RFC RF-E9 operator. No second extrinsic-curvature definition is introduced.
+
+EVENT_SPATIAL_METRIC_RATE_SOURCE_CONTRACT = PASS_EXECUTABLE
+
+EVENT_METRIC_RATE_REFINEMENT = PASS_CONDITIONAL
+
+RF_E9_EXTRINSIC_CURVATURE_OPERATOR = REUSED_EXISTING_GATE
+
+GENERIC_IDT_STATE_EQ_TIR_RHO = NOT_REQUIRED_FOR_PRODUCTION_ROUTE
+
+PRODUCTION_EVENT_SPATIAL_REALIZATION = OPEN_INPUT
+
+GLOBAL_EVENT_SPATIAL_REFINEMENT_COVERAGE = OPEN_INPUT
+
+SHIFT_AS_FUNDAMENTAL_OBSERVABLE = REFUTED_AS_GAUGE_TARGET
+
+
+---
+
+## NEW — 2026-09-24 — information-scalar acceleration / holonomy stress no-go
+
+TIR/integration/TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_V0_1.md
+
+The RF-E13 flat-FLRW reduction and RF-L2/RF-L3/RF-L4A scalar action give
+
+\[
+\frac{a''}{a}\Big|_I=\frac{\alpha_I\Xi_I}{3}-\frac{\kappa_E}{6\Xi_I}(\Xi_I')^2
+\]
+
+and therefore
+
+\[
+\left|\partial_0\ln\Xi_I\right|<\sqrt{2\alpha_I/\kappa_E}
+\]
+
+is the exact local acceleration criterion on the admitted canonical information chart. Full-scalar and dynamic-Lambda bookkeeping are exactly equivalent and must not be double counted.
+
+The current holonomy coordinate is a spectator in RF-L3. Since C_h+D_h=1, equal stress attribution to both holonomy channels makes the total potential tau_R-independent.
+
+RF_E13_FLAT_FLRW_ACCELERATION = PASS_EXACT_ON_PARENT
+
+INFORMATION_SCALAR_ACCELERATION_CRITERION             = PASS_EXACT_LOCAL_CANONICAL
+
+BARE_LAMBDA_REQUIRED_ON_INFORMATION_SCALAR_ROUTE      = NO
+
+FULL_SCALAR_VS_DYNAMIC_LAMBDA_ROUNDTRIP               = PASS_EXACT / NO_DOUBLE_COUNT
+
+CURRENT_RFL3_HOLONOMY_STRESS_COUPLING                 = SPECTATOR_NO_GO
+
+EQUAL_STRESS_C_D_PARTITION_HOLONOMY_EFFECT            = NO_GO
+
+HOLONOMY_D_CHANNEL_DIFFERENTIAL_STRESS_ATTRIBUTION    = CANDIDATE
+
+COMPLEMENTARY_C_CHANNEL_BIANCHI_LEDGER                = OPEN
+
+NONTRIVIAL_HOLONOMY_PERSISTENCE_OR_STABILITY          = OPEN
+
+ABSOLUTE_ALPHA_I_NORMALIZATION                        = OPEN
+
+PRODUCTION_EVENT_SPATIAL_COSMOLOGY_REALIZATION        = OPEN
+
+
+---
+
+## NEW — 2026-09-24 — holonomy partition invariance and temporal-U1 metric response
+
+TIR/integration/TIR_IDT_RFC_HOLONOMY_BIANCHI_CHANNEL_LEDGER_V0_1.md
+
+TIR/integration/TIR_IDT_RFC_TEMPORAL_U1_METRIC_RESPONSE_COSMOLOGY_V0_1.md
+
+Exact source-ledger result: C_h+D_h=1 plus complete complementary bookkeeping leaves Einstein/FLRW dynamics unchanged. A tau_R-dependent result obtained only by retaining D_h U_I while dropping C_h U_I is an omitted-source artifact with exact acceleration defect kappa_E U_I C_h / 3.
+
+RF-E4 pure phase kinetic stress has w=+1 and therefore decelerates. RF-F20 supplies the existing non-bookkeeping connection-response correction Delta T_phase_mn=4 A^2 R_mn. In the isotropic local sector the correction accelerates iff R_00+3 R_s<0.
+
+HOLONOMY_PARTITION_BOOKKEEPING_INVARIANCE          = PASS_EXACT
+
+OMITTED_C_SOURCE_ACCELERATION_DEFECT               = PASS_EXACT
+
+RF_E4_PURE_PHASE_KINETIC_COSMOLOGY                = W_PLUS_ONE / DECELERATING
+
+RF_F20_CONNECTION_METRIC_RESPONSE_COSMOLOGY       = PASS_EXACT_CONDITIONAL_SIGN_TEST
+
+TEMPORAL_U1_TO_LOCAL_ABE_RESPONSE_BINDING          = OPEN
+
+LOCAL_BERRY_EULER_R_MN_RECEIPT                     = OPEN
+
+PRODUCTION_R_ACTIVE_SIGN_AND_MAGNITUDE             = OPEN
+
+
+---
+
+## NEW — 2026-09-24 — RF-F15 vacuum integration and acceleration transition
+
+TIR/integration/TIR_IDT_RFC_PHASE_CELL_VACUUM_INTEGRATION_ACCELERATION_V0_1.md
+
+RF_F15_VACUUM_INTEGRATION_ACCELERATION       = PASS_EXACT_CONDITIONAL
+
+C_LAMBDA_FIXED_X_TRANSPORT_CONSERVATION      = PASS_EXACT
+
+RHO_LAMBDA_EQUALS_K0_C_LAMBDA                = PASS_EXACT
+
+ACCELERATION_IFF_RHO_LAMBDA_GT_RHO_R         = PASS_EXACT_FIXED_X
+
+OMEGA_ACC_FOURTH_EQUALS_2C_OVER_3PLUSX        = PASS_EXACT
+
+RF_F16_CONSTANT_VACUUM_REPARTITION           = PASS_EXACT / GEOMETRICALLY_DEGENERATE
+
+C_LAMBDA_SIGN_AND_MAGNITUDE                  = OPEN INITIAL_OR_BOUNDARY_DATA
+
+C_LAMBDA_HOLONOMY_TOPOLOGY_BINDING           = OPEN
+
+MULTICOMPONENT_DUST_RADIATION_VACUUM         = OPEN PHYSICAL COMPOSITION

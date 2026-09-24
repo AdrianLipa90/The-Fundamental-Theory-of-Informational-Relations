@@ -36,6 +36,12 @@ FINITE_ORIENTATION_EXTENSIONS                   = CLOSED
 PHYSICAL_FAMILY_GENERATION_BINDING              = OPEN
 ```
 
+NEW: fractal-orbital Lorentz carrier. The hyperbolic orbital carrier now has an explicit representation bridge
+\[
+\mathfrak{su}(1,1)\cong\mathfrak{so}(2,1)\subset\mathfrak{so}(3,1),
+\]
+with \(q=\tanh(\chi/2)\) and \(\beta=2q/(1+q^2)=\tanh\chi\). This closes a representation crosswalk only; physical spacetime binding remains separately gated.
+
 ### Dynamics / geometry bridge
 
 The structural chain
@@ -70,6 +76,36 @@ SIGNED_GEOMETRIC_SU3_STEP                        = PASS_MATH_PROVENANCE
 COLLATZ_POINCARE_BRANCH_RHYTHM                   = PASS_MATH_PROVENANCE
 TERMINAL_NONFLAT_SU3_PATH_SOURCE                 = PASS_STRUCTURAL
 ```
+
+NEW: orbital-flow gravity controls. Ordered non-collinear orbital boosts generate the expected Lorentz rotation commutator. With the candidate coframe
+\[
+e^0=c\,d\tau,\qquad e^i=dX^i-V_{\rm FO}^i d\tau,
+\]
+the profiles \(V=-\sqrt{2GM/R}\,\hat r\) and \(V=H(t)R\) reproduce exact Schwarzschild Painleve-Gullstrand and flat-FLRW physical-radius controls respectively. These are exact control identities, not yet a source derivation.
+
+NEW: ADM flow constraint strengthening. For the already-admitted unit-lapse flat-slice flow coframe, stationary spherical vacuum ADM data satisfy
+\[
+\frac{d}{dr}(rV^2)=0,
+\]
+hence \(V^2=C/r\). Weak-field/ADM mass normalization gives \(C=2GM\). This upgrades the Schwarzschild Painleve-Gullstrand profile from inserted control to a conditional derivation downstream of the existing TIR ADM/Einstein gate. Microscopic source-to-coframe binding remains open.
+
+NEW: native inter-leaf shift to rapidity. The existing TIR matching-field export \(b_{(0)}=\beta_t/c\) is exactly the flow-coordinate carrier up to the declared sign convention \(V=-cb_{(0)}\). Hence \(\chi=\operatorname{artanh}|b|\) on the subluminal chart and the Poincare radial coordinate follows without a new scale. In spherical symmetry the full metric gives \(m_{\rm MS}=rV^2/(2G)\), separating gauge-dependent shift representation from invariant mass content. Production \(\beta_{\rm match}\) remains open.
+
+NEW: event-indexed metric-rate source bridge. IDT realized-event edges may be paired with TIR spatial snapshots under one source-owned realization receipt and calibrated clock. The finite estimator
+\[
+\Delta h_{ij}/\Delta x^0
+\]
+converges to \(\partial_0h_{ij}\) on a regular smooth refinement and is handed to the existing RFC RF-E9 operator. No competing \(K_{ij}\) is introduced. This removes a generic physical identity \(x_{\rm IDT}=\rho_{\rm TIR}\) from the minimum production premises.
+
+NEW: information-scalar acceleration theorem. The RF-E12/RF-E13 flat-FLRW reduction gives \(a''/a=-\kappa_E(\rho+3p)/6\). On the locally Fisher-normalized information-scalar branch, \(U_I=\alpha_I\Xi_I/\kappa_E\) and \(\phi_I=\sqrt{2\Xi_I}\), hence
+\[
+\frac{a''}{a}\Big|_I=\frac{\alpha_I\Xi_I}{3}-\frac{\kappa_E}{6\Xi_I}(\Xi_I')^2.
+\]
+An additional bare cosmological constant is not required for this mechanism; the absolute \(\alpha_I\) scale remains physically open.
+
+NEW: holonomy-stress no-go. The current RF-L3 action preserves \(\tau_R\) but is independent of it, so holonomy is presently a spectator in stress-energy. Further, \(C_h+D_h=1\) makes a same-stress C/D partition gravitationally \(\tau_R\)-independent. A holonomy-active completion therefore requires differential stress attribution, a derived holonomy-dependent action, a dynamical holonomy stress, or a genuinely topological/frozen contribution. The candidate \(\Lambda_D=\alpha_I\Xi_I\sin^2(\tau_R/2)\) is not promoted without the complementary C-channel/Bianchi ledger and persistence/stability closure.
+
+NEW: temporal-U1 metric-response route. RF-E4 fixes pure homogeneous phase kinetic stress at w=+1, so the phase-kinetic sector is decelerating rather than dark-energy-like. RF-F20 supplies a genuinely non-bookkeeping correction \(\Delta T^{phase}_{\mu\nu}=4A^2R_{\mu\nu}\). In an isotropic orthonormal sector its acceleration correction is \(-2\kappa_EA^2(R_0+3R_s)/3\), so the correction accelerates iff \(R_0+3R_s<0\). Closed-loop holonomy does not determine the local off-shell metric response; the temporal-U(1)/holonomy to local Berry/Euler \(R_{\mu\nu}\) binding remains OPEN.
 
 ### Open physical binding / no-go ledger
 
@@ -108,6 +144,20 @@ COMMON_TARGET_WIJ_AS_NONFLAT_CP_SOURCE            = REFUTED
 ```
 
 Still OPEN downstream: temporal-to-physical-family identification, dynamical compact-real-form selection, Higgs/hypercharge vacuum alignment, mass/Yukawa derivation, physical CKM/PMNS forcing, full particle-spectrum binding, temporal-to-spatial physical binding, and metric/source gravity binding.
+
+NEW: gravity physical-binding firewall. The map \(B\omega\mathcal N/(AR\Lambda)\to\chi(x)\), the unique orbital recursion \(\to V_{\rm FO}\), and the field equation for \(V_{\rm FO}\) remain OPEN. Pure local Lorentz relabeling is explicitly rejected as a gravity source. Existing TIR Levi-Civita zero torsion and an optional teleparallel torsion representation refer to different connections and are not conflated. A dark-energy-like interpretation is only a mechanism claim if the derived dynamics yields \(\dot H_{\rm FO}+H_{\rm FO}^2>0\) without retuning.
+
+NEW: event-spatial production frontier. The coordinate shift is not a fundamental observable target. Remaining gravity closure requires source-owned event-spatial snapshots with the same physical-realization receipt and clock identity, plus sufficient refinement/coverage for the continuum claim. Reference fixtures, NOEMA/PhaseNav runtime vectors and synthetic event graphs cannot satisfy this production gate.
+
+```text
+INFORMATION_SCALAR_ACCELERATION_CRITERION             = PASS_EXACT_LOCAL_CANONICAL
+CURRENT_RFL3_HOLONOMY_STRESS_COUPLING                 = SPECTATOR_NO_GO
+EQUAL_STRESS_C_D_PARTITION_HOLONOMY_EFFECT            = NO_GO
+HOLONOMY_DIFFERENTIAL_STRESS_OR_ACTION_BINDING        = OPEN
+COMPLEMENTARY_C_CHANNEL_BIANCHI_LEDGER                = OPEN
+NONTRIVIAL_HOLONOMY_PERSISTENCE_OR_STABILITY          = OPEN
+ABSOLUTE_ALPHA_I_NORMALIZATION                        = OPEN
+```
 
 Future small additions are written as `NEW:` under one of these three blocks. No further Appendix-letter sequence is active.
 

@@ -1,0 +1,25 @@
+{
+  "schema": "TIR_IDT_RFC_BERRY_EULER_METRIC_RESPONSE_SOURCE_FIREWALL_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_FIXED_AB_BERRY_AND_RF_F19_SCALE_RESPONSES_EULER_METRIC_ADAPTER_OPEN",
+  "canon_allowed": false,
+  "execution": "LOCAL_EQUIVALENT_REFERENCE_CHECK_2026-09-24",
+  "exact_conditional": [
+    "independent electromagnetic covector under metric variation -> Pi_AB=0 -> R_AB=0",
+    "fixed internal Berry state/pullback map under spacetime metric variation -> Pi_B=0 -> R_B=0",
+    "RF-F19 independent rotor-rate/lapse variation -> S_vartheta=0",
+    "on those branches projector acceleration reduces to (R_E0+3 R_Es)/mu_theta^2 < -1/2",
+    "fully frozen Euler response -> B_response=1 -> positive projector decelerates"
+  ],
+  "legacy_provenance": {
+    "statement": "A_E=s_E omega_E with s_E=1/2 appears in archived phase-Hamiltonian notes; no current spacetime omega_E[g] adapter is derived",
+    "status": "LEGACY_ONLY_NOT_PROMOTED"
+  },
+  "open_gates": [
+    "PHYSICAL_BERRY_U_OF_Q_G_METRIC_ADAPTER",
+    "PHYSICAL_EULER_SPIN_CONNECTION_METRIC_FUNCTIONAL",
+    "LOCAL_R_E_MN_RECEIPT",
+    "NONZERO_RF_F19_SCALE_RESPONSE_RECEIPT",
+    "SPACETIME_SPIN_CONNECTION_NO_DOUBLE_COUNT_ACTION_GATE"
+  ]
+}

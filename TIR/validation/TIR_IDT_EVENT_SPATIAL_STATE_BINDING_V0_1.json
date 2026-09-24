@@ -1,0 +1,37 @@
+{
+  "schema": "TIR_IDT_EVENT_SPATIAL_STATE_BINDING_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_EVENT_INDEXED_METRIC_RATE_SOURCE_CONTRACT_PRODUCTION_INPUT_OPEN",
+  "canon_allowed": false,
+  "execution": "LOCAL_EQUIVALENT_REFERENCE_CHECK_2026-09-24",
+  "rf_e9_operator_reused": true,
+  "new_extrinsic_curvature_operator_defined": false,
+  "reference_controls": {
+    "reference_packet_contract": "PASS",
+    "metric_rate_first_order_refinement": "PASS",
+    "constant_spatial_basis_covariance": "PASS",
+    "zero_shift_rf_e9_control": "PASS",
+    "indefinite_metric_rejected": "PASS",
+    "runtime_id_rejected_as_production": "PASS",
+    "clock_edge_mismatch_rejected": "PASS"
+  },
+  "production_event_spatial_realization": "OPEN_INPUT",
+  "exact_branch_checkout_execution": false,
+  "checkout_blocker": "container DNS could not resolve github.com; GitHub connector remained available",
+  "observed": {
+    "refinement_errors": [
+      0.016435338374793163,
+      0.008107741923882084,
+      0.0040268005351155045,
+      0.002006683366717943,
+      0.0010016687520767453
+    ],
+    "refinement_ratios": [
+      0.4933115302522099,
+      0.49666116323389636,
+      0.49833195094188676,
+      0.4991663202526255
+    ],
+    "constant_basis_covariance_max_error": 1.9984014443252818e-15
+  }
+}

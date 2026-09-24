@@ -1,0 +1,29 @@
+{
+  "schema": "TIR_FLOW_COFRAME_ADM_CONSTRAINT_GRAVITY_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_CONDITIONAL_ADM_FLOW_DERIVATION_SOURCE_BINDING_OPEN",
+  "canon_allowed": false,
+  "execution": "LOCAL_CONTAINER_2026-09-24",
+  "closed_gate": "FLOW_COFRAME_TO_SPHERICAL_VACUUM_RIVER_PROFILE_ON_DECLARED_ADM_ASSUMPTIONS",
+  "checks": {
+    "vacuum_radial_C_over_r_family": "PASS",
+    "non_unit_power_negative_controls": "PASS",
+    "radial_first_integral_identity": "PASS",
+    "mass_normalization_C_equals_2GM": "PASS",
+    "flat_flrw_hamiltonian_identity": "PASS",
+    "rapidity_profile_exterior_identity": "PASS"
+  },
+  "open_gates": [
+    "SOURCE_TO_DIMENSIONLESS_RAPIDITY_BINDING",
+    "ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME",
+    "HOLONOMIC_EFFECTIVE_SOURCE_OR_GEOMETRIC_CORRECTION",
+    "LATE_TIME_ACCELERATION_WITHOUT_RETUNING"
+  ],
+  "validation_correction": {
+    "date": "2026-09-24",
+    "issue": "initial validator used absolute tolerance on cancellation-prone quadratic ADM constraint residual",
+    "action": "replaced with scale-normalized residual; independent rerun max scaled residual 2.1827872842550276e-16",
+    "scientific_formula_changed": false
+  },
+  "max_scaled_residual": 2.1827872842550276e-16
+}

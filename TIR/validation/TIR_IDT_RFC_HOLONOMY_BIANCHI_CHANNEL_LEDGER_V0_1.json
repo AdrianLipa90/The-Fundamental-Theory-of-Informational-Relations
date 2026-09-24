@@ -1,0 +1,23 @@
+{
+  "schema": "TIR_IDT_RFC_HOLONOMY_BIANCHI_CHANNEL_LEDGER_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_HOLONOMY_PARTITION_IS_BOOKKEEPING_UNLESS_TOTAL_SOURCE_CHANGES",
+  "canon_allowed": false,
+  "execution": "LOCAL_EQUIVALENT_REFERENCE_CHECK_2026-09-24",
+  "checks": {
+    "C_plus_D_partition": {
+      "pass": true,
+      "max_error": 2.220446049250313e-16
+    },
+    "exact_D_to_Lambda_bookkeeping_invariance": {
+      "pass": true,
+      "max_acceleration_error": 2.842170943040401e-14
+    },
+    "omitted_C_source_defect_exact": {
+      "pass": true,
+      "max_error": 2.842170943040401e-14,
+      "defect": "a_original-a_omitC = kappa_E U_I C_h / 3"
+    }
+  },
+  "next_gate": "DERIVE_NONZERO_CONSERVATION_COMPATIBLE_DELTA_T_HOL_FROM_INDEPENDENT_TEMPORAL_U1_PHYSICS_OR_TOPOLOGICAL_SECTOR"
+}
