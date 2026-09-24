@@ -20,5 +20,12 @@
     "TETRA_SPIN_COARSE_GRAINING",
     "FULL_EFFECTIVE_METRIC_STRESS",
     "EFFECTIVE_EOS_AND_ACCELERATION_SIGN"
-  ]
+  ],
+  "execution": "LOCAL_EQUIVALENT_REFERENCE_CHECK_2026-09-24_RERUN_AFTER_SCALED_STATIONARITY_FIX",
+  "numeric_sanity": {
+    "degree_one_max_scaled_error": 2.4139295481736285e-16,
+    "fixed_sign_linearity_max_scaled_error": 2.2180386574887268e-16,
+    "cartan_stationarity_max_scaled_error": 1.9173471406037101e-16,
+    "eliminated_action_max_scaled_error": 2.4300040336302924e-16
+  }
 }
