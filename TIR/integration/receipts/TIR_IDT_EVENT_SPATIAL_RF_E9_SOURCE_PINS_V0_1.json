@@ -1,0 +1,37 @@
+{
+  "schema": "TIR_IDT_EVENT_SPATIAL_RF_E9_SOURCE_PINS_V0_1",
+  "date": "2026-09-24",
+  "authority": "CANDIDATE_BRANCH_PROVENANCE",
+  "tir": {
+    "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+    "main_sha": "6bb61fdc8b3f77deba406fe2cb8b154723269e0e",
+    "branch": "feat/tir-fractal-orbital-gravity-v0-1-20260924",
+    "sources": [
+      "TIR/foundations/TIR_SPATIAL_TEMPORAL_CLOSURE_INTERFACE_V0_1.md",
+      "TIR/foundations/TIR_CARTAN_CONTINUUM_REFINEMENT_V0_1.md",
+      "TIR/integration/TIR_IDT_EVENT_SPATIAL_STATE_BINDING_V0_1.md"
+    ]
+  },
+  "idt": {
+    "repository": "AdrianLipa90/Informational-Dynamics-of-Time",
+    "main_sha": "2960a936e3f74b07a4bf30ebc5cb78b6c1811b4c",
+    "sources": [
+      "docs/candidates/global_spacetime/IDT_GSC2_PRODUCTION_EVENT_COMPLEX_INPUT_V0_1.md",
+      "docs/candidates/global_spacetime/IDT_GSC2_REALIZED_EVENT_SOURCE_FREEZE_V0_1.md",
+      "formalism/01A_relational_tensor_scalar_forcing.md",
+      "formalism/01AD_relational_lapse_normal_phase_rate.md"
+    ]
+  },
+  "rfc": {
+    "repository": "AdrianLipa90/Relational-Field-Closure",
+    "main_sha": "786d1e1a9f9c91a4c3174719ed76966aa73edcef",
+    "sources": [
+      "closure/einstein/RF_E9_EXTRINSIC_CURVATURE_GEOMETRY.md",
+      "closure/einstein/RF_GSC3A_CLOCK_TRANSVERSE_MATCHING_FLOW_SOLDERING.md",
+      "closure/einstein/RF_GSC3B_MATCHING_FLOW_RFE9_EXTRINSIC_CURVATURE_CROSSLINK.md",
+      "closure/einstein/RF_GSC3D_BETA_SHIFT_INTERFACE_ALIAS.md"
+    ]
+  },
+  "invariant": "RF_E9_IS_THE_ONLY_EXTRINSIC_CURVATURE_OPERATOR_IN_THIS_CROSSWALK",
+  "production_state": "OPEN_INPUT"
+}
