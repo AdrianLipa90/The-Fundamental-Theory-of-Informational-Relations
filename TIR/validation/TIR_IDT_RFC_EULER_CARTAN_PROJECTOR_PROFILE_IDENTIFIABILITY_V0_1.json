@@ -1,0 +1,23 @@
+{
+  "schema": "TIR_IDT_RFC_EULER_CARTAN_PROJECTOR_PROFILE_IDENTIFIABILITY_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_PROJECTOR_FIRST_DERIVATIVE_INSUFFICIENT_AFFINE_CONTROL_SOLVABLE_FULL_EOS_OPEN",
+  "canon_allowed": false,
+  "exact_conditional": [
+    "C'(projector)=sign(q) s_E/mu_theta",
+    "C''=s_E^2/(2 mu_theta^2)",
+    "L_int''=eta Uhat s_E^2/mu_theta^2 [f''(1)+f'(1)/2]",
+    "f_A=(1+C)/2 and f_B=f_A+lambda(C-1)^2 have same f(1),f'(1) but different connection Hessians",
+    "local constant-source Delta R=-h^2/2 under declared Cartan convention",
+    "affine gamma_E=kappa_E eta Uhat s_E^2/(2 mu_theta^2)",
+    "affine h=kappa_E eta Uhat s_E Q/[mu_theta^2(1-gamma_E)]",
+    "affine local Delta L_eff=kappa_E eta^2 Uhat^2 s_E^2 Q^2/[4 mu_theta^4(1-gamma_E)]"
+  ],
+  "open_gates": [
+    "PHYSICAL_PROJECTOR_PROFILE_SELECTION",
+    "FULL_TORSION_ELIMINATED_METRIC_VARIATION",
+    "COARSE_GRAINED_SPIN_STATE_DEPENDENCE",
+    "EFFECTIVE_EOS",
+    "ACCELERATION_SIGN"
+  ]
+}
