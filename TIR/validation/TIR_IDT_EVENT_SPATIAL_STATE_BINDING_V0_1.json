@@ -1,0 +1,19 @@
+{
+  "schema": "TIR_IDT_EVENT_SPATIAL_STATE_BINDING_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_EVENT_INDEXED_METRIC_RATE_SOURCE_CONTRACT_PRODUCTION_INPUT_OPEN",
+  "canon_allowed": false,
+  "execution": "LOCAL_REFERENCE_2026-09-24",
+  "rf_e9_operator_reused": true,
+  "new_extrinsic_curvature_operator_defined": false,
+  "reference_controls": {
+    "reference_packet_contract": "PASS",
+    "metric_rate_first_order_refinement": "PASS",
+    "constant_spatial_basis_covariance": "PASS",
+    "zero_shift_rf_e9_control": "PASS",
+    "indefinite_metric_rejected": "PASS",
+    "runtime_id_rejected_as_production": "PASS",
+    "clock_edge_mismatch_rejected": "PASS"
+  },
+  "production_event_spatial_realization": "OPEN_INPUT"
+}
