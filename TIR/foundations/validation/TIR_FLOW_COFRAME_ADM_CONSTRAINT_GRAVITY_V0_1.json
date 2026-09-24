@@ -18,5 +18,12 @@
     "ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME",
     "HOLONOMIC_EFFECTIVE_SOURCE_OR_GEOMETRIC_CORRECTION",
     "LATE_TIME_ACCELERATION_WITHOUT_RETUNING"
-  ]
+  ],
+  "validation_correction": {
+    "date": "2026-09-24",
+    "issue": "initial validator used absolute tolerance on cancellation-prone quadratic ADM constraint residual",
+    "action": "replaced with scale-normalized residual; independent rerun max scaled residual 2.1827872842550276e-16",
+    "scientific_formula_changed": false
+  },
+  "max_scaled_residual": 2.1827872842550276e-16
 }
