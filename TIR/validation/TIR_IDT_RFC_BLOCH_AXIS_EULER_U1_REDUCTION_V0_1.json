@@ -1,0 +1,21 @@
+{
+  "schema": "TIR_IDT_RFC_BLOCH_AXIS_EULER_U1_REDUCTION_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_LOCAL_SO3_SO2_U1_EULER_REDUCTION_INTERNAL_TO_SPACETIME_AXIS_SOLDER_OPEN",
+  "canon_allowed": false,
+  "exact_conditional": [
+    "unit s^a -> n_ab=epsilon_abc s^c",
+    "0.5 n_ab n^ab=1",
+    "Stab_SO3(s)=SO2 isomorphic U1",
+    "RFC omega'=R omega R^-1-dR R^-1",
+    "A_E=(s_E/2)n_ab omega^ab -> A_E'=A_E-s_E d alpha",
+    "lambda_E=s_E alpha gives RFC U1 sign convention",
+    "s_E=1/2 -> 2pi phase=-1 and 4pi phase=+1"
+  ],
+  "open_gates": [
+    "TIR_INTERNAL_A1_CP1_AXIS_TO_RFC_SPATIAL_TETRAD_AXIS_SOLDER",
+    "GLOBAL_REDUCED_AXIS_SECTION_PATCHING",
+    "DEFECT_ZERO_HANDLING",
+    "EINSTEIN_CARTAN_TORSION_SOLUTION"
+  ]
+}
