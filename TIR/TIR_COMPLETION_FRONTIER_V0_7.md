@@ -2139,3 +2139,48 @@ PRODUCTION_EVENT_SPATIAL_REALIZATION = OPEN_INPUT
 GLOBAL_EVENT_SPATIAL_REFINEMENT_COVERAGE = OPEN_INPUT
 
 SHIFT_AS_FUNDAMENTAL_OBSERVABLE = REFUTED_AS_GAUGE_TARGET
+
+
+---
+
+## NEW — 2026-09-24 — information-scalar acceleration / holonomy stress no-go
+
+TIR/integration/TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_V0_1.md
+
+The RF-E13 flat-FLRW reduction and RF-L2/RF-L3/RF-L4A scalar action give
+
+\[
+\frac{a''}{a}\Big|_I=\frac{\alpha_I\Xi_I}{3}-\frac{\kappa_E}{6\Xi_I}(\Xi_I')^2
+\]
+
+and therefore
+
+\[
+\left|\partial_0\ln\Xi_I\right|<\sqrt{2\alpha_I/\kappa_E}
+\]
+
+is the exact local acceleration criterion on the admitted canonical information chart. Full-scalar and dynamic-Lambda bookkeeping are exactly equivalent and must not be double counted.
+
+The current holonomy coordinate is a spectator in RF-L3. Since C_h+D_h=1, equal stress attribution to both holonomy channels makes the total potential tau_R-independent.
+
+RF_E13_FLAT_FLRW_ACCELERATION = PASS_EXACT_ON_PARENT
+
+INFORMATION_SCALAR_ACCELERATION_CRITERION             = PASS_EXACT_LOCAL_CANONICAL
+
+BARE_LAMBDA_REQUIRED_ON_INFORMATION_SCALAR_ROUTE      = NO
+
+FULL_SCALAR_VS_DYNAMIC_LAMBDA_ROUNDTRIP               = PASS_EXACT / NO_DOUBLE_COUNT
+
+CURRENT_RFL3_HOLONOMY_STRESS_COUPLING                 = SPECTATOR_NO_GO
+
+EQUAL_STRESS_C_D_PARTITION_HOLONOMY_EFFECT            = NO_GO
+
+HOLONOMY_D_CHANNEL_DIFFERENTIAL_STRESS_ATTRIBUTION    = CANDIDATE
+
+COMPLEMENTARY_C_CHANNEL_BIANCHI_LEDGER                = OPEN
+
+NONTRIVIAL_HOLONOMY_PERSISTENCE_OR_STABILITY          = OPEN
+
+ABSOLUTE_ALPHA_I_NORMALIZATION                        = OPEN
+
+PRODUCTION_EVENT_SPATIAL_COSMOLOGY_REALIZATION        = OPEN
