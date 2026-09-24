@@ -73,6 +73,13 @@ TIR_WHITE_THREAD_LYAPUNOV = EXACT_CONDITIONAL_STATIC_HOLONOMY / DYNAMIC_FIELD_BI
 TIR_SOH_NEGATIVE_INVERSE = GLOBAL_DOMINATION_CANDIDATE / RH_OPEN
 TIR_TIME_JOIN = SIBLING_INTERFACE
 TIR_COLLATZ_FS_RELATIONAL_PHASE = MATHEMATICAL_INTERFACE_ADDED / PHYSICAL_BINDING_OPEN
+TIR_FRACTAL_ORBITAL_GRAVITY_KINEMATICS = PASS_EXACT_MATHEMATICAL_CONTROLS
+TIR_FRACTAL_ORBITAL_GRAVITY_PG_SCHWARZSCHILD = PASS_EXACT_CONTROL
+TIR_FRACTAL_ORBITAL_GRAVITY_FLAT_FLRW = PASS_EXACT_CONTROL
+TIR_FRACTAL_ORBITAL_GRAVITY_LC_TP_FIREWALL = PASS_REPRESENTATION
+TIR_FRACTAL_ORBITAL_GRAVITY_SOURCE_TO_RAPIDITY = OPEN_PHYSICAL_BINDING
+TIR_FRACTAL_ORBITAL_GRAVITY_DYNAMICS = OPEN
+
 ```
 
 ## 2. Canonical information normalization
@@ -311,6 +318,57 @@ TIR physical-realization bundle v0.2        ASSEMBLER CLOSED / INPUTS OPEN
 RFC local ADM/Einstein derivation            CLOSED on declared assumptions
 global TIR x IDT x RFC production carrier   OPEN INPUT / COVERAGE / PROMOTION
 ```
+
+
+## NEW — 2026-09-24 — fractal-orbital informational-holonomic gravity
+
+Canonical source:
+
+TIR/foundations/TIR_FRACTAL_ORBITAL_INFORMATIONAL_HOLONOMIC_GRAVITY_V0_1.md
+
+The new gate does not replace A2/A3 or reopen the Levi-Civita theorem. It supplies an orbital-hyperbolic realization of a flow coframe,
+
+\[
+z=\tanh(\chi/2)e^{i(\phi+\kappa W)},
+\qquad
+\mathbf V_{\rm FO}=c\,\mathcal B[G_\gamma],
+\qquad
+e^0=c\,d\tau,\quad e^i=dX^i-V_{\rm FO}^i d\tau.
+\]
+
+Exact controls now present on the candidate branch:
+
+\[
+\mathbf V=-\sqrt{2GM/R}\,\hat{\mathbf r}
+\Longrightarrow {\rm Schwarzschild\ in\ Painleve\!-\!Gullstrand},
+\]
+
+\[
+\mathbf V=H(t)\mathbf R
+\Longrightarrow {\rm flat\ FLRW\ in\ physical\ radius}.
+\]
+
+The Levi-Civita sector remains
+
+\[
+T^a(\omega_{\rm LC})=0,
+\]
+
+while an equivalent teleparallel representation may use a distinct flat connection with nonzero torsion. These are never conflated.
+
+Status:
+
+FRACTAL_ORBITAL_GRAVITY_EXACT_CONTROLS = PASS
+
+SOURCE_TO_DIMENSIONLESS_RAPIDITY_BINDING = OPEN
+
+ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME = OPEN
+
+DYNAMICAL_FIELD_EQUATION_FOR_V_FO = OPEN
+
+LATE_TIME_ACCELERATION_WITHOUT_RETUNING = OPEN
+
+The old cosmological density ansatz in the publication-candidate monograph is not silently superseded by this foundation gate.
 
 ## 6. Coefficient and Standard-Model correction state
 
