@@ -196,3 +196,61 @@ The relation observable must be fixed before looking at downstream gravity perfo
 - legacy Phase36 coordinates are natively tetra-edge x tetra-edge: FAIL / NOT DERIVED
 - tetra-edge relation observable X_ab: OPEN
 - physical spacetime bivector interpretation: OPEN
+
+
+## 9. Pre-registered edge-pair relation observable
+
+The relation-value law is fixed before any physical edge-carrier dataset is admitted.
+
+For two PhaseNav 36D edge carriers \(E_a^+\) and \(E_b^-\), use the pre-existing canonical complex overlap
+
+\[
+Z_{ab}
+=
+\frac1{36}
+\sum_{k=0}^{35}
+e^{i(\phi^-_{b,k}-\phi^+_{a,k})}.
+\]
+
+Define
+
+\[
+\boxed{
+X_{ab}=\arg Z_{ab},
+\qquad
+R_{ab}=|Z_{ab}|.
+}
+\]
+
+No fitted coefficient is introduced. A common U(1) shift of both sheets cancels. Exact zero overlap fails closed because its argument is undefined.
+
+This closes the representation-level map
+
+\[
+(E_a^+,E_b^-)
+\to
+(X_{ab},R_{ab})
+\]
+
+**provided the edge carriers themselves are already admissible**.
+
+The remaining source gate is therefore
+
+\[
+\boxed{
+T_4^\pm\ \text{geometry}
+\longrightarrow
+\{E_a^\pm\}_{a=1}^{6}
+\subset T^{36}.
+}
+\]
+
+Hashing edge labels into legacy PhaseNav IDs is explicitly forbidden as a physical derivation, because that would import arbitrary semantic coordinates rather than derive the carriers from tetrahedral/Bloch geometry.
+
+Updated statuses:
+
+- TETRA_EDGE_PAIR_RELATION_OBSERVABLE = PASS_DEFINITION
+- COMMON_SHIFT_INVARIANCE = PASS
+- EDGE_OVERLAP_ZERO_FAIL_CLOSED = PASS_DESIGN
+- TETRA_GEOMETRY_TO_SIX_PHASE36_EDGE_CARRIERS = OPEN
+- LABEL_HASH_AS_PHYSICAL_EDGE_BINDING = FORBIDDEN
