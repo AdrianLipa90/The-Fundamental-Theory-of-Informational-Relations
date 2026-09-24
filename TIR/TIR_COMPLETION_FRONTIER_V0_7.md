@@ -2069,3 +2069,40 @@ SOURCE_TO_DIMENSIONLESS_RAPIDITY_BINDING = OPEN
 ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME = OPEN
 
 HOLONOMIC_COSMOLOGICAL_SOURCE = OPEN
+
+
+---
+
+## NEW — 2026-09-24 — native inter-leaf shift to rapidity / invariant mass
+
+Canonical source:
+
+TIR/foundations/TIR_INTERLEAF_SHIFT_ORBITAL_RAPIDITY_MASS_BRIDGE_V0_1.md
+
+\[
+b_{(0)}=\beta_{(t)}/c,
+\qquad
+V=-cb_{(0)},
+\qquad
+\chi=\operatorname{artanh}|b|
+\]
+
+is an exact kinematic representation chain after the coordinate/sign convention is fixed.
+
+For the spherical flow metric,
+
+\[
+m_{\rm MS}=\frac{rV^2}{2G}
+\]
+
+is the invariant Misner--Sharp mass. Therefore the stationary vacuum law \(V^2=C/r\) is equivalent to \(dm_{\rm MS}/dr=0\).
+
+INTERLEAF_SHIFT_TO_RAPIDITY_KINEMATIC_BINDING = CLOSED_EXACT
+
+SPHERICAL_FLOW_TO_MISNER_SHARP_MASS = CLOSED_EXACT
+
+PRODUCTION_BETA_MATCH = OPEN_INPUT
+
+FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = OPEN
+
+SHIFT_AS_STANDALONE_PHYSICAL_SOURCE = FORBIDDEN_PROMOTION
