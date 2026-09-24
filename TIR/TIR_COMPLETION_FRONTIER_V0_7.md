@@ -2184,3 +2184,30 @@ NONTRIVIAL_HOLONOMY_PERSISTENCE_OR_STABILITY          = OPEN
 ABSOLUTE_ALPHA_I_NORMALIZATION                        = OPEN
 
 PRODUCTION_EVENT_SPATIAL_COSMOLOGY_REALIZATION        = OPEN
+
+
+---
+
+## NEW — 2026-09-24 — holonomy partition invariance and temporal-U1 metric response
+
+TIR/integration/TIR_IDT_RFC_HOLONOMY_BIANCHI_CHANNEL_LEDGER_V0_1.md
+
+TIR/integration/TIR_IDT_RFC_TEMPORAL_U1_METRIC_RESPONSE_COSMOLOGY_V0_1.md
+
+Exact source-ledger result: C_h+D_h=1 plus complete complementary bookkeeping leaves Einstein/FLRW dynamics unchanged. A tau_R-dependent result obtained only by retaining D_h U_I while dropping C_h U_I is an omitted-source artifact with exact acceleration defect kappa_E U_I C_h / 3.
+
+RF-E4 pure phase kinetic stress has w=+1 and therefore decelerates. RF-F20 supplies the existing non-bookkeeping connection-response correction Delta T_phase_mn=4 A^2 R_mn. In the isotropic local sector the correction accelerates iff R_00+3 R_s<0.
+
+HOLONOMY_PARTITION_BOOKKEEPING_INVARIANCE          = PASS_EXACT
+
+OMITTED_C_SOURCE_ACCELERATION_DEFECT               = PASS_EXACT
+
+RF_E4_PURE_PHASE_KINETIC_COSMOLOGY                = W_PLUS_ONE / DECELERATING
+
+RF_F20_CONNECTION_METRIC_RESPONSE_COSMOLOGY       = PASS_EXACT_CONDITIONAL_SIGN_TEST
+
+TEMPORAL_U1_TO_LOCAL_ABE_RESPONSE_BINDING          = OPEN
+
+LOCAL_BERRY_EULER_R_MN_RECEIPT                     = OPEN
+
+PRODUCTION_R_ACTIVE_SIGN_AND_MAGNITUDE             = OPEN
