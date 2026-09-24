@@ -1,0 +1,25 @@
+{
+  "schema": "TIR_IDT_EXTRINSIC_CURVATURE_SOURCE_BRIDGE_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_CONDITIONAL_EXTRINSIC_CURVATURE_SOURCE_PHYSICAL_SAME_STATE_BINDING_OPEN",
+  "canon_allowed": false,
+  "execution": "LOCAL_CONTAINER_2026-09-24",
+  "observed_errors": {
+    "discrete_gram_strain_derivative": 5.663438511563368e-11,
+    "gram_strain_so3_frame_invariance": 2.6645352591003757e-15,
+    "activity_normalized_flow_reparameterization_invariance": 2.842170943040401e-14,
+    "relational_lapse_cancellation": 7.105427357601002e-15
+  },
+  "exact_or_conditional_closed": [
+    "CP1_TO_TIR_PURE_STATE_REPRESENTATION_SEAM",
+    "ACTIVITY_NORMALIZED_FLOW_REPARAMETRIZATION_INVARIANCE",
+    "DISCRETE_RELATION_GRAM_STRAIN",
+    "RELATIONAL_LAPSE_CANCELLATION",
+    "NORMAL_GAUGE_KIJ_CHAIN_RULE_ON_ADMITTED_SAME_STATE_FAMILY"
+  ],
+  "open_gates": [
+    "PHYSICAL_IDT_STATE_TO_TIR_STATE_IDENTITY",
+    "PRODUCTION_REFINING_RELATIONAL_FAMILY",
+    "DOWNSTREAM_ADM_CONSTRAINT_AND_EVOLUTION_VALIDATION_ON_PRODUCTION_REALIZATION"
+  ]
+}
