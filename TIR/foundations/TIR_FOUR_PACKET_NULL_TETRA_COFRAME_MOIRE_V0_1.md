@@ -491,3 +491,64 @@ IDT 01A provides the upstream candidate response type
 on an even-dimensional relational state manifold. Applied to the sixteen packet coordinates, it supplies a typed route to \(\dot E\) once \(G,J,\mathcal I,\mathcal H\) are physically admitted.
 
 This closes the **relative-frame evolution identity**, but not the unique physical packet dynamics. The functionals and response geometry remain an explicit source gate.
+
+
+## 13. Tetra-SIC Shannon--Onsager packet-flow binding
+
+IDT 09C adds a concrete symmetric packet-velocity sector using the same tetrahedral SIC coordinates already present upstream.
+
+For one packet,
+
+\[
+p_a=\frac14(1+\mathbf r\cdot\mathbf n_a),
+\qquad
+\mathbf r=3\sum_a p_a\mathbf n_a.
+\]
+
+The 00C/02B zero-drive mobility law fixes the six tetrahedral edge rates as
+
+\[
+M_{ab}
+=
+\frac{
+\sqrt{\rho_R(a)\rho_R(b)}
+}{
+\tfrac12[\eta_R(a)+\eta_R(b)]
+}.
+\]
+
+Hence
+
+\[
+\dot p=pQ[\rho_R,\eta_R],
+\qquad
+\dot{\mathbf r}=3\sum_a\dot p_a\mathbf n_a,
+\]
+
+and the elapsed-state packet velocity follows by the product rule.
+
+For uniform relational fields,
+
+\[
+\rho_R=\rho_0,
+\qquad
+\eta_R=\eta_0,
+\]
+
+the rate is no longer free:
+
+\[
+M=\rho_0/\eta_0,
+\]
+
+and
+
+\[
+\boxed{
+\dot{\mathbf r}
+=
+-4\frac{\rho_0}{\eta_0}\mathbf r.
+}
+\]
+
+This is an exact symmetric zero-drive control sector. The physical origin/evolution of \(\rho_R\) and \(\eta_R\), nonzero directional drive, and reversible Berry sector remain separate gates.
