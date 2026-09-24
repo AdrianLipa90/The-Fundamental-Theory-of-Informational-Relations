@@ -350,3 +350,24 @@ Current status additions:
 - GENERIC_PERTURBED_6x6_REJECTION = PASS_VALIDATOR
 - PLEBANSKI_SIMPLICITY_CROSSWALK = PASS_STANDARD
 - MOIRE_OBSERVABLES_TO_B_FIELD = OPEN
+
+
+## 2026-09-24 continuation — acceleration mechanism closure refinement
+
+The source stack now separates three non-equivalent routes: (i) RF-F15 constant vacuum integration component rho_C=K0 C_Lambda; (ii) RF-L2 information-scalar potential; (iii) RF-F22 state-dependent projector/connection response. Route (iii) accelerates on the positive interaction branch only when
+
+\[
+\frac{R_0+3R_s}{\mu_\vartheta^2}+(S_0+3S_s)<-\frac12.
+\]
+
+The current frozen/internal realization does not meet this threshold. Same-metric ADM-lapse reuse self-normalizes the projector and zeroes its interaction stress. Also [C_Lambda]=T^-4, so an absolute topological prediction requires an independent Omega_* scale; dimensionless topology may at most fix C_Lambda/Omega_*^4.
+
+PROJECTOR_RESPONSE_THRESHOLD = PASS_EXACT_CONDITIONAL
+
+SAME_METRIC_LAPSE_PROJECTOR = ZERO_STRESS_NO_GO
+
+C_LAMBDA_TOPOLOGICAL_ABSOLUTE_MAGNITUDE = DIMENSIONAL_NO_GO_WITHOUT_OMEGA_STAR
+
+PHYSICAL_EULER_OR_SCALE_METRIC_RESPONSE = OPEN
+
+PHYSICAL_OMEGA_STAR_SCALE = OPEN
