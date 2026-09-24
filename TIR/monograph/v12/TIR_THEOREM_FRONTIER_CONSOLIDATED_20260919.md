@@ -107,6 +107,8 @@ NEW: holonomy-stress no-go. The current RF-L3 action preserves \(\tau_R\) but is
 
 NEW: temporal-U1 metric-response route. RF-E4 fixes pure homogeneous phase kinetic stress at w=+1, so the phase-kinetic sector is decelerating rather than dark-energy-like. RF-F20 supplies a genuinely non-bookkeeping correction \(\Delta T^{phase}_{\mu\nu}=4A^2R_{\mu\nu}\). In an isotropic orthonormal sector its acceleration correction is \(-2\kappa_EA^2(R_0+3R_s)/3\), so the correction accelerates iff \(R_0+3R_s<0\). Closed-loop holonomy does not determine the local off-shell metric response; the temporal-U(1)/holonomy to local Berry/Euler \(R_{\mu\nu}\) binding remains OPEN.
 
+NEW: phase-cell vacuum integration and response firewalls. RF-F15 fixed-x transport carries the conserved integration coordinate \(C_\Lambda=|\omega|^4[v-(1-x)/2]\), yielding \(\rho_\Lambda=K_0C_\Lambda\) and the exact conditional FLRW transition \(a''/a=\kappa_E(\rho_\Lambda-\rho_r)/3\). The mechanism produces a constant-vacuum component but does not predict its sign or magnitude. RF-F22 supplies the distinct state-dependent projector response with acceleration threshold \((R_0+3R_s)/\mu_\vartheta^2+(S_0+3S_s)<-1/2\) on the positive interaction branch. AB and fixed-map Berry channels admit zero metric-response branches; RF-F19 admits \(S^{(\vartheta)}=0\) under independent metric variation; no current theorem derives a nonzero Euler/spin metric functional. Reusing the same ADM lapse inside the same projector metric variation self-normalizes the projector and gives zero interaction stress. Since \([C_\Lambda]=T^{-4}\) while winding/Chern/holonomy/\(\kappa\) are dimensionless, topology alone cannot determine a nonzero absolute \(C_\Lambda\); an independently derived frequency scale \(\Omega_*\) is required, after which topology may constrain \(C_\Lambda/\Omega_*^4\).
+
 ### Open physical binding / no-go ledger
 
 The branch-local geometric rhythm is validated structurally, but the physical Hamiltonian identification
@@ -161,3 +163,17 @@ ABSOLUTE_ALPHA_I_NORMALIZATION                        = OPEN
 
 Future small additions are written as `NEW:` under one of these three blocks. No further Appendix-letter sequence is active.
 
+
+
+```text
+RF_F15_CONSTANT_VACUUM_TRANSPORT                 = PASS_EXACT_CONDITIONAL
+RF_F15_ACCELERATION_TRANSITION                   = PASS_EXACT_FIXED_X
+RF_F22_PROJECTOR_RESPONSE_THRESHOLD              = PASS_EXACT_CONDITIONAL
+AB_BERRY_FIXED_RESPONSE                          = ZERO_BRANCH_PASS
+RF_F19_INDEPENDENT_SCALE_RESPONSE                = ZERO_BRANCH_PASS
+SAME_METRIC_LAPSE_PROJECTOR                      = SELF_NORMALIZED_ZERO_STRESS_NO_GO
+EULER_SPIN_METRIC_RESPONSE                       = OPEN
+SPACETIME_SPIN_CONNECTION_ADAPTER                = QUARANTINED
+C_LAMBDA_TOPOLOGICAL_ABSOLUTE_SCALE              = NO_GO_WITHOUT_OMEGA_STAR
+C_LAMBDA_OVER_OMEGA_STAR_4_TOPOLOGY              = OPEN
+```
