@@ -430,3 +430,33 @@ Legacy Phase36 may be used only as a separate computational/fibre representation
 - physical normalization / G: OPEN
 - production spacetime realization: OPEN
 - Clay/Millennium closure: NOT CLAIMED
+
+
+## 12. Tetrahedral S4 covariance of the six-axis basis
+
+The six oriented representatives
+
+\[
+(01,02,03,23,31,12)
+\]
+
+are the two-element index pairs of four tetrahedral labels.
+
+Every vertex permutation \(p\in S_4\) induces a signed permutation matrix \(C_2(p)\) on this six-dimensional pair space, with
+
+\[
+\boxed{
+C_2(p)^TJC_2(p)
+=
+\operatorname{sgn}(p)J.
+}
+\]
+
+Thus:
+
+- the 12 even permutations preserve the oriented wedge pairing;
+- the 12 odd permutations reverse its overall orientation;
+- the involution \(\Theta_J(X)=JX^TJ\) is unchanged by the global sign \(J\mapsto-J\);
+- the frame/curvature decomposition is therefore compatible with tetrahedral relabeling.
+
+This is an exact covariance statement about the index carrier. It does not identify tetrahedral labels with physical spacetime coordinates.
