@@ -1,0 +1,32 @@
+{
+  "schema": "TIR_FRACTAL_ORBITAL_INFORMATIONAL_HOLONOMIC_GRAVITY_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_EXACT_CONTROLS_PHYSICAL_BINDING_OPEN",
+  "canon_allowed": false,
+  "execution": "LOCAL_CONTAINER_2026-09-24",
+  "exact_controls": {
+    "canonical_kappa_numeric": "PASS",
+    "hyperbolic_rapidity": "PASS",
+    "lorentz_lie_commutator": "PASS",
+    "schwarzschild_pg": "PASS",
+    "newton_control": "PASS",
+    "flat_flrw_flow": "PASS",
+    "hubble_material_acceleration": "PASS"
+  },
+  "max_errors": {
+    "poincare_beta": 1.1102230246251565e-16,
+    "poincare_sech": 1.6653345369377348e-16,
+    "lorentz_commutator": 0,
+    "schwarzschild_pg_relative": 2.225300112107237e-17,
+    "newton_control_relative": 4.450600224214474e-16,
+    "flat_flrw": 2.7755575615628914e-17,
+    "hubble_material_acceleration": 0
+  },
+  "open_gates": [
+    "SOURCE_TO_DIMENSIONLESS_RAPIDITY_BINDING",
+    "ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME",
+    "DYNAMICAL_FIELD_EQUATION_FOR_V_FO",
+    "LATE_TIME_ACCELERATION_WITHOUT_RETUNING",
+    "LOCAL_PPN_LENSING_GW_VALIDATION_AFTER_BINDING"
+  ]
+}
