@@ -174,37 +174,41 @@ The forbidden claim remains
 
 ## 7. Cosmological mechanism boundary
 
-For \(V=H(t)R\),
+For flat FLRW, the existing RF-E12/RF-E13 ADM parents imply
 
 \[
-\frac{D V}{Dt}
-=
-(\dot H+H^2)R
-=
-\frac{\ddot a}{a}R.
+\boxed{\frac{a''}{a}=-\frac{\kappa_E}{6}(\rho+3p)}
 \]
 
-Thus accelerated expansion can be represented as a flow/geometric mechanism rather than as a material object.
+in the length-valued temporal coordinate x^0=ct. Hence the event-derived metric rate does not itself generate acceleration; the admitted source must supply rho+3p<0 or the geometric operator must be changed.
 
-However, TIR has not yet derived the effective source or correction that forces the observed late-time sign and magnitude.
-
-The remaining physical cosmology gate is
+The existing canonical information-scalar action supplies such a negative-pressure mechanism without requiring an additional bare Lambda. On the RF-L3/RF-L4A local chart,
 
 \[
-\boxed{
-{\rm source\!\!-\!bound\ event/spatial\ evolution}
-\to
-\partial_0 h_{ij},\,N,\,b^i
-\xrightarrow{\rm RF\!\!-\!E9}
-K_{ij}
-\to
-{\rm ADM\ constraints/evolution}
-\to
-\ddot a/a.
-}
+U_I=\frac{\alpha_I}{\kappa_E}\Xi_I,\qquad \phi_I=\sqrt{2\Xi_I},
 \]
 
-The late-time acceleration mechanism still requires a derived physical source or geometric correction; the event-spatial contract closes the metric-rate handoff, not that cosmological source.
+and therefore
+
+\[
+\boxed{\frac{a''}{a}\Big|_I=\frac{\alpha_I\Xi_I}{3}-\frac{\kappa_E}{6\Xi_I}(\Xi_I')^2.}
+\]
+
+The local acceleration criterion is
+
+\[
+\boxed{\left|\partial_0\ln\Xi_I\right|<\sqrt{2\alpha_I/\kappa_E}.}
+\]
+
+The potential may be kept inside the scalar stress tensor or moved to the dynamic-Lambda side as Lambda_I=alpha_I Xi_I; these are exactly equivalent bookkeeping choices and must not be added together.
+
+The present IDT/RFC holonomy bridge does not yet make tau_R a gravity source: RF-L3 has partial U_I / partial tau_R = 0. Moreover, the exact partition C_h+D_h=1 cannot affect total stress when C and D have the same gravitational stress type. Thus the current holonomy route has a genuine no-go.
+
+A minimal holonomy-active candidate is Lambda_D=alpha_I Xi_I sin^2(tau_R/2), but only if a source-owned differential stress attribution is derived and the complementary C channel receives a conservation-compatible Bianchi ledger. If tau_R is instead treated as a naive local positive-kinetic scalar in U_D proportional to sin^2(tau_R/2), the maximal D_h=1 point at tau_R=pi is a potential maximum, not a stable minimum. A topologically frozen nonlocal holonomy sector remains a separate open possibility.
+
+Canonical gate:
+
+TIR/integration/TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_V0_1.md
 
 ## 8. Current blocker
 
@@ -241,7 +245,7 @@ EVENT_SPATIAL_METRIC_RATE_SOURCE_CONTRACT = PASS_EXECUTABLE / PRODUCTION_INPUT_O
 
 RF_E9_EXTRINSIC_CURVATURE_OPERATOR = REUSED_EXISTING_RFC_GATE
 
-HOLONOMIC_LATE_TIME_ACCELERATION_SOURCE = OPEN
+HOLONOMIC_LATE_TIME_ACCELERATION_SOURCE = OPEN / CURRENT_ACTION_SPECTATOR_NO_GO / DIFFERENTIAL_STRESS_OR_ACTION_REQUIRED
 
 FULL_PHYSICAL_GRAVITY_DERIVED_FROM_MICROSCOPIC_TIR_SOURCE = NOT_YET_CLOSED
 
