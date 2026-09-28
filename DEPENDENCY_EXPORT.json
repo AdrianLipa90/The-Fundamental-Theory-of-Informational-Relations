@@ -2,32 +2,39 @@
   "schema": "FPDG_DEPENDENCY_EXPORT_V0_1",
   "repository_id": "TIR",
   "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
-  "source_commit": "8c781742b656871529a4783ce977c8c1b8d51de2",
-  "generated_at": "2026-09-22T23:05:00+01:00",
+  "source_commit": "69b9a50c87329459c6a5f6113ff3b39de4e687c5",
+  "generated_at": "2026-09-28T23:28:19+01:00",
   "claims": [
     {
       "claim_id": "TIR.PRIMITIVE.ZERO",
-      "status": "CLOSED",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "status": "RELATIONAL_ZERO_DEFINITION / EMPTY_SUPPORT_AND_RELATION / NO_OBJECT_DEFINITIONAL_CONSEQUENCE / CLOSED",
+      "source_path": "TIR/foundations/TIR_RELATIONAL_ZERO_AXIOM_V0_1.md",
+      "evidence_class": "source_foundational_definition",
+      "exact_head": "69b9a50c87329459c6a5f6113ff3b39de4e687c5",
+      "validation": "TIR/validation/tir_relational_zero_axiom_v0_1.py"
     },
     {
       "claim_id": "TIR.PRIMITIVE.POINT",
-      "status": "CLOSED",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "status": "MINIMAL_NONEMPTY_SUPPORT / DISTINCT_FROM_RELATIONAL_ZERO / CLOSED",
+      "source_path": "TIR/foundations/TIR_RELATIONAL_ZERO_AXIOM_V0_1.md",
+      "evidence_class": "source_foundational_theorem",
+      "exact_head": "69b9a50c87329459c6a5f6113ff3b39de4e687c5",
+      "validation": "TIR/validation/tir_relational_zero_axiom_v0_1.py"
     },
     {
       "claim_id": "TIR.PRIMITIVE.FIRST_DISTINCTION",
-      "status": "CLOSED",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "status": "MINIMAL_NONTRIVIAL_PARTITION_BINARY / CLOSED",
+      "source_path": "TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md",
+      "evidence_class": "source_foundational_theorem",
+      "exact_head": "69b9a50c87329459c6a5f6113ff3b39de4e687c5",
+      "validation": "TIR/validation/tir_relational_zero_axiom_v0_1.py"
     },
     {
       "claim_id": "TIR.PRIMITIVE.POLES_NS",
-      "status": "CLOSED",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "status": "EXCHANGE_SYMMETRY_ON_MINIMAL_BINARY_DISTINCTION / CLOSED",
+      "source_path": "TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md",
+      "evidence_class": "source_foundational_theorem",
+      "exact_head": "69b9a50c87329459c6a5f6113ff3b39de4e687c5"
     },
     {
       "claim_id": "TIR.FOUNDATION.HALF",
