@@ -2,19 +2,17 @@
 
 Status: `EXACT_CONDITIONAL_PRIMITIVE_FOUNDATION_CANDIDATE`
 
-Scope: TIR-only primitive derivation of the first relational distinction from point minimality, information primacy, and exchange symmetry. This version removes physical dependence on a pre-existing natural-number counting hierarchy and therefore keeps A6 downstream of complex phase closure.
+Scope: TIR-only primitive derivation of the first relational distinction from the zero-axiom relational root. Historical A1/A3/A7 are not premises.
 
-## 1. Primitive carrier
+## 1. Primitive relation
 
-By A1, let
+Let
 
 \[
-\mathcal P
+\boxed{\mathcal R_1=(a\xleftrightarrow{R}b)}
 \]
 
-be the minimal non-empty relational carrier.
-
-At the undivided level there is one unresolved state label `x`.
+be the minimal admitted non-empty TIR content. The two endpoint roles are defined only through the relation; no primitive point axiom is used.
 
 ## 2. Primitive distinction operator
 
@@ -60,7 +58,7 @@ Hence the first primitive exchange distinction is binary.
 
 ## 3. Unique symmetric normalized share
 
-By A3 attach normalized relational weights
+Attach normalized nonnegative relational weights
 
 \[
 w_N,w_S\ge0,
@@ -68,7 +66,7 @@ w_N,w_S\ge0,
 w_N+w_S=1.
 \]
 
-By A7 the unresolved primitive distinction is invariant under pole exchange,
+The orientation-reversal involution exchanges the two pole roles,
 
 \[
 J:(N,S)\mapsto(S,N).
@@ -140,7 +138,7 @@ Thus the exchange-invariant probability vector and the relational half-seam are 
 
 ## 5. First symmetric information value
 
-Using the A3 binary Shannon carrier
+Using the binary Shannon functional
 
 \[
 H_2(u)=-(1-u)\ln(1-u)-u\ln u,
@@ -156,8 +154,8 @@ The exact primitive chain is therefore
 
 \[
 \boxed{
-\mathcal P
-\xrightarrow{J^2=1,\;Jx\ne x}
+\mathcal R_1
+\xrightarrow{J^2=1}
 \{N,S\}
 \xrightarrow{\text{exchange invariance}}
 \left(\frac12,\frac12\right)
@@ -166,21 +164,29 @@ The exact primitive chain is therefore
 }
 \]
 
-## 6. Axiom dependency certificate
+## 6. Zero-axiom dependency certificate
 
-The minimal TIR parent set for the scalar chain is:
+The scalar chain has no A1--A8 premises:
 
-- `A1`: supplies the primitive carrier;
-- `A7`: supplies the nontrivial exchange symmetry and invariance;
-- `A3`: supplies normalized informational weights and Shannon information.
+```text
+RELATION
+  -> orientation reversal
+  -> {N,S}
+  -> normalized exchange fixed point 1/2
+  -> H2(1/2)=ln2
+```
 
-`A2` enters only at the coherent quantum lift of the already established pole pair.
+The pole exchange is the minimal involution of the relation itself. The information value is a measure on the derived normalized distinction.
 
-`A4`, `A5`, `A6`, and `A8` are separate converging or downstream branches at this stage.
+## 7. Projective quantum reconstruction after the scalar theorem
 
-## 7. Quantum lift after the scalar theorem
+The abstract orientation closure of the pole axis gives \(S^2\). Under the standard identification
 
-By A2 represent the two distinguished poles as an orthonormal quantum basis
+\[
+S^2\cong\mathbb{CP}^1=P(\mathbb C^2),
+\]
+
+the two distinguished poles admit normalized complex-ray representatives, written as an orthonormal basis
 
 \[
 |N\rangle,\;|S\rangle.
@@ -202,12 +208,12 @@ The half-balanced coherent family is
 }
 \]
 
-This quantum lift remains part of the primitive structural packet. Temporal parametrization of `\varphi` belongs to the Time branch.
+This quantum representation is downstream of the relational sphere and therefore does not assume historical A2. Temporal parametrization of `\varphi` belongs to the Time branch.
 
 ## 8. Primitive theorem output
 
 ```text
-primitive_carrier       = POINT
+primitive_carrier       = RELATION
 primitive_relation      = NONTRIVIAL_INVOLUTION
 first_orbit             = {N,S}
 exchange_fixed_share    = (1/2,1/2)
