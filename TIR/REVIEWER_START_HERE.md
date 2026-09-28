@@ -11,13 +11,30 @@ and is compiled as **Version 12.1 Audited Repository Synchronization — 10 Sept
 Read the current dependency order as
 
 ```text
-primitive informational relations
--> emergent geometry
--> information / phase / flavour
+absolute nothing non-realizable
+-> point                         [minimum object]
+-> relation                      [minimum nontrivial structure]
+-> first distinction {N,S}
+   |-> exchange balance -> 1/2 -> ln2
+   `-> relational phase Lagrangian -> U(1) ~= S1
+       -> Lagrangian--Bloch selection -> S2 ~= CP1
+       -> Fubini--Study / Berry
+       -> Euler--Berry spin 1/2
+       -> Herm_0(2) ~= R3
+-> emergent spatial geometry
+-> information / flavour
 -> coefficient parent evaluation / transition selector
 -> particle and gauge sectors
 -> extensions / evidence / falsification
 ```
+
+The canonical non-logical axiom count is `0`. Historical A1--A8 labels are provenance only. Current foundation owner:
+
+`TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md`
+
+Proof-source registry:
+
+`TIR/provenance/TIR_FOUNDATION_PROOF_SOURCE_REGISTRY_V0_1.md`
 
 ## Canonical structural primitives
 
@@ -27,6 +44,12 @@ primitive informational relations
 - external anchors, scales and conversion conventions are tracked separately from internal structural quantities.
 
 Canonical sources:
+
+`TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md`
+
+`TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md`
+
+`TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md`
 
 `TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`
 
@@ -95,14 +118,15 @@ New theorem or software PASS states do not overwrite existing physical `FAIL`, `
 
 ## High-value current review targets
 
-1. **κ parent chain:** verify the three-flavour carrier, eight-dimensional mixing algebra, 24-channel incidence count, half-turn phase and binary-information numerator.
-2. **Platonic L closure:** verify the five Schläfli pairs, \([S_4:A_4]=2\), \([A_5:A_4]=5\), and the explicit TIR disjoint-union closure rule; keep physical interpretation separate.
-3. **Spatial A2-A5 stack:** verify every theorem assumption and the production-input firewall.
-4. **Coefficient branch:** verify exact parent-packet valuation, then independently verify the non-identifiability result and that the transition selector remains open.
-5. **Particle-sector evidence:** retain the neutrino absolute-action quarantine, PMNS reactor-angle tension, hadron provenance states, electroweak precision failures/tensions, meson formula failures and frozen nEDM failure.
-6. **Global inputs:** require source-owned frozen spatial incidence and inter-leaf matching data before global spacetime promotion.
-7. **Critical axis:** confirm `riemann_hypothesis_in_closure=false`; RH-equivalent positivity/nondegeneracy conditions remain open, not proved.
-8. **Prospective evidence:** confirm formula hashes, observables, decision rules and no-refit contracts before unblinding.
+1. **Foundation chain:** verify point/object minimality versus relation/structure minimality, the independent \(U(1)\cong S^1\) Lagrangian phase core, the non-\(SO(3)\) \(S^2\cong\mathbb{CP}^1\) closure, Fubini--Study/Berry geometry, and the promoted Euler--Berry spin-\(1/2\) source.
+2. **κ parent chain:** verify the three-flavour carrier, eight-dimensional mixing algebra, 24-channel incidence count, half-turn phase and binary-information numerator.
+3. **Platonic L closure:** verify the five Schläfli pairs, \([S_4:A_4]=2\), \([A_5:A_4]=5\), and the explicit TIR disjoint-union closure rule; keep physical interpretation separate.
+4. **Spatial A2-A5 stack:** verify every theorem assumption and the production-input firewall. These are downstream geometry-stage labels, not legacy foundational axioms.
+5. **Coefficient branch:** verify exact parent-packet valuation, then independently verify the non-identifiability result and that the transition selector remains open.
+6. **Particle-sector evidence:** preserve the current evidence-matrix verdicts; theorem/source repair does not silently upgrade physical evidence.
+7. **Global inputs:** require source-owned frozen spatial incidence and inter-leaf matching data before global spacetime promotion.
+8. **Critical axis:** confirm `riemann_hypothesis_in_closure=false`; RH-equivalent positivity/nondegeneracy conditions remain open, not proved.
+9. **Prospective evidence:** confirm formula hashes, observables, decision rules and no-refit contracts before unblinding.
 
 ## GREMLIN-assisted review discipline
 
