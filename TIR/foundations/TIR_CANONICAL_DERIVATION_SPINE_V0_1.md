@@ -188,81 +188,21 @@ Hence the canonical phase carrier is
 
 A connected compact one-dimensional Lie phase group is, up to isomorphism, the circle group. This makes the phase-circle typing structural rather than a coordinate convention.
 
-## 6. Euler--Berry closure forces the primitive spin sector
+## 6. From the phase circle and polar roles to \(S^2\)
 
-On the projective two-state surface, the Berry phase of a closed loop enclosing solid angle \(\Omega\) in spin sector \(s\) is
-
-\[
-\gamma_B=-s\,\Omega
-\]
-
-up to orientation convention.
-
-For the primitive hemisphere loop,
-
-\[
-\Omega=2\pi.
-\]
-
-The nontrivial Euler projective-sign closure requires
-
-\[
-e^{i\gamma_B}=-1.
-\]
-
-Therefore
-
-\[
-2\pi s=\pi\pmod{2\pi}.
-\]
-
-The minimal positive solution is
-
-\[
-\boxed{s=\frac12.}
-\]
-
-A doubled traversal closes the lift:
-
-\[
-\boxed{2\pi\mapsto -I,\qquad 4\pi\mapsto +I.}
-\]
-
-This promotes the archived Euler--Berry spin gate into the active foundational source graph while preserving its original epistemic classification: formal/symbolic closure, not a claim about every physical spin assignment.
-
-## 7. Spin polarization forces the pole pair
-
-The spin-\(1/2\) carrier has two eigenstates of a chosen distinction generator:
-
-\[
-\sigma_z|N\rangle=+|N\rangle,
-\qquad
-\sigma_z|S\rangle=-|S\rangle.
-\]
-
-Thus the binary relational roles and the spinorial polar states coincide at the canonical two-state realization:
-
-\[
-\boxed{\{N,S\}_{R}\longleftrightarrow\{N,S\}_{\rm spin}.}
-\]
-
-The relation and the poles are therefore not separately postulated layers.
-
-## 8. From the phase circle to the Bloch sphere without presupposing \(SO(3)\)
-
-The equal-weight coherent states form the equatorial phase circle
+The equal-weight coherent states form the phase circle
 
 \[
 S^1_{\rm half}.
 \]
 
-The two spin-polar states supply the north and south endpoints. The topological suspension of the equator is
+The nontrivial relation already supplies the two polar roles \(N,S\). The standard topological suspension is
 
 \[
 \boxed{\Sigma S^1\cong S^2.}
 \]
 
-Equivalently,
+Explicitly,
 
 \[
 S^2
@@ -272,31 +212,36 @@ S^2
 S^1\times\{+1\}\sim N\right).
 \]
 
-This is the canonical non-circular route
+Thus the canonical non-circular sphere route is
 
 \[
 \boxed{
 S^1_{\rm phase}
 +
-\{N,S\}_{\rm spin}
+\{N,S\}_{R}
 \longrightarrow
-S^2.
+\Sigma S^1
+\cong S^2.
 }
 \]
 
-No prior \(SO(3)\) assumption is used to manufacture the sphere.
-
-Euler phase closure and Euler characteristic are kept distinct. The former selects the nontrivial spinorial sign; the latter provides the consistency check
+The Euler-characteristic consistency relation is
 
 \[
-\chi(S^1)=0,
-\qquad
-\chi(\Sigma S^1)=2-\chi(S^1)=2
+\chi(\Sigma X)=2-\chi(X),
 \]
 
-as required for \(S^2\).
+so
 
-## 9. Complex/projective realization and the Bloch metric
+\[
+\chi(S^1)=0
+\Longrightarrow
+\boxed{\chi(S^2)=2}.
+\]
+
+This topological Euler step is distinct from Euler's complex phase identity used below.
+
+## 7. Complex/projective realization and the Bloch metric
 
 With two complex amplitudes and one global \(U(1)\) phase quotient,
 
@@ -342,7 +287,71 @@ with
 \frac1{2\pi}\int_{S^2}F_B=1.
 \]
 
-Thus the Bloch/Kähler/Fubini--Study geometry is one coherent projective structure.
+Thus the sphere supplied by the phase/pole suspension is realized as the standard Bloch/Kähler/Fubini--Study projective geometry.
+
+## 8. Euler--Berry closure selects the primitive spin sector
+
+On the projective two-state surface, the Berry phase of a closed loop enclosing solid angle \(\Omega\) in spin sector \(s\) is
+
+\[
+\gamma_B=-s\,\Omega
+\]
+
+up to orientation convention.
+
+For the primitive hemisphere loop,
+
+\[
+\Omega=2\pi.
+\]
+
+The nontrivial Euler projective-sign closure requires
+
+\[
+e^{i\gamma_B}=-1.
+\]
+
+Therefore
+
+\[
+2\pi s=\pi\pmod{2\pi}.
+\]
+
+The minimal positive solution is
+
+\[
+\boxed{s=\frac12.}
+\]
+
+A doubled traversal closes the lift:
+
+\[
+\boxed{2\pi\mapsto -I,\qquad 4\pi\mapsto +I.}
+\]
+
+This promotes the archived Euler--Berry spin gate into the active foundational source graph while preserving its original epistemic classification: formal/symbolic closure, not a claim about every physical spin assignment.
+
+## 9. Spin polarization closes back onto the relational poles
+
+The spin-\(1/2\) carrier has two eigenstates of a distinction generator:
+
+\[
+\sigma_z|N\rangle=+|N\rangle,
+\qquad
+\sigma_z|S\rangle=-|S\rangle.
+\]
+
+Thus the two independent constructions agree:
+
+\[
+\boxed{
+\{N,S\}_{R}
+\longleftrightarrow
+\{N,S\}_{\rm spin}.
+}
+\]
+
+This is a closure certificate: the relational pole pair used to build the suspension is reproduced by the spinorial geometry of the resulting Bloch sphere.
 
 ## 10. Canonical foundation DAG
 
@@ -365,25 +374,22 @@ ORIENTATION ROLES {N,S}             U(1) ~= S1
         v                             |
 EXCHANGE BALANCE 1/2 --> ln2         |
         |                             |
-        +-----------> EULER/BERRY NONTRIVIAL SIGN
-                           |
-                           v
-                        SPIN 1/2
-                           |
-                           v
-                      POLAR STATES N,S
-                           |
-                           v
-                 SUSPENSION(S1) ~= S2
-                           |
-                           v
-                     CP1 ~= S2
-                           |
-                           v
-                 FUBINI-STUDY / BERRY
-                           |
-                           v
-                 Herm_0(2) ~= R3
+        +----------- SUSPENSION(S1,{N,S}) ~= S2
+                                      |
+                                      v
+                                  CP1 ~= S2
+                                      |
+                                      v
+                              FUBINI-STUDY / BERRY
+                                      |
+                                      v
+                          EULER/BERRY SIGN -> SPIN 1/2
+                                      |
+                                      v
+                         SPIN POLAR PAIR = RELATIONAL PAIR
+                                      |
+                                      v
+                              Herm_0(2) ~= R3
 ```
 
 The lower geometry then continues through the already-audited affine relation, tetrahedral, holonomy, solder/torsion, Cartan and GR branches.
