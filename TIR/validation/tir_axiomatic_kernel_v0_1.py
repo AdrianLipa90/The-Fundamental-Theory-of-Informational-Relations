@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Deterministic structural audit for TIR Axiomatic Kernel v0.1.
+"""Legacy structural audit for the former TIR eight-axiom kernel.
 
-This audit checks finite/exact consequences and implementation identities attached
-to the eight TIR axioms. It does not convert foundational postulates into standard
-mathematical or empirical theorems. Standard theorem dependencies are emitted
-explicitly in the receipt.
+The current canonical TIR foundation has zero non-logical axioms and is validated
+by tir_zero_axiom_relational_foundation_v0_1.py. This file is retained to preserve
+historical finite certificates attached to the former A1--A8 labels.
 """
 from __future__ import annotations
 
@@ -173,11 +172,13 @@ def build_receipt() -> dict[str, object]:
     }
     passed = all(block["pass"] for block in blocks.values())
     return {
-        "schema": "TIR_AXIOMATIC_KERNEL_V0_1",
-        "scope": "TIR_FOUNDATIONAL_STRUCTURAL_AUDIT",
-        "axiom_count": 8,
+        "schema": "TIR_LEGACY_AXIOMATIC_KERNEL_V0_1",
+        "scope": "LEGACY_PROVENANCE_ONLY",
+        "axiom_count": 0,
+        "legacy_axiom_label_count": 8,
+        "canonical_replacement": "TIR/foundations/TIR_ZERO_AXIOM_RELATIONAL_FOUNDATION_V0_1.md",
         "claim_boundary": {
-            "axioms": "TIR foundational postulates",
+            "axioms": "legacy A1--A8 labels; not current canonical axioms",
             "finite_certificates": "exact or implementation-level checks where declared",
             "standard_theorems": "retain independent hypotheses and authority",
             "empirical_physics": "requires separate observational validation",
