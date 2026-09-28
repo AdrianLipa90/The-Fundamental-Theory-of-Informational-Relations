@@ -1,4 +1,4 @@
-name: Compile TIR monograph v12.3
+name: Compile TIR monograph v12.4
 
 on:
   pull_request:
@@ -32,7 +32,7 @@ jobs:
           git status --short --branch | tee tir-v12-checkout-status.txt
           git diff --check
 
-      - name: Run TIR v12.3 deterministic validation suite
+      - name: Run TIR v12.4 deterministic validation suite
         run: |
           set -euo pipefail
           validators=(
@@ -75,7 +75,7 @@ jobs:
             TIR/validation/tir_v12_cosmology_formula_audit_v0_1.py
             TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py
             TIR/validation/tir_v12_prospective_contract_audit_v0_1.py
-            TIR/validation/tir_v12_source_contract_v0_6.py
+            TIR/validation/tir_v12_source_contract_v0_7.py
             TIR/validation/tir_v12_appendix_integration_audit_v0_1.py
             TIR/validation/tir_v12_3_semantic_frontier_audit_v0_1.py
           )
@@ -103,14 +103,14 @@ jobs:
             texlive-latex-extra texlive-fonts-recommended texlive-science \
             poppler-utils qpdf
 
-      - name: Compile TIR monograph v12.3
+      - name: Compile TIR monograph v12.4
         working-directory: TIR/monograph
         run: |
           set -o pipefail
           latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error \
             tir_monograph_v12.tex 2>&1 | tee tir-monograph-v12-compile-console.log
 
-      - name: TIR v12.3 publication preflight
+      - name: TIR v12.4 publication preflight
         run: |
           set -euo pipefail
           PDF=TIR/monograph/tir_monograph_v12.pdf
@@ -144,7 +144,7 @@ jobs:
         if: always()
         run: |
           {
-            echo "# TIR v12.3 LaTeX warning ledger"
+            echo "# TIR v12.4 LaTeX warning ledger"
             echo
             if test -f TIR/monograph/tir_monograph_v12.log; then
               grep -E "Warning|Overfull|Underfull" TIR/monograph/tir_monograph_v12.log || true
@@ -153,7 +153,7 @@ jobs:
             fi
           } > tir-v12-warning-ledger.txt
 
-      - name: Upload exact-head v12.3 publication artifact
+      - name: Upload exact-head v12.4 publication artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
