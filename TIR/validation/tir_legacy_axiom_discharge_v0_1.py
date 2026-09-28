@@ -12,7 +12,7 @@ import math
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def binary_orbit() -> dict[str, object]:
@@ -86,7 +86,10 @@ def source_firewall() -> dict[str, object]:
     markers = {
         "zero_axiom_count": "N_{\\rm nonlogical\\ axioms}=0" in texts["zero_foundation"],
         "relational_minimum": "RELATION" in texts["zero_foundation"],
-        "sphere_before_quantum_firewall": "A2 quantum point" in texts["discharge"] and "Bloch sphere" in texts["discharge"],
+        "sphere_before_quantum_firewall": (
+            "R\n\\to\n\\{N,S\\}\n\\to\nS^2" in texts["discharge"]
+            and "The following old dependency is prohibited" in texts["discharge"]
+        ),
         "chapter_zero_axiom": "N_{\\rm nonlogical\\ axioms}=0" in texts["chapter1"],
     }
     return {"markers": markers, "pass": all(markers.values())}
