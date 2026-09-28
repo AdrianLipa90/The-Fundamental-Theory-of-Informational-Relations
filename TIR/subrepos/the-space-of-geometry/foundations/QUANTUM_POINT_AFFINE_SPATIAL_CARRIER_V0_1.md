@@ -2,7 +2,7 @@
 
 Status: `TIR_QUANTUM_POINT_AFFINE_SPATIAL_PROMOTION_CANDIDATE`
 
-Scope: local TIR geometry. This note develops a shorter spatial-promotion route directly from the primitive quantum point and the affine structure of normalized two-level quantum states.
+Scope: local TIR geometry downstream of the derived projective two-state carrier. The quantum state representation is not an axiom here; its upstream parent is `R -> {N,S} -> S^2 ~= CP^1 -> P(C^2)`.
 
 ## 1. Primitive quantum point state
 
@@ -246,7 +246,7 @@ and the canonical invariant metric is
 
 The local spatial carrier, affine composition law and Euclidean quadratic structure therefore arise together from one relation object.
 
-## 8. Axiom crosswalk
+## 8. Zero-axiom dependency crosswalk
 
 The shortest candidate dependency is
 
@@ -270,7 +270,7 @@ The remaining foundational gate is now one sharply typed rule:
 }
 \]
 
-If this rule is derived from the primitive meaning of A1--A3, the separate minimal-faithful-representation criterion becomes a consistency/uniqueness cross-check rather than the primary promotion mechanism.
+If this rule is derived from the primitive relational/projective chain, the separate minimal-faithful-representation criterion becomes a consistency/uniqueness cross-check rather than the primary promotion mechanism.
 
 ## 9. Claim classes
 
