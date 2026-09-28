@@ -103,7 +103,10 @@ def source_firewall() -> dict[str, object]:
         "euler_spin_source_status": "FORMAL_SYMBOLIC_PASS" in texts["euler_berry_spin"],
         "spin_lift_4pi": "4\\pi" in texts["spin_lift"] or "4π" in texts["spin_lift"],
         "lagrangian_u1": "\\chi\\in U(1)" in texts["hilbert_kahler"],
-        "no_so3_before_s2": "No prior \\(SO(3)\\) assumption" in texts["spine"],
+        "no_so3_before_s2": (
+            "no pre-existing \\(SO(3)\\) action is required" in texts["lagrangian_bloch"]
+            or "No prior \\(SO(3)\\)" in texts["spine"]
+        ),
     }
     return {"missing":[],"markers":markers,"pass":all(markers.values())}
 
