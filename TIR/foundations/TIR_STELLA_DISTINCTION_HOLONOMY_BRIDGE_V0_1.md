@@ -402,6 +402,56 @@ The present theorem supplies a structurally compatible stella half-turn class
 The identification of this geometric class with the dynamical IDT temporal
 phase is a **typed interface candidate**, not yet a derived physical coupling.
 
+## 8A. Pre-spacetime alternation interface
+
+The Stella pair also supports a separately typed pre-spacetime two-sector interface.
+
+Let the two sheets be used only as abstract complementary labels,
+
+\[
+T_4^+\leftrightarrow\sigma=0,
+\qquad
+T_4^-\leftrightarrow\sigma=1.
+\]
+
+On the doubled carrier \(\mathbb N_0\times\mathbb Z_2\), define
+
+\[
+\mathsf H(n,0)=(n,1),
+\qquad
+\mathsf H(n,1)=(n+1,0).
+\]
+
+Then the full successor satisfies
+
+\[
+\boxed{\mathsf H^2=\mathsf S.}
+\]
+
+Here \(\mathsf H\) is an abstract alternation/successor operator. It is not the spinorial half-turn \(H_i^\pm=\mp i\Sigma_i\), whose square is \(-I\).
+
+Thus TIR now carries three separately typed half structures:
+
+- exchange-fixed binary share \(u=1/2\);
+- tetrahedral holonomy class \(q_3=[1/2]\);
+- normalized successor grade \(\Delta g=1/2\) from \(\mathsf H^2=\mathsf S\).
+
+Their numerical agreement is recorded as a crosswalk. Their mathematical objects and provenance are not collapsed.
+
+The associated incidence chain
+
+\[
+1\,|\,12\,|\,23\,|\,34\,|\,45\,|\cdots
+\]
+
+is represented exactly by \(E_n=\{n,n+1\}\) and \(E_n\cap E_{n+1}=\{n+1\}\).
+
+This interface is pre-spacetime: "dynamic" means repeated group/configuration transformation and composition, not motion in an already existing time coordinate.
+
+Canonical continuation:
+
+TIR/foundations/TIR_STELLA_PRESPACETIME_HALFSTEP_SUCCESSOR_V0_1.md
+
 ## 9. Claim classes
 
 | Statement | Status |
