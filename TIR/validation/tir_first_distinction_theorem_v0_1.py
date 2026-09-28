@@ -7,15 +7,27 @@ import math
 from fractions import Fraction
 
 
-def minimal_binary_certificate() -> dict[str, object]:
-    admissible = tuple(range(1, 9))
-    nonzero_distinction = tuple(nu for nu in admissible if nu - 1 > 0)
-    minimum = min(nonzero_distinction)
+def relational_zero_certificate() -> dict[str, object]:
+    support: tuple[()] = ()
+    relations: tuple[()] = ()
     return {
-        "admissible_alternative_counts": list(admissible),
-        "positive_distinction_counts": list(nonzero_distinction),
-        "unique_minimum_nu": minimum,
-        "pass": minimum == 2 and nonzero_distinction.count(2) == 1,
+        "support_cardinality": len(support),
+        "relation_count": len(relations),
+        "contains_object": bool(support),
+        "pass": len(support) == 0 and len(relations) == 0 and not support,
+    }
+
+
+def minimal_binary_certificate() -> dict[str, object]:
+    admissible_partition_counts = tuple(range(0, 9))
+    nontrivial = tuple(n for n in admissible_partition_counts if n > 1)
+    minimum = min(nontrivial)
+    return {
+        "admissible_partition_counts": list(admissible_partition_counts),
+        "nontrivial_partition_counts": list(nontrivial),
+        "unique_minimum_block_count": minimum,
+        "derivation": "minimal nontrivial partition, not involution premise",
+        "pass": minimum == 2 and nontrivial.count(2) == 1,
     }
 
 
@@ -95,6 +107,7 @@ def quantum_lift_certificate() -> dict[str, object]:
 
 def build_receipt() -> dict[str, object]:
     blocks = {
+        "relational_zero": relational_zero_certificate(),
         "minimal_binary": minimal_binary_certificate(),
         "symmetric_prior": symmetric_prior_certificate(),
         "entropy_ln2": entropy_certificate(),
@@ -106,10 +119,10 @@ def build_receipt() -> dict[str, object]:
         "schema": "TIR_FIRST_DISTINCTION_THEOREM_V0_1",
         "scope": "TIR_FOUNDATIONAL_EXACT_CONDITIONAL_AUDIT",
         "dependencies": {
-            "informational_theorem": ["A1", "A3", "A7", "minimal first-distinction definition"],
+            "informational_theorem": ["A0", "A1", "A3", "A7", "minimal nontrivial partition definition"],
             "quantum_lift": ["A2", "binary distinction"],
         },
-        "closed_chain": "D=0 -> minimal D>0 -> nu=2 -> S2 invariant prior=(1/2,1/2) -> H=ln2",
+        "closed_chain": "relational zero -> point support -> minimal nontrivial partition -> binary -> exchange invariant prior=(1/2,1/2) -> H=ln2",
         "next_gate": "RELATIVE_PHASE_LAW",
         "blocks": blocks,
         "technical_status": "PASS" if passed else "FAIL",
