@@ -124,59 +124,37 @@ Thus
 }
 \]
 
-## 6. Sphere before quantum
+## 6. Canonical geometry handoff
 
-The pole pair defines an oriented axis. The complete normalized orientation orbit is
+This theorem owns only the primitive relational/scalar result
 
 \[
-\boxed{SO(3)/SO(2)\cong S^2.}
+R\to\{N,S\}\to\frac12\to\ln2.
 \]
 
-This is the abstract relational sphere.
+It does **not** construct the sphere by an \(SO(3)\) orbit.
 
-The standard projective identification is
+The continuous phase carrier is owned by
 
-\[
-\boxed{S^2\cong\mathbb{CP}^1.}
-\]
+`TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md`,
 
-Since
+and the non-circular geometric closure is owned by
 
-\[
-\mathbb{CP}^1
-=
-(\mathbb C^2\setminus\{0\})/\mathbb C^\times,
-\]
-
-each projective point is a complex ray of a two-state Hilbert carrier. A normalized representative is
+`TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md`:
 
 \[
-|\psi(\theta,\phi)\rangle
-=
-\cos\frac\theta2|N\rangle
-+
-e^{i\phi}\sin\frac\theta2|S\rangle.
-\]
-
-Therefore the non-circular continuation is
-
-\[
-\boxed{
-R
-\to
 \{N,S\}
-\to
++
+U(1)\cong S^1
+\longrightarrow
+\Sigma S^1
+\cong
 S^2
 \cong
-\mathbb{CP}^1
-\to
-P(\mathbb C^2)
-\to
-\text{two-state quantum representation}.
-}
+\mathbb{CP}^1.
 \]
 
-The term *Bloch sphere* is reserved for the sphere after this projective/Hilbert identification.
+The Fubini--Study/Berry and spin layers are downstream.
 
 ## 7. Primitive theorem output
 
@@ -187,9 +165,7 @@ first_orbit             = {N,S}
 exchange_fixed_share    = (1/2,1/2)
 half_seam               = 1/2
 symmetric_information   = ln2
-relational_sphere       = S2
-projective_identification = CP1 ~= S2
-quantum_ray_carrier     = P(C2)
+geometry_handoff       = RELATIONAL_PHASE_LAGRANGIAN_CORE + LAGRANGIAN_BLOCH_SELECTION
 nonlogical_axiom_count  = 0
 ```
 
