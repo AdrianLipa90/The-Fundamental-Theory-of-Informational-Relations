@@ -1,6 +1,6 @@
 # TIR Zero-Axiom Relational Foundation v0.1
 
-Status: `OWNER_CANONICAL_ZERO_AXIOM_FOUNDATION__DERIVATION_AUDIT_OPEN`
+Status: `OWNER_CANONICAL_ZERO_AXIOM_FOUNDATION__LEGACY_A1_A8_STRUCTURALLY_DISCHARGED`
 
 Scope: canonical TIR root typing. This document replaces the former use of eight non-logical foundational axioms with a zero-nonlogical-axiom programme. It does not erase historical axiom documents; it reclassifies them as legacy provenance and downstream theorem/sector targets.
 
@@ -146,41 +146,65 @@ The corresponding binary Shannon information is
 
 This is the first exact scalar branch downstream of the relation.
 
-## 6. From pole pair to the sphere
+## 6. From relation to sphere, then to the quantum ray carrier
 
-The relation first supplies an axis with two poles. In an admitted three-real-dimensional direction carrier, choose a unit representative \(\hat n\) and write
-
-\[
-N\mapsto+\hat n,
-\qquad
-S\mapsto-\hat n.
-\]
-
-The full orientation orbit of a unit direction is
+The relation first supplies an axis with two orientation roles. Let \(\hat n\) denote a normalized orientation representative. Its complete orientation closure is
 
 \[
-\operatorname{Orb}_{SO(3)}(\hat n)
+\boxed{
+\operatorname{Orb}(\hat n)
 \cong
 SO(3)/SO(2)
 \cong
 S^2.
+}
 \]
 
-Equivalently, after the standard minimal coherent two-state lift,
+This stage is an abstract relational sphere. The word **Bloch** is intentionally not used yet.
+
+The standard Riemann-sphere/projective identification is
 
 \[
-\mathcal H_{NS}\cong\mathbb C^2,
+\boxed{S^2\cong\mathbb{CP}^1.}
 \]
 
-pure rays satisfy
+Since
 
 \[
-\boxed{\mathbb{CP}^1\cong S^2.}
+\mathbb{CP}^1=(\mathbb C^2\setminus\{0\})/\mathbb C^\times,
 \]
 
-Thus the primitive relation supplies the pole pair; the already-developed TIR coherent/projective geometry closes that pole pair into the Bloch sphere.
+each projective point is a complex ray in \(\mathbb C^2\). A normalized representative can be written
 
-The origin \(\mathbf 0\in\mathbb R^3\) in this representation is a coordinate origin, not ontic nothing.
+\[
+|\psi\rangle
+=
+\cos\frac\theta2|N\rangle
++
+e^{i\phi}\sin\frac\theta2|S\rangle.
+\]
+
+Only after this identification is the relational sphere the standard Bloch sphere of a two-state quantum carrier.
+
+Thus the non-circular order is
+
+\[
+\boxed{
+R
+\to
+\{N,S\}
+\to
+S^2
+\cong
+\mathbb{CP}^1
+\to
+P(\mathbb C^2)
+\to
+\text{two-state quantum representation}.
+}
+\]
+
+The origin \(\mathbf 0\in\mathbb R^3\) in an affine representation remains a coordinate origin, not ontic nothing.
 
 ## 7. Canonical dependency spine
 
@@ -191,11 +215,15 @@ NO ONTIC ZERO OBJECT
   -> RELATION
       -> ORIENTATION REVERSAL
           -> POLE PAIR {N,S}
+              -> ABSTRACT ORIENTATION SPHERE S2
+                  -> CP1
+                      -> COMPLEX RAYS IN C2
+                          -> QUANTUM / HILBERT REPRESENTATION
               -> EXCHANGE BALANCE 1/2
                   -> ln2
-              -> MINIMAL COHERENT TWO-STATE LIFT C^2
-                  -> CP1 ~= S2
-                      -> TIR geometry / phase / information branches
+      -> RELATIONAL ZERO / CLOSED RETURN
+          -> WINDING / DEGREE
+              -> INTEGER / NATURAL CLOSURE INDICES
 ```
 
 In formula form,
@@ -220,9 +248,11 @@ with the geometric continuation
 \boxed{
 \{N,S\}
 \longrightarrow
-\mathbb C^2
+S^2
+\cong
+\mathbb{CP}^1
 \longrightarrow
-\mathbb{CP}^1\cong S^2
+P(\mathbb C^2)
 \longrightarrow
 \mathrm{TIR}.
 }
@@ -230,22 +260,24 @@ with the geometric continuation
 
 The arrow labelled \(\Longrightarrow_{\rm TIR}\) is the canonical metalogical foundation statement of this programme and remains subject to independent formal audit; it is not represented as a theorem of ordinary set theory merely because it is canonical inside TIR.
 
-## 8. Reclassification of former A1--A8
+## 8. Discharge of former A1--A8
 
-The historical file `TIR_AXIOMATIC_KERNEL_V0_1.md` remains provenance. Its labels A1--A8 are no longer counted as canonical non-logical axioms.
+The historical file `TIR_AXIOMATIC_KERNEL_V0_1.md` remains provenance. Its labels A1--A8 contribute no independent non-logical axioms to the current foundation.
 
-| Former label | New status |
+| Former label | Current discharge status |
 |---|---|
-| A1 point minimality | SUPERSEDED by relational minimality |
-| A2 quantum point | DOWNSTREAM QUANTUM-LIFT / PHYSICAL-BINDING THEOREM TARGET |
-| A3 information primacy | RELATIONAL INFORMATION THEOREM / DEFINITIONAL LAYER |
-| A4 spherical efficiency | DOWNSTREAM GEOMETRIC THEOREM / SELECTION CRITERION |
-| A5 arithmetic measures geometry | DOWNSTREAM INVARIANT-MAP THEOREM FAMILY |
-| A6 naturals from complex phase closure | DOWNSTREAM PHASE-CLOSURE THEOREM FAMILY |
-| A7 universal symmetry | DOWNSTREAM SYMMETRY/CLOSURE LAW TO DERIVE OR TYPE CONDITIONALLY |
-| A8 paradox stabilization | META-STRUCTURAL CLOSURE RULE / THEOREM TARGET |
+| A1 point minimality | SUPERSEDED: endpoints/poles are roles of the minimal relation |
+| A2 quantum point | STRUCTURALLY DERIVED from \(R\to\{N,S\}\to S^2\cong\mathbb{CP}^1\); physical binding separate |
+| A3 information primacy | DERIVED/DEFINITIONAL from distinguishable relation and normalized information measure |
+| A4 spherical efficiency | SPHERE from orientation closure; efficiency from the standard isoperimetric theorem under its geometric hypotheses |
+| A5 arithmetic measures geometry | DERIVED from relational-zero closure through winding/degree invariants |
+| A6 naturals from complex phase closure | DERIVED from \(e^{i\Delta\phi}=1\Rightarrow\Delta\phi=2\pi n\) |
+| A7 universal symmetry | PRECISE STRUCTURAL VERSION DERIVED from projective Hilbert symmetry + Euler phase closure; vague universal wording retired |
+| A8 paradox stabilization | STRUCTURAL CLOSURE VERSION DERIVED from kernel/zero awareness and preservation of relational distinction; physical binding separate |
 
-No item in this table may be silently promoted from target to theorem. Each downstream branch keeps its own proof and empirical gates.
+Canonical discharge proof surface:
+
+`TIR/foundations/TIR_LEGACY_AXIOM_DISCHARGE_THEOREM_V0_1.md`
 
 ## 9. Claim classes and firewall
 
