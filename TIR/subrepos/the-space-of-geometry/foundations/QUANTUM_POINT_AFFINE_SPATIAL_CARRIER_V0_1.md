@@ -253,11 +253,10 @@ The shortest candidate dependency is
 \[
 \boxed{
 \begin{array}{rcl}
-A1 &\to& \text{primitive locus / point},\\[1mm]
-A2 &\to& \text{normalized binary quantum point state }\rho_x,\\[1mm]
-A3 &\to& \text{physical relation carried by informational state distinction},\\[1mm]
-A5 &\to& \frac12\operatorname{Tr}(\mathcal E^2)\text{ as geometric measure},\\[1mm]
-A7 &\to& SU(2)\text{-covariant / }SO(3)\text{-isotropic realization}.
+R\to\{N,S\}\to S^2\cong\mathbb{CP}^1 &\to& \text{projective two-state carrier},\\[1mm]
+\text{relational distinction} &\to& \text{state-difference relation},\\[1mm]
+0_R\text{ / invariant measure} &\to& \frac12\operatorname{Tr}(\mathcal E^2),\\[1mm]
+\text{Hilbert + Euler closure} &\to& SU(2)\text{-covariant / }SO(3)\text{-isotropic realization}.
 \end{array}
 }
 \]
