@@ -1,14 +1,14 @@
-# TIR Monograph v12.3 — Semantic Frontier Reconciliation
+# TIR Monograph v12.4 — Relational Zero and Graph Reconciliation
 
-Status: `V12_0_BASELINE_PRESERVED / V12_1_SYNC_PRESERVED / V12_2_BRANCH_CONSOLIDATION_PRESERVED / V12_3_SEMANTIC_FRONTIER_RECONCILED / MAIN_UNTOUCHED`
+Status: `V12_0_TO_V12_3_PROVENANCE_PRESERVED / V12_4_RELATIONAL_ZERO_RECONCILED / CURRENT_GRAPH_CROSSWALK_ACTIVE / MAIN_UNTOUCHED`
 
 Baseline main for Pass-4: `45b54c0c8aa60ec92607e6132b69aca9ab766d75`
 
 Integration branch: `integration/gremlin-tir-pass4-20260918`
 
-Date: `2026-09-18`
+Date: `2026-09-28`
 
-Historical v12.0--v12.2 provenance remains intact. Version 12.3 rebuilds the completion frontier from current cross-repository theorem, validator and receipt surfaces. Formal/derivational closure is now kept separate from production/physical openness.
+Historical v12.0--v12.3 provenance remains intact. Version 12.4 makes relational zero explicitly pre-object, re-derives the first binary distinction without using an involution as the source of binarity, and reconciles the publication against post-18-September dependency exports. Formal/derivational closure remains separate from production/physical openness.
 
 ## Canonical publication surface
 
@@ -49,10 +49,11 @@ No branch deletion is authorized or performed by this consolidation.
 ## Foundational spine
 
 ```text
-0
--> POINT
--> FIRST DISTINCTION
+0_rel = EMPTY RELATIONAL PRESENTATION
+-> POINT SUPPORT
+-> MINIMAL NONTRIVIAL DISTINCTION
 -> {N,S}
+-> EXCHANGE SYMMETRY
 -> 1/2
 -> ln2
 -> C^2
@@ -175,9 +176,14 @@ The principal genuinely unresolved core is:
 - native Li/Weil and global critical-axis positivity/nondegeneracy;
 - Riemann hypothesis.
 
-Machine-readable authority:
+Historical v12.3 machine-readable frontier:
 
-- `TIR/monograph/v12/SEMANTIC_FRONTIER_V12_3.json`;
+- `TIR/monograph/v12/SEMANTIC_FRONTIER_V12_3.json`.
+
+Current dependency authority for v12.4:
+
+- repository-root `DEPENDENCY_EXPORT.json`;
+- `TIR/monograph/v12/appendices/appH_relational_zero_graph_reconciliation.tex` for the publication crosswalk.
 - `TIR/monograph/v12/GREMLIN_PASS5_SEMANTIC_FRONTIER_AUDIT_20260918.md`.
 
 ## Synchronization manifests
