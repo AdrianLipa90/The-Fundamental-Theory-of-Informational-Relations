@@ -2,7 +2,7 @@
 
 Status: `EXACT_GEOMETRIC_LIFT_CANDIDATE`
 
-Scope: TIR-only lift of the binary half-seam from probability space into the pure two-state quantum carrier. This module identifies the information-theoretic point \(p=1/2\) with a one-dimensional relative-phase fiber and makes the Bloch-sphere geometry explicit.
+Scope: downstream projective/Hilbert realization of the already-derived relational sphere and binary half-seam. This module does not assume a quantum-point axiom; it works after the standard identification \(S^2\cong\mathbb{CP}^1=P(\mathbb C^2)\).
 
 ## 1. Base space: binary probability coordinate
 
@@ -36,7 +36,7 @@ H_2=\ln2.
 
 This is the relational half-seam already established by the TIR first-distinction chain.
 
-## 2. Quantum lift of the same probability point
+## 2. Projective/Hilbert realization of the same probability point
 
 A normalized pure state of the two-state carrier can be written, after removal of global phase, as
 
@@ -79,7 +79,7 @@ Therefore
 
 The scalar half is the base coordinate; the unresolved coherent information above it is a relative phase circle.
 
-## 3. Bloch-sphere realization
+## 3. Bloch realization after projective identification
 
 For
 
