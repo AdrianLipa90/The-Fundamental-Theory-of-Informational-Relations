@@ -1,8 +1,8 @@
 # TIR Primitive Dependency Lattice v0.1
 
-Status: `PRIMITIVE_DEPENDENCY_LATTICE_CANDIDATE`
+Status: `LEGACY_SUPERSEDED_BY_TIR_PRIMITIVE_DEPENDENCY_LATTICE_V0_2`
 
-Scope: TIR-only analysis of primitive dependencies. Temporal normalization, phase-rate selection, temporal-wave dynamics, and NOW dynamics are downstream crosslink work. The present frontier asks only which structures follow from the eight TIR axioms before temporal dynamics enters.
+Scope: historical eight-axiom dependency analysis retained for provenance only. Current canonical dependency graph: `TIR_PRIMITIVE_DEPENDENCY_LATTICE_V0_2.md`. Temporal normalization, phase-rate selection, temporal-wave dynamics, and NOW dynamics are downstream crosslink work. The present frontier asks only which structures follow from the eight TIR axioms before temporal dynamics enters.
 
 ## 1. Primitive axioms by logical role
 
