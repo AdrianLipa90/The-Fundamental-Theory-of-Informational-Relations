@@ -13,10 +13,19 @@ Current manuscript source:
 Current research spine and publication controls:
 
 - `RESEARCH_SPINE_V0_12.md`
+- `foundations/ZERO_AXIOM_TO_SPATIAL_REALIZATION_BRIDGE_V0_1.md`
+- `foundations/SPATIAL_PROMOTION_UNIQUENESS_V0_2.md`
+- `foundations/RELATIONAL_STATE_DIFFERENCE_UNIQUENESS_V0_2.md`
 - `publication/PROOF_DEPENDENCY_AUDIT_V0_3.md`
 - `publication/REFEREE_CLAIM_FIREWALL_V1_1.md`
 
-The common local carrier is
+The zero-axiom upstream parent is
+
+\[
+R\to\{N,S\}\to S^2\cong\mathbb{CP}^1\to P(\mathbb C^2),
+\]
+
+and the common local affine carrier is
 
 \[
 \mathbb C^2
@@ -63,7 +72,7 @@ The parallel finite-cell branch gives
 \operatorname{Herm}_0(2)
 \to
 \Delta^3
-\xrightarrow{A5+A7}
+\xrightarrow{\text{derived invariant measure + symmetry}}
 \text{regular tetrahedron},
 \]
 
@@ -218,6 +227,6 @@ Current release and frontier surfaces include:
 - `publication/PROOF_DEPENDENCY_AUDIT_V0_3.md`
 - `publication/REFEREE_CLAIM_FIREWALL_V1_1.md`
 
-The v1.1 publication remains frozen at local Pythagorean closure and the parallel tetrahedral finite-cell theorem. Scale calibration and calibrated local-carrier gluing are downstream geometry results.
+The v1.1 publication remains frozen at local Pythagorean closure and the parallel tetrahedral finite-cell theorem. Its historical A1--A8 wording is provenance and is not retroactively rewritten. Scale calibration and calibrated local-carrier gluing are downstream geometry results.
 
-TIR remains the parent Source of Truth for the primitive axioms, first-distinction chain and `W_ij` transport family.
+TIR remains the parent Source of Truth for the zero-axiom relational foundation, first-distinction chain and `W_ij` transport family.
