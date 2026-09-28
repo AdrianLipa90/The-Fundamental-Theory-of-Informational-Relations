@@ -1,8 +1,8 @@
 # TIR Causal Bridge from Zero v0.1
 
-Status: `ZERO_AXIOM_PRIMITIVE_CAUSAL_ARCHITECTURE`
+Status: `INTERMEDIATE_PROVENANCE__SUPERSEDED_BY_TIR_CANONICAL_DERIVATION_SPINE_V0_1`
 
-Scope: TIR-owned dependency architecture from relational nullity and minimum relation outward. Temporal order remains downstream; the primitive arrows here are structural dependency arrows.
+Scope: historical intermediate dependency architecture retained for provenance. Canonical foundation DAG is now owned by `TIR_CANONICAL_DERIVATION_SPINE_V0_1.md` and `DEPENDENCY_EXPORT.json`.
 
 ## 1. Dependency before temporal order
 
