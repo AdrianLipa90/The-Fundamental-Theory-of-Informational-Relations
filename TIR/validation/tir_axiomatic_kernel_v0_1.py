@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Deterministic structural audit for TIR Axiomatic Kernel v0.1.
 
-This audit checks finite/exact consequences and implementation identities attached
-to the eight TIR axioms. It does not convert foundational postulates into standard
+This audit checks the A0 relational-zero root together with finite/exact consequences
+and implementation identities attached to the eight A1--A8 TIR axioms. It does not
+convert foundational postulates into standard
 mathematical or empirical theorems. Standard theorem dependencies are emitted
 explicitly in the receipt.
 """
@@ -13,11 +14,24 @@ import math
 from fractions import Fraction
 
 
+
+def axiom0_relational_zero() -> dict[str, object]:
+    support: tuple[()] = ()
+    relations: tuple[()] = ()
+    return {
+        "support_cardinality": len(support),
+        "relation_count": len(relations),
+        "contains_object": bool(support),
+        "typing": "empty relational presentation, not singleton",
+        "pass": len(support) == 0 and len(relations) == 0 and not support,
+    }
+
 def axiom1_point_minimality() -> dict[str, object]:
     carrier = ("point",)
     return {
-        "carrier_cardinality": len(carrier),
-        "internal_distinction_count": 0,
+        "support_cardinality": len(carrier),
+        "distinct_from_relational_zero": len(carrier) != 0,
+        "typing": "minimal nonempty support candidate",
         "pass": len(carrier) == 1,
     }
 
@@ -38,15 +52,16 @@ def shannon(probabilities: tuple[float, ...]) -> float:
 
 
 def axiom3_information_primacy() -> dict[str, object]:
-    h_zero = shannon((1.0,))
+    h_unresolved_singleton = shannon((1.0,))
     h_binary = shannon((0.5, 0.5))
     return {
-        "H_singleton": h_zero,
+        "H_unresolved_singleton_support": h_unresolved_singleton,
+        "relational_zero_is_not_probability_singleton": True,
         "H_symmetric_binary": h_binary,
         "ln2": math.log(2.0),
-        "pass_singleton": h_zero == 0.0,
+        "pass_unresolved_singleton_entropy": h_unresolved_singleton == 0.0,
         "pass_binary_ln2": math.isclose(h_binary, math.log(2.0), rel_tol=0.0, abs_tol=1e-15),
-        "pass": h_zero == 0.0 and math.isclose(h_binary, math.log(2.0), rel_tol=0.0, abs_tol=1e-15),
+        "pass": h_unresolved_singleton == 0.0 and math.isclose(h_binary, math.log(2.0), rel_tol=0.0, abs_tol=1e-15),
     }
 
 
@@ -137,12 +152,14 @@ def axiom8_paradox_stabilization() -> dict[str, object]:
 
 def dependency_certificate() -> dict[str, object]:
     edges = (
-        ("A1", "A2"),
-        ("A2", "A3"),
-        ("A3", "FIRST_DISTINCTION"),
+        ("A0", "A1"),
+        ("A1", "FIRST_DISTINCTION"),
+        ("FIRST_DISTINCTION", "SYMMETRIC_POLE_EXCHANGE"),
         ("A7", "SYMMETRIC_POLE_EXCHANGE"),
         ("SYMMETRIC_POLE_EXCHANGE", "HALF_SEAM"),
+        ("A3", "HALF_SEAM"),
         ("HALF_SEAM", "LN2"),
+        ("A2", "C2"),
         ("FIRST_DISTINCTION", "C2"),
         ("C2", "SCHRODINGER_BRANCH"),
         ("C2", "HEISENBERG_BRANCH"),
@@ -158,9 +175,9 @@ def dependency_certificate() -> dict[str, object]:
         "pass": len(set(edges)) == len(edges),
     }
 
-
 def build_receipt() -> dict[str, object]:
     blocks = {
+        "A0_relational_zero": axiom0_relational_zero(),
         "A1_point_minimality": axiom1_point_minimality(),
         "A2_quantum_point": axiom2_quantum_point(),
         "A3_information_primacy": axiom3_information_primacy(),
@@ -175,9 +192,12 @@ def build_receipt() -> dict[str, object]:
     return {
         "schema": "TIR_AXIOMATIC_KERNEL_V0_1",
         "scope": "TIR_FOUNDATIONAL_STRUCTURAL_AUDIT",
-        "axiom_count": 8,
+        "axiom_count": 9,
+        "root_definition_count": 1,
+        "owner_axiom_count_A1_to_A8": 8,
         "claim_boundary": {
-            "axioms": "TIR foundational postulates",
+            "A0": "TIR relational-existence definition with exact empty-zero consequence",
+            "axioms_A1_to_A8": "TIR foundational postulates",
             "finite_certificates": "exact or implementation-level checks where declared",
             "standard_theorems": "retain independent hypotheses and authority",
             "empirical_physics": "requires separate observational validation",
