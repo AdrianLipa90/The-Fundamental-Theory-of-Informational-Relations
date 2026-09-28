@@ -2,13 +2,8 @@
 \chapter{Completion Frontier}
 \label{ch:v12_completion_frontier}
 
-\paragraph{v12.3 semantic reconciliation.}
-The completion frontier is rebuilt from current theorem, validator and receipt
-surfaces rather than inherited from the v12.1 headline list. The v12.1 frontier
-is historical provenance, not the current semantic source of truth. The
-machine-readable ledger is
-\path{TIR/monograph/v12/SEMANTIC_FRONTIER_V12_3.json}, with audit
-\path{TIR/monograph/v12/GREMLIN_PASS5_SEMANTIC_FRONTIER_AUDIT_20260918.md}.
+\paragraph{v12.4 graph reconciliation.}
+The v12.3 semantic frontier remains the audited 18 September 2026 snapshot. Version 12.4 does not rewrite that history. The current dependency authority is the repository-root \path{DEPENDENCY_EXPORT.json}; Appendix~\ref{app:v12_relational_zero_graph_reconciliation} records the post-v12.3 cross-repository delta and the corrected relational-zero root. The v12.3 machine-readable ledger and its GREMLIN audit remain historical provenance.
 
 Every gate now has two independent axes:
 \[
@@ -23,12 +18,12 @@ not turn completed mathematics back into an open derivation.
 
 \section{Pinned evidence surface}
 
-The audit pins the following exact heads:
+The v12.4 reconciliation begins from the following exact repository heads:
 \begin{description}
-\item[TIR:] \path{45b54c0c8aa60ec92607e6132b69aca9ab766d75}.
-\item[IDT:] \path{58f453a4725bf0304417a5d07730f2dc1765dea5}.
-\item[RFC:] \path{ce4af9ddd480ea40dfb5a3ee26ed396a58cb0e54}.
-\item[Secret-of-a-Half:] \path{d99545aa447ef86bc253d8241a3fee9adb8a42c1}.
+\item[TIR:] \path{853032e019824b836de43634d949da5566396153}.
+\item[IDT:] \path{e474f64a079e0d90a039e0abd19d2b482f7e53d2}.
+\item[RFC:] \path{664349e2f16b57ee23bf6f5f21f5fe8ada17c5a5}.
+\item[Secret-of-a-Half:] \path{492dc2e31546f6fdce798801549d544d8cbda3b4}.
 \end{description}
 
 Branch containment and semantic closure are distinct. A branch already
