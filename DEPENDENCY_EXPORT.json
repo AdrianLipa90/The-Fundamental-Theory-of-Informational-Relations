@@ -2,50 +2,98 @@
   "schema": "FPDG_DEPENDENCY_EXPORT_V0_1",
   "repository_id": "TIR",
   "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
-  "source_commit": "8c781742b656871529a4783ce977c8c1b8d51de2",
-  "generated_at": "2026-09-22T23:05:00+01:00",
+  "source_commit": "9ecd544106528e952bce78c43fa9a44b9262bd26",
+  "generated_at": "2026-09-28T04:08:00+01:00",
   "claims": [
     {
       "claim_id": "TIR.PRIMITIVE.ZERO",
-      "status": "CLOSED",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "status": "LEGACY_ALIAS_RELATIONAL_NULLITY",
+      "source_path": "TIR/provenance/TIR_FOUNDATION_PROOF_SOURCE_REGISTRY_V0_1.md",
+      "evidence_class": "legacy_compatibility_alias"
+    },
+    {
+      "claim_id": "TIR.PRIMITIVE.NOTHING_NONREALIZABLE",
+      "status": "CLOSED_DEFINITIONAL",
+      "source_path": "TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md",
+      "evidence_class": "canonical_foundation"
     },
     {
       "claim_id": "TIR.PRIMITIVE.POINT",
-      "status": "CLOSED",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "status": "CLOSED_MINIMAL_OBJECT",
+      "source_path": "TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md",
+      "evidence_class": "canonical_foundation"
+    },
+    {
+      "claim_id": "TIR.PRIMITIVE.RELATION",
+      "status": "CLOSED_MINIMAL_NONTRIVIAL_STRUCTURE",
+      "source_path": "TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md",
+      "evidence_class": "canonical_foundation"
     },
     {
       "claim_id": "TIR.PRIMITIVE.FIRST_DISTINCTION",
-      "status": "CLOSED",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "status": "CLOSED_RELATIONAL_ORIENTATION_ORBIT",
+      "source_path": "TIR/monograph/v12/chapters/ch01_first_distinction_relational_kernel.tex",
+      "evidence_class": "canonical_foundation"
     },
     {
       "claim_id": "TIR.PRIMITIVE.POLES_NS",
       "status": "CLOSED",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "source_path": "TIR/monograph/v12/chapters/ch01_first_distinction_relational_kernel.tex",
+      "evidence_class": "canonical_foundation"
     },
     {
       "claim_id": "TIR.FOUNDATION.HALF",
-      "status": "CLOSED",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "status": "CLOSED_EXACT",
+      "source_path": "TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md",
+      "evidence_class": "exact_mathematics"
     },
     {
       "claim_id": "TIR.FOUNDATION.LN2",
-      "status": "CLOSED",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "status": "CLOSED_EXACT",
+      "source_path": "TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md",
+      "evidence_class": "exact_information_theory"
+    },
+    {
+      "claim_id": "TIR.FOUNDATION.PHASE_S1",
+      "status": "CLOSED_EXACT",
+      "source_path": "TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md",
+      "evidence_class": "exact_coherent_phase_fibre"
+    },
+    {
+      "claim_id": "TIR.FOUNDATION.LAGRANGIAN_BLOCH_SELECTION",
+      "status": "CLOSED_EXACT_STRUCTURAL",
+      "source_path": "TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md",
+      "evidence_class": "standard_topology_projective_geometry"
+    },
+    {
+      "claim_id": "TIR.FOUNDATION.SPHERE_S2",
+      "status": "CLOSED_EXACT",
+      "source_path": "TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md",
+      "evidence_class": "standard_topology"
     },
     {
       "claim_id": "TIR.FOUNDATION.C2",
-      "status": "CLOSED",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "status": "CLOSED_EXACT_STRUCTURAL",
+      "source_path": "TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md",
+      "evidence_class": "minimal_coherent_complex_carrier"
+    },
+    {
+      "claim_id": "TIR.FOUNDATION.CP1",
+      "status": "CLOSED_STANDARD_EXACT",
+      "source_path": "TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md",
+      "evidence_class": "standard_projective_geometry"
+    },
+    {
+      "claim_id": "TIR.FOUNDATION.BERRY_FS",
+      "status": "CLOSED_STANDARD_EXACT",
+      "source_path": "TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md",
+      "evidence_class": "standard_kahler_geometry"
+    },
+    {
+      "claim_id": "TIR.FOUNDATION.SPIN_HALF",
+      "status": "FORMAL_SYMBOLIC_PASS",
+      "source_path": "archive/v7.9/full/22_euler_identity_berry_phase_spin_constraint_v2_4/METATIME_SM_EULER_IDENTITY_BERRY_PHASE_SPIN_CONSTRAINT_v2_4.md",
+      "evidence_class": "promoted_legacy_formal_source"
     },
     {
       "claim_id": "TIR.SPACE.DENSITY_CARRIER",
@@ -466,12 +514,17 @@
   ],
   "local_edges": [
     {
-      "from": "TIR.PRIMITIVE.ZERO",
+      "from": "TIR.PRIMITIVE.NOTHING_NONREALIZABLE",
       "to": "TIR.PRIMITIVE.POINT",
       "authority": "CANONICAL"
     },
     {
       "from": "TIR.PRIMITIVE.POINT",
+      "to": "TIR.PRIMITIVE.RELATION",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.PRIMITIVE.RELATION",
       "to": "TIR.PRIMITIVE.FIRST_DISTINCTION",
       "authority": "CANONICAL"
     },
@@ -491,14 +544,135 @@
       "authority": "CANONICAL"
     },
     {
-      "from": "TIR.FOUNDATION.LN2",
+      "from": "TIR.FOUNDATION.HALF",
+      "to": "TIR.FOUNDATION.PHASE_S1",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.PRIMITIVE.POLES_NS",
+      "to": "TIR.FOUNDATION.LAGRANGIAN_BLOCH_SELECTION",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.PHASE_S1",
+      "to": "TIR.FOUNDATION.LAGRANGIAN_BLOCH_SELECTION",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.LAGRANGIAN_BLOCH_SELECTION",
+      "to": "TIR.FOUNDATION.SPHERE_S2",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.PRIMITIVE.POLES_NS",
       "to": "TIR.FOUNDATION.C2",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.PHASE_S1",
+      "to": "TIR.FOUNDATION.C2",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.C2",
+      "to": "TIR.FOUNDATION.CP1",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.SPHERE_S2",
+      "to": "TIR.FOUNDATION.CP1",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.CP1",
+      "to": "TIR.FOUNDATION.BERRY_FS",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.BERRY_FS",
+      "to": "TIR.FOUNDATION.SPIN_HALF",
       "authority": "CANONICAL"
     },
     {
       "from": "TIR.FOUNDATION.C2",
       "to": "TIR.SPACE.DENSITY_CARRIER",
       "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.HALF",
+      "to": "TIR.KAPPA.NORMALIZATION",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.LN2",
+      "to": "TIR.KAPPA.NORMALIZATION",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FLAVOUR.STAGE66_SU3F_GENERATION",
+      "to": "TIR.KAPPA.NORMALIZATION",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.C2",
+      "to": "TIR.TIME_JOIN",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.HALF",
+      "to": "TIR.SOH.NEGATIVE_INVERSE",
+      "authority": "CANONICAL_FRONTIER"
+    },
+    {
+      "from": "TIR.FOUNDATION.CP1",
+      "to": "TIR.COLLATZ_FS.RELATIONAL_PHASE_INTERFACE",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.PHASE_S1",
+      "to": "TIR.HALF_SEAM.PHASE_FIBER",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.C2",
+      "to": "TIR.HALF_SEAM.PHASE_FIBER",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.C2",
+      "to": "TIR.PLATONIC.MCKAY_E8_600CELL",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "PHYSICAL_600CELL_CARRIER_BINDING_AND_CANON_PROMOTION"
+    },
+    {
+      "from": "TIR.FOUNDATION.CP1",
+      "to": "TIR.SPACE.HEXAHEDRAL_BLOCH_DUAL_FRAME",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.C2",
+      "to": "TIR.QUANTUM.QUBIT_TETRAHEDRAL_IC",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.CP1",
+      "to": "TIR.SPACE.DIMENSION_GATE",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.HALF",
+      "to": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "GLOBAL_PHYSICAL_SPATIAL_CARRIER_BINDING_REQUIRED"
+    },
+    {
+      "from": "TIR.FOUNDATION.C2",
+      "to": "TIR.SPACETIME.CAUSAL_3PLUS1_PAIR_CLOSURE_V01",
+      "authority": "CANDIDATE_ONLY",
+      "promotion_required": true,
+      "promotion_gate": "PHYSICAL_EVENT_RELATION_TO_HERM2_REQUIRED"
     },
     {
       "from": "TIR.SPACE.DENSITY_CARRIER",
@@ -526,16 +700,6 @@
       "authority": "CANONICAL"
     },
     {
-      "from": "TIR.FOUNDATION.HALF",
-      "to": "TIR.KAPPA.NORMALIZATION",
-      "authority": "CANONICAL"
-    },
-    {
-      "from": "TIR.FOUNDATION.LN2",
-      "to": "TIR.KAPPA.NORMALIZATION",
-      "authority": "CANONICAL"
-    },
-    {
       "from": "TIR.SPACE.TETRAHEDRON",
       "to": "TIR.L_CONSTANTS.PLATONIC_CLOSURE",
       "authority": "CANONICAL"
@@ -556,11 +720,6 @@
       "authority": "CANONICAL"
     },
     {
-      "from": "TIR.FOUNDATION.C2",
-      "to": "TIR.TIME_JOIN",
-      "authority": "CANONICAL"
-    },
-    {
       "from": "TIR.HOLONOMY.WIJ",
       "to": "TIR.GLOBAL_GLUING",
       "authority": "CANONICAL_FRONTIER"
@@ -568,11 +727,6 @@
     {
       "from": "TIR.HOLONOMY.WIJ",
       "to": "TIR.TORSION",
-      "authority": "CANONICAL_FRONTIER"
-    },
-    {
-      "from": "TIR.FOUNDATION.HALF",
-      "to": "TIR.SOH.NEGATIVE_INVERSE",
       "authority": "CANONICAL_FRONTIER"
     },
     {
@@ -614,11 +768,6 @@
       "from": "TIR.SPACETIME.INTERLEAF_MATCHING_INPUT_CONTRACT",
       "to": "TIR.TIME_JOIN",
       "authority": "CANONICAL_FRONTIER"
-    },
-    {
-      "from": "TIR.FOUNDATION.C2",
-      "to": "TIR.COLLATZ_FS.RELATIONAL_PHASE_INTERFACE",
-      "authority": "CANONICAL"
     },
     {
       "from": "TIR.REPRESENTATION.C3_F3_CHARACTER_FRAME",
@@ -666,16 +815,6 @@
       "authority": "CANONICAL_FRONTIER"
     },
     {
-      "from": "TIR.FOUNDATION.HALF",
-      "to": "TIR.HALF_SEAM.PHASE_FIBER",
-      "authority": "CANONICAL"
-    },
-    {
-      "from": "TIR.FOUNDATION.C2",
-      "to": "TIR.HALF_SEAM.PHASE_FIBER",
-      "authority": "CANONICAL"
-    },
-    {
       "from": "TIR.HOLONOMY.WIJ",
       "to": "TIR.HOLONOMY.SEMANTIC_U1",
       "authority": "CANONICAL"
@@ -689,13 +828,6 @@
       "from": "TIR.L_CONSTANTS.PLATONIC_CLOSURE",
       "to": "TIR.PLATONIC.RAMANUJAN_SPECTRAL_CARRIER",
       "authority": "CANONICAL"
-    },
-    {
-      "from": "TIR.FOUNDATION.C2",
-      "to": "TIR.PLATONIC.MCKAY_E8_600CELL",
-      "authority": "CANDIDATE_ONLY",
-      "promotion_required": true,
-      "promotion_gate": "PHYSICAL_600CELL_CARRIER_BINDING_AND_CANON_PROMOTION"
     },
     {
       "from": "TIR.KAPPA.NORMALIZATION",
@@ -828,11 +960,6 @@
       "authority": "CANONICAL"
     },
     {
-      "from": "TIR.FOUNDATION.C2",
-      "to": "TIR.SPACE.HEXAHEDRAL_BLOCH_DUAL_FRAME",
-      "authority": "CANONICAL"
-    },
-    {
       "from": "TIR.SPACE.HEXAHEDRAL_BLOCH_DUAL_FRAME",
       "to": "TIR.SPACE.LOCAL_R3",
       "authority": "CANDIDATE_ONLY",
@@ -850,21 +977,11 @@
       "authority": "CANONICAL"
     },
     {
-      "from": "TIR.FOUNDATION.C2",
-      "to": "TIR.QUANTUM.QUBIT_TETRAHEDRAL_IC",
-      "authority": "CANONICAL"
-    },
-    {
       "from": "TIR.QUANTUM.QUBIT_TETRAHEDRAL_IC",
       "to": "TIR.SPACE.TETRAHEDRON",
       "authority": "CANDIDATE_ONLY",
       "promotion_required": true,
       "promotion_gate": "INFORMATIONAL_TO_SPATIAL_TETRAHEDRON_BINDING"
-    },
-    {
-      "from": "TIR.FOUNDATION.C2",
-      "to": "TIR.SPACE.DIMENSION_GATE",
-      "authority": "CANONICAL"
     },
     {
       "from": "TIR.SPACE.DIMENSION_GATE",
@@ -903,25 +1020,11 @@
       "promotion_gate": "FULL_PHYSICAL_3PLUS1_PRODUCTION_BINDING_REQUIRED"
     },
     {
-      "from": "TIR.FOUNDATION.HALF",
-      "to": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
-      "authority": "CANDIDATE_ONLY",
-      "promotion_required": true,
-      "promotion_gate": "GLOBAL_PHYSICAL_SPATIAL_CARRIER_BINDING_REQUIRED"
-    },
-    {
       "from": "TIR.SPACETIME.SP3_3PLUS1_BUNDLE_COMPATIBILITY_V01",
       "to": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
       "authority": "CANDIDATE_ONLY",
       "promotion_required": true,
       "promotion_gate": "GLOBAL_PHYSICAL_SPATIAL_CARRIER_BINDING_REQUIRED"
-    },
-    {
-      "from": "TIR.FOUNDATION.C2",
-      "to": "TIR.SPACETIME.CAUSAL_3PLUS1_PAIR_CLOSURE_V01",
-      "authority": "CANDIDATE_ONLY",
-      "promotion_required": true,
-      "promotion_gate": "PHYSICAL_EVENT_RELATION_TO_HERM2_REQUIRED"
     },
     {
       "from": "TIR.SPACETIME.SP3_DELTA_HERM2_HALF_LIFT_V01",
@@ -965,5 +1068,10 @@
       "promotion_required": true,
       "promotion_gate": "PHYSICAL_CLOCK_CALIBRATION_REQUIRED"
     }
-  ]
+  ],
+  "source_ref": "feat/zero-axiom-relational-foundation-20260928",
+  "generation_note": "source_commit is the branch head inspected immediately before this export write; the export commit itself is necessarily later",
+  "foundation_owner": "TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md",
+  "foundation_provenance_registry": "TIR/provenance/TIR_FOUNDATION_PROOF_SOURCE_REGISTRY_V0_1.md",
+  "canonical_nonlogical_axiom_count": 0
 }
