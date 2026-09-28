@@ -2,25 +2,53 @@
 
 Status: `FOUNDATIONAL_AXIOM_SET_CANDIDATE`
 
-Scope: TIR-only foundational kernel. This document records eight owner-specified axioms and gives each one an explicit mathematical type, dependency role, and validation boundary. The axioms are starting assumptions of the TIR programme; downstream theorems require their own derivations and standard mathematical dependencies.
+Scope: TIR-only foundational kernel. This document records the A0 relational-existence root together with the eight owner-specified A1--A8 axioms, giving each an explicit mathematical type, dependency role, and validation boundary. A0 fixes the semantics of the zero layer; downstream theorems require their own derivations and standard mathematical dependencies.
+
+## Axiom A0 — Relational Existence and Relational Zero
+
+**Statement.** TIR admits an entity as existent only through a realized distinction or relation that makes it identifiable in the relational presentation.
+
+Write
+
+\[
+\mathfrak R=(X,\mathcal D),
+\]
+
+with support set \(X\) and realized distinction/relation set \(\mathcal D\). The pre-object zero layer is
+
+\[
+\boxed{\mathfrak Z_{\rm rel}=(\varnothing,\varnothing).}
+\]
+
+It is not a point, not a singleton, and not a reified object called "nothing". It is zero realized relational structure. Hence
+
+\[
+\boxed{\nexists x\;(x\in X_0).}
+\]
+
+The logical status is exact but scoped: once existence is defined relationally in TIR, the absence of an existent object in the empty relational presentation is forced by definition. The definition itself is the TIR ontological entry rule, not a theorem of unrestricted logic independent of semantics.
+
+Canonical owner: \`TIR/foundations/TIR_RELATIONAL_ZERO_AXIOM_V0_1.md\`.
 
 ## Axiom A1 — Point Minimality
 
-**Statement.** The least that can exist is a point.
+**Statement.** The least nonzero support is a point.
 
 TIR formalization:
 
 \[
-\boxed{\mathcal P=\text{minimal non-empty distinguishable carrier}.}
+\boxed{\mathcal P=\{p\},\qquad |\mathcal P|=1.}
 \]
 
-The zero relational carrier has one occupied locus and no internal partition:
+This is the minimal non-empty support after \(\mathfrak Z_{\rm rel}\). It must not be identified with relational zero:
 
 \[
-|\mathcal P|=1,\qquad D(\mathcal P)=0.
+\boxed{\mathfrak Z_{\rm rel}\neq\mathcal P.}
 \]
 
-A1 fixes the minimal ontological carrier used by TIR.
+The unresolved point \((\mathcal P,\varnothing)\) is only the minimal support candidate. By A0 it is not yet a fully admitted existent TIR object until a nontrivial distinction is realized on its state/aspect domain.
+
+A1 therefore fixes support minimality without smuggling an object into the zero layer.
 
 ## Axiom A2 — Quantum Point
 
@@ -189,11 +217,15 @@ The first four operational steps of the kernel are
 
 \[
 \boxed{
+\mathfrak Z_{\rm rel}
+\xrightarrow{A1}
 \mathcal P
+\xrightarrow{\text{minimal nontrivial distinction}}
+\{N,S\}
 \xrightarrow{A2}
-|\mathcal P\rangle
+\mathcal H_2
 \xrightarrow{A3}
-\text{distinguishable relation}
+\text{normalized informational relation}
 \xrightarrow{A7}
 \{N,S\}_{\rm symmetric}
 \xrightarrow{}
@@ -342,7 +374,7 @@ The immediate theorem programme is intentionally narrow. Before extending the ke
 
 \[
 \boxed{
-A1+A2+A3+A7
+A0+A1+A3+A7
 \rightarrow
 \Delta_1
 \rightarrow
@@ -361,7 +393,9 @@ The first open derivational question is therefore the status of \(\Delta_1\): th
 ## Dependency graph
 
 ```text
-A1 POINT MINIMALITY
+A0 RELATIONAL EXISTENCE / ZERO
+  -> A1 POINT MINIMALITY
+      -> FIRST DISTINCTION
   -> A2 QUANTUM POINT
   -> A3 INFORMATION PRIMACY
       -> FIRST DISTINCTION
@@ -385,7 +419,8 @@ A8 PARADOX STABILIZATION
 
 | Axiom | TIR type |
 |---|---|
-| A1 point minimality | FOUNDATIONAL ONTOLOGICAL POSTULATE |
+| A0 relational existence / zero | FOUNDATIONAL DEFINITION + EXACT DEFINITIONAL CONSEQUENCE |
+| A1 point minimality | FOUNDATIONAL SUPPORT-MINIMALITY POSTULATE |
 | A2 quantum point | FOUNDATIONAL PHYSICAL POSTULATE |
 | A3 information primacy | FOUNDATIONAL INFORMATIONAL POSTULATE |
 | A4 sphere efficiency | GEOMETRIC SELECTION POSTULATE WITH ISOPERIMETRIC TYPING |
@@ -399,6 +434,10 @@ A8 PARADOX STABILIZATION
 The existing TIR-owned half-seam remains the first exact derived bridge:
 
 `TIR/integration/TIR_RELATIONAL_HALF_SEAM_CROSSLINK_V0_1.md`
+
+The canonical zero semantics is owned by:
+
+`TIR/foundations/TIR_RELATIONAL_ZERO_AXIOM_V0_1.md`
 
 The zero-to-first-distinction construction remains the detailed branch expansion:
 
