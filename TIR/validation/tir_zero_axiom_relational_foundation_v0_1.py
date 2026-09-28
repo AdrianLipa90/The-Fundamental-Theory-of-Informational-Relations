@@ -84,7 +84,11 @@ def build_receipt() -> dict[str, object]:
         "primitive_content": "RELATION",
         "ontic_zero_object": False,
         "zero_typing": "RELATIONAL_NULLITY_ONLY",
-        "dependency_spine": ["RELATION", "POLE_PAIR", "HALF_SEAM", "LN2", "C2", "CP1_S2", "TIR"],
+        "dependency_graph": {
+            "root": "RELATION",
+            "scalar_branch": ["POLE_PAIR", "HALF_SEAM", "LN2"],
+            "projective_branch": ["POLE_PAIR", "RELATIONAL_SPHERE_S2", "CP1", "PROJECTIVE_C2", "QUANTUM_CARRIER"],
+        },
         "claim_boundary": {
             "zero_axiom_status": "canonical TIR foundation declaration",
             "metalogical_universality": "requires independent formal audit; not established by this executable certificate",
