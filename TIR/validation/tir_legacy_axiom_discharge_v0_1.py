@@ -78,18 +78,20 @@ def euler_symmetry() -> dict[str, object]:
 
 def source_firewall() -> dict[str, object]:
     files = {
-        "zero_foundation": ROOT / "foundations" / "TIR_ZERO_AXIOM_RELATIONAL_FOUNDATION_V0_1.md",
+        "spine": ROOT / "foundations" / "TIR_CANONICAL_DERIVATION_SPINE_V0_1.md",
         "discharge": ROOT / "foundations" / "TIR_LEGACY_AXIOM_DISCHARGE_THEOREM_V0_1.md",
+        "phase_core": ROOT / "foundations" / "TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md",
+        "bloch": ROOT / "foundations" / "TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md",
         "chapter1": ROOT / "monograph" / "v12" / "chapters" / "ch01_first_distinction_relational_kernel.tex",
     }
     texts = {k: p.read_text(encoding="utf-8") for k, p in files.items()}
     markers = {
-        "zero_axiom_count": "N_{\\rm nonlogical\\ axioms}=0" in texts["zero_foundation"],
-        "relational_minimum": "RELATION" in texts["zero_foundation"],
-        "sphere_before_quantum_firewall": (
-            "R\n\\to\n\\{N,S\\}\n\\to\nS^2" in texts["discharge"]
-            and "The following old dependency is prohibited" in texts["discharge"]
-        ),
+        "zero_axiom_count": "N_{\\rm nonlogical\\ axioms}=0" in texts["spine"],
+        "point_minimum": "minimum object" in texts["spine"] and "point" in texts["spine"],
+        "relation_minimum": "minimum nontrivial structure" in texts["spine"],
+        "phase_core": "U(1)" in texts["phase_core"] and "S^1" in texts["phase_core"],
+        "bloch_without_so3_parent": "no pre-existing \\(SO(3)\\) action is required" in texts["bloch"],
+        "legacy_count_zero": "N_{\\rm legacy\\ independent\\ axioms}=0" in texts["discharge"],
         "chapter_zero_axiom": "N_{\\rm nonlogical\\ axioms}=0" in texts["chapter1"],
     }
     return {"markers": markers, "pass": all(markers.values())}
