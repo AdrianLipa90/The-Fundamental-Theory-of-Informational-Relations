@@ -48,6 +48,9 @@ jobs:
           python3 TIR/validation/tir_half_seam_phase_fiber_v0_1.py | tee tir_half_seam_phase_fiber_receipt.json
           python3 TIR/validation/tir_causal_bridge_from_zero_v0_1.py | tee tir_causal_bridge_from_zero_receipt.json
           python3 TIR/validation/tir_spatial_geometry_core_v0_1.py | tee tir_spatial_geometry_core_receipt.json
+          python3 TIR/subrepos/the-space-of-geometry/validation/quantum_relation_affine_torsor_v0_2.py | tee sog_affine_torsor_v0_2_receipt.json
+          python3 TIR/subrepos/the-space-of-geometry/validation/relational_state_difference_uniqueness_v0_2.py | tee sog_state_difference_v0_2_receipt.json
+          python3 TIR/subrepos/the-space-of-geometry/validation/spatial_promotion_uniqueness_v0_2.py | tee sog_spatial_promotion_v0_2_receipt.json
           grep -Fq '"technical_status": "PASS"' kappa_phase_rate_receipt.json
           grep -Fq '"technical_status": "PASS"' kappa_flavour_mixing_normalization_receipt.json
           grep -Fq '"mixing_algebra_dimension": 8' kappa_flavour_mixing_normalization_receipt.json
@@ -65,6 +68,12 @@ jobs:
           grep -Fq '"technical_status": "PASS"' tir_half_seam_phase_fiber_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_causal_bridge_from_zero_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_spatial_geometry_core_receipt.json
+          grep -Fq '"technical_status": "PASS"' sog_affine_torsor_v0_2_receipt.json
+          grep -Fq '"technical_status": "PASS"' sog_state_difference_v0_2_receipt.json
+          grep -Fq '"technical_status": "PASS"' sog_spatial_promotion_v0_2_receipt.json
+          grep -Fq '"canonical_nonlogical_axiom_count": 0' sog_affine_torsor_v0_2_receipt.json
+          grep -Fq '"canonical_nonlogical_axiom_count": 0' sog_state_difference_v0_2_receipt.json
+          grep -Fq '"canonical_nonlogical_axiom_count": 0' sog_spatial_promotion_v0_2_receipt.json
           grep -Fq '"pi_cancelled_exactly": true' kappa_phase_rate_receipt.json
           grep -Fq '"seam_is_positive_reciprocal_fixed_point": true' tir_relational_half_seam_receipt.json
           grep -Fq '"equal_weight_seam": true' tir_relational_half_seam_receipt.json
@@ -159,6 +168,9 @@ jobs:
           test -s TIR/foundations/TIR_CAUSAL_BRIDGE_FROM_ZERO_V0_1.md
           test -s TIR/foundations/TIR_SPATIAL_GEOMETRY_CORE_V0_1.md
           test -s TIR/foundations/TIR_SPATIAL_TEMPORAL_CLOSURE_INTERFACE_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/ZERO_AXIOM_TO_SPATIAL_REALIZATION_BRIDGE_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/SPATIAL_PROMOTION_UNIQUENESS_V0_2.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/RELATIONAL_STATE_DIFFERENCE_UNIQUENESS_V0_2.md
           qpdf --check TIR/monograph/metatime_monograph.pdf
           qpdf --check TIR/metatime_paper.pdf
           qpdf --check TIR/zeta_information_axis/monograph/main.pdf
@@ -196,6 +208,9 @@ jobs:
             tir_half_seam_phase_fiber_receipt.json
             tir_causal_bridge_from_zero_receipt.json
             tir_spatial_geometry_core_receipt.json
+            sog_affine_torsor_v0_2_receipt.json
+            sog_state_difference_v0_2_receipt.json
+            sog_spatial_promotion_v0_2_receipt.json
             critical-axis-pytest.log
             solver-console.json
             TIR/zeta_information_axis/reports/solver_receipt.json
