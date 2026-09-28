@@ -14,12 +14,12 @@ Purpose: prevent the failure mode “not present in the current summary file -> 
 | 1/2 -> ln2 | first-distinction theorem / half-seam | exact Shannon identity | CANONICAL |
 | 1/2 -> U(1) ~= S1 phase fibre | `TIR_HALF_SEAM_PHASE_FIBER_V0_1.md` | exact in two-state coherent lift | CANONICAL |
 | relational phase Lagrangian with chi in U(1) | archived Hilbert--Kähler phase Hamiltonian | formal source, algebra exact once carrier admitted | PROMOTED SOURCE |
-| CP1 ~= S2 and FS metric | archived Hilbert--Kähler note + v12 ch03 | standard projective/Kähler geometry | CANONICAL |
+| CP1 ~= S2 and FS metric | `TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md` + archived Hilbert--Kähler provenance + v12 ch03 | standard projective/Kähler geometry | CANONICAL |
 | Berry curvature and Chern number 1 | archived Hilbert--Kähler note | standard geometry | CANONICAL |
 | Euler/Berry nontrivial sign -> minimal spin 1/2 | archive module v2.4 | FORMAL_SYMBOLIC_PASS | PROMOTED SOURCE |
 | 2pi -> -I, 4pi -> +I | White-Thread spin-lift | exact spin-lift identities | CANONICAL |
 | spin 1/2 -> two polar eigenstates | Hilbert--Kähler note / standard Pauli representation | exact representation theory | CANONICAL |
-| S1 equator + two poles -> S2 | canonical spine using suspension theorem | standard topology | CANONICAL |
+| S1 phase fibre + two polar endpoints -> S2 | `TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md` | standard suspension topology + exact Bloch map | CANONICAL |
 | Bloch sphere -> Herm_0(2) ~= R3 | v12 ch03/ch04, relational-generator foundation | exact linear algebra | CANONICAL |
 | affine relation is state difference up to scale | Space-of-Geometry naturality theorems | exact conditional + one TIR inheritance gate | CANONICAL DOWNSTREAM |
 | tetrahedral minimal isotropic frame | TIR minimal tetrahedral-cell theorem | exact conditional | CANONICAL DOWNSTREAM |
