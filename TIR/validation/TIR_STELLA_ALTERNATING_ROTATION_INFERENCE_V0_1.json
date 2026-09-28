@@ -23,5 +23,13 @@
     "particle_physics_supersymmetry_claimed": false,
     "overlap_multiset_completeness_claimed": false
   },
-  "canon_allowed": false
+  "canon_allowed": false,
+  "executed_validation": {
+    "environment": "isolated Python exact-rational reference harness",
+    "result": "PASS",
+    "tetrahedral_rotation_group_order": 12,
+    "independent_relabeling_pairs_checked": 144,
+    "decorated_half_step_square_checks": 2,
+    "signature_change_witness": true
+  }
 }
