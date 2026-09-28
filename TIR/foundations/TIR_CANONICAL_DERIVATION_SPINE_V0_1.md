@@ -190,6 +190,8 @@ A connected compact one-dimensional Lie phase group is, up to isomorphism, the c
 
 ## 6. From the phase circle and polar roles to \(S^2\)
 
+Canonical theorem source: `TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md`.
+
 The equal-weight coherent states form the phase circle
 
 \[
@@ -402,7 +404,9 @@ The canonical active proof surfaces are:
   `TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md`;
 - half-seam / \(S^1\) fibre:
   `TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md`;
-- Hilbert--Kähler / Fubini--Study / Berry / relational Lagrangian:
+- Lagrangian--Bloch selection / `S1 -> S2 -> CP1` closure:
+  `TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md`;
+- Hilbert--Kähler / Fubini--Study / Berry / relational Lagrangian provenance:
   `archive/v7.9/full/01_foundational_formal_notes/hilbert_kahler_phase_hamiltonian/main.tex`;
 - Euler--Berry spin selection:
   `archive/v7.9/full/22_euler_identity_berry_phase_spin_constraint_v2_4/METATIME_SM_EULER_IDENTITY_BERRY_PHASE_SPIN_CONSTRAINT_v2_4.md`;
