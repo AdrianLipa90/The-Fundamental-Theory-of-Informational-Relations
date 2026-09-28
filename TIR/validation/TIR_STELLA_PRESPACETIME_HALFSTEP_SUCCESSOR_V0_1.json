@@ -1,0 +1,25 @@
+{
+  "schema": "TIR_STELLA_PRESPACETIME_HALFSTEP_SUCCESSOR_V0_1",
+  "date": "2026-09-28",
+  "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+  "branch": "formalize/pretemporal-stella-halfstep-hilbert-v0.1-20260928",
+  "status": "PASS_EXACT_COMBINATORIAL_CORE__STELLA_BINDING_CONDITIONAL",
+  "theorem": "TIR/foundations/TIR_STELLA_PRESPACETIME_HALFSTEP_SUCCESSOR_V0_1.md",
+  "validator": "TIR/validation/tir_stella_prespacetime_halfstep_successor_v0_1.py",
+  "exact_core": [
+    "H(H(n,sigma)) = S(n,sigma)",
+    "g(Hx)-g(x)=1/2 after coarse successor normalization",
+    "E_n intersect E_{n+1}={n+1}",
+    "unilateral Hilbert shift preserves adjacent incidence",
+    "Hilbert shift on N is injective and non-surjective"
+  ],
+  "binding": {
+    "stella_two_sector": "CONDITIONAL_STRUCTURAL_BINDING",
+    "tetrahedral_half_turn": "EXISTING_EXACT_COMPATIBILITY_CROSSWALK",
+    "physical_time": "NOT_ASSUMED",
+    "physical_space": "NOT_ASSUMED"
+  },
+  "rh_used": false,
+  "physical_spacetime_claimed": false,
+  "canon_allowed": false
+}
