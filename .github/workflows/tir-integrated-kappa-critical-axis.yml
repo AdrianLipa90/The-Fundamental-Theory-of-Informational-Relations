@@ -41,6 +41,7 @@ jobs:
           python3 TIR/validation/review_source_contract_v11_1.py | tee review_source_contract_receipt.json
           python3 TIR/validation/tir_relational_half_seam_v0_1.py | tee tir_relational_half_seam_receipt.json
           python3 TIR/validation/tir_zero_first_distinction_v0_1.py | tee tir_zero_first_distinction_receipt.json
+          python3 TIR/validation/tir_zero_axiom_relational_foundation_v0_1.py | tee tir_zero_axiom_relational_foundation_receipt.json
           python3 TIR/validation/tir_axiomatic_kernel_v0_1.py | tee tir_axiomatic_kernel_receipt.json
           python3 TIR/validation/tir_first_distinction_theorem_v0_1.py | tee tir_first_distinction_theorem_receipt.json
           python3 TIR/validation/tir_half_seam_phase_fiber_v0_1.py | tee tir_half_seam_phase_fiber_receipt.json
