@@ -1,42 +1,50 @@
 # TIR Lagrangian--Bloch Selection Theorem v0.1
 
-Status: `EXACT_MINIMAL_COHERENT_PROJECTIVE_GEOMETRY__TIR_SOURCE_RECONCILIATION`
+Status: \`EXACT_MINIMAL_COHERENT_PROJECTIVE_GEOMETRY__TIR_SOURCE_RECONCILIATION\`
 
-Scope: close the foundation seam between the primitive point/relational distinction, the half-seam phase circle, the projective two-state carrier, the Bloch sphere, and the Fubini--Study Lagrangian geometry. This theorem introduces no physical empirical binding.
+Scope: close the foundation seam between the primitive point/relational distinction, the independent \(U(1)\cong S^1\) phase core, the projective two-state carrier, the Bloch sphere, and the Fubini--Study Lagrangian geometry. This theorem introduces no empirical physical binding.
 
 ## 1. Primitive point and first nontrivial coherent relation
 
-The minimum non-empty object carrier is a point (P). A nontrivial relation distinguishes two orientation roles
+The minimum non-empty object carrier is a point \(P\). A nontrivial relation distinguishes two orientation roles
 
-[
-{N,S}.
-]
+\[
+\{N,S\}.
+\]
 
 Normalized relational shares are
 
-[
-(1-u,u),qquad 0le ule1.
-]
+\[
+(1-u,u),
+\qquad
+0\le u\le1.
+\]
 
-The smallest coherent extension retaining the already-admitted relative phase (arphiin U(1)cong S^1) is
+The independent relational phase core supplies
 
-[
-oxed{
-|psi(u,arphi)angle
+\[
+\varphi\in U(1)\cong S^1.
+\]
+
+The smallest coherent two-role extension carrying this population coordinate and relative phase is
+
+\[
+\boxed{
+|\psi(u,\varphi)\rangle
 =
-sqrt{1-u},|Nangle
+\sqrt{1-u}\,|N\rangle
 +
-e^{iarphi}sqrt{u},|Sangle.
+e^{i\varphi}\sqrt{u}\,|S\rangle.
 }
-]
+\]
 
 The endpoints are phase-independent:
 
-[
-u=0Rightarrow [psi]=[N],
-qquad
-u=1Rightarrow [psi]=[S].
-]
+\[
+u=0\Rightarrow[\psi]=[N],
+\qquad
+u=1\Rightarrow[\psi]=[S].
+\]
 
 Hence the relative-phase circle collapses at the two endpoints.
 
@@ -44,38 +52,39 @@ Hence the relative-phase circle collapses at the two endpoints.
 
 The parameter space before endpoint identification is
 
-[
-S^1	imes[0,1].
-]
+\[
+S^1\times[0,1].
+\]
 
-Collapsing the lower boundary circle to (N) and the upper boundary circle to (S) gives
+Collapsing the lower boundary circle to \(N\) and the upper boundary circle to \(S\) gives
 
-[
-oxed{
-left(S^1	imes[0,1]ight)/
-left(S^1	imes{0}sim N,;
-S^1	imes{1}sim S
-ight)
-cong
-Sigma S^1
-cong
+\[
+\boxed{
+\left(S^1\times[0,1]\right)/
+\left(
+S^1\times\{0\}\sim N,\;
+S^1\times\{1\}\sim S
+\right)
+\cong
+\Sigma S^1
+\cong
 S^2.
 }
-]
+\]
 
-Thus the sphere follows from the phase fibre plus the two pole endpoints; no pre-existing (SO(3)) action is required.
+Thus the sphere follows from the phase fibre plus the two pole endpoints; no pre-existing \(SO(3)\) action is required.
 
-Equivalently, the same coherent state is a normalized vector in (mathbb C^2). Removing global phase gives
+Equivalently, the same coherent state is a normalized vector in \(\mathbb C^2\). Removing global phase gives the Hopf/projective quotient
 
-[
-oxed{
+\[
+\boxed{
 S^3/U(1)
 =
-mathbb{CP}^1
-cong
+\mathbb{CP}^1
+\cong
 S^2.
 }
-]
+\]
 
 The suspension and projective quotients are two descriptions of the same minimal two-state coherent geometry.
 
@@ -83,41 +92,41 @@ The suspension and projective quotients are two descriptions of the same minimal
 
 Define
 
-[
-mathbf r(u,arphi)
+\[
+\mathbf r(u,\varphi)
 =
-left(
-2sqrt{u(1-u)}cosarphi,;
-2sqrt{u(1-u)}sinarphi,;
+\left(
+2\sqrt{u(1-u)}\cos\varphi,\;
+2\sqrt{u(1-u)}\sin\varphi,\;
 1-2u
-ight).
-]
+\right).
+\]
 
 Then
 
-[
-|mathbf r|^2
+\[
+|\mathbf r|^2
 =
 4u(1-u)+(1-2u)^2
 =
 1.
-]
+\]
 
 Therefore
 
-[
-oxed{mathbf r:[psi]mapsto S^2}
-]
+\[
+\boxed{\mathbf r:[\psi]\mapsto S^2}
+\]
 
-is the standard Bloch realization. At (u=1/2),
+is the standard Bloch realization. At \(u=1/2\),
 
-[
-oxed{
-mathbf r(1/2,arphi)
+\[
+\boxed{
+\mathbf r(1/2,\varphi)
 =
-(cosarphi,sinarphi,0),
+(\cos\varphi,\sin\varphi,0),
 }
-]
+\]
 
 so the TIR half-seam fibre is exactly the Bloch equator.
 
@@ -125,60 +134,60 @@ so the TIR half-seam fibre is exactly the Bloch equator.
 
 Suspension obeys
 
-[
-chi(Sigma X)=2-chi(X).
-]
+\[
+\chi(\Sigma X)=2-\chi(X).
+\]
 
 Because
 
-[
-chi(S^1)=0,
-]
+\[
+\chi(S^1)=0,
+\]
 
 we obtain
 
-[
-oxed{
-chi(S^2)=chi(Sigma S^1)=2.
+\[
+\boxed{
+\chi(S^2)=\chi(\Sigma S^1)=2.
 }
-]
+\]
 
 This is the topological Euler closure of the phase circle into the sphere.
 
-It must not be confused with Euler's complex identity (e^{ipi}=-1), which enters the Berry/spin closure after the projective geometry has been established.
+It must not be confused with Euler's complex identity \(e^{i\pi}=-1\), which enters the Berry/spin closure after the projective geometry has been established.
 
 ## 5. Fubini--Study metric is the canonical projective metric
 
 On normalized rays,
 
-[
-ds_{m FS}^2
+\[
+ds_{\rm FS}^2
 =
-langle dpsi|dpsiangle
+\langle d\psi|d\psi\rangle
 -
-|langlepsi|dpsiangle|^2.
-]
+|\langle\psi|d\psi\rangle|^2.
+\]
 
 Using
 
-[
-u=sin^2rac{	heta}{2},
-]
+\[
+u=\sin^2\frac{\theta}{2},
+\]
 
 the metric becomes
 
-[
-oxed{
-ds_{m FS}^2
+\[
+\boxed{
+ds_{\rm FS}^2
 =
-rac14
-left(
-d	heta^2+sin^2	heta,darphi^2
-ight).
+\frac14
+\left(
+d\theta^2+\sin^2\theta\,d\varphi^2
+\right).
 }
-]
+\]
 
-For (mathbb{CP}^1), the (PU(2))-invariant Kähler metric is unique up to one positive overall scale. TIR fixes the standard Fubini--Study normalization above.
+For \(\mathbb{CP}^1\), the \(PU(2)\)-invariant Kähler metric is unique up to one positive overall scale. TIR fixes the standard Fubini--Study normalization above.
 
 Thus the minimal coherent projective carrier does not admit an arbitrary angular metric once projective-unitary invariance and the standard normalization are imposed.
 
@@ -186,118 +195,130 @@ Thus the minimal coherent projective carrier does not admit an arbitrary angular
 
 The existing TIR relational phase Lagrangian has the geometric kinetic term
 
-[
-L_{m geom}
+\[
+L_{\rm geom}
 =
-rac12 g_{ab}(q)dot q^adot q^b.
-]
+\frac12 g_{ab}(q)\dot q^a\dot q^b.
+\]
 
-On the minimal coherent projective carrier, the canonical choice is
+On the minimal coherent projective carrier, the canonical projective choice is
 
-[
-oxed{
-g_{ab}=g^{m FS}_{ab}
+\[
+\boxed{
+g_{ab}=g^{\rm FS}_{ab}
 }
-]
+\]
 
-up to the overall scale already fixed by the Fubini--Study normalization.
+up to the overall scale fixed by the chosen Fubini--Study normalization.
 
 Hence the minimal projective Lagrangian geometry is
 
-[
-oxed{
-(mathbb{CP}^1,g_{m FS})
-cong
-(S^2,g_{m round}/4).
+\[
+\boxed{
+(\mathbb{CP}^1,g_{\rm FS})
+\cong
+(S^2,g_{\rm round}/4).
 }
-]
+\]
 
-This is the precise TIR content of “the point/minimal carrier maps to Bloch geometry through the Lagrangian”: a primitive point carrying the first nontrivial coherent relation has the minimal normalized projective configuration space (mathbb{CP}^1), and its invariant Kähler kinetic metric is Fubini--Study.
+This is the precise TIR content of “the point/minimal carrier maps to Bloch geometry through the Lagrangian”: a primitive point carrying the first nontrivial coherent relation has the minimal normalized projective configuration space \(\mathbb{CP}^1\), and its invariant Kähler kinetic metric is Fubini--Study.
 
 ## 7. Berry curvature and next theorem
 
 The Kähler/Berry curvature is
 
-[
-oxed{
+\[
+\boxed{
 F_B
 =
-rac12sin	heta,d	hetawedge darphi,
+\frac12\sin\theta\,d\theta\wedge d\varphi,
 }
-]
+\]
 
 with
 
-[
-oxed{
-rac1{2pi}int_{S^2}F_B=1.
+\[
+\boxed{
+\frac1{2\pi}\int_{S^2}F_B=1.
 }
-]
+\]
 
 The next canonical theorem is the already-existing Euler--Berry spin gate:
 
-[
-(mathbb{CP}^1,g_{m FS},F_B)
+\[
+(\mathbb{CP}^1,g_{\rm FS},F_B)
 +
-e^{igamma_B}=-1
-Longrightarrow
-oxed{s_{min}=rac12}.
-]
+e^{i\gamma_B}=-1
+\Longrightarrow
+\boxed{s_{\min}=\frac12}.
+\]
 
-That spin theorem remains separately sourced and preserves its original status `FORMAL_SYMBOLIC_PASS`.
+That spin theorem remains separately sourced and preserves its original status \`FORMAL_SYMBOLIC_PASS\`.
 
 ## 8. Dependency result
 
 The foundation seam is therefore
 
-[
-oxed{
+\[
+\boxed{
 P
-	o
+\to
 R
-	o
-{N,S}
-	o
-left([0,1]	imes S^1ight)/partial
-cong
-Sigma S^1
-cong
-S^2
-cong
-mathbb{CP}^1
-	o
-g_{m FS}
-	o
-F_B
-	o
-s=rac12.
+\to
+\{N,S\},
+\qquad
+R
+\to
+U(1)\cong S^1,
 }
-]
+\]
+
+followed by
+
+\[
+\boxed{
+\{N,S\}
++
+U(1)\cong S^1
+\to
+\Sigma S^1
+\cong
+S^2
+\cong
+\mathbb{CP}^1
+\to
+g_{\rm FS}
+\to
+F_B
+\to
+s=\frac12.
+}
+\]
 
 The scalar information branch
 
-[
-{N,S}	orac12	oln2
-]
+\[
+\{N,S\}\to\frac12\to\ln2
+\]
 
-is a commuting branch of the same binary carrier.
+commutes with the same binary carrier.
 
 ## 9. Claim classes
 
 | Statement | Class |
 |---|---|
-| (S^1) with two collapsed boundary circles gives (Sigma S^1cong S^2) | STANDARD EXACT TOPOLOGY |
-| normalized two-complex-state rays give (mathbb{CP}^1cong S^2) | STANDARD EXACT PROJECTIVE GEOMETRY |
+| \(S^1\) with the two boundary circles collapsed gives \(\Sigma S^1\cong S^2\) | STANDARD EXACT TOPOLOGY |
+| normalized two-complex-state rays give \(\mathbb{CP}^1\cong S^2\) | STANDARD EXACT PROJECTIVE GEOMETRY |
 | Bloch map has unit norm | EXACT |
 | half-seam fibre is the equator | EXACT |
-| (chi(Sigma S^1)=2) | STANDARD EXACT TOPOLOGY |
-| Fubini--Study formula on (mathbb{CP}^1) | STANDARD EXACT |
-| invariant Kähler metric is unique up to scale on this homogeneous carrier | STANDARD REPRESENTATION/GEOMETRY RESULT |
+| \(\chi(\Sigma S^1)=2\) | STANDARD EXACT TOPOLOGY |
+| Fubini--Study formula on \(\mathbb{CP}^1\) | STANDARD EXACT |
+| \(PU(2)\)-invariant Kähler metric uniqueness up to scale on \(\mathbb{CP}^1\) | STANDARD GEOMETRIC RESULT |
 | standard FS normalization fixes the scale used by TIR | CONVENTION / NORMALIZATION |
 | TIR relational Lagrangian uses this minimal projective metric | SOURCE-RECONCILED TIR IDENTIFICATION |
-| Euler--Berry sign selects minimal spin (1/2) | DOWNSTREAM FORMAL_SYMBOLIC_PASS |
+| Euler--Berry sign selects minimal spin \(1/2\) | DOWNSTREAM FORMAL_SYMBOLIC_PASS |
 | empirical universality of the carrier | NOT CLAIMED HERE |
 
 Validator:
 
-`TIR/validation/tir_lagrangian_bloch_selection_v0_1.py`.
+\`TIR/validation/tir_lagrangian_bloch_selection_v0_1.py\`.
