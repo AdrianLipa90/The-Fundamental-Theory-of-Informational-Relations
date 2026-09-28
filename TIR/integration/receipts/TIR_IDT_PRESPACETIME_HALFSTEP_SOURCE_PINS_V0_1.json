@@ -1,0 +1,54 @@
+{
+  "schema": "TIR_IDT_PRESPACETIME_HALFSTEP_SOURCE_PINS_V0_1",
+  "date": "2026-09-28",
+  "status": "BRANCH_LOCAL_CROSSREPO_SOURCE_PINS",
+  "branch": "formalize/pretemporal-stella-halfstep-hilbert-v0.1-20260928",
+  "source_pins": [
+    {
+      "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+      "path": "TIR/foundations/TIR_STELLA_PRESPACETIME_HALFSTEP_SUCCESSOR_V0_1.md",
+      "blob_sha": "24d65a985e0c9b74c1bc9bb48d7b822334581b28"
+    },
+    {
+      "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+      "path": "TIR/foundations/TIR_STELLA_DISTINCTION_HOLONOMY_BRIDGE_V0_1.md",
+      "blob_sha": "329b3db0860d108a69f2d1046aa18211e6966eda"
+    },
+    {
+      "repository": "AdrianLipa90/Informational-Dynamics-of-Time",
+      "path": "formalism/00A_pretemporal_stella_halfstep_successor.md",
+      "blob_sha": "75760a5cd034ba4bb77635d140a0d3dc8c9582cd"
+    },
+    {
+      "repository": "AdrianLipa90/Informational-Dynamics-of-Time",
+      "path": "validation/dependency_graph.json",
+      "blob_sha": "375d31a00df63aa5764fe433411f0171b18c12a6"
+    },
+    {
+      "repository": "AdrianLipa90/Informational-Dynamics-of-Time",
+      "path": "validation/PRETEMPORAL_HALFSTEP_SUCCESSOR_V0_1.json",
+      "blob_sha": "128249314081a8a3f8493bf2d08595647e9a010f"
+    }
+  ],
+  "dependency_path": [
+    "TIR_STELLA_TWO_SECTOR_PACKET",
+    "TIR_PRESPACETIME_HALFSTEP_SUCCESSOR",
+    "IDT_00A_PRETEMPORAL_HALFSTEP_SUCCESSOR",
+    "IDT_TEMPORAL_PRIMITIVE_00E",
+    "IDT_RELATIONAL_PRECEDENCE_00F"
+  ],
+  "exact_core": [
+    "H^2=S on N_0 x Z_2",
+    "half grading after successor normalization",
+    "E_n intersection E_{n+1}={n+1}",
+    "Hilbert unilateral shift preserves incidence"
+  ],
+  "firewalls": {
+    "stella_binding": "CONDITIONAL",
+    "physical_time_assumed": false,
+    "physical_space_assumed": false,
+    "spinorial_halfturn_identified_with_successor": false,
+    "generated_dependency_export_manually_rewritten": false,
+    "canon_allowed": false
+  }
+}
