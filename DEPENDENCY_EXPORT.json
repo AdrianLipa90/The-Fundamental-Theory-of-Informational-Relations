@@ -91,10 +91,17 @@
       "evidence_class": "source_repository_status"
     },
     {
+      "claim_id": "TIR.FLAVOUR.THREE_STATE_CARRIER",
+      "status": "ADMITTED_TIR_THREE_FLAVOUR_STRUCTURAL_CARRIER / C3_AND_SU3F_DEFINED / PHYSICAL_FAMILY_ORIGIN_NOT_DERIVED_HERE",
+      "source_path": "TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md",
+      "evidence_class": "source_structural_carrier"
+    },
+    {
       "claim_id": "TIR.KAPPA.NORMALIZATION",
-      "status": "CLOSED_INTERNAL_DERIVATION",
-      "source_path": "TIR/CURRENT_STATUS.md",
-      "evidence_class": "source_repository_status"
+      "status": "CLOSED_INTERNAL_DERIVATION / REQUIRES_HALF_LN2_AND_THREE_FLAVOUR_SU3F_CARRIER",
+      "source_path": "TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md",
+      "evidence_class": "source_formalism_status",
+      "validation": "TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py"
     },
     {
       "claim_id": "TIR.L_CONSTANTS.PLATONIC_CLOSURE",
@@ -971,6 +978,11 @@
       "authority": "CANDIDATE_ONLY",
       "promotion_required": true,
       "promotion_gate": "PHYSICAL_CLOCK_CALIBRATION_REQUIRED"
+    },
+    {
+      "from": "TIR.FLAVOUR.THREE_STATE_CARRIER",
+      "to": "TIR.KAPPA.NORMALIZATION",
+      "authority": "CANONICAL"
     }
   ]
 }
