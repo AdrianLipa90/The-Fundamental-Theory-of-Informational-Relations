@@ -4,61 +4,113 @@ Status: `TIR_FIRST_DISTINCTION_FOUNDATION_CANDIDATE`
 
 Scope: TIR-only formalization of the common structural root behind the relational half-seam, binary Shannon information, the minimal two-state Hilbert carrier, noncommuting distinction frames, and the rotation-group entry point used much later by paradoxical decomposition theorems.
 
-The construction begins from zero relational distinction and adds structure one layer at a time.
+The construction begins from the relational zero, which is explicitly pre-object, and adds support and distinction one layer at a time.
 
-## 0. Zero relational distinction
+## 0. Relational zero: no object is hidden in zero
 
-Let
-
-\[
-\mathfrak Z=\{\bullet\}
-\]
-
-be the undivided relational carrier. It has one label and the degenerate probability vector
+Let a relational presentation be
 
 \[
-\mathbf p_0=(1).
+\mathfrak R=(X,\mathcal D),
 \]
 
-Its Shannon entropy is
+where \(X\) is the support set and \(\mathcal D\) is the set of realized distinctions/relations.
+
+The TIR zero layer is
 
 \[
-\boxed{H(\mathbf p_0)=0}.
+\boxed{
+\mathfrak Z_{\rm rel}
+=
+(\varnothing,\varnothing).
+}
 \]
 
-Define the distinction count
+Therefore
 
 \[
-D(\mathfrak Z)=0.
+X_0=\varnothing,
+\qquad
+\mathcal D_0=\varnothing,
+\qquad
+\boxed{\nexists x\;(x\in X_0).}
 \]
 
-This is the TIR zero layer: one carrier, one label, zero internal distinction.
+This is not a singleton carrier. It is the empty relational presentation. TIR defines existence relationally, so once that definition is fixed the absence of an existent object at the zero layer is an exact definitional consequence. The zero layer is therefore relational rather than a reified object called nothing.
 
-## 1. First distinction: two poles
+Canonical owner: \`TIR/foundations/TIR_RELATIONAL_ZERO_AXIOM_V0_1.md\`.
 
-Apply the first distinction operator
+## 0.1 Minimal nonzero support
+
+Leaving relational zero requires nonempty support. The least nonempty support is
 
 \[
-\Delta_1:\mathfrak Z\longmapsto\mathfrak B=\{N,S\}.
+\boxed{
+\mathcal P=\{p\},
+\qquad
+|\mathcal P|=1.
+}
 \]
 
-The labels `N` and `S` are relational poles. Algebraically introduce complementary projectors
+This point is the minimal support candidate, not the zero state:
 
 \[
-P_N^2=P_N,\qquad P_S^2=P_S,
+\boxed{
+\mathfrak Z_{\rm rel}\neq \mathcal P.
+}
 \]
+
+At this layer there is still no realized distinction. The unresolved presentation \((\mathcal P,\varnothing)\) does not yet satisfy the relational-existence criterion by itself.
+
+## 1. First distinction: the minimal nontrivial partition
+
+Let \(\Omega_{\mathcal P}\) be the state/aspect domain supported at \(\mathcal P\). A distinction is represented by a partition \(\Pi\) of that domain. A nontrivial distinction contains more than one nonempty block, so
 
 \[
-P_NP_S=0,\qquad P_N+P_S=I.
+|\Pi|\ge 2.
 \]
 
-The first distinction therefore creates the minimal binary partition
+The minimal nontrivial distinction therefore has exactly two outcomes:
 
 \[
-\boxed{\mathfrak Z\xrightarrow{\Delta_1}\{N,S\}}.
+\boxed{
+|\Pi_1|=2,
+\qquad
+\Pi_1=\{N,S\}.
+}
 \]
 
-This is the primitive TIR distinction from which the half-seam branch is built.
+The labels \(N,S\) are relational poles/aspects of the minimal carrier. They are not assumed to be two pre-existing spatial objects.
+
+Only after the binary distinction has been established do we introduce the primitive exchange map
+
+\[
+J:N\leftrightarrow S,
+\qquad
+J^2=\mathrm{id}.
+\]
+
+Equivalently, choosing one pole label \(x\),
+
+\[
+Jx\neq x,
+\qquad
+\mathcal O_J(x)=\{x,Jx\}=\{N,S\}.
+\]
+
+Thus the first nonzero relational chain is
+
+\[
+\boxed{
+\mathfrak Z_{\rm rel}
+\longrightarrow
+\mathcal P
+\longrightarrow
+\{N,S\}.
+}
+\]
+
+Binarity follows from minimal nontrivial distinction; the involution expresses the subsequent exchange symmetry rather than being used to smuggle binarity into the premise.
 
 ## 2. Equal relational share and the birth of ln 2
 
@@ -96,7 +148,9 @@ Thus the zero-to-distinction chain is
 
 \[
 \boxed{
-0_{\rm distinction}
+0_{\rm rel}
+\longrightarrow
+\mathcal P
 \longrightarrow
 \{N,S\}
 \longrightarrow
@@ -272,8 +326,10 @@ phase_degree_of_freedom   = phi
 
 | Statement | TIR class |
 |---|---|
-| `H((1))=0` | EXACT INFORMATION-THEORETIC |
-| first binary partition creates two distinguishable labels | EXACT DEFINITIONAL |
+| `Z_rel=(empty,empty)` | DEFINITIONAL RELATIONAL ZERO |
+| no object exists in relational zero | EXACT DEFINITIONAL CONSEQUENCE |
+| minimal nonempty support is a point | EXACT SET-THEORETIC |
+| minimal nontrivial distinction has two outcomes | EXACT DEFINITIONAL / SET-THEORETIC |
 | exchange-symmetric shares are `(1/2,1/2)` | EXACT |
 | `H_2(1/2)=ln2` | EXACT INFORMATION-THEORETIC |
 | `Fix(u->1-u)={1/2}` | EXACT |
