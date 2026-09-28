@@ -1,7 +1,7 @@
 # CURRENT STATUS — TIR
 
-**Status line:** 2026-09-22 semantic dependency reconciliation refreshed after White-Thread spin-lift/Lyapunov promotion; reconciliation branch pending final merge  
-**Current source baseline:** `main@611bc7687f0a2266a7cc6cc3010f9776dc03a391`  
+**Status line:** 2026-09-28 relational-zero foundation and graph reconciliation active on `sync/relational-zero-foundation-20260928`; main remains untouched  
+**Current source baseline:** `main@853032e019824b836de43634d949da5566396153`  
 **Status-surface policy:** formal/derivational closure, production-input state and empirical verdict are independent coordinates  
 **Legacy evidence rule:** a frozen legacy `FAIL` remains historical evidence for that exact formula; it does not automatically classify a later replacement construction  
 **Dependency export:** current branch export separates completed theorem surfaces, candidate-only bridges and still-open physical gates
@@ -32,11 +32,21 @@ PR #177 (`White-Thread spin lift and Lyapunov dynamics v0.1`) is intentionally n
 
 ## 1. Foundational closure
 
-The primitive dependency spine remains
+The primitive dependency spine is now explicitly pre-object at zero:
 
 \[
-0\to P\to\text{FIRST DISTINCTION}\to\{N,S\}\to\frac12\to\ln2\to\mathbb C^2.
+\boxed{
+\mathfrak Z_{\rm rel}=(\varnothing,\varnothing)
+\to \mathcal P=\{p\}
+\to\text{MINIMAL NONTRIVIAL DISTINCTION}
+\to\{N,S\}
+\to\frac12
+\to\ln2
+\to\mathbb C^2.
+}
 \]
+
+The zero layer is not a singleton. It contains no support locus and no realized relation. The point is the minimal nonempty support candidate; the first binary distinction is then forced by minimal nontrivial partition cardinality, and exchange symmetry acts only after binarity has been established. Canonical owner: `TIR/foundations/TIR_RELATIONAL_ZERO_AXIOM_V0_1.md`.
 
 The local spatial branch continues through the traceless-Hermitian carrier
 
@@ -50,6 +60,9 @@ then through the Euclidean metric, rank-three spatial carrier, regular tetrahedr
 Current classification:
 
 ```text
+TIR_RELATIONAL_ZERO = DEFINITIONAL_CLOSED / EMPTY_RELATIONAL_PRESENTATION / NO_OBJECT_AT_ZERO
+TIR_MINIMAL_POINT_SUPPORT = CLOSED / DISTINCT_FROM_RELATIONAL_ZERO
+TIR_FIRST_DISTINCTION = CLOSED / MINIMAL_NONTRIVIAL_PARTITION_BINARY
 TIR_FOUNDATIONAL_CORE = CLOSED
 TIR_LOCAL_SPATIAL_GEOMETRY = CLOSED
 TIR_TETRAHEDRAL_CONGRUENCE_CLASS = CLOSED_EXACT
