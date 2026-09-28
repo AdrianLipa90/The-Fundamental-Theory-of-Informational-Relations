@@ -1,0 +1,658 @@
+% GENERATED LOCAL-BUILD FLAT PART — DO NOT MERGE
+
+% ---- BEGIN TIR/monograph/v12/chapters/ch18_cosmological_extension.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Cosmological Extension}
+\label{ch:v12_cosmology}
+
+\section{Legacy suppression law}
+
+The cosmological branch proposes the dimensionless suppression
+\begin{equation}
+\boxed{
+r_\Lambda
+=\left(\frac{L_4}{L_3}\right)^D,
+\qquad
+D=L_3L_4^{L_5}.
+}
+\label{eq:v12_cosmo_suppression}
+\end{equation}
+For $(L_3,L_4,L_5)=(7,2,5)$,
+\begin{equation}
+D=7\times2^5=224.
+\end{equation}
+The discrete exponent is therefore reproduced exactly from the declared structural labels.
+\vTwelveStatus{B}{--}{PASS}
+Here \texttt{PASS} refers to evaluation of the declared discrete expression.
+
+\section{Exact power audit}
+
+Literal evaluation of Eq.~\eqref{eq:v12_cosmo_suppression} gives
+\begin{equation}
+\boxed{
+\left(\frac27\right)^{224}
+=1.345110818116154\times10^{-122},
+}
+\label{eq:v12_cosmo_power}
+\end{equation}
+with
+\begin{equation}
+\log_{10}r_\Lambda=-121.87124193446175.
+\end{equation}
+The historical intermediate $10^{-119.5}$ belongs to a superseded arithmetic snapshot and receives the formula-audit verdict
+\vTwelveStatus{D}{RETROSPECTIVE}{FAIL}
+
+\section{Dimensionful reconstruction gate}
+
+A physical vacuum-energy density requires a declared dimensionful reference scale $M_\star$:
+\begin{equation}
+\boxed{
+\rho_\Lambda^{\rm TIR}
+=r_\Lambda M_\star^4.
+}
+\label{eq:v12_cosmo_dimensional}
+\end{equation}
+The v12 audit evaluates two standard Planck-scale conventions as explicit diagnostic reconstructions.
+
+Using the unreduced Planck mass appearing elsewhere in the monograph,
+\begin{equation}
+M_P=1.22089\times10^{19}\ \mathrm{GeV},
+\end{equation}
+Eq.~\eqref{eq:v12_cosmo_dimensional} gives
+\begin{equation}
+\rho_\Lambda^{(M_P)}
+=2.9885753618\times10^{-46}\ \mathrm{GeV}^4.
+\end{equation}
+Using the reduced Planck mass
+\begin{equation}
+\bar M_P=2.435\times10^{18}\ \mathrm{GeV}
+\end{equation}
+gives
+\begin{equation}
+\rho_\Lambda^{(\bar M_P)}
+=4.7288324630\times10^{-49}\ \mathrm{GeV}^4.
+\end{equation}
+
+The historical displayed value $3.3\times10^{-47}\ \mathrm{GeV}^4$ would correspond, under the same fourth-power conversion, to
+\begin{equation}
+M_\star\simeq7.037833183\times10^{18}\ \mathrm{GeV}.
+\end{equation}
+Version 12 therefore promotes the scale convention to an explicit parent variable rather than carrying forward an implicit conversion.
+\vTwelveStatus{D}{RETROSPECTIVE}{QUARANTINED}
+
+\section{Density parameter gate}
+
+The dimensionless density parameter is defined by
+\begin{equation}
+\Omega_\Lambda=\frac{\rho_\Lambda}{\rho_{\rm crit}}.
+\label{eq:v12_omega_lambda}
+\end{equation}
+The legacy chapter prints $\Omega_\Lambda=0.685$. Version 12 requires the corresponding $\rho_{\rm crit}$ input or its derivation, unit convention, epoch and uncertainty model to be frozen alongside Eq.~\eqref{eq:v12_cosmo_dimensional} before the displayed number is promoted as an output of the cosmological branch.
+\vTwelveStatus{C}{RETROSPECTIVE}{QUARANTINED}
+
+\section{Typed interpretation of the exponent}
+
+The exponent
+\begin{equation}
+D=L_3L_4^{L_5}=224
+\end{equation}
+is retained as the declared TIR composite label. Its factors are kept typed by their own upstream definitions. In particular, standard $SU(3)$ dimensions are carried by the representation or Lie-algebra object to which they refer, while $L_3=7$ retains its v12 finite-orbit provenance from Chapter~10. This removes the legacy type collision between the integer label $L_3$ and a group dimension.
+\vTwelveStatus{D}{RETROSPECTIVE}{QUARANTINED}
+
+\section{Cosmological completion surface}
+
+The v12 dependency chain is
+\[
+\boxed{
+(L_3,L_4,L_5)
+\to D
+\to r_\Lambda=(L_4/L_3)^D
+\to M_\star^4
+\to\rho_\Lambda
+\to\rho_{\rm crit}
+\to\Omega_\Lambda
+\to\text{Chapter 19 verdict}.
+}
+\]
+This chain makes the dimensionless suppression, dimensionful scale, cosmological reference density and empirical comparison separately auditable.
+
+\section{Audit receipt}
+
+The arithmetic and scale diagnostics are reproduced by
+\path{TIR/validation/tir_v12_cosmology_formula_audit_v0_1.py}.
+The receipt
+\path{TIR/validation/TIR_V12_COSMOLOGY_FORMULA_AUDIT_V0_1.json}
+reports \texttt{PASS\_WITH\_COSMOLOGY\_QUARANTINE}: the exact discrete power is reproduced, while the historical intermediate, dimensionful conversion and density-parameter path are routed to their explicit v12 repair gates.
+
+% ---- END TIR/monograph/v12/chapters/ch18_cosmological_extension.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/chapters/ch19_unified_evidence_matrix.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Unified Evidence Matrix}
+\label{ch:v12_evidence_matrix}
+
+\section{Evidence ownership}
+
+Version 12 assigns one publication owner to the current result status of each observable: this chapter. Sector chapters own their equations, derivations and source provenance; historical comparison tables remain versioned evidence snapshots. Current status is normalized here as
+\[
+\boxed{(\text{Claim Class},\ \text{Timing},\ \text{Verdict})}
+\]
+using the taxonomy in \path{TIR/monograph/v12/STATUS_TAXONOMY.md}.
+
+The principal frozen external-validation source for particle-sector rows is
+\path{TIR/validation/pdg2026/TIR_PDG2026_VALIDATION_MATRIX_V2.md}, frozen 15 August 2026. The retained strong-CP/neutron-EDM failure is sourced from \path{TIR/FALSIFIABILITY.md}. Formula-level diagnostics discovered during the v12 migration are sourced from their dedicated validation receipts.
+
+\section{Current matrix}
+
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{p{0.17\textwidth}p{0.10\textwidth}p{0.19\textwidth}p{0.18\textwidth}p{0.25\textwidth}}
+\toprule
+Observable / sector & Claim Class & Timing & Verdict & Current evidence note \\
+\midrule
+\endfirsthead
+\toprule
+Observable / sector & Claim Class & Timing & Verdict & Current evidence note \\
+\midrule
+\endhead
+CKM nine magnitudes & C & RETROSPECTIVE & COMPATIBLE & PDG-2026 V2: all nine displayed magnitudes within the cited compatibility range; largest listed pull about $1.71\sigma$. \\
+$\delta_{\rm CKM}$ & C & RETROSPECTIVE & COMPATIBLE & PDG-2026 V2 strong compatibility; timing remains retrospective because the mixing-weight formulas retain historical provenance. \\
+$J_{\rm CP}$ from current CKM matrix & C & RETROSPECTIVE & COMPATIBLE & Exact downstream quartet identity once $(s_{12},s_{23},s_{13},\delta)$ are fixed; the former independent $J_{\rm old}$ assignment is deprecated, while external-data timing remains retrospective. \\
+\midrule
+$\sin^2\theta_{12}$ & C & RETROSPECTIVE & COMPATIBLE & Solar-angle comparison remains compatible in the frozen 2026 matrix. \\
+$\Delta m^2_{21}$ & C & RETROSPECTIVE & COMPATIBLE & Solar mass splitting remains compatible in the frozen 2026 matrix. \\
+$\sin^2\theta_{23}$ & C & RETROSPECTIVE & OPEN & Octant-sensitive comparison; frozen matrix records ambiguous compatibility. \\
+$\sin^2\theta_{13}=1/49$ & C & RETROSPECTIVE & TENSION & Frozen 2026 comparison gives approximately $-3.98$ to $-2.66\sigma$. \\
+$\delta_{\rm CP}^{\rm PMNS}$ & C & RETROSPECTIVE & OPEN & Frozen 2026 matrix records the comparison as inconclusive. \\
+Absolute neutrino masses & C & RETROSPECTIVE & OPEN & Model output; oscillation data in the frozen matrix do not independently determine the displayed absolute spectrum. \\
+Neutrino absolute-action equation & D & RETROSPECTIVE & QUARANTINED & v12 HOUND audit found a printed formula/value mismatch in legacy Ch.~17; the diagnostic reconstruction is retained in the dedicated v12 receipt. \\
+\midrule
+Electron mass relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+Muon mass relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+Tau mass relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+\midrule
+Baryon octet pattern & C & RETROSPECTIVE & QUARANTINED & PDG-2026 V2 records retrospective refinement against target masses; independent-evidence promotion is blocked pending provenance closure. \\
+Baryon decuplet pattern & C & RETROSPECTIVE & COMPATIBLE & Candidate compatibility with explicit proton-linked anchor provenance. \\
+Pion printed exponential & D & RETROSPECTIVE & FAIL & PDG-2026 V2 records an internal arithmetic/formula failure. \\
+Kaon printed exponential & D & RETROSPECTIVE & FAIL & PDG-2026 V2 records an internal arithmetic/formula failure. \\
+$\eta,\eta'$ mapping & C & RETROSPECTIVE & QUARANTINED & Provenance/derivation closure pending. \\
+Heavy/vector meson table & C & RETROSPECTIVE & QUARANTINED & Frozen audit classifies the near-equality table as reproduction rather than independent validation. \\
+\midrule
+Electroweak scale $v$ & B & RETROSPECTIVE & OPEN & Close relative comparison uses a derived reference; structural transport to a precision observable remains open. \\
+$\sin^2\theta_W$ & B & RETROSPECTIVE & TENSION & Renormalization scheme and scale are required for a precision comparison. \\
+$\alpha^{-1}(0)$ relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+$M_W$ relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+$M_Z$ relation & C & RETROSPECTIVE & FAIL & PDG-2026 V2 precision failure. \\
+$M_H$ relation & C & RETROSPECTIVE & FAIL & Frozen 2026 audit gives a precision-level failure/tension. \\
+Quark mass map & B & -- & OPEN & Prime labels exist; a scheme- and scale-defined mass map remains a completion gate. \\
+\midrule
+Strong-CP $\theta_{\rm QCD}$ assignment & C & RETROSPECTIVE & OPEN & The frozen v11 assignment is retained as the parent of the neutron-EDM gate. \\
+Strong-CP $\to$ neutron EDM & D & RETROSPECTIVE & FAIL & $d_n\simeq5.3299\times10^{-26}\,e\,\mathrm{cm}$ against the manuscript bound $1.8\times10^{-26}\,e\,\mathrm{cm}$; retained physical failure. \\
+Hypercharge source map & B & -- & OPEN & The arithmetic reproduces the conventional one-generation assignments; derivation/uniqueness remains open because $Y_L$ is an external parent in the legacy source. \\
+Standard local anomaly sums + Witten count & A & -- & PASS & v12 Chapter~15 reproduces $\mathcal A_{33Y}=\mathcal A_{22Y}=\mathcal A_{YYY}=\mathcal A_{\mathrm{grav}\,Y}=0$ and the even doublet count $N_{\rm doublet}=4$. \\
+Legacy A5 baryon-current row & D & RETROSPECTIVE & QUARANTINED & The historical expression uses hypercharges; the corrected $SU(2)^2B$ coefficient is $1/2$ in the declared $T(\mathbf2)=1/2$ normalization. \\
+Cosmological density formula & D & RETROSPECTIVE & QUARANTINED & v12 HOUND arithmetic audit finds $(2/7)^{224}=1.345\ldots\times10^{-122}$, inconsistent with the legacy printed $10^{-119.5}$ intermediate value; Chapter~18 owns the repair audit. \\
+\bottomrule
+\end{longtable}}
+
+\section{Status normalization rules}
+
+The v12 map preserves source meaning while removing competing vocabularies:
+\begin{align*}
+\texttt{PASS\_COMPATIBILITY}
+&\longrightarrow \texttt{COMPATIBLE},\\
+\texttt{PASS\_STRONG\_COMPATIBILITY}
+&\longrightarrow \texttt{COMPATIBLE},\\
+\texttt{TENSION}
+&\longrightarrow \texttt{TENSION},\\
+\texttt{SCHEME\_UNDEFINED\_TENSION}
+&\longrightarrow \texttt{TENSION},\\
+\texttt{FAIL\_PRECISION}
+&\longrightarrow \texttt{FAIL},\\
+\texttt{FORMULA\_BROKEN}
+&\longrightarrow \texttt{FAIL},\\
+\texttt{FAIL\_PRECISION\_TENSION}
+&\longrightarrow \texttt{FAIL},\\
+\texttt{AMBIGUOUS\_COMPATIBILITY}
+&\longrightarrow \texttt{OPEN},\\
+\texttt{INCONCLUSIVE}
+&\longrightarrow \texttt{OPEN},\\
+\texttt{NOT\_TESTABLE\_CURRENTLY}
+&\longrightarrow \texttt{OPEN},\\
+\texttt{PROVENANCE\_CONTAMINATED}
+&\longrightarrow \texttt{QUARANTINED},\\
+\texttt{PROVENANCE\_INCOMPLETE}
+&\longrightarrow \texttt{QUARANTINED},\\
+\texttt{REPRODUCTION\_NOT\_VALIDATION}
+&\longrightarrow \texttt{QUARANTINED}.
+\end{align*}
+
+The Claim Class axis remains independent of the verdict. Thus an exact implementation can coexist with an empirical FAIL, and a retrospective numerical match can be COMPATIBLE while remaining Class C.
+
+\section{Single-owner invariant}
+
+For v12 publication purposes:
+\[
+\boxed{
+\text{sector chapter}\to\text{formula/provenance},
+\qquad
+\text{Chapter 19}\to\text{current evidence verdict}.
+}
+\]
+A changed external dataset, corrected formula or new validator updates this matrix and its machine-readable receipt first. Historical Ch.~30, Ch.~32 and earlier sector tables remain provenance snapshots.
+
+% ---- END TIR/monograph/v12/chapters/ch19_unified_evidence_matrix.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/chapters/ch20_prospective_predictions_falsification.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Prospective Predictions and Falsification}
+\label{ch:v12_predictions_falsification}
+
+\section{Prospective evidence contract}
+
+Version 12 separates prospective evidence from retrospective sector comparison. A prospective test is represented by
+\begin{equation}
+\boxed{
+\mathcal P
+=(F,\mathcal O,\mathcal D,\mathcal R,\mathcal V),
+}
+\end{equation}
+where $F$ is the frozen formula/version identity, $\mathcal O$ the assigned observable, $\mathcal D$ the post-freeze dataset gate, $\mathcal R$ the decision rule and $\mathcal V$ the no-refit/versioning policy.
+
+The active candidate family was frozen on 29 July 2026. Its executable source is
+\path{TIR/validation/separable_universal_candidate_family_v10_7.py}.
+
+\section{Separable architecture}
+
+The candidate family uses
+\begin{equation}
+\boxed{
+\ln y_{f,g}=F(S_f)+D(G_g,R_g),
+}
+\label{eq:v12_prospective_separable}
+\end{equation}
+with generation-invariant sector coordinate $S_f$, generation coordinate $G_g$, and Ramanujan release $R_g$. The same pair of functions $(F,D)$ is applied across the charged-lepton, down-quark and up-quark sectors.
+
+The frozen structural coordinates are
+\begin{align}
+S_\ell&=4.5,
+&S_d&=3.0876164691516155,
+&S_u&=2.920949802484949,\\
+G_1&=0.8471633855025916,
+&G_2&=0.6088811663290957,
+&G_3&=0.23926393244694075,\\
+R_1&=0.4754443238393299,
+&R_2&=1.0262897039931138,
+&R_3&=2.442442115365772.
+\end{align}
+
+\section{Exactly three frozen candidates}
+
+\subsection{C1: linear separable action}
+\begin{equation}
+F_1(S)=-S,
+\qquad
+D_1(G,R)=-G+R.
+\end{equation}
+
+\subsection{C2: Collatz quarter-power action}
+\begin{equation}
+F_2(S)=-S^{3/4},
+\qquad
+D_2(G,R)=-G^{3/4}+R.
+\end{equation}
+
+\subsection{C3: inverse quarter-power information potential}
+\begin{equation}
+F_3(S)=\frac{S^{-3/4}}{L_3\kappa},
+\qquad
+D_3(G,R)=\frac{G^{-3/4}}{L_3\kappa}+R.
+\end{equation}
+
+All three candidates carry
+\vTwelveStatus{E}{PROSPECTIVE}{OPEN}
+until their assigned post-freeze likelihood is evaluated under the frozen rule.
+
+\section{Orthogonal observable pair}
+
+For charm and muon, the generation coordinate is shared. Equation~\eqref{eq:v12_prospective_separable} therefore gives
+\begin{equation}
+\boxed{
+\ln\frac{y_c}{y_\mu}=F(S_u)-F(S_\ell),
+}
+\label{eq:v12_yc_ymu}
+\end{equation}
+so the generation-release term cancels identically. The active sector observable is the first qualifying post-29-July-2026 joint ATLAS/CMS direct charm-to-muon Higgs-coupling likelihood.
+
+For charm and top, the sector coordinate is shared, giving
+\begin{equation}
+\boxed{
+\ln\frac{y_c}{y_t}
+=D(G_2,R_2)-D(G_3,R_3),
+}
+\label{eq:v12_yc_yt}
+\end{equation}
+so the sector term cancels identically. The active generation observable is the first qualifying post-29-July-2026 joint ATLAS/CMS direct charm-to-top Higgs-coupling likelihood.
+
+The earlier charm-to-tau mapping is retained as historical provenance; the v10.7 orthogonalization above is the active v12 contract.
+
+\section{Frozen numerical predictions}
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Candidate & $y_c/y_\mu$ & $y_c/y_t$\\
+\midrule
+C1 & 4.850346751338371 & 0.16766796647328305\\
+C2 & 2.3521800134268784 & 0.17147213462587316\\
+C3 & 6.858021228826228 & $2.8101955040512466\times10^{-11}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The v12 prospective-contract validator independently reconstructs all six ratios from the frozen coordinates and formula family.
+
+\section{Decision rule}
+
+For each candidate and assigned observable, the frozen decision rule is
+\begin{equation}
+\boxed{
+\text{PASS}
+\iff
+\text{frozen ratio lies inside the published 95\% confidence region}
+}
+\end{equation}
+for the first qualifying post-freeze likelihood. A failed candidate receives verdict `FAIL` for that frozen test. A later formula or observable receives a new version identity and a new prospective contract.
+
+The three-member family is interpreted with an explicit multiplicity-aware comparison policy.
+
+\section{Falsification witnesses from the retrospective programme}
+
+The prospective programme inherits the versioning discipline demonstrated by the retained retrospective witnesses:
+\begin{itemize}
+\item the frozen strong-CP $\to$ neutron-EDM chain carries a physical `FAIL`;
+\item the charged-lepton relations carry precision `FAIL` verdicts;
+\item PMNS $\sin^2\theta_{13}=1/49$ carries `TENSION`;
+\item legacy pion/kaon exponentials carry formula `FAIL`;
+\item neutrino, baryon-octet and cosmological formula surfaces carry explicit `QUARANTINED` diagnostics where derivation or conversion repair is active.
+\end{itemize}
+These rows remain addressable in Chapter~\ref{ch:v12_evidence_matrix} while future versions are tested independently.
+
+\section{Prospective audit receipt}
+
+The active contract is checked by
+\path{TIR/validation/tir_v12_prospective_contract_audit_v0_1.py}.
+Its receipt
+\path{TIR/validation/TIR_V12_PROSPECTIVE_CONTRACT_AUDIT_V0_1.json}
+reports `PASS`: exactly three candidates, the two orthogonal observables, all six frozen ratios, the 29 July 2026 freeze date and the no-refit rule are reproduced.
+
+% ---- END TIR/monograph/v12/chapters/ch20_prospective_predictions_falsification.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/chapters/ch21_open_theorems_completion_frontier.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Completion Frontier}
+\label{ch:v12_completion_frontier}
+
+\paragraph{v12.4 graph reconciliation.}
+The v12.3 semantic frontier remains the audited 18 September 2026 snapshot. Version 12.4 does not rewrite that history. The current dependency authority is the repository-root \path{DEPENDENCY_EXPORT.json}; Appendix~\ref{app:v12_relational_zero_graph_reconciliation} records the post-v12.3 cross-repository delta and the corrected relational-zero root. The v12.3 machine-readable ledger and its GREMLIN audit remain historical provenance.
+
+Every gate now has two independent axes:
+\[
+\boxed{
+\text{formal / derivational status}
+\quad\oplus\quad
+\text{production / physical status}.
+}
+\]
+A closed theorem does not imply a physical PASS; an open production input does
+not turn completed mathematics back into an open derivation.
+
+\section{Pinned evidence surface}
+
+The v12.4 reconciliation begins from the following exact repository heads:
+\begin{description}
+\item[TIR:] \path{853032e019824b836de43634d949da5566396153}.
+\item[IDT:] \path{e474f64a079e0d90a039e0abd19d2b482f7e53d2}.
+\item[RFC:] \path{664349e2f16b57ee23bf6f5f21f5fe8ada17c5a5}.
+\item[Secret-of-a-Half:] \path{492dc2e31546f6fdce798801549d544d8cbda3b4}.
+\end{description}
+
+Branch containment and semantic closure are distinct. A branch already
+contained in main does not make an older status ledger inside main current.
+
+\section{Closed or narrowed gates}
+
+\subsection{Spatial and local geometric spine}
+
+Gates A2--A4 remain PASS on their declared sectors, and A5 remains an
+implemented three-manifold certifier. The unresolved A5 coordinate is the
+source-owned production incidence carrier, not the certifier itself.
+
+\subsection{Einstein and ADM dynamics}
+
+The former Einstein constraint/evolution item is stale. Current RFC main records
+\[
+\boxed{
+\begin{aligned}
+\text{RF-E8 ADM assembly} &:\quad \mathrm{PASS},\\
+\text{RF-E9 extrinsic curvature} &:\quad \mathrm{PASS},\\
+\text{RF-E10 Einstein projections} &:\quad \mathrm{PASS},\\
+\text{RF-E11 source typing} &:\quad \mathrm{PASS},\\
+\text{RF-E12 ADM source constraints} &:\quad \mathrm{PASS},\\
+\text{RF-E13 evolution + Bianchi propagation} &:\quad \mathrm{PASS}.
+\end{aligned}}
+\]
+RF-E24 further closes the local Einstein form on its declared selection rules,
+\[
+\boxed{
+G_{\mu\nu}+\Lambda g_{\mu\nu}
+=\kappa_E T_{\mu\nu}.
+}
+\]
+RF-E26 and GSC5A provide conditional local-to-global tensor-gluing certifiers.
+Therefore the Einstein/ADM derivation is closed locally; the production global
+carrier, source lineage and domain coverage remain open.
+\vTwelveStatus{B}{--}{PASS}
+
+\subsection{Coefficient magnitudes}
+
+For an already selected parent packet, the magnitude valuation is exact.
+The unresolved object is instead the coefficient-free selector
+\[
+\boxed{
+\Sigma:\mathcal S_{\rm precoef}\to(P_h,P_a,P_b,P_c).
+}
+\]
+The identifiability and composition no-go theorems prove that the current coarse
+role/orientation selectors are insufficient. Thus magnitude evaluation is
+CLOSED while the transition-parent selector remains OPEN.
+
+\subsection{Hypercharge relative uniqueness}
+
+On the declared one-generation, one-Higgs field content with the TIR
+normalization anchor, the hypercharge theorem fixes the relative vector
+\[
+(q,u,d,\ell,e,h)
+=q(1,N_c+1,1-N_c,-N_c,-2N_c,N_c).
+\]
+For \(N_c=3\) and \(q=1/6\),
+\[
+\boxed{
+\left(\frac16,\frac23,-\frac13,-\frac12,-1,\frac12\right).
+}
+\]
+The external \(Y_L\) parent is eliminated and the cubic anomaly follows after
+the linear constraints. Relative uniqueness is therefore CLOSED on the declared
+field content. Geometric inevitability of the field content or normalization
+anchor, and extensions such as an added gauged right-handed neutrino, are
+separate questions.
+\vTwelveStatus{B}{--}{PASS}
+
+\subsection{Neutrino action repair}
+
+The repository-internal source conflict is resolved:
+\[
+\boxed{
+S_1=S_{\rm bare}+dS,
+\qquad
+dS=\kappa A_{\rm face}(1-\kappa).
+}
+\]
+The historical extra factor of \(\kappa\) after \(dS\) is quarantined as a
+transcription defect. Hence the derivational repair is CLOSED. The empirical
+absolute-neutrino mass scale remains OPEN and is not promoted by this repair.
+
+\subsection{Collatz--Fubini--Study phase interface}
+
+The TIR/IDT relational-phase interface is present, and RFC RF-E27 adds a typed
+phase fibre over the existing spacetime carrier. The kinematic interface is
+therefore CLOSED. RF-E27 explicitly keeps the physical identity of the
+connection, coupling scale and any metric/source coupling OPEN.
+
+\section{Production-global geometry frontier}
+
+The global-geometry frontier is now principally a production-evidence problem.
+TIR supplies the global spatial source/freeze contract, A5 certifier,
+inter-leaf matching contract and the v0.2 physical-realization bundle
+certifier. RFC supplies product-clock and matching-flow soldering, source
+assembly of the shared atlas, RF-E25 atlas certification, and RF-E26/GSC5
+globalization reductions.
+
+The unresolved source-owned coordinates are
+\[
+\boxed{
+\begin{aligned}
+&\text{production spatial realization},\\
+&\text{production matching/event-placement realization},\\
+&\text{production shared atlas and patchwise local-solution receipts},\\
+&\text{target-domain coverage and physical source provenance}.
+\end{aligned}}
+\]
+No concrete source-owned physical realization bundle was found on the pinned
+TIR main during this audit.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Gauge and Standard-Model dynamical frontier}
+
+\subsection{Continuum gauge normalization and running}
+
+The typed \(W_{ij}\) carrier, gauge-invariant quark-link coupling and discrete
+gauge-matter action have PASS surfaces. What remains open is specifically
+\[
+\boxed{
+W_{ij}\to A_\mu\to F_{\mu\nu}\to S_{YM}
+\to\text{physical continuum normalization and running}.
+}
+\]
+\vTwelveStatus{B}{--}{OPEN}
+
+\subsection{Electroweak common transport and Higgs action}
+
+The current audit still reports an inconsistent raw structural triple and
+requires one common
+\[
+\boxed{\mathcal R_{EW}(\mu,\mathrm{scheme})}
+\]
+rather than observable-specific retuning. The Higgs scalar/action binding is
+downstream of that unresolved transport. Both remain OPEN.
+\vTwelveStatus{B}{--}{OPEN}
+
+\subsection{Quark mass map}
+
+Hypercharge closure does not supply a quark-mass theorem. A physical
+scheme- and scale-defined quark-mass map remains OPEN.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Hadronic, CP and cosmological frontier}
+
+\subsection{Meson absolute-action baseline}
+
+No current canonical theorem or receipt was found that closes a source-derived
+absolute meson action baseline. The legacy pion/kaon formulas remain unsuitable
+as that source theorem.
+\vTwelveStatus{B}{--}{OPEN}
+
+\subsection{Strong CP}
+
+The current audit separates arithmetic from physics:
+\[
+\boxed{
+\text{legacy arithmetic}=\mathrm{PASS},
+\qquad
+\text{frozen neutron-EDM gate}=\mathrm{FAIL}.
+}
+\]
+The source derivation of \(\theta_{\rm QCD}\) remains OPEN. Any replacement must
+be derived from the holonomic/topological source axis and must not overwrite
+the retained physical FAIL.
+\vTwelveStatus{B}{--}{OPEN}
+
+\subsection{Cosmological scale binding}
+
+The dimensionless power arithmetic has been audited, but the unit-complete
+physical bridge is not closed. The \(\rho_{\rm crit}\) and
+\(\Omega_\Lambda\) chain remains quarantined/open. The genuine gate is the
+dimensionful scale/critical-density binding, not the already-audited integer
+power arithmetic.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Critical-axis frontier}
+
+Current Secret-of-a-Half main explicitly keeps the global analytic coordinates
+\[
+\boxed{
+\begin{aligned}
+&\text{native/full admissible Li--Weil positivity},\\
+&\text{global strict critical-axis positivity/nondegeneracy},\\
+&\mathrm{PF}_3\text{ and }\mathrm{PF}_\infty\text{ on the actual kernel},\\
+&\text{zero-to-native-closure / reciprocal-orbit bridge},\\
+&\text{Riemann Hypothesis}
+\end{aligned}}
+\]
+OPEN. An RH-equivalent criterion is not a proof. Operationally,
+\[
+\boxed{\texttt{riemann\_hypothesis\_in\_closure=false}.}
+\]
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Current unresolved core}
+
+After removing stale or over-broad entries, the principal unresolved frontier
+is:
+\begin{enumerate}
+\item source-owned production spatial, matching/event-placement and shared-atlas
+      realization, including target-domain coverage and source provenance;
+\item the coefficient-free transition-parent selector \(\Sigma\);
+\item continuum gauge normalization and running;
+\item one common electroweak scheme/scale transport;
+\item Higgs scalar/action binding;
+\item a scheme/scale-defined quark-mass map and any stronger geometric
+      uniqueness extension of the hypercharge normalization anchor;
+\item a source-derived meson absolute-action baseline;
+\item a holonomic/topological strong-CP source theorem;
+\item a unit-complete cosmological scale/\(\rho_{\rm crit}\) binding;
+\item physical metric/source coupling of the Collatz--FS phase fibre;
+\item native Li--Weil and global critical-axis positivity/nondegeneracy.
+\end{enumerate}
+
+The absolute neutrino-mass empirical status remains separately OPEN even though
+the source-level neutrino action repair is CLOSED.
+
+\section{Completion invariant}
+
+The v12.3 frontier enforces
+\[
+\boxed{
+\text{closed derivation}\not\equiv\text{physical PASS},
+\qquad
+\text{open production input}\not\equiv\text{missing mathematics}.
+}
+\]
+This separation replaces the stale v12.1 headline frontier as the current
+monograph completion contract.
+
+% ---- END TIR/monograph/v12/chapters/ch21_open_theorems_completion_frontier.tex ----
+\clearpage
