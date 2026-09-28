@@ -129,11 +129,11 @@ nonzero relational displacement
 
 The dimension is therefore not selected by counting neighbors. It is selected by the combination of the binary complex carrier and unbroken isotropy of its real distinction-generator representation.
 
-## 5. Relation to A4 and A7
+## 5. Relation to spherical closure and derived symmetry
 
-A7 supplies the symmetry requirement at the level of primitive relational law. The generator construction supplies the concrete group `SO(3)` through `SU(2)` conjugation.
+The projective/Hilbert carrier supplies the derived symmetry requirement, and the generator construction realizes the concrete group `SO(3)` through downstream `SU(2)` conjugation.
 
-A4 independently checks the resulting full-rank local carrier: the unit locus
+The spherical/projective closure independently checks the resulting full-rank local carrier: the unit locus
 
 \[
 \{A\in\mathfrak g_{\rm rel}:\|A\|=1\}
