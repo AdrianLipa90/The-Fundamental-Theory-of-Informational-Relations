@@ -22,10 +22,12 @@ NO ONTIC ZERO OBJECT
 -> RELATION
 -> ORIENTATION REVERSAL
 -> {N,S}
+-> relational sphere S^2
+-> CP^1 ~= S^2
+-> projective rays P(C^2)
+-> two-state quantum representation
 -> 1/2
 -> ln2
--> C^2
--> CP^1 ~= S^2
 -> Herm_0(2) ~= R^3
 -> Euclidean relational geometry
 -> tetrahedral closure
@@ -60,13 +62,17 @@ whose orientation reversal supplies the pole pair \(\{N,S\}\). Exchange balance 
 \boxed{(w_N,w_S)=\left(\frac12,\frac12\right),\qquad H_2(1/2)=\ln2.}
 \]
 
-The coherent two-state lift gives \(\mathbb C^2\), and projectivization gives the standard identification
+The pole pair first closes geometrically to an abstract relational sphere. The standard projective identification then gives
 
 \[
-\boxed{\mathbb{CP}^1\cong S^2.}
+\boxed{
+R\to\{N,S\}\to S^2\cong\mathbb{CP}^1\to P(\mathbb C^2),
+}
 \]
 
-The historical A1--A8 kernel remains repository provenance but is no longer counted as the canonical foundation; its former axioms are reclassified as downstream theorem targets, conditional sector laws, or typing rules with their proof/empirical gates preserved.
+so the two-state quantum/Hilbert representation is downstream of the relational sphere rather than an axiom used to create it.
+
+The historical A1--A8 kernel remains provenance only. Its eight labels now contribute zero independent non-logical axioms. The detailed discharge and circularity firewall are recorded in `TIR_LEGACY_AXIOM_DISCHARGE_THEOREM_V0_1.md`.
 
 Canonical source:
 
@@ -75,6 +81,12 @@ Canonical source:
 Validator:
 
 `TIR/validation/tir_zero_axiom_relational_foundation_v0_1.py`
+
+Legacy discharge:
+
+`TIR/foundations/TIR_LEGACY_AXIOM_DISCHARGE_THEOREM_V0_1.md`
+
+`TIR/validation/tir_legacy_axiom_discharge_v0_1.py`
 
 ## Canonical κ normalization
 
