@@ -16,7 +16,13 @@
     "Hilbert unilateral shift preserves the successor graph"
   ],
   "idt_handoff": "formalism/00H_tetrahedral_half_successor_pretime.md",
-  "validation": "8/8 PASS local equivalent",
+  "validation": {
+    "summary": "8/8 PASS local equivalent",
+    "exact_head_execution": "PASS_8_OF_8",
+    "executed_head": "1ae625f0fcfae95d68f9e82170c58e595bcfb5b5",
+    "validator_blob_sha": "33226bc00ebcd466ebbe9798b2434b16b292326c",
+    "execution_scope": "local Python execution of exact fetched validator content"
+  },
   "physical_time_primitive": false,
   "physical_space_primitive": false,
   "canon_allowed": false
