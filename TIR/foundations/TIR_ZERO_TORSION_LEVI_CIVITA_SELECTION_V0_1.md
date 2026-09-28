@@ -237,7 +237,7 @@ and
 T=0.
 \]
 
-Gate A3 supplies these two conditions on the regular endpoint-compatible spatial refinement sector. Therefore
+The endpoint-compatible zero-torsion selection together with metric compatibility supplies these two conditions on the regular spatial refinement sector. Therefore
 
 \[
 \boxed{
