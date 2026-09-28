@@ -8,16 +8,14 @@ from fractions import Fraction
 
 
 def minimal_binary_certificate() -> dict[str, object]:
-    admissible = tuple(range(1, 9))
-    nonzero_distinction = tuple(nu for nu in admissible if nu - 1 > 0)
-    minimum = min(nonzero_distinction)
+    exchange = {"N": "S", "S": "N"}
+    orbit = ("N", exchange["N"])
     return {
-        "admissible_alternative_counts": list(admissible),
-        "positive_distinction_counts": list(nonzero_distinction),
-        "unique_minimum_nu": minimum,
-        "pass": minimum == 2 and nonzero_distinction.count(2) == 1,
+        "primitive_content": "RELATION",
+        "exchange_orbit": list(orbit),
+        "exchange_squared_identity": all(exchange[exchange[x]] == x for x in exchange),
+        "pass": orbit == ("N", "S") and all(exchange[exchange[x]] == x for x in exchange),
     }
-
 
 def symmetric_prior_certificate() -> dict[str, object]:
     # Solve p_N = p_S and p_N + p_S = 1 exactly.
@@ -106,10 +104,11 @@ def build_receipt() -> dict[str, object]:
         "schema": "TIR_FIRST_DISTINCTION_THEOREM_V0_1",
         "scope": "TIR_FOUNDATIONAL_EXACT_CONDITIONAL_AUDIT",
         "dependencies": {
-            "informational_theorem": ["A1", "A3", "A7", "minimal first-distinction definition"],
-            "quantum_lift": ["A2", "binary distinction"],
+            "informational_theorem": ["RELATION", "orientation reversal", "normalized exchange", "Shannon functional"],
+            "quantum_lift": ["relational sphere S2", "CP1 ~= P(C2)"],
         },
-        "closed_chain": "D=0 -> minimal D>0 -> nu=2 -> S2 invariant prior=(1/2,1/2) -> H=ln2",
+        "canonical_nonlogical_axiom_count": 0,
+        "closed_chain": "RELATION -> {N,S} -> (1/2,1/2) -> H=ln2 -> S2 ~= CP1 -> P(C2)",
         "next_gate": "RELATIVE_PHASE_LAW",
         "blocks": blocks,
         "technical_status": "PASS" if passed else "FAIL",
