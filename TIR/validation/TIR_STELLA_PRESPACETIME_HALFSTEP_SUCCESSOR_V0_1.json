@@ -21,5 +21,11 @@
   },
   "rh_used": false,
   "physical_spacetime_claimed": false,
-  "canon_allowed": false
+  "canon_allowed": false,
+  "executed_validation": {
+    "environment": "local isolated Python reference harness",
+    "result": "PASS",
+    "bound": 256,
+    "exact_fraction_arithmetic": true
+  }
 }
