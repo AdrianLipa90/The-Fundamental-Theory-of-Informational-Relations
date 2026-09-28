@@ -128,44 +128,69 @@ Thus the first exact scalar branch is
 \label{eq:v12_primitive_scalar_chain}
 \end{equation}
 
-\section{Coherent/projective lift and the sphere}
+\section{Relational sphere and projective/Hilbert realization}
 
-Represent the two poles by an orthonormal basis $|N\rangle,|S\rangle$. The minimal complex span is
+The two orientation roles define a pole axis. Its complete normalized orientation orbit is the abstract relational sphere
 \begin{equation}
-\boxed{\mathcal H_{NS}\cong\mathbb C^2.}
+\boxed{SO(3)/SO(2)\cong S^2.}
+\label{eq:v12_relational_sphere}
 \end{equation}
-At equal pole weight,
+At this stage the sphere is not yet called a Bloch sphere.
+
+The standard projective identification is
 \begin{equation}
-\boxed{
-|\psi_{1/2}(\varphi)\rangle
-=\frac{|N\rangle+e^{i\varphi}|S\rangle}{\sqrt2}.
-}
-\end{equation}
-Pure rays of the two-state carrier form
-\begin{equation}
-\boxed{\mathbb{CP}^1\cong S^2.}
+\boxed{S^2\cong\mathbb{CP}^1.}
 \label{eq:v12_cp1_s2}
 \end{equation}
-Equivalently, once the three-real-dimensional direction carrier is admitted, a pole axis is represented by $\pm\hat n$ and its full rotation orbit is
+Since
 \begin{equation}
-\operatorname{Orb}_{SO(3)}(\hat n)\cong SO(3)/SO(2)\cong S^2.
+\mathbb{CP}^1=(\mathbb C^2\setminus\{0\})/\mathbb C^\times,
 \end{equation}
+each point is a complex ray in a two-state Hilbert carrier. A normalized representative is
+\begin{equation}
+\boxed{
+|\psi(\theta,\varphi)\rangle
+=
+\cos\frac{\theta}{2}|N\rangle
++
+e^{i\varphi}\sin\frac{\theta}{2}|S\rangle.
+}
+\end{equation}
+Only after this identification is the same $S^2$ the standard Bloch sphere.
+
+The non-circular dependency is therefore
+\begin{equation}
+\boxed{
+\mathcal R_1
+\to
+\{N,S\}
+\to
+S^2
+\cong
+\mathbb{CP}^1
+\to
+P(\mathbb C^2)
+\to
+\text{two-state quantum representation}.
+}
+\end{equation}
+
 The coordinate origin $\mathbf 0\in\mathbb R^3$ is a representation point, not ontic nothing.
 
-\section{Former A1--A8 reclassified}
+\section{Former A1--A8 discharged}
 
 The historical eight-axiom kernel is retained as provenance but is no longer the canonical root. Its former labels are retyped as downstream derivation targets or conditional sector laws:
 \begin{description}
-\item[A1:] superseded by relational minimality.
-\item[A2:] quantum-lift / physical-binding theorem target.
-\item[A3:] relational information theorem or definitional layer.
-\item[A4:] downstream geometric theorem / selection criterion.
-\item[A5:] invariant-map theorem family.
-\item[A6:] phase-closure theorem family.
-\item[A7:] symmetry/closure law to derive or type conditionally.
-\item[A8:] meta-structural closure rule / theorem target.
+\item[A1:] superseded: endpoints/poles are roles of the minimal relation.
+\item[A2:] structurally derived through $R\to\{N,S\}\to S^2\cong\mathbb{CP}^1$; physical binding remains separate.
+\item[A3:] derived/definitional from distinguishable relation and information measure.
+\item[A4:] sphere from orientation closure; efficiency from the standard isoperimetric theorem under its hypotheses.
+\item[A5:] derived from relational-zero closure through winding/degree invariants.
+\item[A6:] derived from complex phase closure $e^{i\Delta\phi}=1$.
+\item[A7:] precise structural symmetry follows from projective Hilbert structure and Euler phase closure; vague universal wording is retired.
+\item[A8:] structural context closure follows from zero/kernel awareness and preservation of relational distinction; physical binding remains separate.
 \end{description}
-The change of axiom count does not erase proof debt: any downstream statement not derived remains explicitly open or conditional.
+The detailed discharge and circularity firewall are recorded in \texttt{TIR/foundations/TIR\_LEGACY\_AXIOM\_DISCHARGE\_THEOREM\_V0\_1.md}. Sector-specific physical bindings remain separately testable.
 
 \section{Primitive output packet}
 
@@ -178,11 +203,9 @@ The current root packet is
 \prec_{\rm dep}
 \frac12
 \prec_{\rm dep}
-\ln2
-\prec_{\rm dep}
-\mathbb C^2
-\prec_{\rm dep}
-\mathbb{CP}^1\cong S^2.
+\ln2,
+\qquad
+\{N,S\}\prec_{\rm dep}S^2\cong\mathbb{CP}^1\prec_{\rm dep}P(\mathbb C^2).
 }
 \label{eq:v12_primitive_packet}
 \end{equation}
@@ -217,11 +240,9 @@ N_{\rm nonlogical\ axioms}=0
 \;\to\;
 \frac12
 \;\to\;
-\ln2
-\;\to\;
-\mathbb C^2
-\;\to\;
-\mathbb{CP}^1\cong S^2.
+\ln2,
+\qquad
+\{N,S\}\to S^2\cong\mathbb{CP}^1\to P(\mathbb C^2).
 }
 \end{equation}
 The canonical source for this root is
