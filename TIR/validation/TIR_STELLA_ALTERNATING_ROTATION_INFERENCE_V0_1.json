@@ -1,0 +1,27 @@
+{
+  "schema": "TIR_STELLA_ALTERNATING_ROTATION_INFERENCE_V0_1",
+  "date": "2026-09-28",
+  "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+  "branch": "formalize/pretemporal-stella-halfstep-hilbert-v0.1-20260928",
+  "status": "PASS_EXACT_RELABELING_INVARIANT_ALTERNATING_INFERENCE_CORE",
+  "theorem": "TIR/foundations/TIR_STELLA_ALTERNATING_ROTATION_INFERENCE_V0_1.md",
+  "validator": "TIR/validation/tir_stella_alternating_rotation_inference_v0_1.py",
+  "exact_claims": [
+    "orientation-preserving tetrahedral rotation group has order 12",
+    "cross-overlap multiset is invariant under independent tetrahedral relabelings",
+    "decorated alternating half-step squares to the decorated full successor",
+    "projection recovers the pretemporal H^2=S successor algebra"
+  ],
+  "witness": {
+    "R_plus": "quarter-turn about z",
+    "R_minus": "quarter-turn about x",
+    "signature_changes_after_first_half_step": true
+  },
+  "firewalls": {
+    "physical_time_assumed": false,
+    "physical_space_assumed": false,
+    "particle_physics_supersymmetry_claimed": false,
+    "overlap_multiset_completeness_claimed": false
+  },
+  "canon_allowed": false
+}
