@@ -54,6 +54,12 @@
       "evidence_class": "exact_information_theory"
     },
     {
+      "claim_id": "TIR.FOUNDATION.PHASE_LAGRANGIAN",
+      "status": "CLOSED_EXACT_STRUCTURAL",
+      "source_path": "TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md",
+      "evidence_class": "source_promoted_lagrangian_phase_core"
+    },
+    {
       "claim_id": "TIR.FOUNDATION.PHASE_S1",
       "status": "CLOSED_EXACT",
       "source_path": "TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md",
@@ -544,11 +550,6 @@
       "authority": "CANONICAL"
     },
     {
-      "from": "TIR.FOUNDATION.HALF",
-      "to": "TIR.FOUNDATION.PHASE_S1",
-      "authority": "CANONICAL"
-    },
-    {
       "from": "TIR.PRIMITIVE.POLES_NS",
       "to": "TIR.FOUNDATION.LAGRANGIAN_BLOCH_SELECTION",
       "authority": "CANONICAL"
@@ -561,16 +562,6 @@
     {
       "from": "TIR.FOUNDATION.LAGRANGIAN_BLOCH_SELECTION",
       "to": "TIR.FOUNDATION.SPHERE_S2",
-      "authority": "CANONICAL"
-    },
-    {
-      "from": "TIR.PRIMITIVE.POLES_NS",
-      "to": "TIR.FOUNDATION.C2",
-      "authority": "CANONICAL"
-    },
-    {
-      "from": "TIR.FOUNDATION.PHASE_S1",
-      "to": "TIR.FOUNDATION.C2",
       "authority": "CANONICAL"
     },
     {
@@ -1067,6 +1058,26 @@
       "authority": "CANDIDATE_ONLY",
       "promotion_required": true,
       "promotion_gate": "PHYSICAL_CLOCK_CALIBRATION_REQUIRED"
+    },
+    {
+      "from": "TIR.PRIMITIVE.RELATION",
+      "to": "TIR.FOUNDATION.PHASE_LAGRANGIAN",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.PHASE_LAGRANGIAN",
+      "to": "TIR.FOUNDATION.PHASE_S1",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.PRIMITIVE.FIRST_DISTINCTION",
+      "to": "TIR.FOUNDATION.LAGRANGIAN_BLOCH_SELECTION",
+      "authority": "CANONICAL"
+    },
+    {
+      "from": "TIR.FOUNDATION.LAGRANGIAN_BLOCH_SELECTION",
+      "to": "TIR.FOUNDATION.C2",
+      "authority": "CANONICAL"
     }
   ],
   "source_ref": "feat/zero-axiom-relational-foundation-20260928",
