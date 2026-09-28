@@ -1,8 +1,8 @@
 # TIR Zero-Axiom Relational Foundation v0.1
 
-Status: `OWNER_CANONICAL_ZERO_AXIOM_FOUNDATION__LEGACY_A1_A8_STRUCTURALLY_DISCHARGED`
+Status: `LEGACY_ZERO_AXIOM_DRAFT__SUPERSEDED_BY_TIR_CANONICAL_DERIVATION_SPINE_V0_1`
 
-Scope: canonical TIR root typing. This document replaces the former use of eight non-logical foundational axioms with a zero-nonlogical-axiom programme. It does not erase historical axiom documents; it reclassifies them as legacy provenance and downstream theorem/sector targets.
+Scope: historical zero-axiom relational draft retained for provenance. Canonical foundation owner: `TIR_CANONICAL_DERIVATION_SPINE_V0_1.md`, which distinguishes point-minimal object from relation-minimal nontrivial structure and uses the S1/Euler-Berry/spin/suspension route to S2.
 
 ## 0. Foundation count
 
