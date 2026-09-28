@@ -12,7 +12,8 @@ Purpose: prevent the failure mode “not present in the current summary file -> 
 | nontrivial relation -> two orientation roles | first-distinction theorem + canonical spine | exact conditional on non-self-collapse | CANONICAL |
 | exchange invariance -> 1/2 | `TIR_FIRST_DISTINCTION_THEOREM_V0_2.md` | exact | CANONICAL |
 | 1/2 -> ln2 | first-distinction theorem / half-seam | exact Shannon identity | CANONICAL |
-| 1/2 -> U(1) ~= S1 phase fibre | `TIR_HALF_SEAM_PHASE_FIBER_V0_1.md` | exact in two-state coherent lift | CANONICAL |
+| relational phase coordinate -> U(1) ~= S1 | `TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md` | standard phase quotient + exact gauge-covariant Lagrangian identity | CANONICAL |
+| 1/2 -> coherent S1 half-fibre | `TIR_HALF_SEAM_PHASE_FIBER_V0_1.md` | exact downstream crosscheck on two-state carrier | CANONICAL CROSSCHECK |
 | relational phase Lagrangian with chi in U(1) | archived Hilbert--Kähler phase Hamiltonian | formal source, algebra exact once carrier admitted | PROMOTED SOURCE |
 | CP1 ~= S2 and FS metric | `TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md` + archived Hilbert--Kähler provenance + v12 ch03 | standard projective/Kähler geometry | CANONICAL |
 | Berry curvature and Chern number 1 | archived Hilbert--Kähler note | standard geometry | CANONICAL |
