@@ -145,7 +145,7 @@ Thus the convergence is
 
 \[
 \boxed{
-A2+\text{binary distinction}
+S^2\cong\mathbb{CP}^1=P(\mathbb C^2)
 \to \operatorname{Herm}_0(2)\cong\mathbb R^3
 \xrightarrow{A7\;\text{unbroken isotropy}}
 r_x=3
