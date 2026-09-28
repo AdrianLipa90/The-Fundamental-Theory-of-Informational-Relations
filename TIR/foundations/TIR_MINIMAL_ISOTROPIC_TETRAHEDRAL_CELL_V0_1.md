@@ -327,8 +327,8 @@ A future TIR law may derive, minimize, or otherwise stabilize this defect. That 
 - **A2** supplies the binary complex carrier whose traceless Hermitian generators form `R^3`.
 - **A4** converges with the unit directional locus `S^2` and motivates isotropic local sampling.
 - **A5** measures the geometry through dot products, Gram matrices, rank and moment invariants.
-- **A7** supplies the no-preferred-direction/full-isotropy requirement.
-- **A8** can act on non-closing local relational compositions through the separately defined endpoint-closure defect.
+- The no-preferred-direction/full-isotropy requirement is downstream of the derived projective/Hilbert symmetry structure formerly labelled A7.
+- Non-closing local relational compositions are handled by the zero/kernel context-closure mechanism formerly labelled A8.
 
 ## 10. Claim classes
 
@@ -348,7 +348,7 @@ The next primitive question is now narrower:
 
 \[
 \boxed{
-\text{Can the TIR axioms select the zero-defect isotropy/closure sector}
+\text{Can the zero-axiom TIR dependency graph select the zero-defect isotropy/closure sector}
 \quad
 \mathcal D_{\rm spatial}=0
 \quad
@@ -356,4 +356,4 @@ The next primitive question is now narrower:
 }
 \]
 
-That is the natural point to test A4, A7 and A8 together.
+That is the natural point to test spherical efficiency, derived symmetry and relational context closure together.
