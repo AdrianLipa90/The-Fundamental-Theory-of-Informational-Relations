@@ -44,14 +44,13 @@ do not use:
   SO(3) -> S2 -> CP1 -> quantum -> SO(3)
 
 use:
-  relation / half-seam
-      -> U(1) ~= S1
-      -> Euler/Berry nontrivial sign
-      -> spin 1/2 and polar pair
-      -> suspension(S1) ~= S2
-      -> CP1 ~= S2
-      -> FS/Berry
-      -> SU(2)/{+/-I} ~= SO(3)
+  relation -> polar roles {N,S}
+  half-seam -> U(1) ~= S1
+  S1 + {N,S} -> suspension(S1) ~= S2
+  S2 -> CP1 / Fubini-Study / Berry
+  Berry hemisphere + Euler sign -> spin 1/2
+  spin polar pair == relational polar pair
+  SU(2)/{+/-I} ~= SO(3) only downstream
 ```
 
 This prevents the earlier circularity while reusing mathematics already present in TIR.
