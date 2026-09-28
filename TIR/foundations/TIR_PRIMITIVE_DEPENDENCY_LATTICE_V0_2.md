@@ -1,8 +1,8 @@
 # TIR Primitive Dependency Lattice v0.2
 
-Status: `ZERO_AXIOM_NONCIRCULAR_DEPENDENCY_LATTICE`
+Status: `LEGACY_SUPERSEDED_BY_TIR_CANONICAL_DERIVATION_SPINE_V0_1`
 
-Scope: current primitive dependency graph after discharge of historical A1--A8. The v0.1 lattice is legacy provenance.
+Scope: historical intermediate lattice retained for provenance. It is superseded because its `SO(3)/SO(2) -> S2` foundation edge predates the source-reconciled `S1 + poles -> S2 -> CP1/FS/Berry -> spin` order.
 
 ## 1. Root
 
