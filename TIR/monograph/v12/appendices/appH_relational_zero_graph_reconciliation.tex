@@ -1,0 +1,155 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Relational Zero and Current-Graph Reconciliation}
+\label{app:v12_relational_zero_graph_reconciliation}
+
+\section{Purpose}
+
+Version 12.4 adds two corrections that must be kept separate:
+
+\begin{enumerate}
+\item the primitive zero layer is made explicitly relational and pre-object;
+\item the publication dependency map is reconciled against repository state after the
+18 September 2026 v12.3 semantic-frontier snapshot.
+\end{enumerate}
+
+The v12.3 semantic-frontier files remain historical provenance. They are not deleted or
+retroactively rewritten.
+
+\section{Relational-zero root}
+
+TIR now begins from the relational presentation
+\[
+\mathfrak R=(X,\mathcal D),
+\]
+with support set $X$ and realized distinction/relation set $\mathcal D$. The zero layer is
+\[
+\boxed{
+\mathfrak Z_{\rm rel}=(\varnothing,\varnothing).
+}
+\]
+It is not a singleton and not an object. Once TIR defines existential admissibility
+relationally, the absence of an existent object in this empty presentation is a direct
+definitional consequence.
+
+Leaving zero first supplies the minimal nonempty support
+\[
+\boxed{\mathcal P=\{p\}},
+\]
+and only then a minimal nontrivial distinction. Since a nontrivial partition contains
+more than one nonempty block, the minimal one is binary:
+\[
+\boxed{\Pi_1=\{N,S\}}.
+\]
+Exchange symmetry is imposed after binarity has been established,
+\[
+J:N\leftrightarrow S,\qquad J^2=\mathrm{id},
+\]
+and normalized exchange invariance then gives
+\[
+\boxed{(w_N,w_S)=\left(\frac12,\frac12\right)},
+\qquad
+\boxed{H_2(1/2)=\ln2}.
+\]
+
+The corrected primitive dependency order is therefore
+\[
+\boxed{
+0_{\rm rel}
+\to
+\text{point support}
+\to
+\text{minimal binary distinction}
+\to
+\text{exchange symmetry}
+\to
+\frac12
+\to
+\ln2.
+}
+\]
+
+The quantum lift remains downstream and conditional on the TIR quantum-point postulate:
+\[
+\mathbb C^2\to\mathbb{CP}^1\cong S^2.
+\]
+No quantum, spacetime or empirical claim is inferred from relational zero alone.
+
+\section{Reconciliation base heads}
+
+The v12.4 reconciliation began from the following repository heads:
+
+\begin{description}
+\item[TIR:] \path{853032e019824b836de43634d949da5566396153}.
+\item[IDT:] \path{e474f64a079e0d90a039e0abd19d2b482f7e53d2}.
+\item[RFC:] \path{664349e2f16b57ee23bf6f5f21f5fe8ada17c5a5}.
+\item[Secret-of-a-Half:] \path{492dc2e31546f6fdce798801549d544d8cbda3b4}.
+\end{description}
+
+The live machine-readable authority for TIR dependencies is the repository-root
+\path{DEPENDENCY_EXPORT.json}. Appendix~\ref{app:v12_semantic_frontier_reconciliation}
+and \path{SEMANTIC_FRONTIER_V12_3.json} retain the 18 September state only.
+
+\section{Post-v12.3 dependency delta}
+
+The current repository state contains theorem or candidate surfaces that did not exist in
+the v12.3 publication snapshot. Their presence does not promote their physical interpretation.
+
+\subsection{TIR gravity and event-source interfaces}
+
+The post-v12.3 graph includes the fractal/orbital gravity kinematic controls, conditional
+flow-coframe/ADM spherical-vacuum derivations, event-indexed metric-rate source bridge,
+information-scalar acceleration criterion, temporal-$U(1)$ metric-response candidate, and
+phase-cell vacuum-integration route.
+
+The publication firewall is:
+
+\[
+\boxed{
+\text{exact or conditional mathematical control}
+\not\Rightarrow
+\text{production physical binding}.
+}
+\]
+
+Production event--spatial realization, absolute information normalization, nontrivial
+holonomy persistence, and the relevant source-to-response identifications remain separately
+typed open inputs where the repository says they are open.
+
+\subsection{IDT clock and representation additions}
+
+The companion IDT graph additionally contains, after the v12.3 pin, the periodic
+$6\pi/C_3/F_3$/Pauli representation bridge, production event-complex and GSC2 source
+contracts, temporal-trace/clock-calibration candidates, the EB/BEC conditional bridge,
+and Lean proof gates for selected discrete statements.
+
+These are cross-repository dependencies or candidates; they do not silently become TIR
+physical claims.
+
+\section{Graph/publication invariant}
+
+The publication invariant for v12.4 is:
+
+\[
+\boxed{
+\text{monograph statement}
+\longleftrightarrow
+\text{typed graph node/edge}
+\longleftrightarrow
+\text{named source surface}.
+}
+\]
+
+If a graph export and prose snapshot disagree in date, the newer explicitly generated graph
+is the dependency authority and the older prose remains historical provenance. If the graph
+marks an edge \texttt{CANDIDATE\_ONLY}, the monograph must not describe that edge as a
+canonical physical derivation.
+
+\section{Validation boundary}
+
+The deterministic relational-zero validator is
+
+\path{TIR/validation/tir_relational_zero_axiom_v0_1.py}.
+
+It checks the empty zero support, minimal nonempty support cardinality, minimal binary
+distinction, exchange-fixed half, and the Shannon value $\ln2$. It does not validate a
+physical ontology, a quantum realization, spacetime, or experiment.
