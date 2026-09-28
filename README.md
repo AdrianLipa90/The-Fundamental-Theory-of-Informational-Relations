@@ -3,11 +3,11 @@
 https://www.researchgate.net/publication/408131825_Metatime_A_Low-Parameter_Ansatz_for_Standard_Model_Parameters_from_Geometric_Phase_Information_Theory
 
 **Author:** Adrian Lipa — Independent Researcher, Doncaster, United Kingdom  
-**Current audited monograph revision:** TIR v12.1 repository synchronization  
-**Historical v12.1 audit baseline:** `main@0f63c823961a58770de22d14b5f53e2bfa38a9b3`  
-**Validated v12.1 source head:** `b19d1becd7ed59263d2c78483b617bc4ef83bd3e`  
-**Main promotion:** PR `#128` -> `main@3a31da6ebeded16d4f48345de62c974870f76694`  
-**Current completion branch:** `feat/tir-coefficient-magnitude-parent-evaluation-20260910`  
+**Current publication candidate:** TIR v12.4 Relational Zero and Graph Reconciliation  
+**Historical v12.3 snapshot:** 18 September 2026  
+**Current main baseline:** `main@853032e019824b836de43634d949da5566396153`  
+**Current synchronization branch:** `sync/relational-zero-foundation-20260928`  
+**Main promotion:** not performed  
 **Publication status:** dependency-ordered research programme with mathematical, implementation, production-input and empirical gates tracked separately
 
 ## Overview
@@ -17,10 +17,11 @@ The **Fundamental Theory of Informational Relations (TIR)** is a research progra
 The active dependency spine is summarized as
 
 ```text
-0
--> POINT
--> FIRST DISTINCTION
+0_rel = EMPTY RELATIONAL PRESENTATION
+-> POINT SUPPORT
+-> MINIMAL NONTRIVIAL DISTINCTION
 -> {N,S}
+-> EXCHANGE SYMMETRY
 -> 1/2
 -> ln2
 -> C^2
@@ -35,6 +36,19 @@ The active dependency spine is summarized as
 -> production global spatial + inter-leaf inputs
 -> global spacetime / ADM / Einstein-system frontier
 ```
+
+
+The zero node is not a singleton or a physical vacuum. TIR defines the pre-object relational zero as
+
+\[
+\boxed{\mathfrak Z_{\rm rel}=(\varnothing,\varnothing).}
+\]
+
+Given the declared TIR relational-existence semantics, no existent object is present in that empty relational presentation. The point \(\mathcal P=\{p\}\) is the next layer: the minimal nonempty support candidate. A minimal nontrivial partition then has exactly two outcomes; only after that does exchange symmetry act and fix the normalized half.
+
+Canonical foundation:
+
+\`TIR/foundations/TIR_RELATIONAL_ZERO_AXIOM_V0_1.md\`
 
 Historical v11 and v12.0 publication sources remain versioned provenance.
 
