@@ -22,13 +22,12 @@ NO ONTIC ZERO OBJECT
 -> RELATION
 -> ORIENTATION REVERSAL
 -> {N,S}
--> relational sphere S^2
--> CP^1 ~= S^2
--> projective rays P(C^2)
--> two-state quantum representation
--> 1/2
--> ln2
--> Herm_0(2) ~= R^3
+   |-> exchange balance -> 1/2 -> ln2
+   `-> orientation closure -> relational S^2
+       -> CP^1 ~= S^2
+       -> projective rays P(C^2)
+       -> two-state quantum representation
+       -> Herm_0(2) ~= R^3
 -> Euclidean relational geometry
 -> tetrahedral closure
 -> connection / holonomy / SE(3) / solder / torsion
