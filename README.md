@@ -24,12 +24,12 @@ ABSOLUTE NOTHING IS NON-REALIZABLE
 -> orientation roles {N,S}
    |-> exchange balance -> 1/2 -> ln2
    `-> coherent phase fibre U(1) ~= S1
-       -> Euler/Berry nontrivial sign
-       -> spin 1/2
-       -> polar pair {N,S}
-       -> suspension(S1) ~= S2
+       -> suspension(S1, {N,S}) ~= S2
        -> CP1 ~= S2
        -> Fubini-Study / Berry geometry
+       -> Euler/Berry nontrivial sign
+       -> spin 1/2
+       -> spin polar pair = relational polar pair
        -> Herm_0(2) ~= R3
 -> Euclidean relational geometry
 -> tetrahedral closure
@@ -49,7 +49,7 @@ The root deliberately distinguishes two minima:
 \min(\text{nontrivial structure})=\text{relation}.}
 \]
 
-The sphere is not produced by assuming \(SO(3)\). The phase-first route uses the already-established half-seam fibre \(U(1)\cong S^1\), Euler--Berry spin selection, the polar pair, and the standard suspension \(\Sigma S^1\cong S^2\). The projective identification \(\mathbb{CP}^1\cong S^2\) and the Fubini--Study/Berry geometry then follow on the two-state carrier.
+The sphere is not produced by assuming \(SO(3)\). The phase-first route uses the already-established half-seam fibre \(U(1)\cong S^1\) together with the relational pole pair; their suspension gives \(\Sigma S^1\cong S^2\). The projective identification \(\mathbb{CP}^1\cong S^2\) supplies the Fubini--Study/Berry geometry, and only then does the Euler--Berry sign condition select the minimal spin-\(1/2\) lift.
 
 Canonical foundation owner:
 
