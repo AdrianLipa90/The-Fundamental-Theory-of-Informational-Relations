@@ -108,6 +108,65 @@ Denote the resulting admitted common primitive packet by
 \boxed{\mathcal C_0.}
 \]
 
+## 3A. Optional pre-spacetime Stella refinement
+
+Where the admitted common core is closed under the existing Stella two-sector construction, it has the additive refinement
+
+\[
+\boxed{
+\mathcal C_0
+\prec_{\rm dep}
+\mathcal R_\star,
+}
+\]
+
+with
+
+\[
+\mathcal R_\star
+=
+\mathbb N_0\times\mathbb Z_2
+\]
+
+equipped with
+
+\[
+\mathsf H(n,0)=(n,1),
+\qquad
+\mathsf H(n,1)=(n+1,0),
+\qquad
+\boxed{\mathsf H^2=\mathsf S}.
+\]
+
+This is not yet a temporal dynamics law. The repeated transformation generates an algebraic order before any duration is assigned.
+
+The same pre-spacetime packet exposes the incidence relations
+
+\[
+E_n=\{n,n+1\},
+\qquad
+E_n\cap E_{n+1}=\{n+1\}.
+\]
+
+It can therefore feed two separately typed downstream interpretations:
+
+\[
+\boxed{
+\mathcal R_\star
+\to
+\begin{cases}
+\text{alternation/composition/order}\to\mathcal B_T^{\rm IDT},\\
+\text{incidence/geometric realization}\to\mathcal G_X^{\rm TIR}.
+\end{cases}
+}
+\]
+
+This is an optional common refinement, not a retroactive premise of already closed TIR spatial theorems. It introduces no physical time and no physical space.
+
+Canonical source:
+
+TIR/foundations/TIR_STELLA_PRESPACETIME_HALFSTEP_SUCCESSOR_V0_1.md
+
 ## 4. TIR owns the spatial-geometric continuation
 
 The spatial branch is now internal to TIR:
