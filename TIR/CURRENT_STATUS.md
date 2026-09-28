@@ -33,11 +33,11 @@ The active non-circular phase/geometric path is
 \[
 \boxed{
 R\to\{N,S\}\to\frac12\to U(1)\cong S^1
+\to\Sigma(S^1;N,S)\cong S^2
+\cong\mathbb{CP}^1
+\to\text{Fubini--Study/Berry}
 \to\text{Euler--Berry sign}
-\to s=\frac12
-\to\{N,S\}_{\rm spin}
-\to\Sigma S^1\cong S^2
-\cong\mathbb{CP}^1.
+\to s=\frac12.
 }
 \]
 
@@ -79,9 +79,9 @@ P
 \to\{N,S\}
 \to\frac12
 \to U(1)\cong S^1
-\to s=\frac12
 \to S^2\cong\mathbb{CP}^1
-\to\mathbb C^2,
+\to\mathbb C^2
+\to s=\frac12,
 \]
 
 with \(P\) the minimum object and \(R\) the minimum nontrivial structure. The equivalent projective/Hilbert and phase/Euler routes are required to commute; legacy A1--A8 labels are provenance, not independent axioms.
