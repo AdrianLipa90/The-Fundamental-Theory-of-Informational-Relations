@@ -17,13 +17,15 @@ The **Fundamental Theory of Informational Relations (TIR)** is a research progra
 The active dependency spine is summarized as
 
 ```text
-0
--> POINT
--> FIRST DISTINCTION
+NO ONTIC ZERO OBJECT
+-> 0 NONLOGICAL AXIOMS
+-> RELATION
+-> ORIENTATION REVERSAL
 -> {N,S}
 -> 1/2
 -> ln2
 -> C^2
+-> CP^1 ~= S^2
 -> Herm_0(2) ~= R^3
 -> Euclidean relational geometry
 -> tetrahedral closure
@@ -37,6 +39,42 @@ The active dependency spine is summarized as
 ```
 
 Historical v11 and v12.0 publication sources remain versioned provenance.
+
+## Zero-axiom relational foundation
+
+The current canonical TIR root contains no non-logical physical or ontological axioms:
+
+\[
+\boxed{N_{\rm nonlogical\ axioms}=0.}
+\]
+
+Literal ontic nothing is not represented as an object. The arithmetic/coordinate symbol \(0\) is retained only as relational nullity. The minimum admitted TIR content is therefore typed as a relation,
+
+\[
+\boxed{\mathcal R_1=(a\xleftrightarrow{R}b),}
+\]
+
+whose orientation reversal supplies the pole pair \(\{N,S\}\). Exchange balance gives the exact half-seam and binary information,
+
+\[
+\boxed{(w_N,w_S)=\left(\frac12,\frac12\right),\qquad H_2(1/2)=\ln2.}
+\]
+
+The coherent two-state lift gives \(\mathbb C^2\), and projectivization gives the standard identification
+
+\[
+\boxed{\mathbb{CP}^1\cong S^2.}
+\]
+
+The historical A1--A8 kernel remains repository provenance but is no longer counted as the canonical foundation; its former axioms are reclassified as downstream theorem targets, conditional sector laws, or typing rules with their proof/empirical gates preserved.
+
+Canonical source:
+
+`TIR/foundations/TIR_ZERO_AXIOM_RELATIONAL_FOUNDATION_V0_1.md`
+
+Validator:
+
+`TIR/validation/tir_zero_axiom_relational_foundation_v0_1.py`
 
 ## Canonical κ normalization
 
