@@ -256,13 +256,13 @@ R.
 
 The algebraic steps through `E_rel`, its metric, and its `SO(3)` frame symmetry are canonical after the binary quantum carrier. The solder form and tangent-bundle promotion are the central remaining geometric bridge.
 
-## 8. Relation to the eight axioms
+## 8. Relation to discharged legacy labels
 
-- **A2** supplies the complex binary quantum carrier.
-- **A7** supplies the symmetry principle realized by local frame transformations.
-- **A5** measures the resulting geometry through metric, holonomy, curvature and topological invariants.
-- **A4** supplies an independent isotropic spherical selection check on the unit-direction locus.
-- **A8** can act when local transition data fail a global closure condition, turning bundle obstruction data into an explicit closure gate.
+- **legacy A2:** the complex two-state carrier is downstream of `R -> {N,S} -> S^2 ~= CP^1 -> P(C^2)`.
+- **legacy A7:** local frame symmetry is the derived projective/Hilbert symmetry action.
+- **legacy A5:** metric, holonomy, curvature and topological numbers are arithmetic/geometric invariants of the admitted relation geometry.
+- **legacy A4:** spherical structure and the isoperimetric efficiency theorem are downstream, not postulated.
+- **legacy A8:** a failed closure is handled by kernel/context preservation and an explicit lifted closure carrier.
 
 ## 9. Next TIR problem
 
@@ -274,7 +274,7 @@ The next primitive geometric question is no longer the formal existence of a thr
 }
 \]
 
-A derived solder map would close the bridge from quantum relational geometry to a genuine spatial tangent bundle and would make `h_ij`, connection, torsion and curvature downstream constructions.
+A derived solder map would close the bridge from projective/Hilbert relational geometry to a genuine spatial tangent bundle and would make `h_ij`, connection, torsion and curvature downstream constructions.
 
 ## 10. Claim classes
 
