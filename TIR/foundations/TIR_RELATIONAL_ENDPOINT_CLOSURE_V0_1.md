@@ -136,9 +136,9 @@ Hence
 
 So endpoint-composition consistency is exactly the discrete torsion-free closure condition for a triangular relational cell.
 
-## 5. A8 closure crosswalk
+## 5. Zero/kernel context-closure crosswalk
 
-A8 acts when two admitted relational descriptions cannot be represented consistently in the current closure surface.
+The structural mechanism formerly labelled A8 applies when projection or transport erases a relational distinction that cannot be represented consistently on the current closure surface.
 
 Here the two valid descriptions are
 
