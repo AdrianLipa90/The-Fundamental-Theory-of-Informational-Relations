@@ -9,8 +9,9 @@ Scope: TIR-owned continuation of the primitive dependency bridge into spatial ge
 The primitive TIR spine is
 
 \[
-0\prec P\prec \{N,S\}\prec \frac12\prec \ln2
-\prec \mathbb C^2\prec \mathbb{CP}^1\cong S^2.
+R\prec \{N,S\}\prec S^2\cong\mathbb{CP}^1\prec P(\mathbb C^2),
+\qquad
+\{N,S\}\prec \frac12\prec \ln2.
 \]
 
 TIR now takes ownership of the spatial-geometric continuation of this common core:
@@ -51,7 +52,7 @@ This is projective state-space geometry.
 
 ### 2.2 Spatial efficiency sphere
 
-A4 selects a sphere under the declared three-dimensional isoperimetric functional
+The standard three-dimensional isoperimetric theorem selects the sphere for the declared fixed-volume/minimal-boundary functional
 
 \[
 A^3\ge 36\pi V^2,
@@ -148,7 +149,7 @@ d_G(ga,gb)=d_G(a,b).
 }
 \]
 
-Thus A7 acts geometrically as an isometry principle once a relational metric is admitted.
+Thus the derived symmetry action acts geometrically as an isometry principle once a relational metric is admitted.
 
 The dependency is
 
@@ -164,7 +165,7 @@ The dependency is
 
 ## 5. Arithmetic measures the geometry
 
-A5 acts on the spatial carrier through geometric invariants such as
+Arithmetic measurement of the spatial carrier is supplied by geometric invariants such as
 
 \[
 \text{path length},\quad
@@ -185,7 +186,7 @@ The operational correspondence is
 }
 \]
 
-A6 then acts where complex phase closure is present and promotes discrete closure indices as the natural-number branch of the same geometric-arithmetic correspondence.
+Where complex phase closure is present, `e^{i Delta phi}=1` yields discrete winding/closure indices, providing the natural-number branch without an additional axiom.
 
 ## 6. Continuum spatial carrier
 
