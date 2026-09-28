@@ -2,7 +2,7 @@
 """Deterministic audit for the TIR zero -> first-distinction foundation.
 
 The audit certifies the exact finite algebra that belongs directly to the TIR
-crosswalk: zero entropy of the undivided carrier, the binary half seam, ln(2),
+crosswalk: empty relational zero, minimal point support, minimal binary distinction, the binary half seam, ln(2),
 projector complementarity, Pauli noncommutativity, and a concrete pair of
 noncommuting 3D rotation frames. Standard theorem dependencies for the unitary
 generator, Robertson relation, CP^1 geometry, free SO(3) subgroups and
@@ -57,21 +57,35 @@ def matrix_receipt(a: Matrix) -> list[list[list[float]]]:
 
 
 def zero_and_half_certificate() -> dict[str, object]:
-    h_zero = -1.0 * math.log(1.0)
+    zero_support: tuple[()] = ()
+    zero_relations: tuple[()] = ()
+    point_support = ("p",)
+    nontrivial_partition_counts = tuple(n for n in range(0, 8) if n > 1)
+    minimum_partition_count = min(nontrivial_partition_counts)
+
     u = Fraction(1, 2)
+    h_unresolved_singleton = -1.0 * math.log(1.0)
     h_half = -0.5 * math.log(0.5) - 0.5 * math.log(0.5)
+
     return {
-        "undivided_probability": [1, 1],
-        "undivided_entropy": h_zero,
+        "relational_zero": {
+            "support_cardinality": len(zero_support),
+            "relation_count": len(zero_relations),
+            "contains_object": bool(zero_support),
+            "pass": len(zero_support) == 0 and len(zero_relations) == 0 and not zero_support,
+        },
+        "minimal_point_support_cardinality": len(point_support),
+        "minimal_nontrivial_partition_cardinality": minimum_partition_count,
         "first_distinction_labels": ["N", "S"],
         "exchange_fixed_share": [u.numerator, u.denominator],
+        "unresolved_singleton_entropy": h_unresolved_singleton,
         "half_entropy": h_half,
         "ln2": math.log(2.0),
-        "pass_zero": h_zero == 0.0,
+        "pass_point_support": len(point_support) == 1,
+        "pass_binary_minimality": minimum_partition_count == 2,
         "pass_half_fixed_point": 1 - u == u,
         "pass_ln2": math.isclose(h_half, math.log(2.0), rel_tol=0.0, abs_tol=1e-15),
     }
-
 
 def projector_certificate() -> dict[str, object]:
     pn: Matrix = ((1 + 0j, 0j), (0j, 0j))
@@ -166,7 +180,9 @@ def build_receipt() -> dict[str, object]:
     mixed = maximally_mixed_certificate()
     rotations = rotation_entry_certificate()
     passed = (
-        zero_half["pass_zero"]
+        zero_half["relational_zero"]["pass"]
+        and zero_half["pass_point_support"]
+        and zero_half["pass_binary_minimality"]
         and zero_half["pass_half_fixed_point"]
         and zero_half["pass_ln2"]
         and projectors["pass"]
@@ -178,8 +194,8 @@ def build_receipt() -> dict[str, object]:
         "schema": "TIR_ZERO_FIRST_DISTINCTION_V0_1",
         "scope": "TIR_STRUCTURAL_CROSSWALK",
         "dependency_graph": [
-            "ZERO -> FIRST_DISTINCTION",
-            "FIRST_DISTINCTION -> HALF_SEAM -> ln2",
+            "RELATIONAL_ZERO -> POINT_SUPPORT -> FIRST_DISTINCTION",
+            "FIRST_DISTINCTION -> EXCHANGE_SYMMETRY -> HALF_SEAM -> ln2",
             "FIRST_DISTINCTION -> C2 -> UNITARY_FLOW -> SCHRODINGER_GENERATOR",
             "C2 -> MULTIPLE_AXES -> PAULI_NONCOMMUTATIVITY -> ROBERTSON_HEISENBERG",
             "ORIENTED_AXIS -> S2 -> SO3 -> F2 -> PARADOXICAL_ACTION_PLUS_CHOICE -> BANACH_TARSKI",
