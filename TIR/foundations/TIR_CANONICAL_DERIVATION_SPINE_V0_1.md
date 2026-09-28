@@ -156,6 +156,8 @@ R\to\{N,S\}\to\frac12\to\ln2.
 
 ## 5. Minimal continuous phase carrier: \(S^1\cong U(1)\)
 
+Canonical source: `TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md`.
+
 The existing relational Lagrangian contains one internal phase coordinate
 
 \[
@@ -402,7 +404,9 @@ The canonical active proof surfaces are:
 
 - point/first distinction provenance:
   `TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md`;
-- half-seam / \(S^1\) fibre:
+- relational phase Lagrangian / foundational \(U(1)\cong S^1\) carrier:
+  `TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md`;
+- half-seam / coherent \(S^1\) fibre crosscheck:
   `TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md`;
 - Lagrangian--Bloch selection / `S1 -> S2 -> CP1` closure:
   `TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md`;
