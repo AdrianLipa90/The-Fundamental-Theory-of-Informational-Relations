@@ -28,6 +28,8 @@ parts:
         title: "The Half Coordinate, Binary Information and ln2"
         sources:
           - "TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md"
+          - "TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md"
+          - "TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md"
           - "TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md"
           - "TIR/provenance/TIR_FOUNDATION_PROOF_SOURCE_REGISTRY_V0_1.md"
           - "TIR/foundations/TIR_PRIMITIVE_DEPENDENCY_LATTICE_V0_2.md"
