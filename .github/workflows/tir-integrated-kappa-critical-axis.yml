@@ -42,6 +42,7 @@ jobs:
           python3 TIR/validation/tir_relational_half_seam_v0_1.py | tee tir_relational_half_seam_receipt.json
           python3 TIR/validation/tir_zero_first_distinction_v0_1.py | tee tir_zero_first_distinction_receipt.json
           python3 TIR/validation/tir_zero_axiom_relational_foundation_v0_1.py | tee tir_zero_axiom_relational_foundation_receipt.json
+          python3 TIR/validation/tir_legacy_axiom_discharge_v0_1.py | tee tir_legacy_axiom_discharge_receipt.json
           python3 TIR/validation/tir_axiomatic_kernel_v0_1.py | tee tir_axiomatic_kernel_receipt.json
           python3 TIR/validation/tir_first_distinction_theorem_v0_1.py | tee tir_first_distinction_theorem_receipt.json
           python3 TIR/validation/tir_half_seam_phase_fiber_v0_1.py | tee tir_half_seam_phase_fiber_receipt.json
@@ -57,6 +58,8 @@ jobs:
           grep -Fq '"technical_status": "PASS"' review_source_contract_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_relational_half_seam_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_zero_first_distinction_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_zero_axiom_relational_foundation_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_legacy_axiom_discharge_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_axiomatic_kernel_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_first_distinction_theorem_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_half_seam_phase_fiber_receipt.json
@@ -67,9 +70,16 @@ jobs:
           grep -Fq '"equal_weight_seam": true' tir_relational_half_seam_receipt.json
           grep -Fq '"noncommuting_distinction_axes": true' tir_zero_first_distinction_receipt.json
           grep -Fq '"distinct_axis_rotations_noncommute": true' tir_zero_first_distinction_receipt.json
-          grep -Fq '"axiom_count": 8' tir_axiomatic_kernel_receipt.json
+          grep -Fq '"axiom_count": 0' tir_axiomatic_kernel_receipt.json
+          grep -Fq '"legacy_axiom_label_count": 8' tir_axiomatic_kernel_receipt.json
+          grep -Fq '"canonical_nonlogical_axiom_count": 0' tir_legacy_axiom_discharge_receipt.json
+          grep -Fq '"legacy_independent_axiom_count": 0' tir_legacy_axiom_discharge_receipt.json
           grep -Fq '"next_gate": "RELATIVE_PHASE_LAW"' tir_first_distinction_theorem_receipt.json
           grep -Fq '"next_gate": "HALF_FIBER_PHASE_RATE_SELECTION"' tir_half_seam_phase_fiber_receipt.json
+          grep -Fq '"no_quantum_bloch_cycle": true' tir_causal_bridge_from_zero_receipt.json
+          grep -Fq '"sphere_before_quantum": true' tir_causal_bridge_from_zero_receipt.json
+          grep -Fq '"no_a7_first_distinction_dependency": true' tir_causal_bridge_from_zero_receipt.json
+          grep -Fq '"zero_to_arithmetic": true' tir_causal_bridge_from_zero_receipt.json
           grep -Fq '"no_temporal_circularity": true' tir_causal_bridge_from_zero_receipt.json
           grep -Fq '"sibling_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
           grep -Fq '"tir_spatial_ownership_pass": true' tir_causal_bridge_from_zero_receipt.json
@@ -139,6 +149,9 @@ jobs:
           test -s TIR/zeta_information_axis/reports/solver_receipt.json
           test -s TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md
           test -s TIR/foundations/TIR_AXIOMATIC_KERNEL_V0_1.md
+          test -s TIR/foundations/TIR_ZERO_AXIOM_RELATIONAL_FOUNDATION_V0_1.md
+          test -s TIR/foundations/TIR_LEGACY_AXIOM_DISCHARGE_THEOREM_V0_1.md
+          test -s TIR/foundations/TIR_PRIMITIVE_DEPENDENCY_LATTICE_V0_2.md
           test -s TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_1.md
           test -s TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md
           test -s TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md
@@ -176,6 +189,8 @@ jobs:
             review_source_contract_receipt.json
             tir_relational_half_seam_receipt.json
             tir_zero_first_distinction_receipt.json
+            tir_zero_axiom_relational_foundation_receipt.json
+            tir_legacy_axiom_discharge_receipt.json
             tir_axiomatic_kernel_receipt.json
             tir_first_distinction_theorem_receipt.json
             tir_half_seam_phase_fiber_receipt.json
