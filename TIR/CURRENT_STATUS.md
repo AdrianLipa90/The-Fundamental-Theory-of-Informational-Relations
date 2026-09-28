@@ -2551,3 +2551,32 @@ Hence
 \]
 
 and the exact fixed-x acceleration threshold is omega_acc^4=2 C_Lambda/(3+x) for positive C_Lambda. RF-F16 shows the constant vacuum component is exactly repartition-degenerate with the reference vacuum/potential zero point. The transport route derives the functional constant-vacuum component but does not predict its magnitude or sign. No current receipt identifies C_Lambda with holonomy/topology.
+
+
+### 2026-09-28 pre-spacetime alternating Stella inference
+
+Canonical branch source:
+
+TIR/foundations/TIR_STELLA_ALTERNATING_ROTATION_INFERENCE_V0_1.md
+
+For two Stella orientation lifts \(A,B\), the cross-sector overlap multiset
+
+\[
+\mathcal I(A,B)=\{\!\{-n_i^TA^TBn_j\}\!\}_{i,j=1}^{4}
+\]
+
+is exactly invariant under independent orientation-preserving tetrahedral relabelings \(a,b\in A_4\):
+
+\[
+\boxed{\mathcal I(Aa,Bb)=\mathcal I(A,B).}
+\]
+
+A decorated pretemporal alternation transforms one Stella sector per half-step and satisfies
+
+\[
+\boxed{\widetilde H^2=\widetilde S}.
+\]
+
+Thus the inference carrier may be taken as the label-free relational transformation orbit rather than a static assignment of named poles. The sphere/tetrahedron remains an internal Gram/symmetry representation at this layer; physical space and calibrated time remain downstream.
+
+Reference audit: group order 12, 144 independent relabeling pairs PASS, alternating quarter-turn witness changes the relational signature after one half-step.
