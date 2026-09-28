@@ -1,10 +1,49 @@
 # CURRENT STATUS — TIR
 
-**Status line:** 2026-09-22 semantic dependency reconciliation refreshed after White-Thread spin-lift/Lyapunov promotion; reconciliation branch pending final merge  
+**Status line:** 2026-09-28 foundation source reconciliation active; canonical spine rebuilt from current + archived proof surfaces; no compilation performed  
 **Current source baseline:** `main@611bc7687f0a2266a7cc6cc3010f9776dc03a391`  
 **Status-surface policy:** formal/derivational closure, production-input state and empirical verdict are independent coordinates  
 **Legacy evidence rule:** a frozen legacy `FAIL` remains historical evidence for that exact formula; it does not automatically classify a later replacement construction  
 **Dependency export:** current branch export separates completed theorem surfaces, candidate-only bridges and still-open physical gates
+
+## 0A. Foundation source reconciliation — 2026-09-28
+
+Canonical foundation owner:
+
+`TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md`
+
+Proof-source registry:
+
+`TIR/provenance/TIR_FOUNDATION_PROOF_SOURCE_REGISTRY_V0_1.md`
+
+The reconciled root distinguishes object-minimality from structure-minimality:
+
+\[
+\boxed{
+\min(\text{object})=P,
+\qquad
+\min(\text{nontrivial structure})=R,
+\qquad
+N_{\rm nonlogical\ axioms}=0.
+}
+\]
+
+The active non-circular phase/geometric path is
+
+\[
+\boxed{
+R\to\{N,S\}\to\frac12\to U(1)\cong S^1
+\to\text{Euler--Berry sign}
+\to s=\frac12
+\to\{N,S\}_{\rm spin}
+\to\Sigma S^1\cong S^2
+\cong\mathbb{CP}^1.
+}
+\]
+
+The Fubini--Study metric, Berry curvature, spin lift and \(SU(2)/\{\pm I\}\cong SO(3)\) are downstream of this state geometry. No canonical foundation edge uses \(SO(3)\) to manufacture \(S^2\).
+
+Repository-search policy is source-first: absence from a current summary is not a theory gap until active foundations, integrations, validators, monograph sources and archived formal/debt modules have all been checked.
 
 ## 0. Semantic reconciliation — 2026-09-22
 
@@ -32,11 +71,20 @@ PR #177 (`White-Thread spin lift and Lyapunov dynamics v0.1`) is intentionally n
 
 ## 1. Foundational closure
 
-The primitive dependency spine remains
+The primitive dependency spine is now source-reconciled as
 
 \[
-0\to P\to\text{FIRST DISTINCTION}\to\{N,S\}\to\frac12\to\ln2\to\mathbb C^2.
+P
+\to R
+\to\{N,S\}
+\to\frac12
+\to U(1)\cong S^1
+\to s=\frac12
+\to S^2\cong\mathbb{CP}^1
+\to\mathbb C^2,
 \]
+
+with \(P\) the minimum object and \(R\) the minimum nontrivial structure. The equivalent projective/Hilbert and phase/Euler routes are required to commute; legacy A1--A8 labels are provenance, not independent axioms.
 
 The local spatial branch continues through the traceless-Hermitian carrier
 
@@ -50,7 +98,7 @@ then through the Euclidean metric, rank-three spatial carrier, regular tetrahedr
 Current classification:
 
 ```text
-TIR_FOUNDATIONAL_CORE = CLOSED
+TIR_FOUNDATIONAL_CORE = SOURCE_RECONCILED_STRUCTURAL_CLOSURE / PHYSICAL_BINDINGS_SEPARATE
 TIR_LOCAL_SPATIAL_GEOMETRY = CLOSED
 TIR_TETRAHEDRAL_CONGRUENCE_CLASS = CLOSED_EXACT
 TIR_KAPPA_NORMALIZATION = CLOSED_INTERNAL_DERIVATION
