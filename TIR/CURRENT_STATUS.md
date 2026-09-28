@@ -72,6 +72,7 @@ TIR_WHITE_THREAD_SPIN_LIFT = EXACT_2PI_4PI_DOUBLE_COVER / PHYSICAL_BINDING_OPEN
 TIR_WHITE_THREAD_LYAPUNOV = EXACT_CONDITIONAL_STATIC_HOLONOMY / DYNAMIC_FIELD_BINDING_OPEN
 TIR_SOH_NEGATIVE_INVERSE = GLOBAL_DOMINATION_CANDIDATE / RH_OPEN
 TIR_TIME_JOIN = SIBLING_INTERFACE
+TIR_PRESPACETIME_STELLA_HALFSTEP_SUCCESSOR = EXACT_COMBINATORIAL_CORE / STELLA_BINDING_CONDITIONAL / PHYSICAL_TIME_SPACE_NOT_ASSUMED
 TIR_COLLATZ_FS_RELATIONAL_PHASE = MATHEMATICAL_INTERFACE_ADDED / PHYSICAL_BINDING_OPEN
 TIR_FRACTAL_ORBITAL_GRAVITY_KINEMATICS = PASS_EXACT_MATHEMATICAL_CONTROLS
 TIR_FRACTAL_ORBITAL_GRAVITY_PG_SCHWARZSCHILD = PASS_EXACT_CONTROL
@@ -121,6 +122,78 @@ TIR_EINSTEIN_EQUALS_NAVIER_STOKES = NOT_CLAIMED
 TIR_SPACETIME_AS_MATERIAL_FLUID = NOT_CLAIMED
 
 ```
+
+## 1A. Pre-spacetime Stella alternation / successor
+
+A new additive foundation surface now sits before any physical-time or physical-space interpretation:
+
+TIR/foundations/TIR_STELLA_PRESPACETIME_HALFSTEP_SUCCESSOR_V0_1.md
+
+The exact abstract carrier is
+
+\[
+\mathcal X=\mathbb N_0\times\mathbb Z_2
+\]
+
+with elementary alternation
+
+\[
+\mathsf H(n,0)=(n,1),
+\qquad
+\mathsf H(n,1)=(n+1,0),
+\]
+
+and coarse successor
+
+\[
+\mathsf S(n,\sigma)=(n+1,\sigma).
+\]
+
+Therefore
+
+\[
+\boxed{\mathsf H^2=\mathsf S.}
+\]
+
+After the declared normalization \(g(n,\sigma)=n+\sigma/2\),
+
+\[
+\Delta_{\mathsf H}g=\frac12,
+\qquad
+\Delta_{\mathsf S}g=1.
+\]
+
+The relational chain is
+
+\[
+E_n=\{n,n+1\},
+\qquad
+\boxed{E_n\cap E_{n+1}=\{n+1\}},
+\]
+
+which is the exact incidence content of
+
+\[
+1\,|\,12\,|\,23\,|\,34\,|\,45\,|\cdots.
+\]
+
+The Hilbert-hotel map is correctly typed as the unilateral shift \(n\mapsto n+1\): injective and non-surjective on \(\mathbb N\), with incidence preserved.
+
+The Stella identification \(T_4^+\leftrightarrow\sigma=0\), \(T_4^-\leftrightarrow\sigma=1\) is a conditional structural binding. Existing tetrahedral \(q_3=1/2\) holonomy and the successor square root have separate provenance and are not equated as operators.
+
+This surface is explicitly pre-spacetime:
+
+\[
+\text{relation}\to\text{alternation}\to\text{order}\to\text{IDT time},
+\]
+
+while
+
+\[
+\text{relation}\to\text{incidence}\to\text{geometry}\to\text{TIR space}.
+\]
+
+No physical clock, duration, spatial metric or spacetime manifold is assumed in the theorem.
 
 ## 2. Canonical information normalization
 
