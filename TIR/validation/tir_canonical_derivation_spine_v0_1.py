@@ -120,7 +120,7 @@ def main() -> None:
         "minimum_object":"POINT",
         "minimum_nontrivial_structure":"RELATION",
         "canonical_phase_fibre":"U(1) ~= S1",
-        "sphere_route":"S1 + SPIN_POLAR_PAIR -> SUSPENSION(S1) ~= S2 -> CP1",
+        "sphere_route":"S1 + RELATIONAL_POLAR_PAIR -> SUSPENSION(S1) ~= S2 -> CP1 -> BERRY/EULER -> SPIN1/2",
         "so3_used_to_create_s2":False,
         "compile_performed":False,
         "blocks":blocks,
