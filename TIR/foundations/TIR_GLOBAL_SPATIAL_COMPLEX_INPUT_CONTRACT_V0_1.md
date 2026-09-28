@@ -109,7 +109,7 @@ The current global spatial incidence dataset remains an open source-owned input.
 
 ## Falsification rules
 
-The source-freeze gate validates source class, production receipt shape, unique cell identifiers, tetrahedral arity, unique facets and deterministic canonicalization. The input gate validates vertex/provenance/incidence integrity. A5 supplies the topological manifold verdict.
+The source-freeze gate validates source class, production receipt shape, unique cell identifiers, tetrahedral arity, unique facets and deterministic canonicalization. The input gate validates vertex/provenance/incidence integrity. `TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md` supplies the topological manifold verdict.
 
 The facet-minimality control also verifies that aggregate simplex counts and full incidence remain separately typed evidence surfaces.
 
