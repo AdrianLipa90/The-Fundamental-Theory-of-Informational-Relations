@@ -224,13 +224,13 @@ orthogonal consecutive relations satisfy
 
 This is the local Pythagorean closure already registered in the subrepo.
 
-## 8. TIR typing rule
+## 8. TIR zero-axiom typing rule
 
 The mathematical theorem is exact. The remaining TIR question is a typing question:
 
 \[
 \boxed{
-\text{Does A3 type the primitive ordered relation between A2 quantum points as their intrinsic affine displacement?}
+\text{Does the derived relational/projective carrier identify the ordered relation with its intrinsic affine displacement?}
 }
 \]
 
@@ -240,15 +240,15 @@ A compact candidate inheritance rule is:
 
 Under that typing rule, the earlier `RELATION_AS_CANONICAL_QUANTUM_STATE_DIFFERENCE` gate closes by the standard torsor theorem rather than by an additional dynamical law.
 
-A8 then acts as a consistency cross-check: local same-context endpoint composition is already exact for affine displacements, while nontrivial context/holonomy belongs to a lifted downstream closure sector.
+The zero/kernel context-closure mechanism supplies the consistency cross-check: local same-context endpoint composition is already exact for affine displacements, while nontrivial context/holonomy belongs to a lifted downstream closure sector.
 
-A5 acts on the metric layer: arithmetic invariants such as `Tr(E^2)/2` measure the resulting relation geometry.
+Arithmetic/geometric invariants such as `Tr(E^2)/2` measure the resulting relation geometry downstream of relational zero.
 
 ## 9. Shortest dependency line
 
 \[
 \boxed{
-A2\;\text{quantum point}
+R\to\{N,S\}\to S^2\cong\mathbb{CP}^1\to P(\mathbb C^2)
 \to
 \mathcal A_2=\frac12I+\operatorname{Herm}_0(2)
 \to
@@ -264,7 +264,7 @@ A2\;\text{quantum point}
 }
 \]
 
-The only TIR-specific bridge in this shortened route is the A3 relational typing of the physical ordered relation as the intrinsic affine displacement.
+The only TIR-specific bridge in this shortened route is the relational typing of the physical ordered relation as the intrinsic affine displacement.
 
 ## 10. Claim classes
 
@@ -277,5 +277,5 @@ The only TIR-specific bridge in this shortened route is the A3 relational typing
 | quantum-state displacement is `rho_y-rho_x` | EXACT |
 | Pauli-normalized displacement is `2(rho_y-rho_x)` | EXACT CONVENTION |
 | common `SU(2)` conjugation preserves the displacement law | EXACT |
-| A3 identifies the primitive physical relation with intrinsic affine displacement | TIR FOUNDATIONAL TYPING GATE |
+| primitive relation is identified with intrinsic affine displacement | TIR ZERO-AXIOM TYPING GATE |
 | under that typing, local relation carrier and Pythagorean closure follow | EXACT CONDITIONAL |
