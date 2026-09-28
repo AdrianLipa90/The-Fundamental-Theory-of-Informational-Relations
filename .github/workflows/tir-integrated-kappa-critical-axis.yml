@@ -41,6 +41,7 @@ jobs:
           python3 TIR/validation/review_source_contract_v11_1.py | tee review_source_contract_receipt.json
           python3 TIR/validation/tir_relational_half_seam_v0_1.py | tee tir_relational_half_seam_receipt.json
           python3 TIR/validation/tir_canonical_derivation_spine_v0_1.py | tee tir_canonical_derivation_spine_receipt.json
+          python3 TIR/validation/tir_relational_phase_lagrangian_core_v0_1.py | tee tir_relational_phase_lagrangian_core_receipt.json
           python3 TIR/validation/tir_lagrangian_bloch_selection_v0_1.py | tee tir_lagrangian_bloch_selection_receipt.json
           python3 TIR/validation/tir_global_dependency_reconciliation_v0_1.py | tee tir_global_dependency_reconciliation_receipt.json
           python3 TIR/validation/tir_legacy_axiom_discharge_v0_1.py | tee tir_legacy_axiom_discharge_receipt.json
@@ -60,6 +61,7 @@ jobs:
           grep -Fq '"technical_status": "PASS"' review_source_contract_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_relational_half_seam_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_canonical_derivation_spine_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_relational_phase_lagrangian_core_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_lagrangian_bloch_selection_receipt.json
           grep -Fq '"status": "PASS"' tir_global_dependency_reconciliation_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_legacy_axiom_discharge_receipt.json
@@ -78,6 +80,8 @@ jobs:
           grep -Fq '"seam_is_positive_reciprocal_fixed_point": true' tir_relational_half_seam_receipt.json
           grep -Fq '"equal_weight_seam": true' tir_relational_half_seam_receipt.json
           grep -Fq '"canonical_nonlogical_axiom_count": 0' tir_canonical_derivation_spine_receipt.json
+          grep -Fq '"phase_carrier": "U(1) ~= S1"' tir_relational_phase_lagrangian_core_receipt.json
+          grep -Fq '"gauge_covariant_velocity": true' tir_relational_phase_lagrangian_core_receipt.json
           grep -Fq '"so3_used_to_create_s2": false' tir_canonical_derivation_spine_receipt.json
           grep -Fq '"minimal_positive": 0.5' tir_canonical_derivation_spine_receipt.json
           grep -Fq '"canonical_nonlogical_axiom_count": 0' tir_lagrangian_bloch_selection_receipt.json
@@ -155,6 +159,7 @@ jobs:
           test -s TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md
           test -s TIR/foundations/TIR_AXIOMATIC_KERNEL_V0_1.md
           test -s TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md
+          test -s TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md
           test -s TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md
           test -s TIR/provenance/TIR_FOUNDATION_PROOF_SOURCE_REGISTRY_V0_1.md
           test -s TIR/foundations/TIR_ZERO_AXIOM_RELATIONAL_FOUNDATION_V0_1.md
@@ -200,6 +205,7 @@ jobs:
             review_source_contract_receipt.json
             tir_relational_half_seam_receipt.json
             tir_canonical_derivation_spine_receipt.json
+            tir_relational_phase_lagrangian_core_receipt.json
             tir_lagrangian_bloch_selection_receipt.json
             tir_global_dependency_reconciliation_receipt.json
             tir_legacy_axiom_discharge_receipt.json
