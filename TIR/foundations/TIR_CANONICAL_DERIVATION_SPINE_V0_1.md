@@ -431,33 +431,59 @@ ABSOLUTE NOTHING IS NON-REALIZABLE
         v
 MINIMUM OBJECT = POINT
         |
-        +-----------------------------+
-        |                             |
-        v                             v
-MINIMUM NONTRIVIAL STRUCTURE = RELATION     RELATIONAL PHASE LAGRANGIAN
-        |                             |
-        v                             v
-ORIENTATION ROLES {N,S}             U(1) ~= S1
-        |                             |
-        v                             |
-EXCHANGE BALANCE 1/2 --> ln2         |
-        |                             |
-        +----------- SUSPENSION(S1,{N,S}) ~= S2
-                                      |
-                                      v
-                                  CP1 ~= S2
-                                      |
-                                      v
-                              FUBINI-STUDY / BERRY
-                                      |
-                                      v
-                          EULER/BERRY SIGN -> SPIN 1/2
-                                      |
-                                      v
+        v
+MINIMUM NONTRIVIAL STRUCTURE = RELATION
+        |
+        v
+ORIENTATION ROLES {N,S}
+        |
+        +------------------------------+
+        |                              |
+        v                              v
+EXCHANGE BALANCE 1/2 --> ln2      CENTERED COORDINATE Z=2q-1
+                                       |
+                                       v
+                                  q=1/2 <=> 0_R
+                                       |
+                                       v
+                            ORBITAL TWIST K^2 = -I
+                                       |
+                                       v
+                                 C ~= span{I,K}
+                                       |
+                                       v
+                              U(1) ~= SO(2) ~= S1
+                                       |
+                    +------------------+------------------+
+                    |                                     |
+                    v                                     v
+          RELATIONAL PHASE LAGRANGIAN          HALF-SEAM PHASE FIBRE
+                    |                                     |
+                    +------------------+------------------+
+                                       |
+                                       v
+                         SUSPENSION(S1,{N,S}) ~= S2
+                                       |
+                                       v
+                                   CP1 ~= S2
+                                       |
+                                       v
+                               FUBINI-STUDY / BERRY
+                                       |
+                                       v
+                    EULER-CHERN / PRIMITIVE DOUBLE LIFT
+                                       |
+                                       v
+                                  SPIN 1/2
+                                       |
+                                       v
+                          2pi -> -I ; 4pi -> +I
+                                       |
+                                       v
                          SPIN POLAR PAIR = RELATIONAL PAIR
-                                      |
-                                      v
-                              Herm_0(2) ~= R3
+                                       |
+                                       v
+                               Herm_0(2) ~= R3
 ```
 
 The lower geometry then continues through the already-audited affine relation, tetrahedral, holonomy, solder/torsion, Cartan and GR branches.
@@ -468,8 +494,10 @@ The canonical active proof surfaces are:
 
 - point/first distinction provenance:
   `TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md`;
-- relational phase Lagrangian / foundational \(U(1)\cong S^1\) carrier:
-  `TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md`;
+- relational zero / orbital twist / derived \(U(1)\cong S^1\) carrier:
+  \`TIR/foundations/TIR_GENERAL_ORBITAL_ALGEBRA_RELATIONAL_ZERO_V0_1.md\`;
+- relational phase Lagrangian as downstream \(U(1)\) realization:
+  \`TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md\`;
 - half-seam / coherent \(S^1\) fibre crosscheck:
   `TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md`;
 - Lagrangian--Bloch selection / `S1 -> S2 -> CP1` closure:
