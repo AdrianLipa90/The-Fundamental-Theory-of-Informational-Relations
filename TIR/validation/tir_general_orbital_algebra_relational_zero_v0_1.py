@@ -132,6 +132,42 @@ def check_critical_axis_reflection() -> None:
         assert close(zeta_centered_real(sr), -zeta_centered_real(s))
 
 
+
+def check_moire_pair_identity() -> None:
+    rng = random.Random(1024)
+    for _ in range(256):
+        amplitude = rng.uniform(0.1, 5.0)
+        phi1 = rng.uniform(-8.0 * math.pi, 8.0 * math.pi)
+        phi2 = rng.uniform(-8.0 * math.pi, 8.0 * math.pi)
+        lhs = amplitude * cmath.exp(1j * phi1) + amplitude * cmath.exp(1j * phi2)
+        mean = 0.5 * (phi1 + phi2)
+        delta = phi1 - phi2
+        rhs = 2.0 * amplitude * cmath.exp(1j * mean) * math.cos(0.5 * delta)
+        assert close(lhs, rhs)
+
+
+def check_kappa_information_operator() -> None:
+    n_flavour = 3
+    su3_dim = n_flavour * n_flavour - 1
+    n_mix = n_flavour * su3_dim
+    relational_half_turn = 0.5
+    q_mix = n_mix * relational_half_turn
+    kappa_q = math.log(2.0) / q_mix
+    kappa_phi = kappa_q / (2.0 * math.pi)
+
+    assert n_mix == 24
+    assert close(q_mix, 12.0)
+    assert close(kappa_q, math.log(2.0) / 12.0)
+    assert close(kappa_phi, math.log(2.0) / (24.0 * math.pi))
+
+    # Coordinate covariance of the information one-form:
+    # dI = kappa_q dq = kappa_phi dphi, with phi = 2*pi*q.
+    rng = random.Random(24)
+    for _ in range(256):
+        dq = rng.uniform(-4.0, 4.0)
+        dphi = 2.0 * math.pi * dq
+        assert close(kappa_q * dq, kappa_phi * dphi)
+
 def run() -> None:
     checks = [
         check_relational_midpoint,
@@ -140,6 +176,8 @@ def run() -> None:
         check_double_cover,
         check_nfold_monodromy,
         check_projective_half_seam,
+        check_moire_pair_identity,
+        check_kappa_information_operator,
         check_critical_axis_reflection,
     ]
     for check in checks:
