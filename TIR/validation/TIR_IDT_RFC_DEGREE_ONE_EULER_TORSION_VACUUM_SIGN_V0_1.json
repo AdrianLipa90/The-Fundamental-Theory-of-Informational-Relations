@@ -1,0 +1,21 @@
+{
+  "schema": "TIR_IDT_RFC_DEGREE_ONE_EULER_TORSION_VACUUM_SIGN_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_DEGREE_ONE_EULER_TORSION_GIVES_NEGATIVE_VACUUM_SIGN_AND_DECELERATION",
+  "canon_allowed": false,
+  "exact_conditional": [
+    "Delta L_tor=kappa_E sigma_E^2/4 >=0",
+    "independent-scale partial metric variation -> Delta T_mn=g_mn Delta L_tor",
+    "rho_tor=-Delta L_tor",
+    "p_tor=+Delta L_tor",
+    "w_tor=-1 for nonzero source",
+    "Delta(a''/a)_tor=-kappa_E Delta L_tor/3 <0",
+    "this sector is distinct from RF-F15 rho_Lambda=K0 C_Lambda"
+  ],
+  "open_gates": [
+    "MICROSCOPIC_TETRA_COARSE_GRAINING_ORDER",
+    "NONMINIMAL_TORSION_COUPLING_CANDIDATES_IF_ANY",
+    "RF_F15_C_LAMBDA_MAGNITUDE",
+    "OBSERVATIONAL_BACKGROUND_AND_PERTURBATION_TEST"
+  ]
+}

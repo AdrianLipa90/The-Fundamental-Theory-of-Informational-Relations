@@ -5,7 +5,29 @@
   "tir": {
     "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
     "branch": "feat/tir-fractal-orbital-gravity-v0-1-20260924",
-    "source": "TIR/integration/TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_V0_1.md"
+    "source": "TIR/integration/TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_V0_1.md",
+    "sources": [
+      {
+        "path": "TIR/integration/TIR_WHITE_THREAD_SPIN_LIFT_CROSSLINK_V0_1.md",
+        "blob_sha": "5b242f018e4d074fdd276ea5f591b545a4705221"
+      },
+      {
+        "path": "TIR/foundations/TIR_WHITE_THREAD_SPIN_LIFT_LYAPUNOV_V0_1.md",
+        "blob_sha": "9c115e3743adc3418db82991f5d2520375d2102c"
+      },
+      {
+        "path": "TIR/integration/TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1.md",
+        "blob_sha": "4eb3d06a906d8a82525bc08909853028111a3cde"
+      },
+      {
+        "path": "TIR/metatime_paper.tex",
+        "blob_sha": "0aebd743e6e0f295ed5d2c00e78647e4f2a567db"
+      },
+      {
+        "path": "TIR/validation/TIR_V12_COSMOLOGY_FORMULA_AUDIT_V0_1.json",
+        "blob_sha": "f787e2af7be842952b6936d7c426a514467fd85d"
+      }
+    ]
   },
   "idt": {
     "repository": "AdrianLipa90/Informational-Dynamics-of-Time",
@@ -80,6 +102,62 @@
       {
         "path": "closure/einstein/RF_E27_COLLATZ_FS_PHASE_FIBRE_INTERFACE.md",
         "blob_sha": "7986d011a0c6a542b3bc271c415f131603cebbc1"
+      },
+      {
+        "path": "formalism/RF_F10_F12_DYNAMICAL_PHASE_TRANSPORT.md",
+        "blob_sha": "0e8eed92605b3408a6bf0366138de8be28c8c7dd"
+      },
+      {
+        "path": "formalism/RF_F13_VARIATIONAL_INTEGRABILITY_COMMON_ACTION.md",
+        "blob_sha": "9ccfbcd912249184a9d5ea4e2fc55272ddbbd144"
+      },
+      {
+        "path": "formalism/RF_F14_NOETHER_EOS_SECTOR_COMPATIBILITY.md",
+        "blob_sha": "d90b26d45f8cdff71db042395c4f59e5c0dcabb0"
+      },
+      {
+        "path": "formalism/RF_F15_MICROSCOPIC_PHASE_CELL_TRANSPORT_CLOSURE.md",
+        "blob_sha": "75156861bafcf3dc3b0abeddbed7010b87957d2d"
+      },
+      {
+        "path": "formalism/RF_F16_VACUUM_SPLIT_COMMON_ACTION_CLOSURE.md",
+        "blob_sha": "f637ba258dae2efb3688692c7221a444d375143a"
+      },
+      {
+        "path": "formalism/RF_F17_STATE_DEPENDENT_EXCHANGE_PROJECTOR_THEOREM.md",
+        "blob_sha": "77895acc5d7547d780a70a3f9da1efb30c744b77"
+      },
+      {
+        "path": "formalism/RF_F18_IDT_PHASE_CLOCK_PROJECTOR_BINDING.md",
+        "blob_sha": "b66d873b755a9a08fa9ae0ac1e19e54539f60b7c"
+      },
+      {
+        "path": "formalism/RF_F19_INDEPENDENT_ROTOR_LAPSE_PHASE_SCALE_CALIBRATION.md",
+        "blob_sha": "93eee3c597f5918826df31b512f4ae30ef496b80"
+      },
+      {
+        "path": "formalism/RF_F22_TOTAL_EINSTEIN_SOURCE_ASSEMBLY.md",
+        "blob_sha": "3855bec2800581950ea9ddbfd3629f9b938171f6"
+      },
+      {
+        "path": "formalism/RFN0_RELATIONAL_LAPSE_CLOCK_DYNAMICS.md",
+        "blob_sha": "61915c4bd1b88c066800e20d4a40938eb699fe81"
+      },
+      {
+        "path": "closure/einstein/RF_E8_ADM_KINEMATIC_ASSEMBLY_FIREWALL.md",
+        "blob_sha": "bcb86be0f690567bdca401a81caaddec739c5e64"
+      },
+      {
+        "path": "closure/scale/RF_S10_TETRA_FS_PROJECTIVE_REFINEMENT.md",
+        "blob_sha": "b3dd156dd3060ab5e90bfa3008b15a053abebcbe"
+      },
+      {
+        "path": "closure/einstein/RF_E21_CARTAN_PALATINI_EINSTEIN_HILBERT_SELECTION.md",
+        "blob_sha": "c2ba5987c20f92161338a2885ca1444dd1eb3358"
+      },
+      {
+        "path": "formalism/RF02I_HEXAHEDRAL_COFRAME_CONNECTION.md",
+        "blob_sha": "1fa21764d81636ca0c63a39fcab5fc060cd0dabd"
       }
     ]
   },
@@ -92,7 +170,33 @@
     "PURE_PHASE_KINETIC_W_EQUALS_PLUS_ONE_IS_DECELERATING",
     "CLOSED_LOOP_HOLONOMY_DOES_NOT_FIX_LOCAL_OFFSHELL_METRIC_RESPONSE",
     "TEMPORAL_U1_TO_LOCAL_ABE_METRIC_RESPONSE_REMAINS_OPEN",
-    "MAXWELL_STRESS_MUST_NOT_BE_DOUBLE_COUNTED_THROUGH_AB_RESPONSE"
+    "MAXWELL_STRESS_MUST_NOT_BE_DOUBLE_COUNTED_THROUGH_AB_RESPONSE",
+    "RF_F15_C_LAMBDA_IS_TRANSPORT_INTEGRATION_COORDINATE_NOT_YET_HOLONOMY_CONSTANT",
+    "DIMENSIONLESS_HOLONOMY_CANNOT_FIX_NONZERO_C_LAMBDA_WITHOUT_FREQUENCY_SCALE",
+    "RF_F18_SAME_METRIC_SELF_NORMALIZATION_ZEROES_PROJECTOR_STRESS",
+    "AB_AND_FIXED_MAP_BERRY_METRIC_RESPONSES_HAVE_ZERO_RESPONSE_BRANCH",
+    "LEGACY_A_E_EQUALS_HALF_OMEGA_E_IS_NOT_A_CURRENT_SPACETIME_SPIN_CONNECTION_BINDING",
+    "PLANCK_FREQUENCY_IS_EXTERNAL_UNIVERSAL_CALIBRATION_NOT_INTERNAL_G_DERIVATION",
+    "LEGACY_224_DARK_ENERGY_SUPPRESSION_REMAINS_ANSATZ",
+    "PALATINI_EULER_ADAPTER_ROUTES_TO_CONNECTION_SPIN_CURRENT_NOT_DIRECT_RF_F20_METRIC_RESPONSE",
+    "SINGLE_COHERENT_EULER_AXIS_BREAKS_EXACT_FLRW_ISOTROPY",
+    "TETRAHEDRAL_AXIS_SET_CLOSES_ZERO_FIRST_AND_ISOTROPIC_SECOND_MOMENTS_ONLY",
+    "RF_F17_PROFILE_REMAINS_OPEN_UNLESS_DEGREE_ONE_Q_HOMOGENEITY_IS_ADMITTED",
+    "DEGREE_ONE_SQRT_PROFILE_TORSION_CORRECTION_HAS_NEGATIVE_ENERGY_VACUUM_SIGN"
   ],
-  "canon_allowed": false
+  "canon_allowed": false,
+  "legacy_sources": [
+    {
+      "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+      "path": "archive/v7.9/full/01_foundational_formal_notes/hilbert_kahler_phase_hamiltonian/main.tex",
+      "blob_sha": "99de611b7bc779bdff0a1b6ddd3e681a8a7af44c",
+      "status": "LEGACY_ONLY"
+    },
+    {
+      "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+      "path": "archive/v7.9/full/01_foundational_formal_notes/phase_hamiltonian_english_derivations/main.tex",
+      "blob_sha": "32dded8a105745b6e09f4edd0e59ee8e0153b275",
+      "status": "LEGACY_ONLY"
+    }
+  ]
 }

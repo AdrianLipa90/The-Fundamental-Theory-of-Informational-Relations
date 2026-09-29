@@ -1,0 +1,21 @@
+{
+  "schema": "TIR_IDT_RFC_EULER_CARTAN_TETRA_ISOTROPY_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_LOCAL_EULER_CARTAN_TORSION_SINGLE_AXIS_ANISOTROPIC_TETRA_SECOND_MOMENT_ISOTROPIC",
+  "canon_allowed": false,
+  "exact_conditional": [
+    "sigma_E=sign(q) 2 eta Uhat s_E fprime(1)/mu_theta",
+    "tau_ab=sigma_E n_ab E123",
+    "Cartan solution T^0=-(kappa_E sigma_E/2)n_ij E^i wedge E^j, T^i=0",
+    "T^0_ij=-kappa_E sigma_E epsilon_ijk s^k",
+    "dual b^k=-kappa_E sigma_E s^k",
+    "single nonzero axis is incompatible with exact FLRW rotational isotropy",
+    "regular tetra directions have zero first moment and second moment delta_ij/3"
+  ],
+  "open_gates": [
+    "MICROSCOPIC_TETRA_TORSION_ENSEMBLE_REALIZATION",
+    "TORSION_ELIMINATED_EFFECTIVE_STRESS",
+    "EFFECTIVE_EOS_AND_SCALE_FACTOR_SCALING",
+    "ACCELERATION_SIGN"
+  ]
+}

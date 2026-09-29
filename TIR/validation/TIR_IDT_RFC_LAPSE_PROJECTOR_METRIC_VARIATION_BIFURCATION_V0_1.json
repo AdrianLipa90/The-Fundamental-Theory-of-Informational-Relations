@@ -1,0 +1,20 @@
+{
+  "schema": "TIR_IDT_RFC_LAPSE_PROJECTOR_METRIC_VARIATION_BIFURCATION_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_INDEPENDENT_VS_SAME_METRIC_LAPSE_VARIATION_BIFURCATION_SELF_NORMALIZED_BRANCH_ZERO_STRESS",
+  "canon_allowed": false,
+  "execution": "LOCAL_EQUIVALENT_REFERENCE_CHECK_2026-09-24",
+  "exact_relations": [
+    "RF-E8: g^00=-1/N_R^2",
+    "same-metric branch: d ln N_R/d g^00 = N_R^2/2",
+    "fixed coordinate rotor rate -> S_theta_00=-N_R^2/2",
+    "projector surface -> q0^2/mu_theta^2=N_R^2",
+    "d_g00 C_theta=-N_R^2+N_R^2=0",
+    "d_g C_theta=0 -> projector interaction stress vanishes"
+  ],
+  "open_gates": [
+    "INDEPENDENT_PHYSICAL_PROJECTOR_CALIBRATION_RECEIPT",
+    "NONTRIVIAL_ABE_EULER_METRIC_RESPONSE",
+    "NONSELFNORMALIZING_PHASE_SCALE_METRIC_RESPONSE"
+  ]
+}
