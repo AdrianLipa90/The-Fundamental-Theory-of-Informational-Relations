@@ -1,0 +1,83 @@
+FROM debian:bookworm-slim
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 python3-pip git ca-certificates \
+    latexmk lmodern texlive-latex-base texlive-latex-recommended \
+    texlive-latex-extra texlive-fonts-recommended texlive-science \
+    poppler-utils qpdf \
+ && rm -rf /var/lib/apt/lists/*
+WORKDIR /repo
+COPY . .
+RUN set -eux; \
+    python3 .ci/manuscript_release_gate.py | tee /tmp/tir-release-gate.json; \
+    validators="\
+TIR/validation/tir_relational_zero_axiom_v0_1.py \
+TIR/validation/tir_axiomatic_kernel_v0_1.py \
+TIR/validation/tir_zero_first_distinction_v0_1.py \
+TIR/validation/tir_first_distinction_theorem_v0_1.py \
+TIR/validation/tir_half_seam_phase_fiber_v0_1.py \
+TIR/validation/tir_relational_generator_space_v0_1.py \
+TIR/validation/tir_v12_ch05_euclidean_spatial_gate_v0_1.py \
+TIR/validation/tir_v12_ch06_tetrahedral_closure_v0_1.py \
+TIR/validation/tir_v12_ch07_holonomy_se3_torsion_v0_1.py \
+TIR/foundations/validation/tir_cartan_continuum_refinement_v0_1.py \
+TIR/foundations/validation/tir_zero_torsion_levi_civita_selection_v0_1.py \
+TIR/foundations/validation/tir_leading_loop_locality_metric_jet_v0_1.py \
+TIR/foundations/validation/tir_global_3manifold_smooth_certificate_v0_1.py \
+TIR/foundations/validation/tir_global_spatial_complex_input_contract_v0_1.py \
+TIR/foundations/validation/tir_interleaf_matching_field_input_contract_v0_1.py \
+TIR/validation/tir_v12_discrete_labels_audit_v0_1.py \
+TIR/validation/tir_platonic_l_constants_closure_v0_1.py \
+TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py \
+TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py \
+TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py \
+TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py \
+TIR/validation/tir_coefficient_selector_composition_nogo_v0_3.py \
+TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py \
+TIR/validation/tir_neutrino_absolute_action_source_repair_v0_1.py \
+TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py \
+TIR/validation/tir_ckm_600cell_flag_incidence_candidate_v0_1.py \
+TIR/validation/tir_ckm_600cell_a2_selector_bridge_candidate_v0_2.py \
+TIR/validation/tir_ckm_projective_even_sector_selector_candidate_v0_3.py \
+TIR/validation/tir_ckm_600cell_clean_noncommuting_family_pair_candidate_v0_4.py \
+TIR/validation/tir_ckm_lambda0_nested_fraction_decomposition_v0_5.py \
+TIR/validation/tir_ckm_half_kernel_kappa_selector_candidate_v0_6.py \
+TIR/validation/tir_ckm_half_kernel_product_flow_uniqueness_audit_v0_7.py \
+TIR/validation/tir_ckm_su3f_angle_sine_generator_firewall_v0_8.py \
+TIR/validation/tir_ckm_jarlskog_invariant_closure_v0_1.py \
+TIR/validation/tir_v12_hadron_formula_audit_v0_2.py \
+TIR/validation/tir_v12_hypercharge_anomaly_audit_v0_1.py \
+TIR/validation/tir_hypercharge_source_uniqueness_v0_1.py \
+TIR/validation/tir_v12_electroweak_higgs_audit_v0_1.py \
+TIR/validation/tir_v12_strong_cp_nedm_audit_v0_1.py \
+TIR/validation/tir_v12_cosmology_formula_audit_v0_1.py \
+TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py \
+TIR/validation/tir_v12_prospective_contract_audit_v0_1.py \
+TIR/validation/tir_v12_source_contract_v0_7.py \
+TIR/validation/tir_v12_appendix_integration_audit_v0_1.py \
+TIR/validation/tir_v12_3_semantic_frontier_audit_v0_1.py"; \
+    mkdir -p /tmp/tir-validation; \
+    for v in $validators; do echo "=== $v ==="; python3 "$v" | tee "/tmp/tir-validation/$(basename "$v" .py).json"; done; \
+    python3 -m pip install --break-system-packages -e TIR/zeta_information_axis; \
+    python3 TIR/zeta_information_axis/scripts/solve_axis.py --output TIR/zeta_information_axis/reports/solver_receipt.json > /tmp/tir-critical-axis.json; \
+    grep -Fq '"riemann_hypothesis_in_closure": false' TIR/zeta_information_axis/reports/solver_receipt.json; \
+    cd TIR/monograph; \
+    latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error tir_monograph_v12.tex 2>&1 | tee /tmp/tir-compile-console.log; \
+    test -s tir_monograph_v12.pdf; test -s tir_monograph_v12.log; \
+    ! grep -E "LaTeX Warning: (Reference|Citation).*undefined|There were undefined references|multiply-defined labels|multiply defined|Package hyperref Warning: Token not allowed in a PDF string|Overfull \\\\hbox" tir_monograph_v12.log; \
+    qpdf --check tir_monograph_v12.pdf; \
+    pdfinfo tir_monograph_v12.pdf > /tmp/tir-pdfinfo.txt; \
+    pdffonts tir_monograph_v12.pdf > /tmp/tir-pdffonts.txt; \
+    ! awk 'NR>2 && $5 == "Type 3" {bad=1} END {exit bad ? 0 : 1}' /tmp/tir-pdffonts.txt; \
+    grep -Fq "Theory of Informational Relations" /tmp/tir-pdfinfo.txt; \
+    grep -Fq "Adrian Lipa" /tmp/tir-pdfinfo.txt; \
+    mkdir -p /artifacts; \
+    cp tir_monograph_v12.pdf /artifacts/TIR-v12.4-Relational-Zero-Graph-Reconciliation.pdf; \
+    cp tir_monograph_v12.log /artifacts/TIR-v12.4.log; \
+    cp /tmp/tir-release-gate.json /artifacts/TIR-release-gate.json; \
+    cp /tmp/tir-pdfinfo.txt /artifacts/TIR-pdfinfo.txt; \
+    cp /tmp/tir-pdffonts.txt /artifacts/TIR-pdffonts.txt; \
+    cp /tmp/tir-compile-console.log /artifacts/TIR-compile-console.log; \
+    cp -r /tmp/tir-validation /artifacts/TIR-validation
+EXPOSE 8080
+CMD ["sh","-c","python3 -m http.server ${PORT:-8080} --directory /artifacts"]
