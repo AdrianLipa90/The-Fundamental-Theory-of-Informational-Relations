@@ -62,7 +62,7 @@ TIR formalization: every minimal carrier admits a quantum state representation
 
 with complex amplitudes and phase available when the carrier is relationally resolved into alternatives.
 
-A2 is a physical postulate of TIR. The Hilbert-space machinery used after this postulate follows standard quantum mathematics.
+A2 is a physical postulate of TIR. At the unresolved point-support layer it asserts only quantum representability; it does not by itself fix a two-dimensional Hilbert space, \(\mathbb C^2\), \(\mathbb{CP}^1\), or a Bloch sphere. The minimal \(\mathbb C^2\) carrier is admitted only after the minimal nontrivial distinction has produced the two alternatives \(\{N,S\}\). The Hilbert-space machinery used after this postulate follows standard quantum mathematics.
 
 ## Axiom A3 — Information Primacy
 
