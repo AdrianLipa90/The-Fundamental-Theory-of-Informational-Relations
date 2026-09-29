@@ -1,0 +1,40 @@
+{
+  "schema": "TIR_IDT_PRESPACETIME_CROSSREPO_AUDIT_20260928",
+  "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+  "date": "2026-09-28",
+  "branch": "formalize/pretemporal-stella-halfstep-hilbert-v0.1-20260928",
+  "noema": {
+    "tether_status": "ACTIVE",
+    "failures": [],
+    "startpoint": "VERIFIED",
+    "gremlin_shadow_route": "PASS"
+  },
+  "independent_replay": {
+    "result": "PASS",
+    "H2_equals_S_checks": 514,
+    "tetrahedral_rotation_group_order": 12,
+    "independent_A4_relabeling_pairs_checked": 144,
+    "signature_change_witness": true,
+    "incidence_checks": 256,
+    "physical_time_coordinate_used": false,
+    "physical_space_metric_used": false
+  },
+  "core": [
+    "H^2=S on N_0 x Z_2",
+    "g(Hx)-g(x)=1/2 after full-successor unit normalization",
+    "E_n intersect E_{n+1}={n+1}",
+    "Hilbert unilateral shift preserves incidence",
+    "decorated alternating Stella half-step squares to decorated successor",
+    "cross-sector overlap signature is invariant under independent A4 relabelings"
+  ],
+  "firewall": {
+    "pretemporal": true,
+    "prespatial": true,
+    "physical_time_assumed": false,
+    "physical_space_assumed": false,
+    "spinorial_halfturn_identified_with_successor": false,
+    "particle_physics_supersymmetry_claimed": false,
+    "canon_allowed": false
+  },
+  "crossrepo_source_pins": "TIR/integration/receipts/TIR_IDT_PRESPACETIME_HALFSTEP_SOURCE_PINS_V0_1.json"
+}
