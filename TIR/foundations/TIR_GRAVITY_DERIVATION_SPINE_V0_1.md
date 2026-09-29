@@ -350,3 +350,93 @@ Current status additions:
 - GENERIC_PERTURBED_6x6_REJECTION = PASS_VALIDATOR
 - PLEBANSKI_SIMPLICITY_CROSSWALK = PASS_STANDARD
 - MOIRE_OBSERVABLES_TO_B_FIELD = OPEN
+
+
+## 13. Exact tetrahedral null-frame / Stella parity seed
+
+The microscopic bridge now has an exact seed sector independent of anonymous legacy Phase36 coordinates.
+
+Using the already-admitted positive elapsed-state lift,
+
+\[
+x_a^{(+)}=\frac{\ell_+}{2}(1,\mathbf n_a),
+\]
+
+for the four tetrahedral Bloch directions, the Gram determinant is
+
+\[
+\boxed{\det G=-\ell_+^8/27\neq0}.
+\]
+
+Thus the four canonical tetrahedral pure-state rays form a full-rank 4D null frame.
+
+For the antipodal Stella layer
+
+\[
+x_a^{(-)}=\frac{\ell_-}{2}(1,-\mathbf n_a),
+\]
+
+one obtains exactly
+
+\[
+\boxed{
+e_{-+}=E_-E_+^{-1}
+=
+q\,\operatorname{diag}(1,-1,-1,-1),
+\qquad q=\ell_-/\ell_+.
+}
+\]
+
+Therefore the ideal T / -T sector is a discrete spatial-parity operation multiplied by a positive conformal scale.
+
+Its exterior-square image is
+
+\[
+\boxed{
+C_2(e_{-+})
+=
+q^2\operatorname{diag}(-1,-1,-1,+1,+1,+1)
+}
+\]
+
+in the basis \((01,02,03,23,31,12)\).
+
+This closes a non-arbitrary **seed** route
+
+\[
+(T_4,-T_4,\ell_+,\ell_-)
+\to
+(E_+,E_-)
+\to
+e
+\to
+C_2(e),
+\]
+
+without selecting four coordinates from 36 and without hashing edge labels.
+
+Firewall:
+
+- constant parity is not gravity;
+- constant conformal scaling is not gravity;
+- the ideal Stella seed is too symmetric to span generic GR.
+
+The next physical gate is the dynamics of local frame deformation,
+
+\[
+\boxed{
+E_2(x)\neq q(x)P E_1(x),
+\qquad
+e(x)=E_2(x)E_1(x)^{-1},
+}
+\]
+
+followed by the existing Levi-Civita/curvature and phenomenology gates.
+
+Current status additions:
+
+- TETRA_NULL_FRAME_RANK4 = PASS_EXACT
+- STELLA_RELATIVE_PARITY_FRAME = PASS_EXACT
+- STELLA_BIVECTOR_3PLUS3 = PASS_EXACT
+- IDEAL_STELLA_SEED_TO_GENERIC_GRAVITY = FAIL_TOO_SYMMETRIC
+- DYNAMICAL_FRAME_DEFORMATION_LAW = OPEN

@@ -207,3 +207,44 @@ The bivector gate gives a natural six-channel carrier for area/loop transport, b
 ## 11. Standard-literature anchors
 
 The standard crosswalk is grounded in four-dimensional bivector geometry, Plebanski constrained-BF gravity, simplicity constraints and Urbantke metric reconstruction. These anchors are external mathematics/GR results; the TIR novelty claim, if any, concerns only how the project attempts to bind its 36D hyperlayer state to that standard gate.
+
+
+## 12. Exact tetrahedral seed lift
+
+The companion file `TIR_TETRA_NULL_FRAME_STELLA_PARITY_BRIDGE_V0_1` supplies an exact case in which the 4D frame is known **before** the bivector operator is formed.
+
+The four lifted tetrahedral pure-state rays form a full-rank null frame. The antipodal Stella layer gives
+
+\[
+e=qP,
+\qquad
+P=\operatorname{diag}(1,-1,-1,-1),
+\]
+
+and therefore
+
+\[
+\boxed{
+C_2(e)
+=
+q^2\operatorname{diag}(-I_3,+I_3).
+}
+\]
+
+This matrix passes the exterior-square liftability identities by construction:
+
+\[
+C_2(e)^TJC_2(e)=\det(e)J,
+\qquad
+\det C_2(e)=\det(e)^3.
+\]
+
+So in this seed sector the arrow
+
+\[
+B\to[e]
+\]
+
+is not merely a necessary-gate reconstruction: the parent frame is explicitly known.
+
+This does **not** make a generic 36D PhaseNav state gravitational. The exact T / -T seed occupies a very small, highly symmetric subset of \(\operatorname{End}(\Lambda^2V)\). Generic local gravity still requires an independently sourced deformation of the tetrahedral null frames.

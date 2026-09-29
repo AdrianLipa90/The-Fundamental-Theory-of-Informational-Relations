@@ -1,0 +1,18 @@
+{
+  "schema": "TIR_TETRA_NULL_FRAME_STELLA_PARITY_V0_1",
+  "date": "2026-09-24",
+  "candidate_only": true,
+  "status": "PASS",
+  "checks": {
+    "tetra_null_gram_det": true,
+    "tetra_frame_rank4": true,
+    "parity_lorentz_isometry": true,
+    "parity_det_minus_one": true,
+    "scaled_parity_det": true,
+    "bivector_exact_3plus3": true,
+    "bivector_det": true,
+    "wedge_pairing_orientation": true
+  },
+  "generic_gravity_closed": false,
+  "next_gate": "DYNAMICAL_DEFORMATION_OF_TETRA_NULL_FRAMES"
+}
