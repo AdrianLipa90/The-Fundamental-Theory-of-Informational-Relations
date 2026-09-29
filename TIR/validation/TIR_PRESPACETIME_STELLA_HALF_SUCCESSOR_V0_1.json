@@ -1,0 +1,29 @@
+{
+  "schema": "TIR_PRESPACETIME_STELLA_HALF_SUCCESSOR_V0_1",
+  "date": "2026-09-28",
+  "repository": "AdrianLipa90/The-Fundamental-Theory-of-Informational-Relations",
+  "branch": "feat/pretime-stella-half-successor-20260928",
+  "status": "PASS_EXACT_PRESPACETIME_STELLA_HALF_SUCCESSOR",
+  "upstream": [
+    "TIR/foundations/TIR_STELLA_DISTINCTION_HOLONOMY_BRIDGE_V0_1.md",
+    "TIR/foundations/TIR_DYNAMIC_IDENTITY_INVARIANT_V0_2.md"
+  ],
+  "exact_results": [
+    "S4 tetrahedral Gram relabel invariance",
+    "H^2=S on occurrence-preserving dual-sector carrier",
+    "half-index increments by 1/2 per H",
+    "adjacent relation incidence E_n cap E_{n+1}={n+1}",
+    "Hilbert unilateral shift preserves the successor graph"
+  ],
+  "idt_handoff": "formalism/00H_tetrahedral_half_successor_pretime.md",
+  "validation": {
+    "summary": "8/8 PASS local equivalent",
+    "exact_head_execution": "PASS_8_OF_8",
+    "executed_head": "1ae625f0fcfae95d68f9e82170c58e595bcfb5b5",
+    "validator_blob_sha": "33226bc00ebcd466ebbe9798b2434b16b292326c",
+    "execution_scope": "local Python execution of exact fetched validator content"
+  },
+  "physical_time_primitive": false,
+  "physical_space_primitive": false,
+  "canon_allowed": false
+}

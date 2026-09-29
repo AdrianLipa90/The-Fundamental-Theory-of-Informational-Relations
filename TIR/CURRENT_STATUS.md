@@ -2526,3 +2526,28 @@ Hence
 \]
 
 and the exact fixed-x acceleration threshold is omega_acc^4=2 C_Lambda/(3+x) for positive C_Lambda. RF-F16 shows the constant vacuum component is exactly repartition-degenerate with the reference vacuum/potential zero point. The transport route derives the functional constant-vacuum component but does not predict its magnitude or sign. No current receipt identifies C_Lambda with holonomy/topology.
+
+
+### 2026-09-28 pre-spacetime Stella alternation
+
+Canonical branch-local source:
+
+TIR/foundations/TIR_PRESPACETIME_STELLA_HALF_SUCCESSOR_V0_1.md
+
+The Stella carrier is now connected to IDT before spacetime closure through the exact occurrence factorization
+
+\[
+\boxed{H^2=S}.
+\]
+
+The relational chain
+
+\[
+1|12|23|34|45|\cdots
+\]
+
+is formalized as an incidence complex with \(E_n\cap E_{n+1}=\{n+1\}\). The full successor induces the one-sided Hilbert shift while the intermediate dual-sector occurrence supplies the structural half-index.
+
+Status:
+
+PRESPACETIME_STELLA_ALTERNATION_EXACT / H_SQUARED_EQUALS_SUCCESSOR / HILBERT_UNILATERAL_SHIFT_EXACT / PHYSICAL_TIME_AND_SPACE_NOT_PRIMITIVE / METRIC_CALIBRATION_DOWNSTREAM.

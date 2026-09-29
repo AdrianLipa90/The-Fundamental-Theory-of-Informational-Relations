@@ -437,3 +437,32 @@ This theorem does **not**:
 Validator:
 
 `TIR/validation/tir_stella_distinction_holonomy_v0_1.py`
+
+
+## 11. 2026-09-28 pre-spacetime half-successor handoff
+
+The static Stella half-turn packet now has a separate occurrence-level dynamical refinement in
+
+TIR/foundations/TIR_PRESPACETIME_STELLA_HALF_SUCCESSOR_V0_1.md.
+
+The refinement does not insert a prior time variable. It uses the two dual Stella sectors as an alternating relational carrier:
+
+\[
+H(n,+)=(n,-),\qquad H(n,-)=(n+1,+),
+\]
+
+so that
+
+\[
+\boxed{H^2=S.}
+\]
+
+This adds a third typed occurrence of the numerical half:
+
+- binary seam \(u=1/2\);
+- spinorial half-turn class \([1/2]\);
+- pretime successor half-index \(\Delta\nu=1/2\).
+
+These remain separately typed until an explicit identification theorem is supplied.
+
+The corresponding one-sided successor is the unilateral Hilbert shift, not an automorphism of \(\mathbb N_0\).
