@@ -21,7 +21,7 @@ Higher-jet data remain available as typed extended/correction sectors.
 
 ## 2. Parent curvature expansion
 
-For a regular shrinking contractible loop `C_epsilon` with characteristic edge scale `epsilon`, Gate A2 supplies
+For a regular shrinking contractible loop `C_epsilon` with characteristic edge scale `epsilon`, the admitted small-loop area/holonomy expansion supplies
 
 \[
 A_C=\Theta(\epsilon^2)
@@ -116,7 +116,7 @@ The LRR is the TIR selection step. Its mathematical scaling consequences are exa
 
 ## 5. Relation to TIR minimality
 
-A1 supplies point minimality and A3 types physical structure through informational relations. The established spatial branch then builds local geometry from the smallest nontrivial relation loops and their refinement limits.
+The canonical foundation supplies point-minimal object typing and relation-minimal nontrivial structure. The established spatial branch then builds local geometry from the smallest nontrivial relation loops and their refinement limits.
 
 The LRR is the differential-geometric continuation of that minimal-carrier programme:
 
@@ -189,7 +189,7 @@ That remaining selection is exactly the role of RFC RF-E21:
  -> A G_mn + B g_mn
 ```
 
-Thus Gate A4 supplies the project-owned second-order/locality premise while RF-E21 supplies the standard uniqueness theorem.
+Thus the TIR Leading Refinement Rule supplies the project-owned second-order/locality premise, while RF-E21 supplies the standard uniqueness theorem.
 
 ## 8. Higher-jet sector retention
 

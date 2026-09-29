@@ -17,26 +17,63 @@ The **Fundamental Theory of Informational Relations (TIR)** is a research progra
 The active dependency spine is summarized as
 
 ```text
-0
--> POINT
--> FIRST DISTINCTION
--> {N,S}
--> 1/2
--> ln2
--> C^2
--> Herm_0(2) ~= R^3
+ABSOLUTE NOTHING IS NON-REALIZABLE
+-> 0 NONLOGICAL AXIOMS
+-> POINT                           [minimum object]
+-> RELATION                        [minimum nontrivial structure]
+-> orientation roles {N,S}
+   |-> exchange balance -> 1/2 -> ln2
+   `-> coherent phase fibre U(1) ~= S1
+       -> suspension(S1, {N,S}) ~= S2
+       -> CP1 ~= S2
+       -> Fubini-Study / Berry geometry
+       -> Euler/Berry nontrivial sign
+       -> spin 1/2
+       -> spin polar pair = relational polar pair
+       -> Herm_0(2) ~= R3
 -> Euclidean relational geometry
 -> tetrahedral closure
 -> connection / holonomy / SE(3) / solder / torsion
--> A2 Cartan refinement
--> A3 zero-torsion / Levi-Civita sector
--> A4 leading-loop metric-jet selection
--> A5 global 3-manifold certifier
+-> Cartan refinement
+-> zero-torsion / Levi-Civita sector
+-> leading-loop metric-jet selection
+-> global 3-manifold certifier
 -> production global spatial + inter-leaf inputs
 -> global spacetime / ADM / Einstein-system frontier
 ```
 
+The root deliberately distinguishes two minima:
+
+\[
+\boxed{\min(\text{object})=\text{point},\qquad
+\min(\text{nontrivial structure})=\text{relation}.}
+\]
+
+The sphere is not produced by assuming \(SO(3)\). The phase-first route uses the already-established half-seam fibre \(U(1)\cong S^1\) together with the relational pole pair; their suspension gives \(\Sigma S^1\cong S^2\). The projective identification \(\mathbb{CP}^1\cong S^2\) supplies the Fubini--Study/Berry geometry, and only then does the Euler--Berry sign condition select the minimal spin-\(1/2\) lift.
+
+Canonical foundation owner:
+
+`TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md`
+
+Proof-source registry:
+
+`TIR/provenance/TIR_FOUNDATION_PROOF_SOURCE_REGISTRY_V0_1.md`
+
+Validator:
+
+`TIR/validation/tir_canonical_derivation_spine_v0_1.py`
+
 Historical v11 and v12.0 publication sources remain versioned provenance.
+
+## Zero-axiom foundation
+
+The canonical non-logical axiom count is
+
+\[
+\boxed{N_{\rm nonlogical\ axioms}=0.}
+\]
+
+The historical zero-axiom relational draft and A1--A8 kernel are retained as provenance, but the current root is owned by the source-reconciled canonical spine above. In particular, TIR no longer overloads “minimality”: a point is the minimum non-empty object carrier, while a relation is the minimum nontrivial structure.
 
 ## Canonical κ normalization
 

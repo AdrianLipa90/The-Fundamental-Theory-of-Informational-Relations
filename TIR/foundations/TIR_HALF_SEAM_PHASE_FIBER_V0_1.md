@@ -2,7 +2,7 @@
 
 Status: `EXACT_GEOMETRIC_LIFT_CANDIDATE`
 
-Scope: TIR-only lift of the binary half-seam from probability space into the pure two-state quantum carrier. This module identifies the information-theoretic point \(p=1/2\) with a one-dimensional relative-phase fiber and makes the Bloch-sphere geometry explicit.
+Scope: downstream projective/Hilbert realization of the already-derived relational sphere and binary half-seam. This module does not assume a quantum-point axiom; it works after the standard identification \(S^2\cong\mathbb{CP}^1=P(\mathbb C^2)\).
 
 ## 1. Base space: binary probability coordinate
 
@@ -36,7 +36,7 @@ H_2=\ln2.
 
 This is the relational half-seam already established by the TIR first-distinction chain.
 
-## 2. Quantum lift of the same probability point
+## 2. Projective/Hilbert realization of the same probability point
 
 A normalized pure state of the two-state carrier can be written, after removal of global phase, as
 
@@ -79,7 +79,7 @@ Therefore
 
 The scalar half is the base coordinate; the unresolved coherent information above it is a relative phase circle.
 
-## 3. Bloch-sphere realization
+## 3. Bloch realization after projective identification
 
 For
 
@@ -184,7 +184,7 @@ These are the two exchange eigen-directions on the equator.
 
 ## 5. Arithmetic-geometric closure
 
-A5 measures the equatorial phase geometry by winding:
+For a closed equatorial phase relation, relational return is measured by the winding invariant:
 
 \[
 \boxed{
@@ -192,7 +192,7 @@ n=\frac1{2\pi}\oint d\varphi\in\mathbb Z.
 }
 \]
 
-A6 reads the same closure in complex form:
+The same zero-return closure has the complex form:
 
 \[
 z=e^{i\varphi},
@@ -222,7 +222,7 @@ n\in\mathbb N.
 }
 \]
 
-This is the direct local interface between A4/A5/A6 and the binary quantum distinction.
+Thus arithmetic closure indices are downstream of relational zero on the phase fiber; no A4/A5/A6 premise is required.
 
 ## 6. Entry to the Schrödinger branch
 
@@ -358,4 +358,4 @@ The next TIR foundation gate is now sharper than a generic “phase law”:
 }
 \]
 
-Candidate parents must come from the declared TIR axioms or an explicitly introduced dynamical postulate. This gate is the precise bridge from static first distinction to dynamical phase evolution.
+Candidate parents must come from the derived zero-axiom TIR chain or be declared explicitly as downstream dynamical hypotheses. This gate is the precise bridge from static first distinction to dynamical phase evolution.

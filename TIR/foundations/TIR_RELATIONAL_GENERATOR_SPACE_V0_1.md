@@ -2,11 +2,11 @@
 
 Status: `TIR_SPATIAL_GENERATOR_CONSTRUCTION_CANDIDATE`
 
-Scope: TIR-only construction of a real three-dimensional relational generator space from the first binary quantum carrier. The construction is algebraically exact once `H_2 ~= C^2` is admitted. Its promotion to the physical spatial tangent carrier is the explicit TIR spatial-identification gate.
+Scope: TIR-only construction of a real three-dimensional relational generator space downstream of the zero-axiom chain `R -> {N,S} -> S^2 ~= CP^1 -> P(C^2)`. The construction is algebraically exact once the projective two-state carrier is established. Its promotion to the physical spatial tangent carrier is a separate TIR spatial-identification gate.
 
 ## 1. Binary quantum carrier
 
-From the primitive first distinction and A2,
+From the derived relational-sphere/projective chain,
 
 \[
 \boxed{\mathcal H_2\cong\mathbb C^2}.
@@ -244,13 +244,13 @@ h_x(A,B)=\frac12\operatorname{Tr}(AB).
 
 This is stronger than simply observing that two spheres share topology: the same algebra supplies dimension, positive metric, unit sphere, and rotation group.
 
-## 8. Relation to A4, A5, and A7
+## 8. Relation to discharged legacy A4, A5, and A7
 
-The construction gives independent convergence with three TIR axioms:
+The construction realizes three structures formerly named as TIR axioms, now downstream consequences:
 
-- **A4:** the unit locus in `g_rel` is a sphere, matching the selected isotropic enclosure geometry;
-- **A5:** scalar geometric relations become traces, norms, angles, determinants, and winding invariants;
-- **A7:** `SU(2)` conjugation induces `SO(3)` rotations preserving the generator metric.
+- **legacy A4:** spherical structure is already present as the normalized orientation/projective sphere; the isoperimetric efficiency statement remains a standard theorem under its geometric hypotheses;
+- **legacy A5:** arithmetic values are read as derived traces, norms, angles, determinants, winding and degree invariants;
+- **legacy A7:** `SU(2)` conjugation / projective Hilbert symmetry induces `SO(3)` rotations preserving the generator metric.
 
 Thus the candidate spatial tangent construction has the typed convergence
 
@@ -265,7 +265,7 @@ Thus the candidate spatial tangent construction has the typed convergence
 }
 \]
 
-with A4/A5/A7 acting as independent geometric, arithmetic, and symmetry checks.
+with the former A4/A5/A7 labels retained only as provenance crosschecks, not axiomatic parents.
 
 ## 9. What remains to derive
 

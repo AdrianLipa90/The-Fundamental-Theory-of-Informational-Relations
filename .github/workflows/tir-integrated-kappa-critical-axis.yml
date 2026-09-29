@@ -40,12 +40,17 @@ jobs:
           python3 TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py | tee kappa_flavour_mixing_normalization_receipt.json
           python3 TIR/validation/review_source_contract_v11_1.py | tee review_source_contract_receipt.json
           python3 TIR/validation/tir_relational_half_seam_v0_1.py | tee tir_relational_half_seam_receipt.json
-          python3 TIR/validation/tir_zero_first_distinction_v0_1.py | tee tir_zero_first_distinction_receipt.json
+          python3 TIR/validation/tir_canonical_derivation_spine_v0_1.py | tee tir_canonical_derivation_spine_receipt.json
+          python3 TIR/validation/tir_relational_phase_lagrangian_core_v0_1.py | tee tir_relational_phase_lagrangian_core_receipt.json
+          python3 TIR/validation/tir_lagrangian_bloch_selection_v0_1.py | tee tir_lagrangian_bloch_selection_receipt.json
+          python3 TIR/validation/tir_global_dependency_reconciliation_v0_1.py | tee tir_global_dependency_reconciliation_receipt.json
+          python3 TIR/validation/tir_legacy_axiom_discharge_v0_1.py | tee tir_legacy_axiom_discharge_receipt.json
           python3 TIR/validation/tir_axiomatic_kernel_v0_1.py | tee tir_axiomatic_kernel_receipt.json
-          python3 TIR/validation/tir_first_distinction_theorem_v0_1.py | tee tir_first_distinction_theorem_receipt.json
           python3 TIR/validation/tir_half_seam_phase_fiber_v0_1.py | tee tir_half_seam_phase_fiber_receipt.json
-          python3 TIR/validation/tir_causal_bridge_from_zero_v0_1.py | tee tir_causal_bridge_from_zero_receipt.json
           python3 TIR/validation/tir_spatial_geometry_core_v0_1.py | tee tir_spatial_geometry_core_receipt.json
+          python3 TIR/subrepos/the-space-of-geometry/validation/quantum_relation_affine_torsor_v0_2.py | tee sog_affine_torsor_v0_2_receipt.json
+          python3 TIR/subrepos/the-space-of-geometry/validation/relational_state_difference_uniqueness_v0_2.py | tee sog_state_difference_v0_2_receipt.json
+          python3 TIR/subrepos/the-space-of-geometry/validation/spatial_promotion_uniqueness_v0_2.py | tee sog_spatial_promotion_v0_2_receipt.json
           grep -Fq '"technical_status": "PASS"' kappa_phase_rate_receipt.json
           grep -Fq '"technical_status": "PASS"' kappa_flavour_mixing_normalization_receipt.json
           grep -Fq '"mixing_algebra_dimension": 8' kappa_flavour_mixing_normalization_receipt.json
@@ -55,25 +60,40 @@ jobs:
           grep -Fq '"kappa": "ln2/(24*pi)"' kappa_flavour_mixing_normalization_receipt.json
           grep -Fq '"technical_status": "PASS"' review_source_contract_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_relational_half_seam_receipt.json
-          grep -Fq '"technical_status": "PASS"' tir_zero_first_distinction_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_canonical_derivation_spine_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_relational_phase_lagrangian_core_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_lagrangian_bloch_selection_receipt.json
+          grep -Fq '"status": "PASS"' tir_global_dependency_reconciliation_receipt.json
+          grep -Fq '"technical_status": "PASS"' tir_legacy_axiom_discharge_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_axiomatic_kernel_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_first_distinction_theorem_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_half_seam_phase_fiber_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_causal_bridge_from_zero_receipt.json
           grep -Fq '"technical_status": "PASS"' tir_spatial_geometry_core_receipt.json
+          grep -Fq '"technical_status": "PASS"' sog_affine_torsor_v0_2_receipt.json
+          grep -Fq '"technical_status": "PASS"' sog_state_difference_v0_2_receipt.json
+          grep -Fq '"technical_status": "PASS"' sog_spatial_promotion_v0_2_receipt.json
+          grep -Fq '"canonical_nonlogical_axiom_count": 0' sog_affine_torsor_v0_2_receipt.json
+          grep -Fq '"canonical_nonlogical_axiom_count": 0' sog_state_difference_v0_2_receipt.json
+          grep -Fq '"canonical_nonlogical_axiom_count": 0' sog_spatial_promotion_v0_2_receipt.json
           grep -Fq '"pi_cancelled_exactly": true' kappa_phase_rate_receipt.json
           grep -Fq '"seam_is_positive_reciprocal_fixed_point": true' tir_relational_half_seam_receipt.json
           grep -Fq '"equal_weight_seam": true' tir_relational_half_seam_receipt.json
-          grep -Fq '"noncommuting_distinction_axes": true' tir_zero_first_distinction_receipt.json
-          grep -Fq '"distinct_axis_rotations_noncommute": true' tir_zero_first_distinction_receipt.json
-          grep -Fq '"axiom_count": 8' tir_axiomatic_kernel_receipt.json
-          grep -Fq '"next_gate": "RELATIVE_PHASE_LAW"' tir_first_distinction_theorem_receipt.json
+          grep -Fq '"canonical_nonlogical_axiom_count": 0' tir_canonical_derivation_spine_receipt.json
+          grep -Fq '"phase_carrier": "U(1) ~= S1"' tir_relational_phase_lagrangian_core_receipt.json
+          grep -Fq '"gauge_covariant_velocity": true' tir_relational_phase_lagrangian_core_receipt.json
+          grep -Fq '"so3_used_to_create_s2": false' tir_canonical_derivation_spine_receipt.json
+          grep -Fq '"minimal_positive": 0.5' tir_canonical_derivation_spine_receipt.json
+          grep -Fq '"canonical_nonlogical_axiom_count": 0' tir_lagrangian_bloch_selection_receipt.json
+          grep -Fq '"projective_carrier": "CP1 ~= S2"' tir_lagrangian_bloch_selection_receipt.json
+          grep -Fq '"dag": true' tir_global_dependency_reconciliation_receipt.json
+          grep -Fq '"no_so3_parent_of_sphere": true' tir_global_dependency_reconciliation_receipt.json
+          grep -Fq '"su3f_upstream_of_kappa": true' tir_global_dependency_reconciliation_receipt.json
+          grep -Fq '"axiom_count": 0' tir_axiomatic_kernel_receipt.json
+          grep -Fq '"legacy_axiom_label_count": 8' tir_axiomatic_kernel_receipt.json
+          grep -Fq '"canonical_nonlogical_axiom_count": 0' tir_legacy_axiom_discharge_receipt.json
+          grep -Fq '"legacy_independent_axiom_count": 0' tir_legacy_axiom_discharge_receipt.json
           grep -Fq '"next_gate": "HALF_FIBER_PHASE_RATE_SELECTION"' tir_half_seam_phase_fiber_receipt.json
-          grep -Fq '"no_temporal_circularity": true' tir_causal_bridge_from_zero_receipt.json
-          grep -Fq '"sibling_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
-          grep -Fq '"tir_spatial_ownership_pass": true' tir_causal_bridge_from_zero_receipt.json
-          grep -Fq '"spacetime_join_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
-          grep -Fq '"matter_join_parent_pass": true' tir_causal_bridge_from_zero_receipt.json
           grep -Fq '"tir_owns_spatial_geometry": true' tir_spatial_geometry_core_receipt.json
           grep -Fq '"lorentzian_block_signature": true' tir_spatial_geometry_core_receipt.json
           grep -Fq '"sphere_types_separate_until_explicit_identification_map": true' tir_spatial_geometry_core_receipt.json
@@ -138,6 +158,13 @@ jobs:
           test -s TIR/zeta_information_axis/reports/solver_receipt.json
           test -s TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md
           test -s TIR/foundations/TIR_AXIOMATIC_KERNEL_V0_1.md
+          test -s TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md
+          test -s TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md
+          test -s TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md
+          test -s TIR/provenance/TIR_FOUNDATION_PROOF_SOURCE_REGISTRY_V0_1.md
+          test -s TIR/foundations/TIR_ZERO_AXIOM_RELATIONAL_FOUNDATION_V0_1.md
+          test -s TIR/foundations/TIR_LEGACY_AXIOM_DISCHARGE_THEOREM_V0_1.md
+          test -s TIR/foundations/TIR_PRIMITIVE_DEPENDENCY_LATTICE_V0_2.md
           test -s TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_1.md
           test -s TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md
           test -s TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md
@@ -145,6 +172,9 @@ jobs:
           test -s TIR/foundations/TIR_CAUSAL_BRIDGE_FROM_ZERO_V0_1.md
           test -s TIR/foundations/TIR_SPATIAL_GEOMETRY_CORE_V0_1.md
           test -s TIR/foundations/TIR_SPATIAL_TEMPORAL_CLOSURE_INTERFACE_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/ZERO_AXIOM_TO_SPATIAL_REALIZATION_BRIDGE_V0_1.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/SPATIAL_PROMOTION_UNIQUENESS_V0_2.md
+          test -s TIR/subrepos/the-space-of-geometry/foundations/RELATIONAL_STATE_DIFFERENCE_UNIQUENESS_V0_2.md
           qpdf --check TIR/monograph/metatime_monograph.pdf
           qpdf --check TIR/metatime_paper.pdf
           qpdf --check TIR/zeta_information_axis/monograph/main.pdf
@@ -174,12 +204,17 @@ jobs:
             kappa_flavour_mixing_normalization_receipt.json
             review_source_contract_receipt.json
             tir_relational_half_seam_receipt.json
-            tir_zero_first_distinction_receipt.json
+            tir_canonical_derivation_spine_receipt.json
+            tir_relational_phase_lagrangian_core_receipt.json
+            tir_lagrangian_bloch_selection_receipt.json
+            tir_global_dependency_reconciliation_receipt.json
+            tir_legacy_axiom_discharge_receipt.json
             tir_axiomatic_kernel_receipt.json
-            tir_first_distinction_theorem_receipt.json
             tir_half_seam_phase_fiber_receipt.json
-            tir_causal_bridge_from_zero_receipt.json
             tir_spatial_geometry_core_receipt.json
+            sog_affine_torsor_v0_2_receipt.json
+            sog_state_difference_v0_2_receipt.json
+            sog_spatial_promotion_v0_2_receipt.json
             critical-axis-pytest.log
             solver-console.json
             TIR/zeta_information_axis/reports/solver_receipt.json

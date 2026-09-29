@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
-"""Deterministic architecture audit for the TIR causal bridge from zero."""
+"""Deterministic architecture audit for the zero-axiom TIR causal bridge."""
 from __future__ import annotations
 
 import json
 
 NODES = (
-    "ZERO",
-    "POINT",
-    "FIRST_DISTINCTION",
+    "RELATION",
+    "RELATIONAL_ZERO",
     "TWO_POLES",
     "HALF_SEAM",
     "LN2",
+    "RELATIONAL_SPHERE",
+    "CP1",
+    "PROJECTIVE_C2",
+    "QUANTUM_CARRIER",
+    "WINDING_DEGREE",
+    "INTEGER_INDEX",
+    "NATURAL_INDEX",
+    "HILBERT_EULER_SYMMETRY",
+    "CONTEXT_LIFT",
     "COMMON_PRIMITIVE_CORE",
     "TIR_SPATIAL_GEOMETRY",
     "TIR_STANDARD_MODEL_BRANCH",
@@ -20,12 +28,24 @@ NODES = (
 )
 
 EDGES = (
-    ("ZERO", "POINT"),
-    ("POINT", "FIRST_DISTINCTION"),
-    ("FIRST_DISTINCTION", "TWO_POLES"),
+    ("RELATION", "RELATIONAL_ZERO"),
+    ("RELATION", "TWO_POLES"),
     ("TWO_POLES", "HALF_SEAM"),
     ("HALF_SEAM", "LN2"),
+    ("TWO_POLES", "RELATIONAL_SPHERE"),
+    ("RELATIONAL_SPHERE", "CP1"),
+    ("CP1", "PROJECTIVE_C2"),
+    ("PROJECTIVE_C2", "QUANTUM_CARRIER"),
+    ("RELATIONAL_ZERO", "WINDING_DEGREE"),
+    ("WINDING_DEGREE", "INTEGER_INDEX"),
+    ("INTEGER_INDEX", "NATURAL_INDEX"),
+    ("PROJECTIVE_C2", "HILBERT_EULER_SYMMETRY"),
+    ("RELATIONAL_ZERO", "CONTEXT_LIFT"),
     ("LN2", "COMMON_PRIMITIVE_CORE"),
+    ("QUANTUM_CARRIER", "COMMON_PRIMITIVE_CORE"),
+    ("NATURAL_INDEX", "COMMON_PRIMITIVE_CORE"),
+    ("HILBERT_EULER_SYMMETRY", "COMMON_PRIMITIVE_CORE"),
+    ("CONTEXT_LIFT", "COMMON_PRIMITIVE_CORE"),
     ("COMMON_PRIMITIVE_CORE", "TIR_SPATIAL_GEOMETRY"),
     ("COMMON_PRIMITIVE_CORE", "TIR_STANDARD_MODEL_BRANCH"),
     ("COMMON_PRIMITIVE_CORE", "TIME_SCALAR_TENSOR_BRANCH"),
@@ -35,12 +55,11 @@ EDGES = (
     ("TIR_STANDARD_MODEL_BRANCH", "MATTER_FIELD_SPACETIME"),
 )
 
-
 def ancestors(target: str) -> set[str]:
-    rev: dict[str, set[str]] = {node: set() for node in NODES}
+    rev = {node: set() for node in NODES}
     for src, dst in EDGES:
         rev[dst].add(src)
-    seen: set[str] = set()
+    seen = set()
     frontier = list(rev[target])
     while frontier:
         node = frontier.pop()
@@ -50,10 +69,8 @@ def ancestors(target: str) -> set[str]:
         frontier.extend(rev[node] - seen)
     return seen
 
-
 def parents(target: str) -> set[str]:
     return {src for src, dst in EDGES if dst == target}
-
 
 def topological_pass() -> bool:
     indegree = {node: 0 for node in NODES}
@@ -72,19 +89,25 @@ def topological_pass() -> bool:
                 queue.append(dst)
     return visited == len(NODES)
 
-
 def build_receipt() -> dict[str, object]:
     core = "COMMON_PRIMITIVE_CORE"
+    core_ancestors = ancestors(core)
+    no_quantum_bloch_cycle = "QUANTUM_CARRIER" not in ancestors("RELATIONAL_SPHERE")
+    no_a7_first_distinction_dependency = parents("TWO_POLES") == {"RELATION"}
+    zero_to_arithmetic = parents("WINDING_DEGREE") == {"RELATIONAL_ZERO"}
+    sphere_before_quantum = (
+        ("TWO_POLES", "RELATIONAL_SPHERE") in EDGES
+        and ("RELATIONAL_SPHERE", "CP1") in EDGES
+        and ("CP1", "PROJECTIVE_C2") in EDGES
+        and ("PROJECTIVE_C2", "QUANTUM_CARRIER") in EDGES
+    )
     branch_children = {
         "TIR_SPATIAL_GEOMETRY",
         "TIR_STANDARD_MODEL_BRANCH",
         "TIME_SCALAR_TENSOR_BRANCH",
     }
-    core_ancestors = ancestors(core)
     sibling_parent_pass = all((core, branch) in EDGES for branch in branch_children)
-    branch_not_core_ancestor = all(branch not in core_ancestors for branch in branch_children)
     no_temporal_circularity = "TIME_SCALAR_TENSOR_BRANCH" not in core_ancestors
-    tir_spatial_ownership_pass = "TIR_SPATIAL_GEOMETRY" in branch_children
     spacetime_join_parent_pass = parents("SPACETIME_CLOSURE") == {
         "TIR_SPATIAL_GEOMETRY",
         "TIME_SCALAR_TENSOR_BRANCH",
@@ -94,50 +117,55 @@ def build_receipt() -> dict[str, object]:
         "TIR_STANDARD_MODEL_BRANCH",
     }
     dag_pass = topological_pass()
-    passed = all(
-        (
-            sibling_parent_pass,
-            branch_not_core_ancestor,
-            no_temporal_circularity,
-            tir_spatial_ownership_pass,
-            spacetime_join_parent_pass,
-            matter_join_parent_pass,
-            dag_pass,
-        )
-    )
+    passed = all((
+        no_quantum_bloch_cycle,
+        no_a7_first_distinction_dependency,
+        zero_to_arithmetic,
+        sphere_before_quantum,
+        sibling_parent_pass,
+        no_temporal_circularity,
+        spacetime_join_parent_pass,
+        matter_join_parent_pass,
+        dag_pass,
+    ))
     return {
         "schema": "TIR_CAUSAL_BRIDGE_FROM_ZERO_V0_1",
-        "causal_relation": "strict_structural_dependency_precedes_temporal_order",
+        "canonical_nonlogical_axiom_count": 0,
+        "legacy_independent_axiom_count": 0,
         "core_path": [
-            "ZERO",
-            "POINT",
-            "FIRST_DISTINCTION",
+            "RELATION",
             "TWO_POLES",
-            "HALF_SEAM",
-            "LN2",
+            "RELATIONAL_SPHERE",
+            "CP1",
+            "PROJECTIVE_C2",
+            "QUANTUM_CARRIER",
             "COMMON_PRIMITIVE_CORE",
         ],
-        "core_children": sorted(branch_children),
-        "spacetime_join_parents": sorted(parents("SPACETIME_CLOSURE")),
-        "matter_join_parents": sorted(parents("MATTER_FIELD_SPACETIME")),
-        "core_ancestors": sorted(core_ancestors),
+        "arithmetic_path": [
+            "RELATION",
+            "RELATIONAL_ZERO",
+            "WINDING_DEGREE",
+            "INTEGER_INDEX",
+            "NATURAL_INDEX",
+        ],
         "dag_pass": dag_pass,
+        "no_quantum_bloch_cycle": no_quantum_bloch_cycle,
+        "no_a7_first_distinction_dependency": no_a7_first_distinction_dependency,
+        "zero_to_arithmetic": zero_to_arithmetic,
+        "sphere_before_quantum": sphere_before_quantum,
         "sibling_parent_pass": sibling_parent_pass,
-        "branch_not_core_ancestor": branch_not_core_ancestor,
         "no_temporal_circularity": no_temporal_circularity,
-        "tir_spatial_ownership_pass": tir_spatial_ownership_pass,
+        "tir_spatial_ownership_pass": "TIR_SPATIAL_GEOMETRY" in branch_children,
         "spacetime_join_parent_pass": spacetime_join_parent_pass,
         "matter_join_parent_pass": matter_join_parent_pass,
         "technical_status": "PASS" if passed else "FAIL",
     }
-
 
 def main() -> None:
     receipt = build_receipt()
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["technical_status"] != "PASS":
         raise SystemExit(1)
-
 
 if __name__ == "__main__":
     main()

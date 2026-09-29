@@ -2,6 +2,28 @@
 
 Status: `TIR_SPACE_OF_GEOMETRY_CALIBRATED_LOCAL_GLUE_V0_12_CANDIDATE`
 
+## 0. Zero-axiom upstream parent
+
+The local geometry imported below is downstream of
+
+\[
+\boxed{
+R
+\to
+\{N,S\}
+\to
+S^2
+\cong
+\mathbb{CP}^1
+\to
+P(\mathbb C^2)
+\to
+\operatorname{Herm}_0(2).
+}
+\]
+
+Historical A1--A8 labels are provenance only and are not upstream premises of this spine.
+
 ## 1. Imported local geometry
 
 The v0.11 calibrated local carrier is

@@ -1,8 +1,8 @@
 # TIR Zero → First Distinction Foundation v0.1
 
-Status: `TIR_FIRST_DISTINCTION_FOUNDATION_CANDIDATE`
+Status: `LEGACY_PROVENANCE__SUPERSEDED_BY_TIR_CANONICAL_DERIVATION_SPINE_V0_1`
 
-Scope: TIR-only formalization of the common structural root behind the relational half-seam, binary Shannon information, the minimal two-state Hilbert carrier, noncommuting distinction frames, and the rotation-group entry point used much later by paradoxical decomposition theorems.
+Scope: historical zero-distinction/singleton construction retained as provenance. It is not the canonical ontological root because current TIR distinguishes absolute nothing, point-minimal object, relation-minimal nontrivial structure, and relational zero. Canonical owner: `TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md`.
 
 The construction begins from zero relational distinction and adds structure one layer at a time.
 

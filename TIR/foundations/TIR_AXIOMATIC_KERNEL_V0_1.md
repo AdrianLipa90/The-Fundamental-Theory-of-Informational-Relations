@@ -1,8 +1,10 @@
 # TIR Axiomatic Kernel v0.1
 
-Status: `FOUNDATIONAL_AXIOM_SET_CANDIDATE`
+Status: `LEGACY_SUPERSEDED_BY_ZERO_AXIOM_FOUNDATION`
 
-Scope: TIR-only foundational kernel. This document records eight owner-specified axioms and gives each one an explicit mathematical type, dependency role, and validation boundary. The axioms are starting assumptions of the TIR programme; downstream theorems require their own derivations and standard mathematical dependencies.
+Scope: historical provenance for the former eight-axiom kernel. The current canonical root is `TIR_ZERO_AXIOM_RELATIONAL_FOUNDATION_V0_1.md` with `N_nonlogical_axioms = 0`. A1--A8 below are preserved verbatim as historical labels and are no longer counted as canonical TIR axioms; they are downstream theorem/sector targets unless independently derived.
+
+> **Supersession notice (2026-09-28).** Do not use the historical count `8` as the current TIR axiom count. Current canonical non-logical axiom count: `0`.
 
 ## Axiom A1 — Point Minimality
 
