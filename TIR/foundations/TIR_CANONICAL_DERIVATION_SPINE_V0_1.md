@@ -457,6 +457,20 @@ EXCHANGE BALANCE 1/2 --> ln2      CENTERED COORDINATE Z=2q-1
                     +------------------+------------------+
                     |                                     |
                     v                                     v
+          HILBERT-MOIRE PHASE FIBRE            NORMALIZED ORBIT q in R/Z
+                    |                                     |
+                    v                                     v
+          RELATIVE MOIRE OPERATORS M_ij          24*(1/2)=12
+                    |                                     |
+                    |                                     v
+                    |                           kappa_q = ln2/12
+                    |                                     |
+                    |                                     v
+                    |                         kappa_phi = ln2/(24*pi)
+                    |                                     |
+                    +------------------+------------------+
+                    |                                     |
+                    v                                     v
           RELATIONAL PHASE LAGRANGIAN          HALF-SEAM PHASE FIBRE
                     |                                     |
                     +------------------+------------------+
@@ -496,6 +510,10 @@ The canonical active proof surfaces are:
   `TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md`;
 - relational zero / orbital twist / derived \(U(1)\cong S^1\) carrier:
   `TIR/foundations/TIR_GENERAL_ORBITAL_ALGEBRA_RELATIONAL_ZERO_V0_1.md`;
+- canonical \(\kappa\) normalization / flavour-mixing incidence:
+  `TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`;
+- Hilbert--Moiré / 36D hyperlayer carrier crosslink:
+  `TIR/foundations/TIR_MOIRE_HYPERLAYER_GRAVITY_BRIDGE_V0_1.md`;
 - relational phase Lagrangian as downstream \(U(1)\) realization:
   `TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md`;
 - half-seam / coherent \(S^1\) fibre crosscheck:
