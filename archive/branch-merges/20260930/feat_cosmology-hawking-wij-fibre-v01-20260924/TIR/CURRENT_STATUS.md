@@ -1,73 +1,434 @@
-# TIR Completion Frontier v0.7
+# CURRENT STATUS — TIR
 
-Status: `COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_CLOSED / TRANSITION_PARENT_SELECTOR_OPEN`
+**Status line:** 2026-09-22 semantic dependency reconciliation refreshed after White-Thread spin-lift/Lyapunov promotion; reconciliation branch pending final merge  
+**Current source baseline:** `main@611bc7687f0a2266a7cc6cc3010f9776dc03a391`  
+**Status-surface policy:** formal/derivational closure, production-input state and empirical verdict are independent coordinates  
+**Legacy evidence rule:** a frozen legacy `FAIL` remains historical evidence for that exact formula; it does not automatically classify a later replacement construction  
+**Dependency export:** current branch export separates completed theorem surfaces, candidate-only bridges and still-open physical gates
 
-Date: 2026-09-10
+## 0. Semantic reconciliation — 2026-09-22
 
-Parents:
+The authoritative current reading is:
 
-- `TIR_COMPLETION_FRONTIER_V0_6.md`
-- `TIR/foundations/TIR_COEFFICIENT_ROLE_ORIENTATION_FORCING_V0_1.md`
-- `TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md`
-- `TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_IDENTIFIABILITY_V0_1.md`
-- `TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`
-- `TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`
+```text
+local Einstein/ADM derivation              CLOSED in RFC; global production carrier/coverage OPEN
+hypercharge relative uniqueness            CLOSED on declared one-generation/one-Higgs content + TIR normalization
+neutrino absolute-action source repair     CLOSED derivationally; absolute physical mass validation OPEN
+coefficient magnitude evaluation           CLOSED_EXACT
+coefficient transition selector            OPEN; existing no-go constrains selector class
+continuum gauge normalization/running      OPEN
+electroweak common scheme/scale transport  OPEN
+Higgs scalar/action binding                OPEN
+quark scheme/scale mass map                OPEN
+meson absolute-action baseline             OPEN
+strong-CP holonomic source                 OPEN; frozen legacy nEDM route remains FAIL
+cosmological dimensionful scale/rho_crit   OPEN
+RH / native Li-Weil global positivity      OPEN
+```
 
-This frontier preserves the v12.1 physical/evidence firewalls and narrows one coarse Standard-Model gate after source audit.
+The Platonic/Ramanujan, 600-cell/McKay-E8, half-seam, semantic-U(1), CP1 and Bloch/polyhedral surfaces are now typed individually in `DEPENDENCY_EXPORT.json`. Exact mathematics inside a candidate surface is not silently promoted to a physical identification.
 
-## 1. Coefficient architecture before this update
+PR #177 (`White-Thread spin lift and Lyapunov dynamics v0.1`) is intentionally not included in the current canonical export because it is not yet merged to `main`. After promotion it requires its own export/FPDG refresh.
 
-The generator is
+## 1. Foundational closure
+
+The primitive dependency spine remains
 
 \[
-G(h,a,b,c)
-=\frac h2+a\kappa+b\frac{\kappa}{L_3}+c\frac{\kappa^2}{2}.
+0\to P\to\text{FIRST DISTINCTION}\to\{N,S\}\to\frac12\to\ln2\to\mathbb C^2.
 \]
 
-Role routing and conditional source-sign forcing are already closed on their declared assumptions:
+The local spatial branch continues through the traceless-Hermitian carrier
 
 \[
-h\leftrightarrow\text{projective-half-spin},\quad
-a\leftrightarrow\text{generation-release},\quad
-b\leftrightarrow\text{return-axis},\quad
-c\leftrightarrow\text{curvature-holonomy}.
+\mathbb C^2\to\rho_x\to\mathcal A_2\to\delta(\rho_x,\rho_y)
+\to\operatorname{Herm}_0(2)\cong\mathbb R^3,
 \]
 
-The remaining task had been represented by the single node
+then through the Euclidean metric, rank-three spatial carrier, regular tetrahedral cell, typed connection transport, affine `SE(3)` lift and discrete solder/torsion source.
 
-`COEFFICIENT_MAGNITUDE_EXTRACTION`.
+Current classification:
 
-## 2. Audit result: the old gate mixed evaluation and selection
+```text
+TIR_FOUNDATIONAL_CORE = CLOSED
+TIR_LOCAL_SPATIAL_GEOMETRY = CLOSED
+TIR_TETRAHEDRAL_CONGRUENCE_CLASS = CLOSED_EXACT
+TIR_KAPPA_NORMALIZATION = CLOSED_INTERNAL_DERIVATION
+TIR_L_CONSTANTS = CLOSED_INTERNAL_PLATONIC_COSET_DERIVATION / MERGED_MAIN
+TIR_WIJ_HOLONOMY_FAMILY = SOURCE_BOUND_CROSSWALK
+TIR_SE3_ATLAS_SOURCE = CLOSED_EXACT
+TIR_DISCRETE_SOLDER_OBJECT = TYPED
+TIR_UNIVERSAL_LOOP_TORSION_SOURCE = SOURCE_BOUND_MAIN
+TIR_CARTAN_REFINEMENT_A2 = CLOSED_CONDITIONAL_LOCAL_REFINEMENT
+TIR_ZERO_TORSION_LEVI_CIVITA_A3 = CLOSED_ON_REGULAR_ENDPOINT_COMPATIBLE_REFINEMENT
+TIR_LEADING_LOOP_METRIC_JET_A4 = CLOSED_ON_LRR_SELECTION
+TIR_GLOBAL_3MANIFOLD_A5 = CERTIFIER_CLOSED / PRODUCTION_INPUT_OPEN
+TIR_GLOBAL_SPATIAL_INPUT_CONTRACT = CLOSED_CONTRACT / PRODUCTION_INPUT_OPEN
+TIR_INTERLEAF_MATCHING_FIELD_CONTRACT = CLOSED_CONTRACT / PRODUCTION_INPUT_OPEN
+TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT
+TIR_COEFFICIENT_TRANSITION_PARENT_SELECTOR = OPEN / ADDITIVE_TRANSITION_SENSITIVE_INVARIANT_REQUIRED
+TIR_STANDARD_MODEL = ACTIVE_RECONCILIATION / SUBGATES_EXPORTED_INDIVIDUALLY
+TIR_WHITE_THREAD_SPIN_LIFT = EXACT_2PI_4PI_DOUBLE_COVER / PHYSICAL_BINDING_OPEN
+TIR_WHITE_THREAD_LYAPUNOV = EXACT_CONDITIONAL_STATIC_HOLONOMY / DYNAMIC_FIELD_BINDING_OPEN
+TIR_SOH_NEGATIVE_INVERSE = GLOBAL_DOMINATION_CANDIDATE / RH_OPEN
+TIR_TIME_JOIN = SIBLING_INTERFACE
+TIR_COLLATZ_FS_RELATIONAL_PHASE = MATHEMATICAL_INTERFACE_ADDED / PHYSICAL_BINDING_OPEN
+TIR_FRACTAL_ORBITAL_GRAVITY_KINEMATICS = PASS_EXACT_MATHEMATICAL_CONTROLS
+TIR_FRACTAL_ORBITAL_GRAVITY_PG_SCHWARZSCHILD = PASS_EXACT_CONTROL
+TIR_FRACTAL_ORBITAL_GRAVITY_FLAT_FLRW = PASS_EXACT_CONTROL
+TIR_FRACTAL_ORBITAL_GRAVITY_LC_TP_FIREWALL = PASS_REPRESENTATION
+TIR_FRACTAL_ORBITAL_GRAVITY_SOURCE_TO_RAPIDITY = OPEN_PHYSICAL_BINDING
+TIR_FRACTAL_ORBITAL_GRAVITY_DYNAMICS = OPEN
+TIR_FLOW_COFRAME_ADM_SPHERICAL_VACUUM_DERIVATION = PASS_CONDITIONAL
+TIR_FLOW_COFRAME_SCHWARZSCHILD_RIVER_PROFILE = DERIVED_ON_DECLARED_ADM_ASSUMPTIONS
+TIR_INTERLEAF_SHIFT_TO_ORBITAL_RAPIDITY = CLOSED_EXACT_KINEMATIC
+TIR_SPHERICAL_FLOW_TO_MISNER_SHARP_MASS = CLOSED_EXACT
+TIR_PRODUCTION_BETA_MATCH = OPEN_INPUT
+TIR_IDT_EXTRINSIC_CURVATURE_SOURCE_BRIDGE = PASS_CONDITIONAL_METRIC_RATE_SOURCE / RF_E9_REUSED
+TIR_IDT_EVENT_SPATIAL_STATE_BINDING = PASS_EXECUTABLE_SOURCE_CONTRACT / PRODUCTION_INPUT_OPEN
+TIR_EVENT_METRIC_RATE_TO_RF_E9 = CLOSED_CONDITIONAL_REFINEMENT
+TIR_RF_E9_EXTRINSIC_CURVATURE_OPERATOR = REUSED_EXISTING_RFC_GATE
+TIR_PRODUCTION_EVENT_SPATIAL_REALIZATION = OPEN_INPUT
+TIR_RF_E13_FLAT_FLRW_ACCELERATION = PASS_EXACT_ON_PARENT
+TIR_INFORMATION_SCALAR_ACCELERATION_CRITERION = PASS_EXACT_LOCAL_CANONICAL
+TIR_BARE_LAMBDA_REQUIRED_FOR_ACCELERATION = NO_ON_INFORMATION_SCALAR_ACTION_ROUTE
+TIR_CURRENT_HOLONOMY_TO_STRESS = SPECTATOR_NO_GO
+TIR_EQUAL_STRESS_HOLONOMY_PARTITION = NO_GO
+TIR_HOLONOMY_D_CHANNEL_DIFFERENTIAL_STRESS = CANDIDATE / PHYSICAL_BINDING_OPEN
+TIR_ABSOLUTE_ALPHA_I_NORMALIZATION = OPEN
+TIR_NONTRIVIAL_HOLONOMY_PERSISTENCE = OPEN
+TIR_HOLONOMY_PARTITION_BOOKKEEPING_INVARIANCE = PASS_EXACT
+TIR_OMITTED_C_SOURCE_ACCELERATION_DEFECT = PASS_EXACT
+TIR_RF_E4_PHASE_KINETIC_COSMOLOGY = EXACT_W_PLUS_ONE_DECELERATING
+TIR_RF_F20_CONNECTION_METRIC_RESPONSE_COSMOLOGY = PASS_EXACT_CONDITIONAL_SIGN_TEST
+TIR_TEMPORAL_U1_TO_LOCAL_ABE_RESPONSE_BINDING = OPEN
+TIR_BERRY_EULER_R_ACTIVE_SIGN_AND_MAGNITUDE = OPEN
+TIR_RF_F15_VACUUM_INTEGRATION_ACCELERATION = PASS_EXACT_CONDITIONAL
+TIR_C_LAMBDA_TRANSPORT_CONSERVATION = PASS_EXACT_FIXED_X
+TIR_C_LAMBDA_MAGNITUDE_SIGN = OPEN_INITIAL_BOUNDARY_DATA
+TIR_C_LAMBDA_HOLONOMY_TOPOLOGY_BINDING = OPEN
+TIR_CONSTANT_VACUUM_REPARTITION_DEGENERACY = PASS_EXACT_RF_F16
+TIR_FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = NOT_FUNDAMENTAL_TARGET / SHIFT_IS_GAUGE_REPRESENTATION
 
-The integration lineage already contains explicit magnitude-parent expressions for the three charged-lepton action/release packets. With the independently closed upstream integers
+
+
+TIR_CONTINUOUS_RELATIONAL_TRANSPORT = PASS_CONTINUUM_CROSSWALK
+TIR_NAVIER_STOKES_FORM_RECOVERY = PASS_CONDITIONAL
+TIR_RELATIONAL_VORTICITY_CIRCULATION = PASS_EXACT_MATHEMATICS
+TIR_FLOW_FIELD_TO_CONTINUUM_DYNAMICS = CANDIDATE
+TIR_ORBITAL_SOURCE_TO_TRANSPORT_COEFFICIENTS = OPEN
+TIR_EINSTEIN_EQUALS_NAVIER_STOKES = NOT_CLAIMED
+TIR_SPACETIME_AS_MATERIAL_FLUID = NOT_CLAIMED
+
+```
+
+## 2. Canonical information normalization
+
+The flavour carrier is
 
 \[
-N_F=3,
+V_F\cong\mathbb C^3,
+\qquad U_F\in SU(3)_F,
+\qquad \dim\mathfrak{su}(3)_F=8.
+\]
+
+Thus
+
+\[
+N_{\rm mix}=3\cdot8=24.
+\]
+
+The primitive half supplies
+
+\[
+\Delta\phi_{1/2}=\pi,
+\]
+
+so
+
+\[
+\Phi_{\rm mix}=24\pi.
+\]
+
+With
+
+\[
+I_\star=H_2(1/2)=\ln2,
+\]
+
+TIR obtains
+
+\[
+\boxed{\kappa=\frac{\ln2}{24\pi}}.
+\]
+
+Canonical source:
+
+`TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md`.
+
+## 3. Platonic L-constant closure
+
+The convex Platonic condition
+
+\[
+\frac1p+\frac1q>\frac12,\qquad p,q\ge3,
+\]
+
+has exactly
+
+\[
+\{3,3\},\{3,4\},\{3,5\},\{4,3\},\{5,3\}.
+\]
+
+The triangular branch has rotational groups
+
+\[
+A_4,\qquad S_4,\qquad A_5
+\]
+
+with orders `12,24,60`. Using the tetrahedral rotational group as the common root,
+
+\[
+[S_4:A_4]=2,
 \qquad
-(L_3,L_4,L_5)=(7,2,5),
+[A_5:A_4]=5.
 \]
 
-the declared parent packets evaluate uniquely to
+TIR defines
 
 \[
-\boxed{M(P_e)=(1,3,1,1)},
+X_3^{\rm closure}:=S_4/A_4\sqcup A_5/A_4,
+\]
+
+and therefore
+
+\[
+\boxed{L_4=2,\qquad L_5=5,\qquad L_3=|X_3^{\rm closure}|=7}.
+\]
+
+Hence
+
+\[
+\boxed{(L_3,L_4,L_5)=(7,2,5)}.
+\]
+
+This is an exact TIR-internal structural consequence conditional on the explicit root-extension closure rule. The Collatz/twin-prime route remains an independent arithmetic crosscheck and is not an input to the finite-group calculation.
+
+Canonical source:
+
+`TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md`.
+
+Validator:
+
+`TIR/validation/tir_platonic_l_constants_closure_v0_1.py`.
+
+Physical interpretation beyond the finite structural theorem remains separately gated.
+
+## 4. Spatial GR chain: Gates A through A5
+
+### Gate A — discrete torsion source
+
+The exact source identity is
+
+\[
+\mathcal T_{xyz}=-\mathcal C_{xyz}
+\]
+
+with connection-lifted affine-loop translation carrying the same discrete torsion datum on the rotationally consistent sector.
+
+Canonical source:
+
+`TIR/foundations/TIR_UNIVERSAL_LOOP_TORSION_SOURCE_BINDING_V0_1.md`.
+
+### Gate A2 — Cartan refinement
+
+For an admitted smooth shape-regular shrinking family,
+
+\[
+\mathcal T_{\triangle}
+=\frac12 T^a{}_{\mu\nu}\Sigma^{\mu\nu}_{\triangle}\sigma_a+O(\ell^3),
+\]
+
+and
+
+\[
+R_{\triangle}
+=I+\frac12\Omega_{\mu\nu}\Sigma^{\mu\nu}_{\triangle}+O(\ell^3).
+\]
+
+Thus the area-normalized discrete channels converge to Cartan torsion and curvature under the declared assumptions.
+
+Canonical source:
+
+`TIR/foundations/TIR_CARTAN_CONTINUUM_REFINEMENT_V0_1.md`.
+
+Status: `PASS_CONDITIONAL_LOCAL_REFINEMENT`; a production global relational complex is not implied.
+
+### Gate A3 — zero torsion and Levi-Civita selection
+
+On the primitive same-endpoint compatible sector, affine-displacement uniqueness selects
+
+\[
+\mathcal C_{xyz}=0,
+\]
+
+hence
+
+\[
+\mathcal T_{xyz}=0
+\]
+
+and, under A2 refinement,
+
+\[
+T^a=0.
+\]
+
+`SO(3)` frame transport preserves the spatial metric, so the standard uniqueness theorem selects
+
+\[
+D=D^{LC}.
+\]
+
+Curvature may remain nonzero.
+
+Canonical source:
+
+`TIR/foundations/TIR_ZERO_TORSION_LEVI_CIVITA_SELECTION_V0_1.md`.
+
+### Gate A4 — leading-loop locality / metric jet
+
+For a regular shrinking loop,
+
+\[
+\frac{R_C-I}{A_C}\to\Omega.
+\]
+
+Under the TIR Leading Refinement Rule, the leading GR carrier is bounded to second metric-jet order, while higher curvature jets remain typed as extended/correction sectors.
+
+Canonical source:
+
+`TIR/foundations/TIR_LEADING_LOOP_LOCALITY_METRIC_JET_V0_1.md`.
+
+### Gate A5 — global 3-manifold certifier
+
+The executable A5 certificate validates a supplied tetrahedral complex as a closed combinatorial 3-manifold through incidence and vertex-link conditions; the standard Moise bridge then supplies compatible smooth realization. Metric and Levi-Civita gluing follow on a passing carrier.
+
+Canonical source:
+
+`TIR/foundations/TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md`.
+
+The actual source-owned production TIR incidence complex remains `OPEN_INPUT`.
+
+The input/freeze contract is implemented at
+
+`TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md`.
+
+Therefore the remaining global-spatial problem is an explicit evidence/input gate rather than an unspecified local continuum theorem.
+
+## 5. Inter-leaf / spacetime input
+
+The source packet for the inter-leaf matching field is defined by
+
+`TIR/foundations/TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1.md`.
+
+The executable contract validates provenance, payload digest, patch/overlap integrity, the matching-law handoff and the `x0=ct` shift conversion. Its reference controls pass; the source-owned production `beta_match` dataset remains `OPEN_INPUT`.
+
+A later executable source-bundle gate is specified at
+
+`TIR/foundations/TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2.md`
+
+and implemented at
+
+`TIR/foundations/validation/tir_production_realization_binding_v0_2.py`.
+
+It composes the production spatial capture and production matching capture only when both carry the same source-declared `physical_realization_id` and the same `physical_realization_receipt_sha256`. The assembler itself is closed; it does not fabricate either source capture and keeps `canon_allowed=false`. No production v0.2 bundle is currently present in the repository.
+
+The relativistic dependency line is therefore
+
+```text
+A2 Cartan refinement                         PASS conditional local
+A3 zero torsion / Levi-Civita               PASS on admitted sector
+A4 leading-loop metric-jet selection        PASS on LRR
+A5 3-manifold certifier                     PASS implementation
+production global spatial capture           OPEN INPUT
+production inter-leaf matching capture      OPEN INPUT
+same physical realization ID + receipt      REQUIRED
+TIR physical-realization bundle v0.2        ASSEMBLER CLOSED / INPUTS OPEN
+RFC local ADM/Einstein derivation            CLOSED on declared assumptions
+global TIR x IDT x RFC production carrier   OPEN INPUT / COVERAGE / PROMOTION
+```
+
+
+## NEW — 2026-09-24 — fractal-orbital informational-holonomic gravity
+
+Canonical source:
+
+TIR/foundations/TIR_FRACTAL_ORBITAL_INFORMATIONAL_HOLONOMIC_GRAVITY_V0_1.md
+
+The new gate does not replace A2/A3 or reopen the Levi-Civita theorem. It supplies an orbital-hyperbolic realization of a flow coframe,
+
+\[
+z=\tanh(\chi/2)e^{i(\phi+\kappa W)},
+\qquad
+\mathbf V_{\rm FO}=c\,\mathcal B[G_\gamma],
+\qquad
+e^0=c\,d\tau,\quad e^i=dX^i-V_{\rm FO}^i d\tau.
+\]
+
+Exact controls now present on the candidate branch:
+
+\[
+\mathbf V=-\sqrt{2GM/R}\,\hat{\mathbf r}
+\Longrightarrow {\rm Schwarzschild\ in\ Painleve\!-\!Gullstrand},
 \]
 
 \[
-\boxed{M(P_{e\mu})=(0,5,2,8)},
+\mathbf V=H(t)\mathbf R
+\Longrightarrow {\rm flat\ FLRW\ in\ physical\ radius}.
 \]
+
+The Levi-Civita sector remains
 
 \[
-\boxed{M(P_{\mu\tau})=(0,3,1,7)}.
+T^a(\omega_{\rm LC})=0,
 \]
 
-No measured mass, Yukawa coupling, fitted action or residual-to-target value is required for this arithmetic evaluation.
+while an equivalent teleparallel representation may use a distinct flat connection with nonzero torsion. These are never conflated.
 
 Status:
 
-`COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT`.
+FRACTAL_ORBITAL_GRAVITY_EXACT_CONTROLS = PASS
 
-Canonical theorem:
+SOURCE_TO_DIMENSIONLESS_RAPIDITY_BINDING = OPEN
+
+ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME = OPEN
+
+DYNAMICAL_FIELD_EQUATION_FOR_V_FO = OPEN
+
+LATE_TIME_ACCELERATION_WITHOUT_RETUNING = OPEN
+
+The old cosmological density ansatz in the publication-candidate monograph is not silently superseded by this foundation gate.
+
+## 6. Coefficient and Standard-Model correction state
+
+The old coarse coefficient-magnitude gate has been split after source audit. The historical integration lineage already declares the magnitude-parent expressions, and the closed upstream integers
+
+\[
+N_F=3,\qquad (L_3,L_4,L_5)=(7,2,5)
+\]
+
+make their arithmetic evaluation unique:
+
+\[
+\boxed{M(P_e)=(1,3,1,1)},
+\qquad
+\boxed{M(P_{e\mu})=(0,5,2,8)},
+\qquad
+\boxed{M(P_{\mu\tau})=(0,3,1,7)}.
+\]
+
+Canonical source:
 
 `TIR/foundations/TIR_COEFFICIENT_MAGNITUDE_PARENT_EVALUATION_V0_1.md`.
 
@@ -75,190 +436,170 @@ Validator:
 
 `TIR/validation/tir_coefficient_magnitude_parent_evaluation_v0_1.py`.
 
-## 3. Residual coefficient gate
+Status: `COEFFICIENT_MAGNITUDE_PARENT_EVALUATION = CLOSED_EXACT`.
 
-The old lineage still labels transition-level semantic assignments as `PROJECT_MODEL_ASSIGNMENT`. Therefore the unresolved theorem is not evaluation of the integers; it is the selector
+The residual non-circular gate is
+
+`COEFFICIENT_TRANSITION_PARENT_SELECTOR = OPEN`,
+
+because the transition-level parent packet still has to be selected from coefficient-free geometry/routing before reading a recovered tuple or mass/Yukawa target.
+
+Current Standard-Model structural state:
+
+```text
+coefficient role/orientation forcing         CLOSED theorem candidate
+coefficient selector composition no-go       CLOSED exact diagnostic
+coefficient transition parent selector       OPEN
+hypercharge relative uniqueness              CLOSED on declared field content + normalization anchor
+neutrino absolute-action source repair       CLOSED derivationally / physical mass validation OPEN
+W_ij -> continuum gauge normalization        OPEN
+common electroweak R_EW(mu,scheme) transport OPEN
+Higgs scalar/action binding                  OPEN
+scheme/scale-defined quark mass map          OPEN
+meson absolute-action baseline               OPEN
+strong-CP holonomic/topological source       OPEN; legacy nEDM failure retained
+cosmological dimensionful scale/rho_crit     OPEN
+```
+
+Retained empirical states remain attached to their frozen historical formulas: charged-lepton precision `FAIL`, PMNS reactor-angle `TENSION`, legacy electroweak/fine-structure/Higgs precision failures or tensions, legacy pion/kaon printed-formula `FAIL`, and the neutron-EDM `FAIL` generated by the frozen legacy strong-CP map. These receipts are not verdicts on later replacement constructions unless the replacement is frozen and revalidated against the same observable gate.
+
+Canonical reconciliation ledger:
+
+`TIR/standard_model/TIR_SM_RECONCILIATION_LEDGER_V0_1.md`.
+
+## 7. Collatz–Fubini–Study relational phase
+
+The merged interface
+
+`TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md`
+
+imports the conditional discrete phase relation
 
 \[
-\boxed{
-\text{coefficient-free transition state}
-\longrightarrow
-(P_h,P_a,P_b,P_c).
-}
+q(Cn)=2q(n)\pmod1,
+\qquad
+\zeta_C(Cn)=\zeta_C(n)^2,
 \]
 
-The selector must be obtained before reading a recovered coefficient tuple or any measured mass/Yukawa target.
+and types an explicit projective phase coordinate on a TIR relation. Projective `2pi` and optional spinorial `4pi` carriers remain distinct.
 
 Status:
 
-`COEFFICIENT_TRANSITION_PARENT_SELECTOR = OPEN`.
+`MATHEMATICAL_INTERFACE_ADDED / PHYSICAL_BINDING_OPEN`.
 
-The exact current-input identifiability result is documented in
+No validated identification with elapsed time, energy, mass, transition strength, spectroscopy, chemistry or gravity is implied by the interface theorem.
 
-`TIR/foundations/TIR_COEFFICIENT_TRANSITION_SELECTOR_IDENTIFIABILITY_V0_1.md`
+## 8. Secret-of-a-Half / critical-axis boundary
 
-and checked by
+The exact half-axis and negative-inverse identities remain available as interfaces. The current critical-axis stack contains exact reductions and conditional positive corridors, but its global strict-positivity/nondegeneracy premises remain open. The integrated solver explicitly requires
 
-`TIR/validation/tir_coefficient_transition_selector_identifiability_v0_1.py`.
+`riemann_hypothesis_in_closure = false`.
 
-It establishes that role routing plus orientation does not distinguish the two existing release parent packets and that the current orientation evaluator does not consume the transition-sensitive seed/stopping fields. Therefore an additional transition-sensitive coefficient-free invariant is required. The retrospective stopping-length pattern remains candidate evidence only and is not promoted.
-
-## 4. Consequence for the dependency graph
-
-The coefficient branch is now
+Therefore:
 
 ```text
-THREE_FLAVOUR_CARRIER                    CLOSED
-PLATONIC_L_CONSTANT_CLOSURE              CLOSED
-COEFFICIENT_ROLE_SIGN_FORCING            CLOSED on declared assumptions
-HISTORICAL_PARENT_PACKET_DECLARATIONS     PRESENT
-        |
-        v
-COEFFICIENT_MAGNITUDE_PARENT_EVALUATION  CLOSED_EXACT
-        |
-        v
-COEFFICIENT_TRANSITION_PARENT_SELECTOR   OPEN
-        |
-        v
-PHYSICAL MASS / YUKAWA BINDING           OPEN
+RH = OPEN
+native Li/Weil positivity = OPEN
+global strict transverse positivity/convexity = OPEN_RH_EQUIVALENT_CRITERION
+global kernel nondegeneracy / equivalent bridges = OPEN
 ```
 
-Downstream particle-sector gates must depend on the selector rather than pretending that arithmetic evaluation remains unresolved.
+Negative controls and failed candidates remain part of the evidence record.
 
-## 5. Other current open gates unchanged
+## 9. Completion frontier
 
-### Global geometry / spacetime
+The current cross-program frontier is
+
+`TIR/TIR_COMPLETION_FRONTIER_V0_7.md`.
+
+The highest-priority unresolved gates are now:
 
 ```text
-PRODUCTION_GLOBAL_SPATIAL_CAPTURE           OPEN INPUT
-PRODUCTION_INTERLEAF_MATCHING_CAPTURE       OPEN INPUT
-SAME_PHYSICAL_REALIZATION_ID_AND_RECEIPT    REQUIRED
-TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2 ASSEMBLER CLOSED / INPUTS OPEN
-GLOBAL_TIR_IDT_RFC_SPACETIME_ADM_JOIN       OPEN
-EINSTEIN_CONSTRAINT_EVOLUTION_CLOSURE       OPEN
+production global spatial capture
++ production inter-leaf matching capture
++ same physical realization ID / receipt
+-> TIR physical-realization source bundle v0.2
+-> global production TIR-IDT-RFC spacetime carrier/coverage
+(local RFC ADM/Einstein derivation is already closed)
+
+coefficient magnitude parent evaluation       CLOSED_EXACT
+coefficient selector no-go                     CLOSED_DIAGNOSTIC
+-> coefficient transition parent selector     OPEN
+
+hypercharge relative uniqueness               CLOSED_ON_DECLARED_CONTENT
+neutrino source repair                         CLOSED_DERIVATION
+continuum gauge normalization                 OPEN
+electroweak common scheme/scale transport     OPEN
+Higgs scalar/action binding                   OPEN
+quark mass map                                OPEN
+meson absolute-action baseline                OPEN
+strong-CP holonomic source                    OPEN
+cosmological scale/rho_crit binding           OPEN
+
+native critical-axis positivity/nondegeneracy
+-> RH-equivalent global closure               OPEN
 ```
 
-`TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2` is specified by
-`TIR/foundations/TIR_PHYSICAL_REALIZATION_SOURCE_BUNDLE_V0_2.md`
-and implemented by
-`TIR/foundations/validation/tir_production_realization_binding_v0_2.py`.
-It reuses the existing GSC-1/A5 and inter-leaf validators and refuses PNCS Phase36 realization identifiers as physical-realization identifiers. The remaining blocker is source evidence: no production spatial/matching bundle with a common physical realization receipt is present on `main`.
+## 10. Publication synchronization
 
-### Gauge / Standard Model dynamics
+The v12.1 audit surface is
 
-```text
-COEFFICIENT_TRANSITION_PARENT_SELECTOR     OPEN
-CONTINUUM_GAUGE_NORMALIZATION              OPEN
-HYPERCHARGE_SOURCE_UNIQUENESS              OPEN
-QUARK_MASS_MAP                             OPEN
-ELECTROWEAK_SCHEME_SCALE_CLOSURE           OPEN
-HIGGS_SCALAR_ACTION_BINDING                OPEN
-STRONG_CP_HOLONOMIC_SOURCE                 OPEN
-MESON_ABSOLUTE_ACTION_BASELINE             OPEN
-NEUTRINO_ABSOLUTE_ACTION_REPAIR            OPEN
-COSMOLOGY_DIMENSIONFUL_SCALE_BINDING       OPEN
-```
+`TIR/monograph/v12/TIR_MONOGRAPH_V12_1_AUDIT_20260910.md`.
 
-### Information/phase physical binding
+The corrected monograph passed the exact-head v12.1 validation/build/preflight on `b19d1becd7ed59263d2c78483b617bc4ef83bd3e` and was promoted through PR #128 as merge commit `3a31da6ebeded16d4f48345de62c974870f76694`.
 
-`COLLATZ_FS_PHYSICAL_BINDING = OPEN`.
+The synchronization is validated by
 
-### Critical axis
+`TIR/validation/tir_v12_1_repository_sync_audit.py`
 
-```text
-SOH_NATIVE_LI_WEIL_POSITIVITY                 OPEN
-CRITICAL_AXIS_GLOBAL_POSITIVITY_NONDEGENERACY OPEN
-RIEMANN_HYPOTHESIS                            OPEN
-```
+in addition to the existing v12 source, evidence and appendix gates.
 
-No RH-equivalent open premise is promoted as a proof.
+## 11. Reproducibility invariant
 
-## 6. Next executable closure order
-
-Because the two global geometry inputs are externally/source-input gated, the next internally tractable closure order is
-
-```text
-1. derive COEFFICIENT_TRANSITION_PARENT_SELECTOR from coefficient-free state;
-2. derive W_ij -> continuum gauge connection/curvature normalization;
-3. propagate those results into quark/EW/Higgs/meson/strong-CP gates;
-4. repair neutrino absolute action and cosmological dimensionful binding in parallel;
-5. obtain source-owned production spatial + matching captures for one physical realization, certify the v0.2 bundle, then run global spacetime/ADM/Einstein gates;
-6. keep Li/Weil/RH as a separate analytic programme with RH=false in closure until genuinely proved.
-```
-
-## 7. Epistemic boundary
-
-Closing parent-expression evaluation does not convert the charged-lepton mass formulas into empirical PASS. Their current retrospective/precision evidence statuses remain unchanged. It also does not prove that the historical parent packets are uniquely selected by the physical transition geometry.
+Every `PASS` belongs to the exact theorem assumptions, source revision and validator named by its receipt. A mathematical or software `PASS` never silently promotes a physical observable. `FAIL`, `TENSION`, `OPEN` and `QUARANTINED` evidence remains visible until a separately versioned gate supersedes it.
 
 
 ---
 
-## NEW — 2026-09-19 — IDT periodic 6pi C3 / Pauli representation crosswalk
+## NEW — 2026-09-19 — periodic 6pi C3 / Pauli representation crosswalk
 
-This additive entry does not rewrite or silently reclassify the historical frontier above.
+An additive TIR–IDT representation bridge is now present on the current branch.
 
-The IDT (N=3) half-frame open cut is
+Starting from the existing IDT (N=3) half-frame open-cut carrier,
 
 [
-|1|12|23|3|
+|1|12|23|3|,
 ]
 
-with path topology (P_4). Under the explicit periodic phase condition
+the explicit periodic endpoint condition
 
 [
 ThetasimTheta+6pi,
 qquad
-v_0sim v_3,
+v_0sim v_3
 ]
 
-the quotient closes exactly to
+gives the exact quotient
 
 [
-oxed{P_4/(v_0sim v_3)cong C_3.}
+P_4/(v_0sim v_3)cong C_3.
 ]
 
-On the ordered frame basis, the regular cyclic shift (P_3) is diagonalized by the same (F_3) character matrix already used by the Stage-38 family-space branch.
-
-The real ordered triad admits the Hilbert-Schmidt isometric map
-
-[
-e_1mapstosigma_x,qquad
-e_2mapstosigma_y,qquad
-e_3mapstosigma_z,
-]
-
-and is (C_3)-equivariant under
-
-[
-U_3=
-exp!left[
--rac{ipi}{3}
-rac{sigma_x+sigma_y+sigma_z}{sqrt3}
-ight]in SU(2),
-]
-
-with
-
-[
-operatorname{Ad}_{U_3}:
-sigma_x	osigma_y	osigma_z	osigma_x.
-]
-
-Therefore the former abstract triad-to-Pauli **representation seam** is closed.
+The resulting regular (C_3) shift is diagonalized by the same (F_3) character basis already used by the TIR family-space branch, and the ordered real triad is exactly equivariant with the Pauli basis of (operatorname{Herm}_0(2)) under an (SU(2)) lift of the (120^circ) cyclic rotation.
 
 Status:
 
 `REPRESENTATION_CROSSWALK_CLOSED / TEMPORAL_SPATIAL_PHYSICAL_BINDING_OPEN / TEMPORAL_FLAVOUR_PHYSICAL_BINDING_OPEN`.
 
-This is a representation-level theorem only. It does not identify the IDT temporal carrier with the physical TIR tangent bundle or physical flavour carrier, and it does not by itself promote CKM/PMNS or gravitational claims.
+This closes the abstract representation seam only. It does not identify temporal, spatial and flavour physical sectors.
 
-Canonical integration source:
+Canonical source:
 
-`TIR/integration/TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1.md`
+`TIR/integration/TIR_IDT_MOD6PI_C3_PAULI_CROSSWALK_V0_1.md`.
 
 Validator:
 
-`TIR/validation/tir_idt_mod6pi_c3_pauli_crosswalk_v0_1.py`
+`TIR/validation/tir_idt_mod6pi_c3_pauli_crosswalk_v0_1.py`.
 
 
 ### Appendix A update — ordered temporal C3 to ordered family C3
@@ -2002,266 +2343,155 @@ one has
 This is internal symmetric-space geometry, not a physical-space claim.
 
 
----
-
-## NEW — 2026-09-24 — gravity mechanism gate
-
-Canonical source:
-
-TIR/foundations/TIR_FRACTAL_ORBITAL_INFORMATIONAL_HOLONOMIC_GRAVITY_V0_1.md
-
-The representation/control subgates are closed:
-
-FRACTAL_ORBITAL_HYPERBOLIC_RAPIDITY = PASS_EXACT
-
-NONCOMMUTING_BOOST_HOLONOMY = PASS_EXACT_LIE_ALGEBRA
-
-SCHWARZSCHILD_PG_FLOW_CONTROL = PASS_EXACT
-
-FLAT_FLRW_FLOW_CONTROL = PASS_EXACT
-
-LEVI_CIVITA_TELEPARALLEL_CONNECTION_FIREWALL = PASS
-
-The physical closure frontier is now explicit:
-
-SOURCE_TO_DIMENSIONLESS_RAPIDITY_BINDING = OPEN
-
-ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME = OPEN
-
-DYNAMICAL_FIELD_EQUATION_FOR_V_FO = OPEN
-
-LATE_TIME_ACCELERATION_WITHOUT_RETUNING = OPEN
-
-LOCAL_PPN_LENSING_GW_VALIDATION_AFTER_BINDING = OPEN
-
-This sharpens, but does not falsely close, the existing metric/source gravity binding gate.
-
-
----
-
-## NEW — 2026-09-24 — conditional ADM flow derivation strengthening
+### 2026-09-24 gravity strengthening
 
 Canonical source:
 
 TIR/foundations/TIR_FLOW_COFRAME_ADM_CONSTRAINT_GRAVITY_V0_1.md
 
-The conditional chain is
-
-\[
-{}^{(3)}R=0,\quad
-\rho=0,\quad
-V=V(r),\quad
-N=1
-\Longrightarrow
-\frac{d}{dr}(rV^2)=0
-\Longrightarrow
-V^2=\frac Cr.
-\]
-
-With asymptotic mass normalization, \(C=2GM\).
-
-SPHERICAL_VACUUM_FLOW_PROFILE_FROM_ADM_CONSTRAINT = PASS_CONDITIONAL
-
-SCHWARZSCHILD_PG_RIVER_LAW = DERIVED_ON_DECLARED_ASSUMPTIONS
-
-SOURCE_TO_DIMENSIONLESS_RAPIDITY_BINDING = OPEN
-
-ORBITAL_RECURSION_TO_UNIQUE_PHYSICAL_COFRAME = OPEN
-
-HOLONOMIC_COSMOLOGICAL_SOURCE = OPEN
+On the stationary spherical flat-slice ADM sector, the vacuum Hamiltonian constraint derives \(V^2=C/r\); weak-field/ADM mass normalization gives \(C=2GM\). The source-to-coframe gate remains OPEN.
 
 
----
-
-## NEW — 2026-09-24 — native inter-leaf shift to rapidity / invariant mass
+### 2026-09-24 native shift / rapidity / invariant-mass bridge
 
 Canonical source:
 
 TIR/foundations/TIR_INTERLEAF_SHIFT_ORBITAL_RAPIDITY_MASS_BRIDGE_V0_1.md
 
-\[
-b_{(0)}=\beta_{(t)}/c,
-\qquad
-V=-cb_{(0)},
-\qquad
-\chi=\operatorname{artanh}|b|
-\]
+The existing TIR x0 matching shift satisfies \(b=\beta_t/c\). In the flow sign convention \(V=-cb\), hence \(\chi=\operatorname{artanh}|b|\) on the subluminal chart. This removes the historical B-omega-N/AR expression from the required gravity kinematics.
 
-is an exact kinematic representation chain after the coordinate/sign convention is fixed.
-
-For the spherical flow metric,
-
-\[
-m_{\rm MS}=\frac{rV^2}{2G}
-\]
-
-is the invariant Misner--Sharp mass. Therefore the stationary vacuum law \(V^2=C/r\) is equivalent to \(dm_{\rm MS}/dr=0\).
-
-INTERLEAF_SHIFT_TO_RAPIDITY_KINEMATIC_BINDING = CLOSED_EXACT
-
-SPHERICAL_FLOW_TO_MISNER_SHARP_MASS = CLOSED_EXACT
-
-PRODUCTION_BETA_MATCH = OPEN_INPUT
-
-FUNDAMENTAL_DYNAMICS_TO_BETA_MATCH = NOT_FUNDAMENTAL_TARGET / SHIFT_GAUGE_REPRESENTATION
-
-SHIFT_AS_STANDALONE_PHYSICAL_SOURCE = FORBIDDEN_PROMOTION
+The shift itself remains gauge/slicing dependent. In spherical symmetry the full metric gives the invariant Misner--Sharp mass \(m_{\rm MS}=rV^2/(2G)\). Production beta_match remains OPEN INPUT.
 
 
----
+### Gravity derivation spine
 
-## NEW — 2026-09-24 — event-indexed metric-rate source to existing RF-E9
+Single dependency surface:
 
-Canonical sources:
+TIR/foundations/TIR_GRAVITY_DERIVATION_SPINE_V0_1.md
+
+Status: structural gravity derivation assembled; local Cartan/ADM/Einstein and spherical vacuum flow subgates are closed on their declared assumptions; production physical realization and fundamental dynamics to beta_match remain OPEN.
+
+
+### 2026-09-24 event-indexed metric-rate source route
+
+The gravity source frontier is no longer expressed as a requirement to derive the coordinate shift from invariants.
+
+Canonical integration sources:
 
 TIR/integration/TIR_IDT_EXTRINSIC_CURVATURE_SOURCE_BRIDGE_V0_1.md
 
 TIR/integration/TIR_IDT_EVENT_SPATIAL_STATE_BINDING_V0_1.md
 
-The abstract same-state map is no longer required as the smallest production gate. A source-owned IDT event may instead carry a TIR spatial snapshot under the same realization receipt and calibrated clock identity.
+Cross-repository source pins:
+
+TIR/integration/receipts/TIR_IDT_EVENT_SPATIAL_RF_E9_SOURCE_PINS_V0_1.json
+
+The source contract binds IDT realized events to TIR spatial snapshots under one physical-realization receipt and clock identity and exports the refinement estimator
 
 \[
-\Delta x^0=\alpha\,\Delta\Theta,\qquad \mathcal D_{ij}=\frac{\Delta h_{ij}}{\Delta x^0},\qquad \mathcal D_{ij}\to\partial_0h_{ij}.
+\frac{\Delta h_{ij}}{\Delta x^0}\to\partial_0h_{ij}.
 \]
 
-This quantity is supplied to the existing RFC RF-E9 operator. No second extrinsic-curvature definition is introduced.
+RFC RF-E9 remains the unique extrinsic-curvature operator:
 
-EVENT_SPATIAL_METRIC_RATE_SOURCE_CONTRACT = PASS_EXECUTABLE
+\[
+K_{ij}=\frac1{2N}\left(-\partial_0h_{ij}+D_ib_j+D_jb_i\right).
+\]
 
-EVENT_METRIC_RATE_REFINEMENT = PASS_CONDITIONAL
-
-RF_E9_EXTRINSIC_CURVATURE_OPERATOR = REUSED_EXISTING_GATE
-
-GENERIC_IDT_STATE_EQ_TIR_RHO = NOT_REQUIRED_FOR_PRODUCTION_ROUTE
-
-PRODUCTION_EVENT_SPATIAL_REALIZATION = OPEN_INPUT
-
-GLOBAL_EVENT_SPATIAL_REFINEMENT_COVERAGE = OPEN_INPUT
-
-SHIFT_AS_FUNDAMENTAL_OBSERVABLE = REFUTED_AS_GAUGE_TARGET
+Reference controls PASS. Production event-spatial data remain OPEN INPUT. The abstract physical identity between a generic IDT state coordinate and a TIR density operator is not required by the preferred production route.
 
 
----
-
-## NEW — 2026-09-24 — information-scalar acceleration / holonomy stress no-go
+### 2026-09-24 information-holonomy cosmological acceleration gate
 
 TIR/integration/TIR_IDT_RFC_INFORMATION_HOLONOMY_COSMOLOGICAL_ACCELERATION_V0_1.md
 
-The RF-E13 flat-FLRW reduction and RF-L2/RF-L3/RF-L4A scalar action give
+RF-E12/RF-E13 flat-FLRW gives
 
 \[
-\frac{a''}{a}\Big|_I=\frac{\alpha_I\Xi_I}{3}-\frac{\kappa_E}{6\Xi_I}(\Xi_I')^2
+\frac{a''}{a}=-\frac{\kappa_E}{6}(\rho+3p).
 \]
 
-and therefore
+On the canonical information-scalar branch,
 
 \[
-\left|\partial_0\ln\Xi_I\right|<\sqrt{2\alpha_I/\kappa_E}
+U_I=\frac{\alpha_I}{\kappa_E}\Xi_I,\qquad \phi_I=\sqrt{2\Xi_I},
 \]
 
-is the exact local acceleration criterion on the admitted canonical information chart. Full-scalar and dynamic-Lambda bookkeeping are exactly equivalent and must not be double counted.
+so
 
-The current holonomy coordinate is a spectator in RF-L3. Since C_h+D_h=1, equal stress attribution to both holonomy channels makes the total potential tau_R-independent.
+\[
+\boxed{\frac{a''}{a}\Big|_I=\frac{\alpha_I\Xi_I}{3}-\frac{\kappa_E}{6\Xi_I}(\Xi_I')^2.}
+\]
 
-RF_E13_FLAT_FLRW_ACCELERATION = PASS_EXACT_ON_PARENT
+An additional bare cosmological constant is therefore not mathematically required on this action route; absolute alpha_I normalization remains open.
 
-INFORMATION_SCALAR_ACCELERATION_CRITERION             = PASS_EXACT_LOCAL_CANONICAL
-
-BARE_LAMBDA_REQUIRED_ON_INFORMATION_SCALAR_ROUTE      = NO
-
-FULL_SCALAR_VS_DYNAMIC_LAMBDA_ROUNDTRIP               = PASS_EXACT / NO_DOUBLE_COUNT
-
-CURRENT_RFL3_HOLONOMY_STRESS_COUPLING                 = SPECTATOR_NO_GO
-
-EQUAL_STRESS_C_D_PARTITION_HOLONOMY_EFFECT            = NO_GO
-
-HOLONOMY_D_CHANNEL_DIFFERENTIAL_STRESS_ATTRIBUTION    = CANDIDATE
-
-COMPLEMENTARY_C_CHANNEL_BIANCHI_LEDGER                = OPEN
-
-NONTRIVIAL_HOLONOMY_PERSISTENCE_OR_STABILITY          = OPEN
-
-ABSOLUTE_ALPHA_I_NORMALIZATION                        = OPEN
-
-PRODUCTION_EVENT_SPATIAL_COSMOLOGY_REALIZATION        = OPEN
+The current RF-L3/IDT-01L2 action preserves tau_R but has partial U_I / partial tau_R = 0, so temporal holonomy is presently a spectator in stress-energy. Further, C_h+D_h=1 means equal stress attribution to both channels cannot create a tau_R-dependent gravitational effect. The minimal D-channel vacuum-stress candidate remains unpromoted until the complementary C-channel source ledger, Bianchi conservation and nontrivial-holonomy persistence/stability gates are closed.
 
 
----
-
-## NEW — 2026-09-24 — holonomy partition invariance and temporal-U1 metric response
+### 2026-09-24 temporal-U1 metric-response cosmology gate
 
 TIR/integration/TIR_IDT_RFC_HOLONOMY_BIANCHI_CHANNEL_LEDGER_V0_1.md
 
 TIR/integration/TIR_IDT_RFC_TEMPORAL_U1_METRIC_RESPONSE_COSMOLOGY_V0_1.md
 
-Exact source-ledger result: C_h+D_h=1 plus complete complementary bookkeeping leaves Einstein/FLRW dynamics unchanged. A tau_R-dependent result obtained only by retaining D_h U_I while dropping C_h U_I is an omitted-source artifact with exact acceleration defect kappa_E U_I C_h / 3.
+The exact C_h/D_h partition is bookkeeping-invariant when the complementary source is retained. Moving D_h U_I to the dynamic-Lambda side leaves the acceleration unchanged. Omitting C_h U_I creates the exact spurious defect
 
-RF-E4 pure phase kinetic stress has w=+1 and therefore decelerates. RF-F20 supplies the existing non-bookkeeping connection-response correction Delta T_phase_mn=4 A^2 R_mn. In the isotropic local sector the correction accelerates iff R_00+3 R_s<0.
+\[
+\mathcal A_{original}-\mathcal A_{omitC}=\frac{\kappa_E}{3}U_I C_h.
+\]
 
-HOLONOMY_PARTITION_BOOKKEEPING_INVARIANCE          = PASS_EXACT
+RF-E4 independently shows that pure phase kinetic stress has w=+1 and is decelerating. RF-F20 supplies the first existing non-bookkeeping phase/connection correction
 
-OMITTED_C_SOURCE_ACCELERATION_DEFECT               = PASS_EXACT
+\[
+\Delta T_{\mu\nu}^{phase}=4A^2R_{\mu\nu}.
+\]
 
-RF_E4_PURE_PHASE_KINETIC_COSMOLOGY                = W_PLUS_ONE / DECELERATING
+For an isotropic orthonormal response R=diag(R0,Rs,Rs,Rs),
 
-RF_F20_CONNECTION_METRIC_RESPONSE_COSMOLOGY       = PASS_EXACT_CONDITIONAL_SIGN_TEST
+\[
+\Delta(a''/a)_R=-\frac{2\kappa_EA^2}{3}(R_0+3R_s).
+\]
 
-TEMPORAL_U1_TO_LOCAL_ABE_RESPONSE_BINDING          = OPEN
-
-LOCAL_BERRY_EULER_R_MN_RECEIPT                     = OPEN
-
-PRODUCTION_R_ACTIVE_SIGN_AND_MAGNITUDE             = OPEN
+The correction accelerates by itself when R0+3Rs<0. The physical temporal-U1/holonomy to local ABE Berry/Euler metric-response binding remains open; closed-loop holonomy alone does not determine R_mn.
 
 
----
-
-## NEW — 2026-09-24 — RF-F15 vacuum integration and acceleration transition
+### 2026-09-24 phase-cell vacuum-integration acceleration gate
 
 TIR/integration/TIR_IDT_RFC_PHASE_CELL_VACUUM_INTEGRATION_ACCELERATION_V0_1.md
 
-RF_F15_VACUUM_INTEGRATION_ACCELERATION       = PASS_EXACT_CONDITIONAL
+RF-F15 fixed-x transport gives the conserved coordinate
 
-C_LAMBDA_FIXED_X_TRANSPORT_CONSERVATION      = PASS_EXACT
+\[
+C_\Lambda=|\omega|^4\left[v-\frac{1-x}{2}\right],\qquad \frac{dC_\Lambda}{d\ln|\omega|}=0.
+\]
 
-RHO_LAMBDA_EQUALS_K0_C_LAMBDA                = PASS_EXACT
+With K=K0 omega^4,
 
-ACCELERATION_IFF_RHO_LAMBDA_GT_RHO_R         = PASS_EXACT_FIXED_X
+\[
+\rho_r=\frac{3+x}{2}K_0\omega^4,\qquad \rho_\Lambda=K_0C_\Lambda,\qquad p=\rho_r/3-\rho_\Lambda.
+\]
 
-OMEGA_ACC_FOURTH_EQUALS_2C_OVER_3PLUSX        = PASS_EXACT
+Hence
 
-RF_F16_CONSTANT_VACUUM_REPARTITION           = PASS_EXACT / GEOMETRICALLY_DEGENERATE
+\[
+\frac{a''}{a}=\frac{\kappa_E}{3}(\rho_\Lambda-\rho_r),
+\]
 
-C_LAMBDA_SIGN_AND_MAGNITUDE                  = OPEN INITIAL_OR_BOUNDARY_DATA
+and the exact fixed-x acceleration threshold is omega_acc^4=2 C_Lambda/(3+x) for positive C_Lambda. RF-F16 shows the constant vacuum component is exactly repartition-degenerate with the reference vacuum/potential zero point. The transport route derives the functional constant-vacuum component but does not predict its magnitude or sign. No current receipt identifies C_Lambda with holonomy/topology.
 
-C_LAMBDA_HOLONOMY_TOPOLOGY_BINDING           = OPEN
+TIR_HAWKING_FIBRE_WIJ = CANDIDATE_BRIDGE_TYPED
+TIR_HAWKING_FIBRE_MICROTRANSPORT = U1_UNITARY_CONTROL_PASS
+TIR_HAWKING_THERMALITY_FROM_BARE_WIJ = NO_GO_UNIT_MODULUS
+TIR_HAWKING_REDUCED_STATE_THERMALITY = PASS_TFD_CONTROL
+TIR_HAWKING_A_H_CONNECTION_SOURCE = OPEN
+TIR_HAWKING_ZERO_NODE_PHYSICAL_BINDING = OPEN
+TIR_HAWKING_CAUSAL_HORIZON_CRITERION = OPEN
+TIR_HAWKING_TEMPERATURE_AREA_ENTROPY_DERIVATION = OPEN
 
-MULTICOMPONENT_DUST_RADIATION_VACUUM         = OPEN PHYSICAL COMPOSITION
+### 2026-09-24 Hawking-fibre W_ij cosmology candidate
 
-
----
-
-## NEW — 2026-09-24 — Hawking-fibre W_ij cosmology candidate
+Canonical candidate:
 
 TIR/cosmology/TIR_HAWKING_FIBRE_WIJ_CANDIDATE_V0_1.md
 
-HAWKING_FIBRE_WIJ_TYPED_EXTENSION = PASS_CANDIDATE
-
-HAWKING_U1_COMPOSITION_REVERSAL = PASS_EXACT
-
-BARE_UNITARY_WIJ_TO_THERMAL_OCCUPATION = NO_GO
-
-TFD_PARTIAL_TRACE_TO_PLANCK_OCCUPATION = PASS_EXACT_CONTROL
-
-ZERO_NODE_COLLAPSING_S1_PHYSICAL_BINDING = OPEN
-
-A_H_CONNECTION_SOURCE = OPEN
-
-CAUSAL_HORIZON_SURFACE_CRITERION = OPEN
-
-HAWKING_TEMPERATURE_DERIVATION = OPEN
-
-BEKENSTEIN_HAWKING_AREA_ENTROPY_DERIVATION = OPEN
-
-EULER_FRAME_DRAGGING_TO_A_H_ADAPTER = OPEN
-
-BLACK_HOLE_TO_COSMOLOGICAL_HORIZON_UNIVERSALITY = OPEN
+A new typed (W^H_{ij}) member is admitted at CANDIDATE_BRIDGE level only. It preserves the existing (W_{ij}) family and uses unitary microscopic transport. Because (|W^H|=1), the bare link cannot itself encode a thermal Hawking occupation spectrum. The exact TFD control shows that Planck occupation can instead arise after tracing inaccessible interior degrees of freedom. Physical promotion requires independent derivation of (A_H), a causal-horizon criterion, Hawking temperature and Bekenstein-Hawking area entropy.

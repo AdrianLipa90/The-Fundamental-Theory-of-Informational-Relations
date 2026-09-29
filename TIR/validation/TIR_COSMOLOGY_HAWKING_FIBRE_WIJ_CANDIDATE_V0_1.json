@@ -1,0 +1,22 @@
+{
+  "schema": "TIR_COSMOLOGY_HAWKING_FIBRE_WIJ_CANDIDATE_VALIDATION_V0_1",
+  "technical_status": "PASS",
+  "verdict": "PASS_TYPED_HAWKING_WIJ_UNITARY_MICROTRANSPORT_REDUCED_THERMALITY_PHYSICAL_BINDING_OPEN",
+  "canon_allowed": false,
+  "authority": "USER_POSTULATE_2026-09-24_CANDIDATE_ONLY",
+  "exact_controls": [
+    "W_H is a distinct typed member of the generic W_ij transport family",
+    "U(1) candidate obeys path composition and unitary reversal",
+    "|W_H|=1, therefore bare phase holonomy cannot itself be a thermal occupation spectrum",
+    "thermofield-double joint pure state reduces exactly to Planck occupation after tracing inaccessible interior"
+  ],
+  "open_gates": [
+    "A_H_CONNECTION_SOURCE_DERIVATION",
+    "ZERO_NODE_PHYSICAL_BINDING",
+    "CAUSAL_HORIZON_SURFACE_CRITERION",
+    "HAWKING_TEMPERATURE_DERIVATION",
+    "BEKENSTEIN_HAWKING_AREA_ENTROPY_DERIVATION",
+    "EULER_OR_FRAME_DRAGGING_ADAPTER",
+    "BLACK_HOLE_TO_COSMOLOGICAL_HORIZON_UNIVERSALITY"
+  ]
+}

@@ -97,3 +97,80 @@ operator).
 
 The extreme suppression \((2/7)^{224}\) naturally explains why the
 cosmological constant is small but non-zero, without fine-tuning.
+
+
+\section{Hawking-Fibre Holonomy Candidate}
+\label{sec:hawking_fibre_wij_candidate}
+
+A separate candidate branch introduces a typed Hawking-fibre transport
+operator \(W^H_{ij}\) inside the existing TIR \(W_{ij}\) holonomy family.
+This is not a redefinition of the White-Thread, spatial \(SU(2)\), or colour
+\(SU(3)\) transports.
+
+On the local Abelian candidate,
+\[
+W^H_{ij}
+=
+\exp\!\left(
+i\int_{\gamma^H_{ij}} A_H
+\right)
+\in U(1).
+\]
+
+The intended microscopic interpretation is unitary fibre transport between a
+candidate zero-node \(0_H\), representing collapse of an internal \(S^1\)
+phase fibre, and an admitted causal horizon \(\Sigma_H\).  The physical
+connection \(A_H\) remains open.
+
+Because
+\[
+|W^H_{ij}|=1,
+\]
+the bare holonomy is not identified with the thermal Hawking occupation
+spectrum.  Instead the candidate places thermality in the reduced exterior
+state,
+\[
+\rho_{\rm out}
+=
+{\rm Tr}_{\rm in}
+\left(
+U_H\rho_0U_H^\dagger
+\right),
+\]
+after inaccessible interior degrees of freedom are traced out.
+
+For a one-mode thermofield-double control with
+\(q=e^{-\beta\hbar\omega}\),
+\[
+|\Psi_H\rangle
+=
+\sqrt{1-q}
+\sum_{n=0}^{\infty}
+q^{n/2}|n\rangle_{\rm out}|n\rangle_{\rm in},
+\]
+the exterior occupation is exactly
+\[
+\langle n\rangle
+=
+\frac{1}{e^{\beta\hbar\omega}-1}.
+\]
+
+This demonstrates compatibility of unitary microscopic transport with a
+thermal reduced state; it does not derive the Hawking temperature from
+\(W^H_{ij}\).
+
+Physical promotion requires recovery of
+\[
+T_H=\frac{\hbar\kappa_H}{2\pi c k_B}
+\]
+and
+\[
+S_{\rm BH}
+=
+\frac{k_Bc^3 A_H}{4G\hbar},
+\]
+together with an independently derived causal-horizon criterion and a source
+for \(A_H\).
+
+The detailed candidate and executable controls are recorded in
+\texttt{TIR/cosmology/TIR\_HAWKING\_FIBRE\_WIJ\_CANDIDATE\_V0\_1.md}.
