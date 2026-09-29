@@ -86,6 +86,7 @@ def main() -> int:
     checks["master_includes_appendix_e"] = r"\include{v12/appendices/appE_v12_1_repository_state_sync}" in master
     checks["master_includes_appendix_f"] = r"\include{v12/appendices/appF_gremlin_pass4_repository_consolidation}" in master
     checks["master_includes_appendix_g"] = r"\include{v12/appendices/appG_semantic_frontier_reconciliation}" in master
+    checks["master_includes_appendix_h"] = r"\\include{v12/appendices/appH_relational_zero_graph_reconciliation}" in master
 
     missing: list[str] = []
     short: list[str] = []
