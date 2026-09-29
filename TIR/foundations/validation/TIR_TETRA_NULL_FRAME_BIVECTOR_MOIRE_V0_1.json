@@ -1,0 +1,15 @@
+{
+  "schema": "TIR_TETRA_NULL_FRAME_BIVECTOR_MOIRE_V0_1",
+  "date": "2026-09-24",
+  "candidate_only": true,
+  "status": "PASS",
+  "checks_passed": 15,
+  "checks_total": 15,
+  "det_E_plus": "-16",
+  "det_E_minus": "16",
+  "det_B_plus": "-4096",
+  "bivector_parity_diag": ["-1","-1","-1","1","1","1"],
+  "legacy_phase36_required": false,
+  "constant_antipodal_pair_gravity": "FAIL_FLAT_BACKGROUND",
+  "next_gate": "SPACETIME_DEPENDENT_FRAME_DYNAMICS_AND_SOURCE_BINDING"
+}

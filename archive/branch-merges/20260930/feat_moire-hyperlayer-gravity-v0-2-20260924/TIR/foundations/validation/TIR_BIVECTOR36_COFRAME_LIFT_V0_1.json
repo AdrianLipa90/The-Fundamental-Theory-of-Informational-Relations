@@ -1,0 +1,24 @@
+{
+  "schema": "TIR_BIVECTOR36_COFRAME_GATE_V0_1",
+  "date": "2026-09-24",
+  "candidate_only": true,
+  "status": "PASS",
+  "checks": {
+    "coframe_0_det": true,
+    "coframe_0_raw_gate": true,
+    "coframe_0_wedge": true,
+    "coframe_1_det": true,
+    "coframe_1_raw_gate": true,
+    "coframe_1_wedge": true,
+    "coframe_2_det": true,
+    "coframe_2_raw_gate": true,
+    "coframe_2_wedge": true,
+    "j_square_identity": true,
+    "perturbed_36d_rejected": true,
+    "pminus_idempotent": true,
+    "pplus_idempotent": true,
+    "projectors_orthogonal": true,
+    "projectors_sum_identity": true,
+    "rank_trace_three_each": true
+  }
+}

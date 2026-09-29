@@ -1,0 +1,26 @@
+{
+  "schema": "TIR_FOUR_PACKET_NULL_TETRA_COFRAME_MOIRE_V0_1",
+  "date": "2026-09-24",
+  "candidate_only": true,
+  "physical_gravity_claim": false,
+  "status": "PASS",
+  "checks_passed": 14,
+  "checks_total": 14,
+  "key_exact_results": {
+    "det_hadamard": "-16",
+    "hadamard_inverse": "H4/4",
+    "tetra_null_frame": "NONDEGENERATE",
+    "four_packet_local_parameter_rank": 16,
+    "antipodal_relative_operator": "diag(1,-1,-1,-1)",
+    "bivector_antipodal_split": "diag(-I3,+I3)",
+    "legacy_T36_required_as_gravity_source": false,
+    "aligned_antipodal_edge_overlap_phase_source": "REJECTED"
+  },
+  "open_gates": [
+    "PHYSICAL_CLOCK_SCALE_BINDING",
+    "PACKET_FIELD_DYNAMICS",
+    "NONFLAT_CURVATURE_FROM_DYNAMICS",
+    "SOURCE_NORMALIZATION_NEWTON_G",
+    "EINSTEIN_DYNAMICS_WITHOUT_INSERTED_GR"
+  ]
+}

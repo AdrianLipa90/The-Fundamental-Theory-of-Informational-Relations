@@ -1,0 +1,19 @@
+{
+  "schema": "TIR_TETRA_BIVECTOR_AXIS_BINDING_V0_1",
+  "date": "2026-09-24",
+  "candidate_only": true,
+  "status": "PASS",
+  "checks": {
+    "edge_count_6": true,
+    "edge_pair_channel_count_36": true,
+    "opposite_pairs_are_J": true,
+    "s4_all_24_conformal_wedge": true,
+    "a4_all_12_preserve_J": true,
+    "odd_all_12_reverse_J": true
+  },
+  "s4_pass_count": 24,
+  "a4_pass_count": 12,
+  "odd_pass_count": 12,
+  "legacy_phase36_edgepair_binding": "NOT_DERIVED",
+  "next_open_gate": "TETRA_EDGE_PAIR_RELATION_OBSERVABLE_X_AB"
+}

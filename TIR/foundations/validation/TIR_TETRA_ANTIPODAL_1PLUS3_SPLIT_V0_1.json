@@ -1,0 +1,13 @@
+{
+  "schema": "TIR_TETRA_ANTIPODAL_1PLUS3_SPLIT_V0_1",
+  "date": "2026-09-24",
+  "candidate_only": true,
+  "status": "PASS",
+  "checks_passed": 8,
+  "checks_total": 8,
+  "rank_common": 1,
+  "rank_differential": 3,
+  "rank_full": 4,
+  "physical_time_space_binding": "CONDITIONAL",
+  "gravity_claim": false
+}

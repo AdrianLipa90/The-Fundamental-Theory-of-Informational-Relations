@@ -1,0 +1,21 @@
+{
+  "candidate_only": true,
+  "checks": {
+    "antiphase_is_null": true,
+    "exact_displacement_zero_defect": true,
+    "half_minus_to_zero": true,
+    "half_plus_to_two": true,
+    "minus_branch_n6": true,
+    "moire_identity_(-1.2, 2.3)": true,
+    "moire_identity_(0.1, 0.7)": true,
+    "moire_identity_(1.5707963267948966, -1.0471975511965976)": true,
+    "nonintegrable_candidate_nonzero": true,
+    "plus_branch_n5": true,
+    "so36_generators_630": true,
+    "so6_generators_15": true,
+    "so6xso6_generators_30": true
+  },
+  "date": "2026-09-24",
+  "schema": "TIR_MOIRE_HYPERLAYER_GRAVITY_BRIDGE_RECEIPT_V0_1",
+  "status": "PASS"
+}
