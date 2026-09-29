@@ -1,0 +1,653 @@
+% GENERATED LOCAL-BUILD FLAT PART — DO NOT MERGE
+
+% ---- BEGIN TIR/monograph/v12/appendices/appE_v12_1_repository_state_sync.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Version 12.1 Repository-State Synchronization}
+\label{app:v12_1_repository_sync}
+
+\paragraph{Scope.}
+This appendix synchronizes the dependency-ordered v12 publication surface with
+TIR theorem and validation work merged after the original v12 migration build.
+The v12.0 appendices A--D remain frozen provenance surfaces.  The baseline for
+this audit is \texttt{main@0f63c823961a58770de22d14b5f53e2bfa38a9b3}.
+No physical verdict is promoted merely because a later mathematical theorem or
+software contract exists.
+
+\section{Post-v12 spatial geometry closure}
+
+The original v12 text ended the spatial line at the exact discrete solder and
+Universal-Loop source identity.  The current repository contains four further
+stages.
+
+\paragraph{Gate A2: Cartan refinement.}
+For an admitted regular smooth shrinking family, the discrete solder object and
+rotational holonomy have the asymptotic forms
+\[
+\mathcal T_{\triangle}
+=\frac12 T^a{}_{\mu\nu}\Sigma^{\mu\nu}_{\triangle}\sigma_a
++O(\ell^3),
+\]
+and
+\[
+R_{\triangle}
+=I+\frac12\Omega_{\mu\nu}\Sigma^{\mu\nu}_{\triangle}
++O(\ell^3).
+\]
+Consequently the area-normalized translational and rotational channels converge
+to Cartan torsion and curvature on the declared refinement surface.  This is a
+conditional local/refining theorem; existence of the production global
+relational complex is not supplied by this statement.
+\vTwelveStatus{B}{--}{PASS}
+
+Canonical source:
+\path{TIR/foundations/TIR_CARTAN_CONTINUUM_REFINEMENT_V0_1.md}.
+
+\paragraph{Gate A3: torsion-free spatial GR sector.}
+When the direct and composed descriptions are admitted as representations of
+the same primitive ordered endpoint relation, intrinsic affine-displacement
+uniqueness selects
+\[
+\mathcal C_{xyz}=0.
+\]
+Together with
+\[
+\mathcal T_{xyz}=-\mathcal C_{xyz},
+\]
+this gives the endpoint-compatible discrete sector
+\[
+\mathcal T_{xyz}=0.
+\]
+Gate A2 transfers this condition to a regular refinement as
+\[
+\boxed{T^a=0}.
+\]
+The induced spatial frame transport is in \(SO(3)\), hence metric compatible;
+the standard uniqueness theorem for a torsion-free metric-compatible
+connection then selects
+\[
+\boxed{D=D^{\rm LC}}.
+\]
+This does not set curvature to zero and does not remove the broader typed
+Cartan/torsional branch.
+\vTwelveStatus{B}{--}{PASS}
+
+Canonical source:
+\path{TIR/foundations/TIR_ZERO_TORSION_LEVI_CIVITA_SELECTION_V0_1.md}.
+
+\paragraph{Gate A4: leading-loop locality.}
+For a regular shrinking loop with \(A_C=\Theta(\epsilon^2)\),
+\[
+\frac{R_C-I}{A_C}\longrightarrow\Omega.
+\]
+Derivative-of-curvature terms enter at higher refinement order.  Under the TIR
+Leading Refinement Rule, the lowest finite nonzero covariant normalized loop
+coefficient is selected as the primitive continuum carrier.  On the A3
+Levi-Civita sector, this bounds the leading metric operator to
+\[
+\mathcal E_{\mu\nu}
+=\mathcal E_{\mu\nu}(g,\partial g,\partial^2g),
+\]
+while higher curvature jets remain available as extended/correction sectors.
+\vTwelveStatus{B}{--}{PASS}
+
+Canonical source:
+\path{TIR/foundations/TIR_LEADING_LOOP_LOCALITY_METRIC_JET_V0_1.md}.
+
+\paragraph{Gate A5: global three-manifold certifier.}
+For a supplied finite pure tetrahedral complex, the executable certificate
+checks the closed combinatorial three-manifold conditions through face
+incidence and spherical vertex links.  Once that certificate passes, standard
+three-dimensional topology supplies the compatible smoothing bridge, and the
+local \(SO(3)\)-related metrics and Levi-Civita restrictions glue globally.
+The theorem/certifier is implemented, but the actual production TIR relational
+complex remains an input gate.
+\vTwelveStatus{B}{--}{OPEN}
+
+Canonical source:
+\path{TIR/foundations/TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md}.
+
+The precise interpretation of the last status is
+\[
+\boxed{
+\text{certifier/theorem PASS}
+\quad\text{and}\quad
+\text{production relational-complex input OPEN}.
+}
+\]
+
+\section{Production input contracts}
+
+The previously vague phrase ``global smooth refinement'' has been split into
+explicit source-owned data gates.
+
+The global spatial-complex contract defines source capture, deterministic
+canonical freeze, provenance hashes and the A5 handoff.  It is executable and
+fail closed, while the production incidence dataset remains absent:
+\[
+\boxed{
+\text{GSC-1 contract PASS}
+\quad/\quad
+\text{production spatial complex OPEN}.
+}
+\]
+Source:
+\path{TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md}.
+
+The inter-leaf matching contract similarly fixes the packet carrying
+\(\beta_{\rm match}\), its coordinate convention, provenance and digest.  The
+handoff consistency condition mirrors the downstream matching law, and the
+\(x^0=ct\) conversion exports the normalized ADM-shift packet.  The contract is
+implemented; the production matching field is still open:
+\[
+\boxed{
+\text{matching contract PASS}
+\quad/\quad
+\text{production }\beta_{\rm match}\text{ OPEN}.
+}
+\]
+Source:
+\path{TIR/foundations/TIR_INTERLEAF_MATCHING_FIELD_INPUT_CONTRACT_V0_1.md}.
+
+\section{Platonic closure of the L-constants}
+
+The v12 arithmetic provenance is retained, but it is no longer the only
+structural path to \((L_3,L_4,L_5)\).
+
+For convex regular polyhedra, the Schlaefli condition
+\[
+\frac1p+\frac1q>\frac12,
+\qquad p,q\ge3,
+\]
+has exactly the five solutions
+\[
+\{3,3\},\ \{3,4\},\ \{3,5\},\ \{4,3\},\ \{5,3\}.
+\]
+The triangular branch has orientation-preserving rotation groups
+\[
+A_4,\qquad S_4,\qquad A_5,
+\]
+with orders \(12,24,60\).  Taking the tetrahedral rotational group as the
+common root gives the exact subgroup indices
+\[
+\boxed{[S_4:A_4]=2},
+\qquad
+\boxed{[A_5:A_4]=5}.
+\]
+TIR defines the complete non-self-dual extension carrier as
+\[
+X_3^{\rm closure}
+:=S_4/A_4\sqcup A_5/A_4,
+\]
+so
+\[
+\boxed{
+L_4=2,
+\qquad L_5=5,
+\qquad L_3=|X_3^{\rm closure}|=2+5=7.
+}
+\]
+Hence
+\[
+\boxed{(L_3,L_4,L_5)=(7,2,5)}.
+\]
+The derivation is exact conditional on the explicit TIR root-extension closure
+rule.  The finite-group result does not, by itself, establish a physical law or
+a derivation from a specific Kaehler geometry.
+\vTwelveStatus{B}{--}{PASS}
+
+Canonical source:
+\path{TIR/foundations/TIR_PLATONIC_L_CONSTANTS_CLOSURE_V0_1.md}.
+
+Validator:
+\path{TIR/validation/tir_platonic_l_constants_closure_v0_1.py}.
+
+The older arithmetic route remains an independent crosscheck:
+\[
+\operatorname{depth}_{\rm Collatz}(3)=7,
+\qquad 5-3=2,
+\qquad 5=L_5.
+\]
+
+\section{Collatz--Fubini--Study phase interface}
+
+The merged interface imports the conditional discrete projective phase map
+\[
+q(Cn)=2q(n)\pmod1,
+\qquad
+\boxed{\zeta_C(Cn)=\zeta_C(n)^2},
+\]
+and permits an explicit relational coordinate
+\[
+R_{ij}=R_{ij}(S_i,S_j;\zeta_{ij}),
+\qquad \zeta_{ij}=e^{i\phi_{ij}}.
+\]
+Projective \(2\pi\) phase and an optional spinorial \(4\pi\) lift remain typed
+separately.  The CP1 carrier is a mathematical interface.  No validated law yet
+identifies this phase itinerary with elapsed time, energy, mass, interaction
+strength, atomic transition probability, spectroscopy or gravity.
+\vTwelveStatus{B}{--}{OPEN}
+
+Source:
+\path{TIR/integration/TIR_COLLATZ_FS_RELATIONAL_PHASE_INTERFACE_V0_1.md}.
+
+\section{Current unresolved physical and dynamical gates}
+
+The current completion frontier is not a flat list of missing formulas.  The
+principal unresolved gates are:
+
+\begin{enumerate}
+\item a frozen production global spatial-complex incidence input and A5 PASS on
+that exact dataset;
+\item a frozen production inter-leaf matching field and the global TIR--IDT--RFC
+spacetime/ADM join;
+\item Einstein constraint/evolution closure downstream of the admitted global
+spacetime carrier and normalization/action gates;
+\item target-independent extraction of the four coefficient magnitudes
+\(|h|,|a|,|b|,|c|\);
+\item continuum gauge normalization and running from the typed \(W_{ij}\)
+transport carrier;
+\item a common electroweak renormalization/scheme-scale transport;
+\item scalar/Higgs action binding;
+\item a source/uniqueness theorem for hypercharge and a scheme/scale-defined
+quark-mass map;
+\item a repaired neutrino absolute-action derivation;
+\item a source-derived meson absolute-action baseline;
+\item a holonomic/topological strong-CP source theorem before any replacement
+of the failed frozen neutron-EDM route;
+\item a unit-complete cosmological scale/critical-density binding;
+\item a physical binding for the Collatz--FS relational phase coordinate;
+\item native Li/Weil positivity and the remaining global critical-axis
+nondegeneracy/strict-positivity premises.
+\end{enumerate}
+
+\section{Retained empirical failures and tensions}
+
+This synchronization does not rescore the observable matrix.  In particular,
+the current publication retains charged-lepton precision failures, the PMNS
+reactor-angle tension, electroweak/fine-structure/Higgs precision failures or
+tensions according to Chapter~19, the pion and kaon printed-formula failures,
+and the neutron-EDM failure from the frozen strong-CP mapping.
+
+For the latter,
+\[
+d_n\simeq5.3299\times10^{-26}\,e\,\mathrm{cm}
+\]
+remains approximately \(2.96\) times the manuscript bound used by the frozen
+comparison.  A new structural derivation must receive a new version and evidence
+record; it does not overwrite this failure.
+
+\section{Critical-axis firewall}
+
+The active critical-axis stack contains exact identities, equivalence
+reductions and conditional positive corridors, but the globally quantified
+strict-positivity/nondegeneracy premises remain open.  The integrated solver
+contract explicitly requires that the Riemann hypothesis is not present in the
+current closure.  Thus
+\[
+\boxed{\mathrm{RH}\ \text{remains OPEN}.}
+\]
+Failed candidate constructions and numerical negative controls remain evidence
+rather than being removed from the project record.
+
+\section{v12.1 synchronization invariant}
+
+The publication rule for this revision is
+\[
+\boxed{
+\text{merged theorem/contract PASS}
+\not\Rightarrow
+\text{physical observable PASS}.
+}
+\]
+Every exact or conditional theorem keeps its assumptions.  Production-input
+gates remain open until an exact frozen source dataset is supplied.  Existing
+empirical failures remain visible.  Main promotion of this corrected monograph
+is a separate repository action.
+
+% ---- END TIR/monograph/v12/appendices/appE_v12_1_repository_state_sync.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/appendices/appF_gremlin_pass4_repository_consolidation.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{GREMLIN Pass-4 Repository Consolidation}
+\label{app:v12_gremlin_pass4}
+
+\paragraph{Purpose.}
+Version 12.2 records a bounded repository-consolidation pass performed under the
+GREMLIN candidate/audit runtime.  The pass does not create scientific promotion
+authority.  Its function is to reduce branch ambiguity, preserve unique work,
+synchronize the publication surface and keep the claim-status firewall intact.
+
+\section{Branch sweep}
+
+The baseline repository state was
+\[
+\boxed{\texttt{main@45b54c0c8aa60ec92607e6132b69aca9ab766d75}.}
+\]
+Exact comparison of all 81 non-main branches against that baseline gave
+\[
+\boxed{
+81=77_{\rm contained}+4_{\rm unique}.
+}
+\]
+The 77 contained branches had \texttt{ahead\_by=0}; their payload was already
+reachable from main.  No branch deletion is performed by this publication
+pass.
+
+The four unique-payload sources were:
+\begin{enumerate}
+\item \path{feat/golden-mean-prime-orbit-asymptotic-v0.1};
+\item \path{jarlskog-closure-v01};
+\item \path{policy/no-ai-training-without-license-20260917};
+\item \path{research/xf9-preprint-spider-bib-20260918}.
+\end{enumerate}
+The complete branch inventory is retained in
+\path{TIR/monograph/v12/GREMLIN_PASS4_BRANCH_MONOGRAPH_AUDIT_20260918.md}.
+
+\section{Integration rule}
+
+Clean or additive unique files are preserved byte-for-byte.  The Jarlskog branch
+was substantially behind the current repository state, so its old copies of
+current monograph/workflow files were not merged wholesale.  Instead, unique
+theorem/validator surfaces were preserved and the publication changes were
+transplanted onto the current v12 surface.
+
+This rule prevents a stale branch from reverting later theorem closures while
+still preserving every unique research artifact.
+
+\section{Scientific effects}
+
+Pass-4 changes the canonical narrative only where the repository state changed
+the mathematics:
+\begin{itemize}
+\item the Jarlskog invariant is exact downstream of the retained CKM matrix
+      parameters and the former independent \(J_{\rm old}\) assignment is
+      deprecated;
+\item the CKM 600-cell/McKay/A2/half-kernel chain is preserved as an
+      exact/conditional selector programme, with physical readout uniqueness
+      still open;
+\item the golden-mean subsystem gains an exact primitive dynamical-orbit
+      asymptotic with explicit error bounds and an arithmetic-prime/RH
+      firewall;
+\item XF-9 gains the closure-force, pole-free Gram-kernel and de Branges
+      crosswalk together with explicit prior/concurrent-art provenance.
+\end{itemize}
+
+No retained empirical FAIL, TENSION, OPEN or QUARANTINED verdict is overwritten
+by these structural updates.
+
+\section{GREMLIN authority boundary}
+
+The live GREMLIN runtime for this pass reports
+\[
+\boxed{
+\texttt{authority=CANDIDATE\_ONLY},
+\qquad
+\texttt{canon\_allowed=false}.
+}
+\]
+GREMLIN routes candidate searches, dependency checks, adversarial audits and
+redundancy analysis.  Canonical repository changes still require explicit
+source edits, deterministic validators, publication preflight and normal
+repository promotion.
+
+\section{Destructive-cleanup boundary}
+
+This appendix certifies branch classification and payload preservation only.
+Remote-branch deletion is a separate destructive action and requires explicit
+authorization plus a fresh post-integration containment check.
+
+% ---- END TIR/monograph/v12/appendices/appF_gremlin_pass4_repository_consolidation.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/appendices/appG_semantic_frontier_reconciliation.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Semantic Frontier Reconciliation}
+\label{app:v12_semantic_frontier_reconciliation}
+
+\paragraph{Purpose.}
+This appendix records the v12.3 correction of the completion frontier after a
+cross-repository theorem/validator/receipt audit. The previous v12.1 frontier
+is retained as historical provenance but is not used as the current semantic
+source of truth.
+
+\section{Status model}
+
+Every frontier coordinate is split into
+\[
+\boxed{
+\text{formal/derivational status}
+\quad\oplus\quad
+\text{production/physical status}.
+}
+\]
+This prevents two opposite errors: a software PASS cannot create a physical
+PASS, and an open physical source input cannot relabel a completed derivation
+as mathematically open.
+
+\section{Corrected former headline gates}
+
+\begin{longtable}{p{0.07\textwidth}p{0.36\textwidth}p{0.47\textwidth}}
+\toprule
+No. & Former headline & v12.3 status \\
+\midrule
+1 & Production global spatial complex &
+A5/capture/binding certifiers closed; source-owned production realization open. \\
+2 & Inter-leaf matching and global spacetime/ADM join &
+Matching-flow, shared-atlas and globalization certifiers closed conditionally;
+production packet, event placement and coverage open. \\
+3 & Einstein constraint/evolution closure &
+Local ADM constraints, evolution, Bianchi propagation and local Einstein form
+closed; production global carrier/coverage remains open. \\
+4 & Four coefficient magnitudes &
+Magnitude-parent evaluation closed; transition-parent selector open. \\
+5 & Continuum gauge normalization/running &
+Discrete structural gauge layer closed; continuum normalization/running open. \\
+6 & Electroweak scheme-scale transport &
+Open. \\
+7 & Higgs scalar/action binding &
+Open. \\
+8 & Hypercharge uniqueness and quark masses &
+Hypercharge relative uniqueness closed on declared field content and anchor;
+quark-mass map and stronger geometric-anchor uniqueness open. \\
+9 & Neutrino absolute-action repair &
+Source conflict and derivational repair closed; empirical absolute-mass scale
+open. \\
+10 & Meson absolute-action baseline &
+Open. \\
+11 & Strong-CP source theorem &
+Open; retained neutron-EDM physical FAIL remains visible. \\
+12 & Cosmological scale/critical density &
+Dimensionless arithmetic audited; dimensionful and rho-critical binding open. \\
+13 & Collatz--FS physical binding &
+Kinematic phase-fibre interface closed; metric/source coupling and scale open. \\
+14 & Li--Weil/global critical-axis positivity &
+Open; RH remains open. \\
+\bottomrule
+\end{longtable}
+
+\section{Pinned repositories}
+
+The reconciliation pins:
+\begin{itemize}
+\item TIR main: \texttt{45b54c0c8aa60ec92607e6132b69aca9ab766d75};
+\item IDT main: \texttt{58f453a4725bf0304417a5d07730f2dc1765dea5};
+\item RFC main: \texttt{ce4af9ddd480ea40dfb5a3ee26ed396a58cb0e54};
+\item Secret-of-a-Half main:
+      \texttt{d99545aa447ef86bc253d8241a3fee9adb8a42c1}.
+\end{itemize}
+
+The machine-readable ledger is
+\path{TIR/monograph/v12/SEMANTIC_FRONTIER_V12_3.json}.
+The human-readable provenance audit is
+\path{TIR/monograph/v12/GREMLIN_PASS5_SEMANTIC_FRONTIER_AUDIT_20260918.md}.
+
+\section{Promotion boundary}
+
+GREMLIN remains candidate/audit authority only. This reconciliation changes the
+status description only where an existing theorem, validator or receipt already
+supports the change. It does not create new physical evidence and does not
+authorize a merge to main or destructive branch cleanup.
+
+% ---- END TIR/monograph/v12/appendices/appG_semantic_frontier_reconciliation.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/appendices/appH_relational_zero_graph_reconciliation.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Relational Zero and Current-Graph Reconciliation}
+\label{app:v12_relational_zero_graph_reconciliation}
+
+\section{Purpose}
+
+Version 12.4 adds two corrections that must be kept separate:
+
+\begin{enumerate}
+\item the primitive zero layer is made explicitly relational and pre-object;
+\item the publication dependency map is reconciled against repository state after the
+18 September 2026 v12.3 semantic-frontier snapshot.
+\end{enumerate}
+
+The v12.3 semantic-frontier files remain historical provenance. They are not deleted or
+retroactively rewritten.
+
+\section{Relational-zero root}
+
+TIR now begins from the relational presentation
+\[
+\mathfrak R=(X,\mathcal D),
+\]
+with support set $X$ and realized distinction/relation set $\mathcal D$. The zero layer is
+\[
+\boxed{
+\mathfrak Z_{\rm rel}=(\varnothing,\varnothing).
+}
+\]
+It is not a singleton and not an object. Once TIR defines existential admissibility
+relationally, the absence of an existent object in this empty presentation is a direct
+definitional consequence.
+
+Leaving zero first supplies the minimal nonempty support
+\[
+\boxed{\mathcal P=\{p\}},
+\]
+and only then a minimal nontrivial distinction. Since a nontrivial partition contains
+more than one nonempty block, the minimal one is binary:
+\[
+\boxed{\Pi_1=\{N,S\}}.
+\]
+Exchange symmetry is imposed after binarity has been established,
+\[
+J:N\leftrightarrow S,\qquad J^2=\mathrm{id},
+\]
+and normalized exchange invariance then gives
+\[
+\boxed{(w_N,w_S)=\left(\frac12,\frac12\right)},
+\qquad
+\boxed{H_2(1/2)=\ln2}.
+\]
+
+The corrected primitive dependency order is therefore
+\[
+\boxed{
+0_{\rm rel}
+\to
+\text{point support}
+\to
+\text{minimal binary distinction}
+\to
+\text{exchange symmetry}
+\to
+\frac12
+\to
+\ln2.
+}
+\]
+
+The quantum lift remains downstream and conditional on the TIR quantum-point postulate:
+\[
+\mathbb C^2\to\mathbb{CP}^1\cong S^2.
+\]
+No quantum, spacetime or empirical claim is inferred from relational zero alone.
+
+\section{Reconciliation base heads}
+
+The v12.4 reconciliation began from the following repository heads:
+
+\begin{description}
+\item[TIR:] \path{853032e019824b836de43634d949da5566396153}.
+\item[IDT:] \path{e474f64a079e0d90a039e0abd19d2b482f7e53d2}.
+\item[RFC:] \path{664349e2f16b57ee23bf6f5f21f5fe8ada17c5a5}.
+\item[Secret-of-a-Half:] \path{492dc2e31546f6fdce798801549d544d8cbda3b4}.
+\end{description}
+
+The live machine-readable authority for TIR dependencies is the repository-root
+\path{DEPENDENCY_EXPORT.json}. Appendix~\ref{app:v12_semantic_frontier_reconciliation}
+and \path{SEMANTIC_FRONTIER_V12_3.json} retain the 18 September state only.
+
+\section{Post-v12.3 dependency delta}
+
+The current repository state contains theorem or candidate surfaces that did not exist in
+the v12.3 publication snapshot. Their presence does not promote their physical interpretation.
+
+\subsection{TIR gravity and event-source interfaces}
+
+The post-v12.3 graph includes the fractal/orbital gravity kinematic controls, conditional
+flow-coframe/ADM spherical-vacuum derivations, event-indexed metric-rate source bridge,
+information-scalar acceleration criterion, temporal-$U(1)$ metric-response candidate, and
+phase-cell vacuum-integration route.
+
+The publication firewall is:
+
+\[
+\boxed{
+\text{exact or conditional mathematical control}
+\not\Rightarrow
+\text{production physical binding}.
+}
+\]
+
+Production event--spatial realization, absolute information normalization, nontrivial
+holonomy persistence, and the relevant source-to-response identifications remain separately
+typed open inputs where the repository says they are open.
+
+\subsection{IDT clock and representation additions}
+
+The companion IDT graph additionally contains, after the v12.3 pin, the periodic
+$6\pi/C_3/F_3$/Pauli representation bridge, production event-complex and GSC2 source
+contracts, temporal-trace/clock-calibration candidates, the EB/BEC conditional bridge,
+and Lean proof gates for selected discrete statements.
+
+These are cross-repository dependencies or candidates; they do not silently become TIR
+physical claims.
+
+\section{Graph/publication invariant}
+
+The publication invariant for v12.4 is:
+
+\[
+\boxed{
+\text{monograph statement}
+\longleftrightarrow
+\text{typed graph node/edge}
+\longleftrightarrow
+\text{named source surface}.
+}
+\]
+
+If a graph export and prose snapshot disagree in date, the newer explicitly generated graph
+is the dependency authority and the older prose remains historical provenance. If the graph
+marks an edge \texttt{CANDIDATE\_ONLY}, the monograph must not describe that edge as a
+canonical physical derivation.
+
+\section{Validation boundary}
+
+The deterministic relational-zero validator is
+
+\path{TIR/validation/tir_relational_zero_axiom_v0_1.py}.
+
+It checks the empty zero support, minimal nonempty support cardinality, minimal binary
+distinction, exchange-fixed half, and the Shannon value $\ln2$. It does not validate a
+physical ontology, a quantum realization, spacetime, or experiment.
+
+% ---- END TIR/monograph/v12/appendices/appH_relational_zero_graph_reconciliation.tex ----
+\clearpage

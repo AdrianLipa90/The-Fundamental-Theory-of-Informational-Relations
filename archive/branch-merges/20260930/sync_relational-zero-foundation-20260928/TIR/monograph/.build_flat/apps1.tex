@@ -1,0 +1,1150 @@
+% GENERATED LOCAL-BUILD FLAT PART — DO NOT MERGE
+
+% ---- BEGIN TIR/monograph/v12/appendices/appA_formal_proofs_long_algebra.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Formal Proofs, Algebraic Firewalls and Legacy Repairs}
+\label{app:v12_formal_proofs}
+
+\paragraph{Purpose and provenance.}
+This appendix consolidates long algebra that supports Chapters~4--10 and the
+diagnostic no-go surfaces used later in the monograph.  Historical appendix
+material is preserved through explicit source pointers rather than copied
+verbatim.  GREMLIN/HOUND is used here as a bounded adversarial audit layer:
+candidate inconsistencies are promoted into this appendix only after an exact
+algebraic or deterministic check.
+
+The principal legacy sources are
+\path{TIR/monograph/appendices/appB_collatz_tables.tex},
+\path{TIR/monograph/appendices/appC_su3_primer.tex},
+\path{TIR/monograph/appendices/appD_poincare_disk.tex},
+\path{TIR/monograph/appendices/appE_tetrahedron_algebra.tex},
+\path{TIR/monograph/appendices/appJ_collatz_quarter_power_scaling.tex},
+\path{TIR/monograph/appendices/appK_sector_holonomy_release.tex}, and
+\path{TIR/monograph/appendices/appL_up_sector_common_baseline_no_go.tex}.
+
+\section{Finite Collatz statements and the structural labels}
+
+For positive integers define
+\[
+C(n)=
+\begin{cases}
+3n+1,&n\ \hbox{odd},\\
+n/2,&n\ \hbox{even}.
+\end{cases}
+\]
+The seed required by the canonical v12 label is finite and directly checkable:
+\[
+3\to10\to5\to16\to8\to4\to2\to1.
+\]
+There are seven steps before the first occurrence of \(1\), giving the typed
+structural label
+\[
+\boxed{L_3=7.}
+\]
+The twin-prime source gives
+\[
+\boxed{L_4=5-3=2,\qquad L_5=5.}
+\]
+These finite statements are the complete arithmetic input required by the
+v12 label layer.  Their publication status is inherited from
+Chapter~\ref{ch:v12_discrete_labels}.
+
+A second finite trajectory, historically used to motivate the quark-prime
+candidate set, is
+\[
+7\to22\to11\to34\to17\to52\to26\to13\to40\to20\to10\to5
+\to16\to8\to4\to2\to1.
+\]
+The primes encountered are
+\[
+7,11,17,13,5,3,
+\]
+whose sorted set is
+\[
+\mathcal P_Q=\{3,5,7,11,13,17\}.
+\]
+This is retained as a finite set-generation observation.  The assignment to
+ordered quark slots is owned by the explicit typed map of
+Chapter~\ref{ch:v12_discrete_labels}; the exhaustive \(6!=720\) permutation
+audit leaves two arithmetic survivors before that ordering rule and one after
+it.
+
+\section{Corrected \(SU(3)\) representation algebra}
+
+The three-flavour carrier is \(V_F\cong\mathbb C^3\), with mixing algebra
+\(\mathfrak{su}(3)\).  Its real dimension is
+\[
+\dim_{\mathbb R}\mathfrak{su}(3)=3^2-1=8.
+\]
+For an \(SU(3)\) irreducible representation with Dynkin labels \((p,q)\),
+\[
+\boxed{
+\dim(p,q)=\frac{(p+1)(q+1)(p+q+2)}{2}.
+}
+\]
+Consequently,
+\[
+\dim(1,0)=3,\qquad
+\dim(0,1)=3,\qquad
+\dim(1,1)=8,\qquad
+\dim(3,0)=10,\qquad
+\dim(2,2)=27.
+\]
+The mesonic flavour nonet belongs to the reducible decomposition
+\[
+\boxed{
+3\otimes\bar3=8\oplus1,
+}
+\]
+rather than to the \((2,2)\) irrep.  The historical primer row that paired
+\((2,2)\) with ``meson nonet'' is therefore retained as a repaired
+representation-label mismatch.
+\vTwelveStatus{D}{RETROSPECTIVE}{PASS}
+
+For the canonical \(\kappa\) normalization, only the exact carrier facts
+\[
+N_F=3,\qquad \dim\mathfrak{su}(3)=8,\qquad N_{\rm mix}=3\times8=24
+\]
+are required.  The full normalization derivation remains owned by
+Chapter~\ref{ch:v12_kappa_normalization} and
+\path{TIR/foundations/TIR_KAPPA_FLAVOUR_MIXING_NORMALIZATION_V0_1.md}.
+
+\section{Poincar\'e disk normalization repair}
+
+For the unit disk \(\mathbb D=\{z\in\mathbb C:|z|<1\}\) with metric
+\[
+ds^2=\frac{4\,|dz|^2}{(1-|z|^2)^2},
+\]
+the curvature is \(K=-1\).  Define the disk cross-ratio modulus
+\[
+\chi(z_1,z_2)=
+\left|
+\frac{z_1-z_2}{1-\bar z_1z_2}
+\right|.
+\]
+The geodesic distance compatible with the displayed metric is
+\[
+\boxed{
+d_{\mathbb D}(z_1,z_2)
+=2\,\operatorname{artanh}\chi(z_1,z_2).
+}
+\]
+For \(z_1=0\) this reduces to
+\[
+d_{\mathbb D}(0,r)=\int_0^r\frac{2\,du}{1-u^2}
+=2\,\operatorname{artanh}r,
+\]
+which fixes the normalization directly.  The historical appendix printed the
+same expression without the factor \(2\); v12 records that line as a metric
+normalization repair.
+\vTwelveStatus{D}{RETROSPECTIVE}{PASS}
+
+For a geodesic triangle with angles \(\alpha,\beta,\gamma\),
+\[
+A_{\mathbb D}=\pi-(\alpha+\beta+\gamma).
+\]
+A one-angle identification therefore supplies only partial cell data.  v12
+assigns any proposed information-area equality to an explicit bridge theorem
+with the complete triangle, curvature convention and area normalization stated
+before comparison.
+
+\section{Regular tetrahedral Gram algebra}
+
+Let \(\mathbf n_a\in\mathbb R^3\), \(a=1,\ldots,4\), be unit vectors satisfying
+\[
+\mathbf n_a\cdot\mathbf n_b=-\frac13\qquad(a\ne b).
+\]
+Their Gram matrix is
+\[
+G_{ab}=
+\begin{cases}
+1,&a=b,\\
+-1/3,&a\ne b.
+\end{cases}
+\]
+Equivalently,
+\[
+G=\frac43I_4-\frac13J_4,
+\]
+where \(J_4\) is the all-ones matrix.  Since \(J_4\) has eigenvalues \(4,0,0,0\),
+\[
+\operatorname{spec}(G)=\left\{0,\frac43,\frac43,\frac43\right\},
+\qquad
+\operatorname{rank}G=3.
+\]
+The null eigenvector is \((1,1,1,1)^T\), hence
+\[
+\sum_{a=1}^4\mathbf n_a=0.
+\]
+Every squared edge length is
+\[
+|\mathbf n_a-\mathbf n_b|^2
+=2-2\mathbf n_a\cdot\mathbf n_b
+=\frac83,
+\]
+so the four points form a regular tetrahedron in the three-real-dimensional
+carrier.  Permuting the four vertices preserves the Gram matrix, giving
+\[
+\operatorname{Aut}(\Delta^3)\cong S_4,
+\qquad |S_4|=24.
+\]
+This is the finite-symmetry crosscheck used after the independent
+flavour-mixing count \(3\times8=24\).
+
+\section{Legacy operator-tetrahedron firewall}
+
+The historical operator-labelled tetrahedron introduced six sector-specific
+edge numbers and then wrote
+\[
+\cos\theta_{ij}
+=
+\frac{e_{ik}^2+e_{jk}^2-e_{ij}^2}{2e_{ik}e_{jk}}.
+\]
+That expression is the planar law of cosines for the angle of a triangle built
+from three edge lengths.  A tetrahedral dihedral angle instead requires the
+normals of two faces, or an equivalent Cayley--Menger/Gram construction using
+the full tetrahedral metric data.  v12 therefore assigns the historical
+``dihedral'' line to the diagnostic ledger rather than to the regular
+tetrahedral closure theorem.
+\vTwelveStatus{D}{RETROSPECTIVE}{QUARANTINED}
+
+The same historical appendix states a volume proportionality to \(\kappa^3\)
+without an independently derived Gram determinant and scale map.  v12 assigns
+volume/PMNS coupling to the sector-model provenance of Chapters~12--13, while
+the geometric tetrahedron theorem is owned by Chapter~6.
+
+\section{Accelerated Collatz quarter-power arithmetic}
+
+For odd \(n\), define the accelerated map
+\[
+T(n)=\frac{3n+1}{2^{a(n)}},
+\qquad
+a(n)=\nu_2(3n+1).
+\]
+Under the standard uniform odd-residue calculation,
+\[
+\Pr(a=k)=2^{-k},\qquad k\ge1,
+\]
+so
+\[
+\mathbb E[a]=\sum_{k\ge1}k2^{-k}=2.
+\]
+The associated asymptotic geometric-mean multiplier is then
+\[
+\boxed{
+\rho_C
+=\exp\!\left(\ln3-\mathbb E[a]\ln2\right)
+=\frac34.
+}
+\]
+This arithmetic result is distinct from the particle-model bridge that uses
+\(3/4\) as an exponent.  The archived one-anchor charged-fermion trace keeps its
+retrospective physical-spectrum failure, while the arithmetic multiplier
+remains a technical result.
+
+\section{Common-baseline translation no-go}
+
+Let \(r_g\) be logarithmic residuals for a fixed three-channel up-sector trace,
+and apply one common additive baseline \(B\):
+\[
+r'_g=r_g+B.
+\]
+For every pair \(g,h\),
+\[
+r'_g-r'_h=r_g-r_h,
+\]
+so the residual spread is translation invariant.
+
+\paragraph{Proposition.}
+There exists a common \(B\) satisfying
+\[
+|r_g+B|\le\varepsilon
+\quad\text{for every }g
+\]
+exactly when
+\[
+\max_g r_g-\min_g r_g\le2\varepsilon.
+\]
+The smallest achievable uniform error is
+\[
+\boxed{
+\varepsilon_{\min}
+=\frac{\max r-\min r}{2}.
+}
+\]
+
+\paragraph{Proof.}
+Each channel requires
+\[
+B\in[-r_g-\varepsilon,-r_g+\varepsilon].
+\]
+All intervals intersect exactly when the largest lower endpoint is no greater
+than the smallest upper endpoint, which is equivalent to the stated spread
+condition.  Centering the two extreme residuals around zero attains half the
+spread.
+
+For the archived v10.2 residual vector
+\[
+(r_u,r_c,r_t)
+=(3.1857238256,\,0.0818052322,\,0.2293790515),
+\]
+the spread is
+\[
+\Delta r=3.1039185934
+\]
+and therefore
+\[
+\varepsilon_{\min}=1.5519592967,
+\qquad
+e^{\varepsilon_{\min}}=4.7207104\ldots .
+\]
+The common-baseline architecture is thus excluded for the fixed relative trace
+at any target envelope narrower than this minimax bound.
+\vTwelveStatus{D}{RETROSPECTIVE}{PASS}
+
+\section{Appendix-A audit ownership}
+
+The deterministic appendix integration gate is
+\path{TIR/validation/tir_v12_appendix_integration_audit_v0_1.py}.
+Its machine-readable receipt is
+\path{TIR/validation/TIR_V12_APPENDIX_INTEGRATION_AUDIT_V0_1.json}.
+The gate checks the corrected \(SU(3)\) representation identity, the factor-two
+Poincar\'e distance normalization, the regular tetrahedral Gram spectrum, the
+legacy dihedral quarantine marker and the common-baseline minimax identity.
+
+% ---- END TIR/monograph/v12/appendices/appA_formal_proofs_long_algebra.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/appendices/appB_numerical_tables_reproducibility.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Numerical Tables, Receipts and Reproducibility}
+\label{app:v12_numerics_reproducibility}
+
+\paragraph{Purpose.}
+This appendix is the numerical companion to Chapter~\ref{ch:v12_evidence_matrix}.
+Sector chapters own formulas; Chapter~19 owns current evidence verdicts; this
+appendix owns reproducible arithmetic, validator locations and frozen receipts.
+Historical calculation tables remain available under
+\path{TIR/monograph/appendices/}, while v12 records their audited numerical
+status rather than reproducing target-matched tables as fresh evidence.
+
+\section{Canonical numerical constants}
+
+The v12 constant surface used by the migrated particle-sector calculations is
+\[
+L_3=7,\qquad L_4=2,\qquad L_5=5,
+\]
+and
+\[
+\boxed{
+\kappa=\frac{\ln2}{24\pi}
+=0.009193\ldots .
+}
+\]
+The exact ownership chain is
+\[
+\mathbb C^3
+\to SU(3)_F
+\to \dim\mathfrak{su}(3)=8
+\to N_{\rm mix}=24
+\to\Phi_{\rm mix}=24\pi
+\to\kappa.
+\]
+The deterministic source is
+\path{TIR/validation/tir_kappa_flavour_mixing_normalization_v0_1.py}.
+
+\section{Active validator index}
+
+The current publication build executes the following v12-specific numerical and
+source validators in addition to the foundational geometry suite:
+\begin{description}
+\item[Discrete labels:]
+\path{TIR/validation/tir_v12_discrete_labels_audit_v0_1.py}.
+\item[Coefficient forcing:]
+\path{TIR/validation/tir_coefficient_role_orientation_forcing_v0_1.py}.
+\item[Coefficient selector composition no-go:]
+\path{TIR/validation/tir_coefficient_selector_composition_nogo_v0_3.py}.
+\item[Neutrino action consistency:]
+\path{TIR/validation/tir_v12_neutrino_action_consistency_v0_1.py}.
+\item[Neutrino source repair:]
+\path{TIR/validation/tir_neutrino_absolute_action_source_repair_v0_1.py}.
+\item[CKM/PMNS internal consistency:]
+\path{TIR/validation/tir_v12_flavour_mixing_internal_consistency_v0_1.py}.
+\item[CKM Jarlskog invariant closure:]
+\path{TIR/validation/tir_ckm_jarlskog_invariant_closure_v0_1.py}.
+\item[CKM 600-cell incidence:]
+\path{TIR/validation/tir_ckm_600cell_flag_incidence_candidate_v0_1.py}.
+\item[CKM local A2/operator bridge:]
+\path{TIR/validation/tir_ckm_600cell_a2_selector_bridge_candidate_v0_2.py}.
+\item[CKM projective even-sector selector:]
+\path{TIR/validation/tir_ckm_projective_even_sector_selector_candidate_v0_3.py}.
+\item[CKM clean noncommuting family pair:]
+\path{TIR/validation/tir_ckm_600cell_clean_noncommuting_family_pair_candidate_v0_4.py}.
+\item[CKM lambda0 nested-fraction provenance:]
+\path{TIR/validation/tir_ckm_lambda0_nested_fraction_decomposition_v0_5.py}.
+\item[CKM half-kernel kappa selector:]
+\path{TIR/validation/tir_ckm_half_kernel_kappa_selector_candidate_v0_6.py}.
+\item[CKM product-flow uniqueness audit:]
+\path{TIR/validation/tir_ckm_half_kernel_product_flow_uniqueness_audit_v0_7.py}.
+\item[CKM angle--sine generator firewall:]
+\path{TIR/validation/tir_ckm_su3f_angle_sine_generator_firewall_v0_8.py}.
+\item[Golden-mean primitive-orbit asymptotic:]
+\path{TIR/validation/tir_golden_mean_prime_orbit_asymptotic_v0_1.py}.
+\item[Hadron formula audit:]
+\path{TIR/validation/tir_v12_hadron_formula_audit_v0_2.py}.
+\item[Hypercharge/anomaly audit:]
+\path{TIR/validation/tir_v12_hypercharge_anomaly_audit_v0_1.py}.
+\item[Hypercharge relative uniqueness:]
+\path{TIR/validation/tir_hypercharge_source_uniqueness_v0_1.py}.
+\item[Electroweak/Higgs audit:]
+\path{TIR/validation/tir_v12_electroweak_higgs_audit_v0_1.py}.
+\item[Strong-CP/neutron-EDM audit:]
+\path{TIR/validation/tir_v12_strong_cp_nedm_audit_v0_1.py}.
+\item[Cosmology formula audit:]
+\path{TIR/validation/tir_v12_cosmology_formula_audit_v0_1.py}.
+\item[Evidence matrix consistency:]
+\path{TIR/validation/tir_v12_evidence_matrix_consistency_v0_2.py}.
+\item[Prospective contract:]
+\path{TIR/validation/tir_v12_prospective_contract_audit_v0_1.py}.
+\item[Source contract:]
+\path{TIR/validation/tir_v12_source_contract_v0_7.py}.
+\item[Semantic frontier audit:]
+\path{TIR/validation/tir_v12_3_semantic_frontier_audit_v0_1.py}.
+\item[Appendix integration:]
+\path{TIR/validation/tir_v12_appendix_integration_audit_v0_1.py}.
+\end{description}
+
+A technical validator PASS certifies its declared arithmetic/source contract.
+Observable-level empirical interpretation remains in
+Chapter~\ref{ch:v12_evidence_matrix}.
+
+\section{Charged-lepton arithmetic snapshot}
+
+For the historical action coordinates
+\[
+\begin{aligned}
+S_e&=\frac12-3\kappa+\frac{\kappa}{L_3}-\frac{\kappa^2}{2},\\
+R_{e\mu}&=5\kappa+\frac{2\kappa}{L_3}
++\frac{L_3+1}{2}\kappa^2,\\
+R_{\mu\tau}&=3\kappa-\frac{\kappa}{L_3}
+-\frac{L_3}{2}\kappa^2,
+\end{aligned}
+\]
+v12 reproduces
+\[
+S_e=0.473691600121\ldots,\quad
+S_\mu=0.424761179774\ldots,\quad
+S_\tau=0.398790835923\ldots .
+\]
+Under the archived exponential mass map, the corresponding values are
+\[
+m_e=0.511641997\ldots\ {\rm MeV},
+\quad
+m_\mu=104.831758\ldots\ {\rm MeV},
+\quad
+m_\tau=1767.503884\ldots\ {\rm MeV}.
+\]
+The frozen 2026 evidence audit assigns precision FAIL to all three rows.  The
+numbers remain useful as a reproducible historical trace, not as a replacement
+for the current evidence verdict.
+
+\section{Neutrino formula/value reconciliation}
+
+The legacy neutrino source defines
+\[
+S_{\rm bare}=\frac{1+L_4/L_3}{2}=\frac9{14},
+\qquad
+A_{\rm face}=\frac12\left(\frac{L_4}{L_3}\right)^2=\frac2{49},
+\]
+and
+\[
+\delta S=\kappa A_{\rm face}(1-\kappa).
+\]
+The printed source line uses
+\[
+S_1^{\rm literal}=S_{\rm bare}+\kappa\,\delta S,
+\]
+whereas the published mass triplet is reproduced by
+\[
+\boxed{
+S_1^{\rm rec}=S_{\rm bare}+\delta S.
+}
+\]
+The literal rule yields approximately
+\[
+(0.00521482,\ 0.0104296,\ 0.0521482)\ {\rm eV},
+\]
+while the reconciled rule yields
+\[
+(0.00500999,\ 0.01001999,\ 0.05009994)\ {\rm eV}.
+\]
+The source-repair theorem classifies the extra factor of $\kappa$ as a transcription/composition defect and restores the single-offset rule as the canonical repository derivation. The derivational repair is therefore closed; only physical absolute-mass validation remains open, as recorded in Chapter~21.
+
+\section{Flavour-mixing snapshot}
+
+The migrated PMNS formulas give
+\[
+\sin^2\theta_{13}=\frac1{49}=0.02040816\ldots,
+\]
+\[
+\sin^2\theta_{12}
+=\frac{L_4}{L_3+L_4}
++\left(\frac{L_4}{L_3}\right)^2
+=0.30385488\ldots,
+\]
+\[
+\sin^2\theta_{23}
+=\frac12+\frac{L_4}{L_3^2}
+=0.54081633\ldots,
+\]
+and
+\[
+\delta_{\rm PMNS}
+=\pi\left[
+1+\frac{L_4}{L_3}
++\left(\frac{L_4}{L_3}\right)^2
+\right]
+=246.122449^\circ\ldots .
+\]
+The corresponding frozen verdicts are COMPATIBLE, OPEN, TENSION and OPEN in the
+order \(\theta_{12},\theta_{23},\theta_{13},\delta_{\rm PMNS}\).
+
+For CKM,
+\[
+\lambda
+=\frac{L_4}{L_3+L_4}
++\frac{L_4}{L_3}\kappa
+=0.2248488365\ldots,
+\]
+\[
+|V_{cb}|=\frac2{49}=0.0408163265\ldots,
+\qquad
+|V_{ub}|=\frac8{2205}=0.0036281179\ldots,
+\]
+and
+\[
+\delta_{\rm CKM}=\arccos\frac25=66.4218215^\circ\ldots .
+\]
+With
+\[
+s_{12}=\lambda,\qquad s_{23}=|V_{cb}|,\qquad s_{13}=|V_{ub}|,
+\qquad c_{ij}=\sqrt{1-s_{ij}^2},
+\]
+the exact rephasing-invariant Jarlskog quantity of the current CKM matrix is
+\[
+\boxed{
+J_{\rm CP}^{\rm CKM}
+=s_{12}s_{23}s_{13}c_{12}c_{23}c_{13}^2\sin\delta_{\rm CKM}
+=2.97106576668\times10^{-5}.
+}
+\]
+The earlier independent structural assignment
+\[
+J_{\rm old}
+=\kappa^2\frac{L_4}{L_5}
+\left(1-\frac12\left(\frac{L_4}{L_5}\right)^2\right)
+=3.110115459\times10^{-5}
+\]
+is retained only as historical provenance and is deprecated as an independent
+Jarlskog invariant.  Its relative gap from the exact current CKM invariant is
+\[
+4.47088522\%.
+\]
+The closure validator also checks all nine nontrivial CKM quartets and the
+matrix unitarity/determinant conditions.
+
+\section{Hadron and meson reproduction firewall}
+
+The baryon octet calculation is retained with provenance quarantine because
+the historical coefficient construction was refined against target masses.
+The decuplet trace remains a compatible anchor-linked candidate.  Their
+current result status is defined in Chapter~19 rather than by the old appendix
+summary percentages.
+
+The legacy pion and kaon exponentials contain an immediate dimensional/arithmetic
+witness.  With the displayed Planck-energy scale \(E_P\),
+\[
+E_Pe^{-6/\pi}
+\]
+remains of order \(10^{21}\) MeV rather than \(139.57\) MeV.  Likewise,
+\[
+E_Pe^{-(\pi^2/6-1)}
+\]
+remains of Planck order rather than \(493.68\) MeV.  The target-valued numbers
+printed beside those expressions therefore carry formula FAIL in v12.
+
+The historical heavy/vector meson tables list measured values as model outputs
+without a complete executable derivation chain.  v12 keeps those rows
+QUARANTINED as reproduction/provenance surfaces pending the meson absolute-action
+baseline theorem.
+
+\section{External-data ownership}
+
+The historical
+\path{TIR/monograph/appendices/appH_pdg_tables.tex}
+is a dated reference snapshot.  The current particle-sector publication
+comparison is owned by
+\path{TIR/validation/pdg2026/TIR_PDG2026_VALIDATION_MATRIX_V2.md},
+frozen 15 August 2026.  Values with renormalization-scheme or scale dependence
+retain that typing in the current matrix.
+
+This separation prevents an old numerical table from silently becoming the
+current validation source after the theory layer changes.
+
+\section{Exact-head publication reproducibility}
+
+The authoritative v12 workflow is
+\path{.github/workflows/compile-tir-monograph-v12.yml}.
+For a pull request it checks out the exact PR-head SHA, verifies that checkout,
+runs the deterministic validator suite, compiles the PDF and then applies a
+publication preflight.
+
+The hardened preflight requires:
+\begin{enumerate}
+\item zero unresolved references or citations and zero multiply-defined labels;
+\item zero Hyperref PDF-string token warnings;
+\item zero overfull boxes;
+\item a successful \texttt{qpdf --check};
+\item embedded fonts with zero Type-3 fonts;
+\item correct title and author metadata;
+\item an exact-head artifact carrying the actual PR-head SHA.
+\end{enumerate}
+
+The appendix integration receipt is
+\path{TIR/validation/TIR_V12_APPENDIX_INTEGRATION_AUDIT_V0_1.json}.
+Together with the per-sector receipts, it distinguishes formal arithmetic
+reproducibility from the empirical verdict layer.
+
+% ---- END TIR/monograph/v12/appendices/appB_numerical_tables_reproducibility.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/appendices/appC_publication_protocol_prospective_gates.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Publication Protocol and Prospective Gates}
+\label{app:v12_publication_protocol}
+
+\paragraph{Purpose and source ownership.}
+This appendix gives the operational detail behind
+Chapter~\ref{ch:v12_predictions_falsification}.  It consolidates the frozen
+v10.7 separable candidate family and the publication protocol into one
+preregistration-style contract.  Historical source lineage is retained in
+\path{TIR/monograph/appendices/appM_prospective_observable_identifiability.tex},
+\path{TIR/monograph/appendices/appN_separable_candidate_family.tex}, and
+\path{TIR/monograph/appendices/appO_publication_protocol.tex}.
+
+\section{Prospective contract object}
+
+A prospective test is represented by
+\[
+\boxed{
+\mathcal P=(F,\mathcal O,\mathcal D,\mathcal R,\mathcal V),
+}
+\]
+where \(F\) is the frozen formula/version identity, \(\mathcal O\) the assigned
+observable, \(\mathcal D\) the post-freeze data gate, \(\mathcal R\) the decision
+rule and \(\mathcal V\) the version/no-refit policy.
+
+The active v12 family was frozen on 29 July 2026.  Its executable source is
+\path{TIR/validation/separable_universal_candidate_family_v10_7.py}.
+All three candidates carry
+\vTwelveStatus{E}{PROSPECTIVE}{OPEN}
+until the assigned qualifying post-freeze likelihood is evaluated.
+
+\section{Shared separable architecture}
+
+Every candidate has the same typed architecture
+\[
+\boxed{
+\ln y_{f,g}=F(S_f)+D(G_g,R_g).
+}
+\]
+The sector coordinates are
+\[
+S_\ell=4.5,\qquad
+S_d=3.0876164691516155,\qquad
+S_u=2.920949802484949,
+\]
+the generation coordinates are
+\[
+G_1=0.8471633855025916,\quad
+G_2=0.6088811663290957,\quad
+G_3=0.23926393244694075,
+\]
+and the Ramanujan release coordinates are
+\[
+R_1=0.4754443238393299,\quad
+R_2=1.0262897039931138,\quad
+R_3=2.442442115365772.
+\]
+The same functions \(F\) and \(D\) act across charged leptons, down-type quarks
+and up-type quarks.
+
+\section{Exactly three frozen candidates}
+
+\paragraph{C1: linear separable action.}
+\[
+F_1(S)=-S,
+\qquad
+D_1(G,R)=-G+R.
+\]
+
+\paragraph{C2: Collatz quarter-power action.}
+\[
+F_2(S)=-S^{3/4},
+\qquad
+D_2(G,R)=-G^{3/4}+R.
+\]
+
+\paragraph{C3: inverse quarter-power information potential.}
+\[
+F_3(S)=\frac{S^{-3/4}}{L_3\kappa},
+\qquad
+D_3(G,R)=\frac{G^{-3/4}}{L_3\kappa}+R.
+\]
+
+The family size is itself frozen:
+\[
+\boxed{N_{\rm candidate}=3.}
+\]
+A later functional form receives a new version identity and a new prospective
+contract.
+
+\section{Orthogonal observable pair}
+
+Charm and the muon share the second-generation coordinate.  Therefore
+\[
+\begin{aligned}
+\ln y_c&=F(S_u)+D(G_2,R_2),\\
+\ln y_\mu&=F(S_\ell)+D(G_2,R_2),
+\end{aligned}
+\]
+so
+\[
+\boxed{
+\ln\frac{y_c}{y_\mu}=F(S_u)-F(S_\ell).
+}
+\]
+This observable isolates the sector contribution.
+
+Charm and top share the up-type sector coordinate:
+\[
+\begin{aligned}
+\ln y_c&=F(S_u)+D(G_2,R_2),\\
+\ln y_t&=F(S_u)+D(G_3,R_3),
+\end{aligned}
+\]
+hence
+\[
+\boxed{
+\ln\frac{y_c}{y_t}
+=D(G_2,R_2)-D(G_3,R_3).
+}
+\]
+This observable isolates the generation/release contribution.
+
+The active class-A mapping is therefore \(y_c/y_\mu\), while \(y_c/y_t\) is the
+generation/release test.  The earlier \(y_c/y_\tau\) mapping remains historical
+provenance from the pre-orthogonalization stage.
+
+\section{Frozen numerical predictions}
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Candidate & \(y_c/y_\mu\) & \(y_c/y_t\)\\
+\midrule
+C1 & 4.850346751338371 & 0.16766796647328305\\
+C2 & 2.3521800134268784 & 0.17147213462587316\\
+C3 & 6.858021228826228 & \(2.8101955040512466\times10^{-11}\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The deterministic v12 prospective validator reconstructs all six values from
+the frozen coordinates and candidate definitions.
+
+\section{Dataset admission gate}
+
+For each observable, the admissible dataset is the first qualifying
+post-29-July-2026 joint ATLAS/CMS direct likelihood that reports the relevant
+coupling ratio or sufficient likelihood information to construct it on a common
+scheme/scale surface.
+
+Dataset admission is decided before reading the numerical location of the
+likelihood maximum relative to the three predictions.  If a release lacks the
+required joint information, the contract remains OPEN for that release.
+
+\section{Decision rule}
+
+For candidate \(C_i\) and assigned observable \(O\),
+\[
+\boxed{
+\operatorname{PASS}(C_i,O)
+\iff
+r_i(O)\in{\rm CR}_{95\%}(O),
+}
+\]
+where \(r_i(O)\) is the frozen predicted ratio and
+\({\rm CR}_{95\%}(O)\) is the published 95\% confidence region of the admitted
+likelihood.
+
+A candidate outside the admitted confidence region receives FAIL for that
+frozen test.  The formula identity remains fixed in the corresponding receipt.
+
+\section{Multiplicity-aware interpretation}
+
+There are three simultaneously frozen candidates and two orthogonal observables.
+The publication report therefore presents the full \(3\times2\) result surface,
+rather than selecting only the most favourable surviving candidate after the
+data are visible.
+
+Candidate ranking, if performed, must use the same admitted likelihood surface
+for all candidates and must preserve the original three-member family in the
+reported ledger.
+
+\section{No-refit and versioning rule}
+
+After freeze:
+\begin{enumerate}
+\item \(F_i\), \(D_i\), \(S_f\), \(G_g\), \(R_g\), \(L_3\) and \(\kappa\) remain fixed for this contract;
+\item the observable identities \(y_c/y_\mu\) and \(y_c/y_t\) remain fixed;
+\item an empirical FAIL is recorded without coefficient tuning;
+\item a new formula, coordinate or observable receives a new version identity;
+\item already inspected retrospective mass tables remain outside the prospective score.
+\end{enumerate}
+
+This creates an append-only evidence history: a failed frozen candidate can
+coexist with a later new candidate version without rewriting the earlier test.
+
+\section{External-input and scheme discipline}
+
+Yukawa couplings and quark quantities are scheme- and scale-sensitive.
+The qualifying experimental surface must therefore provide a common likelihood
+or a declared translation to a common scheme before a precision decision is
+made.  Ratios constructed from incompatible conventions remain outside the
+frozen decision gate.
+
+Upper limits, circular phases and dimensionful anchor quantities retain their
+own statistical typing and are not pooled into one global percentage score.
+
+\section{Machine-readable gate}
+
+The prospective contract is checked by
+\path{TIR/validation/tir_v12_prospective_contract_audit_v0_1.py}.
+The appendix integration audit additionally checks that:
+\begin{itemize}
+\item exactly three candidate definitions are present;
+\item the 29 July 2026 freeze date is present;
+\item both orthogonal observables are present;
+\item all six frozen ratios are present;
+\item the active sector observable is \(y_c/y_\mu\);
+\item the no-refit/version rule is explicit.
+\end{itemize}
+
+The appendix-level receipt is
+\path{TIR/validation/TIR_V12_APPENDIX_INTEGRATION_AUDIT_V0_1.json}.
+
+% ---- END TIR/monograph/v12/appendices/appC_publication_protocol_prospective_gates.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/appendices/appD_cross_framework_interfaces.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Cross-Framework Interfaces and Dependency Direction}
+\label{app:v12_cross_framework}
+
+\paragraph{Purpose.}
+This appendix records typed interfaces between TIR and sibling analytic or
+dynamical frameworks.  Each interface preserves source direction: exact
+mathematical identities remain exact, TIR structural identifications retain
+their TIR ownership, and downstream physical bindings keep their own validation
+gate.  GREMLIN may propose cross-domain isomorphisms on this surface; theorem or
+validator receipts remain the promotion gate.
+
+\section{Half coordinate and binary information}
+
+For binary entropy
+\[
+H_2(p)=-p\ln p-(1-p)\ln(1-p),
+\]
+\[
+H_2'(p)=\ln\frac{1-p}{p},
+\qquad
+H_2''(p)=-\frac1p-\frac1{1-p}<0.
+\]
+Therefore
+\[
+\boxed{
+\operatorname*{arg\,max}_{0<p<1}H_2(p)=\frac12,
+\qquad
+H_2(1/2)=\ln2.
+}
+\]
+The same midpoint is the unique fixed point of complement \(p\mapsto1-p\).
+In the odds coordinate
+\[
+q=\frac{p}{1-p},
+\]
+it maps to \(q=1\), the positive fixed point of reciprocal inversion.
+
+TIR uses this exact half/information pair as the numerator side of the canonical
+flavour-mixing normalization.
+
+\section{TIR ownership of the \(24\pi\) denominator}
+
+The flavour carrier is
+\[
+V_F\cong\mathbb C^3,
+\qquad
+U_F\in SU(3)_F.
+\]
+Hence
+\[
+N_F=3,\qquad
+\dim_{\mathbb R}\mathfrak{su}(3)_F=8.
+\]
+The generator--flavour incidence count is
+\[
+N_{\rm mix}=3\times8=24.
+\]
+The half coordinate on a full \(2\pi\) angular closure supplies the primitive
+half-turn
+\[
+\Delta\phi_{1/2}=\pi,
+\]
+so
+\[
+\Phi_{\rm mix}=24\pi.
+\]
+Combining the balanced binary information with the mixing-phase measure gives
+\[
+\boxed{
+\kappa
+=\frac{H_2(1/2)}{\Phi_{\rm mix}}
+=\frac{\ln2}{24\pi}.
+}
+\]
+This is the canonical TIR-internal normalization theorem.  The regular
+tetrahedral symmetry \(|S_4|=24\) supplies an independent finite-symmetry
+crosscheck of the same integer while Chapter~9 retains sole publication
+ownership of the complete derivation.
+
+\section{Secret-of-a-Half negative-inverse interface}
+
+Define
+\[
+\Omega(s)=\frac{s}{1-s},
+\qquad
+z_L(s)=1-\frac1s=-\frac1{\Omega(s)}.
+\]
+Writing \(s=\sigma+it\),
+\[
+|z_L(s)|^2
+=
+\frac{(\sigma-1)^2+t^2}{\sigma^2+t^2}.
+\]
+Therefore
+\[
+|z_L(s)|=1
+\iff
+(\sigma-1)^2=\sigma^2
+\iff
+\boxed{\sigma=\frac12}.
+\]
+Thus the critical axis is exactly the unit-circle locus of the
+negative-inverse coordinate:
+\[
+\boxed{
+\Re s=\frac12
+\iff
+|z_L(s)|=1.
+}
+\]
+
+The current cross-framework source is
+\path{TIR/interfaces/TIR_SOH_GLOBAL_LI_DOMINATION_BRIDGE_V0_1.md}.
+For one reciprocal-conjugate zero quartet with
+\[
+z_\rho=Re^{i\phi},
+\]
+its local Li contribution is
+\[
+L_n(Q_\rho)
+=4-2(R^n+R^{-n})\cos(n\phi).
+\]
+The interface document gives a conditional global-domination theorem candidate:
+under the standard symmetric Li representation and classical zero-counting
+estimate, an off-axis zero creates an extremal radial shell whose recurrent
+phase subsequence dominates the subextremal remainder and yields negative Li
+coefficients along a subsequence.
+
+The remaining analytic promotion target in that branch is the independently
+derived native positivity implication
+\[
+\boxed{
+\text{native arithmetic closure}
+\Longrightarrow
+\lambda_n\ge0\quad\forall n.
+}
+\]
+This target remains OPEN in Chapter~21.
+\vTwelveStatus{B}{--}{OPEN}
+
+\section{Self-dual fixed point versus extremality}
+
+The half-axis interface also carries a useful diagnostic boundary.  Reciprocal
+symmetry by itself fixes a self-dual locus, while dynamical preference requires
+an additional variational or positivity condition.
+
+In a finite reciprocal family \(N_n(q)=N_n(1/q)\), the fixed point \(q=1\) may
+coexist with off-centre reciprocal extrema.  v12 therefore treats
+\[
+\boxed{
+\text{reciprocal symmetry}
++\text{explicit extremality condition}
+\to
+\text{extremum claim}
+}
+\]
+as the admissible dependency order.  This prevents symmetry from silently
+serving as an unproved stability theorem.
+
+\section{TIR--IDT phase-clock scale interface}
+
+The projective quantities
+\[
+a_{FS},\qquad
+\int\mathcal F_B,\qquad
+|\langle\psi_a|\psi_b\rangle|^2,\qquad
+\kappa
+\]
+are dimensionless.  The IDT phase-clock interface supplies the length carrier
+\[
+\boxed{
+\ell_\varphi
+=\frac{c}{|\omega_t|}
+=c\left|\frac{dt}{d\varphi}\right|
+=\frac{\hbar c}{E}.
+}
+\]
+The exact dimensional typing therefore permits the physicalization candidate
+\[
+\boxed{
+ds_{\rm rel}^2
+=\ell_\varphi^2\,ds_{FS}^2.
+}
+\]
+For
+\[
+ds_{FS}^2
+=\frac14(d\theta^2+\sin^2\theta\,d\varphi^2),
+\]
+the associated area candidate is
+\[
+d\mathcal A_{\rm rel}
+=\ell_\varphi^2\,da_{FS}.
+\]
+With spin-\(1/2\) Berry curvature
+\[
+\mathcal F_B=\pm2\,da_{FS},
+\]
+one obtains
+\[
+d\mathcal A_{\rm rel}
+=\pm\frac{\ell_\varphi^2}{2}\mathcal F_B.
+\]
+
+The source contract is
+\path{TIR/integration/TIR_IDT_INFORMATION_AREA_CURVATURE_V0_2.md},
+whose status separates exact dimensional closure from the physical
+phase-clock scale-binding candidate.
+
+\section{Polyhedral refinement export}
+
+For a CP1 polyhedral cell complex \(P\) with facewise phase-clock scale,
+\[
+\mathcal A_{\rm rel}^{(P)}
+=
+\sum_{f\in P}\ell_{\varphi,f}^2\,a_{FS}(f).
+\]
+For a uniform cell rate,
+\[
+\mathcal A_{\rm rel}^{(P)}
+=
+\frac{c^2}{\omega_P^2}a_{FS}^{(P)}.
+\]
+The refinement target is
+\[
+\boxed{
+\mathcal A_{\rm rel}^{(P_n)}
+\longrightarrow
+\mathcal A_{\rm rel}
+}
+\]
+under a controlled refinement sequence.  This target is the dimensional bridge
+feeding the TIR--IDT spatial/temporal join.
+
+\section{GR/RFC dependency export}
+
+The v12 completion DAG keeps the relativistic line ordered as
+\[
+\boxed{
+\begin{aligned}
+\text{discrete solder/torsion}
+&\to\text{Cartan refinement}\\
+&\to T^a=0\text{ spatial sector}\\
+&\to\text{TIR--IDT ADM join}\\
+&\to\text{Einstein constraint/evolution closure}.
+\end{aligned}
+}
+\]
+The cross-framework appendix therefore exports typed parent surfaces rather
+than importing downstream gravitational equations as foundational premises.
+
+The information-area curvature candidate
+\[
+\Xi_I^{(P)}
+=
+\frac{\mathcal J_\pi}{a_{FS}^{(P)}}
+\left(\frac{\omega_P}{c}\right)^2
+\]
+is available as a dimensionally closed interface.  RFC owns the downstream
+binding of this quantity to its dynamical curvature/action surface.
+
+\section{Software and GREMLIN boundary}
+
+The runtime/solver layer may consume the normalized cycle, phase and relation
+surfaces exported by TIR.  Runtime behavior is not a proof parent for the
+mathematical theorem graph; instrument or runtime tests enter through explicit
+evidence receipts.
+
+GREMLIN is used as a bounded candidate-generation and adversarial-audit layer:
+SPIDER may propose dependency isomorphisms, HOUND may search for contradictions,
+MOLE may propose derivation routes and MANTIS may detect duplicate ownership.
+A GREMLIN candidate enters the v12 theorem graph only after an independent
+deterministic proof/validator gate.
+
+\section{Interface status table}
+
+\begin{center}
+\begin{tabular}{p{0.32\textwidth}p{0.23\textwidth}p{0.32\textwidth}}
+\toprule
+Interface & Status & Owner\\
+\midrule
+\(1/2\leftrightarrow\ln2\) & exact & binary information layer\\
+\(3\times8\times\pi\to24\pi\) & TIR structural PASS & Chapter~9\\
+\(\Re s=1/2\leftrightarrow|z_L|=1\) & exact & SOH interface\\
+off-axis \(\to\) negative Li subsequence & conditional theorem candidate & SOH bridge\\
+native closure \(\to\lambda_n\ge0\) & OPEN & SOH completion frontier\\
+\(\ell_\varphi=c/|\omega_t|\) typing & exact dimensional closure & IDT interface\\
+\(ds_{\rm rel}^2=\ell_\varphi^2ds_{FS}^2\) & scale-binding candidate & TIR--IDT interface\\
+Cartan/ADM/Einstein closure & OPEN & Chapter~21 / RFC join\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The deterministic appendix integration validator checks the exact half-axis
+identity, canonical \(\kappa\) ownership markers, the IDT length-scale equation,
+the Li-positivity frontier marker and the bounded GREMLIN promotion rule.
+
+% ---- END TIR/monograph/v12/appendices/appD_cross_framework_interfaces.tex ----
+\clearpage

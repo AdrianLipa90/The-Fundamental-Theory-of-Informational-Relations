@@ -1,0 +1,260 @@
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{First Distinction and the Relational Kernel}
+\label{ch:v12_first_distinction}
+
+\section{Dependency before temporal order}
+
+The monograph begins before any object is admitted. Write
+\begin{equation}
+\boxed{X\prec_{\rm dep}Y}
+\end{equation}
+when the admitted structure represented by $Y$ uses $X$ as an upstream parent in the derivation graph. Temporal ordering receives its own dynamical treatment in the companion time branch; the primitive relation used here is therefore a dependency order.
+
+TIR defines existential admissibility relationally. A relational presentation is
+\begin{equation}
+\mathfrak R=(X,\mathcal D),
+\end{equation}
+with support set $X$ and realized distinction/relation set $\mathcal D$. The pre-object zero layer is
+\begin{equation}
+\boxed{
+\mathfrak Z_{\rm rel}=(\varnothing,\varnothing).
+}
+\label{eq:v12_relational_zero}
+\end{equation}
+It is not a point and not a singleton. It is zero realized relational structure. Therefore the support set contains no element.
+
+The logical status is exact but scoped. Once TIR defines existence through realized relation or distinction, the absence of an existent object in the empty relational presentation follows by definition. The relational-existence rule itself is the declared TIR ontological entry condition.
+
+Leaving relational zero requires nonempty support. The least nonempty support candidate is the point
+\begin{equation}
+\boxed{
+\mathcal P=\{p\},
+\qquad
+|\mathcal P|=1.
+}
+\label{eq:v12_minimal_point_support}
+\end{equation}
+Thus
+\begin{equation}
+\boxed{
+\mathfrak Z_{\rm rel}\neq\mathcal P.
+}
+\end{equation}
+The unresolved point $(\mathcal P,\varnothing)$ supplies support but not yet a realized relational distinction.
+\vTwelveStatus{B}{--}{PASS}
+
+\section{Primitive kernel}
+
+The A0 relational-existence root and the eight A1--A8 TIR axioms are grouped by role rather than by historical order:
+\begin{description}
+\item[A0 -- relational existence / zero:] defines the empty pre-object relational presentation $\mathfrak Z_{\rm rel}$ and separates zero from the later point support.
+\item[A1 -- point minimality:] supplies the minimal non-empty support candidate $\mathcal P$.
+\item[A2 -- quantum point:] supplies quantum representability for the minimal carrier, but does not by itself fix a two-dimensional carrier, projective state space or Bloch-sphere realization; the minimal two-state carrier is admitted only after the binary first distinction.
+\item[A3 -- information primacy:] supplies distinguishable informational relations and their normalized information carrier.
+\item[A4 -- spherical geometric efficiency:] selects the sphere for the declared isotropic boundary/volume functional.
+\item[A5 -- arithmetic measures geometry:] reads geometric closure through discrete invariants such as winding or multiplicity.
+\item[A6 -- natural numbers from complex phase closure:] assigns natural closure indices to admitted complex phase structure.
+\item[A7 -- universal symmetry:] supplies symmetry-governed relational laws and the primitive exchange action.
+\item[A8 -- paradox stabilization:] lifts context-dependent incompatible projections into a higher-order closure carrier.
+\end{description}
+
+This partition creates a circularity firewall: minimal nontrivial distinction fixes binarity before exchange symmetry is introduced; A7 then acts on the already-binary relation. Arithmetic closure indices enter later through A5--A6.
+
+\section{Minimal first distinction and primitive exchange orbit}
+
+Let $\Omega_{\mathcal P}$ be the state/aspect domain carried by the point support. A distinction is a partition $\Pi$ of this domain. Nontriviality requires more than one nonempty block,
+\begin{equation}
+|\Pi|>1.
+\end{equation}
+Hence the least nontrivial distinction has exactly two outcomes,
+\begin{equation}
+\boxed{
+|\Pi_1|=2,
+\qquad
+\Pi_1=\{N,S\}.
+}
+\label{eq:v12_minimal_binary_partition}
+\end{equation}
+
+\begin{theorem}[Minimal binary distinction]
+Every nontrivial partition has at least two nonempty blocks. Therefore the minimal nontrivial distinction is binary.
+\end{theorem}
+
+The labels $N,S$ are relational poles or aspects of the minimal carrier. They are not assumed to be two pre-existing spatial objects.
+
+Only after this binary distinction exists does the primitive exchange symmetry act:
+\begin{equation}
+\boxed{
+J:N\leftrightarrow S,
+\qquad
+J^2=\mathrm{id}.
+}
+\label{eq:v12_primitive_involution}
+\end{equation}
+Choosing $x=N$ gives $Jx=S\neq x$ and
+\begin{equation}
+\boxed{
+\mathcal O_J(x)=\{x,Jx\}=\{N,S\}.
+}
+\label{eq:v12_primitive_binary_orbit}
+\end{equation}
+
+Thus binarity is not inferred from an order-two involution. The involution is the exchange symmetry of the already-minimal binary distinction.
+\vTwelveStatus{B}{--}{PASS}
+
+\section{Unique exchange-invariant share}
+
+Attach normalized nonnegative relational weights
+\begin{equation}
+w_N,w_S\ge0,
+\qquad
+w_N+w_S=1.
+\end{equation}
+Exchange invariance gives
+\begin{equation}
+(w_N,w_S)=(w_S,w_N),
+\end{equation}
+therefore
+\begin{equation}
+w_N=w_S.
+\end{equation}
+Normalization fixes the unique symmetric assignment,
+\begin{equation}
+\boxed{
+(w_N,w_S)=\left(\frac12,\frac12\right).
+}
+\label{eq:v12_unique_half_share}
+\end{equation}
+
+\begin{theorem}[Unique exchange-invariant share]
+The unique normalized nonnegative weight assignment invariant under exchange of the two primitive poles is $(1/2,1/2)$.
+\end{theorem}
+
+Introducing the scalar coordinate
+\[
+u=w_S,
+\qquad
+w_N=1-u,
+\]
+turns the pole exchange into
+\begin{equation}
+J(u)=1-u.
+\end{equation}
+Its unique fixed point is
+\begin{equation}
+\boxed{\operatorname{Fix}(J)=\left\{\frac12\right\}.}
+\label{eq:v12_half_fixed_point}
+\end{equation}
+Thus the normalized exchange-invariant vector and the half coordinate are two descriptions of the same primitive balance.
+
+\section{First information value}
+
+For the normalized binary relation, use the Shannon carrier
+\begin{equation}
+H_2(u)=-(1-u)\ln(1-u)-u\ln u.
+\end{equation}
+At the exchange-fixed share,
+\begin{equation}
+\boxed{H_2(1/2)=\ln2.}
+\label{eq:v12_first_ln2}
+\end{equation}
+This yields the first exact scalar dependency chain
+\begin{equation}
+\boxed{
+\mathfrak Z_{\rm rel}
+\rightarrow
+\mathcal P
+\rightarrow
+\{N,S\}
+\xrightarrow{\rm exchange\ invariance}
+\frac12
+\xrightarrow{H_2}
+\ln2.
+}
+\label{eq:v12_primitive_scalar_chain}
+\end{equation}
+Its minimal TIR parent set is A0, A1, the minimal-nontrivial-distinction rule, A3 and A7. A2 enters only at the coherent quantum lift.
+
+\section{Quantum lift}
+
+Represent the two poles by an orthonormal basis
+\[
+|N\rangle,\qquad |S\rangle.
+\]
+Their minimal complex span is
+\begin{equation}
+\boxed{\mathcal H_{NS}\cong\mathbb C^2.}
+\label{eq:v12_binary_c2}
+\end{equation}
+The balanced coherent family is
+\begin{equation}
+\boxed{
+|\psi_{1/2}(\varphi)\rangle
+=\frac{|N\rangle+e^{i\varphi}|S\rangle}{\sqrt2},
+\qquad
+\varphi\in\mathbb R/2\pi\mathbb Z.
+}
+\label{eq:v12_balanced_spinor}
+\end{equation}
+The relative phase is therefore an additional coherent coordinate above the same scalar half point.
+
+The primitive output packet is
+\begin{equation}
+\boxed{
+\mathfrak Z_{\rm rel}
+\prec_{\rm dep}
+\mathcal P
+\prec_{\rm dep}
+\{N,S\}
+\prec_{\rm dep}
+\frac12
+\prec_{\rm dep}
+\ln2
+\prec_{\rm dep}
+\mathbb C^2.
+}
+\label{eq:v12_primitive_packet}
+\end{equation}
+
+\section{Branch separation}
+
+Projectivization of the two-state carrier and the spatial geometry developed in Parts I--II proceed from the common primitive packet. The three-flavour/Standard-Model branch proceeds from the same root after the geometric carrier is established. The sibling time programme receives the primitive packet through its own typed interface.
+
+The dependency architecture is therefore
+\[
+\boxed{
+\mathcal C_0
+\prec_{\rm dep}
+\left\{
+\mathcal G_X^{\rm TIR},
+\mathcal B_{\rm SM}^{\rm TIR},
+\mathcal B_T^{\rm IDT}
+\right\},
+}
+\]
+where $\mathcal C_0$ denotes the admitted primitive information/quantum packet.
+
+The spatial and temporal branches later meet through the declared closure surface
+\begin{equation}
+\mathfrak S_X^{\rm TIR}\otimes\mathfrak T^{\rm IDT}
+\longrightarrow
+\mathfrak M_{XT},
+\end{equation}
+and the matter branch then couples to the resulting spacetime carrier. The formal completion order of these joins is recorded in Chapter~\ref{ch:v12_completion_frontier}.
+
+\section{First-chapter invariant}
+
+The foundational narrative used by the rest of v12 is therefore
+\begin{equation}
+\boxed{
+\text{relational zero}
+\to\text{minimal point support}
+\to\text{minimal nontrivial distinction}
+\to\text{two poles}
+\to\text{exchange symmetry}
+\to\frac12
+\to\ln2
+\to\mathbb C^2.
+}
+\end{equation}
+The next chapter resolves the geometry and information content of the half coordinate before any flavour normalization is introduced.

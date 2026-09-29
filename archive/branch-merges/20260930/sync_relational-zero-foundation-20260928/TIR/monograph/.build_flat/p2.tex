@@ -1,0 +1,1033 @@
+% GENERATED LOCAL-BUILD FLAT PART — DO NOT MERGE
+
+% ---- BEGIN TIR/monograph/v12/chapters/ch04_c2_to_herm0_r3.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter[C2 to Herm0(2) and R3]{From $\mathbb C^2$ to $\operatorname{Herm}_0(2)\cong\mathbb R^3$}
+\label{ch:v12_c2_herm0_r3}
+
+\section{Traceless relational generator space}
+
+Every Hermitian operator on the binary carrier has the Pauli decomposition
+\begin{equation}
+A=a_0I+\mathbf a\cdot\boldsymbol\sigma,
+\qquad
+\mathbf a=(a_x,a_y,a_z)\in\mathbb R^3.
+\end{equation}
+The uniform component $a_0I$ acts equally on the two primitive alternatives. The distinction-generating translation space is therefore
+\begin{equation}
+\boxed{
+\mathfrak g_{\rm rel}
+:=\operatorname{Herm}_0(2)
+=\{A=A^\dagger:\operatorname{Tr}A=0\}
+=\operatorname{span}_{\mathbb R}\{\sigma_x,\sigma_y,\sigma_z\}.
+}
+\label{eq:v12_herm0_def}
+\end{equation}
+Hence
+\begin{equation}
+\boxed{
+\dim_{\mathbb R}\mathfrak g_{\rm rel}=3,
+\qquad
+\operatorname{Herm}_0(2)\cong\mathbb R^3.
+}
+\label{eq:v12_herm0_r3}
+\end{equation}
+\vTwelveStatus{A}{--}{PASS}
+This is an exact linear-algebraic property of the admitted two-state complex carrier.
+
+\section{Canonical metric}
+
+Define the Hilbert--Schmidt pairing on traceless Hermitian generators by
+\begin{equation}
+\boxed{
+\langle A,B\rangle_{\rm HS}
+=\frac12\operatorname{Tr}(AB).
+}
+\label{eq:v12_hs_metric}
+\end{equation}
+The Pauli basis obeys
+\begin{equation}
+\frac12\operatorname{Tr}(\sigma_i\sigma_j)=\delta_{ij}.
+\end{equation}
+Thus, for
+\[
+A=\mathbf a\cdot\boldsymbol\sigma,
+\qquad
+B=\mathbf b\cdot\boldsymbol\sigma,
+\]
+one obtains
+\begin{equation}
+\boxed{
+\langle A,B\rangle_{\rm HS}=\mathbf a\cdot\mathbf b,
+\qquad
+\|A\|^2=\frac12\operatorname{Tr}(A^2)=|\mathbf a|^2.
+}
+\label{eq:v12_hs_euclidean}
+\end{equation}
+The generator space therefore carries a positive-definite Euclidean quadratic form canonically inherited from the operator algebra.
+\vTwelveStatus{A}{--}{PASS}
+
+\section{Unit relational directions}
+
+For
+\begin{equation}
+A=\mathbf n\cdot\boldsymbol\sigma,
+\qquad
+|\mathbf n|=1,
+\end{equation}
+the Pauli algebra gives
+\begin{equation}
+A^2=I.
+\end{equation}
+Conversely, a traceless Hermitian $2\times2$ operator with $A^2=I$ has unit coefficient vector. Hence
+\begin{equation}
+\boxed{
+\{A\in\mathfrak g_{\rm rel}:\|A\|=1\}
+\cong S^2.
+}
+\label{eq:v12_generator_sphere}
+\end{equation}
+The Bloch pure-state sphere and the unit generator sphere therefore live in the same coefficient carrier.
+
+\section[SU(2) covariance]{$SU(2)$ covariance}
+
+Conjugation by $U\in SU(2)$ acts as
+\begin{equation}
+A\mapsto UAU^\dagger.
+\end{equation}
+It preserves tracelessness, Eq.~\eqref{eq:v12_hs_metric}, and the norm. On coefficient vectors this is the adjoint rotation
+\begin{equation}
+\boxed{
+\operatorname{Ad}:SU(2)\to SO(3),
+\qquad
+\ker\operatorname{Ad}=\{\pm I\}.
+}
+\end{equation}
+Thus the same algebra supplies the three-real-dimensional carrier, its Euclidean metric and its rotation group.
+
+\section{Trace-one affine state space}
+
+Let a primitive locus $x$ carry a normalized two-level state
+\begin{equation}
+\rho_x=\rho_x^\dagger,
+\qquad
+\operatorname{Tr}\rho_x=1.
+\end{equation}
+The affine hull of normalized states is
+\begin{equation}
+\boxed{
+\mathcal A_2
+=\frac12I+\operatorname{Herm}_0(2),
+\qquad
+\dim_{\mathbb R}\mathcal A_2=3.
+}
+\label{eq:v12_affine_state_space}
+\end{equation}
+Its translation space is exactly $\operatorname{Herm}_0(2)$.
+
+\section{Canonical affine relation}
+
+For two primitive loci $x,y$, define
+\begin{equation}
+\boxed{
+\mathcal E_{xy}:=2(\rho_y-\rho_x).
+}
+\label{eq:v12_affine_relation}
+\end{equation}
+If
+\[
+\rho_x=\frac12(I+\mathbf r_x\cdot\boldsymbol\sigma),
+\qquad
+\rho_y=\frac12(I+\mathbf r_y\cdot\boldsymbol\sigma),
+\]
+then
+\begin{equation}
+\boxed{
+\mathcal E_{xy}
+=(\mathbf r_y-\mathbf r_x)\cdot\boldsymbol\sigma
+\in\operatorname{Herm}_0(2).
+}
+\end{equation}
+The normalization factor $2$ removes the Bloch $1/2$ convention and gives the direct coefficient displacement.
+
+The affine relation satisfies the exact endpoint laws
+\begin{align}
+\mathcal E_{xx}&=0,\\
+\mathcal E_{yx}&=-\mathcal E_{xy},\\
+\boxed{\mathcal E_{xz}}&=\boxed{\mathcal E_{xy}+\mathcal E_{yz}}.
+\label{eq:v12_endpoint_composition}
+\end{align}
+Equivalently,
+\begin{equation}
+\mathcal E_{xy}+\mathcal E_{yz}+\mathcal E_{zx}=0.
+\end{equation}
+The local endpoint-composition rule is therefore inherited directly from affine state differences.
+\vTwelveStatus{A}{--}{PASS}
+
+\section{Metric of relational displacement}
+
+Using Eq.~\eqref{eq:v12_hs_metric},
+\begin{equation}
+\boxed{
+\|\mathcal E_{xy}\|^2
+=\frac12\operatorname{Tr}(\mathcal E_{xy}^2)
+=|\mathbf r_y-\mathbf r_x|^2.
+}
+\label{eq:v12_affine_relation_metric}
+\end{equation}
+A common local unitary frame transformation
+\begin{equation}
+\rho_x\mapsto U\rho_xU^\dagger
+\end{equation}
+gives
+\begin{equation}
+\mathcal E_{xy}\mapsto U\mathcal E_{xy}U^\dagger,
+\end{equation}
+so the relation, metric and composition law are all $SU(2)$-covariant with effective $SO(3)$ action on coefficient vectors.
+
+\section{Spatial promotion gate}
+
+The TIR spatial bridge is now sharply typed:
+\begin{equation}
+\boxed{
+\texttt{RELATION\_AS\_CANONICAL\_QUANTUM\_STATE\_DIFFERENCE}:
+\qquad
+x\to y
+\ \widehat{=}\ 
+\mathcal E_{xy}=2(\rho_y-\rho_x).
+}
+\label{eq:v12_relation_promotion_rule}
+\end{equation}
+Under this identification, the local physical relation carrier is
+\begin{equation}
+\boxed{
+T_x\Sigma\;\widehat{=}\;\operatorname{Herm}_0(2)\cong\mathbb R^3
+}
+\label{eq:v12_spatial_promotion}
+\end{equation}
+with metric inherited from Eq.~\eqref{eq:v12_hs_metric} and additive local displacement inherited from Eq.~\eqref{eq:v12_endpoint_composition}.
+\vTwelveStatus{B}{--}{OPEN}
+The exact algebraic consequences of the rule are established above; the foundational promotion of physical spatial relation to the canonical quantum-state difference remains the named bridge whose uniqueness is addressed by the next chapter.
+
+\section{Tetrahedral affine frame preview}
+
+Four affinely independent pure qubit states span the full trace-one affine hull. The regular tetrahedral set
+\begin{equation}
+\sum_{a=1}^4\mathbf n_a=0,
+\qquad
+\mathbf n_a\cdot\mathbf n_b=-\frac13\quad(a\neq b)
+\end{equation}
+provides a minimal four-point affine frame in this three-dimensional carrier. It later appears simultaneously as the regular spatial cell and the qubit informationally complete tetrahedral frame.
+
+The output of Part I is therefore
+\begin{equation}
+\boxed{
+\mathbb C^2
+\to
+\mathcal A_2=\frac12I+\operatorname{Herm}_0(2)
+\to
+\mathcal E_{xy}\in\operatorname{Herm}_0(2)\cong\mathbb R^3
+}
+\end{equation}
+with exact affine composition, Euclidean metric and rotation covariance. Part II now asks when this carrier is uniquely promoted to local physical space and how its minimal finite cell closes.
+
+% ---- END TIR/monograph/v12/chapters/ch04_c2_to_herm0_r3.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/chapters/ch05_euclidean_geometry_dimension_gate.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Euclidean Geometry and the Spatial Dimension Gate}
+\label{ch:v12_euclidean_dimension}
+
+\section{Canonical affine relation carrier}
+
+The normalized two-level state carrier has affine hull
+\[
+\mathcal A_2
+=
+\{\rho=\rho^\dagger:\operatorname{Tr}\rho=1\}
+=
+\frac12I+\operatorname{Herm}_0(2).
+\]
+Write
+\[
+V:=\operatorname{Herm}_0(2)
+=
+\operatorname{span}_{\mathbb R}\{\sigma_x,\sigma_y,\sigma_z\}.
+\]
+Since \(\dim_{\mathbb R}\operatorname{Herm}(2)=4\) and the trace-one condition removes one
+real affine degree of freedom,
+\[
+\boxed{\dim_{\mathbb R}V=3.}
+\]
+
+For an ordered pair of admitted point states \((\rho_x,\rho_y)\), the affine torsor
+has a unique endpoint-carrying displacement
+\[
+\boxed{\mathfrak e_{xy}:=\rho_y-\rho_x\in V},
+\qquad
+\rho_x+\mathfrak e_{xy}=\rho_y.
+\]
+The generator-normalized relation used below is
+\[
+\boxed{\mathcal E_{xy}:=2\mathfrak e_{xy}.}
+\]
+It satisfies the exact endpoint identities
+\[
+\mathcal E_{yx}=-\mathcal E_{xy},
+\qquad
+\boxed{\mathcal E_{xz}=\mathcal E_{xy}+\mathcal E_{yz}},
+\]
+and therefore
+\[
+\mathcal E_{xy}+\mathcal E_{yz}+\mathcal E_{zx}=0.
+\]
+This endpoint-carrying universal property is the canonical local relation exported
+by the v12 spatial branch.
+
+\section{Invariant Euclidean metric}
+
+On \(V\), define
+\[
+\boxed{
+\langle A,B\rangle
+=
+\frac12\operatorname{Tr}(AB).
+}
+\]
+The Pauli basis obeys
+\[
+\frac12\operatorname{Tr}(\sigma_i\sigma_j)=\delta_{ij}.
+\]
+Hence, for
+\[
+A=\mathbf a\cdot\boldsymbol\sigma,
+\qquad
+B=\mathbf b\cdot\boldsymbol\sigma,
+\]
+one has
+\[
+\boxed{
+\langle A,B\rangle=\mathbf a\cdot\mathbf b,
+\qquad
+\|A\|^2=\frac12\operatorname{Tr}(A^2)=|\mathbf a|^2.
+}
+\]
+The positive quadratic form is therefore Euclidean in Pauli coefficients.
+
+The Pythagorean relation follows immediately. If
+\[
+\langle A,B\rangle=0,
+\]
+then
+\[
+\begin{aligned}
+\|A+B\|^2
+&=\langle A+B,A+B\rangle\\
+&=\|A\|^2+2\langle A,B\rangle+\|B\|^2,
+\end{aligned}
+\]
+so
+\[
+\boxed{\|A+B\|^2=\|A\|^2+\|B\|^2.}
+\]
+Thus the local affine relation carrier already contains the Euclidean norm,
+orthogonality and Pythagorean closure used by the later spatial construction.
+
+\section{Rotational covariance}
+
+For \(U\in SU(2)\),
+\[
+A\mapsto UAU^\dagger
+\]
+preserves trace and the Hilbert--Schmidt metric.  The induced action on coefficient
+vectors is
+\[
+\boxed{
+\operatorname{Ad}:SU(2)\longrightarrow SO(3),
+\qquad
+SU(2)/\{\pm I\}\cong SO(3).
+}
+\]
+The unit relation directions therefore form
+\[
+\boxed{
+\{A\in V:\|A\|=1\}\cong S^2.
+}
+\]
+
+\section{Rank-three stabilization}
+
+At a relational locus \(x\), define the outgoing relation span
+\[
+W_x
+:=
+\operatorname{span}_{\mathbb R}
+\{\mathcal E_{xy}:y\sim x\}
+\subseteq V.
+\]
+Assume a populated primitive patch,
+\[
+W_x\neq\{0\},
+\]
+and full local relational isotropy,
+\[
+R(W_x)=W_x
+\qquad
+\text{for every }R\in SO(3)
+\]
+from the adjoint action above.
+
+The defining real representation of \(SO(3)\) on \(\mathbb R^3\) is irreducible.
+Its invariant linear subspaces are therefore \(\{0\}\) and the full carrier.
+Consequently
+\[
+\boxed{
+W_x\neq0,\quad SO(3)W_x=W_x
+\Longrightarrow
+W_x=V
+\Longrightarrow
+\dim W_x=3.
+}
+\]
+Rank one selects an axis and rank two selects a plane; the full primitive isotropy
+stabilizes the three-dimensional carrier.
+
+\section{Minimal faithful realization crosscheck}
+
+The same dimension is independently fixed by the minimal faithful real orthogonal
+realization of the primitive rotation group. A continuous \(SO(3)\) action on a
+one-dimensional real orthogonal carrier has trivial connected image.  A
+two-dimensional orthogonal image lies in \(SO(2)\), while \(SO(3)\) is non-Abelian
+and perfect.  The defining three-dimensional representation is faithful.
+
+Therefore the minimal faithful real orthogonal carrier has
+\[
+\boxed{\dim_{\mathbb R}V_x=3}
+\]
+and is unique up to orthogonal equivalence.  Its invariant positive metric is
+unique up to an overall positive scale.  The canonical dimensionless
+normalization used here is exactly
+\[
+h(A,B)=\frac12\operatorname{Tr}(AB).
+\]
+
+\section{Continuum interface}
+
+The discrete spatial branch is now source-bound by
+\[
+\boxed{
+(\rho_x,\rho_y)
+\longmapsto
+\mathcal E_{xy}=2(\rho_y-\rho_x)
+\in\operatorname{Herm}_0(2)\cong\mathbb R^3.
+}
+\]
+The remaining geometric completion gate is the regular gluing/refinement step
+that turns neighboring local copies of \(V\) into a smooth coframe/tangent-bundle
+carrier.  Chapter~\ref{ch:v12_connections_holonomy} supplies the discrete
+connection, solder and torsion objects required for that refinement.
+
+\section{Source and validation receipt}
+
+The canonical theorem surfaces are
+\begin{itemize}
+\item \path{TIR/subrepos/the-space-of-geometry/foundations/CANONICAL_SPATIAL_RELATION_EXTRACTION_V0_1.md};
+\item \path{TIR/foundations/TIR_RANK3_ISOTROPY_STABILIZATION_V0_1.md};
+\item \path{TIR/subrepos/the-space-of-geometry/foundations/SPATIAL_PROMOTION_UNIQUENESS_V0_1.md}.
+\end{itemize}
+
+The deterministic v12 receipt is generated by
+\path{TIR/validation/tir_v12_ch05_euclidean_spatial_gate_v0_1.py}.
+
+% ---- END TIR/monograph/v12/chapters/ch05_euclidean_geometry_dimension_gate.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/chapters/ch06_tetrahedral_closure.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter{Minimal Finite Cell and Tetrahedral Closure}
+\label{ch:v12_tetrahedral_closure}
+
+\section{Minimal finite isotropy}
+
+Let
+\[
+\mathbf n_1,\ldots,\mathbf n_m\in\mathbb R^3,
+\qquad
+|\mathbf n_a|=1,
+\]
+be equal-weight local relation directions in the carrier constructed in
+Chapter~\ref{ch:v12_euclidean_dimension}.  Define
+\[
+\mathbf M:=\sum_{a=1}^{m}\mathbf n_a,
+\qquad
+Q:=\sum_{a=1}^{m}\mathbf n_a\mathbf n_a^T.
+\]
+The finite isotropy conditions are
+\[
+\boxed{\mathbf M=0},
+\qquad
+\boxed{Q=\frac m3 I_3}.
+\]
+The second condition has rank three.  For \(m\le2\) the relation span is
+rank-deficient.  If \(m=3\), the zero-moment equation places the third vector in
+the span of the first two, so the rank is at most two.  Hence
+\[
+\boxed{m\ge4.}
+\]
+
+For \(m=4\), place the four vectors into
+\[
+N=(\mathbf n_1\ \mathbf n_2\ \mathbf n_3\ \mathbf n_4).
+\]
+Then
+\[
+NN^T=\frac43I_3,
+\qquad
+N\mathbf1=0.
+\]
+The Gram matrix \(G=N^TN\) is therefore
+\[
+\boxed{
+G
+=
+\frac43I_4-\frac13\mathbf1\mathbf1^T,
+}
+\]
+so
+\[
+\boxed{
+\mathbf n_a\cdot\mathbf n_b
+=
+-\frac13
+\quad(a\neq b).
+}
+\]
+The minimal equal-weight finite full-isotropy cell is consequently the regular
+tetrahedral frame.
+
+A convenient exact representative is
+\[
+\mathbf n_1=\frac1{\sqrt3}(1,1,1),\quad
+\mathbf n_2=\frac1{\sqrt3}(1,-1,-1),
+\]
+\[
+\mathbf n_3=\frac1{\sqrt3}(-1,1,-1),\quad
+\mathbf n_4=\frac1{\sqrt3}(-1,-1,1).
+\]
+
+\section{Exact shape data}
+
+For distinct vertices,
+\[
+\|\mathbf n_a-\mathbf n_b\|^2
+=
+2-2\left(-\frac13\right)
+=
+\frac83,
+\]
+hence the normalized edge length is
+\[
+\boxed{\hat a=\sqrt{\frac83}}.
+\]
+The Euclidean volume of the regular tetrahedron is
+\[
+\boxed{
+\hat V_{\Delta^3}
+=
+\frac{\hat a^3}{6\sqrt2}
+=
+\frac{8}{9\sqrt3}.
+}
+\]
+
+\section{Independent qubit informational-completeness route}
+
+A generic qubit density operator has three independent real Bloch coordinates.
+An \(m\)-outcome normalized probability vector has at most \(m-1\) independent
+real entries.  Informational completeness therefore requires
+\[
+m-1\ge3,
+\qquad
+\boxed{m\ge4}.
+\]
+
+Using the same tetrahedral directions, define
+\[
+P_a=\frac12(I+\mathbf n_a\cdot\boldsymbol\sigma),
+\qquad
+E_a=\frac12P_a
+=\frac14(I+\mathbf n_a\cdot\boldsymbol\sigma).
+\]
+Since \(\sum_a\mathbf n_a=0\),
+\[
+\boxed{\sum_{a=1}^{4}E_a=I}.
+\]
+For \(a\neq b\),
+\[
+\boxed{\operatorname{Tr}(P_aP_b)=\frac13}.
+\]
+For
+\[
+\rho=\frac12(I+\mathbf r\cdot\boldsymbol\sigma)
+\]
+the outcome probabilities are
+\[
+p_a=\operatorname{Tr}(\rho E_a)
+=\frac14(1+\mathbf r\cdot\mathbf n_a).
+\]
+Using
+\[
+\sum_a\mathbf n_a\mathbf n_a^T=\frac43I_3
+\]
+gives the exact reconstruction
+\[
+\boxed{
+\mathbf r
+=
+3\sum_{a=1}^{4}p_a\mathbf n_a.
+}
+\]
+Thus the minimal symmetric informationally complete qubit frame and the minimal
+finite isotropic relation frame carry the same regular tetrahedral Gram data.
+
+\section{Congruence-class closure}
+
+Let \(N\) be an ordered spatial tetrahedral frame and \(M\) an ordered SIC
+tetrahedral frame, with
+\[
+N^TN=M^TM=G,
+\qquad
+NN^T=MM^T=\frac43I_3.
+\]
+Define
+\[
+\boxed{Q_{\Delta}:=\frac34MN^T.}
+\]
+Then
+\[
+Q_{\Delta}N=M,
+\qquad
+Q_{\Delta}Q_{\Delta}^T=I_3,
+\]
+so
+\[
+\boxed{Q_{\Delta}\in O(3).}
+\]
+After compatible orientation of the ordered frames the representative may be
+chosen in \(SO(3)\).  The two routes therefore occupy one exact tetrahedral
+orthogonal-congruence class in
+\(\operatorname{Herm}_0(2)\cong\mathbb R^3\).
+
+The common promoted object at this stage is this Gram/congruence class and its
+orthogonal shape invariants.  Semantic role binding between an informational
+outcome label and a spatial adjacency label remains a separate downstream
+binding.
+
+\section{Fubini--Study shape crosswalk}
+
+The Bloch central angle between tetrahedral directions obeys
+\[
+\cos\chi=-\frac13.
+\]
+For one spherical tetrahedral face the spherical cosine law gives the interior
+angle
+\[
+\alpha=\frac{2\pi}{3}.
+\]
+The spherical excess on the unit Bloch sphere is \(\pi\).  Since the qubit
+Fubini--Study metric satisfies
+\[
+ds_{FS}^2=\frac14ds_{S^2}^2,
+\]
+one face has
+\[
+\boxed{a_{FS}^{face}=\frac\pi4},
+\]
+and all four faces carry
+\[
+\boxed{a_{FS}^{tet}=\pi}.
+\]
+Therefore the dimensionless dual-shape coefficient is
+\[
+\boxed{
+C_{\Delta/FS}
+=
+\frac{\hat V_{\Delta^3}}{a_{FS}^{tet}}
+=
+\frac{8}{9\sqrt3\,\pi}.
+}
+\]
+
+\section{Legacy tetrahedral semantics}
+
+The historical v11 tetrahedron appendix carries the sector-specific
+operator labels
+\(\{\hat I,\hat M,\hat A_\mu,\hat A_\tau\}\) and its own six edge assignments.
+In v12 that object remains sector-level provenance.  The canonical geometric
+tetrahedron of this chapter is the regular Gram class derived above; any
+role-binding map between the two tetrahedral descriptions must preserve their
+typed edge data and receives its own source receipt.
+
+\section{Source and validation receipt}
+
+The canonical theorem surfaces are
+\begin{itemize}
+\item \path{TIR/foundations/TIR_MINIMAL_ISOTROPIC_TETRAHEDRAL_CELL_V0_1.md};
+\item \path{TIR/foundations/TIR_QUBIT_TETRAHEDRAL_INFORMATIONAL_COMPLETENESS_V0_1.md};
+\item \path{TIR/integration/TIR_TETRAHEDRAL_CONGRUENCE_CLASS_CLOSURE_V0_1.md}.
+\end{itemize}
+The deterministic v12 receipt is generated by
+\path{TIR/validation/tir_v12_ch06_tetrahedral_closure_v0_1.py}.
+
+% ---- END TIR/monograph/v12/chapters/ch06_tetrahedral_closure.tex ----
+\clearpage
+
+% ---- BEGIN TIR/monograph/v12/chapters/ch07_connections_holonomy_se3_solder_torsion.tex ----
+% !TEX root = ../../tir_monograph_v12.tex
+\chapter[Connections, Holonomy, SE(3), Solder and Torsion]{Connections, $W_{ij}$, Holonomy, $SE(3)$, Solder and Torsion}
+\label{ch:v12_connections_holonomy}
+
+\paragraph{v12.1 synchronization.}
+The original v12 migration closed this chapter at the discrete Universal-Loop
+source and treated Cartan refinement as the next theorem.  The current
+repository has since closed the local/refining Gates A2--A4 and implemented the
+Gate-A5 global three-manifold certifier.  This chapter now records those results
+without promoting the still-missing production global relational-complex input.
+
+\section{Typed connection transport}
+
+Let \(G\) be the structure group of an active sector and \(A_R\) its connection
+in a representation \(R\).  The common transport object is
+\[
+\boxed{
+W_{ij}^{(G,R)}
+=\mathcal P\exp\!\left(\int_{\gamma_{ij}}A_R\right).
+}
+\]
+For unitary transport,
+\[
+\boxed{W_{ji}=W_{ij}^{-1}=W_{ij}^{\dagger}},
+\]
+and under local frame changes
+\[
+\boxed{W_{ij}\mapsto G_iW_{ij}G_j^{-1}}.
+\]
+
+The v12 typing is
+\[
+\boxed{
+W_{ij}^{WT}\in U(1),
+\qquad W_{ij}^{X}\in SU(2),
+\qquad W_{ij}^{c}\in SU(3).
+}
+\]
+For the spatial branch,
+\[
+\boxed{R_{ij}:=\operatorname{Ad}_{W_{ij}^{X}}\in SO(3)}.
+\]
+A composable closed path carries
+\[
+\boxed{W_\gamma=W_{i_0i_1}W_{i_1i_2}\cdots W_{i_{m-1}i_0}}.
+\]
+Its conjugacy class is the gauge-covariant finite loop datum.
+
+\section{Atlas transitions and the holonomy firewall}
+
+Let a local affine chart \(a\) have anchor \(\mathbf r_a\) and orthonormal
+frame \(Q_a\in SO(3)\), with
+\[
+x_a=Q_a^T(\mathbf r-\mathbf r_a).
+\]
+For overlapping charts,
+\[
+\boxed{x_b=Q_b^TQ_a\,x_a+Q_b^T(\mathbf r_a-\mathbf r_b)}.
+\]
+Therefore
+\[
+\boxed{
+G_{ba}^{atlas}
+=(R_{ba},t_{ba})
+=\left(Q_b^TQ_a,Q_b^T(\mathbf r_a-\mathbf r_b)\right)
+\in SE(3).
+}
+\]
+For three charts,
+\[
+G_{cb}^{atlas}G_{ba}^{atlas}=G_{ca}^{atlas},
+\qquad
+G_{ab}^{atlas}=(G_{ba}^{atlas})^{-1}.
+\]
+A closed sequence of pure atlas transitions therefore gives
+\[
+\boxed{G_C^{atlas}=e_{SE(3)}}.
+\]
+This exact cocycle is the zero-holonomy baseline.  Path-dependent connection
+transport is carried by the separately typed \(W_{ij}\) layer.
+
+\section{Discrete solder object and endpoint defect}
+
+For every oriented spatial edge define
+\[
+\mathcal E_{xy}=E^a_{xy}\sigma_a\in\operatorname{Herm}_0(2),
+\qquad
+\ell_{xy}^2=\frac12\operatorname{Tr}(\mathcal E_{xy}^2).
+\]
+The reversed edge obeys the covariant orientation rule
+\[
+\boxed{
+\mathcal E_{yx}
+=-W_{yx}^{X}\mathcal E_{xy}(W_{yx}^{X})^\dagger.
+}
+\]
+For the oriented triangle \(x\to y\to z\to x\), define
+\[
+\boxed{
+\mathcal T_{xyz}
+=\mathcal E_{xy}
++W_{xy}^{X}\mathcal E_{yz}(W_{xy}^{X})^\dagger
++W_{xz}^{X}\mathcal E_{zx}(W_{xz}^{X})^\dagger.
+}
+\]
+The transported endpoint defect is
+\[
+\boxed{
+\mathcal C_{xyz}
+=\mathcal E_{xz}
+-\left(
+\mathcal E_{xy}
++W_{xy}^{X}\mathcal E_{yz}(W_{xy}^{X})^\dagger
+\right).
+}
+\]
+The existing relational endpoint identity is
+\[
+\boxed{\mathcal T_{xyz}=-\mathcal C_{xyz}}.
+\]
+
+\section{Gate A: affine-loop torsion source}
+
+Writing
+\[
+\mathcal E_{xy}=\mathbf e_{xy}\cdot\boldsymbol\sigma,
+\qquad
+R_{xy}=\operatorname{Ad}(W_{xy}^{X}),
+\]
+the connection-lifted affine edge is
+\[
+\boxed{G_{xy}^{\nabla}=(R_{xy},\mathbf e_{xy})\in SE(3)}.
+\]
+On the rotationally consistent triangle sector
+\[
+R_{xz}=R_{xy}R_{yz},
+\]
+the closed affine loop has
+\[
+\boxed{R_C=I},
+\qquad
+\boxed{
+\mathbf t_C
+=\operatorname{vec}(\mathcal T_{xyz})
+=-\operatorname{vec}(\mathcal C_{xyz}).
+}
+\]
+The scalar loop witness is
+\[
+\boxed{
+\tau_C
+=\|\mathbf t_C\|
+=\sqrt{\frac12\operatorname{Tr}(\mathcal T_{xyz}^2)}.
+}
+\]
+The source theorem is
+\path{TIR/foundations/TIR_UNIVERSAL_LOOP_TORSION_SOURCE_BINDING_V0_1.md}.
+\vTwelveStatus{B}{--}{PASS}
+
+\section{Gate A2: Cartan refinement}
+
+For an admitted shape-regular smooth family of shrinking relational triangles,
+with edge size \(\ell\to0\), the covariant edge realization gives
+\[
+\mathcal E_{pq}
+=e^a{}_{\mu}(p)\Delta x^{\mu}\sigma_a+O(\ell^2).
+\]
+With oriented area bivector \(\Sigma^{\mu\nu}_{\triangle}=O(\ell^2)\),
+the discrete solder object satisfies
+\[
+\boxed{
+\mathcal T_{\triangle}
+=\frac12T^a{}_{\mu\nu}(x)
+\Sigma^{\mu\nu}_{\triangle}\sigma_a
++O(\ell^3),
+}
+\]
+where
+\[
+\boxed{T^a=de^a+\omega^a{}_b\wedge e^b}.
+\]
+The rotational loop satisfies
+\[
+\boxed{
+R_{\triangle}
+=I+\frac12\Omega_{\mu\nu}(x)
+\Sigma^{\mu\nu}_{\triangle}+O(\ell^3),
+}
+\]
+with
+\[
+\boxed{
+\Omega^a{}_b
+=d\omega^a{}_b+\omega^a{}_c\wedge\omega^c{}_b.
+}
+\]
+Thus the corresponding area-normalized quantities converge to the Cartan
+torsion and curvature components under the declared refinement assumptions.
+The full affine-loop translation differs from the discrete solder torsion only
+by \(O(\ell^3)\) on a smooth curved connection, so its area-normalized limit
+carries the same torsion coefficient.
+
+Canonical source:
+\path{TIR/foundations/TIR_CARTAN_CONTINUUM_REFINEMENT_V0_1.md}.
+\vTwelveStatus{B}{--}{PASS}
+
+This is a conditional local/refining theorem.  It does not assert that the
+actual global TIR relational complex already supplies the required production
+refining family.
+
+\section{Gate A3: zero torsion and Levi-Civita selection}
+
+When the direct \(x\to z\) relation and the connection-composed
+\(x\to y\to z\) description are admitted as two representations of the same
+primitive ordered endpoint relation in the same comparison frame, intrinsic
+affine-displacement uniqueness selects
+\[
+\boxed{\mathcal C_{xyz}=0}.
+\]
+Hence
+\[
+\mathcal T_{xyz}=0,
+\]
+and Gate A2 carries the endpoint-compatible regular refinement to
+\[
+\boxed{T^a=0}.
+\]
+Because the spatial transport is induced through
+\[
+SU(2)\xrightarrow{\operatorname{Ad}}SO(3),
+\]
+it preserves the spatial metric, so \(Dh=0\).  The standard uniqueness theorem
+for a torsion-free metric-compatible connection then gives
+\[
+\boxed{D=D^{\rm LC}}.
+\]
+Zero torsion does not force zero curvature; the sector
+\[
+T^a=0,
+\qquad
+\Omega^a{}_b\ne0
+\]
+remains admitted.
+
+Canonical source:
+\path{TIR/foundations/TIR_ZERO_TORSION_LEVI_CIVITA_SELECTION_V0_1.md}.
+\vTwelveStatus{B}{--}{PASS}
+
+The broader context-lifted torsional Cartan branch remains typed separately.
+
+\section{Gate A4: leading-loop locality and metric jet}
+
+For a regular shrinking loop with \(A_C=\Theta(\epsilon^2)\), the leading
+rotational coefficient is
+\[
+\boxed{
+\frac{R_C-I}{A_C}\longrightarrow\Omega.
+}
+\]
+Curvature-derivative terms enter at higher powers of the refinement scale.
+The TIR Leading Refinement Rule selects the lowest finite nonzero covariant
+normalized loop coefficient as the primitive continuum carrier.  On the A3
+Levi-Civita sector, this gives the leading metric operator class
+\[
+\boxed{
+\mathcal E_{\mu\nu}
+=\mathcal E_{\mu\nu}(g,\partial g,\partial^2g),
+}
+\]
+while \(\nabla\Omega,\nabla^2\Omega,\ldots\) remain typed as higher-jet
+correction sectors.
+
+Canonical source:
+\path{TIR/foundations/TIR_LEADING_LOOP_LOCALITY_METRIC_JET_V0_1.md}.
+\vTwelveStatus{B}{--}{PASS}
+
+\section{Gate A5: global three-manifold certificate}
+
+For a supplied finite pure tetrahedral complex, Gate A5 checks the closed
+combinatorial three-manifold conditions through tetrahedral incidence and
+spherical vertex links.  A passing certificate gives a combinatorial
+three-manifold, and the standard Moise bridge supplies compatible smooth
+realization in dimension three.  On such a carrier, compatible local
+\(SO(3)\)-related coframes glue the metric globally, and the local A3
+Levi-Civita restrictions glue by uniqueness.
+
+Canonical source:
+\path{TIR/foundations/TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md}.
+
+The certifier and theorem are implemented.  The actual source-owned TIR global
+incidence complex has not yet been supplied as a frozen production input.
+\vTwelveStatus{B}{--}{OPEN}
+
+The production-input/freeze contract is
+\path{TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md}.
+The correct firewall is therefore
+\[
+\boxed{
+\text{A5 certifier PASS}
+\not\Rightarrow
+\text{production global-complex PASS}.
+}
+\]
+
+\section{Current spatial dependency line}
+
+The synchronized spatial chain is
+\[
+\boxed{
+\begin{aligned}
+\mathbb C^2
+&\to\operatorname{Herm}_0(2)\cong\mathbb R^3
+\to\mathcal E_{xy}
+\to W_{ij}^{X}/R_{ij}\\
+&\to\mathcal T_{xyz}
+\to\text{A2 Cartan refinement}
+\to\text{A3 }T^a=0/D^{LC}\\
+&\to\text{A4 leading metric jet}
+\to\text{A5 global manifold certificate}.
+\end{aligned}
+}
+\]
+The remaining spatial/global gate is the frozen production incidence carrier,
+followed by the inter-leaf temporal/spacetime join described in the completion
+frontier.
+
+\section{Source and validation receipt}
+
+The canonical source chain now includes
+\begin{itemize}
+\item \path{TIR/foundations/TIR_WIJ_HOLONOMY_CROSSWALK_V0_1.md};
+\item \path{TIR/foundations/TIR_SE3_ANCHOR_SOURCE_BINDING_V0_1.md};
+\item \path{TIR/foundations/TIR_DISCRETE_SOLDER_FORM_V0_1.md};
+\item \path{TIR/foundations/TIR_UNIVERSAL_LOOP_TORSION_SOURCE_BINDING_V0_1.md};
+\item \path{TIR/foundations/TIR_CARTAN_CONTINUUM_REFINEMENT_V0_1.md};
+\item \path{TIR/foundations/TIR_ZERO_TORSION_LEVI_CIVITA_SELECTION_V0_1.md};
+\item \path{TIR/foundations/TIR_LEADING_LOOP_LOCALITY_METRIC_JET_V0_1.md};
+\item \path{TIR/foundations/TIR_GLOBAL_3MANIFOLD_SMOOTH_CERTIFICATE_V0_1.md};
+\item \path{TIR/foundations/TIR_GLOBAL_SPATIAL_COMPLEX_INPUT_CONTRACT_V0_1.md}.
+\end{itemize}
+The original deterministic v12 receipt remains generated by
+\path{TIR/validation/tir_v12_ch07_holonomy_se3_torsion_v0_1.py}; the v12.1
+repository-synchronization gate additionally checks the A2--A5 ownership
+markers.
+
+% ---- END TIR/monograph/v12/chapters/ch07_connections_holonomy_se3_solder_torsion.tex ----
+\clearpage
