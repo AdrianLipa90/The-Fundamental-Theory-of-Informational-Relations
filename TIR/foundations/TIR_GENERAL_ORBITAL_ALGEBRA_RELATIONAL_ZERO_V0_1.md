@@ -1,20 +1,20 @@
 # TIR General Orbital Algebra: Relational Zero, Complex Twist and \(U(1)\) Orbit v0.1
 
-Status: \`FORMAL_DERIVATION_SURFACE__CANDIDATE_CANONICAL__PHYSICAL_BINDINGS_SEPARATE\`
+Status: `FORMAL_DERIVATION_SURFACE__CANDIDATE_CANONICAL__PHYSICAL_BINDINGS_SEPARATE`
 
 Scope: abstract orbital algebra upstream of the Bloch/Fubini--Study, Hopf, Euler--Chern, spin, zeta-critical-axis and PhaseNav realizations. This file promotes the relational zero and the orbital phase group to explicit derived objects rather than inserting \(U(1)\) as a primitive coordinate assumption.
 
 Canonical parents:
 
-- \`TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md\`;
-- \`TIR/foundations/TIR_ZERO_AXIOM_RELATIONAL_FOUNDATION_V0_1.md\`;
-- \`TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md\`.
+- `TIR/foundations/TIR_CANONICAL_DERIVATION_SPINE_V0_1.md`;
+- `TIR/foundations/TIR_ZERO_AXIOM_RELATIONAL_FOUNDATION_V0_1.md`;
+- `TIR/foundations/TIR_FIRST_DISTINCTION_THEOREM_V0_2.md`.
 
 Downstream realizations include:
 
-- \`TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md\`;
-- \`TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md\`;
-- \`TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md\`;
+- `TIR/foundations/TIR_RELATIONAL_PHASE_LAGRANGIAN_CORE_V0_1.md`;
+- `TIR/foundations/TIR_LAGRANGIAN_BLOCH_SELECTION_V0_1.md`;
+- `TIR/foundations/TIR_HALF_SEAM_PHASE_FIBER_V0_1.md`;
 - Euler--Berry / Hopf / spin-lift surfaces.
 
 ---
