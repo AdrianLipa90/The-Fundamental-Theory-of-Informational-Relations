@@ -132,6 +132,11 @@ def main() -> int:
         "binarity is not inferred from an order-two involution",
     ))
     checks["relational_zero_not_singleton"] = r"\mathfrak Z_{\rm rel}\neq\mathcal P" in ch1
+    checks["a2_quantum_firewall"] = all(token in ch1 for token in (
+        "does not by itself fix a two-dimensional carrier",
+        "only after the binary first distinction",
+        "A2 enters only at the coherent quantum lift",
+    ))
 
     ch6 = read(CHAPTER_DIR / "ch06_tetrahedral_closure.tex")
     checks["tetrahedral_regular_gram_present"] = r"-\frac13" in ch6 and "orthogonal-congruence class" in ch6
